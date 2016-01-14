@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Do Not Translate next line-->
+  <string name="app_name">Martus</string>
+  <string name="create_sample_bulletin">បង្កើត​ព្រឹត្តិបត្រ</string>
+  <string name="error_message">កំហុស</string>
+  <string name="confirm_default">តើ​អ្នក​ប្រាកដ​ឬ?</string>
+  <!--==============================-->
+  <!--settings screen-->
+  <!--==============================-->
+  <string name="user_preferences">ការ​កំណត់​អ្នក​ប្រើ</string>
+  <string name="title_author_preference">អ្នកនិពន្ធ</string>
+  <string name="summary_author_preference">អ្នកនិពន្ធ</string>
+  <string name="dialog_title_author_preference">អ្នកនិពន្ធ</string>
+  <string name="title_language_preference">ភាសា​ព្រឹត្តិបត្រ</string>
+  <string name="dialog_title_language_preference">ភាសា​ព្រឹត្តិបត្រ</string>
+  <string name="settings_title">ការ​កំណត់</string>
+  <string name="retry_server">បញ្ចូល​ម្ដង​ទៀត</string>
+  <string name="cancel_server">បោះបង់</string>
+  <string name="title_timeout_preference">អស់ពេល</string>
+  <string name="summary_timeout_preference">គិត​ជា​នាទី</string>
+  <string name="dialog_title_timeout_preference">Time out duration</string>
+  <!--==============================-->
+  <!--main screen-->
+  <!--==============================-->
+  <string name="alert_dialog_password">ពាក្យ​សម្ងាត់៖</string>
+  <string name="alert_dialog_confirm_password">បញ្ជាក់​ពាក្យ​សម្ងាត់៖</string>
+  <string name="alert_dialog_magic_word">ពាក្យ​​មន្ត​អាគម៖</string>
+  <string name="password_dialog_title">ចូល</string>
+  <string name="alert_dialog_ok">យល់ព្រម</string>
+  <string name="password_dialog_cancel">បោះបង់</string>
+  <string name="create_account_dialog_cancel">ចេញ</string>
+  <string name="incorrect_password">ពាក្យ​សម្ងាត់​មិន​ត្រឹមត្រូវ</string>
+  <string name="error_create_account">មាន​បញ្ហា​ក្នុង​ការ​បង្កើត​គណនី</string>
+  <string name="error_getting_server_key">មាន​បញ្ហា​ក្នុង​ការ​តភ្ជាប់​ទៅ​ម៉ាស៊ីន​មេ</string>
+  <string name="no_upload_rights">ពាក្យ​មន្តអាគម​មិន​ត្រឹមត្រូវ</string>
+  <string name="create_account_dialog_title">បង្កើត​ពាក្យ​សម្ងាត់​ថ្មី</string>
+  <string name="quit_menu_title">ចេញ</string>
+  <string name="server_menu_title">ជ្រើស​ម៉ាស៊ីន​មេ</string>
+  <!--Do Not Translate this line-->
+  <string name="market_orbot">market://search?q=pname:org.torproject.android</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="install_orbot_">ដំឡើង Orbot</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="you_must_have_orbot">អ្នក​ត្រូវ​តែ​ដំឡើង Orbot</string>
+  <string name="yes">បាទ/ចាស</string>
+  <string name="no">ទេ</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="invalid_orbot_message">សូម​ដំឡើង Orbot ឡើងវិញ​ពី​ឃ្លាំង Google Play</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="invalid_orbot_title">ការ​ដំឡើង Orbot មិន​ត្រឹមត្រូវ</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="start_orbot_">ចាប់ផ្ដើម Orbot</string>
+  <!--Do Not Translate the word Orbot-->
+  <!--Do Not Translate the URL that starts with https://-->
+  <string name="create_password_hint">ពាក្យ​សម្ងាត់​ថ្មី</string>
+  <string name="confirm_password_hint">វាយ​ពាក្យ​សម្ងាត់​ឡើងវិញ</string>
+  <string name="enter_password_hint">បញ្ចូល​ពាក្យ​សម្ងាត់</string>
+  <string name="enter_magic_word_hint">បញ្ចូល​ពាក្យ​មន្តអាគម</string>
+  <string name="settings_pwd_equal">ពាក្យ​សម្ងាត់​ត្រូវ​គ្នា</string>
+  <string name="settings_pwd_not_equal">ពាក្យ​សម្ងាត់​មិនត្រូវ​គ្នា</string>
+  <string name="invalid_password">ពាក្យ​សម្ងាត់​ត្រូវ​តែ​មាន​យ៉ាង​ហោចណាស់ 8 តួអក្សរ</string>
+  <string name="invalid_magic_word">Invalid Magic Word</string>
+  <!--Do Not Translate this line-->
+  <string formatted="false" name="tor_link">https://www.torproject.org</string>
+  <string name="confirm_reset_install">តើ​អ្នក​ប្រាកដ​ជាង​ចង់​លុប​ឬ?</string>
+  <string name="confirm_reset_install_extra_no_pending"> </string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="reset_to_install">លុប​គណនី​របស់​ខ្ញុំ</string>
+  <string name="server_menu">ម៉ាស៊ីន​មេ</string>
+  <string name="ping_server_menu_item">ពិនិត្យមើល​ម៉ាស៊ីន​មេ</string>
+  <string name="logout_while_sending_title">មិន​អាច​ចេញ​នៅ​ឡើង</string>
+  <string name="logout_while_sending_message">សូម​រង់ចាំ​រហូត​ដល់​ព្រឹត្តិបត្រ​បាន​បញ្ចប់​ការ​ផ្ញើ។</string>
+  <string name="reset_while_sending_title">មិន​អាច​កំណត់​ឡើង​វិញ</string>
+  <!--Do Not Translate the word Martus-->
+  <string name="contact_us_menu_item">ទាក់ទង​ពួក​យើង</string>
+  <string name="view_public_code_menu_item">មើល​កូដ​ជា​សាធារណៈ</string>
+  <string name="help_menu">ជំនួយ</string>
+  <string name="feedback_dialog_title">ទាក់ទង​ពួក​យើង</string>
+  <string name="view_public_code_dialog_title">កូដ​សាធារណៈ</string>
+  <string name="view_public_code_dialog_error">មិន​អាច​បង្ហាញ​កូដ​ជា​សាធារណៈ</string>
+  <string name="tools_menu">ឧបករណ៍</string>
+  <string name="export_public_account_id_menu_item">នាំចេញ​លេខ​សម្គាល់​គណនី​ជា​សាធារណៈ</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do Not Translate the word Martus or the email address-->
+  <string formatted="false" name="contact_us_info">ប្រសិនបើ​អ្នក​មាន​សំណួរ ឬ​មតិ​ត្រឡប់​ពី Martus, សូម​អ៊ីមែល​មក info@martus.org</string>
+  <!--Do Not Translate this line-->
+  <string name="show_version">បង្ហាញ​កំណែ</string>
+  <!--Do Not Translate the word Martus-->
+  <string name="exported_account_id_file_confirmation">បាន​នាំចេញ​ទៅ</string>
+  <!--==============================-->
+  <!--bulletin screen-->
+  <!--==============================-->
+  <string name="send_bulletin">ផ្ញើ</string>
+  <string name="add_attachment">បន្ថែម​ឯកសារ​ភ្ជាប់</string>
+  <string name="enter_summary">សង្ខេប​ជា​ជម្រើស</string>
+  <string name="default_author">មិន​ស្គាល់​អ្នក​និពន្ធ</string>
+  <string name="title_hint">ចំណងជើង</string>
+  <string name="bulletin_cancel">បោះបង់</string>
+  <string name="problem_creating_bulletin">មិន​អាច​បង្កើត​ព្រឹត្តិបត្រ​ថ្មី​បាន​ទេ</string>
+  <string name="problem_adding_attachment">មាន​បញ្ហា​ក្នុង​ការ​បន្ថែម​ឯកសារ​ភ្ជាប់​ទៅ​​​ព្រឹត្តិបត្រ</string>
+  <string name="bulletin_sending_progress">កំពុង​ផ្ញើ…</string>
+  <string name="failure_choosing_file">បាន​បរាជ័យ​ក្នុង​ការ​ជ្រើស​ឯកសារ</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="attachment_no_longer_exists">មិន​អាច​ផ្ញើ​ពីព្រោះ​ឯកសារ​ភ្ជាប់, %1$s , ត្រូវ​បាន​លុប​ពី​ឧបករណ៍</string>
+  <string name="confirm_cancel_bulletin">​បោះបង់​ព្រឹត្តិបត្រ​នេះ​ឬ?</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="confirm_remove_attachment">លេច​ %1$s ចេញ​ឬ ?</string>
+  <string name="install_file_explorer">ព្យាយាម​កម្មវិធី​រុករក​ឯកសារ​ផ្សេង​</string>
+  <!--Do Not Translate the word Picasa-->
+  <string name="fetching_picasa_image">ទៅ​ប្រមូល​យក​រូបភាព Picasa</string>
+  <!--Do Not Translate the word Picasa-->
+  <string name="fetched_picasa_image">បាន​ទទួល​យក​រូបភាព Picasa</string>
+  <!--==============================-->
+  <!--choose server screen-->
+  <!--==============================-->
+  <string name="invalid_server_code">កូដ​សាធារណៈ​ម៉ាស៊ីន​មេ​មិន​ត្រឹមត្រូវ</string>
+  <string name="invalid_server_info">បាន​បញ្ចូល​ព័ត៌មាន​ម៉ាស៊ីន​មេ​មិន​ត្រូវ​</string>
+  <string name="successful_server_choice">បាន​ភ្ជាប់​ទៅ​ម៉ាស៊ីន​មេ​ដោយ​ជោគជ័យ!</string>
+  <string name="error_computing_public_code">បង្ហាញ​ក្នុង​ការ​រក្សាទុក​ចំណូលចិត្ត​ម៉ាស៊ីន​មេ</string>
+  <!--==============================-->
+  <!--desktop key screen-->
+  <!--==============================-->
+  <!--Do Not Translate the word Martus-->
+  <!--Do Not Translate this line-->
+  <!--==============================-->
+  <!--notification bar-->
+  <!--==============================-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do Not Translate this line-->
+  <!--form labels-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Only translate the words inside the parenthesis in the following two lines-->
+  <!--odk - definitely used-->
+</resources>

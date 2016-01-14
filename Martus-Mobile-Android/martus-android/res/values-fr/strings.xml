@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Do Not Translate next line-->
+  <string name="app_name">Martus</string>
+  <string name="create_sample_bulletin">Créer un bulletin</string>
+  <string name="error_message">Erreur</string>
+  <string name="confirm_default">Etes-vous sûr?</string>
+  <!--==============================-->
+  <!--settings screen-->
+  <!--==============================-->
+  <string name="user_preferences">Paramètres Utilisateur</string>
+  <string name="title_author_preference">Auteur</string>
+  <string name="summary_author_preference">Auteur</string>
+  <string name="dialog_title_author_preference">Auteur</string>
+  <string name="title_language_preference">Langue du bulletin</string>
+  <string name="summary_language_preference">Merci de sélectionner la langue dans laquelle vous allez saisir les données de votre bulletin</string>
+  <string name="dialog_title_language_preference">Langue du bulletin</string>
+  <string name="settings_title">Paramètres</string>
+  <string name="retry_server">Re-saisir</string>
+  <string name="cancel_server">Annuler</string>
+  <string name="title_timeout_preference">Délai accordé</string>
+  <string name="summary_timeout_preference">Dans quelques minutes</string>
+  <string name="dialog_title_timeout_preference">Durée du délai accordé</string>
+  <string name="title_wifi_only_preference">Utiliser uniquement le Wifi</string>
+  <string name="wifi_only_preference_on">Envoyer des données seulement lorsque le Wifi est disponible</string>
+  <string name="wifi_only_preference_off">Envoyer des données seulement lorsque le Wifi est disponible</string>
+  <!--==============================-->
+  <!--main screen-->
+  <!--==============================-->
+  <string name="alert_dialog_password">Mot de passe:</string>
+  <string name="alert_dialog_confirm_password">Confirmer le mot de passe</string>
+  <string name="alert_dialog_magic_word">Le mot magique</string>
+  <string name="password_dialog_title">Se connecter</string>
+  <string name="alert_dialog_ok">Valider</string>
+  <string name="password_dialog_cancel">Annuler</string>
+  <string name="create_account_dialog_cancel">Sortir</string>
+  <string name="incorrect_password">Mot de passe incorrect</string>
+  <string name="error_create_account">Problème lors de la création du compte</string>
+  <string name="error_getting_server_key">Problème lors de la connexion au serveur</string>
+  <string name="no_upload_rights">Mot magique incorrect</string>
+  <string name="create_account_dialog_title">Créer un nouveau mot de passe</string>
+  <string name="create_account_intro">Bienvenue à Martus! Tout d\'abord, vous devez créer un nouveau compte Mobile Martus.</string>
+  <string name="choose_server_intro">Ensuite, vous devez configurer une connexion au serveur Martus vers lequel vous enverrez les bulletins.</string>
+  <string name="import_hq_intro">Finalement, vous devez saisir les informations à propos du compte Martus auquel vous envoyez vos bulletins Martus.\n\nVous devez avoir un fichier d\'ID Public Martus (se terminant par \".mpi\") et le code public du compte Martus Desktop sur lequel vous voulez recevoir les bulletins de Martus Mobile pour compléter cette étape.</string>
+  <string name="tor_option_intro">Ensuite, vous pouvez activer Tor si vous le désirez.</string>
+  <string name="goto_server_setup_button">Suivant</string>
+  <string name="quit_menu_title">Se déconnecter</string>
+  <string name="server_menu_title">Choisir serveur</string>
+  <!--Do Not Translate this line-->
+  <string name="market_orbot">market://search?q=pname:org.torproject.android</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="install_orbot_">Installer Orbot</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="you_must_have_orbot">Vous devez installer Orbot</string>
+  <string name="yes">Oui</string>
+  <string name="no">Non</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="invalid_orbot_message">Veuillez réinstaller Orbot depuis Google Play Store</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="invalid_orbot_title">Installation Orbot invalide</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="start_orbot_">Démarrer Orbot</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot n\'est pas lancé. Voulez-vous le démarrer?</string>
+  <!--Do Not Translate the URL that starts with https://-->
+  <string formatted="false" name="use_tor"><b>Utiliser Tor</b> (peut aider à cacher le fait que vous vous connectez à un serveur Martus, et peut aider à se connecter aux serveurs Martus s\'ils sont bloqués depuis l\'endroit où vous vous trouvez, mais ralentira l\'envoi des bulletins)</string>
+  <string name="create_password_hint">Nouveau mot de passe</string>
+  <string name="confirm_password_hint">Répéter le mot de passe</string>
+  <string name="enter_password_hint">Saisir le mot de passe</string>
+  <string name="enter_magic_word_hint">Saisir le mot magique</string>
+  <string name="settings_pwd_equal">Les deux mots de passe sont identiques</string>
+  <string name="settings_pwd_not_equal">Les deux mots de passe ne sont pas identiques</string>
+  <string name="invalid_password">Le mot de passe doit avoir au moins 8 caractères</string>
+  <string name="invalid_magic_word">Mot magique invalide</string>
+  <string name="success_magic_word">Vous vous êtes connecté au serveur Martus avec succès!</string>
+  <string name="problem_confirming_magic_word">Problème lors de la confirmation du mot magique</string>
+  <string name="success_import_hq_key">Vous avez configuré un compte Martus Desktop pour recevoir vos bulletins Martus Mobile. La configuration de Mobile Martus est terminée!</string>
+  <!--Do Not Translate this line-->
+  <string formatted="false" name="tor_link">https://www.torproject.org</string>
+  <string name="progress_confirming_magic_word">Confirmation du mot magique</string>
+  <string name="confirm_reset_install">Etes-vous sûr de vouloir supprimer?</string>
+  <string name="confirm_reset_install_extra_no_pending"> </string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <plurals name="confirm_reset_install_extra">
+    <item quantity="one">Vous allez perdre %1$s bulletin non envoyé ou en cours d\'envoi.</item>
+    <item quantity="other">Vous allez perdre %1$s bulletins non envoyés ou en cours d\'envoi.</item>
+  </plurals>
+  <plurals name="show_unsent_count">
+    <item quantity="one">Vous avez %1$s bulletin non envoyé. Vous pouvez aller au menu Outils et l\'envoyer de nouveau.</item>
+    <item quantity="other">Vous avez %1$s bulletins non envoyés. Vous pouvez les envoyer de nouveau depuis le menu Outils.</item>
+  </plurals>
+  <string name="show_unsent_title">Vous avez des bulletins non envoyés.</string>
+  <string name="reset_to_install">Supprimer mon compte</string>
+  <string name="server_menu">Serveurs</string>
+  <string name="ping_server_menu_item">Vérifier le serveur</string>
+  <string name="ping_result_ok">Serveur fonctionnel</string>
+  <string name="ping_result_down">Serveur non fonctionnel</string>
+  <string name="no_network_connection">L\'appareil n\'est pas connecté!</string>
+  <string name="no_network_create_bulletin_warning">Tout bulletin que vous essayez d\'envoyer échouera à cause de l\'absence de connexion. (Vous avez peut-être laissé \"Wifi seulement\" coché dans les options)\n\nMais cliquer sur Envoyer cryptera et enregistrera le bulletin, et lorsque vous serez connecté, vous pourrez l\'envoyer de nouveau depuis le menu Outils.</string>
+  <string name="logout_while_sending_title">Vous ne pouvez pas encore vous déconnecter</string>
+  <string name="logout_while_sending_message">Veuillez attendre jusqu’à l\'envoi complet du bulletin </string>
+  <string name="reset_while_sending_title">Ne peut pas réinitialiser</string>
+  <string name="confirm_tamper_reset_title">Erreur de configuration</string>
+  <!--Do Not Translate the word Martus-->
+  <string name="confirm_tamper_reset_message">Il y a eu une erreur avec vos fichiers de configuration. Par mesure de sécurité, merci de supprimer votre compte. Cliquer sur le bouton Oui démarrera ce processus. Martus ne fonctionne pas avec un fichier de configuration corrompu, c\'est pourquoi cliquer sur Non fermera Martus.</string>
+  <string name="view_docs_menu">Voir la documentation</string>
+  <string name="contact_us_menu_item">Nous contacter</string>
+  <string name="view_public_code_menu_item">Voir le code public</string>
+  <string name="resend_menu_item">Ré-envois des bulletins non envoyés</string>
+  <string name="resending">Renvoi!</string>
+  <string name="resending_no_bulletins">Vous n\'avez aucun bulletin non envoyé.</string>
+  <string name="resending_no_network">Vous n\'êtes pas connecté, ou \"Wifi seulement\" est activé.</string>
+  <string name="help_menu">Aide</string>
+  <string name="feedback_dialog_title">Nous contacter</string>
+  <string name="view_public_code_dialog_title">Code Public</string>
+  <string name="view_public_code_dialog_error">Impossible de montrer le code public</string>
+  <string name="send_public_account_id_menu_item">Envoyer par courrier électronique l\'ID du Compte Public</string>
+  <string name="send_public_account_id_menu_item_via_bulletin">Envoyer l\'ID du compte public dans le bulletin</string>
+  <string name="tools_menu">Outils</string>
+  <string name="export_public_account_id_menu_item">Exporter l\'ID public du compte</string>
+  <string name="load_form_menu_item">Importer le formulaire personnalisé</string>
+  <string name="export_public_account_id_dialog_title">Exporter l\'erreur de l\'ID du compte public</string>
+  <string name="export_public_account_id_dialog_error">Impossible d\'exporter l\'ID du compte</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do Not Translate the word Martus or the email address-->
+  <string formatted="false" name="contact_us_info">Si vous avez une question ou une réaction à propos de Martus, veuillez nous envoyer un message à info@martus.org</string>
+  <!--Do Not Translate this line-->
+  <string formatted="false" name="view_docs_info">https://www.martus.org/mobile/docs </string>
+  <string name="show_version">Afficher la version</string>
+  <!--Do Not Translate the word Martus-->
+  <string name="exported_account_id_file_confirmation">Exporté vers</string>
+  <string name="progress_creating_account">Compte en cours de création</string>
+  <!--==============================-->
+  <!--bulletin screen-->
+  <!--==============================-->
+  <string name="send_bulletin">Envoyer</string>
+  <string name="send_failed_cant_reach_server">Impossible de communiquer avec le serveur</string>
+  <string name="add_attachment">Ajouter une pièce jointe</string>
+  <string name="enter_summary">Sommaire optionnel</string>
+  <string name="default_author">Auteur inconnu</string>
+  <string name="title_hint">Titre</string>
+  <string name="bulletin_cancel">Annuler</string>
+  <string name="problem_creating_bulletin">Impossible de créer un nouveau bulletin</string>
+  <string name="problem_adding_attachment">Problème lors de l\'ajout d\'une pièce jointe au bulletin</string>
+  <string name="bulletin_sending_progress">Envoi...</string>
+  <string name="bulletin_packaging_progress">Cryptage et compression...</string>
+  <string name="failure_zipping_bulletin">Echec lors de la compression du bulletin</string>
+  <string name="failure_choosing_file">Echec lors du choix du fichier</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="attachment_no_longer_exists">Envoi impossible car la pièce jointe %1$s a été supprimée de l\'appareil</string>
+  <string name="confirm_cancel_bulletin">Annuler ce bulletin</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="confirm_remove_attachment">Supprimer %1$s ?</string>
+  <string name="must_login_first_title">Avertissement!</string>
+  <string name="must_login_first_message">Vous devez d\'abord vous connecter avant de pouvoir envoyer ce bulletin</string>
+  <string name="install_file_explorer">Essayer un autre explorateur de fichiers</string>
+  <!--Do Not Translate the word Picasa-->
+  <string name="fetching_picasa_image">Recherche de l\'image Picasa</string>
+  <!--Do Not Translate the word Picasa-->
+  <string name="fetched_picasa_image">Image Picasa trouvée</string>
+  <string name="custom_form_transition">Vous pouvez ajouter des pièces jointes ou cliquer sur Retour pour éditer les données du formulaire.</string>
+  <!--==============================-->
+  <!--choose server screen-->
+  <!--==============================-->
+  <string name="invalid_server_ip">L\'adresse IP du serveur est invalide</string>
+  <string name="invalid_server_code">Code public du serveur invalide</string>
+  <string name="invalid_server_info">Les informations du serveur saisies sont invalides</string>
+  <string name="successful_server_choice">Connexion au serveur réussie!</string>
+  <string name="error_computing_public_code">Problème lors de la sauvegarde des préférences serveur</string>
+  <string name="progress_connecting_to_server">Connexion au serveur</string>
+  <!--==============================-->
+  <!--desktop key screen-->
+  <!--==============================-->
+  <string name="desktop_sync_public_code">Et saisir le code public du compte Martus Desktop:</string>
+  <string name="desktop_sync_title">Information du compte Martus Desktop</string>
+  <string name="desktop_sync_choose_file">Choisir un fichier de compte Martus Desktop (.mpi)</string>
+  <string name="desktop_public_code_hint"> Code public de compte Desktop</string>
+  <string name="invalid_public_account_file">Fichier de compte Desktop invalide</string>
+  <string name="valid_public_account_file">Fichier de compte Desktop valide</string>
+  <string name="invalid_public_code">Le Code public ne concorde pas avec le fichier</string>
+  <string name="public_code_validation_empty">Le Code Public ne peut être vide</string>
+  <string name="select_file_picker">Choisir un explorateur de fichiers</string>
+  <string name="attachments_add_label">Pièces jointes( fichiers à ajouter)</string>
+  <string name="attachments_added_label">Pièces jointes (appuyer et maintenir pour supprimer) :</string>
+  <string name="server_ip_label">L\'adresse IP du serveur:</string>
+  <string name="server_ip_hint">Saisir l\'adresse IP du serveur</string>
+  <string name="server_public_code_label">Code Public du Serveur:</string>
+  <string name="server_public_code_hint">Saisir le Code Public du Serveur</string>
+  <string name="choose_server_title">Choisir Serveur</string>
+  <!--Do Not Translate the word Martus-->
+  <string name="choose_file">Explorateur de fichiers Martus</string>
+  <string name="install_explorer_text">Si vous ne pouvez pas trouver le fichier désiré, essayer d\'installer un explorateur de fichier plus avancé:</string>
+  <!--Do Not Translate this line-->
+  <string formatted="false" name="file_explorer_store_link">play.google.com/store/search?q=%22open+source%22+file+manager+explorer</string>
+  <!--==============================-->
+  <!--notification bar-->
+  <!--==============================-->
+  <string name="successful_send_notification">Bulletin envoyé</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="failed_send_notification">L\'envoi a échoué: %1$s . Essayez plus tard.</string>
+  <string name="starting_send_notification">Envoi...</string>
+  <!--Do Not Translate this line-->
+  <string name="notification_title">Martus - %1$s</string>
+  <!--form labels-->
+  <string name="label_author">Auteur</string>
+  <string name="label_organization">Organisation</string>
+  <string name="label_title">Titre</string>
+  <string name="label_location">Emplacement</string>
+  <string name="label_keywords">Mots-clés</string>
+  <string name="label_entrydate">Date de la fiche</string>
+  <string name="label_eventdate">Date de l\'événement</string>
+  <string name="label_summary">Sommaire</string>
+  <string name="label_publicinfo">Informations publiques</string>
+  <string name="label_privateinfo">Informations privées</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="date_validation_min">La date doit être postérieure ou égale à %1$s .</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="date_validation_min_max">La date doit être comprise entre %1$s et %2$s inclues.</string>
+  <string name="boolean_true">Oui</string>
+  <string name="boolean_false">Non</string>
+  <string name="end_form_button">Ajouter des pièces jointes et envoyer</string>
+  <!--Only translate the words inside the parenthesis in the following two lines-->
+  <string name="date_range_start">(début)</string>
+  <string name="date_range_end">(fin)</string>
+  <!--odk - definitely used-->
+  <string name="client">Interface utilisateur</string>
+  <string name="font_size">Taille de police de texte</string>
+  <string name="change_font_size">Changer la taille de la police</string>
+  <string name="font_size_extra_large">Très large</string>
+  <string name="font_size_large">Large</string>
+  <string name="font_size_medium">Moyenne</string>
+  <string name="font_size_small">Petite</string>
+  <string name="font_size_extra_small">Très petite</string>
+  <string name="navigation">Navigation</string>
+  <string name="swipe_navigation">Balayez du doigt horizontalement</string>
+  <string name="buttons_navigation">Utilisez les boutons avancer/reculer</string>
+  <string name="swipe_buttons_navigation">Utilisez les boutons ou balayez du doigt</string>
+  <string name="swipe_instructions">Vous êtes au démarrage de %s . Balayez l\'écran du doigt comme montré ci-dessous pour aller en arrière et en avant.</string>
+  <string name="buttons_instructions">Vous êtes au démarrage de %s. Touchez les boutons avec des flèches ci-dessous pour reculer et avancer.</string>
+  <string name="swipe_buttons_instructions">Vous êtes au démarrage de %s. Balayez du doigt comme montré ci-dessous ou touchez les boutons avec des flèches pour reculer ou avancer.</string>
+</resources>

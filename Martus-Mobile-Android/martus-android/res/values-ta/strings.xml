@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Do Not Translate next line-->
+  <string name="app_name">Martus</string>
+  <string name="error_message">தவறு</string>
+  <string name="confirm_default">நிச்சயமாக?</string>
+  <!--==============================-->
+  <!--settings screen-->
+  <!--==============================-->
+  <string name="user_preferences">பயனர் அமைப்புக்கள்</string>
+  <string name="title_author_preference">ஆசிரியர்</string>
+  <string name="summary_author_preference">ஆசிரியர்</string>
+  <string name="dialog_title_author_preference">ஆசிரியர்</string>
+  <string name="settings_title">அமைப்புக்கள்</string>
+  <string name="retry_server">மீள உள்ளிடவும்</string>
+  <string name="cancel_server">நிராகரி</string>
+  <string name="summary_timeout_preference">நிமிடங்களில்</string>
+  <!--==============================-->
+  <!--main screen-->
+  <!--==============================-->
+  <string name="alert_dialog_password">கடவுச்சொல்:</string>
+  <string name="alert_dialog_confirm_password">கடவுச்சொல்லை உறுதிப்படுத்து:</string>
+  <string name="password_dialog_title">உள்நுழை</string>
+  <string name="alert_dialog_ok">சரி</string>
+  <string name="password_dialog_cancel">நிராகரி</string>
+  <string name="create_account_dialog_cancel">வெளியேறு</string>
+  <string name="incorrect_password">பிழையான கடவுச்சொல்</string>
+  <string name="error_create_account">கணக்கை உருவாக்குவதில் பிரச்சனை</string>
+  <string name="error_getting_server_key">வழங்கியுடன் இணைப்பேற்படுத்துவதில் பிரச்சனை</string>
+  <string name="create_account_dialog_title">புதிய கடவுச்சொல்லை உருவாக்குங்கள்</string>
+  <string name="quit_menu_title">வெளியேறு</string>
+  <string name="server_menu_title">வழங்கியை தேர்ந்தெடு</string>
+  <!--Do Not Translate this line-->
+  <string name="market_orbot">market://search?q=pname:org.torproject.android</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="install_orbot_">Orbot இனை நிறுவு</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="you_must_have_orbot">நீங்கள் கட்டாயம் Orbot இனை நிறுவியிருக்க வேண்டும்</string>
+  <string name="yes">ஓம்</string>
+  <string name="no">இல்லை</string>
+  <!--Do Not Translate the word Orbot-->
+  <!--Do Not Translate the word Orbot-->
+  <string name="invalid_orbot_title">பிழையான Orbot நிறுவல்</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="start_orbot_">Orbot இனை தொடங்கு</string>
+  <!--Do Not Translate the word Orbot-->
+  <!--Do Not Translate the URL that starts with https://-->
+  <string name="create_password_hint">புதிய கடவுச்சொல்</string>
+  <string name="enter_password_hint">கடவுச்சொல்லை உள்ளிடவும்</string>
+  <string name="invalid_password">கடவுச்சொல்லில் குறைந்தது 8 எழுத்துக்கள் இருக்க வேண்டும்</string>
+  <!--Do Not Translate this line-->
+  <string formatted="false" name="tor_link">https://www.torproject.org</string>
+  <string name="confirm_reset_install">நிச்சயமாக நீங்கள் நீக்க விரும்புகின்றீர்களா?</string>
+  <string name="confirm_reset_install_extra_no_pending"> </string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="reset_to_install">எனது கணக்கை நீக்கு</string>
+  <string name="server_menu">வழங்கிகள்</string>
+  <string name="ping_server_menu_item">வழங்கியை பரிசோதி</string>
+  <!--Do Not Translate the word Martus-->
+  <string name="resending">மீள அனுப்புகின்றது</string>
+  <string name="help_menu">உதவி</string>
+  <string name="tools_menu">கருவிகள்</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do Not Translate the word Martus or the email address-->
+  <!--Do Not Translate this line-->
+  <string formatted="false" name="view_docs_info">https://www.martus.org/mobile/docs </string>
+  <string name="show_version">பதிப்பை காட்டு</string>
+  <!--Do Not Translate the word Martus-->
+  <string name="progress_creating_account">கணக்கு உருவாக்கப்படுகின்றது</string>
+  <!--==============================-->
+  <!--bulletin screen-->
+  <!--==============================-->
+  <string name="send_bulletin">அனுப்பு</string>
+  <string name="title_hint">தலைப்பு</string>
+  <string name="bulletin_cancel">நிராகரி</string>
+  <string name="bulletin_sending_progress">அனுப்பப்படுகின்றது...</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="must_login_first_title">எச்சரிக்கை!</string>
+  <!--Do Not Translate the word Picasa-->
+  <!--Do Not Translate the word Picasa-->
+  <!--==============================-->
+  <!--choose server screen-->
+  <!--==============================-->
+  <!--==============================-->
+  <!--desktop key screen-->
+  <!--==============================-->
+  <!--Do Not Translate the word Martus-->
+  <!--Do Not Translate this line-->
+  <!--==============================-->
+  <!--notification bar-->
+  <!--==============================-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="starting_send_notification">அனுப்பப்படுகின்றது...</string>
+  <!--Do Not Translate this line-->
+  <!--form labels-->
+  <string name="label_author">ஆசிரியர்</string>
+  <string name="label_organization">நிறுவனம்</string>
+  <string name="label_title">தலைப்பு</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Only translate the words inside the parenthesis in the following two lines-->
+  <!--odk - definitely used-->
+</resources>

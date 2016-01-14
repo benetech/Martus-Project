@@ -1,0 +1,21 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/install_explorer_text"
+                android:id="@+id/textView"/>
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/file_explorer_store_link"
+                android:id="@+id/textView1"
+                android:autoLink="web"
+                android:layout_gravity="right"/>
+
+</LinearLayout>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Do Not Translate next line-->
+  <string name="app_name">Martus</string>
+  <string name="create_sample_bulletin">Δημιουργεία δελτίου</string>
+  <string name="error_message">Σφάλμα</string>
+  <string name="confirm_default">Είστε σίγουρος;</string>
+  <!--==============================-->
+  <!--settings screen-->
+  <!--==============================-->
+  <string name="user_preferences">Ρυθμίσεις Χρήστη</string>
+  <string name="title_author_preference">Συγγραφέας</string>
+  <string name="summary_author_preference">Συγγραφέας</string>
+  <string name="dialog_title_author_preference">Συγγραφέας</string>
+  <string name="title_language_preference">Γλώσσα δελτίου</string>
+  <string name="dialog_title_language_preference">Γλώσσα δελτίου</string>
+  <string name="settings_title">Ρυθμίσεις</string>
+  <string name="retry_server">Επενεισαγωγή</string>
+  <string name="cancel_server">Ακύρωση</string>
+  <string name="title_timeout_preference">Λήξη χρονικού ορίου</string>
+  <string name="summary_timeout_preference">Σε λεπτά</string>
+  <string name="title_wifi_only_preference">Χρήση, μόνο Wi-Fi</string>
+  <!--==============================-->
+  <!--main screen-->
+  <!--==============================-->
+  <string name="alert_dialog_password">Κωδικός:</string>
+  <string name="alert_dialog_confirm_password">Επιβεβαίωση κωδικού:</string>
+  <string name="alert_dialog_magic_word">Μαγική λέξη:</string>
+  <string name="alert_dialog_ok">OK</string>
+  <string name="password_dialog_cancel">Ακύρωση</string>
+  <string name="create_account_dialog_cancel">Έξοδος</string>
+  <string name="incorrect_password">Λάθος κωδικός</string>
+  <string name="error_create_account">Πρόβλημα στην δημιουργεία λογαριασμού</string>
+  <string name="error_getting_server_key">Πρόβλημα σύνδεσης στο διακομηστή</string>
+  <string name="no_upload_rights">Λανθασμένη μαγική λέξη</string>
+  <string name="create_account_dialog_title">Δημιουργεία νέου κωδικού</string>
+  <string name="quit_menu_title">Αποσύνδεση</string>
+  <string name="server_menu_title">Επιλογή διακομηστή</string>
+  <!--Do Not Translate this line-->
+  <string name="market_orbot">market://search?q=pname:org.torproject.android</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="install_orbot_">Εγκατάσταση  Orbot</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="you_must_have_orbot">Πρέπει να έχετε το Orbot εγκατεστημένο</string>
+  <string name="yes">Ναί</string>
+  <string name="no">Όχι</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="invalid_orbot_message">Παρακαλώ εγκαταστήστε ξανά το Orbot απο το Google Play Store</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="invalid_orbot_title">Λανθασμένη εγκατάσταση του Orbot</string>
+  <!--Do Not Translate the word Orbot-->
+  <string name="start_orbot_">Εκκίνηση Orbot</string>
+  <!--Do Not Translate the word Orbot-->
+  <!--Do Not Translate the URL that starts with https://-->
+  <string name="create_password_hint">Νέος Κωδικός</string>
+  <string name="confirm_password_hint">Επανάληψη κωδικού</string>
+  <string name="enter_password_hint">Εισαγωγή κωδικού</string>
+  <string name="enter_magic_word_hint">Εισαγωγή Μαγικής Λέξης</string>
+  <string name="settings_pwd_equal">Οι κωδικοί ταιρίαζουν</string>
+  <string name="settings_pwd_not_equal">Οι κωδικοί δεν ταιρίαζουν!</string>
+  <string name="invalid_password">Ο κωδικός πρέπει να είναι τουλάχιστον 8 χαρακτήρες</string>
+  <string name="invalid_magic_word">Λανθασμένη Μαγική Λέξη</string>
+  <string name="problem_confirming_magic_word">Πρόβλημα κατά την επιβεβαίωση Μαγικής Λέξης</string>
+  <!--Do Not Translate this line-->
+  <string formatted="false" name="tor_link">https://www.torproject.org</string>
+  <string name="progress_confirming_magic_word">Επιβεβαίωση Μαγικής Λέξης</string>
+  <string name="confirm_reset_install">Είστε σίγουρος ότι θέλετε να διαγράψετε;</string>
+  <string name="confirm_reset_install_extra_no_pending"> </string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="reset_to_install">Διαγραφή του Λογαριασμού μου</string>
+  <string name="server_menu">Διακομηστές</string>
+  <string name="ping_server_menu_item">Έλεγχος Διακομηστή</string>
+  <string name="no_network_connection">Η συσκευή δεν έχει σύνδεση!</string>
+  <string name="confirm_tamper_reset_title">Σφάλμα εγκατάστασης</string>
+  <!--Do Not Translate the word Martus-->
+  <string name="view_docs_menu">Προβολή Τεκμηρίωσης</string>
+  <string name="contact_us_menu_item">Επικοινωνήστε</string>
+  <string name="help_menu">Βοήθεια</string>
+  <string name="feedback_dialog_title">Επικοινωνήστε</string>
+  <string name="tools_menu">Εργαλεία</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do Not Translate the word Martus or the email address-->
+  <!--Do Not Translate this line-->
+  <string formatted="false" name="view_docs_info">https://www.martus.org/mobile/docs </string>
+  <!--Do Not Translate the word Martus-->
+  <string name="progress_creating_account">Δημιουργεία Λογαριασμού</string>
+  <!--==============================-->
+  <!--bulletin screen-->
+  <!--==============================-->
+  <string name="send_bulletin">Αποστολή</string>
+  <string name="bulletin_sending_progress">Γίνεται αποστολή...</string>
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do Not Translate the word Picasa-->
+  <!--Do Not Translate the word Picasa-->
+  <!--==============================-->
+  <!--choose server screen-->
+  <!--==============================-->
+  <!--==============================-->
+  <!--desktop key screen-->
+  <!--==============================-->
+  <string name="server_ip_label">Διύθυνση IP διακομιστή:</string>
+  <string name="choose_server_title">Επιλογή διακομηστή</string>
+  <!--Do Not Translate the word Martus-->
+  <!--Do Not Translate this line-->
+  <!--==============================-->
+  <!--notification bar-->
+  <!--==============================-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <string name="starting_send_notification">Γίνεται αποστολή...</string>
+  <!--Do Not Translate this line-->
+  <string name="notification_title">Martus - %1$s</string>
+  <!--form labels-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Do not translate words that start with %, but you may move them around-->
+  <!--Only translate the words inside the parenthesis in the following two lines-->
+  <!--odk - definitely used-->
+</resources>

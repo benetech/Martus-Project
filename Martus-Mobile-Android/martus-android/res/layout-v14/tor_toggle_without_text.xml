@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:autoLink="web"
+        android:text="@string/tor_label"
+        android:id="@+id/checkBox_use_tor"
+        android:layout_gravity="right|center_vertical"
+        android:textOn="@string/on_switch_label"
+        android:textOff="@string/off_switch_label"
+        style="@style/MartusTextViewStyle"/>
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+HOWTO get the project working in eclipse
+As of 2012-11-08
+
+1. Have command-line git installed
+2. Have eclipse installed, with android dev kit
+3. Create a MobileMartus workspace in eclipse
+4. Create an Android project named martus-android
+5. At command line, in a temp directory, do:
+   git clone git@github.com:benetech/martus-android.git
+6. Use cp -r to copy .git from the newly cloned directory 
+   into the MobileMartus directory
+7. In eclipse, refresh the martus-android project
+8. In martus-android properties/Android, choose the version
+9. Configure classpath, and add all the lib/ jars
+
+You should end up with:
+MobileMartus
+MobileMartus/.git
+MobileMartus/martus-android
+MobileMartus/martus-android/src
+MobileMartus/martus-android/gen
+etc.

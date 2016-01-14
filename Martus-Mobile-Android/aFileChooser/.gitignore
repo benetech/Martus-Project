@@ -1,0 +1,6 @@
+bin/*
+gen/*
+.idea
+*.iml
+.DS_STORE
+out/*

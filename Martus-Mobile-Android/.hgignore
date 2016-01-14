@@ -1,0 +1,34 @@
+syntax: regexp
+
+# Build and generated files
+^aFileChooser/local\.properties$
+^aFileChooser/bin$
+^aFileChooser/gen$
+^actionbarSherlock/library/local\.properties$
+^actionbarSherlock/library/bin$
+^actionbarSherlock/library/gen$
+^martus-android/bin$
+^martus-android/gen$
+^opendatakit.collect/bin$
+^secure-app-vital-voices/bin$
+^opendatakit.collect/gen$
+^opendatakit.collect/bin$
+^secure-app-vital-voices/gen$
+^secure-app-vital-voices/bin$
+^martus-wrapper/bin$
+^martus-wrapper/gen$
+
+# IntelliJ
+^out$
+^.idea$
+
+syntax: glob
+
+# Mac OS X Cache
+.DS_Store
+
+# Eclipse
+.settings
+
+# Symlink FormValidtor into secure-app-vital-voices
+./secure-app-vital-voices/src/org/odk

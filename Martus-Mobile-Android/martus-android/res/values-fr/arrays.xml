@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string-array name="entries_language_preference">
+    <item>Anglais</item>
+    <item>Arabe</item>
+    <item>Arménien</item>
+    <item>Azerbaïdjanais</item>
+    <item>Bulgare</item>
+    <item>Bengali</item>
+    <item>Birman</item>
+    <item>Chinois</item>
+    <item>Néerlandais</item>
+    <item>Espéranto</item>
+    <item>Farsi/Dari</item>
+    <item>Français</item>
+    <item>Allemand</item>
+    <item>Gujarati</item>
+    <item>Hausa</item>
+    <item>Hébreu</item>
+    <item>Hindi</item>
+    <item>Hongrois</item>
+    <item>Italien</item>
+    <item>Japonais</item>
+    <item>Javanais</item>
+    <item>Kannada</item>
+    <item>Kazakh</item>
+    <item>Khmer</item>
+    <item>Kirghiz</item>
+    <item>Coréen</item>
+    <item>Kurde</item>
+    <item>Malayalam</item>
+    <item>Marathi</item>
+    <item>Népalais</item>
+    <item>Oriya</item>
+    <item>Panjabi</item>
+    <item>Pachto</item>
+    <item>Polonais</item>
+    <item>Portugais</item>
+    <item>Roumain</item>
+    <item>Russe</item>
+    <item>Serbe</item>
+    <item>Sindhi</item>
+    <item>Cinghalais</item>
+    <item>Espagnol</item>
+    <item>Tamil</item>
+    <item>Tadjik</item>
+    <item>Telugu</item>
+    <item>Thaï</item>
+    <item>Turc</item>
+    <item>Turkmène</item>
+    <item>Ukrainien</item>
+    <item>Ourdou</item>
+    <item>Ouzbek</item>
+    <item>Vietnamien</item>
+  </string-array>
+  <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+  <string-array name="entries_timeout_preference">
+    <item>10 Minutes</item>
+    <item>7 Minutes</item>
+    <item>5 Minutes</item>
+    <item>3 Minutes</item>
+    <item>1 Minutes</item>
+  </string-array>
+  <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+</resources>

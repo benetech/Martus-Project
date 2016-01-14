@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string-array name="entries_language_preference">
+    <item>ஆங்கிலம்</item>
+    <item>அரபிக்</item>
+    <item>ஆர்மேனியன்</item>
+    <item>Azerbaijani</item>
+    <item>பல்கேரியன்</item>
+    <item>பெங்காலி, பங்காலா</item>
+    <item>பர்மியன்</item>
+    <item>சீனம்</item>
+    <item>டச்</item>
+    <item>Esperanto</item>
+    <item>Farsi/Dari</item>
+    <item>பிரெஞ்சு</item>
+    <item>ஜேர்மன்</item>
+    <item>குஜராத்தி</item>
+    <item>Hausa</item>
+    <item>ஹீபுரு</item>
+    <item>இந்தி</item>
+    <item>ஹங்கேரியன்</item>
+    <item>இத்தாலியன்</item>
+    <item>ஜப்பானீஸ்</item>
+    <item>ஜவனீஸ்</item>
+    <item>கன்னடம்</item>
+    <item>Kazakh</item>
+    <item>Khmer</item>
+    <item>Kirghiz</item>
+    <item>கொரியன்</item>
+    <item>குர்திஸ்</item>
+    <item>மலையாளம்</item>
+    <item>மராத்தி</item>
+    <item>நேபாளம்</item>
+    <item>ஒரியா</item>
+    <item>பஞ்சாபி</item>
+    <item>Pashto, Pushto</item>
+    <item>பொலிஸ்</item>
+    <item>போர்த்துக்கேயம்</item>
+    <item>உரோமானியன்</item>
+    <item>உருசியன்</item>
+    <item>சேர்பியன்</item>
+    <item>சிந்தி</item>
+    <item>சிங்களம்</item>
+    <item>ஸ்பானிஸ்</item>
+    <item>தமிழ்</item>
+    <item>Tajik</item>
+    <item>தெலுங்கு</item>
+    <item>தாய்</item>
+    <item>துருக்கியனம்</item>
+    <item>Turkmen</item>
+    <item>உக்ரேனியன்</item>
+    <item>உருது</item>
+    <item>Uzbek</item>
+    <item>வியட்நாமியம்</item>
+  </string-array>
+  <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+  <string-array name="entries_timeout_preference">
+    <item>10 நிமிடங்கள்</item>
+    <item>7 நிமிடங்கள்</item>
+    <item>5 நிமிடங்கள்</item>
+    <item>3 நிமிடங்கள்</item>
+    <item>1 நிமிடம்</item>
+  </string-array>
+  <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+</resources>

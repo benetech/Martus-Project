@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string-array name="entries_language_preference">
+        <item>Anh ngữ</item>
+        <item>Á-rập</item>
+        <item>Armenian</item>
+        <item>Azerbaijani</item>
+        <item>Bulgarian</item>
+        <item>Bengali, Bangla</item>
+        <item>Miến Điện</item>
+        <item>Hoa ngữ</item>
+        <item>Hà Lan</item>
+        <item>Esperanto</item>
+        <item>Farsi/Dari</item>
+        <item>Pháp ngữ</item>
+        <item>Đức ngữ</item>
+        <item>Gujarati</item>
+        <item>Hausa</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>Hungarian</item>
+        <item>Ý</item>
+        <item>Nhật</item>
+        <item>Javanese</item>
+        <item>Kannada</item>
+        <item>Kazakh</item>
+        <item>Khờ-me</item>
+        <item>Kirghiz</item>
+        <item>Hàn Quốc</item>
+        <item>Kurdish</item>
+        <item>Malayalam</item>
+        <item>Marathi</item>
+        <item>Nepali</item>
+        <item>Oriya</item>
+        <item>Panjabi</item>
+        <item>Pashto, Pushto</item>
+        <item>Ba Lan</item>
+        <item>Bồ Đào Nha</item>
+        <item>Romanian</item>
+        <item>Nga</item>
+        <item>Serbian</item>
+        <item>Sindhi</item>
+        <item>Sinhalese</item>
+        <item>Tây Ban Nha</item>
+        <item>Tamil</item>
+        <item>Tajik</item>
+        <item>Telugu</item>
+        <item>Thái</item>
+        <item>Thổ Nhĩ Kỳ</item>
+        <item>Turkmen</item>
+        <item>Ukranian</item>
+        <item>Urdu</item>
+        <item>Uzbek</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+    <string-array name="values_language_preference">
+        <item>en</item>
+        <item>ar</item>
+        <item>arm</item>
+        <item>az</item>
+        <item>bg</item>
+        <item>bn</item>
+        <item>bur</item>
+        <item>zh</item>
+        <item>nl</item>
+        <item>eo</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>gu</item>
+        <item>ha</item>
+        <item>he</item>
+        <item>hi</item>
+        <item>hu</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>jv</item>
+        <item>kn</item>
+        <item>kk</item>
+        <item>km</item>
+        <item>ky</item>
+        <item>ko</item>
+        <item>ku</item>
+        <item>ml</item>
+        <item>mr</item>
+        <item>ne</item>
+        <item>or</item>
+        <item>pa</item>
+        <item>ps</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ro</item>
+        <item>ru</item>
+        <item>sr</item>
+        <item>sd</item>
+        <item>si</item>
+        <item>es</item>
+        <item>ta</item>
+        <item>tg</item>
+        <item>te</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>tk</item>
+        <item>uk</item>
+        <item>ur</item>
+        <item>uz</item>
+        <item>vi</item>
+    </string-array>
+    <string-array name="entries_timeout_preference">
+        <item>10 Phút</item>
+        <item>7 Phút</item>
+        <item>5 Phút</item>
+        <item>3 Phút</item>
+        <item>1 Phút</item>
+    </string-array>
+    <string-array name="values_timeout_preference">
+        <item>10</item>
+        <item>7</item>
+        <item>5</item>
+        <item>3</item>
+        <item>1</item>
+    </string-array>
+    <!--DO NOT alter font_size_entry_values - used internally in preferences activity-->
+    <string-array name="font_size_entries">
+        <item>@string/font_size_extra_large</item>
+        <item>@string/font_size_large</item>
+        <item>@string/font_size_medium</item>
+        <item>@string/font_size_small</item>
+        <item>@string/font_size_extra_small</item>
+    </string-array>
+    <!--DO NOT alter navigation_entry_values - used internally in preferences activity-->
+    <string-array name="navigation_entries">
+        <item>@string/swipe_navigation</item>
+        <item>@string/buttons_navigation</item>
+        <item>@string/swipe_buttons_navigation</item>
+    </string-array>
+</resources>

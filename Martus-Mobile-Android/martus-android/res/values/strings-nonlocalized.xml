@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--   This file MUST be saved in UTF-8 format!-->
+<!--   Lines beginning with <!- are comments and are ignored by Mobile Martus -->
+<!--   Do not translate comments -->
+<!--   Each entry has a name and a value. The name is the English name of the field, -->
+<!--   and the value is the part between the '>' and '<' -->
+<!--   Translate the value and leave the name alone -->
+<!--   DO NOT TRANSLATE THIS FILE -->
+<resources>
+    <string name="app_name" translate="false">Martus</string>
+    <string name="market_orbot" translate="false">market://search?q=pname:org.torproject.android</string>
+    <string formatted="false" name="tor_link" translate="false">https://www.torproject.org</string>
+    <string formatted="false" name="view_docs_info" translate="false">https://www.martus.org/mobile/docs </string>
+    <string formatted="false" name="file_explorer_store_link" translate="false">play.google.com/store/search?q=%22open+source%22+file+manager+explorer</string>
+    <string name="notification_title" translate="false">Martus - %1$s</string>
+</resources>

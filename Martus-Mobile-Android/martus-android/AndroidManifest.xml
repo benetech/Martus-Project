@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.martus.android"
+    android:installLocation="auto"
+    android:versionCode="22"
+    android:versionName="1.2.1" >
+
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19" />
+	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+<!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+
+
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true"
+    />
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MartusTheme"
+        android:supportsRtl="true"
+        android:name="org.martus.android.MartusApplication">
+        <activity
+            android:name="org.martus.android.MartusActivity"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       <activity
+               android:name="org.martus.android.SettingsActivity" android:label="@string/settings_title"
+               android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection">
+       </activity>
+       <activity
+               android:name="org.martus.android.DesktopKeyActivity"
+               android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+               android:label="@string/desktop_sync_title">
+       </activity>
+       <activity
+           android:name="org.martus.android.BulletinActivity"
+           android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+           android:uiOptions="splitActionBarWhenNarrow"
+           android:label="@string/app_name">
+           <intent-filter>
+             <action android:name="android.intent.action.SEND" />
+             <category android:name="android.intent.category.DEFAULT" />
+             <data android:mimeType="*/*" />
+           </intent-filter>
+           <intent-filter>
+             <action android:name="android.intent.action.SEND_MULTIPLE" />
+             <category android:name="android.intent.category.DEFAULT" />
+             <data android:mimeType="*/*" />
+           </intent-filter>
+       </activity>
+        <activity
+                android:name="org.martus.android.ServerActivity"
+                android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+                android:label="@string/choose_server_title"/>
+        <activity
+                android:name="org.martus.android.CreateAccountActivity"
+                android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+                android:label="@string/app_name"/>
+        <activity
+                android:name="org.martus.android.TorIntroActivity"
+                android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+                android:label="@string/app_name"/>
+        <activity
+            android:name="com.ipaulpro.afilechooser.FileChooserActivity"
+            android:exported="false"
+            android:icon="@drawable/ic_chooser"
+            android:label="@string/choose_file" >
+                <intent-filter>
+                    <action android:name="android.intent.action.GET_CONTENT" />
+
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.OPENABLE" />
+
+                    <data android:mimeType="*/*" />
+                </intent-filter>
+            </activity>
+
+        <activity
+            android:name="org.odk.collect.android.activities.FormEntryActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+
+        <activity
+            android:name="org.odk.collect.android.activities.FormHierarchyActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="org.martus.android.ChooseConnectionActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+            android:label="@string/choose_server_title"/>
+
+        <activity
+            android:name="org.martus.android.dialog.AddContactActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+            android:label="@string/add_contact_using_access_token"/>
+
+        <activity android:name="org.martus.android.ContactImportChoiceActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
+            android:label="@string/import_contact_title"/>
+
+        <service android:name="org.martus.android.ResendService"/>
+    </application>
+
+</manifest>
