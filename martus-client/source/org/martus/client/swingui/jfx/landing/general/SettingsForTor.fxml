@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+         <VBox styleClass="notMainTextBox">
+            <children>
+             <VBox styleClass="mainTextBox">
+                <children>
+                  <HBox>
+                    <children>
+                      <Label styleClass="headingLevel1" text="%TorSettings" />
+                      <Label prefWidth="15.0" text="" />
+                      <Hyperlink onAction="#OnLinkTorProject" prefHeight="28.0" text="torproject.org" underline="true" />
+                    </children>
+                  </HBox>
+                  <TextArea fx:id="torDescription" editable="false" prefHeight="350.0" wrapText="true" />
+                </children>
+             </VBox>
+            </children>
+        </VBox>
+    </center>
+    <padding>
+      <Insets left="10.0" top="10.0" />
+   </padding>
+</BorderPane>

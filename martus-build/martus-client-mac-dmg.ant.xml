@@ -1,0 +1,110 @@
+<project name="martus-client-mac-dmg">
+    <target name="macappbundle" depends="" description="create a jar app bundle for the mac">
+        <echo message="installer.mac: ${installer.mac}" />
+        
+        <!-- I couldn't find a way to pass $APP_ROOT in from ruby to ant -->
+        <property name="macjavastubfile" value="${installer.mac}/JavaApplicationStub/JavaApplicationStub" />
+        <taskdef name="bundleapp" 
+		    classname="com.oracle.appbundler.AppBundlerTask" 
+		    classpath="${installer.mac}/appbundler-1.0/appbundler-1.0.jar" />
+
+        <mkdir dir="${dist.mactree}" />
+        
+        <bundleapp 
+            outputdirectory="${dist.mactree}" 
+            name="${mac.app.name}"
+            displayname="Martus"
+            identifier="org.martus.Martus" 
+        	icon="${mac.icon.file}"
+            shortversion="${version.full}"
+            mainclassname="${main.class}"             
+            >
+<!-- These were valid in jarbundler but not in appbundler
+	        mainclass="${main.class}" 
+            jvmversion="1.7+" 
+            stubfile="${macjavastubfile}" 
+            shortname="${short.app.name}" 
+            version="${version.full}"
+            build="${version.short}"
+            vmoptions="-Xms${vm.minimumheap} -Xmx${vm.maximumheap} ${vm.options}"
+        	arguments=" "
+        	workingDirectory="$APP_PACKAGE"
+        	icon="${mac.icon.file}"
+            verbose="true" -->
+
+            <option value="-Xms${vm.minimumheap}" />
+            <option value="-Xmx${vm.maximumheap}" />
+            
+            <classpath dir="${app.dir}">
+                <include name="martus.jar" />
+                <include name="ThirdParty/*.jar" />
+            </classpath>
+
+            <option value="-Dapple.laf.useScreenMenuBar=true" />
+            <option value="-Dapple.awt.brushMetal=true" />
+            <option value="-Dapple.awt.showGrowBox=true" />
+            <option value="-Dapple.awt.antialiasing=true" />
+            <option value="-Dapple.awt.textantialiasing=true" />
+        		<option value="-Xdock:icon=Resources/Martus-Mac" />
+
+        		<!--  MARTUSDEV-952: Frequent crashing on certain Macs -->
+   			<!--  The following seems to avoid that problem -->
+       		<option value="-Dprism.order=sw" />
+        </bundleapp>
+    </target>
+
+    <!--*****************************************************************-->
+    <target name="macdmgfile" depends="macappbundle" description="create a mac dmg file">
+    	<echo message="Unmounting"/>
+        <exec os="Linux"  executable="umount" failonerror="false">
+            <arg value="-d"/>
+            <arg value="${dmgmount}"/>
+        </exec>
+
+        <!-- Create an empty .dmg file of the appropriate size -->
+        <echo message="Initializing DMG file" />
+        <delete file="${rawdmgfile}" />	
+        <exec os="Linux"  executable="dd" failonerror="true">
+            <arg value="if=/dev/zero"/>
+            <arg value="of=${rawdmgfile}"/>
+            <arg value="bs=1M"/>
+            <arg value="count=${dmg.size.megs}"/>
+        </exec>
+        
+        <!-- Format that file as an hfsplus disk image -->
+        <echo message="Formatting as hfsplus" />
+        <exec os="Linux"  executable="mkfs.hfsplus" failonerror="true">
+            <arg value="-v"/>
+            <arg value="${mac.app.name} ${version.full}"/>
+            <arg value="${rawdmgfile}"/>
+        </exec>
+        
+        <echo message="Mounting ${dmgmount} (must be in fstab)" />
+        <echo message="  ${rawdmgfile} ${dmgmount} hfsplus rw,user,loop 0 0" />
+        <exec os="Linux"  executable="mount" failonerror="true">
+            <arg value="${dmgmount}"/>
+        </exec>
+        
+        <!-- Copy .app directory to the disk image -->
+        <!-- USING cp -p to PRESERVE FILE PERMISSIONS! -->
+        <exec executable="cp" failonerror="true">
+            <arg value="-rp" />
+            <arg value="${dist.mactree}/." />
+            <arg value="${dmgmount}" />
+        </exec> 
+    	
+    	<exec os="Linux" executable="df" failonerror="true">
+    		<arg value="${dmgmount}" />
+    	</exec>
+    	
+        <echo message="Unmounting" />
+        <exec os="Linux"  executable="umount" failonerror="true">
+            <arg value="-d"/>
+            <arg value="${dmgmount}"/>
+        </exec>
+        
+        <!-- Temporarily avoid deleting files so I can compare Martus to Miradi
+        <delete dir="${dist.mactree}" />
+        -->
+    </target>
+</project>

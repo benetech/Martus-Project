@@ -1,0 +1,94 @@
+Project:	MartusClient
+Iteration:	8
+Begin:		August 20
+End:		August 31
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 4
+Velocity: 3.5 (lower due to AT generation)
+
+Committed Stories:
+
+1. Bug fixes [.5]
+Add Sinhalese to the language dropdown. For date format, make it work on Marc's 
+system (which doesn't have multiple locales), allow four-digit years, and arrange 
+the dropdowns according to the date format.
+
+2. Spanish version [.5]
+Allow toggling between English and Spanish UI via the Localization dialog.
+
+3. Second layer of action notifications [.5]
+For potentially dangerous actions, have confirmation dialogs. (Marc to specify).
+
+4. Initial System Setup [1]
+The first time Martus is run on a computer, it will force the user to set up an 
+account. No mouse gesture stuff is required. Just collect: username, password, 
+source, organization, and contact info: email, web page, phone, mailing address.
+
+5. Create true unique bulletin ids [.25]
+
+6. Custom fields [1]
+Allow additional string fields to be collected and displayed.
+
+
+Stories that might be started:
+
+7. Custom field types [1]
+Allow custom fields to be specified as string, multiline, or date.
+
+8. Edit contact info [1]
+Update the organization information that was entered during initial setup.
+
+
+Stories added during the iteration:
+9. Research server speed [.25]
+
+10. Full Spanish UI, rather than just the basic part [.25]
+
+11. Wider red lines to indicate private portions [.25]
+
+
+
+Results:
+------
+Workdays: 3.5
+Velocity: 3.25
+
+Pairing: Ivo 3 hrs, 
+
+Story 1: Took half a day.
+
+Story 2: Paired with Ivo for three hours. Took about three hours, plus a couple 
+hours of necessary refactoring. 
+There is some additional refactoring needed here, but I'm going to put it off 
+until we understand the full scope of options a little better. There is probably 
+another 1-2 hours of obscure UI elements left to translate.
+
+Story 3: Created three English-only confirmation dialogs in a couple hours. They 
+all follow the same pattern: First line is *what the user did* to cause this 
+dialog, Second line is the *consequences* of what they are trying to do, and 
+the Third line is a standard "are you sure" question. 
+
+Story 9: About two hours, plus some time for meetings.
+
+Story 10: Took nearly half a day, by the time it was all done.
+
+Story 11: Ten minutes.
+
+Story 4: Half a day to get the dialog working and saving data to disk. Note 
+that password is saved in plaintext, rather than hashed (encrypted). I figured 
+it would be best to wait and do that as part of our move to real encryption.
+
+
+
+There are [STILL] two meta-tasks that we need to spend some time on to avoid 
+slowing down the project:
+1. Automated "acceptance tests" (CRITICAL)
+2. Automate the process of generating release packages (would be nice)
+
+Marc has approved my spending some time working on the acceptance tests, but I 
+haven't yet started to do so.
+
+-------

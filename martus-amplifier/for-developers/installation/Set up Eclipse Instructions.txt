@@ -1,0 +1,86 @@
+Martus Eclipse Setup (Oct. 31, 2002)
+
+1. Unzip Eclipse (eclipse-SDK-2.0-win32.zip) to something like C:\Eclipse
+
+2. Create a desktop Shortcut
+
+3a. Create a new CVS Repository
+	Click on icon (Upper left hand corner - Open a Perspective) CVS Repository 
+	Exploring.
+	Above the Repositories panel (Top Right) click on the toolbar icon:
+	"Create a new CVS Repository Location".
+	Now fill in the information 
+		1. Host name: 10.10.220.21
+		2. Repository Path: /var/local/cvs
+		3. User Name : charles (for example)
+		4. Password : mypassword from Scott W.
+		5. Connection Type : pserver
+		6. Use default port
+		7. Finish (with validate location checked)
+		
+3b. (for remote access)
+	Fill out the dialog as follows:
+
+	Host: cvs.benetech.org
+	Repository Path: /var/local/cvs
+	User: <your username>
+	Password: <your password>
+	Connection type: extssh
+	Port: 822
+
+4. Check out Martus Amplifier and Martus.
+	Make sure you are in the CVS Repository view
+	In the top panel Right click on "Head" then "martus-amplifier"
+	Select "Check out as"
+	Since the martus-amplifier project depends on martus-readonly, you'll need to check 	that out as well.
+
+5. Get the latest files from CVS
+	Click on the Resource Tab (Top left icon)
+	In the navigator window (Top left) right click on "martus-amplifier"
+	Select "Team" -> "Synchronize with Repository"
+	Do the same for "martus-readonly".
+	Don't worry about compiler errors we will fix them next.
+
+6. Install Java 1.4 if necessary. 
+	It is located at http://java.sun.com/j2se/1.4.1/download.html.
+	It's best to have only one Java JRE installed on your system.  It should be the one
+	installed in the JDK directory.  Tell Java installer NOT to install the second 
+	copy of the JRE (defaults to the Program Files directory).
+	Now click on menu item "Window", and select Preferences
+	Now go to "Java -> Installed JREs
+	If the default JRE check is not 1.4 you may have to add a new JRE
+	Click on new and add a new JRE which points to where you installed Java1.4
+	Eg. C:\J2SDK1.4.1 and name it Java1.4.1
+	Now check the checkbox beside the new JRE (Java1.4) and this will change the JRE_LIB
+
+7. Tell Eclipse where to find 3rd party libraries.
+	Click on the Resource Perspective button (Top left icon)
+	Right click on "martus-amplifier" and go to Properties
+	Left click on Java Build Path
+	Click on the tab labelled "Libraries".
+	Using "Add variables / New" create new variables pointing to the following Jars, most of which can be found in martus-amplifier/buildfiles/jars.
+		
+		jsse (jsse.jar)
+		JUnit (junit.jar)
+		LuceneEngine (lucene-1.2.jar)
+		Xerces (xerces.jar)
+		xmlrpc (xmlrpc-1.1.jar)
+		Jetty
+
+	The same will need to be done for the "martus" project.
+
+		bccrypto (bcprov-jdk14-118.jar)
+		InfiniteMonkeys (InfiniteMonkey.jar)
+		javajce (jce.jar)
+		jsse (jsse.jar)
+		junit (junit.jar)
+		xmlrpc (xmlrpc-1.1.jar)
+	
+
+	Note1: If these already exist without the correct location beside it,
+	delete them first then create new variables,
+	they should come back with the jar file's location beside it.
+	Note2: Don't worry about the compiler errors until you are finished with all variables.
+	Note3: The JRE_LIB must point to the Java1.4 rt.jar file NOT 1.3 to do this see Step #6
+    	Note4: Here's a question I have: Is there a way to just have a variable for the user's local jars directory? 	Then we could set up all these variables in advance and have them all refer to that one variable. For example, if we had a variable BUILD_PATH, could we then define JUnit to point to $BUILD_PATH/junit.jar or something like that? Does Eclipse allow this?
+

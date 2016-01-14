@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/common/PersianCalendar/bin/icu4j_3_2_calendar.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/common/PersianCalendar/bin/persiancalendar.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/libext/JUnit/bin/junit-4.11.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

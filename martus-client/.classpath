@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="src" path="dictionaries"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/martus-utils"/>
+	<classpathentry kind="src" path="/martus-swing"/>
+	<classpathentry kind="src" path="/martus-common"/>
+	<classpathentry kind="src" path="/martus-jar-verifier"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/common/Velocity/bin/velocity-dep-1.4-rc1.jar" sourcepath="/martus-thirdparty/common/Velocity/source/velocity-1.4-rc1.zip"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/martus-clientside"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/client/jhlabs/bin/layouts.jar" sourcepath="/martus-thirdparty/client/jhlabs/src/layouts.zip"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/client/jortho/bin/jortho-0.5.jar" sourcepath="/martus-thirdparty/client/jortho/source/JOrtho_0.5.zip"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/client/JFreeChart/bin/jfreechart-1.0.14.jar" sourcepath="/martus-thirdparty/client/JFreeChart/source/jfreechart-1.0.14.zip"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/client/JFreeChart/bin/jcommon-1.0.17.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/common/XMLRPC/bin/xmlrpc-client-3.1.3.jar" sourcepath="/martus-thirdparty/common/XMLRPC/source/apache-xmlrpc-3.1.3-src.zip"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/libext/BouncyCastle/bin/bcprov-jdk15on-148.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/libext/JUnit/bin/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/common/JavaRosa/bin/kxml2-2.3.0.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/common/JavaRosa/bin/javarosa-libraries.jar" sourcepath="/martus-thirdparty/common/JavaRosa/source/src.zip"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

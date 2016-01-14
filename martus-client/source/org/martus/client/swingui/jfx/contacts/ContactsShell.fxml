@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="MainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="910.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefWidth="910.0" styleClass="pageMargin">
+      <bottom>
+        <BorderPane prefHeight="300" prefWidth="910.0">
+          <left>
+          		<Label prefWidth="25.0"></Label>
+          </left>
+          <center>
+		        <Button mnemonicParsing="false" onAction="#importContactFromFile" prefHeight="35.0" prefWidth="280.0" text="%Button.ImportContactFromFile" BorderPane.alignment="CENTER_LEFT" />
+          </center>
+          <right>
+            <Button id="" fx:id="closeButton" mnemonicParsing="false" onAction="#onClose" prefHeight="35.0" prefWidth="280.0" text="%Button.ContactsSaveClose" BorderPane.alignment="CENTER_RIGHT" />
+          </right>
+        </BorderPane>
+      </bottom>
+      <center>
+        <Pane fx:id="contentPane" maxHeight="-Infinity" prefHeight="408.0" prefWidth="840.0" />
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>

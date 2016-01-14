@@ -1,0 +1,61 @@
+How to create a Martus Language Pack (MLP)
+
+In the Martus CVS directory tree the following is where all MLP’s live.
+
+.\binary-martus\Releases\ClientMLPs
+
+Under that directory is the 2 letter language code for each language to be created.
+Eg. ar (Arabic), es (Spanish), fr (French), ne (Nepali), ru (Russia), and th (Thai)
+Charles NOTE: Burmese is 3 letters bur (there is a bu directory which I am not sure what this is at this time June 2010)
+
+Under those directories will be the current MLP and sha1, and a directory mlpFiles where all files you want to appear in the mlp are found.
+
+Eg: for French
+.\binary-martus\Releases\ClientMLPs\fr
+	Martus-fr.mlp
+	Martus-fr.mlp.sha1
+.\binary-martus\Releases\ClientMLPs\fr\mlpFiles
+	martus_user_guide_fr.pdf
+	Martus-fr.mtf
+	MartusHelp-fr.txt
+	MartusHelpTOC-fr.txt
+	Quickstartguide_fr.pdf
+	README_fr.txt
+
+Make sure all the files are up-to-date with what you want in this language pack release.  Note sometimes you have an old user guide but updated mtf’s, readme’s and quickstart guides.  This is fine its up to the product manager to determine what goes in the language pack.
+
+Next you must update the build script to create the correct Language Pack.
+.\Martus\build-mlp.xml
+And update the section:
+<!-- ******************************************************* -->
+<!-- UPDATE THIS before you run for different Language Packs -->
+    <property name="LANGUAGE" value="fr"/>
+<!-- ******************************************************* -->
+To use the same language code as the MLP you are trying to create. (i.e. “fr”) for French.
+Once you adjust this file then Run the xml as “Run As” Ant Build, 
+
+When you run this script it will ask you for the language code
+This will then create the language pack and use the associated files in that 
+sub directory under .\binary-martus\Releases\ClientMLPs\<Language code you type in>
+
+Next it will ask you where the keystore files are located: ie where martusks and ssmartusclientks are found
+
+Then it will ask for 2 passwords
+“Please enter store pw:”
+And
+“Please enter key pw:”
+
+You can get these passwords from the safe and the floppy containing.  These are the same passwords used to create a Martus Release on the Build machine.
+You will also need to put the Martus Keystore disk in the 3 ½” A: drive.  
+Do NOT put the keystore files on the network for security reasons.  The keystore floppy disk should be stored in the fireproof safe.
+Return the Floppy disk and passwords to the Safe!
+
+Once completed the two files for the language pack will be updated and found the directory below where the mlpFiles are located 
+i.e.: .\binary-martus\Releases\ClientMLPs\fr
+	Martus-fr.mlp
+	Martus-fr.mlp.sha1
+
+Send these two files for testing and then eventually once the tests pass to the Martus website.
+
+
+

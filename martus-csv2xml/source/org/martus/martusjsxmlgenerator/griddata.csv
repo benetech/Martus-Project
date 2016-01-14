@@ -1,0 +1,8 @@
+firstname|lastname|id|date_of_Birth|start_date|end_date|color|night
+John Grid|Doe|212|11012000|20020101|20030106|red|1
+
+Jane Grid|Doe 2|212|12032001|20020102|20030108|blue|0|||
+
+
+Bob Grid|Doe 3|234|10081998|20020103|200301009|<yellow>&<green>|0
+

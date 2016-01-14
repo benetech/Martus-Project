@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane fx:id="containerPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+   	<StackPane fx:id="attachmentPane">
+      <children>
+      		<VBox>
+         <children>
+         		    <Button fx:id="showMapButton" mnemonicParsing="false" onAction="#onShowMap" text="%Button.ShowMap" />
+         		    <ImageView fx:id="attachmentImageView" />
+         </children>
+      		</VBox>
+      </children>
+   	</StackPane>
+   	<StackPane fx:id="workingPane">
+      <children>
+      		<VBox>
+         <children>
+         			<Button mnemonicParsing="false" onAction="#onShowImage" text="%Button.ShowImage" />
+         			<Label text="%BackgroundWorking" />
+         </children>
+      		</VBox>
+      </children>
+   	</StackPane>
+   	<StackPane fx:id="mapPane">
+      <children>
+      		<VBox>
+         <children>
+         		    <Button fx:id="showImageButton" mnemonicParsing="false" onAction="#onShowImage" text="%Button.ShowImage" />
+         		    <ImageView fx:id="mapImageView" />
+         </children>
+      		</VBox>
+      </children>
+   	</StackPane>
+   	<StackPane fx:id="torConfirmationPane">
+      <children>
+      		<VBox>
+         <children>
+         			<Label text="%confirmShowOnMapBypassesTorcause" />
+         			<Label text="%confirmShowOnMapBypassesToreffect" />
+         			<CheckBox fx:id="doNotShowAgainCheckBox" text="%DoNotShowAgainThisSession" />
+         			<HBox>
+            <children>
+            			    <Button fx:id="okButton" mnemonicParsing="false" onAction="#onConfirmShowMap" text="%Button.ShowMap" />
+            			    <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onShowImage" text="%Button.ShowImage" />
+            </children>
+         			</HBox>
+         </children>
+      		</VBox>
+      </children>
+   	</StackPane>
+   </children>
+</StackPane>

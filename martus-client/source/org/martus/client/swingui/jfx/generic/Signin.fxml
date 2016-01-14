@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+       <BorderPane>
+   		<center>
+   		  <VBox>
+      <children>
+                  <Pane fx:id="signInMessagePane" />
+      		    <GridPane fx:id="signInPane" vgap="5.0" xmlns:fx="http://javafx.com/fxml">
+         <children>
+         		        <Label styleClass="headingLevel2" text="%CreateAccountUserName" />
+         		        <TextField id="accountName" fx:id="userNameField" GridPane.columnIndex="1" />
+         
+         		        <Label styleClass="headingLevel2" text="%Password" GridPane.rowIndex="1" />
+         		        <PasswordField id="password" fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+      
+      		    </GridPane>
+      </children>
+   		  </VBox>
+   		</center>
+   		<bottom>
+   			<HBox>
+      <children>
+              		<ChoiceBox fx:id="languagesDropdown">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></ChoiceBox>
+      			
+      				<Button fx:id="okButton" defaultButton="true" onAction="#onOk" text="%Button.SignIn">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Button>
+      				<Button onAction="#onCancel" text="%Button.cancel" />
+      </children>
+   			</HBox>
+   		</bottom>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+       </BorderPane>
+   </children>
+</StackPane>

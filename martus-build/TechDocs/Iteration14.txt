@@ -1,0 +1,78 @@
+Project:	MartusClient
+Iteration:	14
+Begin:		November 12
+End:		November 23
+Developers:	Kevin, Ivo, Dave
+
+Expectations:
+-------------
+Workdays: 3.5
+Velocity: 3
+
+Committed Stories:
+
+1. Icon work [1]
+Private field distinction icons and UI work.
+
+2. View and retrieve public bulletins from server [1]
+Since the server currently thinks all bulletins are public (since 
+we don't yet have crypto), this will allow all bulletins to be 
+viewed and retrieved.
+
+3. Server Policy for "approved" accounts [.5]
+Allow a server to be configured to accept NOTHING, ANYTHING, or 
+NO-ATTACHMENTS for "approved" accounts. Configuration, including the act 
+of adding an account to the "approved" list, would be done through a 
+simple config file.
+
+4. Warning for rejected bulletins [.25]
+Visual alert to inform when a sealed bulletin has been rejected by a server.
+
+5. Upload reminder [.25]
+Reminds user that time has passed since last uploaded bulletin, in case 
+user has forgotten to upload, or server access is denied, but user does 
+not know this.
+
+
+
+Stories that might get done:
+
+6. Allow creation of custom fields [1]
+Not sure if this will be done through UI or through a config 
+file. Fields will be single-line strings and will appear 
+near the bottom of the bulletin (probably above the 
+"attachments")
+
+
+Stories added during the iteration:
+
+
+
+Results:
+--------
+Workdays: 3
+Velocity: 2.75
+
+Pairing: A few sessions with Ivo, and one session with Dave
+
+Story 1: Two hours to get rough boxes around the "public" and "private" 
+groups. Three hours to get icons and bold text. More work will be needed 
+later, after we know what we want.
+
+Story 2: Two hours with Ivo to create the basic dialog. Four more hours 
+to get the server functionality working, and to enhance the dialog. Two 
+more hours with Dave to refactor and clean up the tests.
+
+Story 3 and 4: They were closely related, so I did them together. They 
+took a few hours to complete.
+
+
+
+Issues:
+-------
+I still haven't put much time into Acceptance Tests. My latest thinking is 
+that it will be more productive to extend Unit Tests into the GUI than to 
+work with a WinRunner-type testing tool. Recently this has not affected 
+velocity as much, but it is still important for the long run.
+
+-------

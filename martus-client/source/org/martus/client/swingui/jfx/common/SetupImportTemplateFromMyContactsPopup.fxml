@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<VBox styleClass="popupMargin">
+  <Label styleClass="headingLevel2" text="%DownloadFromContacts" />
+  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="187.0" prefWidth="790.0">
+    <children>
+      <Label styleClass="headingLevel3" text="%ChooseContact" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <ChoiceBox fx:id="contactsChoiceBox" prefWidth="557.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label fx:id="chooseFormTemplateLabel" styleClass="headingLevel3" text="%ChooseForm" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+      <ChoiceBox fx:id="templatesChoiceBox" prefWidth="557.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label fx:id="noTemplatesAvailableLabel" styleClass="headingLevel3" text="%NoTemplatesAvailable" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#onCancel" text="%Button.cancel" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <children>
+          <Button fx:id="continueButton" mnemonicParsing="false" onAction="#onContinue" text="%Button.Continue" textAlignment="LEFT" />
+        </children>
+      </HBox>
+    </children>
+    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="199.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="557.0" minWidth="10.0" prefWidth="526.0" />
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+  </GridPane>
+</VBox>
+</VBox>

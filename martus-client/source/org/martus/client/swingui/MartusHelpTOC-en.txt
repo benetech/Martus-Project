@@ -1,0 +1,66 @@
+﻿1. Introduction to the Martus™ Software
+1a. What is Martus™?
+1b. Why is security so important when using Martus?
+1c. How does Martus keep the data secure?
+1d. What does an individual need to do to keep data secure?
+1e. What are the limitations to Martus security?
+1f. Why send bulletins to the server?
+1g. Why is Martus an open source application?
+2. Getting Started
+2a. Installing
+2b. Uninstalling
+2c. Upgrading to a new version of Martus (Windows only)
+2d. Updating the Martus program file
+2e. Setting up your account
+2f. Choosing a password
+2g. Setting up a server connection
+2h. Setting your preferences
+3. The Martus Workspace
+4. Creating a Bulletin
+4a. Completing fields in a bulletin
+4b. Customizing your bulletins
+4c. Checking the spelling of text in your bulletins
+5. Saving and Modifying Bulletins
+5a. Saving a sealed bulletin
+5b. Saving a draft
+5c. Creating a new version of a sealed bulletin
+5d. Modifying a draft
+5e. Discarding a draft
+5f. Discarding a sealed bulletin
+5g. Sealing a group of draft bulletins at once
+6. Managing Bulletins
+6a. Default folders
+6b. Other folders created by Martus
+6c. Creating folders
+6d. Discarding and deleting bulletins
+6e. Organizing bulletins
+6f. Placing bulletins on the desktop
+6g. Retrieving sealed bulletins
+6h. Retrieving draft bulletins
+6i. Retrieving bulletins created by Contacts
+6j. Viewing earlier versions of a bulletin
+6k. Viewing and saving attachments
+6l. Viewing damaged bulletins
+6m. Searching for specific bulletins
+6n. Printing bulletins
+6o. Creating bulletin reports
+6p. Creating bulletin charts
+6q. Exporting bulletin data
+6r. Importing bulletin(s)
+7. Deleting Your Bulletins and Account Information
+8. Deleting All Martus Data, Including the Application
+9. Keeping Your Data Secure
+9a. How Martus security works
+9b. Backing up your key
+9c. Restoring your key
+9d. Using your password wisely
+9e. Using safe computing practices
+9f. Sharing your private data with Contacts
+9g. Enabling other accounts to send your bulletins to a server
+9h. Changing your user name or password
+10. Customizing Martus
+10a. Using a template in the Details field
+10b. Customizing bulletin fields
+10c. Using Customization Templates
+10d. Customizing your bulletin display
+11. Frequently Asked Questions

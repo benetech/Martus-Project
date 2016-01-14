@@ -1,0 +1,80 @@
+Project:	MartusClient
+Iteration:	9
+Begin:		September 3
+End:		September 14
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 4
+Velocity: 3.5
+
+Committed Stories:
+
+1. Create true unique bulletin ids [.25]
+
+2. Edit contact info [1]
+Update the organization information that was entered during initial setup.
+
+3. Connect to Server [2] (need spike: https)
+
+Stories that might be started:
+
+4. Grid sorting [1]
+
+5. Upload New Bulletins to Server [2]
+
+6. Print Bulletin [1]
+
+Stories added during the iteration:
+
+
+
+Results:
+------
+Workdays: 3.5
+Velocity: 4.25
+
+Pairing: Dave 2 hrs
+
+Story 1: Took less than an hour. Java UID's are not absolutely guaranteed 
+unique, but they're pretty close.
+
+Story 2: Spent half a day refactoring, splitting the existing "setup" dialog 
+into SetupSignin and SetupContact dialogs. Then spent an hour creating an 
+options menu with Language, Date Format, and Contact Information items, and 
+removing the Options toolbar button. Total: .75 days.
+
+Story 3: A couple hours researching XML-RPC and SOAP. Downloaded XML-RPC 
+server, and (after a stupid mistake) got it working in a couple hours. Adding 
+a "Connect" toolbar button took less than an hour. Total: .75 days.
+
+Story 4: Three hours to always sort by date, ascending (two hours pairing 
+with Dave, one solo). Another two hours to sort by different columns. This 
+does not include any visual indication of the current sort order, and the 
+sort algorithm will probably be TOO SLOW with 100 bulletins in a folder, so 
+it will have to be replaced at some point. Also, when you click on the header, 
+there's no visual press-release like you would probably expect since it 
+resembles a button. Total so far: .5 days.
+
+Story 6: A little over half a day to print the current bulletin on a single 
+page, with no headers or footers. Slight truncation at the right edge. Still 
+needs some cleanup to be completed.
+
+Spent a couple hours with Marc discussing past, present, and future stories. 
+This was highly productive, and is mostly typical of an interation planning 
+meeting that should take place (at least) every two weeks.
+
+
+
+
+There are [STILL] two meta-tasks that we need to spend some time on to avoid 
+slowing down the project:
+1. Automated "acceptance tests" (CRITICAL)
+2. Automate the process of generating release packages (would be nice)
+
+Marc has approved my spending some time working on the acceptance tests. I 
+did more research into AWT.Robot, but it doesn't seem to be the answer. Now, 
+I am considering 1) "Command-level" AT's, or 2) WinRunner or equivalent.
+
+-------

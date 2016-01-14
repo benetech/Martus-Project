@@ -1,0 +1,137 @@
+=======BETA==========
+- Clients must be able to authenticate themselves to servers
+Each client will create an authentication public/private key pair. The public key serves as the 
+unique identifier of this account, and is used for authentication. Each server will hold a list 
+of public keys of authorized clients, encrypted and signed with the server's private key. To add 
+a key to this list, the server policy administrator must correctly enter the fingerprint for 
+that public key.
+
+- Servers must be able to authenticate themselves to clients
+Servers must have a public/private key pair. The private key may be stored on the server (to 
+allow unattended reboots). In that case, the private key is effectively available to anyone who has 
+[root?] access to the server. Do we need server key backup strategies?
+
+- Clients must be able to authenticate servers that they contact
+Clients will store public keys of their servers, ciphered and signed. Servers will store a list of 
+client public keys, ciphered and signed using the server's public key. Public keys may be shipped 
+with the client software, or may be imported from files later [details to be determined]. To 
+confirm a public key, the user must enter the key's correct fingerprint.
+
+- Physical access to the client machine must not reveal the client private key(s)
+On the client machine, its private key(s) are stored encrypted using a digest of the passphrase. 
+Neither the passphrase nor its digest are written to disk. To sign in to the system, the attempted 
+passphrase is used to obtain the private key, which is then used to decrypt the config info. If it 
+works (the config info is valid), the passphrase must be correct.
+
+- Bulletin fields and attachments can be marked as "public" or "private"
+A bulletin will consist of multiple "portions". A portion may contain some data fields, or an 
+attachment. Each portion will be ciphered using a different session key (unless encryption is 
+completely disabled for this bulletin). Each portion will contain a "pop top" (compare with 
+"can opener" below), which contains the session key for that portion, encrypted using the author's 
+public cipher key. 
+
+- Draft and Sealed bulletins should be tamper-resistant
+Draft and sealed bulletins will be signed by the author. They could still be deleted by someone 
+who has access to the client machine. If the author's private key is compromised, these bulletins 
+can also be viewed or modified. [Problem: Different versions of the same bulletin could be uploaded 
+to different servers.]
+
+- Uploaded bulletins should be tamper-proof
+The original author signs the data portions of the bulletin before uploading. The receiving server 
+will automatically add a signed timestamp to each bulletin. Someone with access to the server could 
+delete the bulletin, but would not be able to view the encrypted data. Modifications (or whole new 
+bulletins) could only be forged if both the client's and the server's private keys are compromised. 
+[Question: A bulletin may contain additional packets beyond just these original portions: 
+timestamp(s), can openers, withdrawal notices, links, etc. If the author signs each packet, then 
+packets could be removed without detection, so it would be better for the author to sign the whole 
+bulletin. But once a bulletin is on a server, only the server should be allowed to append to it (at 
+the author's request). Can the server send the client a digest of the updated bulletin, and have 
+the author provide a detached signature of the whole bulletin, which would then be appended to the 
+bulletin?]
+
+- Parties other than the author may need to view portions of a bulletin
+Each bulletin may contain one or more "can openers", which contain the session key for a certain 
+portion of that bulletin, encrypted with the public key of the intended viewing party. They must 
+be signed by the original author. The intended viewer could be a government, an umbrella 
+organization, a peer, a secondary (backup) Martus account, or any other party. The client can 
+create any number of can openers before uploading the bulletin to a server. The client must 
+store public keys for each target of a can opener. These keys will be stored ciphered and signed 
+by the client account. [Question: is there a security risk encrypting the same small piece of data 
+(a session key) multiple times, encrypted with different public keys? Should we insert random data 
+before and after the session key in a can opener?]
+
+- Client must be able to retrieve all portions of its own bulletins from a server
+Servers will allow any (authorized) client to get a summary list of bulletins stored for a given 
+account, and to request a download of specific bulletins. The server will only send bulletin 
+portions that have pop-tops or can openers for the requesting account.
+
+- A stolen or broken client cipher key should not allow impersonation
+Use two public/private key pairs: one for ciphering, and the other for signing. [Question: Is this 
+worth it, to allow different backup policies for the different keys?]
+
+
+=======VERSION ONE==========
+- Client configuration files should be tamper-proof
+Store config files ciphered and signed by the account. They can be deleted, but not viewed or 
+modified.
+
+- Some bulletin data should be public to everyone
+A can opener may use a special "Martus Amplifier" public key, for which the private key is also 
+widely known. Effectively, this stores the session key as almost plain text, meaning that anyone 
+can view that portion of the bulletin. This key would be built into the Martus client and server 
+software. The client could re-verify it each time it is about to upload a bulletin containing 
+"public" portions. [Question: Would it be easier (or safer) to have a can opener that stores the 
+session key in plain text?]
+
+- If the client computer is wiped out, the account must still be usable
+We will provide mechanisms to back up the private key(s), and not the passphrase. Recovering a 
+passphrase by itself is of no use--the key would still be neded. The Client software needs an 
+alternate signin mechanism where a private key is provided, instead of a username/password. 
+One possible backup mechanism: Clients can create a private key backup by encrypting it with one 
+or more other Martus account public keys. This backup can be written to floppy disk or tape, 
+printed out, or emailed to other parties, Every corresponding private key would be required to 
+recover the original key. We might allow one-party backups, or might require a specific number. 
+[Problem: How would the original private key be safely reassembled?] [Question: Is there a better 
+approach?]
+
+- Clients need to be able to revoke their key if it is compromised
+Servers will accept key revocation notices. They will also share revokation notices with other 
+servers. Once a key has been revoked, servers will not accept uploads or download requests from 
+that account. Any bulletins with timestamps after the compromise will be questionable (specific 
+handling would depend on server policies). [Question: Should we generate revocation certificates 
+when the account is created? Or should we have users delegate other Martus accounts as authorized 
+to revoke their account at any time?]
+
+- Servers send bulletins to each other
+Servers need to authenticate each other, based on public keys. Transferring public keys will use 
+similar mechanisms to other Martus public key sharing, described above. The list of other server 
+public keys will be stored ciphered and signed. [Question: Should servers timestamp bulletins 
+that are received from other servers? Or leave them completely unmodified?] [Problem: We need to 
+work out a scheme to know which bulletins have been added or modified since the last sync.]
+
+- Allow clients to completely disable encryption
+Each bulletin will have a flag to enable/disable encryption for that entire bulletin.
+
+
+=======VERSION TWO==========
+- Clients need to be able to submit a "Bulletin Withdrawal" notice
+Client UI needs to have a "withdraw" feature. The server needs to accept "withdraw" requests. 
+Bulletins may contain a withdrawal request, signed and timestamped by the original author and by 
+the accepting server. Server policies will determine how "withdrawn" bulletins are handled, but 
+they are not deleted.
+
+- Clients should be able to indicate that a bulletin is related to another bulletin
+A bulletin may contain a "Bulletin Link" pointing to another bulletin ID. Both bulletins must have 
+the same author (?), and the link must be signed by that author. [Perhaps the bulletins could 
+have different authors, in which case the author of the bulletin that actually contains the link 
+would sign the link]
+
+- Client must be able to append viewing rights to bulletins that have already been submitted
+The UI on the client side will be interesting. A server will accept new can openers, signed by 
+the original author. It will append them to the existing bulletin.
+
+- A client account can switch to a different cipher key
+A client account exists as long as the authentication private key remains safe. If the cipher key 
+is compromised, a new one can be generated. The old cipher key would be retired, and the new cipher 
+key would be used by that account from then on. [This is only possible if we have separate cipher 
+and authentication keys]

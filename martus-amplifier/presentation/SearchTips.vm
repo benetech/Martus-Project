@@ -1,0 +1,175 @@
+#*
+The Martus(tm) free, social justice documentation and
+monitoring software. Copyright (C) 2001-2003, Beneficent
+Technology, Inc. (Benetech).
+
+Martus is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later
+version with the additions and exceptions described in the
+accompanying Martus license file entitled "license.txt".
+
+It is distributed WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, including warranties of fitness of purpose or
+merchantability.  See the accompanying Martus License and
+GPL license for more details on the required license terms
+for this software.
+
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.
+
+*#
+<html>
+	#set ($pageTitle="Search Tips")
+    <head>
+   		#parse("Meta.vm")    	
+    </head>
+    
+    <body>
+    	#set ($pageInfo="Search Tips")
+		#set ($showSearchForm = false)
+		#parse ("ResultHeader.vm")
+		<br/>
+
+
+		<h2>Using Martus Search</h2>
+		
+		To enter a query into Martus Search, type in a few descriptive words and 
+		hit the 'enter' key (or click on the Martus Search button) for a list of 
+		relevant bulletins. Martus only returns bulletins that contain all the 
+		words in your query, so refining or narrowing your search is as simple as 
+		adding more words to the search terms you have already entered. Your new 
+		query will return a smaller subset of the pages Martus found for your 
+		original query. 
+
+
+		<h3>Choosing Keywords</h3>
+		For best results, choose your keywords wisely. Keep these tips in mind: 
+		<ul>
+		<li>Try the obvious first. If you're looking for information on a particular regime dictator, enter "Pinochet" rather than "dictator".</li> 
+		<li>Use words likely to appear in a bulletin with the information you want.</li>
+		<li>Make keywords as specific as possible. </li>
+		</ul>
+		
+		<h3>Automatic &quot;and&quot; Queries</h3>
+		<p>By default, Martus only returns pages that include all of your search 
+		terms. Do not include "and" between terms. Keep in mind that 
+		the order in which the terms are typed will affect the search results.  
+		To restrict a search further, just include more terms. 
+		For example, to find bulletins about victims who were put in prison and 
+		subject to torture, simply type: </p>
+		
+		<p align=center style='text-align:center'><INPUT TYPE="TEXT" SIZE="44" NAME="query" VALUE="prison torture">&nbsp;
+		<INPUT TYPE="submit" ACTION="DoSearch?typeOfSearch=quick" VALUE="Search" METHOD="post"></p>
+		
+		<p>If you want to do an "or" query, go to the Advanced Search page.</p>
+		
+		<h3>Phrase Searches</h3>
+		
+		<p>Search for complete phrases by enclosing them in quotation
+		marks. Words enclosed in double quotes (&quot;like this&quot;) will appear
+		together in all results exactly as you have entered them. Phrase searches are
+		especially useful when searching for proper names. </p>
+		 
+		<p align=center style='text-align:center'><INPUT TYPE="TEXT" SIZE="44" NAME="query" VALUE="&quot;Amnesty International&quot;">&nbsp;
+		<INPUT TYPE="submit" ACTION="DoSearch?typeOfSearch=quick" VALUE="Search" METHOD="post"></p>
+		 
+		 
+		<h3>Automatic Exclusion of Common Words</h3>
+		Martus Search may ignore certain very common words and characters, 
+		as well as certain single digits and single letters, because they could 
+		slow down your search without improving the results.  
+		<br/>
+		If a common word is essential to getting the results you want, you can 
+		include it by conducting a phrase search, which simply means putting 
+		quotation marks around two or more words. Common words in a phrase 
+		search (e.g., &quot;in the yard&quot;) are included in the search. 
+		<p/>
+		<center>
+		<font size='-1'>
+		For example, to search for violations occurring in District 1 of a certain location, use:
+		</font>
+		</center>
+		</p>
+	
+		<p align=center style='text-align:center'><INPUT TYPE="TEXT" SIZE="44" NAME="query" VALUE="&quot;district 1&quot;">&nbsp;
+		<INPUT TYPE="submit" ACTION="DoSearch?typeOfSearch=quick" VALUE="Search" METHOD="post"></p>
+		
+		<h3>Capitalization</h3>
+		Martus searches are NOT case sensitive. All letters, regardless of how you 
+		type them, will be understood as lower case. For example, searches for 
+		&quot;augusto pinochet&quot;, &quot;Augusto Pinochet&quot;, and 
+		&quot;aGuSto PinOcHeT&quot; will all return the same results. 
+		
+		
+		<h3>Word Variations</h3>
+		To provide the most accurate results, Martus does not support 
+		&quot;wildcard&quot; searches. In other words, Martus searches for 
+		exactly the words that you enter in the search box. Searching for 
+		&quot;kid&quot; or &quot;kid*&quot; will not yield &quot;kidnap&quot; 
+		or &quot;kidnapper&quot;. 
+		
+		<HR></HR>
+		
+		<h2>Advanced Search</h2>
+		For more advanced options use the 
+		<a href="AdvancedSearch">Martus Advanced Search</a> page.
+		<p></p>
+		
+		You can search for bulletins with all of the words (similar to entering 
+		multiple words in simple search), with at least one of the words  
+		(e.g. killed OR executed), with the exact phrase (similar to entering 
+		words in quotation marks in simple search), or a combination of these 
+		options.  Please note that if word A is entered in the &quot;all&quot; 
+		box and word B is in the &quot;at least one&quot; boxes, both words will 
+		need to be in the bulletin for it to be displayed in the search results.
+		<p></p>
+		As in non-advanced searches, there are no wildcard/word-variation searches 
+		in any of these options.
+		<p></p>
+		You can also use the following restrictions to narrow your search and 
+		organize the results:
+		<p></p>
+		<ul>
+			<li>
+				Event Date: restrict your results to events that occurred within 
+				any time frame after February 1, 1970. Martus Search does not 
+				retrieve bulletins previous to that date.
+			</li> 
+			<li>
+				Date Created: restrict your results to bulletins published in the 
+				past week, month, 3 month, 6 month, or year time period. 
+			</li> 
+			<li>
+				Occurrences: specify where your search terms occur in the bulletin 
+				- anywhere in the bulletin, in the title, or in the author field, 
+				for example. 
+			</li> 
+			<li>
+				Language: specify which language you would like your results returned 
+				in. If an author assigned a language to a bulletin, that language 
+				will be offered as a search option. 
+			</li> 
+			<li>
+				Display order: specify how to sort your results - by author, title, event date, event location or by organization sponsoring the author. 
+			</li>
+		</ul>
+		<br/><br/>
+			Return to <a href='SimpleSearch'>Martus Search</a>
+		<br/><br/>
+		Still have questions?  
+		For technical support, write to <a href='mailto:help@martus.org'>help@martus.org</a>.  
+		We'll do our best to address your inquiry.
+		<br/><br/>
+		#parse ("ResultFooter.vm")
+		<center>
+			<font size='-2'>
+				Martus Search Tips adapted from Google Search Help pages.
+			</font>
+		</center>
+		
+    </body>
+</html>

@@ -1,0 +1,555 @@
+Martus Encryption and Security
+Last updated: Nov 15 2001
+Kevin Smith
+
+
+Introduction
+
+Martus has very sophisticated requirements for security and encryption. At the 
+same time, it must shield its users from any complexity.
+
+We will use existing standards, and available open source components wherever 
+possible. 
+
+
+
+Client Security (Overview)
+
+A single client computer may host multiple Martus accounts. Each account 
+represents a unique entity in the Martus world. Typically, an account would 
+be a single reporting organization. A single account may be used from multiple 
+computers. 
+
+Each account has a public/private key pair that is generated when the account 
+is created. This typically happens the first time the Martus Client is run on 
+a given computer. The key pair is presumed to be unique.
+
+An account may have multiple logins (username+password) on each machine. If 
+multiple accounts exist on a single computer, they must each use a username 
+that is unique on that computer. We have not yet done detailed design of 
+multiple logins or multiple computers per account. So far, we have resisted 
+the concept of an "administrator" role.
+
+The username is stored in plaintext on the client hard drive. A message digest of 
+the password is stored on the client hard drive. This means that a user who 
+forgets their password will be unable to further use the system. There is no 
+hidden "back door" available to retrieve a lost password. The system will 
+have features to support password and/or key archiving.
+
+We need to decide what restrictions to place on the username and password: 
+Length? Mixed case, digits, punctuation? Should we allow (almost) anything, but 
+warn the user about potentially insecure choices? Should we allow each client 
+machine to establish its own level of security (within reason)?
+
+The public key is stored as plaintext, along with an encrypted copy of the 
+private key (ciphered based on the username and current password). Changing 
+the password writes a new copy of the private key, encrypted with the new 
+password. This means there is no way to retrieve the private key from this 
+disk file without knowing the current password (again, no back doors).
+
+All non-bulletin application information, such as bulletin folders, contact 
+information, and configuration options are stored in plaintext. Perhaps the 
+contact information should be signed to detect unauthorized alterations
+
+Each bulletin is stored as an XML fragment, with UTF-8 encoding. The results 
+of any encryption are converted back into text using base64 encoding. We 
+will evalutate the standards being developed for XML digital signatures.
+
+Every bulletin (Draft and Sealed) will be signed. Signing sealed bulletins 
+allows readers to be confident that they are viewing the exact information 
+that was submitted by the author. 
+
+Signing draft bulletins allows the author to be notified of any unauthorized 
+modifications when the author continues the editing process. Draft bulletins 
+are normally treated as totally private (encrypted). This allows an author to 
+safely postpone the decision about whether to make the entire bulletin public 
+or private. The exception would be if a client has chosen not to use any 
+encryption, perhaps for legal reasons or because using encryption would look 
+too suspicious.
+
+Private bulletins are stored completly encrypted based on the public/private 
+key (see details below). The result is that a private bulletin will be a 
+string of base64 text that represents the binary encrypted result. That binary 
+data will still be stored inside an XML shell, along with the bulletin id and 
+probably the public key. Another copy of the bulletin ID is also kept outside 
+of the bulletin XML data, in plaintext. 
+
+The actual encryption should be done using a private symmetric "session key", 
+for a couple reasons. Symmetric encryption is roughly a thousand times faster 
+than asymmetric (public/private key) encryption. Also, if a single session 
+key is broken, only that bulletin will be exposed. If a private key is 
+broken, all data encrypted directly with that key would become exposed. 
+
+The session key used to encrypt a bulletin would be stored within the bulletin 
+data itself, encrypted using the author account's public key. Decrypting is a 
+two-step process: first, use the private key to decrypt the session key; 
+second, use the session key to decrypt the actual data.
+
+Some groups need the ability to provide read-only keys to governments. Also, 
+it may be desirable to have a read-only key as a backup way to retrieve data 
+if the primary private key is somehow lost. To accomplish this, each bulletin 
+may contain multiple copies of the session key, encrypted with different public 
+keys. One would be with the primary public key of the author account. Another 
+might be with the public key of a governmental agency. Any of these keys could 
+be used to decipher the information, but they could not be used to re-sign a 
+modified version of the bulletin.
+
+Public bulletins remain valid XML documents. The public portions are unchanged 
+plain UTF-8 text. The private portions appear as base64 contents within 
+specific XML field tags. Again, for speed, the private portions may be 
+encrypted using a session key that will be stored (encrypted) with the data.
+
+[Question: Bulletins may be fairly short. Do we need to pad them to make it 
+harder to break? Same (more so) for private portions.]
+
+[Question: How do attachments fit into all of this? Most important, are they 
+actually PART OF a bulletin, encrypted along with it, or are they kept 
+separate? (Separate is more complex, but has the advantage of allowing 
+someone to download/decrypt/search non-attachment portions of bulletins).]
+
+[Question: What public/private key scheme should we use? What symmetric 
+algorithm? What message digest? What about export limitations?]
+
+The lack of a client account adminstrator role raises an interesting issue 
+for handling invalid logins. We cannot simply lock an account after three 
+failed login attempts, for example. (Who would unlock it?) Instead, we plan 
+to use an increasing delay mechanism. The first invalid login will wait one 
+second before notifying the user of the failure. The second will wait twice 
+as long, and the third will wait twice as long as that. Of course, someone 
+could modify the source code and recompile to avoid this, but it does raise 
+the barrier a bit.
+
+
+
+
+Server Security (Overview)
+
+The server has five basic responsibilities:
+1. Accept bulletins from clients, and store them
+2. Send stored bulletins to clients (not necessarily the author)
+3. Mirror bulletins to/from other servers
+4. Make the bulletins available to Amplifiers
+5. Serve as an escrow/archive for client keys and/or passwords
+
+All server communication takes place using the XMLRPC protocol over 
+HTTP. This requires all data (e.g. bulletins) to be encoded as 7-bit ASCII 
+text. As described above, bulletins are already UTF-8 text, and thus can be 
+embedded in an XMLRPC packet with no trouble.
+
+Each Martus Server will have to have a trusted SSL certificate. This will 
+allow all secure transactions to use SSL (https). Since private bulletins 
+are encrypted before they are sent, SSL is primarily used here to 
+authenticate the receiver (server). This gives users confidence that their 
+bulletin was actually saved by the intended server. SSL also encrypts the 
+data, so the public portions will be encrypted once (SSL), and the private 
+portions (if any) will be encrypted twice (Martus, SSL).
+
+[Question: Is there any way to use SSL authentication but NOT encrypt the 
+actual transmitted data? Is there a non-SSL authentication approach that 
+might meet our needs better?]
+
+Bulletins are stored exactly as they were received. They are never decrypted 
+on the server. This means that client keys are never needed by the server to 
+perform normal daily activities.
+
+Searches of bulletin data may be permitted, but only of public portions. If 
+a client wishes to search private portions of their own bulletins, they would 
+have to download them to their client machine first, and do a decrypted 
+search there.
+
+When bulletins are forwarded to an Amplifier, the private portions are 
+omitted (and competely private bulletins are never sent at all). This 
+provides a small amount of additional security, because someone with access 
+to the Amplifier's data would not be able to use a brute force approach 
+(with unlimited time) to try to break into an encrypted bulletin. Note, 
+however, that this approach could still be used on Server data, so the 
+benefit is small.
+
+When bulletins are sent back to the account that originally sent them, they 
+are sent back exactly as received. If bulletins are sent to other accounts 
+(such as to implement limited Amplifier functionality on a client), the 
+private portions are stripped out. Private bulletins will only be sent back 
+to the originating account.
+
+We need the ability for a client to authenticate a server, a server to 
+authenticate a client, and a server to authenticate another server. It 
+would be reasonable for each server to buy a standard certificate (e.g. 
+Verisign), but not for each client to do so. If client certificates are 
+required, we would need to explore other options, such as 1) Martus.org 
+issuing certificates, or 2) Persuading an existing certificate-issuing 
+authority to issue free or very-low-cost certificates to Martus clients. 
+
+[Question: Could they issue a non-standard certficate that would ONLY 
+be of any use to the Martus software?]
+
+We have discussed password and key backup schemes, but do not have any 
+detailed design. Here are some ideas:
+
+1. Allow (or require) users to store their primary private key on one or 
+more servers. We would need to ensure extremely tight security, because 
+anyone who obtains the private key would be able to forge signatures, 
+in addition to viewing private data.
+
+2. Allow users to store a readonly private key on one or more servers. 
+This key would allow viewing of encrypted data, but not signing. This 
+is probably the safest approach. If a user lost their private key, this 
+would still allow them to view their data, but they would have to set 
+up a new Martus account to generate additional bulletins.
+
+3. Allow users to store their password (or password digest) on one or 
+more servers, in encrypted form. The risk is slightly lower here, because 
+obtaining a password is only helpful if you also have access to an 
+encrypted copy of the associated private key.
+
+4. Allow users to use a key share feature to distribute portions of 
+their private key to multiple parties (not necessarily Martus servers). 
+They key could be reassembled by combining some fraction of the portions 
+(e.g. any three of the seven parts).
+
+
+
+
+Details of Bulletin Encryption
+
+The bulletins themselves will be stored encrypted (ciphered) with a 
+binary key that it not in any way related to a password. So if someone 
+obtains just a ciphered bulletin (perhaps off of a server), knowing 
+(or guessing) a password will not help. 
+
+An attacker could either try brute force to break the cipher key 
+(impractical with today's technology), or they could work at the next 
+level up (described in the next paragraph).
+
+Each bulletin will contain a copy of the cipher session key itself, 
+encrypted using the author's public key pair. So someone could use brute 
+force to try to guess the private key (impractical with today's technology), 
+or they could move to the next level.
+
+The private key is stored on the user(s)' computer(s). It is encrypted 
+using a hash ("digest") of the current password (neither the password 
+itself, nor the digest value itself, are stored on the computer). So 
+someone here could use brute force to guess the hash, IF they have access 
+to the client computer's data files. 
+
+Guessing the hash directly is impractical with today's technology, but 
+someone could perform a dictionary attack to indirectly discover the 
+digest value. The effectiveness of this approach would depend directly on 
+the quality of the password selected by the user. Or an attacker could 
+move to the next (final) level, which is probably the most vulnerable.
+
+The final level would be to [somehow] obtain the password itself. Since 
+the password itself is not stored on disk (neither is its digest), it 
+would have to be obtained from the user. This might by through the use 
+of physical force, trickery, technological snooping, or just exploiting 
+carelessness on the part of the user (e.g. writing down the password).
+
+
+
+
+
+
+Possible Attacks
+
+With Martus, attacks can be broadly grouped based on the intent of the 
+attacker: 1) Obtaining private bulletin data, 2) Obstructing or deleting 
+data, or 3) Altering data after it has been entered. The following list 
+should be seen as just the tip of the iceberg, and not a comprehensive 
+list of all possible attacks.
+
+Many of the attacks below mention brute force. As technology improves, 
+brute force attacks become more practical. The underlying premise with 
+a brute force attack is that you have nearly unlimited time, and that 
+there is no limit to the number of attempts you are allowed. Thus, if 
+the attacker is able to get a copy of encrypted data onto their own 
+computer, brute force attacks become much more likely.
+
+As with almost any system, Martus is vulnerable to non-technical (social) 
+attacks. Some examples would be: 
+
+1. Stealing a password. This might be because it's written down, by 
+watching someone type it in, or through coercion. Users can be tricked into 
+divulging their password, under the guise of authority, technical 
+troubleshooting, etc.
+
+2. Obtaining decrypted data. Users may print copies of their bulletins, 
+including private data. Private data may be copied (pasted) into other 
+documents or applications. Someone could view decrypted data on the 
+computer screen while a legitimate user is operating the system.
+
+3. Unauthorized use of the system. If a user does not log out properly, 
+someone else could walk up and have full use of the system.
+
+There are also technical attacks, of course. These could be launched 
+against the client, the server, or the communication channel. 
+
+Attacks against the client would generally rely on having physical access 
+to the computer. Often these involve installing additional or replacement 
+applications. Theoretically the attack could be launched via a virus, or 
+in some cases by exploting a weakness in other system software (e.g. by 
+breaking in through an IIS or NETBIOS hole.
+
+Some possible client attacks include:
+
+1. A trojan horse program could simulate the Martus login screen, actually 
+sending the password information to the attacker. 
+
+2. A keyboard interception utility could silently record all keystrokes, 
+including the password and all private data. This is one form of "snooping".
+
+3. A modified version of Martus could look exactly like the real thing, but 
+could compromise any or all of the data in a variety of ways. Or it could 
+corrupt or destroy data. This modification could take place at a source 
+code level, or by directly modifying .class or .jar binary files. 
+[NOTE: I think this is a significant technical weakness of the system]
+
+4. A brute force password attack could be used to try to gain entry into 
+the Martus software. This would be especially effective if the user has 
+chosen a short, common, or dictionary-based password.
+
+5. A brute force decryption attack against the Martus data file could be 
+used to try to gain access to the private bulletin data.
+
+6. The Martus data file could be deleted, or the drive physically damaged, 
+causing the loss of any bulletins that have not been sent to a server.
+
+7. A program could attempt to determine the private key by directly 
+attacking the file it is stored in.
+
+8. A malicious JVM or Java class loader could corrupt data, or be used to 
+access plaintext versions of encrypted data.
+
+9. Retrieving deleted files. This would give an attacker access to old 
+versions of encrypted data, upon which a brute-force attack could be tried.
+
+10. While Martus is running, the system RAM, and virtual memory swap file 
+will contain unencrypted private data. A program could scan memory or the 
+swap file to retrieve sensitive data. These are forms of "snooping".
+
+11. Someone could create a file containing badly translated strings for a 
+given language. The result might be a confusing interface, or one that is 
+obscene, offensive, or comical. This could impede work, or attempt to make 
+Martus itself look bad.
+
+12. Electronic surveillance. There are stories of eavesdropping on 
+computers using internal bugs or external antennas. Supposedly computers 
+broadcast signals that could be used to reproduce what is being shown on 
+the CRT, or typed on the keyboard.
+
+Server-based attacks would be more likely to try to corrupt or destroy 
+data. Most of these attacks would rely on the attacker either running a 
+server, or breaking into a server (physically or via a network) to modify 
+the software in some way.
+
+1. A malicious server could claim to be storing and forwarding bulletins, 
+but in reality could just delete them.
+
+2. A brute-force attack against server data could be used to try to decrypt 
+private bulletin data.
+
+Attacks at the communication level are numerous and varied.
+
+1. Denial of service. A steady blast of network traffic aimed at a server 
+can prevent legitimate users from getting through.
+
+2. Man-in-the-middle. A computer could establish itself between a client 
+and server, or between two servers, forwarding all traffic in both 
+directions. It would then have access to all the data, and could use 
+brute force approaches to try to decrypt private bulletin data. 
+
+3. Falsified certificates. If a client or server can be persuaded to trust 
+a false certificate, the attacker could receive data, and either discard 
+it, or attempt to decrypt it using brute force.
+
+4. A malicious client or server could attempt to overload another server 
+by sending large amounts of valid, but useless data.
+
+5. A malicious client could attempt to gain access to server data.
+
+The PGP attack FAQ (see references, below) describes possible attacks 
+against a system like Martus. The conclusion is that brute force and 
+related attacks are generally not very effective. The easiest attacks 
+include prying the password out of a user, "snooping" through memory 
+or virtual memory, or installing a malicious version of the software.
+
+There are several possible targets of a brute force attack:
+1. The symmetric encryption of a bulletin using a session key
+2. The asymmetric encryption of the session key for a bulletin
+4. The symmetric encryption of the private key
+5. The message digest encryption of the passphrase
+
+Assuming we use a 128 bit symmetric session key to encrypt each 
+bulletin, this should be relatively secure. Attackers would be unlikely 
+to attempt a brute force decryption.
+
+Breaking the asymmetric encryption of the session key may be the 
+easiest crypto attack. A common key size today is 512 bits, but that 
+could be broken by an organization with modest means. We should use 
+at least 1024 bits, and preferably 2048. Note: a 2048 bit asymmetric 
+key is approximately as secure as a 128 bit symmetric key.
+
+The symmetric encryption of the private key should be relatively 
+secure, assuming we use a good 128 bit key.
+
+The security of the message digest encryption of the passphrase depends 
+heavily on the size and randomness of the passphrase itself. A pure 
+brute force mathematical attack would not be feasible with today's 
+technology, so an attack would probably rely on dictionary searches 
+and other ways to reduce the search space. 
+
+A poor passphrase greatly reduces the search space, dramatically 
+reducing the time required to break in. To be reasonably secure, a 
+passphrase would have to exceed one of the following:
+- approximately 100 characters of native language phrase(s) (but not 
+  common phrases, since Tens of thousands of possible common phrases 
+  could be tried within a couple days on cheap hardware.)
+- approximately 8 *purely* random native words 
+- approximately 28 *purely* random ASCII characters (letters, digits, 
+  and punctuation)
+
+These requirements seem like a huge burden on our users, and we should 
+look for ways to help. Perhaps we should require two or three different 
+passphrase fields, and encourage users to use unrelated topics, with 
+weird capitalization and symbols.
+
+Of course, the typical tradeoff is that a more secure (difficult to 
+remember) passphrase will probably be written down, completely negating 
+any improved security. The same is true for password expiration: the 
+more often a user must change the password, the more likely it is that 
+they will write it down near the computer.
+
+
+
+Other Issues
+
+There are other ways to lose data (besides attacks):
+
+1. Software and hardware failures. Data that has been entered but not yet 
+saved to disk is always vulnerable. Data on disk that has not yet been 
+backed up is vulnerable. Data that has not been backed up off-site (such 
+as to a server) is vulnerable.
+
+2. The user could delete the Martus data file, losing any bulletins that 
+had not been backed up.
+
+3. Forgotten password. Without the password, there is no way to view any 
+private bulletin data.
+
+4. The file(s) containing the encrypted private key could be deleted. 
+Without the private key, there is no way to view any private bulletin data.
+
+Certain organizations may have specific requirements for encryption. Some 
+of these include:
+
+1. Wanting to provide a read-only key to a government agency, that would 
+allow the government to see what has been written, but not to change it.
+
+2. Not using any encryption.
+
+3. Using an anonymizing service to connect to the server.
+
+4. Being able to reconstruct a private key
+
+
+
+
+Terminology
+
+Account: A single person or reporting organization. [Question: Need to get 
+more precise about account, person, organization, client (software), and 
+client (computer).]
+
+Asymmetric cipher: Encryption using a public/private key pair. If the data 
+was encrypted with the private key, it can be decrypted with the public key. 
+If it was encrypted with the public key, it can only be decrypted with the 
+private key.
+
+Base64: A method used to encode binary data as 7-bit ASCII text.
+
+Bulletin: A single incident report. This is the core unit of Martus data, and 
+it consists of a globally unique ID, plus a number of field name/value pairs.
+
+Certificate: A packet of data that is signed by a well-known entity such as 
+Verisign. A certificate can be used to verify an identity, as long as you 
+trust the issuing entity and can verify that their public key actually works 
+on the certificate.
+
+Draft Status: While a bulletin is being created, it can be saved as a draft. 
+This means it can be further edited.
+
+Folder: A list of bulletin ids on a given computer. Typically this allows 
+Martus Client users to organize their bulletins.
+
+JVM: Java Virtual Machine. The run-time Java interpreter software.
+
+Martus Amplifier: An HTML web server that allows bulletins to be searched and 
+viewed by people other than the original authors.
+
+Martus Client: The standalone Java app that an organization uses to enter, view, 
+and manage bulletins.
+
+Martus Server: A backend server that is connected to the internet, and which 
+communicates directly with Martus Clients. It does not have an HTML web 
+interface. A server is responsible for receiving and sending bulletins to 
+Martus Clients, and for storing and mirroring bulletins.
+
+Message Digest: A hash value computed from a block of text. MD5 is the most 
+common algorithm, but SHA-1 is newer and preferred. Either can be used as a 
+one-way-only encryption method to store passwords. You can compare a stored 
+password with an entered password, but cannot retrieve the actual password 
+from the digested version. Message Digests are also used internally as part 
+of the digital signing process (see "Signed").
+
+Password (or Passphrase): A user-selected string that is used for system 
+signin authentication.
+
+Plaintext: Completely open, non-encrypted text.
+
+Private Portions: Those portions of a bulletin which are only viewable by the 
+original author.
+
+Public Portions: Those portions of a bulletin which may be viewed by anyone.
+
+Sealed Status: After a user enters all the details into a bulletin, they seal 
+that bulletin to prevent further modifications. The prevents anyone from 
+tampering with the bulletin. Even the author is prevented from updating the 
+bulletin, to protect the data in case a private key is compromised.
+
+Server Policies: Settings that configure which clients a server will accept 
+uploads from, maximum sizes of uploads, mirroring rules, etc.
+
+Session Key: A private key intended to be used just one time. This might be 
+to encrypt a single bulletin, or for a single HTTPS conversation.
+
+Signature: A digital signature, ensuring both authentication, and integrity. 
+This ensures that the signed data was actually signed by a the entity who 
+claims it, and that it has not been modified after it was signed, Note that 
+data does NOT need to be encrypted to be signed.
+
+System Signin: Successfully entering a username and password into the Martus 
+Client software. This act gives the user full access to all the features of 
+the application, and to all bulletins created by that account.
+
+Symmetric cipher: Encryption using a single, private key.
+
+Unicode: A modern system of storing data that allows every character from 
+virtually any language, past or present, to be stored in a single, unambiguous
+format.
+
+Username: A user-selected name or account identifier. The only purpose of the 
+username is for system signin authentication (along with a passphrase).
+
+UTF-8: A way to store Unicode text in 8-bit chunks. It is backward-compatible 
+with 7-bit ASCII codes, and uses multi-byte characters to represent other symbols.
+
+
+
+References
+
+http://www.pgpi.org/doc/pgpintro/ is an excellent introduction to cryptography, 
+covering most of the terminology used here. They go into gory detail about 
+certficates and trust relationships, which (I think) are less important to 
+Martus.
+
+http://axion.physics.ubc.ca/pgp-attack.html describes (in gory detail) various 
+attacks possible against the PGP utility. Most of them would apply to Martus as 
+well. 

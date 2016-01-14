@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="settingTabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab id="serverTab" fx:id="serverTab" text="%RecordLocationServerTab">
+      <content>
+        <AnchorPane fx:id="serverContentPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+    <Tab id="systemTab" fx:id="systemTab" text="%SystemTab">
+      <content>
+        <AnchorPane fx:id="systemContentPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+    <Tab id="torTab" fx:id="torTab" text="%TorTab">
+	  <content>
+	    <AnchorPane fx:id="torContentPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+	  </content>
+	</Tab>
+  </tabs>
+</TabPane>

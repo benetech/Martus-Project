@@ -1,0 +1,130 @@
+Go to 
+https://sourceforge.net/projects/martus
+
+If that link doesn't work use http://sourceforge.net/ 
+Log in using "benetech" and the password given.  
+
+
+Occasionally when you log in it will ask you to change the password.  
+Change this to some temp password then you can go in to Account/Account Options and 
+scroll down to change password to reset it back to the Benetech password which 
+Scott has saved in the safe at Benetech.
+If you have to request a password change the password will go to sourcebenetech@benetech.org
+
+ 
+"Martus (TM) Human Rights Bulletin System 
+<http://sourceforge.net/projects/martus>  (registered 2002-12-17 12:04)"
+Click on "Files"
+
+ 
+File Manager System
+click on "Martus" or "Martus Server" to expand it 
+ 
+Create a File Release
+Right click on "Martus" folder and select 'New Folder': (type in version # eg. "3.3.2")
+ 
+You can now easily delete folders by right clicking on them and selecting 'delete'
+
+Step 1:   Obtain the source file(s) to be uploaded
+
+The source zip file and its corresponding SHA1 (.sh1) file is 
+contained in the ISO image as part of the Martus release, 
+so you can download the ISO file and retrieve it from there.
+
+DO NOT just use the files from the build machine, 
+as another build may have been performed after the release build, 
+so the source code may have changed.
+
+Better way is to download the ISO's directly from the HRDag Network
+https://hrdag.benetech.org/martus-client/Releases/Build/1977/ is 3.6.1
+You will need a user name / password to connect to this Network.
+Then burn the ISO to a CD rom then go and get the src zip file from the Source's directory on the CD rom.
+Or get the souces and sha1 directly from the HRDAG build directory and upload these.
+
+Step 2:   Add Files To This Release
+
+Right click on the folder you just created and select 'Upload Here'
+You will get confirmation that the new files uploaded will go into the correct release folder.
+Now scroll back up to the top of the page and click on 'Upload File' right under the 
+File Manager Header. 
+
+martus-client-3.3.2-src.zip
+martus-client-3.3.2-src.zip.sh1 (may need to creat this using LLMD5Sum program (remember to switch to SHA1)
+Instructions_Converting_CSV_to_Martus_Bulletin-v332.zip (I usuaully download the previous version then change the version # in the zip file name)
+
+Step 3: Selecting this zip to be the default download
+
+After you create the directory for the version #
+Eg. 3.6.1
+Then click on that directory then click on the button to "Add Files"
+Select the zip and the zip.sh1 files and upload both.
+Then click on the zip files i (View Details) button after files have been uploaded and select All for the Default Download for Platforms
+ 
+Step 4: Setting up NEWS
+
+Click on 'Develop' then 'News'
+
+To edit existing News click on 'Admin' where you can hide news or change what is displayed.
+
+To add new News click on 'Submit' and type in a subject line such as 'Martus Client 3.3.2 Released'
+Then add the details you want posted.
+You can even have this posted on Submit my news to the Slashdot.org Firehose by checking the checkbox.
+
+ 
+Eg: 
+
+Summary: 
+"Martus Client 3.3 Released"
+
+The description you can grab from the Martus website:
+Eg:
+"
+This release includes the ability to view image attachments directly inside bulletins, and new "batch update" features for more efficient processing of groups of bulletins at once (e.g. option to add a new Headquarters account or seal draft bulletins in bulk). The full release notes and download of the new version are available here. 
+ 
+Martus 3.3 is available in English and Spanish, with "Language Packs" placed on  
+http://www.martus.org/downloads as they become available.
+"
+
+ 
+You get the Change Log from the Readme file
+i.e.
+--------------------------------------------------------
+A. Changes from version 3.0 to version 3.1
+...
+B. Changes from version 2.9 to version 3.0     
+...
+
+If you are curious, the following URL contains information 
+about how to determine if the Winsock 2.0 components are 
+installed on a Microsoft Windows 95 platform:
+
+http://support.microsoft.com/support/kb/articles/Q177/7/19.asp
+--------------------------------------------------------
+
+You get the Release Notes from the Readme file, everything but the Change Log 
+goes in the Release Notes.  Also remove any header info which is not needed. 
+Click on "Submit/Refresh"
+i.e.
+--------------------------------------------------------
+See http://www.martus.org for information about Martus 
+software.
+
+See the Martus User Guide for instructions on installing the 
+Martus software. 
+
+For all current translations of the user documentation, as well 
+as documentation for previous versions in various languages, 
+go to http://www.martus.org/downloads/.  
+--------------------------------------------------------
+
+Step 5:   Email Release Notice
+ 
+Not sure if this is done automatically now when you add new files/news.
+ 
+ 
+Step 5: Verify Release
+
+Click on 'Summary' 
+
+Verify the new files are able to be downloaded and the latest news is posted.
+

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="105.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<top>
+		<HBox alignment="CENTER_RIGHT" styleClass="menu-bar" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<MenuBar fx:id="global_menu">
+					<menus>
+						<Menu mnemonicParsing="false" text="%Menu.Settings">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#onConfigureServer" text="%Menu.ServerSettings" />
+								<MenuItem mnemonicParsing="false" onAction="#onSystemPreferences" text="%Menu.SystemPreferences" />
+								<MenuItem mnemonicParsing="false" onAction="#onTorPreferences" text="%Menu.TorPreferences" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" styleClass="menu-item" text="%Menu.Account">
+							<items>
+							<MenuItem mnemonicParsing="false" onAction="#onAccountInformation" styleClass="menu-item" text="%Menu.AccountInformation" />
+							<MenuItem mnemonicParsing="false" onAction="#onContactInformation" styleClass="menu-item" text="%Menu.AuthorInformation" />
+                        <MenuItem mnemonicParsing="false" onAction="#onManageContacts" text="%Menu.ManageContacts" />
+							<MenuItem mnemonicParsing="false" onAction="#onBackupKeypair" styleClass="menu-item" text="%Menu.KeyBackup" />
+							<MenuItem mnemonicParsing="false" onAction="#onDeleteMyData" styleClass="menu-item" text="%Menu.DeleteAccount" />
+							</items>
+						</Menu>
+                  <Menu mnemonicParsing="false" text="%Menu.Analysis">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#onReports" text="%Menu.Reports" />
+                        <MenuItem mnemonicParsing="false" onAction="#onCharts" text="%Menu.Charts" />
+                        <MenuItem mnemonicParsing="false" onAction="#onAdvanceSearch" text="%Menu.search" />
+                    </items>
+                  </Menu>
+					</menus>
+				</MenuBar>	
+				
+			</children>
+		</HBox>
+	</top>
+	<center>
+		<BorderPane prefHeight="64.0" prefWidth="997.0">
+			<top>
+				<VBox prefHeight="38.0" prefWidth="1012.0" style="-fx-background-color: #e6e6e6;">
+					<VBox.margin>
+						<Insets bottom="1.0" top="1.0" />
+					</VBox.margin>
+					<children>
+						<GridPane hgap="5.0" prefHeight="38.0" prefWidth="1085.0">
+							<columnConstraints>
+								<ColumnConstraints hgrow="NEVER" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
+								<ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+								<ColumnConstraints hgrow="NEVER" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
+								<ColumnConstraints hgrow="NEVER" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" />
+							    <ColumnConstraints hgrow="ALWAYS" />
+							</columnConstraints>
+							<children>
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="332.0">
+                           <children>
+      								<ImageView fitHeight="28.0" onMouseClicked="#onLogoClicked" pickOnBounds="true" preserveRatio="true">
+      									<image>
+      										<Image url="@../../dialogs/Martus-logo-black-text-120x54.png" />
+      									</image>
+      								</ImageView>
+                           </children>
+                        </HBox>
+                         <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="8.0" GridPane.columnIndex="1">
+                           <children>
+      								<Button mnemonicParsing="false" onAction="#onCreateNewBulletin">
+      									<font>
+      										<Font name="Helvetica" size="14.0" />
+      									</font>
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/create.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip anchorLocation="WINDOW_TOP_LEFT" text="%Tooltip.CreateNewRecord" />
+                                 </tooltip>
+                                 <styleClass>
+                                    <String fx:value="toolbarButton" />
+                                    <String fx:value="button-minpadding" />
+                                    <String fx:value="button-transparentWithHover" />
+                                 </styleClass>
+      								</Button>
+                           </children>
+                        </HBox>
+ 								<HBox alignment="CENTER_RIGHT" styleClass="toolbarHBox" GridPane.columnIndex="2">
+									<children>
+										<Label contentDisplay="CENTER" styleClass="toolbarLabel" text="%serverWithColon" />
+										<Button fx:id="toolbarButtonOnline" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onOnline">
+                                 <graphic>
+                                    <ImageView fx:id="toolbarImageViewOnline" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/toggle_off.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip anchorLocation="WINDOW_TOP_LEFT" />
+                                 </tooltip>
+                                 <styleClass>
+                                    <String fx:value="toolbarButton" />
+                                    <String fx:value="button-minpadding" />
+                                    <String fx:value="button-transparentNoHover" />
+                                 </styleClass></Button>
+									</children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+								</HBox>
+ 						<HBox alignment="CENTER_RIGHT" styleClass="toolbarHBox" GridPane.columnIndex="3">
+									<children>
+										<Label styleClass="toolbarLabel" text="%Tor" />
+ 										<Button fx:id="toolbarButtonTor" mnemonicParsing="false" onAction="#onTor">
+                                 <graphic>
+                                    <ImageView fx:id="toolbarImageViewTor" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/toggle_off.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip anchorLocation="WINDOW_TOP_LEFT" />
+                                 </tooltip>
+                                 <styleClass>
+                                    <String fx:value="toolbarButton" />
+                                    <String fx:value="button-minpadding" />
+                                    <String fx:value="button-transparentNoHover" />
+                                 </styleClass></Button>
+                           			</children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="4" GridPane.rowSpan="2147483647">
+                           <children>
+      								<TextField fx:id="searchText" maxWidth="500.0" minWidth="150.0" prefWidth="500.0" style="-fx-background-radius: 0px;" />
+      								<Button alignment="CENTER_RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#onQuickSearch" textAlignment="CENTER">
+      									<font>
+      										<Font name="Helvetica" size="14.0" />
+      									</font>
+      									<opaqueInsets>
+      										<Insets />
+      									</opaqueInsets>
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" styleClass="labelLeftRightPadding">
+                                       <image>
+                                          <Image url="@../images/search.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip anchorLocation="WINDOW_TOP_LEFT" text="%Tooltip.QuickSearch" />
+                                 </tooltip>
+                                 <styleClass>
+                                    <String fx:value="toolbarButton" />
+                                    <String fx:value="button-minpadding" />
+                                    <String fx:value="button-transparentWithHover" />
+                                 </styleClass>
+      								</Button>
+                  
+                  				<Button mnemonicParsing="false" onAction="#onHelpMenu">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/help.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip anchorLocation="WINDOW_TOP_LEFT" text="%Tooltip.Help" />
+                                 </tooltip>
+                                 <styleClass>
+                                    <String fx:value="toolbarButton" />
+                                    <String fx:value="button-minpadding" />
+                                    <String fx:value="button-transparentWithHover" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                        </HBox>
+							</children>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                     <opaqueInsets>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </opaqueInsets>
+						</GridPane>
+					</children>
+				</VBox>
+			</top>
+			<center>
+				<BorderPane>
+					<left>
+						<StackPane fx:id="sideContentPane" />
+					</left>
+					<center>
+						<BorderPane>
+							<top>
+								<HBox alignment="CENTER_LEFT">
+   <children>
+               	        			<Label fx:id="titleBarCaseNameBeingShown" styleClass="headingLevel2" text="" />
+                              <Label fx:id="titleBarNumberOfRecordsBeingShown">
+                                 <styleClass>
+                                    <String fx:value="labelLeftRightPadding" />
+                                    <String fx:value="headingLevel2" />
+                                 </styleClass>
+                              </Label>
+               	        			<Button fx:id="closeCurrentViewButton" mnemonicParsing="false" onAction="#onCloseCurrentView" styleClass="toolbarButton" text="%Button.close">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+   </children>
+            	        		</HBox>	
+							</top>
+							<center>
+								<StackPane fx:id="mainContentPane" />
+							</center>
+						</BorderPane>
+					</center>
+				</BorderPane>
+			</center>
+		</BorderPane>
+	</center>
+</BorderPane>

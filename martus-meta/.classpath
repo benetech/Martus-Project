@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/martus-utils"/>
+	<classpathentry kind="src" path="/martus-client"/>
+	<classpathentry kind="src" path="/martus-common"/>
+	<classpathentry kind="src" path="/martus-server"/>
+	<classpathentry kind="src" path="/martus-amplifier"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/martus-clientside"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/martus-swing"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/libext/JUnit/bin/junit-4.11.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

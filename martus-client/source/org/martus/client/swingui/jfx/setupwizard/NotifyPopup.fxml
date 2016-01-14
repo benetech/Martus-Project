@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<StackPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <VBox id="fxGridPane" alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefHeight="235.0" prefWidth="572.0">
+      <children>
+        <Label fx:id="fxLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="133.0" prefWidth="558.0" text="" textAlignment="CENTER" wrapText="true" />
+        <CheckBox fx:id="hideForSessionCheckBox" visible="FALSE" mnemonicParsing="false" text="%DoNotShowAgainThisSession" />
+        <HBox id="fxLowerHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" >
+          <children>
+            <Button fx:id="fxOkButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#okPressed" prefHeight="42.999900000002526" prefWidth="148.0" text="" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

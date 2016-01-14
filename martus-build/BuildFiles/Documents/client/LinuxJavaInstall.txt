@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# LinuxJavaInstall.txt
+
+# run this script to install Sun Java from the Martus CD, by running
+# the following command (preferably as root):
+#	bash LinuxJavaInstall.txt
+
+# ----------------------------------------------------------------------------
+# functions
+# ----------------------------------------------------------------------------
+
+error() { echo -e "\n$*\n" >&2; exit 1; }
+
+# ----------------------------------------------------------------------------
+
+# mount Martus CD ROM, put its path into $mount
+set_mount() {
+	mount=/mnt/cdrom
+	[ -d $mount ] || mount=/cdrom	# for Debian and etc
+	[ -d $mount ] || error "can't found CD mount point"
+
+	[ -d $mount/[jJ]ava ] || mount -r $mount
+	[ -d $mount/[jJ]ava ] ||
+	   error "couldn't mount Martus CD; try running this script as root"
+}
+
+# ----------------------------------------------------------------------------
+
+# 'cd' to a location where java can be installed, and save old java symlink
+cd_to_java_parent_dir() {
+	for dir in /opt /usr/local /usr $HOME
+	   do  [ -d $dir -a -w $dir ] && cd $dir && break
+	done
+
+	if [ -a java -o -L java ]
+	   then rm -rf  java-
+		mv java java-
+	fi
+}
+
+# ----------------------------------------------------------------------------
+
+# make 'java' be a symlink to the newest installed version
+setup_java_symlink() {
+	set -- j2re???*
+	eval ln -s \${$#} java
+}
+
+# ----------------------------------------------------------------------------
+
+# setup PATH to find newly-installed java
+setup_PATH() {
+	if [ -w /etc/profile.d ]
+	  then file=/etc/profile.d/z-java
+	elif [ -w /etc/profile ]
+	  then file=/etc/profile
+	elif [ -w $HOME/.bash_profile ]
+	  then file=$HOME/.bash_profile
+	  else file=$HOME/.profile
+	fi
+	echo "PATH=`pwd`/java/bin:\$PATH export PATH" >> $file
+	PATH=`pwd`/java/bin:$PATH export PATH
+
+	echo -e "\nRun the following command to put java into your PATH:"
+	echo -e "\n  PATH=$PATH export PATH"
+	echo -e "\n(otherwise, you can just logout and log back in)."
+}
+
+# ----------------------------------------------------------------------------
+# main program
+# ----------------------------------------------------------------------------
+
+set_mount
+
+cd_to_java_parent_dir
+
+# run the Sun installer
+sh $mount/[jJ]ava/*[lL]inux/i?86/j2re-*-linux-i?86.bin
+
+setup_java_symlink
+
+setup_PATH

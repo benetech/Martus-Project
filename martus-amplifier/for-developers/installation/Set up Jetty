@@ -1,0 +1,16 @@
+
+Copy the following jars to your java jre/lib/ext
+
+martus-amplifier/buildfiles/jars/
+ant.jar
+jasper-runtime.jar
+jasper-compile.jar
+servlet.jar
+
+modify the code 
+server.addWebApplication("/","c:/eclipseworkspace/martus-amplifier/presentation/");
+TODO:: remove hardcoded directory path to a config file read in at runtime.
+
+
+To Run Jetty run the java app.
+martus-amplifier.source.org.martus.amplifier.main.JettyAmplifier

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane id="MainAnchorPane" maxHeight="-Infinity" maxWidth="660" minHeight="-Infinity" prefWidth="660" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <BorderPane>
+      <center>
+        <VBox prefWidth="635.0" BorderPane.alignment="CENTER">
+          <children>
+            <VBox maxWidth="635" prefWidth="635" styleClass="mainTextBox">
+               <children>
+                 <Label styleClass="headingLevel1" text="%DisplaySettings" />
+                 <Label text="" />
+                 <GridPane vgap="10.0">
+                   <children>
+                     <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="185.0" spacing="0.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                       <children>
+                         <Label alignment="CENTER" contentDisplay="CENTER" styleClass="headingLevel3" text="%mdyOrder" />
+                       </children>
+                       <padding>
+                         <Insets right="10.0" fx:id="x1" />
+                       </padding>
+                     </HBox>
+                     <ChoiceBox fx:id="dateFormatSequenceDropDown" prefWidth="175.0" GridPane.columnIndex="1" />
+                     <HBox alignment="CENTER_RIGHT" padding="$x1" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                       <children>
+                         <Label styleClass="headingLevel3" text="%DateDelimiter" />
+                       </children>
+                     </HBox>
+                     <ChoiceBox fx:id="dateDelimeterComboBox" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                   </children>
+                   <columnConstraints>
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" prefWidth="194.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" prefWidth="370.0" />
+                   </columnConstraints>
+                   <rowConstraints>
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                   </rowConstraints>
+                 </GridPane>
+               </children>
+            </VBox>
+          </children>
+        </VBox>
+      </center>
+      <top>
+        <VBox prefHeight="200.0" styleClass="notMainTextBox">
+           <children>
+             <VBox maxWidth="635" prefHeight="200.0" prefWidth="635" styleClass="mainTextBox">
+                <children>
+                  <HBox prefWidth="660.0">
+                    <children>
+                      <Label styleClass="headingLevel1" text="%TorSettings" />
+                      <Label prefWidth="15.0" text="" />
+                      <Hyperlink onAction="#OnLinkTorProject" prefHeight="28.0" text="torproject.org" underline="true" />
+                    </children>
+                  </HBox>
+                  <Label text="" />
+                  <HBox prefHeight="144.0" prefWidth="561.0">
+                    <children>
+                      <Label prefWidth="100.0" styleClass="headingLevel3" text="%UseTor" />
+                      <Pane fx:id="switchButtonPane" prefHeight="40.0" prefWidth="80.0" />
+                      <Label prefWidth="490.0" styleClass="mainTextBoxText" text="%PreferencesWhyUseTor" wrapText="true" />
+                    </children>
+                  </HBox>
+                </children>
+             </VBox>
+           </children>
+        </VBox>
+      </top>
+         <bottom>
+            <VBox styleClass="mainTextBox" BorderPane.alignment="CENTER">
+               <children>
+                  <Label styleClass="headingLevel1" text="%RecordSettings" />
+                  <CheckBox fx:id="alwaysImmutableOnServer" mnemonicParsing="false" text="%NeverDeleteVersionOnServer">
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_LEFT" text="%Tooltip.NeverDeleteFromServer" />
+                     </tooltip></CheckBox>
+               </children>
+            </VBox>
+         </bottom>
+    </BorderPane>
+  </children>
+</AnchorPane>

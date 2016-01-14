@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="MainAnchorPane" maxHeight="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+                <Pane fx:id="contentPane" maxHeight="-Infinity" prefHeight="500.0" />
+                <BorderPane >
+                  <left>
+                    <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBack" text="%Button.GoBack" BorderPane.alignment="CENTER_LEFT" />
+                  </left>
+                  <right>
+                    <Button id="" fx:id="nextButton" mnemonicParsing="false" onAction="#onNext" text="%Button.Continue" BorderPane.alignment="CENTER_RIGHT" />
+                  </right>
+                </BorderPane>
+  </children>
+</AnchorPane>

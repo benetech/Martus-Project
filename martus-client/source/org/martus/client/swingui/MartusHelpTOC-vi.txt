@@ -1,0 +1,66 @@
+﻿1. Giới Thiệu Phần Mềm Martus™
+1a. Martus™ là gì?
+1b. Tại sao an ninh rất quan trọng khi sử dụng Martus?
+1c. Làm sao Martus giữ dữ liệu cho an toàn?
+1d. Một cá nhân phải làm gì để giữ dữ liệu cho an toàn?
+1e. Những giới hạn về an ninh của Martus?
+1f. Tại sao gửi bản tin đến máy chủ?
+1g. Tại sao Martus là một ứng dụng nguồn mở?
+2. Bắt Đầu
+2a. Cài đặt
+2b. Gỡ cài đặt
+2c. Cập nhật lên phiên bản mới của Martus (chỉ cho Windows)
+2d. Cập nhật tập tin trình Martus
+2e. Thiết lập tài khoản
+2f. Chọn mật khẩu
+2g. Thiết lập kết nối vào máy chủ
+2h. Thiết lập chọn lựa
+3. Vùng Làm Việc của Martus
+4. Tạo một Bản Tin
+4a. Điền vào các ô trong một bản tin
+4b. Tùy biến các bản tin của bạn
+4c. Kiểm tra lỗi chính tả trong bản tin
+5. Lưu và Sửa Đổi Bản Tin
+5a. Lưu bản tin niêm kín
+5b. Lưu bản tin nháp
+5c. Tạo phiên bản mới của bản tin niêm kín
+5d. Sửa đổi bản tin nháp
+5e. Loại bỏ bản tin nháp
+5f. Loại bỏ bản tin niêm kín
+5g. Niêm một nhóm bản tin nháp cùng một lúc
+6. Quản Lý Các Bản Tin
+6a. Thư mục mặc định
+6b. Các thư mục khác của Martus tạo ra
+6c. Tạo thư mục
+6d. Loại bỏ và xóa bản tin
+6e. Sắp xếp các bản tin
+6f. Đem bản tin ra bàn làm việc
+6g. Lấy về các bản tin niêm kín
+6h. Lấy về các bản tin nháp
+6i. Lấy về các bản tin của các Liên Hệ
+6j. Xem các phiên bản trước đó của bản tin
+6k. Xem và lưu các đính kèm
+6l. Xem bản tin bị hỏng
+6m. Tìm kiếm bản tin riêng biệt
+6n. In bản tin
+6o. Soạn báo cáo của bản tin
+6p. Soạn biểu đồ của bản tin
+6q. Xuất dữ liệu bản tin ra
+6r. Nhập bản tin vào
+7. Xóa Các Bản Tin và Thông Tin về Tài Khoản của Bạn
+8. Xóa Tất Cả Dữ Liệu của Martus, Kể cả Ứng Dụng
+9. Giữ An Toàn cho Dữ Liệu của Bạn
+9a. Martus giữ an ninh như thế nào
+9b. Sao lưu chìa khóa của bạn
+9c. Phục hồi chìa khóa của bạn
+9d. Cẩn trọng với mật khẩu
+9e. Có thói quen vi tính an toàn
+9f. Chia sẻ dữ liệu riêng của bạn với nhân sự Liên Hệ
+9g. Cho phép các tài khoản khác gửi bản tin của bạn đến máy chủ
+9h. Đổi tên người dùng hoặc mật khẩu
+10. Tùy biến Martus
+10a. Dùng khuôn mẫu trong ô Chi Tiết
+10b. Tùy biến các ô trong bản tin
+10c. Sử dụng Khuôn Mẫu Tùy Biến
+10d. Tùy biến cách hiển thị bản tin
+11. Các Câu Hỏi Thường Gặp

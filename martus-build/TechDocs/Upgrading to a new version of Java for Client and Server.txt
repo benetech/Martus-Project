@@ -1,0 +1,33 @@
+Instructions for bundling Martus with Java.
+Updated March 11, 2015
+
+1.	Download and Install the Windows/Mac SDK version
+    and make sure Eclipse will point to and use in order to build Martus.  
+    We download the SDK for Mac so we can develop with it.
+    We download the SDK for Windows so we can use the JRE sub directory 
+    in the SDK for actual deployment on windows Machines.  
+    During install of the SDK I usually don't install the separate JRE in the 
+    ProgramFiles\Java directory, since we use the jre located in the SDK directory
+
+2.	Copy the text files from 
+	j2sdk1.8.x_XX\jre\ to .\martus-thirdparty\client\Sun\license\
+	Be sure to include the license*.*, Readme.*, COPYRIGHT, and THIRDPARTYLICENSEREADME.txt
+
+3.	Do the same for .\martus-thirdparty\server\Sun\license\ (If updating server at the same time)
+
+4.	Edit the Readme files in 
+	.\martus-thirdparty\client\Sun\Source and 
+	.\martus-thirdparty\server\Sun\Source 
+	adjust the version of Java we are using and update the 
+	URLs to the Sun download site.
+
+5. 	zip the JRE Folder under the Java SDKs .\binary-martus\Installer\BuildFiles\Java redist\Win32\, 
+	We currently name the zip file jre8uxx.zip where xx is the specific build.
+	You must also update the buildfiles/buildfile-martus-client-nsis-zip.rb
+	  	    jre_zip = _('martus-build', 'BuildFiles', 'JavaRedistributables', 'Win32', 'jre8uxx.zip')
+	  
+6.  Do a build on the Build machine and make sure the new Java gets put onto the install CD,
+	you may have to increase the size of disk space on the build machine if Java increased significantly in size.
+
+7.  Tell Scott to update the Java on the Martus Servers. (If updating the server's Java)
+

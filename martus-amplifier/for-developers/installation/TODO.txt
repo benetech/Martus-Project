@@ -1,0 +1,68 @@
+Here are some features/coding tasks I'd like to see done. 
+This list is current as of 9-May-2003.
+
+1. Provide nicer error reporting on the web site, 
+either with JSP pages that are designated error pages, 
+or with the use of the <c:catch> jstl action.
+
+2. Handle concurrency issues between SearchBean and amplifier 
+daemon thread. The daemon thread periodically updates the index. 
+What does this mean if someone performs a search during this time? 
+One scheme is to have two parallel indices/attachment 
+dbs: one for reading and one for writing. When indexing is complete, 
+a shared variable will be changed to point to the new index for reading. 
+Then the more recent index would be copied to the old index, and the 
+variable switched back.
+
+3. Make downloading attachments nicer looking. Right now it's a link to a 
+JSP page which returns the raw bytes of the attachment file. 
+If you do a "Save Target As..." in IE, the default filename is some random
+string of characters. Ideally the default filename should be the 
+attachment label. Maybe we need to use javascript or something to 
+display a file save dialog that has the right default file?
+
+4. Packages. Right now there's kind of a mish-mash of packages. 
+Ultimately I'd like to get rid of the org.martus.amplifier.test package. 
+Tests should be placed in the packages of the classes they test, 
+as is done in the martus code. Same with the 
+org.martus.amplifier.exception package. Also 
+org.martus.amplifier.service.search.api.
+
+5. Singletons. There are still a lot of singleton classes in the code, 
+which give it more of a C procedural feel rather than an object-oriented 
+style. The main thing I worked on was turning the former 
+AttachmentManager and BulletinIndexer classes, which were singletons 
+(or were just composed of static methods), into interfaces with concrete 
+implementations. I believe this has improved the maintainability of the 
+code and has improved unit-test writing. There are still more singleton 
+classes that could be improved in this way.
+
+6. Better exception handling. There are still places in the code where 
+exceptions are "swallowed." That is, they are caught and then logged at 
+too low a level. Exceptions should be thrown up, possibly wrapped in 
+higher-level exceptions as they flow up the stack, until they reach the 
+highest (user) level, where they should be reported and/or logged as 
+appropriate.
+
+7. Factories. Currently there are a number of interfaces with concrete 
+implementations, where the client code has no knowledge of the concrete 
+implementation. But there are places in the code where specific instances 
+are created, and there is knowledge of the concrete implementation. 
+For example, an AttachmentManager is instantiated in two places: 
+once during indexing, and again in the DownloadAttachmentTag. 
+We should concentrate this knowledge in one place by defining factory 
+classes for these interfaces (I'm thinking of AttachmentManager, 
+BulletinIndexer, and BulletinSearcher right now). That way, 
+if/when a new implementation is introduced, one only has to change 
+the factory for the rest of the code to instantiate the correct type.
+
+8. Web page text formatting. Characters outside the Latin-based charset 
+should be tested. Also, newlines in multi-line bulletin fields 
+(such as Summary) are ignored by the HTML renderer, as expected. 
+I'm not sure if this is a problem, but if it is, we'll need to do some 
+translation to HTML tags before putting the raw text on the page.
+
+9. More unit tests.
+
+10. Logging improvements, which goes along with better exception handling.
+

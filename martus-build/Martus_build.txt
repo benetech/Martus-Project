@@ -1,0 +1,110 @@
+How to use the build environment
+--------------------------------
+
+###################
+1- Requirements
+###################
+
+- Build only:
+Cygwin
+Java (currently 1.4.2_11)
+Ant (currently 1.6.2)
+Keystore if running meta tests or creating signed releases 
+
+- If doing client builds/releases also (Windows only for installers):
+NSIS
+sha1sum
+mkisofs
+cdrecord
+MS C++
+
+###########################
+2- Doing a java build ONLY
+###########################
+
+- Set your path so Java bin and Ant bin are included. Below assumes that Ant was installed under C:\apache-ant-1.6.2 and Java under C:\
+1.4.2_12:
+
+PATH=/cygdrive/c/j2sdk1.4.2_12/bin:/cygdrive/c/apache-ant-1.6.2/bin:$PATH
+
+- set up build environment variables (HOMEDRIVE and HOMEPATH are where the martus projects are located and where the build will take place). Below assumes that the martus projects are under E:\CVS\Martus
+
+HOMEDRIVE=e:
+HOMEPATH=CVS\Martus
+CVS_HOME=$HOMEDRIVE/$HOMEPATH
+
+CLASSPATH=$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/common/Ant/bin/ant.jar)
+CLASSPATH=$CLASSPATH\;$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/common/Ant/bin/ant-junit.jar)
+CLASSPATH=$CLASSPATH\;$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/common/PersianCalendar/bin/persiancalendar.jar)
+CLASSPATH=$CLASSPATH\;$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/common/PersianCalendar/bin/icu4j_3_2_calendar.jar)
+CLASSPATH=$CLASSPATH\;$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/client/RhinoJavaScript/js.jar)
+CLASSPATH=$CLASSPATH\;$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/libext/JUnit/bin/junit.jar)
+CLASSPATH=$CLASSPATH\;$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/libext/BouncyCastle/bin/bcprov-jdk14-128.jar)
+CLASSPATH=$CLASSPATH\;$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/build/java-mail/bin/mail.jar)
+CLASSPATH=$CLASSPATH\;$(cygpath -w $HOMEDRIVE/$HOMEPATH/martus-thirdparty/build/java-activation-framework/bin/activation.jar)
+
+export PATH HOMEDRIVE HOMEPATH CVS_HOME CLASSPATH 
+
+- Update the file '$CVS_HOME\martus\build.properties' so that the property 'cvs.home' point to the same location as the CVS_HOME environment variable.
+
+- Run the build from the 'martus\' directory (where all the ant xml files are located)
+
+# build with no tests or signing
+ant -f build-meta.xml nosign.notest.release
+
+# build with no signing. TestAll from meta is not run since it needs signed jars to be successful
+ant -f build-meta.xml nosign.release
+
+# build, jar, sign  & TestAll
+ant -f build-meta.xml release
+
+- The built binaries will be available under the 'martus/dist' directory
+
+##################################################################################
+3- Setting up an environment to do a full build from CVS using the build script
+##################################################################################
+
+- Install ALL of the required tools from step #1
+
+- download from CVS the file CVS/martus/MartusBuild.sh
+
+- Place it in a location where you will be running it from. The MartusBuild script assumes that the directory C:\CVS_HOME will be used for all CVS operations. WARNING: THIS LOCATION WILL BE REARRANGED BY THE BUILD SCRIPT!! VERIFY THAT THIS DIRECTORY IS NOT CURRENTLY USED FOR ANOTHER PURPOSE
+
+- If you want to change the default location for the build you will need to update CVS/martus/MartusBuild.sh script so the HOMEDRIVE & HOMEPATH vars point to the new location. You will also need to update the file CVS/martus/build.properties an update the property cvs.home to the new location.
+
+- Map the location \\Beneserve2\Engineering\Martus to the H: drive
+
+- Verify that the version of the release is indicated in the file CVS/martus/build.properties with the property martus.version 
+
+- Verify that the correct BouncyCastle version is indicated in the file CVS/martus/build.properties with the property bouncycastle.version
+
+- Run the build with the commands:
+
+# to do a build only
+./MartusBuild.sh -t
+
+# to do a build with client releases
+./MartusBuild.sh -tc
+
+- The build with client releases will create all items needed for a client release except the MartusSetupBuilder.exe for the Pieces. This will need to be done manually with Visual C++ 6 by opening the project CVS/binary-martus/Installer/BuildFiles/MartusSetupLauncher/MartusSetup.dsw and compiling it. The MartusSetup.exe will be placed under <CVS>/binary-martus/Installer/BuildFiles/MartusSetupLauncher/release/ . If the version has changed the file <CVS>/binary-martus/Installer/BuildFiles/MartusSetupLauncher/MartusSetup.cpp has filenames and version info that need updating.
+
+#MartusSetupBuilder.exe (Merges the separate download files to one exe. 
+
+-You must update the binary-martus\Installer\BuildFiles\MartusSetupLauncher\MartusSetup.cpp and then using dev studio rebuild a release of MartusSetupBuilder.exe
+-Adjust the following two lines of code in the cpp file above first before you re-compile the code
+//This is the name of the exe before it is split
+#define MARTUS_SETUP_FILENAME_BEFORE	"MartusClient-3_0_exe"
+//This is the name of the exe after it is joined
+#define MARTUS_SETUP_FILENAME_AFTER		"MartusClient-3_0.exe"
+
+Ideally this program should figure out the name of the file to merge on its own
+so this doesn't have to be re-compiled for each release
+
+After you recompile this file then save the file in the MartusReleases Directory for testing.
+
+#Release Candidate for Martus (Adjust the following files and update their version #'s)
+See martus\TechDocs\Install Version Numbers for Martus.txt for more information
+   martus\client\swingui\UiConstants.java
+   martus\build.properties
+   binary-martus\Installer\Win32_NSIS\common\NSIS_Martus_Installer_Details.nsi
+   binary-martus\Installer\BuildFiles\MartusSetupLauncher\MartusSetup.cpp

@@ -1,0 +1,97 @@
+<!-- Ant build file - Needs Ant v1.6.x or later 
+
+The Martus(tm) free, social justice documentation and
+monitoring software. Copyright (C) 2001-2013, Beneficent
+Technology, Inc. (The Benetech Initiative).
+
+Martus is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later
+version with the additions and exceptions described in the
+accompanying Martus license file entitled "license.txt".
+
+It is distributed WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, including warranties of fitness of purpose or
+merchantability.  See the accompanying Martus License and
+GPL license for more details on the required license terms
+for this software.
+
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.
+-->
+<project name="martus-mlp" default="AllLanguages" basedir=".">
+    <description>
+        Martus MLP Build File
+    </description>
+
+    <property name="CLIENTDIR" value="../martus-client/source/org/martus/client/swingui"/>
+    
+  <!-- ================================================================== -->
+  <!-- AllLanguages                                                       -->
+  <!-- ================================================================== -->
+
+	<target name="AllLanguages" description="Create MLP files for all languages">
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="ar"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="arm"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="bur"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="es"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="fa"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="fr"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="km"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="ne"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="nl"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="ru"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="sq"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="th"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="vi"/>
+		</antcall>
+		<antcall target="mlp">
+			<param name="LANGUAGE" value="zh"/>
+		</antcall>
+	</target>
+
+  <!-- ================================================================== -->
+  <!-- mlp                                                                -->
+  <!-- ================================================================== -->
+
+      <!-- create mlp signed jar -->
+      <target name="mlp" description="Create a Signed Martus Language Pack">
+		  <jar jarfile="target/Martus-${LANGUAGE}.mlp" manifest="./BuildFiles/MLP/sealedManifest.txt">
+		  	<fileset dir="${CLIENTDIR}" includes="Martus-${LANGUAGE}.mtf" />
+		  	<fileset dir="${CLIENTDIR}" includes="MartusHelp-${LANGUAGE}.txt" />
+		  	<fileset dir="${CLIENTDIR}" includes="MartusHelpTOC-${LANGUAGE}.txt" />
+		  	<fileset dir="BuildFiles/Documents/client" includes="README_${LANGUAGE}.txt" />
+		  	<fileset dir="BuildFiles/Documents/client" includes="quickstartguide_${LANGUAGE}.pdf" />
+		  	<fileset dir="BuildFiles/Documents/client" includes="martus_user_guide_${LANGUAGE}.pdf" />
+          </jar>
+      </target>
+
+</project>

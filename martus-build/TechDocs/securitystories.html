@@ -1,0 +1,1686 @@
+<html>
+<head>
+<title>Martus Security Stories</title>
+</head>
+<body>
+
+<h1>Martus Security Stories</h1>
+<p>
+Latest revision: Jan 02 2002, Kevin Smith.<br/>
+<strong><em>This document contains confidential and proprietary information of
+the Benetech Initiative.</em></strong>
+</p>
+
+
+<hr/>
+<h3>Introduction</h3>
+<p>
+This document describes Martus client and server security, using XP-style
+stories as a framework. Each story describes some piece of functionality
+that is important to a user. The stories would likely be implemented
+in roughly the order listed here.
+</p>
+<p>
+I've tried to include all the stories that relate to security (or crypto).
+Conversely, there are many Martus stories that are not listed here, because
+I believe they do not have security implications.
+</p>
+
+
+<hr/>
+<h3>Story List</h3>
+Absolutely essential for any external testing
+<ul>
+<li><a href="#clientsetup">Configure Martus client for initial use</a></li>
+<li><a href="#signin">Sign in securely with Username and Passphrase</a></li>
+<li><a href="#settings">Account settings will be saved to disk</a></li>
+<li><a href="#bulletins">Save bulletins locally, encrypted and signed</a></li>
+<li><a href="#searchlocal">Search locally saved bulletins</a></li>
+<li><a href="#publicprivate">When creating a bulletin, have "public" and "private" sections</a></li>
+<li><a href="#serversetup">Set up a Martus server</a></li>
+<li><a href="#selectserver">Select a new server</a></li>
+<li><a href="#upload">Upload bulletins to server</a></li>
+</ul>
+Required for widespread beta
+<ul>
+<li><a href="#deauthorizeclient">Server Policy Administrator can de-authorize a client account</a></li>
+<li><a href="#removebulletin">Server Policy Administrator can remove a bulletin</a></li>
+<li><a href="#importkey">Import and verify the public key of another Martus account</a></li>
+<li><a href="#backupkey">Create a backup of my key pair</a></li>
+<li><a href="#restorekey">Restore my key pair</a></li>
+<li><a href="#signinwithkey">Sign in using a recovered key pair backup (instead of Username/Passphrase)</a></li>
+<li><a href="#clientrevoke">Revoke my account</a></li>
+<li><a href="#withdraw">Submit a note "withdrawing" a previously uploaded bulletin</a></li>
+<li><a href="#retrievemy">Retrieve my bulletins from a server</a></li>
+<li><a href="#summaries">Show summaries of my bulletins from a server</a></li>
+</ul>
+Highly desired for initial version
+<ul>
+<li><a href="#noninternet">Connect to a server using direct dialup, instead of the internet</a></li>
+<li><a href="#serverboot">Allow Server to reboot unattended</a></li>
+<li><a href="#exportimport">Export and import bulletins to disk, clipboard, etc.</a></li>
+<li><a href="#serverbackup">Server-to-server backup of bulletins</a></li>
+<li><a href="#retrieveminiamp">Retrieve other account's bulletins from a server (Mini-amplifier)</a></li>
+<li><a href="#uploaddrafts">Options to backup unsent bulletins</a></li>
+<li><a href="#multipleaccounts">Allow multiple accounts to exist on the same computer</a></li>
+<li><a href="#portabledata">Allow all Martus Client data to be stored on removable media</a></li>
+<li><a href="#revokeserver">Revoke a server account (key pair)</a></li>
+<li><a href="#customcd">Create an organization-specific Martus Client install CD</a></li>
+</ul>
+Unlikely for initial version
+<ul>
+<li><a href="#nocrypto">Allow disabling all encryption for an account</a></li>
+<li><a href="#detectdelete">Detect if an unsent bulletin was deleted outside of Martus</a></li>
+<li><a href="#umbrelladrafts">Allow umbrella groups to view Draft bulletin data</a></li>
+<li><a href="#serverkeyexpire">Server Keys should automatically expire</a></li>
+<li><a href="#reselectserver">Re-select a known server</a></li>
+<li><a href="#canopener">Include viewing rights for other accounts during bulletin creation ("Can Openers")</a></li>
+<li><a href="#retrieveumbrella">Retrieve other account's bulletins from a server (Umbrella group)</a></li>
+<li><a href="#umbrellawithdraw">Allow an umbrella organization to submit a withdrawal</a></li>
+<li><a href="#linkbulletin">Link a bulletin to an existing, uploaded bulletin</a></li>
+<li><a href="#addcanopener">Expand viewing rights after a bulletin has been uploaded ("Can Openers")</a></li>
+<li><a href="#umbrellacanopener">An umbrella group can expand viewing rights after a bulletin has been uploaded</a></li>
+<li><a href="#backupserverkeys">Backup server key pair</a></li>
+</ul>
+
+
+
+<hr/>
+<a name="clientsetup"/>
+<h3>Configure Martus client for initial use</h3>
+<p><strong>User Experience:</strong><br/>
+After the basic software installation (e.g. InstallShield), the user must
+create a Martus Account. They will provide an initial Username and Passphrase,
+which they will subsequently use to sign in. They can later change either of
+these values at any time (changing any critical data will require the user to
+re-enter their current passphrase to confirm the change). The user does not
+need to be connected to any network to establish a Martus client account.
+</p>
+<p>
+<strong>OPEN ISSUE:</strong>We need to decide how strongly to encourage
+and/or enforce secure passphrases. We might have mandatory minimum
+requirements, and/or might allow the user (or an umbrella organization) to
+choose from a variety of security levels. We also need policies for
+passphrase expiration ("never expires" is one possibility). We will also
+have extensive online advice and help for password selection, as well as
+providing this information during in-person Martus training sessions.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Martus will create a public/private key pair, which is presumed to be globally
+unique. The public key will hereafter be used as the internal identifier of
+this account.
+</p>
+<p>
+The key pair will be stored, along with the Username, in a file on the hard
+disk. This file will be encrypted using a digest of the passphrase. Neither
+the passphrase, nor its digest, will be stored.
+</p>
+
+
+
+
+<hr/>
+<a name="nocrypto"/>
+<h3>Allow disabling all encryption for an account</h3>
+<p><strong>User Experience:</strong><br/>
+During initial Client setup, the user can choose to disable all encryption.
+The exact consequences of this action have not been determined. In the
+initial Martus release, this decision probably cannot be reversed later
+for a given account (a new account would have to be created). An umbrella
+group might enforce a particular setting for this option.
+</p>
+<p><strong>Technical Details:</strong><br/>
+The assumption is that we would need to disable the encryption of
+<strong>data</strong>, but could continue to encrypt private keys
+and perform other actitivies related to authentication. Thus, we
+would presumably use SSL in a non-encrypting mode, and write the
+configuration file signed, and with the private key encrypted, but
+with the rest of the configuration data in plain text.
+</p>
+<p>
+Some of the technologies that we believe would be affected are:
+<ul>
+<li>Bulletin data encryption</li>
+<li>SSL encrypted transmissions</li>
+<li>Configuration file encryption</li>
+</ul>
+Some of the technologies that we believe would NOT be affected are:
+<ul>
+<li>SSL certificate authentications</li>
+<li>SSL session detects tampering</li>
+<li>Private key file encryption</li>
+<li>Bulletin signatures</li>
+</ul>
+</p>
+
+
+
+
+<hr/>
+<a name="portabledata"/>
+<h3>Allow all Martus Client data to be stored on removable media</h3>
+<p><strong>User Experience:</strong><br/>
+Provide a way to configure Martus to store and retrieve data from any
+drive/directory. This would allow a user to keep all their Martus data
+(configuration information and bulletins) on a removable disk (floppy,
+Zip, etc) and work on any computer that has the Martus client.
+</p>
+<p>
+Or perhaps they could install the Martus client itself on the removable
+disk (assuming it's big enough), along with the data.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Trivial, once the UI has been designed.
+</p>
+<p>
+???Are there security concerns
+specific to storing primary data (as opposed to just backups) on
+removable media?
+</p>
+
+
+
+
+
+<hr/>
+<a name="signin"/>
+<h3>Sign in securely with Username and Passphrase</h3>
+<p><strong>User Experience:</strong><br/>
+When Martus is executed, it will prompt the user for their Username and
+Passphrase. If the signin fails (e.g. incorrect password), the system will
+delay before prompting again. Each failed signin will double the delay.
+</p>
+<p>
+The Martus client should automatically log out after a set period of
+inactivity (e.g. 5 minutes). Also, attempting certain critical operations
+will require the user to re-enter the passphrase as confirmation. These
+operations include at least:
+<ul>
+<li>Changing the Username or passphrase</li>
+<li>Revoking the account</li>
+<li>Selecting a different server</li>
+</ul>
+</p>
+<p><strong>Technical Details:</strong><br/>
+To validate a signin, the system will attempt to decrypt the configuration
+information file with the input passphrase. If the decrypted Username
+matches the entered username, signin is successful.
+</p>
+
+
+
+
+<hr/>
+<a name="settings"/>
+<h3>Account settings will be saved to disk</h3>
+<p><strong>User Experience:</strong><br/>
+The user can configure various settings, such as language choice, and
+can set account details such as contact information. We might want to
+force the user to re-enter their passphrase before allowing changes to
+contact information, and perhaps other options.
+</p>
+<p><strong>Technical Details:</strong><br/>
+All account-related settings will be stored in a disk file that is
+encrypted using a session key, and signed by the account. That session
+key will be stored in the same file, encrypted using the account's key
+pair.
+</p>
+
+
+
+
+<hr/>
+<a name="multipleaccounts"/>
+<h3>Allow multiple accounts to exist on the same computer</h3>
+<p><strong>User Experience:</strong><br/>
+The user could create a new account on a computer that already had
+an account on it.
+</p>
+<p>
+During signin, the system could distinguish between accounts based on
+the Username. Therefore, on a given machine, you could not use the
+same Username for two accounts.
+</p>
+<p><strong>Technical Details:</strong><br/>
+</p>
+Most likely, if multiple accounts are present on a machine, they would
+each be stored in a different directory. The software could keep an
+index of which Username was stored in which directory, or it could
+simply attempt a signin of every account on the machine until it found
+one that worked, or failed on all of them.
+</p>
+
+
+
+
+<hr/>
+<a name="bulletins"/>
+<h3>Save bulletins locally, encrypted and signed</h3>
+<p><strong>User Experience:</strong><br/>
+Users can save Draft bulletins. Drafts are encrypted and signed, but are
+still available for further editing. When a bulletin is complete, the user
+will Seal it. Sealed bulletins are encrypted and signed, and Martus will
+not allow further editing. Sealed bulletins will automatically be sent to
+the server at the first opportunity.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Each section of Bulletin data is encrypted using a session key (see the
+"<a href="#publicprivate">Public and Private</a> story below). That session
+key is stored with the bulletin, encrypted with the author's public key.
+Therefore, the data can only be viewed by applying the corresponding
+private key. The bulletin is also signed by the author, to detect tampering.
+</p>
+<p>
+During bulletin creation and modification, a plaintext version of the
+data exists in RAM. It is never written to disk as plaintext.
+</p>
+<p>
+We may choose to compress bulletin data and attachments before they are
+encrypted, but probably won't in the initial version.
+<strong>OPEN ISSUE:</strong> Compressing the data would take extra
+development effort, might slow the app, and might make certain data
+recovery efforts more difficult. However, if there are strong reasons
+that compressed data would be substantially more secure, we would
+consider adding compression. Note that because the data we are encrypting
+is XML, there will be "known plaintext" portions within any bulletin. Is
+that a risk?
+</p>
+<p>
+Every bulletin signature should be re-checked by the client each time it
+is displayed. This would probably apply to viewing ANY bulletin,
+including ones authored by the viewing account. If this is too slow
+on some systems, we could provide an option to disable the feature.
+</p>
+<p>
+For every bulletin, the public key of the author as well as the
+Bulletin ID (possibly including a version number) will always be stored
+in plaintext.
+</p>
+
+
+
+<hr/>
+<a name="exportimport"/>
+<h3>Export and import bulletins to disk, clipboard, etc.</h3>
+<p><strong>User Experience:</strong><br/>
+There may be several user interfaces that allow individual bulletins
+to be exported and imported: drag and drop, clipboard cut/copy/paste,
+File Save As/Open, etc. All of them would have the same effect from
+a technical standpoint: create an external copy of a bulletin, and
+bring it back into the Martus client.
+</p>
+<p>
+An exported bulletin will be stored as an XML document, essentially
+in the same format as it would be stored inside the Martus disk
+database. It will be signed by the author, and may include both
+public (plaintext) and private (encrypted) data. This allows users
+to create backup copies of Draft bulletins on their local system,
+or to transfer any bulletins from one computer to another.
+</p>
+<p>
+Draft bulletins are always stored fully encrypted (unless encryption
+has been entirely disabled for this account). Sealed bulletins may
+have public sections, private sections, or both. Someone who obtains
+a copy of a bulletin would not be able to view the private data unless
+they had the author account's private key.
+</p>
+<p>
+What do we do if a user exports a Draft, makes further changes, and
+then imports the draft? Probably we should assign a new bulletin id
+any time a Draft bulletin is imported. Thus, the user might end up
+with multiple copies of the same (or a similar) bulletin. Assigning a
+"version number" would help, but you could still end up with duplicates,
+or older numbers that actually have newer content.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Bulletins are stored as XML. Private sections are encrypted, and then
+encoded as Base64 data. Attachments are also encoded as Base64.
+</p>
+
+
+
+
+<hr/>
+<a name="detectdelete"/>
+<h3>Detect if an unsent bulletin was deleted outside of Martus</h3>
+<p><strong>User Experience:</strong><br/>
+If an attacker used some external tool to delete an unsent (e.g. Draft) bulletin
+from the local database, pop up an alert to let the user know. Running the check
+itself could be slow (?) so it might have to be a configurable option. Or perhaps
+run on demand, rather than automatically.
+</p>
+<p>
+We wouldn't be able to recover the data, or even tell the user much about
+what had been deleted. But at least they would know that something on their
+system had been tampered with.
+</p>
+<p><strong>Technical Details:</strong><br/>
+<p>
+Always maintain a signed list of unsent bulletin id's. Verify the list each
+time the system is started.
+</p>
+
+
+
+
+<hr/>
+<a name="umbrelladrafts"/>
+<h3>Allow umbrella groups to view Draft bulletin data</h3>
+<p><strong>User Experience:</strong><br/>
+This assumes a client user has configured Martus to automatically create
+a "can opener" for an umbrella group. The can opener would be created when
+the bulletin is first created, so it would be in effect while the bulletin
+is in Draft status.
+</p>
+<p>
+If anyone with access to the umbrella private key also had the Draft
+bulletin in their Martus client system, they could view all the private
+data within that Draft bulletin.
+</p>
+<p>
+As with any can opener, the user somehow needs to be informed about exactly
+who will have permission to read which fields.
+</p>
+<p><strong>Technical Details:</strong><br/>
+<p>
+Create can openers during bulletin creation, and not just when the bulletin
+is sealed.
+</p>
+
+
+
+
+<hr/>
+<a name="searchlocal"/>
+<h3>Search locally saved bulletins</h3>
+<p><strong>User Experience:</strong><br/>
+The user may search all locally saved bulletins.
+</p>
+<p><strong>Technical Details:</strong><br/>
+<p>
+During a search, the system will load each individual (encrypted) bulletin,
+will decrypt it, and search the plaintext version. The plaintext will exist
+in RAM, but is never written to disk.
+</p>
+<p>
+There may be a need to optimize this process for speed. We might cache
+plaintext in RAM for one or more bulletin fields, for example.
+</p>
+
+
+
+
+<hr/>
+<a name="serversetup"/>
+<h3>Set up a Martus server</h3>
+<p><strong>User Experience:</strong><br/>
+Setting up a Martus server will probably be more complex and technical
+than setting up a client. The specific requirements for a server computer
+and environment will be described in detail elsewhere.
+</p>
+<p>
+Initially, Servers must be dedicated Linux machines with a static IP
+address. Later, we can explore having it run on non-dedicated systems
+and/or using dynamic DNS.
+</p>
+<p>
+There is no
+central authority that governs the creation of Martus servers, so
+anyone can set one up at any time, without even being connected to any
+network.
+</p>
+<p>
+Initially, server administration will be split into two distinct
+roles: Server Operator, and Policy Administrator. The Server operator
+is responsible for keeping the computer running, tape backups, etc.
+</p>
+<p>
+The Policy Administrator would set all the policies for this server,
+such as:
+<ul>
+<li>How much access to grant to unknown clients.</li>
+<li>Limits on uploads: number, size, attachments. These per-Account
+limits could be per-bulletin, per-day, or total.</li>
+<li>Server-to-server backup policies (see the
+<a href="#serverbackup">Server-to-server backup story</a>).</li>
+<li>Determining which client accounts can upload to this server.</li>
+</ul>
+<p>
+Remote policy administration is a requirement. Initially, we will open
+an SSH channel, and allow the administrator to manually edit config
+text files that way.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Each server will create a public/private key pair, and the public key
+will act as the global identifier of this server. The private key would
+probably always be stored encrypted with a passphrase. It might be
+stored on the hard drive (less secure), or on a floppy (more secure).
+The server private key would ONLY be used for authentication, and
+perhaps to locally encrypt Server configuration files. It would never
+be used for encryption (or decryption) of client data.
+</p>
+
+
+
+<hr/>
+<a name="backupserverkeys"/>
+<h3>Backup server key pair</h3>
+<p><strong>User Experience:</strong><br/>
+Server keys are used to:
+<ul>
+<li>Authenticate the server to clients and other servers</li>
+<li>Encrypt and sign server configuration options, such as upload limits</li>
+<li>Encrypt and sign lists of other server and client public keys</li>
+<li>Encrypt and sign lists of bulletin id's for tracking purposes</li>
+</ul>
+Server keys are not used to encrypt any client data.
+</p>
+<p>
+If a server went down, and the key pair was lost, all this data could be
+reconstructed, although it might be painful. The tradeoff is whether the
+risk of losing a server key outweighs the risks of a key backup being
+compromised. A compromised server key could be much more damaging than a
+lost key.
+</p>
+<p>
+If a key were lost (or stolen), the server operator would simply
+generate a new server account, thus creating a new server key pair.
+</p>
+<p><strong>Technical Details:</strong><br/>
+???
+</p>
+
+
+
+<hr/>
+<a name="revokeserver"/>
+<h3>Revoke a server account (key pair)</h3>
+<p><strong>User Experience:</strong><br/>
+???Allow the Policy Administrator to revoke the server key. But what does
+this actually mean? It would seem to require some central authority that
+would track revoked server keys, and make them available to any client
+or server. This might require each server session setup to be a two-step
+operation: First check to make sure the server key has not been revoked,
+and Second connect to the server itself. Who would run this central
+server? Should there be more than one?
+</p>
+<p>
+A compromised server key, by itself, really wouldn't provide an
+attacker with anything interesting. In order to make use of it, they would
+also have to hijack the TCP/IP connection between a client and the
+server. They could either re-route traffic that was destined for the old
+(legitimate) server toward a new (bogus) server, or perhaps set up a
+man-in-the-middle attack.
+</p>
+<p>
+In most cases, a server could simply stop using the obsolete key.
+Either the server operator or policy administrator would have to
+(manually) inform all the users, through an out-of-band mechanism. This
+would include other servers that participate in backups with this server,
+as well as any Martus Client user who connects to this server.
+</p>
+<p>
+One feature that has been discussed is to distribute server keys as part
+of the client installation CD. Whether or not that feature allows a
+client to bypass the manual, out-of-band authentication of the server key,
+the user might connect to a bogus server without knowing it.
+</p>
+<p><strong>Technical Details:</strong><br/>
+???
+</p>
+
+
+
+
+
+<hr/>
+<a name="serverboot"/>
+<h3>Allow Server to reboot unattended</h3>
+<p><strong>User Experience:</strong><br/>
+Allow a Martus Server to reboot without any intervention required on
+the part of the server operator.
+</p>
+<p>
+The Server needs to hold its private key in RAM for normal operations.
+Since we don't want to store the private key in plaintext on the disk,
+we would probably protect it with a passphrase. When the system is
+rebooted, in order to retrieve the key, the server operator would
+normally have to enter the passphrase.
+</p>
+<p>
+This story avoids that requirement, and would
+allow the server to boot unattended. The drawback is that the server's
+private key would be stored, and thus could be obtained by an attacker
+who had physical (or perhaps virtual) access to the Server computer.
+</p>
+<p><strong>Technical Details:</strong><br/>
+<p>
+In addition to the normal mode of operation (asking the operator to
+enter the passphrase), the system would be able to read a disk file
+somewhere to retrieve the key directly. We could just store the key in
+plaintext. Or we could continue to store the key encrypted with a
+digest of the passphrase, but store the digest in a disk file. Or we
+could store the passphrase itself on disk.
+</p>
+<p>
+We can also minimize risk by either a) storing the key on a floppy disk
+that is inserted during startup, and removed during normal operation,
+or b) using 'chroot' to hide the key file after the system has booted.
+</p>
+
+
+
+<hr/>
+<a name="serverkeyexpire"/>
+<h3>Server Keys should automatically expire</h3>
+<p><strong>User Experience:</strong><br/>
+Periodically, the authentication key for each server would expire,
+forcing the user to re-authenticate that server as if it were new.
+This provides some security benefits, because a lost or stolen key
+would not be valid forever.
+</p>
+<p>
+This feature would be much less of a burden if Clients regularly
+communicated with multiple servers. Since this is not part of our
+initial plan, this feature should probably wait. We would also
+have to decide whether expiration was optional or mandatory, and
+whether keys would be valid for a week, month, year or other
+amount of time.
+</p>
+<p><strong>Technical Details:</strong><br/>
+<p>
+We would have to build key expiration into our key file format
+(or use an existing format that has it built in).
+</p>
+
+
+
+
+<hr/>
+<a name="selectserver"/>
+<h3>Select a new server</h3>
+<p><strong>User Experience:</strong><br/>
+The user will be able to specify a single "current" server. Completed
+bulletins will automatically be sent to this current server any time
+the server is available. Initially the user will enter an IP address.
+Later, there might be an online directory that would allow the user
+to choose from a list, AND/OR the installation might pre-install a
+list of servers to choose from.
+</p>
+<p>
+The server must be available to establish this initial connection. If
+the server is not available for any reason, the Client will refuse to
+save the change, and will suggest the user try again later. The user
+will have to wait until it that server is available before selecting it.
+At any time, the user may also choose to have NO server selected.
+</p>
+<p>
+The first time a user points to a new server, the user will have to
+manually verify that this server is really the one they believe it is.
+The system will prompt the user to enter a "fingerprint" of the
+server, which is a digest of the public key.
+<p>
+</p>
+We need to decide an appropriate length of the fingerprint. It might
+be as long as 40 digits, but that would be somewhat of a burden on
+the user. It might be as short as 8 digits, but that would allow an
+attacker to spoof it by creating a few billion key pairs. If that
+same attacker also had the ability to reroute IP traffic (such as by
+owning or controlling the ISP), they could then convince a client
+that it had reached the real server when it had actually reached
+a bogus server.
+</p>
+<p>
+The user would have obtained this fingerprint at the same time they
+found out the IP address, via a phone call, piece of paper, SSL web
+site, or some other out-of-band mechanism. If the user enters the
+correct matching fingerprint, the server is authenticated, and can
+be used.
+</p>
+<p>
+In most cases, the server will also have to verify that the client
+is someone who should be authorized, before any uploads would be
+allowed. The server Policy Administrator would configure one or more
+"magic words" on the server. The client software would prompt the
+user to enter the "magic word", and would transmit that entry to
+the server. If it is a valid magic word, then the client becomes
+an authorized user on that server.
+</p>
+<p>
+It is assumed that the "magic word" would have been given to the
+client during a training session, or via some other out of band
+mechanism. Although the magic word should be treated as a secret,
+the consequences of an attacker obtaining the word are relatively
+minor: they would merely be allowed to upload bulletins to the
+server as if they were a "real" user. This would allow an attacker
+to upload large amounts of data, consuming bandwidth and disk
+space (up to the configured limits).
+</p>
+<p>
+A server might choose not to have a "magic word", in which case
+all users would automatically be authorized. Or, a server might
+choose to establish a different magic word for each new user, and
+to invalidate that word as soon as the designated user had
+successfully connected for the first time.
+</p>
+<p><strong>Technical Details:</strong><br/>
+The server software will maintain a list of verified client public
+keys (along with the corresponding contact information as
+submitted by the client). The latter would allow the Policy
+Administrator to manually revoke the authorization of a particular
+account.
+</p>
+<p>
+This list will be stored on the server, encrypted and signed. The
+server's private key is stored in RAM during normal operation, and
+would be used to access and verify this data.
+</p>
+
+
+
+
+
+<hr/>
+<a name="noninternet"/>
+<h3>Connect to a server using direct dialup, instead of the internet</h3>
+<p><strong>User Experience:</strong><br/>
+A client user could specify a phone number, instead of an IP address,
+for a particular server. This would avoid using the internet, which
+would result in a more secure connection.
+</p>
+<p><strong>Technical Details:</strong><br/>
+???Can Java invoke the system dialer? We would probably run
+PPP so it would still be a TCP/IP connection. Would we need to store
+extra details like dialup username and password? Could we just open
+up a connection for any caller, and rely on the standard Martus
+security features?
+</p>
+
+
+
+
+
+<hr/>
+<a name="deauthorizeclient"/>
+<h3>Server Policy Administrator can de-authorize a client account</h3>
+<p><strong>User Experience:</strong><br/>
+The Policy Administrator would edit a config text file, triggering
+the removal of a client account from the list of authorized accounts.
+The software might monitor this text file continuously and make the
+change almost immediately (e.g. perhaps once per minute).
+</p>
+<p>
+???How would the system let the administrator know that the change
+had been successfully completed?
+</p>
+<p><strong>Technical Details:</strong><br/>
+On a timer, if the designated config text file were non-empty, its
+contents would be used to de-authorized the specified account(s).
+</p>
+
+
+
+
+
+<hr/>
+<a name="removebulletin"/>
+<h3>Server Policy Administrator can remove a bulletin</h3>
+<p><strong>User Experience:</strong><br/>
+The Policy Administrator would edit a config text file, triggering
+the removal of a particular bulletin from the server. This might
+be because the account was determined to be illegitimate, or because
+the bulletin itself contained illegal content. There might be a
+feature to remove all bulletins authored by a particular account.
+</p>
+<p>
+A removed bulletin would most likely be deleted entirely from the
+server. This would probably be necessary if a government insisted
+that a bulletin contained illegal content. Although the idea of
+censorship runs counter to Martus, it would be better to remove
+a single bulletin than to have an entire server be shut down.
+</p>
+<p>
+Removals cannot be propagated between servers. It would be better to
+force a human at each server to manually perform the withdrawal.
+However, a server should keep a list of bulletins that have been
+removed, to ensure that it does not receive a fresh copy of the
+removed bulletin during the next server backup session.
+</p>
+<p>
+???How would the system let the administrator know that the change
+had been successfully completed? What kind of "are you really,
+really sure? message do we need? Perhaps there's a special, separate,
+interactive tool that handles this function.
+</p>
+<p><strong>Technical Details:</strong><br/>
+???
+</p>
+
+
+
+
+
+<hr/>
+<a name="reselectserver"/>
+<h3>Easily re-select a known server</h3>
+<p><strong>User Experience:</strong><br/>
+The user may select a server which has already been authenticated. In
+that case, the connection is made automatically, with no need for
+user intervention. However, a server must be available at the time it
+is selected. If it is not available, the user will be notified, and
+the selection will be denied (see the "<a href="#selectserver">Select
+a new server</A>" story for details).
+</p>
+<p><strong>Technical Details:</strong><br/>
+The client software will maintain a list of authenticated servers. This
+list will be stored as part of the account settings. All connections
+between client and server will use SSL, and both the client and
+server will present self-signed certificates.
+</p>
+Any server whose authenticated public key is already stored in the
+account settings does not need to be re-verified by the user. Similarly,
+on the server side, any authenticated client does not need to be
+re-verified by the administrator.
+</p>
+
+
+
+
+<hr/>
+<a name="upload"/>
+<h3>Upload bulletins to server</h3>
+<p><strong>User Experience:</strong><br/>
+After a bulletin has been Sealed, it will automatically be sent to a
+server at the first opportunity. This requires:
+</p>
+<ul>
+<li>The user must have selected and verified a server</li>
+<li>The user must have an internet (or LAN) connection to the server</li>
+<li>The server must be running</li>
+<li>The server must have authorized this user for uploading</li>
+</ul>
+<p>
+The user will not be notified that a server is unavailable, since this
+will be a common condition. The user might be notified if it has been
+longer than a certain interval, or might be notified each time the client
+software is started when the last connection was made.
+</p>
+<p>
+After a successful upload, the bulletin will be silently moved from
+the Outbox folder to the Sent folder, and the user will not receive any
+confirmation. If the upload is rejected by the server, the user will be
+notified immediately.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Using SSL, after a two-way authentication, the client will send a data
+packet to the server. This packet is identified by a combination of the
+author's public key, and a bulletin id assigned by the client software.
+Each bulletin id is assumed to be unique within the domain of the author's
+account. The bulletin must be properly signed to be accepted.
+</p>
+<p>
+In most cases, the bulletin will contain data that can only be decrypted
+using private keys that the server does not possess. The exceptions would
+be for "public" sections of data, and for client accounts who choose to
+disable all encryption for legal or other reasons. Since bulletins are
+signed by the author, no additions or changes are allowed once the bulletin
+has been uploaded to a server.
+</p>
+<p>
+The server may keep a separate, signed list of the bulletins that it has
+stored. This would allow it to detect if a single bulletin were deleted. An
+attacker could still delete every bulletin, or delete this file, but they
+would not be able to delete a single bulletin without being detected.
+</p>
+<p>
+???We need to figure out how to detect (or prevent, where possible) a broken
+client from uploading different copies of the same bulletin to multiple
+servers. Should a server append a timestamp? Should that timestamp be
+generated by an external entity? How should conflicting versions of a
+bulletin be resolved?
+</p>
+
+
+
+
+<hr/>
+<a name="summaries"/>
+<h3>Show summaries of my bulletins from a server</h3>
+<p><strong>User Experience:</strong><br/>
+At any time, the user can bring up a dialog that shows a brief summary
+of that user's bulletins that are stored on the current server. It might
+show all the bulletins on the server, or it might only show the bulletins
+that are on the server but not already stored locally.
+</p>
+<p>
+This story could be combined with the <a href="#retrievemy">Retrieve
+my bulletins</a> story, to create a single UI covering both operations.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Using SSL, after a two-way authentication, the client will request the
+list of bulletin summaries. The server will return enough of the bulletin
+data that the client can extract the summary information. Attachments
+will not be sent.
+</p>
+<p>
+The summary data returned by the server will still be encrypted as it
+was when it was uploaded. The client will have to decrypt the data using
+the account's private key before it can be used.
+</p>
+<p>
+Servers will only allow clients to obtain summary information for their
+own bulletins (by matching the public key of the requester against
+the public key of the bulletin author).
+</p>
+
+
+
+
+<hr/>
+<a name="retrievemy"/>
+<h3>Retrieve my bulletins from a server</h3>
+<p><strong>User Experience:</strong><br/>
+A user will be able to request specific bulletins from a server. The server
+will only return bulletins that were created by that account.
+</p>
+<p>
+This story could be combined with the <a href="#summaries">Show summaries</a>
+story, to create a single UI covering both operations.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Using SSL, after a two-way authentication, the client will send a
+bulletin id, and the server will respond with all the data for that
+bulletin, including attachments. The data will (normally) be encrypted,
+and the client will have to decrypt it before it can be viewed. The
+bulletin must (still) be properly signed or it will not be sent.
+</p>
+
+
+
+
+<hr/>
+<a name="publicprivate"/>
+<h3>When creating a bulletin, have "public" and "private" sections</h3>
+<p><strong>User Experience:</strong><br/>
+Initially, bulletins will have a "public" section and a "private" section.
+Each attachment is its own section, which may be "public" or "private".
+</p>
+<p>
+In some future release, each account may have finer control, perhaps with
+multiple sections, or with levels between public and private. Possibly
+the definitions of who can view public and private sections could be
+configured for each account. Client installation CD's (such as one
+customized for an umbrella group) could have preset rules for which
+sections could be viewed by which other accounts.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Each private section will be encrypted with a different session key, along
+with that key encrypted using the author's public key. After a bulletin is
+Sealed, its public sections will be stored in plaintext.
+</p>
+
+
+
+
+<hr/>
+<a name="canopener"/>
+<h3>Include viewing rights for other accounts during bulletin creation ("Can Openers")</h3>
+<p><strong>User Experience:</strong><br/>
+A client account might be configured to automatically grant viewing rights
+to other Martus accounts, even for "private" data. This is known as
+creating a "can opener" for another account to view specific sections of a
+bulletin.
+</p>
+<p>
+The can opener might be intended to be used by specific
+accounts, or the <a href="#publicprivate">general public</a>.
+Once a bulletin containing can openers has been submitted,
+those viewing rights cannot later be revoked.
+<p>
+Only read-only viewing rights can be granted. There is no way to
+grant permission to any account to modify or add bulletin data.
+</p>
+<p>
+Should Draft bulletins include the same <a href="#canopener">can openers</a>
+as Sealed bulletins, or should Drafts only be viewable by the author?
+Perhaps at some point a draft could actually include a set of
+"<a href="#canopener">can openers</a>" that is different
+from those that it would have after it was Sealed.
+</p>
+<p><strong>Technical Details:</strong><br/>
+A can opener would be part of the bulletin, and would contain the
+section session key, encrypted with a particular public key. The
+public key itself would be stored in plaintext within the can opener.
+</p>
+<p>
+We may have several copies of the same session key encrypted with
+different public keys. Does this create a security risk? Should we
+pad the session key with random data? Would the answer change if
+we were restricted to some maximum key length?
+</p>
+
+
+
+
+<hr/>
+<a name="importkey"/>
+<h3>Import and verify the public key of another Martus account</h3>
+<p><strong>User Experience:</strong><br/>
+Martus users may need to exchange public keys for at least these reasons:
+</p>
+<ul>
+<li>To create key pair backups</li>
+<li>To create can openers</li>
+</ul>
+<p>
+The simplest method to transfer a public key is via a disk file. Later,
+we may add options to download keys from a Martus server, or from a PGP
+key server. Regardless of the transfer method, after the public key has
+been read by the client software, the user must verify it. This works
+just like the "<a href="#selectserver">Select new server</a>" key
+verification, where the user must enter the correct fingerprint for this
+public key before it will be accepted as being valid.
+</p>
+<p>
+The client interface probably needs to be able to attach a label to
+each key (assigned by the user, as an identification of who that key
+belongs to). It probably also needs a way to list the keys currently
+in the system, and to delete and/or mark individual keys as no longer
+being valid. There might also be a function to create a backup file of
+these keys.
+</p>
+<p>
+???We might want to use the standard PGP format. However, it probably
+does not have a place for us to store the account contact information,
+which would be handy to include in the same file. How valuable is it
+to use their file format, and how inconvenient would it be for the
+recipient of a key to have to manually enter the identifying information,
+or to read that information from a second disk file?
+</p>
+<p><strong>Technical Details:</strong><br/>
+We should probably use the standard OpenPGP public key exchange data
+format. The list of keys should be stored encrypted and signed. If we
+plan to have a backup feature, we should probably store them in a
+separate file, apart from the rest of the account settings.
+</p>
+
+
+
+
+<hr/>
+<a name="backupkey"/>
+<h3>Create a backup of my key pair</h3>
+<p><strong>User Experience:</strong><br/>
+At any time, the user should be able to create a key pair backup
+file. This file would typically be saved to a floppy disk, and be
+stored securely, offsite. This is the <strong>only</strong> protection
+against a forgotten passphrase, or a crashed hard drive.
+</p>
+<p>
+The user would be able to point to one or more of the Martus account
+public keys that have been imported, and create a backup that could
+only be recovered by using the private keys of <strong>all</strong>
+of the corresponding accounts. The user might also be prompted for
+an identifying label for the backup (see the
+<a href="#restorekey">restore</a> story for more details.
+</p>
+<p>
+The interface needs to clearly tell the user that the key can only
+be recovered with the cooperation of <strong>all</strong> the holders
+of the corresponding private keys. If they want to be able to recover
+their key with "3 out of these 5" or some other combination, they
+would have to create multiple backups, each encrypted with a
+different group of three public keys. Later, we could build this
+feature into the software itself.
+</p>
+<p>
+We can allow users to store copies of their key pair backup files on
+Martus servers. Because the key pair is encrypted, anyone who gets
+a copy would have to use brute force to recover the data. Thus,
+a server can provide a copy of the file to anyone who asks for it.
+(However, we can put some basic hurdles up to at least make it
+difficult for an unauthorized user to obtain one).
+</p>
+<p>
+Note that
+the key pair backup is not encrypted using a passphrase--it is
+protected by a combination of symmetric and asymmetric keys. The
+only non-brute-force way to get the data would be to obtain the
+private keys of all the accounts that were used to create the
+backup in the first place.
+</p>
+<p>
+<em>Sidebar: As an alternative to key backups, if an account regularly creates
+one or more <a href="#canopener">can openers</a> for all the
+private bulletins sections and attachments, such as for an umbrella
+group, the risk of a lost password is somewhat lower. The account
+would still have to be revoked, but at least all the data would still
+be viewable (by that other account).</em>
+</p>
+<p><strong>Technical Details:</strong><br/>
+This scheme assumes that symmetric encryption is associative.
+That is, it will only work if you can apply a symmetric encryption
+sequentially using session keys A, B, and C, and then decrypt the
+data by applying the same session keys in a different order, such
+as B, A, and then C. If that is not the case, then this whole
+approach will need to be re-thought.
+</p>
+<p>
+The user's key pair would be encrypted several times sequentially,
+using one session key for each public key. Each session key itself
+would be stored in the file, encrypted using the associated public
+key. The whole file would be signed by the original account.
+</p>
+
+
+
+
+<hr/>
+<a name="restorekey"/>
+<h3>Restore my key pair</h3>
+<p><strong>User Experience:</strong><br/>
+This requires the cooperation of holders of all the Martus accounts
+that were used to create the backup in the first place. Note that
+this group of (one or more) people will be able to reassemble the
+key pair even without the cooperation of the person who originally
+created that backup.
+</p>
+<p>
+Someone would start the process by obtaining a copy of the encrypted
+key pair backup file, whether from a floppy disk, or perhaps by
+requesting it from a Martus server. Recovery from the server is
+a bit tricky--the user needs to tell the server *which* backup file
+they want, but they may not have the public key available, which
+is the only unambiguous means to identify a backup file.
+</p>
+<p>
+At the point the backup file is created, we could allow the user to
+enter an identifying label, which would be stored in plaintext as
+part of the backup file. The user could request the server to
+retrieve a backup file based on this label. We could also include
+the account contact information in plaintext in the backup file,
+and allow the user to search based on that. The user might end up
+downloading several similar key backup files, and would have to
+be able to figure out which one(s) are relevant for them.
+</p>
+<p>This whole process does open up three pieces of information to
+attackers: 1) public keys of accounts, 2) contact information, and
+3) the label entered by the user. We would need to be sure the user
+understands the risks (generally minor, as long as they don't use
+their password as the label, for example).
+</p>
+<p>
+Once the key pair backup file is available, the user would choose
+an option in the Martus client to begin a key recovery. This would
+produce a key pair recovery file.
+</p>
+<p>
+That key pair recover file would be sent to one of the holders of a
+trusted account that was used to create the backup. It could be sent
+via email, or any other mechanism. Later, we might automate the
+sending and receiving of these files in Martus itself.
+</p>
+<p>
+Each trusted account holder would invoke a Martus client command to
+"help recover a key". This would produce a different version of the
+key pair recovery file, which would be passed along to the next
+account holder. After all the account holders have done their part,
+the file is returned to whoever started the recovery process.
+</p>
+<p>
+That person would choose the Martus client option to "finish the
+key recovery process", which would convert the key pair recovery
+file into a plaintext key pair file, which in turn could be used to
+sign into Martus without a Username or passphrase. The recovery
+is complete.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Since key recovery is launched from within Martus, we already have
+an account we can use temporarily. This might be a true temporary
+account created by the person who originally lost the key, or it
+might be the existing account of one of the trusted accounts. Either
+way, the first step is to further encrypt the backup file using the
+public key of the account being used to perform the recovery. The
+recovery file is then signed by that account.
+</p>
+<p>
+As each trusted account processes the file, they perform their
+decryption, remove their account entry from the file, and re-sign
+the resulting file. By the time the trusted accounts have completed
+their work, the recovery file is only encrypted by the account that
+initiated the recovery. That account can easily produce a plaintext
+file containing the key pair.
+</p>
+<p>
+At each step, the trusted account should first verify that the
+input file has been signed by one of the accounts listed in the
+file (either the recovering account, or one of the trusted accounts).
+</p>
+
+
+
+
+<hr/>
+<a name="signinwithkey"/>
+<h3>Sign in using a recoverd key pair backup (instead of Username/Passphrase)</h3>
+<p><strong>User Experience:</strong><br/>
+If the file containing the encrypted Username is deleted, or if the
+Username <em>or</em> Passphrase is forgotten, the user needs an alternate
+way to access the system. In this case, they would have to use their
+private key directly, presumably in a form that had been reconstructed
+from a key backup.
+</p>
+<p>
+The details of how a key would be reconstructed would depend on which
+backup method(s) we support. Most likely, there would be a separate
+utility program that could reconstruct a key pair. It is also likely
+that the main app would have the ability to read a reconstructed key
+pair file, so the user wouldn't have to enter a couple thousand
+characters of key data manually.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Given a private key, the user would have to create a new Username and
+Passphrase. Any settings and bulletin data still present on the disk
+would be retained.
+</p>
+
+
+
+
+<hr/>
+<a name="clientrevoke"/>
+<h3>Revoke my account</h3>
+<p><strong>User Experience:</strong><br/>
+At any time, the user needs to be able to revoke the account. This
+would normally be after the key pair had been compromised, but could
+also be simply because the user no longer wants to use an account. In
+order to revoke an account, the user must be logged into a Martus
+client under that account, and must re-enter their passphrase as
+a confirmation (to prevent someone from walking up to a logged-in
+computer and revoking the account).
+</p>
+<p>
+As part of a revocation request, the user would probably provide an
+"effective date" for the revocation, which may be in the past. This
+would be the point in time at which the user felt the account had
+become compromised. That information could be used by third parties to
+judge the likelihood that any particular bulletin was created before or
+after the compromise.
+</p>
+<p>
+Probably, a client account revocation should automatically append
+a withdrawal notice to any bulletins authored by that account that
+were uploaded after the effective date of the revocation.
+</p>
+<p>
+Revoking an account is a permanent, irreversible step. Once an account
+has been revoked, (most?) servers that are aware of the revocation would
+no longer allow that account to upload or retrieve bulletins. It would
+be great if other clients would be notified of the revocation, so they
+would stop generating <a href="#canopener">can openers</a> for the revoked account. This requires
+some technical thought.
+</p>
+<p>
+Our revocation model is that a user who is signed in to Martus may
+revoke the account they are currently using. An attacker who was able
+to sign in to an account could revoke it without permission from the
+legitimate account holder, but that's ok.
+</p>
+<p>
+If a user loses their passphrase or private key, they would only be
+able to revoke the account by first recovering their private key (see
+the "<a href="#backupkey">Backup my key</a>" and "<a href="#restorekey">Restore
+my key</a>" stories). Whichever account(s) they trust with their key backups
+could, by acting together, revoke that account (as long as they can obtain
+a copy of the key backup file). Of course, by acting together they could
+also compromise the account, so it is a consistent (and simple) model.
+</p>
+<p><strong>Technical Details:</strong><br/>
+???Need details here!
+</p>
+
+
+
+
+<hr/>
+<a name="serverbackup"/>
+<h3>Server-to-server backup of bulletins</h3>
+<p><em>NOTE: This used to be called "mirroring", but it has been
+renamed because that was not a technically accurate name for the
+process we are designing.</em></p>
+<p><strong>User Experience:</strong><br/>
+The only impact this would have on client end users is that bulletins would be
+stored on (and be retrievable from) servers other than the one they were
+originally uploaded to. Server-to-server backup adds significant
+protection against losing data if a single server were to crash or become
+compromised.
+</p>
+<p>
+Server policy administrators would need to set up backup policies, including
+which other server(s) they would send to, and which other server(s) they
+would receive from.
+</p>
+<p>
+To configure backing up to a given server, the policy administrator of the
+sending server would enter an IP address and fingerprint of the receiving
+server. They might also configure the frequency and timing of the
+backup operations. The policy administrator of the receiving server would
+add the sending server's fingerprint to the list of servers that are
+authorized to send to this receiving server.
+</p>
+<p>
+Initially, if a server is set to backup to another server, it will send
+all new bulletins to that server, regardless of whether those bulletins
+were directly uploaded from clients, or received from other servers. There
+will not be any way to customize which bulletins get sent and which do not.
+However, the receiving server might reject certain bulletins based on
+size or attachment limits.
+</p>
+<p>
+Eventually policy administrators might be able to restrict backups
+to specific client accounts or to only accept bulletins that are (or are
+not) encrypted, for legal protection.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Backing up should be a "push" operation. That is, each server would
+periodically contact other servers to offer them any new bulletins.
+During this connection, bulletins would only be sent in one direction.
+The receiving server might perform a push in the other direction at
+some other time. Bulletins that already exist on the destination server
+either would not be sent again, or would be sent again but not stored.
+</p>
+<p>
+The specific protocol for backing up needs to be worked out. Initially,
+it can be fairly inefficient, due to the low volume of data we expect
+as Martus ramps up. SSL will always be used.
+</p>
+<p>
+Each server's policies, along with a list of verified other server public
+keys (with IP addresses) should be stored encrypted and signed by the
+server account key pair.
+</p>
+
+
+
+
+<hr/>
+<a name="retrieveumbrella"/>
+<h3>Retrieve other account's bulletins from a server (Umbrella group)</h3>
+<p><strong>User Experience:</strong><br/>
+<em>There are two reasons that a Martus client needs to be able to retrieve
+bulletins that were uploaded by a different account: 1) they may be
+an umbrella group that is allowed to review the bulletins (described in this
+story), and 2) to implement the "mini-amplifier" functionality, where the
+Martus client software could be used to search public portions of any
+bulletin (described in a different story). The user interfaces for these
+two purposes may be quite different from each other, but both would be
+contained within the single Martus Client software application, and would
+be very similar from a technical standpoint. Also see the
+<a href="#retrieveminiamp">Retrieve (Mini-amplifier)</a> story.</em>
+<p>
+The "viewing account" could download bulletins belonging to a specific
+author account. The server would filter the bulletin data, only sending
+those sections which had a can opener for the viewing account. The user
+could probably choose whether or not to download all the attachments.
+</p>
+<p>
+This assumes that the client already has a list of other Martus accounts,
+with identifying labels. The user could point to a particular account, and
+initiate the download.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Any client can request a list of bulletin ids for any other account. If
+the server policy allows it, the server will provide that list. No details
+are given--just a list of bulletin ids. The client can then issue specific
+requests to retrieve individual bulletins.
+</p>
+<p>
+For each retrieval request, the server will only send sections that are
+either public, or are encrypted with the public key of the requesting account.
+This ensures that encrypted data will only be sent to clients which are
+authorized to view the plaintext version of that data. The bulletin must
+(still) be properly signed or it will not be sent.
+</p>
+
+
+
+
+<hr/>
+<a name="retrieveminiamp"/>
+<h3>Retrieve other account's bulletins from a server (Mini-amplifier)</h3>
+<p><strong>User Experience:</strong><br/>
+<em>There are two reasons that a Martus client needs to be able to retrieve
+bulletins that were uploaded by a different account: 1) they may be
+an umbrella group that is allowed to review the bulletins (described in a
+different story), and 2) to implement the "mini-amplifier" functionality,
+where the Martus client software could be used to search public portions
+of any bulletin (described in this story). The user interfaces for these
+two purposes may be quite different from each other, but both would be
+contained within the single Martus Client software application, and would
+be very similar from a technical standpoint. Also see the
+<a href="#retrieveumbrella">Retrieve (Umbrella group)</a> story.</em>
+</p>
+<p>
+The simplest mini-amplifier implementation would require a client to
+download entire bulletins, and perform all searching locally. Later,
+a server could search public portions of bulletins.
+</p>
+<p>
+A user could choose to download public portions of all bulletins on a
+server, or perhaps just download public portions of all bulletins that
+were authored by a particular account (see below). Once those bulletins
+were saved on the local drive, the user could search them, print, and
+open any public attachments.
+</p>
+<p>
+We would need a UI to allow choosing specific accounts. One possibility
+would be that a miniamp user could point to a particular bulletin and
+request all other bulletins by that author. If the client already has
+a list of other Martus account public keys with user-defined labels,
+for the purpose of creating key backups, the user could choose from this
+list.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Internally, this is identical to the "umbrella group" case: The server
+would only send sections of each bulletin that were either public, or
+which had a can opener for the requesting account (which would normally
+not be the case). The bulletin must (still) be properly signed or it
+will not be sent.
+</p>
+
+
+
+
+<hr/>
+<a name="withdraw"/>
+<h3>Submit a note "withdrawing" a previously uploaded bulletin</h3>
+<p><strong>User Experience:</strong><br/>
+A "withdrawal" request will not delete or hide an existing bulletin.
+Instead, it can be seen as a note that is logically attached to a
+bulletin. The note might indicate that the bulletin was uploaded in
+error, that the information was incorrect, or any other condition that
+would cause an author to recant the bulletin. Each person who sees
+the note would have to decide for themselves whether to put more
+trust in the withdrawal, or the original bulletin.
+</p>
+<p>
+When a client requests a bulletin to download, the server would
+automatically download any related withdrawal notice at the same
+time. The client UI would present the withdrawal information as
+if it were part of the bulletin. <strong>OPEN ISSUE:</strong> How
+would a client receive withdrawals for bulletins they have already
+downloaded?
+</p>
+<p>
+Withdrawals become particularly tricky when a key is compromised.
+There is no sure way to know if an attacker is withdrawing valid
+bulletins, or if the actual account holder is withdrawing bulletins
+that were submitted by the attacker. Since both withdrawals and
+key revocations have timestamps, and revocations also have an
+"effective date", a reader can use all of this information to
+make an informed decision.
+</p>
+<p>
+Probably, a client account revocation should automatically append
+a withdrawal notice to any bulletins authored by that account that
+were uploaded after the effective date of the revocation.
+</p>
+<p>
+Initially, withdrawals might include a multiple-choice "reason"
+field, such as "account was compromised", or "witnesses recanted".
+This reason will be stored in plain text.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Since bulletins cannot be altered after they are uploaded, these
+withdrawal notices must be stored as separate data packets. They
+would be signed by the withdrawer, but can be stored as plaintext.
+</p>
+<p>
+They would be backed up between servers just like bulletins themselves.
+</p>
+
+
+
+
+<hr/>
+<a name="umbrellawithdraw"/>
+<h3>Allow an umbrella organization to submit a withdrawal</h3>
+<p><strong>User Experience:</strong><br/>
+An account could configure an "umbrella account". This "umbrella
+account" might have automatic can openers, and perhaps other
+special abilities relative to the base account. Anyone with the
+private key of the umbrella account could submit a withdrawal
+notice for a bulletin submitted by the base account. The umbrella
+account would have to have been in effect at the time that the
+bulletin was sent.
+</p>
+<p>
+The actual UI for an umbrella user to withdraw someone else's
+bulletin would be similar to withdrawing one's own bulletin.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Each submitted bulletin that was governed by an umbrella group
+would include a "withdrawal permission" which includes the
+public key of the umbrella group. The umbrella withdrawal notice
+would be judged to be authentic if it is signed by the holder of
+that same public key.
+</p>
+<p>
+This isn't yet clear in my mind. If we're going to do it, I need to
+think about it more.
+</p>
+
+
+
+
+
+<hr/>
+<a name="linkbulletin"/>
+<h3>Link a new bulletin to an existing, uploaded bulletin</h3>
+<p><strong>User Experience:</strong><br/>
+At the time that a bulletin is uploaded, it might include links to
+one or more other bulletins. Those other bulletins might be by this
+same author, or might be by a different author. There are several
+uses of this:
+</p>
+<ul>
+<li>Provide additional information about an event</li>
+<li>Provide minor corrections or clarifications</li>
+<li>Indicate that two events are related in some way</li>
+</ul>
+<p>
+Probably each link would include a comment, so the author could
+indicate the nature of the linkage. Perhaps in the future, links
+could be created independently of a bulletin. That is, you could
+indicate a link two existing, uploaded bulletins. This would raise
+questions of whether only one of the two authors could create such
+a link, or if anyone could. Also, could multiple bulletins be
+linked at the same time?
+</p>
+<p>
+Initially, links might include a multiple-choice "reason"
+field, such as "additional information", or "related incident".
+This reason will be stored in plain text.
+</p>
+<p>
+We also need to think about how the viewing interface would work.
+Would a link be downloaded along with either of the two bulletins
+that were linked, or only with the bulletin that actually did the
+linking? Would the link be visible when viewing either bulletin?
+</p>
+<p><strong>Technical Details:</strong><br/>
+???Links could be part of a bulletin, or separate (like a withdrawal).
+Whether and how they would be signed would depend on how the
+feature was supposed to work. This needs more thought.
+</p>
+
+
+
+
+<hr/>
+<a name="addcanopener"/>
+<h3>Expand viewing rights after a bulletin has been uploaded ("Can Openers")</h3>
+<p><strong>User Experience:</strong><br/>
+A bulletin author may create additional can openers for a
+bulletin that has already been submitted. See the main
+<a href="#canopener">Can Opener</a> story above. The user would
+have to indicate the bulletin they wish to open up, and also the
+account(s) that they wish to grant viewing access to.
+</p>
+<p>
+It is not clear how these can openers might be retrieved by
+a party that had previously downloaded the public portions of that
+bulletin. They would somehow have to obtain both the can opener
+itself, but also the encrypted sections of the bulletin that they
+previously didn't have permission to download.
+</p>
+<p>
+Either the user would have to manually indicate that they wished
+to look for new can openers, or the client could automatically
+ask each time it connected to a server (or at a set interval).
+Downloading a can opener should automatically (offer to) download
+the associated encrypted sections of the bulletin.
+</p>
+<p>
+Initially, an external can opener cannot be removed or revoked,
+once it has been sent to a server.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Like bulletin links, can openers might be part of a bulletin when
+it is created, or might exist independently. They must be signed
+by the original bulletin author, and would contain the section
+session key, encrypted with a particular public key. The public
+key itself would be stored in plaintext within the can opener.
+</p>
+<p>
+Once a separate can opener has been uploaded to a server, it will
+be stored separately, but should be treated as if it were part of
+the original bulletin.
+</p>
+
+
+
+<hr/>
+<a name="umbrellacanopener"/>
+<h3>An umbrella group can expand viewing rights after a bulletin has been uploaded</h3>
+<p><strong>User Experience:</strong><br/>
+An umbrella account can create additional can openers for an
+existing bulletin, just like the original author can.
+</p>
+<p><strong>Technical Details:</strong><br/>
+Requires thought.
+</p>
+
+
+
+
+<hr/>
+<a name="uploaddrafts"/>
+<h3>Options to backup Draft bulletins to servers</h3>
+<p><strong>User Experience:</strong><br/>
+In addition to existing local backup mechanisms, this would
+allow users to backup their Draft bulletins to the Martus server.
+Really, this is just an extension of <a href="#exportimport">exporting
+and importing</a> bulletins, to a different medium.
+</p>
+<p>
+Since all Draft bulletins are stored encrypted, this would not directly
+reveal any data to someone who stole a copy of the backup. However,
+the backup would add a slight risk because it would be easier for
+someone to obtain a copy of the encrypted data. Still, they would
+either have to use brute force to reveal the information, or they
+would have to obtain the private key through other means.
+</p>
+<p>
+Account which completely disable encryption might be warned against
+using this feature, because it would expose plaintext version of their
+Draft bulletins to the server.
+</p>
+<p>
+Backing up Drafts could happen automatically at some set interval, or it
+could be a manual operation on a per-bulletin basis, or all at once.
+</p>
+<p><strong>Technical Details:</strong><br/>
+On the server, Draft bulletins would be similar to Sealed bulletins
+in that:
+<ul>
+<li>They consist of a signed bulletin with an id</li>
+<li>They could be retrieved by the author</li>
+<li>They would be backed up to other servers</li>
+</ul>
+They would differ from Sealed bulletins because:
+<ul>
+<li>They could not be retrieved by anyone other than the author</li>
+<li>They would not support adding links, withdrawals, or can openers</li>
+<li>When a Sealed bulletin with the same id was uploaded, it would
+replace the Draft copy</li>
+</ul>
+</p>
+
+
+
+
+<hr/>
+<a name="customcd"/>
+<h3>Create an organization-specific Martus Client install CD</h3>
+<p><strong>User Experience:</strong><br/>
+Organizations may wish to burn custom client installation CD's that
+are pre-configured. Additionally, or alternatively, organizations
+might include a custom floppy disk as an add-on. This way, they could
+include account-specific and/or frequently changing information on
+the floppy disk (instead of a CD).
+</p
+<p>
+Some of the possible benefits include:
+<ul>
+<li>Providing a pre-populated list of available server IP addresses</li>
+<li>Establishing default security policies (e.g. password length)</li>
+<li>Setting default "<a href="#canopener">can opener</a>" rules, such as
+to always allow the government to view private sections</li>
+<li>Automatically filling in organization contact information, setting
+UI language, display date format, etc.</li>
+</ul>
+</p>
+<p>
+All of this pre-configured information could be contained within a
+single file signed by the umbrella group. The user would have to enter
+the correct fingerprint of the umbrella group, and having done so, would
+be able to trust all of the information within. Thus, the server keys
+could be assumed correct (no fingerprint entry required), and any other
+public keys (such as for can openers or to create revocation certificates)
+would also be assumed correct, with no fingerprint entry needed.
+</p>
+<p>
+As an alternative, the user might be able to download a signed
+pre-configuration file, and apply it to an off-the-shelf, generic
+Martus Client installation. They would still use a fingerprint to
+verify the validity of the file.
+</p>
+<p>
+We would have to decide which (if any) of the settings would be "locked in",
+and could not be changed by the user. For example, minimum password length.
+But I think these would be a new story--the initial implemenation  would
+still allow the user to override any setting (at their own risk). A later
+story might prevent the user from overriding some or all of the settings.
+</p>
+<p><strong>Technical Details:</strong><br/>
+We could provide some tools to make it easier to create these custom CD's,
+we could do the effort ourselves manually, or we could just leave it up to
+each organization (by documenting what they would need to do).
+</p>
+
+
+<!--
+<hr/>
+<a name=""/>
+<h3></h3>
+<p><strong>User Experience:</strong><br/>
+</p>
+<p><strong>Technical Details:</strong><br/>
+</p>
+
+-->
+
+<hr/>
+</body>
+</html>

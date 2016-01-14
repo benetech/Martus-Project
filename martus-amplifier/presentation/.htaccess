@@ -1,0 +1,6 @@
+AuthType BASIC
+AuthName Amplifier
+<Limit GET POST DIR DEL PUT>
+satisfy all
+require valid-user
+</Limit>

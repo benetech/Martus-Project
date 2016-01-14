@@ -1,0 +1,62 @@
+Project:	MartusClient
+Iteration:	3
+Begin:		June 11
+End:		June 22
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 3
+Velocity: 2
+
+Committed Stories:
+
+1. Skeleton UI Controls[1]
+To make a good demo, include non-functional Folder list, 
+language dropdown, attachments, hide all check box, signin dialog.
+
+2. Bulletin Preview [1]
+Display the entire bulletin contents in a preview pane,
+for whichever bulletin is selected in the list 
+
+Future Stories that may be started:
+
+3. Allow Fields of Different Lengths and Multiline fields [1]
+Each field should specify the desired size of its input field.
+
+4. Cool Date input [1]
+Three drop down boxes for each date field. (Month, Day, Year)
+
+5. Highlight Private Field(s) [1]
+Shows a visual distinction for private fields, whether by 
+highlighted background, border or text.
+
+
+Results:
+------
+Workdays: 4
+Velocity: 5
+
+Story 1 (Skeleton) only took a couple hours, because it was 
+just tossing up some Swing components.
+
+Story 2 (Preview) only took a couple hours initially, partly 
+because it had been started in the previous iteration. Later, 
+it needed about 1/2 day of refactoring.
+
+Story 3 (Multiline) only took a couple hours. There are only 
+two field lengths right now: NORMAL and MULTILINE.
+
+Story 4 (Cool dates) took almost one day.
+
+We lost about 1/2 day to a weird problem where bulletins were 
+jumping around on the screen. It was a Swing oddity that we 
+worked around by putting scrollbars on the multiline text 
+fields, and not allowing them to visually grow. 
+
+Story 5 (Highlight Private Fields) took a full day. It turned 
+out to be quite complex, involving nesting "Listeners" three 
+levels deep. Quite a bit of refactoring of the existing code 
+was also required to make the feature easier to add.
+
+-------

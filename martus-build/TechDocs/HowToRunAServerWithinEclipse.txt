@@ -1,0 +1,66 @@
+First go to martus-server project
+org.martus.server.main you will find MartusServer.java
+Either Run/Debug this as needed.
+
+(if not provided in the command line arguments
+For Windows the default directory 
+C:/MartusServer/
+For all other OS's the default directory will be 
+/var/MartusServer/
+To set the default Server directory via the command line you will have (--data-directory=...)
+
+All directories will be created automatically.
+In the server directory there will be a deleteOnStartup directory which keypair.dat must first be copied into.
+If you don't already have this file you will need to create one by
+
+Creating Martus Server KeyPair
+------------------------------
+martus-server
+org.martus.server.tools and run CreateKeyPair.java
+The command line argument must have --keypair=xxx where xxx is the directory and file name to the keypair.dat file you wish to create
+Eg. for windows --keypair=C:\MartusServer\deleteOnStartup\keypair.dat
+
+NOTE:  For developers if you run INSECURE the MartusServer\deleteOnStartup directory won't be deleted so we can keep the keypair.dat 
+file in this directory and not have to copy it over each time you run the server.
+
+NOTE: if you use the password for your keypair.dat file as "password" then you can pass in --nopassword as a command line argument 
+when running the server so it won't prompt you for the password each time.  DON'T DO THIS FOR A REAL SERVER!
+When you run the CreateKeyPair it will ask for a password and takes approximately 30 seconds to create the file.  Moving mouse can help
+with System's Entropy during the process but shouldn't be needed.
+It will tell you your public code which is important but you don't need to copy it down since it is displayed on the console each time 
+the server is ran so if needed you can grab it then.
+
+Starting Martus Server
+----------------------
+
+In addition to keypair.dat file being needed in /deleteOnStartup directory there must also be a compliance.txt file which should just say 
+"This is a development server and shouldn't be trusted"  For a real server you should obtain a sample of this file from Benetech 
+
+Command Line Arguments
+See MartusServer.java (processCommandLine()) for a complete list of command line arguments
+
+Here are a couple of the more common arguments when setting up a server for Martus clients
+--nopassword (will use "password") and not prompt you for one each time
+--client-listener (will be used if you want Martus Clients to be able to connect to this server)
+
+You will be told what is the IP address you can use to connect your Martus Client to.
+Example:
+Notice: ::tname=main:: Initializing ServerForClients
+Notice: ::tname=main:: Opening SSL port localhost/127.0.0.1:9987 for clients...
+Limiting SSL cipher suites to: [TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_NULL_SHA256]
+Notice: ::tname=main:: Opening SSL port localhost/127.0.0.1:9443 for clients...
+Limiting SSL cipher suites to: [TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_NULL_SHA256]
+Notice: ::tname=main:: Opening NonSSL port localhost/127.0.0.1:9988 for clients...
+Notice: ::tname=main:: Opening NonSSL port localhost/127.0.0.1:9080 for clients...
+Notice: ::tname=main:: Client ports opened
+
+You can for now ignore the following SEVERE: NOTE: getActiveRunnerCount is no longer implemented
+Eventually we'll just take those out, because the new xmlrpc doesn't really let us track activerunners
+and the reason we originally added that output doesn't exactly exist any more, there is a TT to fix this error.
+
+You can also ignore the following ERROR which happens during startup.
+ERROR: ::tname=Timer-3:: BackgroundTimerTick - Mirroring/Amp data pull: Timer may be wedged, last invoked Wed 12/31 16:00:00 PST
+
+
+
+

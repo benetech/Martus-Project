@@ -1,0 +1,17 @@
+January 13, 2006
+
+Currently we are using bcprov-jdk14-128.jar
+When we upgrade assuming that the serialVersionUID issue has been resolved by implementing
+our own read/write objects instead of using Java's Serialization, the following steps are needed:
+
+1. Update martus-thirdparty/libext/BouncyCastle/
+	bin -> Copy bcprov-jdk14-XXX.jar
+	Source -> Copy bcprov-jdk14-XXX.zip
+	license -> Extract from the above zip file the License.html
+2. Projects martus-common, and martus-bc-jce Properties :Build Path need to point to the new Jar in ThirdParty.
+3. We verify that the signature inside the bcprov-jdk14-XXX.jar matches the one in org.martus.common.crypto
+   To do this extract from the bcprov-jdk14-XXX.jar the file Meta-Inf\BCKEY.SF and copy it into org.martus.common.crypto but rename it to BCKEY.SIG
+4. In org.martus.common.crypto.MartusSecurity update the Constant BCPROV_JAR_FILE_NAME to the new JAR name.
+5. In the martus project, edit build.properties and change the bouncycastle.version variable to the new jar XXX value (e.g. 135).
+
+   

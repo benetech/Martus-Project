@@ -1,0 +1,14 @@
+Martus Amplifier Developer Installation Instructions
+-----------------------------------------------------
+
+1. Install Eclipse 2.1 or 3.0 (http://www.eclipse.org/downloads/index.php) if necessary.
+
+2. Set up Eclipse using the "Set up Eclipse" instructions.
+
+6. Set up other Eclipse variables using "Set Eclipse Variables" instructions.
+
+7. Follow the "Building Amplifier" instructions.
+
+8. To get started, follow the "Running the Amplifier" instructions.
+
+9. For unit testing, follow the "Testing the Amplifier" instructions.

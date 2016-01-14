@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="460.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox>
+         <children>
+            <Label styleClass="headingLevel1" text="%WelcomeMessage1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+            <Label styleClass="headingLevel2" text="%WelcomeMessage2" />
+         </children>
+         <BorderPane.margin>
+            <Insets left="265.0" top="20" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+
+		<center>
+
+      <GridPane>
+         <children>
+            <Label styleClass="mainText" text="%WelcomeMessage3" wrapText="true" GridPane.columnSpan="3" />
+
+            <Label styleClass="stepNumber" text="%Step1" GridPane.rowIndex="1" />
+            <Label styleClass="headingLevel3" text="%WizardStep1Heading" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label styleClass="mainText" text="%WizardStep1Information" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+            <Label styleClass="stepNumber" text="%Step2" GridPane.rowIndex="2" />
+            <Label styleClass="headingLevel3" text="%ServerSettings" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label styleClass="mainText" text="%WizardStep2Information" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+            <Label styleClass="stepNumber" text="%Step3" GridPane.rowIndex="3" />
+            <Label styleClass="headingLevel3" text="%WizardStep3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label styleClass="mainText" text="%WizardStep3Information" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+
+            <Label styleClass="stepNumber" text="%Step4" GridPane.rowIndex="4" />
+            <Label styleClass="headingLevel3" text="%WizardStep4" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label styleClass="mainText" text="%WizardStep4Information" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+
+            <Label styleClass="stepNumber" text="%Step5" GridPane.rowIndex="5" />
+            <Label styleClass="headingLevel3" text="%WizardStep5Heading" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label styleClass="mainText" text="%WizardStep5Information" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
+            <Label styleClass="stepNumber" text="%Step6" GridPane.rowIndex="6" />
+            <Label styleClass="headingLevel3" text="%WizardStep6Heading" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label styleClass="mainText" text="%WizardStep6Information" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="0.0" prefWidth="31.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="216.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="301.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <BorderPane.margin>
+            <Insets left="70.0" top="20.0" />
+         </BorderPane.margin>
+      </GridPane>
+  </center>
+   <left>
+      <ImageView fitHeight="162.5" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../dialogs/Martus-logo-white-text-160x72.png" />
+         </image>
+<BorderPane.margin>
+<Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+</BorderPane.margin>
+      </ImageView>
+   </left>
+</BorderPane>

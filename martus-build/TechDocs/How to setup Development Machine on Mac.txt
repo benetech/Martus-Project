@@ -1,0 +1,119 @@
+Instructions on setting up a development environment on a MAC.
+
+1. Install Java 8
+
+2. Download Eclipse and install (version I had insisted on installing
+Java 6, which I did as well)
+
+3. Download HG Mercurial and install (Typing HG from terminal will
+confirm this)  HG requires Python 2.7 or greater,
+   but this was already installed on my Mac.
+   To bring up the Terminal easily press Command + Space (to bring up
+a search feature)
+   Then start typing "terminal" you should only need a couple letters
+then press return on Terminal.
+   Otherwise Terminal is located in Applications/Utilities
+
+4. Set up a VPN connection to Benetech
+https://wiki.benetech.org/display/Main/VPN+Instructions
+   Scott will have to give you your user name & password.  If you
+don't want to have to retype your password
+   each time during the setup there will be an Authentication button,
+here you can enter your password once.
+   The VPN connection status will be on your toolbar at the top left
+of your homescreen, here you can connect/disconnect.
+
+5. You will need to be able to see Hidden files on your system, to do
+this bring up the Terminal,
+   defaults write com.apple.Finder AppleShowAllFiles TRUE
+   then relaunch Finder (killall Finder)
+   
+6. If Finder doesn't show you your "root directory" you can add this
+to the left hand column of Finder by going into
+   Finder/Preferences (Tab: SideBar, and enable Home Directory)
+Should now see a House Icon under Favorites in Finder.
+
+7. Set up your SSH key (Give Scott your public key
+https://wiki.martus.org/CVS-svn-SSH-setup
+   Even if you have a key for Linux/Windows its best to create a new key.
+   Its best to follow Scott's instructions here since if the .ssh
+directory isn't set up correctly you won't be allowed
+   to add keys etc.
+        Then append the appended stanza to etc/hosts
+        use sudo nano /etc/hosts
+	
+        ------------------------------------------------------------------
+       10.10.220.72 mvcs
+
+
+8. To test that you set up your VPN connection correctly
+   First make sure you are connected to the Benetech VPN
+   Bring up the Terminal and next you can type Ping mvcs (this should
+ping 10.10.220.72) (If that fails try ping 10.10.220.72)
+
+9. To test that you set up your SSH correctly try the following in
+Terminal
+   SSH mvcs
+   It should connect but you should receive a warning saying this
+repository should be accessed via HG.
+
+10. Once you SSH to mvcs in the file ~/.ssh/known_hosts you should now 
+  have an entry like the following:
+	mvcs,10.10.220.72 ssh-rsa	AAAAB3N…BCA==
+
+11. If that doesn't work you may have to add mvcs to your hosts file,
+   From inside Terminal type
+   sudo nano /private/etc/Hosts
+   add mvcs  mart-vcs.benetech.org
+   or 
+   add mvcs 10.10.220.72
+
+12. If things are still not working, you should contact Scott, he will
+want you to show you the permissions and file contents of .ssh
+   ls -la ~/.ssh
+   as well as the contents of your /.ssh/config file
+   cat ~/.ssh/config
+
+13. Now you will need to install the Mercurial Plugin in Eclipse
+    Run Eclipse, Help, MarketPlace, and search for “mercurial eclipse”, current plugin is
+    MercurialEclipse 2.1
+
+14. Once you verify that you can ssh to mvcs then you can go to
+Eclipse and start cloning the Benetech projects.
+    In Eclipse go to View/Project Explorer, then right click Project / New Project
+    expand Mercurial
+    Clone existing Mercurial Project
+    URL = ssh://mvcs/martus/martus-utils
+    Authentication use your user name scott gave you for the repository 
+    		(password field is not needed since it is authenticated using your 
+    		public/private keypair)
+    Select Next, and use the "default" branch.
+    Do this for all the projects
+        ssh://mvcs/martus/martus-amplifier
+        ssh://mvcs/martus/martus-build
+        ssh://mvcs/martus/martus-client
+        ssh://mvcs/martus/martus-clientside
+        ssh://mvcs/martus/martus-common
+        ssh://mvcs/martus/martus-docs
+        ssh://mvcs/martus/martus-hrdag
+        ssh://mvcs/martus/martus-jar-verifier
+        ssh://mvcs/martus/martus-js-xml-generator
+        ssh://mvcs/martus/martus-logi
+        ssh://mvcs/martus/martus-meta
+        ssh://mvcs/martus/martus-mspa
+        ssh://mvcs/martus/martus-server
+        ssh://mvcs/martus/martus-swing
+        ssh://mvcs/martus/martus-thirdparty
+
+
+15. Change Preferences / Java / Compiler to 1.7
+
+16. You will need to adjust the Eclipse/Preferences/General/Workspace
+Text File Encoding as UTF-8.
+
+17. Now to a Clean and Rebuild all projects.
+
+18. Now you should be able to run both the unit tests, Martus, and
+Martus Server.
+    Test all is located in meta, Martus is under
+martus-client/swingui, and Martus Server is martus-server/main

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="contactsVbox" prefHeight="445.0" prefWidth="860" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+		<VBox maxWidth="655" prefWidth="655" styleClass="mainTextBox">
+   <children>
+       <Label fx:id="fxAddManageContactLabel" styleClass="headingLevel1" text="%AddContacts" />
+     	<Label fx:id="contactsOverviewLabel" prefHeight="140" styleClass="mainTextBoxText" text="%AddContactInstructions" wrapText="true" />
+   </children>
+		</VBox>
+    <BorderPane>
+      <top>
+        <HBox prefHeight="53.0">
+          <children>
+            <Label styleClass="headingLevel3" text="%AccessToken" />
+            <TextField id="" fx:id="accessTokenField" promptText="%AccessTokenInstructions" />
+            <Label prefWidth="38.0" />
+            <Button id="" fx:id="addContactButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addContact" prefWidth="259.0" styleClass="button_guided_action" text="%Button.AddContact" />
+          </children>
+        </HBox>
+      </top>
+      <center>
+        <VBox BorderPane.alignment="CENTER">
+          <children>
+            <TableView id="contacts-table" fx:id="contactsTable" editable="true" prefHeight="251.0" prefWidth="684.0">
+              <columns>
+                <TableColumn id="" fx:id="contactNameColumn" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="106.0" sortable="true" styleClass="mainText" text="%Button.ContactName" />
+                <TableColumn fx:id="sendToByDefaultColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="177.0" styleClass="tableRow" text="%Button.SendToByDefault" />
+                <TableColumn id="" fx:id="publicCodeColumn" editable="false" minWidth="10.0" prefWidth="370.0" sortable="true" styleClass="tableRow" text="%Button.PublicCode" />
+                <TableColumn fx:id="verificationStatusColumn" editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" sortable="true" styleClass="tableRow" text="%Button.ContactVerified" />
+                <TableColumn id="" fx:id="removeContactColumn" editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="65.0" sortable="false" styleClass="tableRow" text="%Button.ContactRemove" />
+              </columns>
+            </TableView>
+          </children>
+        </VBox>
+      </center>
+    </BorderPane>
+  </children>
+</VBox>

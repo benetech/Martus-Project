@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/martus-common"/>
+	<classpathentry kind="src" path="/martus-utils"/>
+	<classpathentry kind="src" path="/martus-swing"/>
+	<classpathentry kind="var" path="JUNIT_HOME/junit.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/martus-clientside"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/client/jhlabs/bin/layouts.jar" sourcepath="/martus-thirdparty/client/jhlabs/src/layouts.zip"/>
+	<classpathentry kind="lib" path="ThirdParty/sun-jaf/bin/activation.jar"/>
+	<classpathentry kind="lib" path="ThirdParty/sun-javamail/bin/mail.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

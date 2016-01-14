@@ -1,0 +1,58 @@
+Notes for getting the MSPA server running on a windows box
+2004-04-08 Kevin B. Smith
+2004-10-06 Kevin: Various corrections and enhancements
+
+These are TEMPORARY instructions, and may become obsolete 
+within a week or two!
+
+
+---- BEGIN ONE-TIME SETUP ----
+1. Go to the top-level MartusServer directory. If you are a developer
+   running eclipse, this will be something like:
+     C:\work\eclipse-martus\martus-mspa\bin>
+   
+   If you are running a test server, it would be where the MartusServer
+   jar is located, which on Windows is:
+     c:\MartusServer
+   
+   and give this command:
+     rmic -d . org.martus.mspa.network.roothelper.MessengerImpl
+     
+   If it says "rmic command not found" or something like that, you will 
+   need to have a developer do this step for you. It will create a file
+   that you should copy to your MartusServer directory.
+   
+   (Later, this will be part of the ANT build script, so it will be automated
+
+2. Create c:\MSPAServer with:
+   adminTriggers\
+   deleteOnStartup\
+       keypair.dat
+       clientsWhoCallUs\
+   MartusServerData\
+
+---- END ONE-TIME SETUP ----
+
+
+3. For each MSPA client that you want to allow in, copy their server-format 
+public key file into the authorizedClients directory. 
+The filenames do not matter.
+
+NOTE: If you are trying to manage an existing development server, 
+you will need to copy files from that server's directory into 
+the MartusServerData directory. They will NOT be copied back to 
+your development server, because that is normally handled by a 
+Scott-script on the production servers.
+
+
+For each of the following commands, if you are running them from 
+the server jar, the command should be:
+  java -cp MartusServer.jar xxxxxxxx
+
+They should be run from the top-level directory, such as C:\MartusServer
+  
+4. Run org.martus.mspa.roothelper.RootHelper (no parameters needed)
+
+5. Run org.martus.mspa.server.MSPAServer (no parameters needed)
+
+6. You can now run an MSPA client and connect to this MSPAServer (listener).

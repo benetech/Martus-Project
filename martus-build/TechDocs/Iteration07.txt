@@ -1,0 +1,97 @@
+Project:	MartusClient
+Iteration:	7
+Begin:		August 6
+End:		August 17
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 4
+Velocity: 4.25
+
+Committed Stories:
+
+1. Discard bulletin [1]
+Initially invoked with mouse right-click, which will move a bulletin to the Discarded 
+Items folder. Discarding from "Discarded items" folder removes them from the system 
+permanently. Bulletin Status will not change to "Deleted" at this point.
+
+2. Save and Restore Drafts [1]
+Make the "Save as Draft" button actually save the bulletin in a drafts folder. Allow 
+the user to modify bulletins in the drafts folder by double-clicking. Status should 
+reflect "Draft" vs. "Sent".
+
+3. Create true, unique IDs [.5]
+Give bulletins unique identification information
+
+4. Store "Language" as a real field [.75]
+Also, move it below Keep ALL Information Private (where it used to be).
+
+5. Remove "Browse..." button from preview pane [.5]
+
+6. Move "private" redline inside scrollbars [.5]
+
+Stories that might be started:
+
+7. Respect local date preferences [1]
+Use local system settings to determine how dates are displayed and edited. This 
+includes sequence (dmy vs mdy) of display and of the dropdowns in the bulletin 
+create/edit dialog. It does not mean bringing up month names in a different 
+language.
+
+8. Initial System Setup [2]
+The first time Martus is run on a computer, it will force the user to set up an 
+account. [Marc will provide the list of required and optional fields that we want 
+to collect at that point]. This will also use some mouse gesture mechanism to 
+come up with a random seed for this account.
+
+
+Results:
+------
+Workdays: 4
+Velocity: 4.25
+
+Paired with Richard for 3 hours.
+
+Story 1 took less than a day, but handling orphans correctly made the task spill 
+over a day by a few hours. Doing status changes would have made it take even longer. 
+We (Marc) need to decide what "status" means from a user standpoint.
+
+Story 2 triggered a major refactoring (simplification) of the way change 
+notifications were being sent throughout the system. Richard paired for much of the 
+refactoring, which helped. This refactoring took about half a day. Actually 
+implementing drafts took about six hours.
+
+Story 3: Did some research, and concluded that it's best to delay this story until 
+Initial System Setup. Once we have a UID for the "account", then creating a UID for 
+each bulletin created by that account becomes much easier.
+
+Story 4: Took about two or three hours.
+
+Story 5 took less than one hour.
+
+Story 6 was postponed to a future iteration by Marc.
+
+Story 7 turned out to be difficult because Java doesn't want to use the 
+Windows system settings. So (because Marc was unavailable), I renamed the story to 
+"Localization dialog to change display date format [1]". I'm not sure how to handle 
+the dropdowns, so they are still hard-coded as d/m/y. This story took most of one 
+day, and triggered some overdue refactoring which took the rest of that day.
+
+Upon further reflection, I made a mistake by trying to leverage Java "locales" to 
+solve the date formatting problem. The correct solution would have been to simply 
+create our own list of date formats we want to support. This would have taken less 
+time, and would have allowed easy switching of the M/D/Y dropdowns. It will probably 
+take a couple hours to refactor to this solution, but it does not have to be done 
+right away.
+
+
+There are [STILL] two meta-tasks that we need to spend some time on to avoid 
+slowing down the project:
+1. Automated "acceptance tests" (CRITICAL)
+2. Automate the process of generating release packages (would be nice)
+
+Marc has approved my spending some time working on the acceptance tests, but I 
+haven't yet started to do so.
+
+-------

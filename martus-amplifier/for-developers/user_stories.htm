@@ -1,0 +1,255 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>User Stories</title>
+</head>
+
+<body>
+
+<p><b>Benetech Martus Amplifier</b></p>
+<hr>
+
+<p><b>User Stories</b></p>
+<ul>
+  <li>user searches for a bulletin that &quot;recently&quot; got added to backup server, and the
+    search returns that result
+    <ul>
+      <li>polling
+        <ul>
+          <li>when amp starts, it sets up a chron-like timer</li>
+          <li>whenever timer rings (e.g. once a day), amp polls the servers</li>
+          <li>kevin says once per day polling should be adequate</li>
+        </ul>
+      </li>
+      <li>[working] amp gets list of servers to sync with
+        <ul>
+          <li>get list from some sort of config file set up by admin person who
+            installed amp</li>
+        </ul>
+      </li>
+      <li>[sri] amp makes request to server to get list of new bulletins
+        <ul>
+          <li>request handled at first just by gateway stub, later by the
+            gateway calling the handler interface</li>
+        </ul>
+      </li>
+      <li>[working] amp can test to see if the bulletin id has already been
+        indexed</li>
+      <li>[brian] amp iterates through list of bulletin ids to see which ones
+        have not been indexed</li>
+      <li>[sri] amp gets new bulletins (and attachments) from server
+        <ul>
+          <li>gateway does decryption and unzipping</li>
+        </ul>
+      </li>
+      <li>[working] amp indexes new documents</li>
+      <li>[dan] amp deals with user any access concurrency problems during re-indexing</li>
+    </ul>
+  </li>
+  <li>search page
+    <ul>
+      <li>[working] user types URL in browser, browser returns amp search page</li>
+      <li>[dan, sri] user can use a dropbox to switch to any of several
+        supported languages</li>
+      <li>[working] amp search page has a text field and a search button</li>
+      <li>[working] user hits search button with search-text field empty, browser returns
+        something</li>
+      <li> [in progress] Have a checkbox for case sensitive/insensitive (default should be insensitive)</li>
+      <li> [in progress] Have a checkbox for whole word/partial word (default should be partial word)</li>
+      <li> [in progress] Have a different search page that allows searching a date range in EventDate</li>
+      <li>[in progress] User specifies which field(s) to search (using a multi-select dropdown)</li>
+    </ul>
+  </li>
+  <li>contact page
+    <ul>
+      <li>[initial version working] user reports bug to Benetech</li>
+    </ul>
+  </li>
+  <li>faq page
+    <ul>
+      <li>[initial version working] user sees list of questions and answers</li>
+    </ul>
+  </li>
+  <li>result list page
+    <ul>
+      <li>[working] Display search results in a table</li>
+      <li>[working] results table has exactly one row for each search result</li>
+      <li>[working] results table has one column for each field: Author, EventDate, Title</li>
+      <li>[working] results table has one bulletin-link in each row</li>
+      <li>[working] user clicks on bulletin-link in results tables, browser goes to
+        bulletin page</li>
+      <li>[sri] user can sort by column (e.g. author, title, entry date) by clicking
+        on the field title</li>
+      <li>[working] if results don't fit on one page, results are split between pages</li>
+      <li>[working?] user prints results page (using browser print button)</li>
+      <li>[working?] user sends copy of results page in e-mail (by copy &amp; paste?)</li>
+    </ul>
+  </li>
+  <li>bulletin page&nbsp;
+    <ul>
+      <li>[working] bulletin page is a single-page view of all the fields in that bulletin</li>
+      <li>[dan] bulletin page shows attachments</li>
+      <li>[working] Add a "next" button to the single bulletin view page that takes you to the next match</li>
+      <li>[working] Add a "previous" button to the single bulletin view page</li>
+      <li>user clicks on author link to go to author page</li>
+      <li>[working?] user prints results page (using browser print button)</li>
+      <li>[working?] user sends copy of bulletin page in e-mail (by copy &amp; paste?)</li>
+    </ul>
+  </li>
+  <li>author page
+    <ul>
+      <li>author page is a single-page view of all the &quot;contact info&quot;
+        available for an author</li>
+    </ul>
+  </li>
+  <li>error page (error.jsp?)
+    <ul>
+      <li>[sri] user sees clear message if back-up server is down</li>
+      <li>[sri] user sees clear message if search returned no results</li>
+    </ul>
+  </li>
+  <li>browser compatibility
+    <ul>
+      <li>marc says: Of course, we would have to support IE and Netscape, though
+        which versions I'm not sure of.&nbsp; More broadly, I'd love to support
+        Mozilla and Opera. &nbsp;(I saw Opera used in Russia.)</li>
+      <li>kevin says: Enough people disable Javascript on their regular browsers
+        that I don't think we can require it for the site to function. If there
+        are certain features that would be greatly enhanced with a dab of
+        Javascript, that seems ok to me.</li>
+      <li>kevin says: we should also attempt to be compatible with AOL, WebTV,
+        ancient versions of IE and Netscape, and all the other oddball browsers
+        past and future. Not that we need to test with them, but that we should
+        aim for a site that is as simple and widely compatible as possible.</li>
+      <li>kevin says: <span class="288075021-14112002">I think our goal should
+        be to rely as little as possible on browser features, so that the Amp
+        can be used by as many people as possible. We should use little or no
+        Javascript, because it is notoriously hard to debug, is notoriously
+        incompatible between browser versions, and is disabled by many people
+        for security and/or privacy reasons.&nbsp;</span></li>
+      <li>kevin says: <span class="288075021-14112002">Also, there are different
+        levels of compatibility. At a minimum, the site should not crash or be
+        invisible on a supported browser. But some amount of cosmetic
+        imperfection is probably ok, because it is almost impossible to get
+        certain HTML features to look good on all versions of all browsers,
+        without extensive browser-specific code. I would like to avoid serving
+        different pages for different browsers if at all possible.</span></li>
+      <li>kevin says: <span class="288075021-14112002">We need further
+        discussions, but my own first thought is that the absolute minimum to
+        fully support would be Windows versions of IE 5, 5.5 and 6, Mac IE&nbsp;[don't
+        know which version(s)]&nbsp;and Netscape 4.7 and 6.2, and Linux Netscape
+        4.7 and 6.2.&nbsp;</span></li>
+      <li><span class="288075021-14112002">kevin says: </span><span class="288075021-14112002">I
+        would also like to support Lynx (a text-only browser), and the latest
+        version of Opera on all three platforms. ... As for Lynx, I'm not sure
+        it's a marketing requirement. And I certainly wouldn't propose making it
+        actually look good in a text-only browser. But if we stick to simple,
+        validated standard HTML, it should be at least functional under Lynx
+        with no effort on our part. Partly this would be in line with some of
+        Benetech's other goals, which are accessibility by blind folks, and
+        compatibility with low-end Linux systems that might be in use around the
+        world.</span></li>
+    </ul>
+  </li>
+  <li>efficiency
+    <ul>
+      <li>user accesses amp from a browser with a slow Internet connection</li>
+      <li>&nbsp;</li>
+    </ul>
+  </li>
+</ul>
+<p><b>Things that are <font color="#FF0000"> not</font> user stories</b></p>
+<ul>
+  <li>user searches private bulletins</li>
+  <li>user searches private fields</li>
+  <li> user searches private bulletin attachments</li>
+  <li>user searches public bulletin attachments</li>
+  <li>user subscribes to e-mail follow-up announcements about a bulletin</li>
+  <li>amplifier sends e-mail to subscribing users when a bulletin is updated</li>
+      <li>search page has a pop-up list of authors</li>
+</ul>
+<p><b>Admin Stories</b></p>
+<ul>
+  <li>CD-ROM?
+    <ul>
+      <li>admin installs amplifier from a CD-ROM?</li>
+    </ul>
+  </li>
+  <li>download page
+    <ul>
+      <li>admin reads FAQ about installing amp</li>
+      <li>admin downloads current version of martus amp separate from server?</li>
+      <li><font color="#FF0000">not a requirement: </font>admin downloads martus
+        server which includes amp</li>
+    </ul>
+  </li>
+  <li>target platforms
+    <ul>
+      <li>amp should run on linux</li>
+      <li>amp should run on windows 2000</li>
+    </ul>
+  </li>
+  <li>installation
+    <ul>
+      <li><font color="#FF0000">not a requirement: </font>admin installs martus amp at same time as martus
+        server</li>
+      <li>admin installs martus amp independent of martus server</li>
+      <li>admin installs martus amp in under xxxx amount of time (60 minutes?)</li>
+      <li>admin installs martus amp without agreeing to more than one set of license
+        agreements (licenses for tomcat, lucene, Benetech, etc.)?</li>
+      <li>admin installs new martus amp over old installation, with old
+        installation running?</li>
+      <li>admin sets up amp to find backup servers</li>
+      <li>admin is able to pick the location of the directory where the unzipped
+        bulletins and the indexed bulletins (and their attachments?) will be
+        stored&nbsp;</li>
+    </ul>
+  </li>
+  <li>ongoing admin
+    <ul>
+      <li>admin starts server</li>
+      <li>admin stops server</li>
+      <li>admin checks on status of server</li>
+      <li> amp server finds backup servers without admin help?</li>
+    </ul>
+  </li>
+  <li>admin reports bug to Benetech (simple e-mail link from web page?)</li>
+</ul>
+<p><b>Developer stories</b></p>
+<ul>
+  <li>start here
+    <ul>
+      <li>new developer comes to amp project and is given a &quot;start
+        here&quot; document</li>
+      <li>&quot;start here&quot; document includes complete instructions for
+        installing tools (e.g. eclipse)</li>
+      <li>&quot;start here&quot; document includes complete instructions for
+        checking out source</li>
+      <li>&quot;start here&quot; document includes complete instructions for
+        getting clean build</li>
+      <li>&quot;start here&quot; document includes complete instructions for
+        running unit tests</li>
+    </ul>
+  </li>
+  <li>tech docs
+    <ul>
+      <li>tech docs (e.g. list of jars used)</li>
+      <li>[done] package dependencies</li>
+      <li>[brian] brief project history</li>
+    </ul>
+  </li>
+</ul>
+<p><b>Legal stories</b></p>
+<ul>
+  <li>add copyright statements to code</li>
+  <li>review license agreements for included components (e.g. lucene) and see in
+    what ways they limit distribution of the amplifier</li>
+  <li>buy licenses for WinZip</li>
+</ul>
+
+</body>
+
+</html>

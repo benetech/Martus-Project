@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+       <HBox>
+         <children>
+            <Hyperlink fx:id="fxLocationAll" onAction="#onShowAll" text="%All" />
+            <Hyperlink fx:id="fxLocationLocalOnly" onAction="#onShowLocalOnly" text="%LocalOnly" />
+            <Hyperlink fx:id="fxLocationServerOnly" onAction="#onShowServerOnly" text="%ServerOnly" />
+            <Hyperlink fx:id="fxLocationBoth" onAction="#onShowBoth" text="%RecordLocationBothLocalAndServer" />
+         </children>
+      </HBox>
+      <ScrollPane>
+         <content>
+            <TableView fx:id="allRecordsTable" prefWidth="750.0">
+              <columns>
+                  <TableColumn fx:id="recordLocationColumn" minWidth="20.0" prefWidth="100.0" text="%Button.ServerSyncRecordLocation" />
+                  <TableColumn fx:id="recordTitleColumn" prefWidth="250.0" text="%Button.ServerSyncRecordTitle" />
+                  <TableColumn fx:id="recordAuthorColumn" prefWidth="125.0" text="%Button.ServerSyncRecordAuthor" />
+                  <TableColumn fx:id="recordLastSavedColumn" prefWidth="150.0" text="%Button.ServerSyncRecordLastModified" />
+                  <TableColumn fx:id="recordSizeColumn" prefWidth="75.0" text="%Button.ServerSyncRecordSize" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <HBox>
+         <children>
+            <Hyperlink fx:id="fxSubFilterAll" onAction="#onSubfilterAll" text="%All" />
+            <Hyperlink fx:id="fxSubFilterMyRecords" onAction="#onSubfilterMyRecords" text="%MyRecords" />
+            <Hyperlink fx:id="fxSubFilterSharedWithMe" onAction="#onSubfilterSharedWithMe" text="%SharedWithMe" />
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <Button fx:id="uploadButton" mnemonicParsing="false" onAction="#onUpload" styleClass="button-transparentDarkText" text="%Button.Upload">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/upload.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="downloadButton" mnemonicParsing="false" onAction="#onDownload" styleClass="button-transparentDarkText" text="%Button.Download">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/download.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDelete" styleClass="button-transparentDarkText" text="%Button.DeleteFromServer">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

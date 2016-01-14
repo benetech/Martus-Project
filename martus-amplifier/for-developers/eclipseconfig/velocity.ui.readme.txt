@@ -1,0 +1,4 @@
+Shut down Eclipse
+unzip org.vaulttec.velocity.ui_1.0.2.zip into your eclipse plugin directory
+unzip org.apache.velocity_1.3.1.zip into your eclipse plugin directory as well
+then run Eclipse, now edit .vm 's in a Velocity editor.

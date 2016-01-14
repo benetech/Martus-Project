@@ -1,0 +1,14 @@
+Instructions for Building the Amplifier from Eclipse
+----------------------------------------------------
+
+1. Compilation: Eclipse can be set up to automatically build java sources.
+ You can also manually build amplifier  by selecting the project you want 
+ to build and selecting "Rebuild Project" from the popup menu.
+
+2. The project is now set up to automatically run martus-amplifier/build.xml
+any time a file in the project is saved. This consists of jar-ing up the 
+martus common source files and putting it and some 3rd-party jars in the 
+WEB-INF/lib directory. 
+
+3. After performing these steps you should be able to run and test the 
+Amplifier. See "Running the Amplifier" and "Testing the Amplifier".

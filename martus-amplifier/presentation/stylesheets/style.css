@@ -1,0 +1,114 @@
+body
+{
+	margin: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+}
+
+h1
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: large;
+}
+
+h2
+{
+	font-size: medium;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+h3
+{
+	font-size: medium;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+h4
+{
+	font-size: small;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+h5
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-weight: bold;
+}
+
+h6
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	font-weight: bold;
+}
+
+p
+{
+	color: #000000;
+	font-size: small;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin: 8 8 0 0;
+}
+
+a:link
+{
+	text-decoration: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #0000CC;
+}
+
+a:visited
+{
+	text-decoration: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:hover
+{
+	text-decoration: underline;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FF0000;
+}
+
+ul
+{
+	color: #000000;
+	font-size: small;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+li
+{
+	color: #000000;
+	font-size: small;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+ol
+{
+	color: #000000;
+	font-size: small;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.small
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 12px;
+}
+
+.menu
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 13px;
+}
+
+
+.imgcell a { display: block; }
+img { display: block; }

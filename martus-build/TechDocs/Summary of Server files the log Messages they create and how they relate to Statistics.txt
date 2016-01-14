@@ -1,0 +1,168 @@
+Summary of Server files the log Messages they create, and how they relate to Statistics
+Version 1.1
+
+Notes
+    All directories are relative to the MartusServer directory.
+    SE (Search Engine) is the new name for the Martus Amplifier
+ 
+ 
+Backup Server Talking to an Amplifier  (AKA: ServerForAmpliers)
+    Must have the following command line arguments to run 
+    (--listeners-ip=x.x.x.x --amplifier-listener)
+ 
+    \DeleteOnStartup\ampsWhoCallUs\
+        Inside this directory contains all keys of which amps are authorized to call us.
+        Log Message generated "ServerForAmp Notice: Authorized X amplifiers to call us"
+ 
+    \DeleteOnStartup\clientsNotToAmplify.txt
+        This lists all client accounts which will never be sent to any amplifier 
+        (all bulletins from these accounts wont be sent to an amplifier)
+        Log Message generated "ServerForAmp Notice: Not authorized to amplify X clients."
+        CreateStatistics accounts.cvs "can amplify" is set from this file as well.
+		The intention of this is (was) solely to avoid test accounts from being amplified. 
+		It was not intended to censor data, nor to hide all bulletins belonging to a 
+		legitimate account.
+		By controlling it at the backup server level, rather than at the SE level, 
+		we can prevent our test bulletins from being pulled by a third-party SE 
+		(if such a thing existed and were authorized to pull from us). Now that we support 
+		this at the SE level, I would vote to remove this feature.
+
+
+ 
+    \DeleteOnStartup\amplify_mirrored_bulletins_for_testing.txt
+        If this exists we will amplify mirrored bulletins as well as bulletins originally 
+        uploaded to this server.
+        Log Message generated "ServerForAmp Warning: AMPLIFYING MIRRORED BULLETINS FOR TEST."
+        Just added for testing only.
+		Kevin: Last I heard, we believe this behavior will eventually be the default--
+			that all backup servers will offer mirrored public bulletins to their SE's. 
+			However, the FINAL decision has not yet been made.
+ 
+Amplifier Server (AKA Martus Search Engine - MartusAmplifier)
+    Must have the following command line arguments to run 
+    (--amplifier --amplifier-ip=x.x.x.x --amplifier-indexing-minutes=xx)
+ 
+    \DeleteOnStartup\webauthorized.txt
+        If this file does not exist the Search Engine's Webpage is NOT password protected 
+        and will generate the following log
+            Log Message generated "Amp Notice: 
+            	** No password Required for Martus Web Search Engine **"
+        If the file exists, the first line of the file is the user name, the second line 
+        is the password
+            Log Message generated "Amp Notice: password Required Martus Web Search Engine"
+ 
+    \DeleteOnStartup\serversWhoWeCall\
+        Inside this directory contains all keys of which backup servers we will call.  
+        (Note: the backup Server we are calling must authorize us to call and have our 
+        public key in their "ampsWhoCallUs" directory)
+            Log Message generated for each server we can call "Amp Notice: will call: 
+            <File name of server's key>"
+ 
+    \DeleteOnStartup\accountsNotAmplified.txt
+        All accounts which may or may not have been amplified to us, but we will NOT display 
+        on the search engine.
+        Log Message generated "Amp Notice: X account(s) will not get amplified"
+        CreateStatistics DOES NOT look at this file currently, maybe it should.
+		Scott:  CreateStatistics should look at this file.  This is why the "can amplify" 
+		fields are invalid (stuck at 1).
+		Charles: New TestTrack to fix this by adding in two new columns for AmpCanAmplify
+		and ServerCanAmplify, and have "can amplfiy" be the combination of both.  This
+		has not yet been implemented.
+
+ 
+Mirroring (AKA ServerForMirroring)
+    
+    Must have the following command line arguments to run 
+    (--listeners-ip=x.x.x.x --mirror-listener)
+    
+    \DeleteOnStartup\mirrorConfig.txt
+        If this file exists the mirroring Interval will be every second, and the inactive 
+        Sleep is 1 minute.
+        If this file doesn't exist the mirroring Interval will be every 10 seconds, 
+        and the inactive Sleep is 15 minutes.
+        Log Message generated "ServerForMirror Notice: MirroringInterval (seconds): X" 
+        Log Message generated "ServerForMirror Notice: InactiveSleep (minutes): X"
+ 
+    \DeleteOnStartup\mirrorsWhoCallUs\
+        Inside this directory contains all keys of which mirrors who we authorized to call us.
+        Log Message generated "ServerForMirror Notice: Authorized X Mirrors to call us");
+        Servers who call us are those that will RECEIVE our bulletins.
+
+    \DeleteOnStartup\mirrorsWhoWeCall\
+        Inside this directory contains all keys of which mirrors who we will call.  
+        (Note: the Mirror we are calling must authorize us to call and have our public 
+         key in their "mirrorsWhoCallUs" directory)
+       Log Message generated for each configured mirror we call "Notice: We will call: 
+       <Mirror's File name>"
+       Log Message generated "ServerForMirror Notice: Configured to call X Mirrors"
+	   Servers who we call are those whose bulletins we will RECEIVE.
+ 
+Backup Server (AKA Martus Server For Clients)
+    Must have the following command line arguments to run 
+    (--listeners-ip=x.x.x.x --client-listener)
+ 
+    \DeleteOnStartup\banned.txt
+        All clients which currently can not upload bulletins to this server.  
+        They receive a News message telling them they are banned.
+        Message generated "X  client(s) are currently banned"
+        CreateStatistics accounts.cvs field "banned" reflects this information.
+        Banned clients cannot perform any server tasks. 
+        They cannot retrieve their bulletins or view their field office bulletins.
+    
+    \uploadsok.txt
+        All clients which have been authorized to upload bulletins to this server by 
+        providing a valid magic word are in this file.
+        Message generated "X client(s) currently allowed to upload"
+       CreateStatistics accounts.cvs "can amplify" is set from this file as well. 
+       CreateStatistics accounts.cvs "date authorized" is set from this file as well.
+       CreateStatistics accounts.cvs "group" is set from this file as well.
+ 
+    \DeleteOnStartup\magicwords.txt
+        All active/inactive magic words are contained within this file, which the martus 
+        clients use to be authorized in "uploadsok.txt"
+        Message generated "X active magic word(s)"
+        Message generated "X inactive magic word(s)"
+		Inactive magic words are flagged with a leading #. 
+		Blank lines will generate log warnings. 
+		An empty magicwords.txt file will generate a log warning.
+		Each magic word in this file is also annotated with the group it was associated with.
+
+    \DeleteOnStartup\isTester.txt
+        Currently only used for Creating Statistics.  We may also not amplify these tester 
+        accounts but we have yet to implement this.
+        Message generated "X client(s) are known test accounts"
+        CreateStatistics accounts.cvs field "tester" reflects this information 
+        CreateStatistics bulletins.cvs field "test bulletin" for each bulletin created by 
+        this account reflects this information
+		Kevin: 
+			It is not clear to me why we have this in addition to the other two mechanisms 
+			that are solely designed to omit test account bulletins from the SE. 
+			I think we were worried about having some accounts marked "do not amplify" that 
+			were not actually test accounts. I don't think we should, and if we don't, 
+			these features should be merged...and again I would vote to eliminate them 
+			in favor of the SE-level "do not amplify" feature, which we could rename to 
+			make it clear it is only intended to hide test accounts.
+ 
+    \DeleteOnStartup\isHidden.txt
+        Contains a list of hidden/deleted bulletin id's from the server.  These bulletin's 
+        will not be listed to any client, mirror or amplifier.
+        Log Message generated "Info: X bulletins hidden."
+   
+        CreateStatistics bulletins.cvs field "hidden on server" reflects this information
+		Users cannot "re-upload" bulletins listed in isHidden.txt. Apparently this does not 
+		prevent a user from uploading a newer version of the hidden bulletin.
+       
+   \News\
+   		This directory can contain any number of "news" items or can be empty if no news
+   		is available.  Any file in this directory (which must be a UTF8 text file) will get
+   		sent to any Martus Client 1.5 and beyond as soon as they connect to this server.
+   		The message inside the text file will be what the user sees.
+   		Currently the user will see all messages each time the user connect to this server 
+   		(i.e. starts Martus with this server configured and has an internet connection).
+   		In future client versions we may have the client aknowledge the news item so 
+   		they dont have to see it again, but currently as of 2.7 this has not been implemented.
+        Message generated "X News items"
+   		
+   		
+   		
+        

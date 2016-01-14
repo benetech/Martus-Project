@@ -1,0 +1,84 @@
+How to add a new third-party library to Martus
+2007-09-03 Kevin Smith
+
+This is VERY VERY rough, so don't believe any of it!
+
+First, commit the compiled .jar, the source code file (e.g. .zip) and license to the 
+appropriate directory under martus-thirdparty.
+
+--------------------------------------------------------------------------------
+In build.shared.values.xml:
+
+1. add an entry for this new third-party jar, such as:
+
+    <property name="martus.thirdparty.lib.jhlabs"
+      value="${build.basedir}/${martus.thirdparty.module}/client/jhlabs/bin/"/>
+      
+2. Add a line to each build-xxx.xml in the path section, like:
+
+	<fileset dir="${martus.thirdparty.lib.jhlabs}" includes="**/*.jar"/>
+
+--------------------------------------------------------------------------------
+In MartusBuild.sh:
+1. Add a line to inside the copyThirdPartyJarToCDBuild function, like:
+
+	cp -v $SRC_THIRDPARTY_JARS_CLIENT_DIR/jhlabs/bin/*.jar $BUILDFILES_JARS/
+
+2. Add two lines to the copyThirdPartySourceToCDBuild function, like:
+
+	mkdir -p $BUILDFILES_SRC_FILES/jhlabs
+	cp -v $CVS_HOME/martus-thirdparty/client/jhlabs/src/* $BUILDFILES_SRC_FILES/RhinoJavaScript/
+	
+3. Add two lines to the copyThirdPartyLicenseToCDBuild function, like:
+
+	mkdir -p $BUILDFILES_LICENSES/jhlabs
+	cp -v $CVS_HOME/martus-thirdparty/client/jhlabs/license/* $BUILDFILES_LICENSES/jhlabs/
+	
+
+--------------------------------------------------------------------------------
+If this jar needs to be included in the client install, then 
+in installer-build.xml:
+1. In the "Jars" section, add a line like:
+
+	<fileset dir="${martus.thirdparty.lib.jhlabs}" includes="**/*.jar"/>
+	
+2. In the "Sources" section, add a group of lines like:
+
+    <mkdir dir="${martus.binary.buildfiles.sourcesdir}/jhlabs"/>
+    <copy todir="${martus.binary.buildfiles.sourcesdir}/jhlabs">
+        <fileset dir="${martus.thirdparty.lib.jhlabs}/../source" defaultexcludes="yes" includes="**/*"/>
+    </copy>
+
+3. In the "Licenses" section, add a group of lines like:
+
+	<mkdir dir="${martus.binary.buildfiles.sourcesdir}/jhlabs"/>
+	<copy todir="${martus.binary.buildfiles.sourcesdir}/jhlabs">
+	    <fileset dir="${martus.thirdparty.lib.jhlabs}/../license" defaultexcludes="yes" includes="**/*"/>
+	</copy>
+--------------------------------------------------------------------------------
+In MartusBuild.sh:
+1. In copyThirdPartyJarToCDBuild(), add a line like:
+
+	cp -v $SRC_THIRDPARTY_JARS_CLIENT_DIR/jhlabs/bin/*.jar $BUILDFILES_JARS/
+
+2. In copyThirdPartySourceToCDBuild(), add two lines like:
+
+	mkdir -p $BUILDFILES_SRC_FILES/jhlabs
+	cp -v $CVS_HOME/martus-thirdparty/client/jhlabs/source/* $BUILDFILES_SRC_FILES/jhlabs/
+	
+3. In copyThirdPartyLicenseToCDBuild(), add two lines like:
+
+	mkdir -p $BUILDFILES_LICENSES/jhlabs
+	cp -v $CVS_HOME/martus-thirdparty/client/jhlabs/license/* $BUILDFILES_LICENSES/jhlabs/
+	
+***** NOTE *****
+After changing MartusBuild.sh, it will not automatically be used on the build machine. 
+On the build machine, go to the $CVS_HOME/martus directory, and run:
+
+  cvs update
+  
+Then copy MartusBuild.sh to Lewis's home directory, replacing the copy that is run to actually 
+initiate a build. When the build is run, it will copy MartusBuild.sh back to the $CVS_HOME/martus 
+directory, and (if it has changed) will re-commit it to CVS.
+
+--------------------------------------------------------------------------------

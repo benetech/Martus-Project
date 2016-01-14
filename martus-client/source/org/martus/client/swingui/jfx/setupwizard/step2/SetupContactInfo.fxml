@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="MainAnchorPane" maxHeight="-Infinity" prefWidth="660" maxWidth="660"  minHeight="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <BorderPane>
+		<top>
+			<VBox styleClass="mainTextBox">
+				<Label styleClass="headingLevel1" text="%AuthorInformation" />
+		        <Label styleClass="mainTextBoxText" maxWidth="600" wrapText="true" text="%AuthorContactInformation" />
+			</VBox>
+		</top>
+		<center>
+		    <GridPane  vgap="5.0" xmlns:fx="http://javafx.com/fxml" >
+			      <columnConstraints>
+			        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" maxWidth="-Infinity" />
+			        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+			      </columnConstraints>
+			      <rowConstraints>
+			        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			      </rowConstraints>
+		      <children>
+		        <Label styleClass="headingLevel3" text="%Author" GridPane.rowIndex="0" />
+		        <TextField id="" fx:id="authorField" prefHeight="26.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+		        <Label styleClass="headingLevel3"  text="%Organization" GridPane.rowIndex="1" />
+		        <TextField id="" fx:id="organizationField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+		      </children>
+		    </GridPane>
+		</center>
+    </BorderPane>
+  </children>
+</AnchorPane>

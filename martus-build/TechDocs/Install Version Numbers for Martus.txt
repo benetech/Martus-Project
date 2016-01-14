@@ -1,0 +1,14 @@
+Two files need to be adjusted.
+
+Martus/build.properties
+	martus.version=2.9.9 (Numbers only for pre releases add extra 9's at end.
+	Eg. Next release is 3.0 then this internal release is 2.9.9
+	
+
+binary-martus/Installer/Win32_NSIS/common/NSIS_Martus_Installer_Details.nsi
+	!define PRODUCT_VERSION "2.9.9"
+	!define PRODUCT_EXTENDED_VERSION "2.9.9.0"
+	Again don't put any text in here about pre versions and make sure PRODUCT_VERSION matches martus.version
+	Putting text in could cause problems when it compares version #'s when installing overtop of an old version.
+	
+	

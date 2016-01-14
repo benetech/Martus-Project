@@ -1,0 +1,51 @@
+Instructions for building and installing bc-jce.jar
+
+BUILDING bc-jce.jar FROM THE COMMAND-LINE
+
+The original source can be found in BouncyCastle's cleanroom JCE, 
+which is intended for use with Java 1.3. It is available for 
+download as something like jce-jdk13-128.zip. 
+Extract it to a working directory, or use the copy in the martus-bc-jce 
+cvs module. From the directory above javax/ give these commands:
+
+  javac -g javax/crypto/*java
+  jar cvf bc-jce.jar javax
+
+The result will be a bc-jce.jar.
+
+When running Martus (or any Martus tool), this jar must be 
+included in the "bootclasspath", so it will be used instead of 
+the jce.jar that is included with the Sun JVM runtime. 
+
+BUILDING bc-jce.jar FROM INSIDE ECLIPSE
+
+Expand the 'martus' project in eclipse.
+Right-click on the file build-meta.xml and select 'Run As -> Ant Build...'
+On the 'Targets' tab, unselect al targets except 'jar-bc-jce'
+Only check-into CVS the jar created in the 'martus-bc-jce' project
+
+
+INCLUDING bc-jce.jar INSIDE ECLIPSE (for developers):
+
+From eclipse, go to Window/Preferences... then under "Java" select 
+Installed JREs, and choose to edit the current one. 
+Uncheck "Use default system libraries", and then click Add External Jars. 
+Navigate to the copy of bc-jce.jar that is in martus-bc-jce/ and choose it. 
+Then, use the Up button to move it just above Sun's jce.jar.
+Say OK to get out, and to do a full rebuild.
+
+NOTE: If bc-jce.jar is removed, eclipse will remove the entire JRE. 
+To get it back, go to Window/Preferences... Installed JREs, and choose 
+Search, pointing to your Sun Java home directory. Then, follow the 
+steps above to re-install your new bc-jce.jar.
+
+
+
+INCLUDING bc-jce.jar IN COMMAND LINE (for the Martus installer):
+
+When running java, you must specify an additional command line parameter 
+to insert bc-jce.jar earlier in the classpath than Sun's jce.jar. 
+This is done with the -Xbootclasspath option, like this:
+
+  java -Xbootclasspath/a:c:/martus/bin/bc-jce.jar [remainder of cmd line]
+  

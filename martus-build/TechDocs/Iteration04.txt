@@ -1,0 +1,58 @@
+Project:	MartusClient
+Iteration:	4
+Begin:		June 25
+End:		July 6
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 3
+Velocity: 3.25
+
+Committed Stories:
+
+1. Simulated Send-to-Server dialog with progress bar [1/2]
+Rename "Save" button to "Send" and make it button-sized. 
+Add a do-nothing "Save Draft" button. Always display "Sent" 
+in the status column. Bring up a dialog with a timed progress 
+bar that simulates transferring data to a server.
+
+2. Center signon dialog [1/4]
+
+3. Change date format to dd-mm-yyyy [1/4]
+First switch the combos in create, then the display in preview, 
+and finally the display in the list.
+
+4. Add maximize button to create dialog [almost zero]
+
+5. Try to solve scrolling problem that appears on Marc's system [1/4]
+
+6. Create/Rename/Delete Folders [2]
+Cannot rename or delete any of the initial system folders. 
+Initial pass will have some simple UI; a later story will be 
+needed to make the interface better.
+
+Possible Stories:
+
+7. Save and load bulletins on disk [1]
+
+
+
+Results:
+------
+Workdays: 3
+Velocity: 2.25
+
+Dave paired with me on story 3. Otherwise I worked alone.
+
+Story 1 took almost 1/2 day, due to becoming familiar with new Java components.
+Story 2 took about an hour, because Java doesn't have a "Center" command.
+Story 3 took Dave and I about an hour.
+Story 4 took ten minutes.
+Story 5 took a half hour to code a potential workaround, and then make it real.
+Story 6 needed to be split:
+	6a. Allow user to click on a folder and have the list display those bulletins [1]
+	6b. Allow user to create/rename/delete folders [2]
+Story 6a was completed, but story 6b was only half(?) finished within this iteration.
+
+-------

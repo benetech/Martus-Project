@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+
+  
+  <title>Continuation Support in Rhino</title>
+</head>
+
+
+<body>
+
+
+<h1>Continuation Support in Rhino</h1>
+<p><i>by Attila Szegedi</i></p>
+
+<p>You can create a continuation using a <code>Continuation</code> constructor:</p>
+
+<pre>var c = new Continuation();</pre>
+<p> <code>Continuation</code> is a standard object in Rhino, available in all scopes that  have been initialized with a call to <code>Context.initStandardObjects()</code>, along  with <code>String</code>, <code>Date</code>, <code>Number</code>, etc. standard objects.</p>
+
+<p>When you construct a continuation, it captures the state of all the call  frames on the call stack at the point of the constructor invocation. The  call frames carry the information about the invoked function, its current  program counter, and the values of all local variables.</p>
+
+<p>Pretty much the only thing you can do with a continuation is to call it as  a function with a single parameter:</p>
+
+<pre>c(anyExpression);</pre>
+
+<p>What happens when you invoke a continuation? First, the current call stack  is unwound to the first (starting from top) call frame that it has in  common with the stack stored in the continuation, with "finally" blocks  being executed along the way. When a common call frame is reached, the  frames stored in the continuation above it are placed on the stack. What  follows is a bit strange, but that's the way it works: the execution  doesn't resume at the point where the continuation was created, but rather  the function in which the constructor was invoked immediately returns with  "anyExpression" (the value passed to continuation invocation) as its  result. This makes it possible to communicate data from the invoker to the  (re)invoked code. This has some interesting consequences, i.e. this  program:</p>
+
+<pre>
+function f()
+{
+    return new Continuation();
+}
+
+var c = f();
+if(c instanceof Continuation)
+{
+    print("c is a continuation");
+    c("Hello World");
+}
+else
+{
+    print("c is " + c);
+}
+</pre>
+
+will print:
+<pre>
+c is a continuation
+c is Hello World
+</pre>
+
+<p>As an implementation detail, finally blocks in <code>f()</code> itself won't be  executed before it returns on continuation invocation (they will be  executed when the <code>f()</code> normally executes, though). Also, no code in <code>c()</code>  below continuation constructor will be executed when the continuation is  invoked:</p>
+
+<pre>
+function f()
+{
+    var c;
+    try
+    {
+        c = new Continuation();
+        print("created continuation");
+    }
+    finally
+    {
+        print("finally in f");
+    }
+    return c;
+}
+
+var c = f();
+if(c instanceof Continuation)
+{
+    print("c is a continuation");
+    c("Hello World");
+}
+else
+{
+    print("c is " + c);
+}
+</pre>
+will print:
+<pre>
+created continuation
+finally in f
+c is a continuation
+c is Hello World
+</pre>
+
+<p>Another consequence of execution immediately returning to the next-to-top  function is that a continuation captured at the top level of the script  will terminate the interpreter:</p>
+
+<pre>
+var c = new Continuation();
+
+function f()
+{
+   c(null);
+}
+f();
+</pre>
+
+<p>Invoking c will unwind the stack to its bottom (finally blocks get  executed, naturally) and terminate the interpreter. This is often used in  a programming pattern where a continuation is captured and stored for  later execution, and then the interpreter is terminated and thus the  thread freed up to do something else. In the below code <code>__engine__</code> is  the host object:</p>
+
+<pre>
+var __terminate_interpreter__ = new Continuation();
+var isGoingToSleep = false;
+
+function yield()
+{
+    __engine__.setContinuation(new Continuation());
+    this.__terminate_interpreter__(null);
+}
+
+function isYielding()
+{
+    return __engine__.hasContinuation;
+}
+
+function foo()
+{
+   ...
+   try
+   {
+      ...
+      yield();
+      ...
+   }
+   finally
+   {
+      if(!isYielding())
+      {
+          ...
+      }
+   }
+}
+</pre>
+
+<p>Note the use of the "isYielding" function - we often want the finally  blocks to execute only when the script is indeed finally leaving the block  of code, not because of a temporary "yield". The underlying framework  guarantees that the script will be restarted sooner or later from the  obtained continuation, so semantically it's usually not yet the time to  execute finally blocks. However, if the intent is to cleanup some  transient resources whenever the script yields, then it can be done too.</p>
+
+<pre>
+try
+{
+    ...
+    yield();
+    ...
+}
+finally
+{
+    if(isYielding())
+    {
+        /* transient cleanup */
+    }
+    else
+    {
+       /* permanently leaving the block */
+    }
+}
+</pre>
+
+<p>There is however no facility to obtain transient resources when the  continuation is invoked again. I have found that in practice, I neither  use such transient cleanup nor need to obtain such transient resources. My  "reinstantiated" continuations are serialized/deserialized objects, and I  have a serialization stubbing mechanism that allows stubbing of shared  resource objects on serialization and reconnecting to same shared  instances of them upon deserialization, and it works fine for my needs.</p>
+
+</body>
+</html>

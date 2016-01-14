@@ -1,0 +1,85 @@
+Project:	MartusClient
+Iteration:	15
+Begin:		January 14
+End:		January 25
+Developers:	Kevin, Charles, Dave
+
+Expectations:
+-------------
+Workdays: 5 coding days
+Velocity: 5
+
+---Committed Stories:
+
+"Automatic Log-off" [.25]
+
+"Maximize app on startup" [.25]
+
+"Upload reminder" [.25]
+Reminds user that time has passed since last uploaded bulletin, 
+in case user has forgotten to upload, or server access is 
+denied, but user does not realize this.
+ 
+"Cut, paste and copy bulletins" [1]
+Menu items.
+
+"Make search result folder open automatically after a search" [.25]
+
+"Mark 'sent' bulletin for 'resend'" [.25]
+ 
+"Default to reasonable column widths in Bulletin List" [1]
+Also maximize app as default.
+ 
+"Set up in-house Martus Server" [.5]
+ 
+
+---Stories that might get done:
+
+---Stories added during the iteration:
+
+
+
+Results:
+--------
+Workdays: 1 solo, 3 paired
+Velocity: .75
+
+Pairing: 
+
+Story 1: "Automatic Log-off"
+Done. After five minutes of inactivity (mouse/keyboard), the signin 
+dialog will pop up over the main window. No actions can be performed 
+until the correct username/password is entered. Cancelling will close 
+the application. The signin dialog has some extra text to indicate 
+that it came up due to inactivity, and that unsaved work will be lost 
+if the user does not sign back in and save it.
+
+Story 2: "Maximize app on startup"
+This is hard (impossible) to do in Java. For now, the app comes up 
+taking the entire screen width, and the screen height minus 50 pixels 
+to allow for the task bar. When we upgrade to Java 1.4 (which is 
+still in Beta), we may be able to do better.
+
+Story 3: "Make search results folder open automatically"
+After a search, the first found bulletin is now selected so it 
+appears in the preview area.
+
+Story 4: Didn't complete "Cut, paste, and copy bulletins"
+Good progress, but not finished.
+
+
+Issues:
+-------
+Security/crypto remains the largest bottleneck. The new pairing schedule 
+(larger blocks of time, more concentrated) feels better, but did not 
+result in a high velocity this week.
+
+Once again, I didn't keep the Customer as involved as I should have. In 
+two cases, I (we) worked on stories that were not actually at the top 
+of the Customer's priority list. In one case, the story was desired by 
+someone other than the customer. In the other case, our understanding 
+of the story did not match that of the Customer. This is a known drawback 
+of having an off-site Customer, so we need to compensate for it by having 
+us (developers) initiate Customer contact more frequently.
+
+-------

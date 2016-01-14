@@ -1,0 +1,241 @@
+#*
+The Martus(tm) free, social justice documentation and
+monitoring software. Copyright (C) 2001-2003, Beneficent
+Technology, Inc. (Benetech).
+
+Martus is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later
+version with the additions and exceptions described in the
+accompanying Martus license file entitled "license.txt".
+
+It is distributed WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, including warranties of fitness of purpose or
+merchantability.  See the accompanying Martus License and
+GPL license for more details on the required license terms
+for this software.
+
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.
+
+*#
+
+<html>
+	#set ($pageTitle="Advanced Search")
+    <head>
+    	#parse ("Meta.vm")     
+    </head>
+    
+    #set ($days = [1..31])
+    #set ($info = $defaultAdvancedSearch)
+
+    <body>    	
+    	#set ($pageInfo="")
+		#set ($showSearchForm = false)
+		#parse ("ResultHeader.vm")
+		<br/>
+		
+		<form name="search" action="DoSearch?typeOfSearch=advanced" method="get">
+			<table bgcolor='#dddddd' color='#000000'>
+			<tr>
+			<td bgcolor='#ffffff' color='#000000'>
+			<table cellpadding='10' cellspacing='0'>			
+				<tr bgcolor='#dddddd' color='#000000'>
+					<td><strong>Find bulletins </strong></td>
+					<td>with <strong>all</strong> of the words</td>
+					<td><input name="allWordsQuery" size="44" value='$info.fields.allWordsQuery'></input></td>
+					<td bgcolor='#ffffff' color='#000000'><input type="submit" value="Search"/></td>
+				</tr>
+				<tr bgcolor='#dddddd' color='#000000'>
+					<td></td>
+					<td>with <strong>at least one</strong> of the words</td>
+					<td><input name="anyWordsQuery" size="44" value='$info.fields.anyWordsQuery'></input></td>
+					<td bgcolor='#ffffff' ></td>
+				</tr>
+				<tr bgcolor='#dddddd' color='#000000'>
+					<td></td>
+					<td>with the <strong>exact phrase</strong></td>
+					<td><input name="exactPhraseQuery" size="44" value='$info.fields.exactPhraseQuery'></input></td>										
+					<td bgcolor='#ffffff' ></td>
+				</tr>
+##			<tr bgcolor='#dddddd' color='#000000'>
+##					<td></td>
+##					<td><strong>without</strong> the words</td>
+##					<td><input name="excludeWordsQuery" size="44"/></td>
+##					<td bgcolor='#ffffff' ></td>
+##				</tr>
+
+				<tr bgcolor='#dddddd' color='#000000'>
+					<td></td>
+					<td>
+						in the 
+						<select name='fields'>
+							#foreach ($fieldChoice in $bulletinFields)	
+									<option 
+										#if ($fieldChoice.tag == $info.fields.fields)
+											 selected
+										#end	
+										value="$fieldChoice.tag"> 
+		                                $fieldChoice.label	
+		                            </option>                              
+							#end							
+						</select>
+					</td>
+					<td></td>
+					<td bgcolor='#ffffff' color='#000000'></td>
+				</tr>
+				<tr>
+					<td><strong>Language</strong></td>
+					<td>Show bulletins written in</td>
+					<td>
+						<select name='language'>
+							#foreach ($languageChoice in $languageFields)	
+								<option 
+									#if ($languageChoice.tag == $info.fields.language)
+										selected
+									#end	
+									value="$languageChoice.tag"> 
+	                                $languageChoice.label	
+	                            </option>                              
+						    #end	
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Event Date</strong></td>
+					<td>Show bulletins where the event occurred between</td>
+					<td>
+						<table border='0'>
+							<tr>
+								<td>
+									<select name="startMonth">                    	
+										#foreach ($monthChoice in $monthFields)
+											<option 
+												#if ($monthChoice.tag == $info.fields.startMonth)
+													selected
+												#end
+												value="$monthChoice.tag">
+												$monthChoice.label
+											</option>		                            
+										#end
+									</select>
+										
+									<select name="startDay">                    	
+										#foreach ($day in $days)
+											<option 
+												#if ("$day" == $info.fields.startDay)
+													selected
+												#end												
+												value="$day">
+												$day
+											</option>
+										#end
+									</select>    
+										  
+									<select name="startYear">                    	
+										#foreach ($year in $years)
+											<option 
+												#if ("$year" == $info.fields.startYear)
+													selected
+												#end
+												value="$year">
+												$year
+											</option>
+										#end
+									</select>                                               
+					                &nbsp;and&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<select name="endMonth">       
+										#foreach ($monthChoice in $monthFields)						    	
+											<option 
+												#if ($monthChoice.tag == $info.fields.endMonth)
+													selected											  
+											    #end	
+												value="$monthChoice.tag">
+											           	$monthChoice.label	                                
+									        </option>	                            	                                   
+										#end							
+									</select>
+									<select name="endDay">                    	
+									    #foreach ($day in $days)
+									    	<option
+									    	#if ("$day" == $info.fields.endDay) 
+									    		selected		
+									    	#end								    											    					    	
+									        value="$day">	                            		                            		
+									            $day	                                
+									        </option>	                            	                           
+									    #end
+									</select>    
+									  
+									<select name="endYear">                    	
+									    #foreach ($year in $years)
+									    	<option
+									    	#if ("$year" == $info.fields.endYear)
+									    		selected									     	                         
+									        #end	                            	  
+									        value="$year">	                            		                            		
+									           $year	                                
+									        </option>	                           
+									    #end
+									    
+									</select>                              
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+				<td></td>
+				<td>Include bulletins with "Unknown" event dates?</td>
+				<td><input type='checkbox' name='includeUnknowns' value='includeUnknowns' 
+				#if ($info.fields.includeUnknowns)
+					checked
+				#end
+				></input></td>
+				</tr>
+				<tr>
+					<td><strong>Date Created</strong></td>
+					<td>Show bulletins created in the past</td>
+					<td>					
+						<select name='entryDate'>
+							#foreach ($dateChoice in $entryDateFields)	
+									<option 
+										#if ($dateChoice.tag == $info.fields.entryDate)
+									         	selected                            
+									    #end
+										value="$dateChoice.tag"> 
+		                                $dateChoice.label	
+		                            </option>                              
+							#end		
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Display Bulletins</strong></td>
+					<td>Sort results by</td>
+					<td>
+						#parse("SortBy.vm")
+					</td>
+					<td></td>
+				</tr>
+			</table>
+			</td>
+			</tr>
+			</table>
+		</form>
+
+		Return to <a href='SimpleSearch'>Martus Search</a>
+		
+		<br/><br/>
+		#set ($showSearchForm = false)
+		#parse ("ResultFooter.vm")
+    </body>
+</html>
+

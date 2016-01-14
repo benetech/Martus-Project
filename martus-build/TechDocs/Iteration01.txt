@@ -1,0 +1,35 @@
+Project:	MartusClient
+Iteration:	1
+Begin:		May 15
+End:		May 28
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 2
+Velocity: 1
+
+Committed Stories:
+
+1. View Saved Bulletins [1]
+Multi-column listbox: Status, Date, Subject, Author.
+
+Future Stories which may be started:
+
+2. Preview Saved Bulletin [1]
+Second pane, display the selected bulletin. Scrollable view 
+of all initial fields (Author, Title, Locatoin, DateHappened, 
+DateEntered, Keywords, Summary, Private). All fields are 
+single-line text edit boxes, with fieldname to the left.
+
+
+Results:
+------
+Workdays: 1.5
+Velocity: 0
+
+It became apparent that AWT would not allow us to create a modern, 
+friendly application without a great deal of work. The rest of the 
+time was spent researching and spiking Swing, and on meetings.
+
+We decided to use Swing for this project instead of AWT.

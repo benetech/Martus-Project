@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+     <center>
+        <VBox BorderPane.alignment="CENTER">
+           <children>
+               <HBox alignment="CENTER_LEFT">
+                  <children>
+                  		<Label text="%AssistanceWithMartusPart1" />
+                  		<Hyperlink onAction="#onMartusLinkClick" text="https://martus.org," />
+                  </children>
+              </HBox>
+            <Label text="%AssistanceWithMartusPart1B">
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+            </Label>
+            <Label text="%AssistanceWithMartusPart1C" />
+              <HBox alignment="CENTER_LEFT">
+                 <children>
+                  		<Label text="%AssistanceWithMartusPart2" />
+                  		<Hyperlink onAction="#onLinkEMailTo" text="martus@benetech.org" />
+                 </children>
+              </HBox>
+              <VBox fx:id="versionInfoBox" />
+           </children>
+        </VBox>
+     </center>
+     <left>
+        <Label text="   " BorderPane.alignment="CENTER" />
+     </left>
+   <top>
+      <Label BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>

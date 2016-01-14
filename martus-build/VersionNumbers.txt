@@ -1,0 +1,26 @@
+Martus Version Numbers
+2012-08-29 kbs
+
+Martus client version numbers are set in the following places:
+
+1. Installer (shown to user and stored in registry):
+   martus-build/BuildFiles/Windows/Win3232_NSIS/common/NSIS_Martus_Installer_Details.nsi
+   (Two places, one for the main version number and the other for the internal version number)
+   
+2. README files, multiple languages:
+   martus-build/BuildFiles/Documents/README.txt
+   martus-build/BuildFiles/Documents/README_xx.txt
+   
+3. Build process (used to name the jars):
+   Configure the MartusClient-Release-Mercurial project:
+     http://mart-jenkins.benetech.org:8011/job/MartusClient-Release-Mercurial/configure
+   In the Build/Execute Shell/Command field, there is a line like this:
+     export RELEASE_IDENTIFIER=pre-4.2.0
+   
+4. In the app (used in splash screen and Help/About):
+   martus-client/source/org/martus/client/swingui/UiConstants.java
+   
+5. Help files and MTF translations, multiple languages:
+   martus-client/source/org/martus/client/swingui/Martus-xx.mtf
+   martus-client/source/org/martus/client/swingui/Martus-Help-xx.txt
+   

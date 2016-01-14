@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxWidth="300.0" minWidth="270.0" prefWidth="300.0" styleClass="cases" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <TabPane fx:id="casesTabPane" prefWidth="300.0" styleClass="tab-pane-cases" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabCaseAll" closable="false" styleClass="tab-cases">
+            <content>
+            		<Pane>
+                     <children>
+                        <VBox>
+                           <children>
+                                <Label fx:id="folderNameLabel" alignment="CENTER" prefHeight="40.0" prefWidth="300.0" text="%FolderNameCases" textAlignment="CENTER" textFill="WHITE">
+                                   <font>
+                                      <Font size="18.0" />
+                                   </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/list.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="caseLabel" />
+                                    <String fx:value="headingLevel1" />
+                                 </styleClass>
+                                </Label>
+                              <VBox alignment="TOP_CENTER" spacing="2.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#onShowAllCase" styleClass="button-defaultcase" text="%Button.CaseAll" />
+                                    <Button mnemonicParsing="false" onAction="#onShowSentCase" styleClass="button-defaultcase" text="%Button.CaseSent" />
+                                    <Button mnemonicParsing="false" onAction="#onShowReceivedCase" styleClass="button-defaultcase" text="%Button.CaseReceived" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </padding>
+                              </VBox>
+                        		<ListView fx:id="casesListViewAll" onMouseClicked="#onCaseListMouseClicked" prefWidth="300.0" />
+                           </children>
+                        </VBox>
+                     </children>
+            		</Pane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <BorderPane>
+         <left>
+      		<HBox BorderPane.alignment="CENTER">
+      		   <children>
+      		       <Button mnemonicParsing="false" onMouseClicked="#onFolderNewClicked" prefHeight="40.0" prefWidth="40.0">
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_LEFT" text="%Tooltip.AddCase" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="button-minpadding" />
+                        <String fx:value="button-transparentWithHover" />
+                     </styleClass>
+                  </Button>
+      		       <Button fx:id="deleteFolderButton" mnemonicParsing="false" onMouseClicked="#onFolderDeleteClicked" prefHeight="40.0" prefWidth="40.0">
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_LEFT" text="%Tooltip.DeleteCase" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/remove.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="button-minpadding" />
+                        <String fx:value="button-transparentWithHover" />
+                     </styleClass>
+                  </Button>
+      		       <Button mnemonicParsing="false" onMouseClicked="#onFolderSettingsClicked" prefHeight="40.0" prefWidth="40.0">
+      		         <graphic>
+      		            <ImageView fitHeight="35.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+      		               <image>
+      		                  <Image url="@../../images/settings.png" />
+      		               </image>
+      		            </ImageView>
+      		         </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.CaseSettings" />
+                     </tooltip>
+                     <styleClass>
+                        <String fx:value="button-minpadding" />
+                        <String fx:value="button-transparentWithHover" />
+                     </styleClass>
+      		      </Button>
+            		<Button fx:id="showTrashFolder" graphicTextGap="2.0" mnemonicParsing="false" onAction="#onShowTrash" prefHeight="40.0" prefWidth="40.0">
+            			<font>
+            				<Font name="Helvetica" size="12.0" />
+            			</font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" styleClass="button-minpadding">
+                           <image>
+                              <Image url="@../../images/trash.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.ShowTrash" />
+                     </tooltip>
+                     <styleClass>
+                        <String fx:value="button-minpadding" />
+                        <String fx:value="button-transparentWithHover" />
+                     </styleClass>
+            		</Button>
+      		   </children>
+      		</HBox>
+         </left>
+         <right>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <Button graphicTextGap="2.0" mnemonicParsing="false" onAction="#onManageTemplates" prefHeight="40.0" prefWidth="40.0">
+                     <font>
+                        <Font name="Helvetica" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/template_manager.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.Templates" />
+                     </tooltip>
+                     <styleClass>
+                        <String fx:value="button-minpadding" />
+                        <String fx:value="button-transparentWithHover" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onServerSync" prefHeight="40.0" prefWidth="40.0">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/sync_manager.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.ServerSync" />
+                     </tooltip>
+                     <styleClass>
+                        <String fx:value="button-minpadding" />
+                        <String fx:value="button-transparentWithHover" />
+                     </styleClass>
+                  </Button>
+            		<Button fx:id="importBulletin" graphicTextGap="2.0" mnemonicParsing="false" onAction="#onImportBulletin" prefHeight="40.0" prefWidth="40.0">
+            			<font>
+            				<Font name="Helvetica" size="12.0" />
+            			</font>
+                     <graphic>
+                        <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/import.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.ImportBulletin" />
+                     </tooltip>
+                     <styleClass>
+                        <String fx:value="button-minpadding" />
+                        <String fx:value="button-transparentWithHover" />
+                     </styleClass>
+            		</Button>
+               </children>
+            </HBox>
+         </right>
+      </BorderPane>
+	</children>
+</VBox>

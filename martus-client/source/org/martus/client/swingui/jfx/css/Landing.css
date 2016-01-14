@@ -1,0 +1,97 @@
+.menu-bar
+{
+	-fx-background-color: #36536C;
+}
+
+.menu-bar .label
+{
+	-fx-text-fill: #f7f7f7 ;
+	-fx-font-face: Helvetica;
+}
+
+.menu .label
+{
+	-fx-text-fill: #f7f7f7 ;
+	-fx-font-face: Helvetica;
+}
+
+.menu-item {
+    -fx-text-fill: #f7f7f7;
+	-fx-background-color: #36536C;
+
+}
+
+.menu-item:focused {
+     -fx-background-color: darkgray;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: blue;
+}
+
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color: black;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+.toolbarHBox {
+	-fx-fill-height: true;
+	-fx-alignment: center-right;
+}
+
+.toolbarLabel {
+	-fx-text-fill: #4c5e70;
+	-fx-alignment: center-right;
+	-fx-font-size: 14px;
+}
+
+.toolbarButton {
+	-fx-background-color: #77bad0;
+	-fx-text-fill: #f7f7f7;
+	-fx-font-size: 14px;
+}
+
+.toolbarButton:hover {
+	-fx-background-color: #77bad0;
+	-fx-text-fill: White;
+	-fx-font-size: 14px;
+}
+
+.toolbarButton:pressed {
+	-fx-background-color: #9bd6ea;
+	-fx-text-fill: White;
+	-fx-font-size: 14px;
+}
+
+.button-transparentWithHover{
+		-fx-background-color:transparent;
+}
+
+.button-transparentWithHover:hover {
+}
+
+.button-transparentWithHover:pressed {
+}
+
+.button-transparentNoHover{
+		-fx-background-color:transparent;
+}
+
+.button-transparentNoHover:hover{
+		-fx-background-color:transparent;
+}
+
+.button-transparentNoHover:pressed{
+		-fx-background-color:transparent;
+}
+
+.labelLeftRightPadding{
+	-fx-padding: 0 5 0 5;
+}
+
+.caseLabel{
+	-fx-text-fill: #36536C;
+}

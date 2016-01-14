@@ -1,0 +1,33 @@
+I: Setting up the server and test data
+
+1) The servers need a keypair file and a particular directory structure.
+- To generate a keypair run:
+org.martus.server.tools.CreateKeyPair --keypair=<pathToKeypair>
+
+Then enter a passphrase & it will write out the keypair.dat 
+to the path specified. 
+Note: pathTokeypair should the path to the filename. 
+eg: C:\MartusServer\deleteOnStartup\keypair.dat
+
+2- Place the generated keypair into C:\MartusServer\deleteOnStartup\
+
+3- Run the server at org.martus.server.foramplifiers.MartusAmplifierServer,
+enter your passphrase & the server will be running on 
+https://127.0.0.1:985
+
+
+II) Modify Configuration/BackupServer.properties
+
+Set serverName and serverIP = 127.0.0.1 
+Set Port Number as 985
+Set publickey = The public key is the key that gets displayed 
+as "ServerAccount" on the console when you start the Martus Server 
+
+We may want to change this to Public code?(cml)
+
+III) Setting up servertest data
+The server test data(packets directory) should be copied to 
+C:\MartusServer.
+Note: Make sure that packets directory has the acctmap.txt.sig file.
+
+

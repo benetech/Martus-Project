@@ -1,0 +1,11 @@
+1. Run the ExportTranslationFile java class, passing 'en' as the language,
+and specifying a path to output an English mtf file. here are the arguments 
+I pass when running it from inside eclipse:
+  en /home/kevins/Downloads/temp/Martus-en.mtf
+
+2. Run the mtf2po utility. On my computer, from the directory containing 
+the English mtf file, I run:
+  ruby /home/kevins/work/hg/martus/martus/martus-build/mtf2po.rb
+  
+Running mtf2po will generate a .pot file, and will also create a .po file 
+for each non-English .mtf file in the current directory. 

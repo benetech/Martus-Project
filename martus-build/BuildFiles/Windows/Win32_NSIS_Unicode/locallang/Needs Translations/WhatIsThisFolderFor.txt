@@ -1,0 +1,15 @@
+Needs Translation is just a place to group all the translations in one place that need updating.
+This directory is not used by the build script and is copies of the files from the real directories.
+
+For each language there is the "Martus" .NSH file in the root directory.
+There may also be a sub-directory NSIS_Contrib with a .NSH and .NLF for those languages which currently do not have a NSIS supported language such as 
+Burmese, Napali, Bengali and Khmer.
+
+The root file Eg Burmese.nsh goes in 
+\martus-build\BuildFiles\Windows\Win32_NSIS_Unicode\locallang  (Used by Build)
+
+The 2 files in the NSIS_Contrib (if present) get put into  
+\martus-build\BuildFiles\Windows\Win32_NSIS_Unicode\NSIS\Contrib (not used by build) (just 1 place for all our own NSIS files we have modified.)
+
+These NSIS_Contrib also get put on the Build Machine in the NSIS directory
+\NSIS\Contrib\Language files (Used by build)

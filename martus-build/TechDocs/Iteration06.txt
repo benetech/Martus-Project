@@ -1,0 +1,65 @@
+Project:	MartusClient
+Iteration:	6
+Begin:		July 23
+End:		August 3
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 4.5
+Velocity: 3+
+
+Committed Stories:
+
+1. Load bulletins from disk [1]
+
+2. Drag and drop bulletins from one folder to another [2?]
+This will require a spike, and if the estimate grows substantially, 
+Marc may choose to reprioritize.
+
+Stories that might be started:
+
+3. Local Search (simple) [2]
+Allow full-text search for an exact string within all public portions of all 
+bulletins stored locally. Put results in a "Search Results" folder that 
+automatically gets created and emptied for each search.
+
+4. Save and Restore Drafts [1]
+Make the "Save as Draft" button actually save the bulletin in a drafts folder. 
+Allow the user to (somehow) modify bulletins in the drafts folder [menu? 
+toolbar?]. Status should reflect "Draft" vs. "Sent".
+
+
+Results:
+------
+Workdays: 4
+Velocity: 5
+
+Did not pair.
+
+Story 1 took most of a day. A misunderstanding of XML caused several hours 
+of lost time, debugging and puzzling over confusing results. A pair might 
+have helped here. Now, if Martus.xml is present, it will be loaded. If it 
+is missing or has zero bulletins in it, the sample bulletins will get 
+created. Martus automatically saves any time a bulletin is saved, or a 
+folder is created, renamed, or deleted.
+
+Story 2 started as a spike, but I was happy with the code so I refactored 
+it somewhat and checked it in. It's mostly UI code, so no unit tests. It 
+took about a day to get to a point that was good enough to show Marc.
+
+Story 3 took one day. Most of it was refactoring the folder-tree model 
+out of the GUI code, to allow clean notifications. This actually 
+simplified the folder create/delete/rename code a fair bit. All the 
+existing folder code made the actual search operation easy to drop in.
+
+The remaining time in this iteration (about a day) was spent fixing some 
+bugs in folder rename, putting together release packages, spiking 
+Java's use of JAR files, and manually testing the software.
+
+There are two meta-tasks that we need to spend some time on to avoid 
+slowing down the project:
+1. Automate the process of generating release packages
+2. Automated "acceptance tests"
+
+-------

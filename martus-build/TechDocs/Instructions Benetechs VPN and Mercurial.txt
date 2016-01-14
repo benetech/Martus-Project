@@ -1,0 +1,135 @@
+Instructions for Benetech's VPN and Mercurial Repository
+
+IP = 10.10.220.72
+
+On Windows7 type VPN from the Start Menu.
+
+It will bring up "Setup Virtual Private (VPN) Network"
+IP Address = vpn.benetech.org
+Protocol = PPTP
+Internet Protocol: TCP/IP 4 & 6 - Advance Properties Uncheck "Use Default gateway on remote Network" this allows for split Network and will allow you to still use
+your home's internet provider as your DNS gateway to the rest of the internet while connected to Benetech, otherwise you won't be able to access anything
+except what's local to the Benetech Network.
+User Name & Password: Get Scott / Ben to set you up a VPN account
+Scott will give you a user name (eg: charlesl) and you will call up either Scott or Ben to get your password.
+
+You will need to give Scott your SSH Public Key, to get this first go and download 
+
+You can either use Git GUI to create a Public/Private Key pair, but I would not recommend this since you will then have to convert the Public Key created
+by GIT into one that Putty and Mercurial can use.
+
+Skip this unless you also need GIT GUI or GIT Bash
+
+Git GUI (to create your Public/Private SSH key
+https://code.google.com/p/msysgit/
+http://msysgit.googlecode.com/files/Git-1.8.1.2-preview20130201.exe
+
+Run Git Gui, then click on Help / Show Public Key, if you have a Key then use this key and copy it to the clipboard and send this to Scott.  
+If you do not have a key then click on Generate Key, remember this password you use since this will be needed wheever you make your secure SSH connection
+to Benetech.
+
+Now the key as is is not enough you will need to make a Putty .ppk  
+This will save the key to your User's Home Directory under a .ssh directory.
+Eg: C:\Users\Charles\.ssh\id_rsa
+
+Download Putty KeyGen
+http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+
+You can download both putty.exe and puttygen.exe
+
+Running PuttyGen.exe allows you to File/Load Key and import your GIT Key and save it back out as a Putty .ppk file.
+Or you can generate a SSH key using this tool and then save it out.  Note where it saves as you will need this directory in a future step.
+Eg: C:\Users\Charles\.ssh\charles.ppk
+
+In order for Eclipse & Mercurial to work correctly you will need a static IP on the Benetech's VPN.  Ben/Scott can set this up when they 
+create your account.
+
+To make sure this is working correctly first VPN into Benetech.  Make sure you can still access the internet normally Ie web surf, Skype etc..
+Then go to a command line by typing "Command" in the Windows Start/Search then see if you can ping 10.10.220.72.
+
+Now make sure you can create a SSH tunnel.  To do this run Putty
+Session (HOST/IP)
+10.10.220.72 Port 22
+Connection / SSH /Auth
+Private Key for authentication: (Browse to where you private key is) Eg. C:\Users\Charles\.ssh\charles.ppk
+Best to Save this if you need to use this again.
+Then click on Open the connection
+A command window will come up.
+Login As: Your VPN user name Scott gave you: EG. charlesl
+Authenticating with public key "imported-openssh-key"
+Passphrase for key "imported-openssh-key":
+Type your SSH password you used to create your keypair above.
+If all goes well the window will go away unless you also checked "Close Window on Exit: Never" this will allow you to see any error message etc.
+
+
+You will also need TourtoiseHG installed.
+You can get this from 
+http://tortoisehg.bitbucket.org/
+This will allow Eclipse to check in/out files via a SSH connection into the Benetech's VPN HG repository.
+
+Once this is installed and your Putty SSH test is passing you can finally install Mercurial in Eclipse and hook up TourtoiseHG to use the 
+SSH public key you created.
+
+In Windows 7 to run Eclipse you must run as Administrator if you get a weird error Java exit #13 error code when launching Eclipse.
+First in Eclipse, point your workspace to an empty directory.
+Next click Help / Install new Software and point to EclipseHG or Mercurial plugin URL this is what I found
+http://hge.javaforge.com/hgeclipse
+
+ Now you will need to install the Mercurial Plugin in Eclipse
+    Run Eclipse, Help, MarketPlace, and search for “mercurial eclipse”, current plugin is
+    MercurialEclipse 2.1
+After it installs it will want you to exit and restart Eclipse, before you restart it you will need to create a Mercurial.ini file in two locations.
+
+The first will be in your Home directory ie.
+C:\Users\Charles\mercurial.ini
+if this file doesn't exist create a new txt file and inside the file type the following
+
+[ui]
+ssh = "C:\Program Files\TortoiseHg\TortoisePlink.exe" -ssh -2 -i "C:\Users\Charles\.ssh\charles.ppk"
+
+change where your TortoisePlink.exe is located and where your public key is located.
+
+Then copy this mercurial.ini file to the TourtoiseHg directory.
+Eg: C:\Program Files\TortoiseHg\mercurial.ini
+Note the OS may complain that you are copying into a protected directory accept the warning and make sure the file gets placed in this directory.
+
+
+Now everything should be set up correctly.
+Connect to the Benetech's VPN network using your user name & VPN password.
+Then start Eclipse.
+The first time
+Right click in the Package Explorer and select Import
+Then select Mercurial
+Then Clone Existing Mercurial Repository
+Click Next
+URL type in
+ssh://10.10.220.72/martus/martus-utils
+DO NOT type in your user name/VPN password or SSH password in the user/password fields here, it will mess up the cloning process.
+TortouisPlink will then prompt you for your login as: which is your VPN user account Scott gave you, and then it your SSH passphrase.
+Then you will see a list of branches.  You should select the default branch at top.
+
+Then do the same for all of the following: (note you will have to enter your user account and SSH password each time.)
+ssh://10.10.220.72/martus/      (with the following project names after the /)
+martus-amplifier
+martus-bc-jce
+martus-build (note: this will take a very long time to clone)
+martus-client
+martus-clientside
+martus-common
+martus-docs
+martus-hrdag
+martus-jar-verifier
+martus-js-xml-generator
+martus-logi
+martus-meta
+martus-mspa
+martus-server
+martus-swing
+martus-thirdparty (note this will take a while to clone)
+martus-utils (note you already did this above as your first test.)
+
+
+
+
+
+

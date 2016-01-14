@@ -1,0 +1,40 @@
+.sidebarText {
+	-fx-text-fill: White;
+	-fx-font-size: 8px;
+  -fx-font-weight: bold;
+}
+
+.sidebarTextHeading1 {
+	-fx-text-fill: White;
+  -fx-font-weight: bold;
+	-fx-font-size: 10px;
+}
+
+.current-step .TopBarStepNumber {
+	-fx-text-fill: White;
+	-fx-font-size: 13px;
+}
+
+.current-step .TopBarStepName {
+	-fx-text-fill: White;
+	-fx-font-size: 13px;
+}
+
+.TopBarStepNumber {
+	-fx-text-fill: #707e87;
+	-fx-font-size: 13px;
+	-fx-padding: 0 5 0 3;
+}
+
+.TopBarStepName {
+	-fx-text-fill: #707e87;
+	-fx-alignment: center-left;
+	-fx-font-size: 13px;
+}
+
+.TopBarArrow {
+	-fx-text-fill: #707e87;
+  -fx-padding: 4 4 4 4;
+	-fx-font-size: 13px;
+  -fx-font-weight: bold;
+}

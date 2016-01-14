@@ -1,0 +1,26 @@
+HOWTO build GNU-JavaMail from scratch
+
+
+In a directory, expand all three source tarballs (activation, inetlib, mail).
+In activation, the following methods need to be changed to "public":
+
+	MimeTypeParseException(String, String)
+	MimeType.checkValidity
+	MimeType.isValidChar
+	
+
+To build activation and inetlib, go to their top directory, and say:
+	./configure --with-javac-flags="-source 1.4 -target 1.4"
+	make
+	
+To build mail, go to the top mail directory, and say (as a single command):
+
+	./configure 
+		--with-javac-flags="-source 1.4 -target 1.4"
+		--with-activation-jar=../activation-1.1.1 
+		--with-inetlib-jar=../inetlib-1.1.1 
+		--disable-imap --disable-pop3 --disable-nntp --disable-mbox --disable-maildir
+
+Here is what I use (as a single line so I can copy/paste it):
+./configure --with-javac-flags="-source 1.4 -target 1.4" --with-activation-jar=../activation-1.1.1 --with-inetlib-jar=../inetlib-1.1.1 --disable-imap --disable-pop3 --disable-nntp --disable-mbox --disable-maildir
+

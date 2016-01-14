@@ -1,0 +1,71 @@
+Project:	MartusClient
+Iteration:	11
+Begin:		October 1
+End:		October 12
+Developers:	Kevin
+
+Expectations:
+-------------
+Workdays: 4
+Velocity: 3.5
+
+Committed Stories:
+
+1. <Finish> Drag bulletins into martus [.5 remaining]
+Drag a file containing a Martus bulletin back into Martus, 
+dropping it on a folder (or the folder list). The file must 
+have previously been dragged out of Martus--no other file 
+types will be supported at this point. (Also, use better 
+filenames when dragging bulletins out of Martus).
+
+2. Search Functionality: And/or [1]
+
+3. Extract strings for easy translation [.5]
+
+4. Research New Bulletin Storage [1]
+
+Stories that might get done:
+
+5. Implement new Bulletin Storage Format [3]
+
+Stories added during the iteration:
+
+
+Results:
+--------
+Workdays: 4
+Velocity: 4 (approx)
+
+Pairing: One hour design discussion with Charles
+
+Story 1: Took four hours, as expected. Total: .5 days
+
+Story 2: Only took four hours. Another one hour to recognize Spanish 
+versions of "and" and "or" ("y" and "o"). Total: .5+ days
+
+Story 3: Two hours extracting Spanish to a UTF-8 text file (Martus-es.mtf). 
+3 hours adding a utility to export a merged mtf with placeholder tags 
+for any language. Got updated Spanish translations from Ivo. Total: .5+ days
+
+Story 4: Three hours researching alternatives to BDB/DB3 (object databases, 
+XML persistance libraries, relational databases). Two hours downloading and 
+evaluating Berkeley DB. Two hours downloading and evaluating JISP. One hour 
+creating a basic file system design with Charles. Total: 1 day
+
+Story 5: Started to implement the new storage system. After a few false 
+starts, it is going well. I have the basics working, but need to add 
+key/value functionality, and integrate the whole thing into the existing 
+BulletinStore class. Total: 1.5 days.
+
+
+
+Issues:
+-------
+I still haven't put much time into Acceptance Tests. My latest thinking is 
+that it will be more productive to extend Unit Tests into the GUI than to 
+work with a WinRunner-type testing tool. Recently this has not affected 
+velocity as much, but it is still important for the long run.
+
+Creating release packages is also necessary, but perhaps it would make sense 
+to postpone this until we start working on the install package itself.
+-------

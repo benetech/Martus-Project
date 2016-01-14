@@ -1,0 +1,75 @@
+Building Martus Using Buildr
+
+The Martus build process now uses Buildr, a build tool (like make or ant)
+that uses scripts written in Ruby. 
+
+Local builds can only be done on Linux, as far as I know.
+
+To install buildr on Ubuntu, I had to use their "easy" script. Even then, 
+it did not automatically create an entry in my bin path, so I had to 
+manually create a /usr/local/bin/buildr symlink. I don't know why.
+
+You will need to install nsis to complete a client build. NOTE: Currently 
+we require Unicode NSIS, which has not yet been released for Linux. So 
+you have to install Wine, and then install the Windows version of Unicode 
+NSIS. We will change that after Unicode NSIS is available for Linux.
+
+You will need to create a symlink at /opt/java/tools/ant/bin/ant that 
+points to your copy of ant.
+
+You will need to create these directories, and give yourself write rights:
+  /var/lib/hudson/jobs/martus-client-unsigned
+  /var/lib/hudson/jobs/martus-client-unsigned/mounts/dmg/
+  
+You will need the mkfs.hfsplus executable (which is in the hfsprogs package
+in Debian/Ubuntu).
+
+Add all of this as a single line to /etc/fstab:
+  /var/lib/hudson/jobs/martus-client-unsigned/Martus.dmg 
+    /var/lib/hudson/jobs/martus-client-unsigned/mounts/dmg 
+    hfsplus rw,user,loop,noauto 0 0
+
+Hudson is responsible for checking all the source code out of the source 
+repository. To do a build on a non-Hudson machine, you must run the 
+fakehudsonbuild script, which does the checkout, and then runs the 
+same buildr command that Hudson itself would run.
+
+Here is the CVS information as known in Hudson:
+CVSROOT: :ext:mart-hudson@cvs.benetech.org:/var/local/cvs
+module: martus
+
+Here are the commands to build an unsigned client jar:
+	buildr clean checkout build martus-client:package test=no
+	rsync /var/lib/hudson/jobs/martus-client-unsigned/workspace/martus-client/target/martus-client-1.jar hrdag:
+
+Here are the commands to package a Linux zip into a DMG:
+	buildr clean checkout martus-client:package martus-client-mac-dmg:build test=no
+	rsync /var/lib/hudson/jobs/martus-client-unsigned/workspace/dist/Martus.dmg hrdag:
+	
+Here are the commands to build the server:
+	buildr clean checkout martus-server:package test=no
+
+To complete a client build, you will need the appropriate Mac/Linux zip file, 
+at the correct path:
+	/var/lib/hudson/jobs/martus-client-unsigned/artifacts/
+The name would be something like:
+	MartusClient-3.6.2-20111020.1980-MacLinux.zip
+
+You can download this file from Martus.org (Linux, 3.6.2, single file).
+Note that it is 63 megs, and you will have to rename it.
+
+To dramatically speed up local testing, omit the "clean" parameter 
+from the buildr command.
+
+To test jar signing, create a keystore:
+  keytool -genkey -alias SSMTSJAR -keyalg RSA -keystore keystore.jks -keysize 512
+  It is recommended to use the password "password" for both the keystore and key.
+  The fields like name, organization, country, etc can be left as their defaults.
+  Then you will need to copy the /META-INF/SSMTSJAR.SF file, and paste another 
+  copy of it into the jar as: /org/martus/common/crypto/SSMTSJAR.SIG
+  
+To manually sign a jar, if you should need to do that:
+  jarsigner -keystore <path-to-keystore -signedjar <resulting-signed.jar> <unsigned.jar> SSMTSJAR
+  (where "SSMTSJAR" is the alias, and matches the alias you passed to keytool above).
+  You will be prompted for the password(s), which must match what you told keytool.
+  

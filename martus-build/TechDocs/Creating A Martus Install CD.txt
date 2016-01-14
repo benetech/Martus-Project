@@ -1,0 +1,15 @@
+Making a Martus Install CD
+May 8, 2002
+
+1. from DOS go to the MartusJava directory and type "ant dist"
+2. copy "Martus-yyyymmdd.jar" (eg. Martus-20020508.jar) from the 
+   MartusJava\dist directory to the MartusJava\install directory.
+3. copy "Martus-yyyymmdd.jar" (eg. Martus-20020508.jar) from the 
+   MartusJava\dist directory to the MartusJava\releases directory.
+4. delete the old install\Martus.jar
+5. rename install\Martus-yyyymmdd.jar to Martus.jar
+6. delete the two directories build and dist.
+7. Start the CD burner program and copy the entire install directory
+   into it.
+
+

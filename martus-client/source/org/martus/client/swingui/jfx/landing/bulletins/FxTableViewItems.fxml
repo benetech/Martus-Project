@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <center>
+      <TableView fx:id="itemsTable" onMouseClicked="#onMouseClick" prefHeight="400.0" prefWidth="940.0">
+        <columns>
+          <TableColumn fx:id="onServerColumn" editable="false" text="%OnServer" />
+            <TableColumn fx:id="authorColumn" editable="false" prefWidth="120.0" text="%Author" />
+            <TableColumn fx:id="authorVerifiedColumn" prefWidth="100.0" text="%ContactVerified" />
+          <TableColumn fx:id="titleColumn" editable="false" prefWidth="360.0" text="%InputCustomFieldsTitle" />
+            <TableColumn fx:id="dateSavedColumn" editable="false" prefWidth="140.0" text="%BulletinDetailsVersionDate" />
+            <TableColumn fx:id="viewBulletinColumn" text="%ViewAttachmentAction" />
+            <TableColumn fx:id="editBulletinColumn" text="%Edit" />
+        </columns>
+      </TableView>
+  </center>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER">
+         <left>
+          <HBox BorderPane.alignment="CENTER">
+             <children>
+                <Button fx:id="trashButton" mnemonicParsing="false" onAction="#onTrashSelectedItems" styleClass="button-transparentWithHover">
+                   <graphic>
+                      <ImageView pickOnBounds="true" preserveRatio="true">
+                         <image>
+                            <Image url="@../../images/delete.png" />
+                         </image>
+                      </ImageView>
+                   </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.DeleteItem" />
+                     </tooltip>
+                </Button>
+                <Button fx:id="exportButton" mnemonicParsing="false" onAction="#onExportSelectedItems" styleClass="button-transparentWithHover">
+                   <graphic>
+                      <ImageView pickOnBounds="true" preserveRatio="true">
+                         <image>
+                            <Image url="@../../images/export.png" />
+                         </image>
+                      </ImageView>
+                   </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.ExportItem" />
+                     </tooltip>
+                </Button>
+                <Button fx:id="moveButton" mnemonicParsing="false" onAction="#onMoveSelectedItems" styleClass="button-transparentWithHover">
+                   <graphic>
+                      <ImageView pickOnBounds="true" preserveRatio="true">
+                         <image>
+                            <Image url="@../../images/move.png" />
+                         </image>
+                      </ImageView>
+                   </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.MoveItem" />
+                     </tooltip>
+                </Button>
+                <Button fx:id="copyButton" mnemonicParsing="false" onAction="#onCopySelectedItem" styleClass="button-transparentWithHover">
+                   <graphic>
+                      <ImageView pickOnBounds="true" preserveRatio="true">
+                         <image>
+                            <Image url="@../../images/copy.png" />
+                         </image>
+                      </ImageView>
+                   </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.CopyItem" />
+                     </tooltip>
+                </Button>
+                <Button fx:id="emptyTrashButton" mnemonicParsing="false" onAction="#onEmptyTrash" styleClass="button-transparentWithHover">
+                   <graphic>
+                      <ImageView pickOnBounds="true" preserveRatio="true">
+                         <image>
+                            <Image url="@../../images/trash.png" />
+                         </image>
+                      </ImageView>
+                   </graphic>
+                     <tooltip>
+                        <Tooltip anchorLocation="WINDOW_TOP_RIGHT" text="%Tooltip.EmptyTrash" />
+                     </tooltip>
+                </Button>
+             </children>
+          </HBox>
+         </left>
+         <center>
+            <HBox fx:id="statusBar" alignment="CENTER_RIGHT" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </bottom>
+</BorderPane>

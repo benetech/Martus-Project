@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<children><VBox>
+<children><Label text="%RecordDetails">
+<font>
+<Font name="Helvetica" size="18.0" />
+</font>
+<VBox.margin>
+<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+</VBox.margin></Label><Separator style="-fx-background-color: Black;">
+<VBox.margin>
+<Insets bottom="10.0" />
+</VBox.margin></Separator><GridPane>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.0" minWidth="10.0" prefWidth="157.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.0" minWidth="10.0" prefWidth="30.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="329.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+	<children>
+		<Label text="%Author" />
+		<Label fx:id="authorName" text="%AuthorNicknameFieldDescription" GridPane.columnIndex="2" />
+		<Label text="%AuthorPublicCode" GridPane.rowIndex="1" />
+		<ImageView fx:id="contactVerificationImage" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+		<Label fx:id="publicCode" text="Code here" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+		<Label text="%BulletinID" GridPane.rowIndex="2" />
+		<Label fx:id="bulletinLocalId" text="ID here" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+		<Label text="%DateCreated" GridPane.rowIndex="3" />
+		<Label fx:id="dateCreated" text="Date here" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+		<Label text="%LastModified" GridPane.rowIndex="4" />
+		<Label fx:id="dateLastSaved" text="Date here" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+	</children>
+<VBox.margin>
+<Insets left="10.0" right="10.0" />
+</VBox.margin>
+</GridPane>
+</children></VBox>
+</children></Pane>

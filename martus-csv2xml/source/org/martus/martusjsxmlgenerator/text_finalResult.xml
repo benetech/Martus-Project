@@ -1,0 +1,392 @@
+<MartusBulletins>
+<MartusBulletin>
+<MainFieldSpecs>
+<Field type='STRING'>
+<Tag>Witness</Tag>
+<Label>Witness</Label>
+</Field>
+<Field type='STRING'>
+<Tag>WitnessComment</Tag>
+<Label>Comment</Label>
+</Field>
+<Field type='LANGUAGE'>
+<Tag>language</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>author</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>title</Tag>
+<Label></Label>
+</Field>
+<Field type='DATE'>
+<Tag>entrydate</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>summary</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>location</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>organization</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>publicinfo</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>keywords</Tag>
+<Label></Label>
+</Field>
+<Field type='DATERANGE'>
+<Tag>eventdate</Tag>
+<Label></Label>
+</Field>
+<Field type='DROPDOWN'>
+<Tag>gun_tag</Tag>
+<Label>Where guns Used?</Label>
+<Choices><Choice>Yes</Choice>
+<Choice>No</Choice>
+<Choice>Unknown</Choice>
+</Choices>
+</Field>
+<Field type='MESSAGE'>
+<Tag>MessageProfession</Tag>
+<Label>Profession History Table Note</Label>
+<Message>If you have &lt;information&gt; about a person who has had different professions over time, enter multiple rows with the same First and Last Names and show the date ranges for each profession on a separate row.</Message>
+</Field>
+<Field type='GRID'>
+<Tag>GridTag</Tag>
+<Label>Grid Lable</Label>
+<GridSpecDetails>
+<Column type='STRING'>
+<Tag></Tag>
+<Label>First &lt;Name&gt;</Label>
+</Column>
+<Column type='STRING'>
+<Tag></Tag>
+<Label>Last Name</Label>
+</Column>
+<Column type='DATE'>
+<Tag></Tag>
+<Label>Date of Birth</Label>
+</Column>
+<Column type='DATERANGE'>
+<Tag></Tag>
+<Label>Occured</Label>
+</Column>
+<Column type='DROPDOWN'>
+<Tag></Tag>
+<Label>Color Used</Label>
+<Choices><Choice>red</Choice>
+<Choice>&lt;yellow&gt;&amp;&lt;green&gt;</Choice>
+<Choice>blue</Choice>
+</Choices>
+</Column>
+<Column type='BOOLEAN'>
+<Tag></Tag>
+<Label>Occurred at Night?</Label>
+</Column>
+</GridSpecDetails>
+</Field>
+</MainFieldSpecs>
+
+<PrivateFieldSpecs>
+<Field type='BOOLEAN'>
+<Tag>anonymous_tag_bottom_section</Tag>
+<Label>Does interviewee wish to remain anonymous?</Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>privateinfo</Tag>
+<Label></Label>
+</Field>
+</PrivateFieldSpecs>
+
+<FieldValues>
+<Field tag='Witness'>
+<Value>John  Doe</Value>
+</Field>
+
+<Field tag='WitnessComment'>
+<Value>Message 1</Value>
+</Field>
+
+<Field tag='language'>
+<Value>en</Value>
+</Field>
+
+<Field tag='author'>
+<Value>Bob Jones</Value>
+</Field>
+
+<Field tag='title'>
+<Value>Bulletin #1</Value>
+</Field>
+
+<Field tag='entrydate'>
+<Value>Simple:2000-02-04</Value>
+</Field>
+
+<Field tag='summary'>
+<Value>C.C.</Value>
+</Field>
+
+<Field tag='location'>
+<Value>Message 1</Value>
+</Field>
+
+<Field tag='organization'>
+<Value>XYZ NGO</Value>
+</Field>
+
+<Field tag='publicinfo'>
+<Value>212</Value>
+</Field>
+
+<Field tag='keywords'>
+<Value>212, C.C.</Value>
+</Field>
+
+<Field tag='eventdate'>
+<Value>Range:2002-10-05,2004-12-31</Value>
+</Field>
+
+<Field tag='gun_tag'>
+<Value>No</Value>
+</Field>
+
+<Field tag='anonymous_tag_bottom_section'>
+<Value>1</Value>
+</Field>
+
+<Field tag='privateinfo'>
+<Value>MY PRIVATE DATE = C.C.</Value>
+</Field>
+
+<Field tag='MessageProfession'>
+</Field>
+
+<Field tag='GridTag'>
+<Value><GridData>
+<Row>
+<Column>John Grid</Column>
+<Column>Doe</Column>
+<Column>Simple:2000-11-01</Column>
+<Column>Range:2002-01-01,2003-01-06</Column>
+<Column>red</Column>
+<Column>1</Column>
+</Row>
+<Row>
+<Column>Jane Grid</Column>
+<Column>Doe 2</Column>
+<Column>Simple:2001-12-03</Column>
+<Column>Range:2002-01-02,2003-01-08</Column>
+<Column>blue</Column>
+<Column>0</Column>
+</Row>
+</GridData>
+</Value>
+</Field>
+
+</FieldValues>
+</MartusBulletin>
+
+<MartusBulletin>
+<MainFieldSpecs>
+<Field type='STRING'>
+<Tag>Witness</Tag>
+<Label>Witness</Label>
+</Field>
+<Field type='STRING'>
+<Tag>WitnessComment</Tag>
+<Label>Comment</Label>
+</Field>
+<Field type='LANGUAGE'>
+<Tag>language</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>author</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>title</Tag>
+<Label></Label>
+</Field>
+<Field type='DATE'>
+<Tag>entrydate</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>summary</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>location</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>organization</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>publicinfo</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>keywords</Tag>
+<Label></Label>
+</Field>
+<Field type='DATERANGE'>
+<Tag>eventdate</Tag>
+<Label></Label>
+</Field>
+<Field type='DROPDOWN'>
+<Tag>gun_tag</Tag>
+<Label>Where guns Used?</Label>
+<Choices><Choice>Yes</Choice>
+<Choice>No</Choice>
+<Choice>Unknown</Choice>
+</Choices>
+</Field>
+<Field type='MESSAGE'>
+<Tag>MessageProfession</Tag>
+<Label>Profession History Table Note</Label>
+<Message>If you have &lt;information&gt; about a person who has had different professions over time, enter multiple rows with the same First and Last Names and show the date ranges for each profession on a separate row.</Message>
+</Field>
+<Field type='GRID'>
+<Tag>GridTag</Tag>
+<Label>Grid Lable</Label>
+<GridSpecDetails>
+<Column type='STRING'>
+<Tag></Tag>
+<Label>First &lt;Name&gt;</Label>
+</Column>
+<Column type='STRING'>
+<Tag></Tag>
+<Label>Last Name</Label>
+</Column>
+<Column type='DATE'>
+<Tag></Tag>
+<Label>Date of Birth</Label>
+</Column>
+<Column type='DATERANGE'>
+<Tag></Tag>
+<Label>Occured</Label>
+</Column>
+<Column type='DROPDOWN'>
+<Tag></Tag>
+<Label>Color Used</Label>
+<Choices><Choice>red</Choice>
+<Choice>&lt;yellow&gt;&amp;&lt;green&gt;</Choice>
+<Choice>blue</Choice>
+</Choices>
+</Column>
+<Column type='BOOLEAN'>
+<Tag></Tag>
+<Label>Occurred at Night?</Label>
+</Column>
+</GridSpecDetails>
+</Field>
+</MainFieldSpecs>
+
+<PrivateFieldSpecs>
+<Field type='BOOLEAN'>
+<Tag>anonymous_tag_bottom_section</Tag>
+<Label>Does interviewee wish to remain anonymous?</Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>privateinfo</Tag>
+<Label></Label>
+</Field>
+</PrivateFieldSpecs>
+
+<FieldValues>
+<Field tag='Witness'>
+<Value>Jane  Doe</Value>
+</Field>
+
+<Field tag='WitnessComment'>
+<Value>Message 2&amp;3</Value>
+</Field>
+
+<Field tag='language'>
+<Value>fr</Value>
+</Field>
+
+<Field tag='author'>
+<Value>Bob Jones</Value>
+</Field>
+
+<Field tag='title'>
+<Value>Bulletin &lt;#2&gt;</Value>
+</Field>
+
+<Field tag='entrydate'>
+<Value>Simple:2000-02-05</Value>
+</Field>
+
+<Field tag='summary'>
+<Value>T.I..</Value>
+</Field>
+
+<Field tag='location'>
+<Value>Message 2&amp;3</Value>
+</Field>
+
+<Field tag='organization'>
+<Value>XYZ NGO</Value>
+</Field>
+
+<Field tag='publicinfo'>
+<Value>234</Value>
+</Field>
+
+<Field tag='keywords'>
+<Value>234, T.I..</Value>
+</Field>
+
+<Field tag='eventdate'>
+<Value>Range:2001-12-03,2005-10-22</Value>
+</Field>
+
+<Field tag='gun_tag'>
+<Value>Yes</Value>
+</Field>
+
+<Field tag='anonymous_tag_bottom_section'>
+<Value>0</Value>
+</Field>
+
+<Field tag='privateinfo'>
+<Value>MY PRIVATE DATE = T.I..</Value>
+</Field>
+
+<Field tag='MessageProfession'>
+</Field>
+
+<Field tag='GridTag'>
+<Value><GridData>
+<Row>
+<Column>Bob Grid</Column>
+<Column>Doe 3</Column>
+<Column>Simple:1998-10-08</Column>
+<Column>Range:2002-01-03,2003-01-09</Column>
+<Column>&lt;yellow&gt;&amp;&lt;green&gt;</Column>
+<Column>0</Column>
+</Row>
+</GridData>
+</Value>
+</Field>
+
+</FieldValues>
+</MartusBulletin>
+
+</MartusBulletins>

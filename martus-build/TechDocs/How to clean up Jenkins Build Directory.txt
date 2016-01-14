@@ -1,0 +1,70 @@
+Steps to clean the HRDAG "Jenkins" Server and get back needed disk space
+since all releases and internal releases are always stored here and only
+manual deleting of unneeded releases is necessary until we automate the process.
+This cleanup of the server hard drive is needed because without it the
+hard drive will fill up and the builds will fail.
+
+In addition to moving public full releases, any alpha or beta
+releases that went outside the Martus team should be archived as well.
+For example if we sent something to the Burmese folks for testing, or to
+the Internews folks to prepare training materials.
+
+1. Get Scott to give you permission to SSH into hrdag.benetech.org as
+the jenkins user.  He will use your existing public key to allow you to
+log in without entering a password.  Currently our home directory is /dev/hdc3,
+but Scott could change this at any time.
+
+
+2. From a Terminal 
+	2A) ssh jenkins@hrdag.benetech.org
+	
+	2B) Now move all releases or public alpha/beta's out to the archive directory
+	If you don't know the specific Build # you could figure this out by:
+	ls MartusClient-5*
+	This will give you a list of all Client Releases starting with 5 
+	(i.e.: 5.0.0, 5.0.1, 5.0.2, etc...)
+	From there you will get the build # and install build #
+	(i.e.: MartusClient-5.0.0-3482-400.dmg, MartusClient-5.0.1-3485-402.dmg, etc..)
+	So the Build Number's here would be 3482, and 3485.
+	
+	2C) Now that you have the build # you can list all associated files with that build
+	(i.e.: ls *-3482-*)
+	Now move this release to 'archive'
+	mv *-3482-* archive/
+	
+	2D) You should also move the .jar and .zip files associated with this release
+	(i.e.: ls *-3482.*)
+	Now move this to 'archive'
+	mv *-3482.* archive/
+	
+	2E) We can skip moving the NSIS zip files and just delete them
+	Eg: martus-client-nsis-zip-5.0.0.zip
+	
+	2F) Repeat this for all Releases if there have been multiple prior to the cleanup.
+	
+	2G) Next we must delete the old unneeded releases.  To do this first pick a date you 
+	wish to delete all older files. (I used 'ls -lt')
+	
+	Then you can use either 'rm *-####-*' and 'rm *-####.*' for each build you want to delete
+	(make sure you first use 'ls *-####-*' to make sure you are deleting what you think)
+	Alternatively you can also delete entire old Martus Build #'s
+	Eg: rm *5.0.0* (again make sure you have archived the releases first!)
+	The other option would be to delete a subset of builds again test with ls first
+	Eg ls/rm *-###?-* (i.e.ls *-345?-* which would list/delete all builds 3450 through 3459)
+	
+	
+	2G) To see how much space is available you can use the command 'df'
+	You could do this before and after the deletes to see how much space has been recovered.
+	(Currently our home directory is /dev/hdc3)
+
+jenkins@hrdag ~ $ df
+/dev/hda3              5036316   1645108   3135376  35% /
+/dev/hda1               147764     17858    122277  13% /boot
+/dev/hda6              4032092   3376480    450788  89% /usr
+/dev/hda7              2016016    348292   1565312  19% /usr/local
+/dev/hda8              8064272   5121740   2532880  67% /var
+/dev/hda17            51606140  40673256   8311444  84% /varlocal
+/dev/hdc3            132111844 112360712  13040248  90% /home
+
+Which you can see is 90% full.  (This was after cleaning up the directory)
+	

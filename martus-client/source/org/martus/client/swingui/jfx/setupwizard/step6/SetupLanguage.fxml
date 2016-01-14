@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="MainAnchorPane" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" prefWidth="660" maxWidth="660" >
+  <children>
+    <VBox id="LeftBox" layoutX="2.0" layoutY="3.0">
+      <children>
+        <Label styleClass="headingLevel2" id="RIGHT_Choose_Language_Label" text="%ChooseLanguage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+        <ChoiceBox fx:id="languagesDropdown" prefHeight="31.0" prefWidth="222.0" xmlns:fx="http://javafx.com/fxml" />
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

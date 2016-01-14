@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+
+<AnchorPane id="MainAnchorPane" maxHeight="-Infinity" prefWidth="660" maxWidth="660"  minHeight="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <BorderPane>
+			<top>
+				<VBox styleClass="mainTextBox">
+					<Label styleClass="headingLevel1" text="%CreateAccount" BorderPane.alignment="TOP_LEFT" />
+					<Label styleClass="mainTextBoxText" text="%CreateAccountInstructions" maxWidth="600" wrapText="true"/>
+				</VBox>
+			</top>
+	  <center>
+		  <VBox>
+		    <children>
+			    <GridPane vgap="5.0" xmlns:fx="http://javafx.com/fxml">
+			      <columnConstraints>
+			        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" maxWidth="-Infinity" />
+			        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"  />
+			      </columnConstraints>
+			      <rowConstraints>
+			        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			      </rowConstraints>
+			      <children>
+			        <Label styleClass="headingLevel3" text="%ConfirmAccountUserName"  />
+			        <TextField fx:id="userNameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+			        <Label styleClass="headingLevel3" text="%ConfirmPassword" GridPane.rowIndex="1" />
+			        <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+			      </children>
+			    </GridPane>
+		        <Label styleClass="errorText" fx:id="errorLabel"  />
+		        <Label styleClass="errorText" fx:id="accountConfirmLabel" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+			  </children>
+			</VBox>
+		</center>
+		<bottom>
+			<Label styleClass="hintText" text="%BackupAccountInfo" prefHeight="200" maxHeight="200" maxWidth="600" wrapText="true"/>
+		</bottom>
+	</BorderPane>
+  </children>
+</AnchorPane>

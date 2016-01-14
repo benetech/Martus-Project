@@ -1,0 +1,147 @@
+Installing Martus manually
+---------------------------
+
+This installation file consists of the following four sections:
+
+A- Martus Client program and it's components
+B- Building the Martus Client
+C- Installing the Martus Client
+D- Additional notes and considerations
+
+
+--------------------------------------------
+A- Martus Client program and it's components
+--------------------------------------------
+
+The Martus CD and source distribution contains of following components, all of which can be downloaded separately from their respective locations.
+
+Martus Client (Source or precompiled)
+https://www.martus.org/
+
+Sun's Java Runtime Environment (JRE 1.4.1)
+http://java.sun.com/j2se/1.4.1/download.html
+
+Bouncy Castle Crypto v1.15
+ftp://ftp.bouncycastle.org/pub/release1.15/
+
+JUnit v3.7
+http://sourceforge.net/project/showfiles.php?group_id=15278
+
+Apache XML-RPC v 1.1
+http://xml.apache.org/dist/xmlrpc/release/v1.1/
+
+Infinite Monkey random number generator v1.0
+http://www.isnetworks.com/infinitemonkey/
+
+And optionally if you plan on building Martus yourself:
+
+Ant v1.5.1
+http://ant.apache.org/
+
+substitute Sun's Java Software Development Kit (JSDK 1.4.1) for the JRE
+http://java.sun.com/j2se/1.4.1/download.html
+
+------------------------------
+B- Building the Martus Client
+------------------------------
+
+1- Install the Java Software Development Kit (JSDK). Instructions on how to do this are available at the the following locations,
+
+Windows
+http://java.sun.com/j2se/1.4.1/install-windows.html
+
+Linux
+http://java.sun.com/j2se/1.4.1/install-linux.html
+
+2- Install Ant. Instruction on how to do this can be found at this location,
+http://ant.apache.org/manual/install.html
+
+3- You have the option to build all the additional necessary components directly from source. The Martus client source distribution as well as the CD distribution includes all sources necessary for all components. For the instructions on how to compile the additional components please visit their respective sites at the locations indicated in section A. By downloading third party JARs from their respective web sites, you can be reasonably sure you're getting valid third party releases, without having to go through the trouble of rebuilding these JARs from the original third party sources.
+
+4- The additional components you either built in step 3 or downloaded as precompiled versions need to be copied into the extensions directory of your JRE installation. The default location where these components should be placed would be:
+
+Windows
+C:\Program Files\Java\j2sdk1.4.1_02\jre\lib\ext
+
+Linux
+path-to-java/j2sdk1.4.1_02/jre/lib/ext/
+
+Copy into the above location the third party files junit.jar (from JUnit v3.7), xmlrpc-1.1.jar (from Apache XML-RPC v1.1), InfiniteMonkey.jar (from Infinite Monkey v1.0) and bcprov-jdk14-115.jar (from Bouncy Castle v1.15).
+
+5- Execute ant from the martus source directory. If the source was unzipped preserving the directory structure this would be the top-most directory, in it is the build file called build.xml and the source directories.
+
+cd <path-to-unzipped-source>
+ant build-client
+
+6- If you have installed and configured JUnit you can run the internal program tests with the following commands:
+
+cd <path-to-unzipped-source>/dist
+bin\java -Xbootclasspath/p:C:\martus\lib\ext\bc-jce.jar -jar C:\Martus\Martus.jar -testall
+
+-------------------------------
+C- Installing the Martus Client
+-------------------------------
+
+1- Install the Java Runtime Environment (JRE). Instructions on how to do this are available at the following locations,
+
+Windows
+http://java.sun.com/j2se/1.4.1/jre/install-windows.html
+
+Linux
+http://java.sun.com/j2se/1.4.1/jre/install-linux.html
+
+If you built the Martus program and/or it's components you would already have a JRE included in the Java Development Kit (JDK) you downloaded in section B.
+
+
+2- The third party components necessary to run Martus need to be copied into the extensions directory of your JRE installation. If you installed it into the default location the path would be:
+
+Windows
+C:\Program Files\Java\j2re1.4.1_02\lib\ext
+
+Linux
+path-to-java/j2re1.4.1_02/lib/ext/
+
+If you have the Java SDK (rather than the JRE) your default path locations would be:
+
+Windows
+C:\Program Files\Java\j2sdk1.4.1_02\jre\lib\ext
+
+Linux
+path-to-java/j2sdk1.4.1_02/jre/lib/ext/
+
+Copy into the above location the third party files junit.jar (from JUnit v3.7), xmlrpc-1.1.jar (from Apache XML-RPC v1.1), InfiniteMonkey.jar (from Infinite Monkey v1.0) and bcprov-jdk14-115.jar (from Bouncy Castle v1.15).
+
+3- Create a directory in which to place the Martus program itself, the default location is C:\Martus in Windows and ~\Martus for Linux. Copy into the Martus program folder the Martus.jar file.
+
+4- If you are using a Windows operating system also copy the file infinitemonkey.dll into the Martus program folder (default location is C:\Martus).
+
+5- To run Martus use the appropriate command below.
+
+Windows
+"C:\Program Files\Java\j2re1.4.1_02\bin\javaw.exe" -jar C:\Martus\Martus.jar
+
+Linux
+path-to-java/j2re1.4.1_02/bin/java -jar ~/Martus.jar
+
+If you have the Java SDK (rather than the JRE) the command would be:
+
+Windows
+"C:\Program Files\Java\j2sdk1.4.1_02\bin\javaw.exe" -jar C:\Martus\Martus.jar
+
+Linux
+path-to-java/j2sdk1.4.1_02/bin/java -jar ~/Martus.jar
+
+It is advisable to create a shortcut or a script to execute this command since it can be cumbersome to retype every time.
+
+--------------------------------------
+D- Additional notes and considerations
+--------------------------------------
+
+1- If you are using an early release of Windows 95 operating system you might need to upgrade your Winsock installation. You can tell if this is necessary if you try to run Martus and after a sensible wait nothing happens. To upgrade Winsock visit the following site:
+
+http://www.microsoft.com/windows95/downloads/contents/wuadmintools/s_wunetworkingtools/w95sockets2/
+
+or if you have a Martus CD the Winsock setup file is located in the 'Win95' directory.
+
+
+Last updated: 03/24/2003

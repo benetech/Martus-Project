@@ -1,0 +1,12 @@
+Developing Martus with IntelliJ
+
+1. When you first import the project, IntelliJ may create a library called OldJars.
+Delete this library under Project Settings, Libraries.
+
+2. In the  Project Settings, Project screen, click the Edit button next to Project SDK.
+Add the following jar, ../martus-bc-jce/bc-jce.jar
+Remove the system jce.jar file (should be somewhere near the top) and re-add it so its now below the bc-jce.jar file.
+
+3. In order to run the desktop client, change the Run Configuration for the org.martus.client.swingui.Martus class.
+Add the following under VM Options: -Xbootclasspath/p:/Users/roms/boss/martus-main/martus-bc-jce/bc-jce.jar
+where the path is the fully qualified path to that jar in your machine .

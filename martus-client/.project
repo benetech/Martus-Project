@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>martus-client</name>
+	<comment></comment>
+	<projects>
+		<project>martus-common</project>
+		<project>martus-jar-verifier</project>
+		<project>martus-swing</project>
+		<project>martus-utils</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>dictionaries</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/martus-thirdparty/client/jortho/bin/dictionaries</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

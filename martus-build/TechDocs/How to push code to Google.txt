@@ -1,0 +1,54 @@
+On Mac / Linux 
+
+Do the following once set up HG to know about Google
+
+1. edit ~/.hgrc and add the following (with your information)
+
+[auth]
+google.prefix = https://code.google.com/p/
+google.username = charlesl@benespace.org
+google.password = xxxxxxx
+
+(NOTE: to get your password you need to log into your account on Google code 
+https://code.google.com/p/martus/
+Profile/Settings, there will be your password at the top to push/pull from Google. 
+
+2. In each project directory go and edit the .hg/hgrc file and add google to the Paths
+eg. martus-build/.hg/hgrc
+
+[paths]
+default = ssh://mvcs/martus/martus-build
+google = https://charlesl%40benespace.org@code.google.com/p/martus.martus-build
+
+just change your name above (not default should already exist)
+
+*IMPORTANT* Make sure you update each project and that you point google to also the correct sub-project
+IE. if you are editing martus-swing/.hg/hgrc that the google also points to martus-swing
+
+*NOTE* There is one error on Google so when editing
+martus-js-xml-generator/.hg/hgrc
+the Google path should be martus-csv2xml not martus-js-xml-generator
+I.E.
+[paths]
+default = ssh://mvcs/martus/martus-js-xml-generator
+google = https://charlesl%40benespace.org@code.google.com/p/martus.martus-csv2xml
+
+
+Now edit the bash script with the correct tag you wish to push.
+
+1. edit martus-build/push-client-tag-google-script.bash
+2. update tag="Client-5.0.0" to the tag you wish to push
+3. edit martus-build/outgoing-client-tag-google-script.bash
+4. update tag="Client-5.0.0" to the tag you wish to push
+5. run ./outgoing-client-tag-google-script.bash from the terminal 
+and once you are satisfied with the output
+6. run ./push-client-tag-google-script.bash from the terminal
+
+---------------------------------------
+NOTE: if you are receiving certificate fingerprint warnings 
+warning: code.google.com certificate with fingerprint 76:9a:5d:41:30:bd:48:c6:93:56:16:1d:e7:c3:89:ff:62:60:ca:f3 not verified (check hostfingerprints or web.cacerts config setting)
+
+Follow the instructions here to remove these warnings
+http://mercurial.selenic.com/wiki/CACertificates
+
+

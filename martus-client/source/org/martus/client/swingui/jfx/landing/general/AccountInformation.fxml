@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefWidth="400" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label styleClass="headingLevel1" text="%AccountInformation" />
+    	<Label styleClass="headingLevel3" text="%AccountAccessToken" />
+    	<TextField fx:id="accountAccessTokenLabel" styleClass="headingLevel3" text="" />
+    	
+                	<Label styleClass="headingLevel3" text="%AccountInfoPublicCode40" />
+    	<TextField fx:id="accountPublicCode" styleClass="headingLevel3" text="" />
+      <Label />
+
+             	<Button mnemonicParsing="false" onAction="#onExportPublicKey" text="%Button.ExportAccountPublicKey" />
+      <Label />
+      <Button mnemonicParsing="false" onAction="#onChangeUsernameAndPassword" text="%Button.ChangeUsernameAndPassword" />
+   </children>
+   <padding>
+      <Insets left="10.0" top="10.0" />
+   </padding>
+</VBox>

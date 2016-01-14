@@ -1,0 +1,52 @@
+How to Create Martus OnLine Help
+
+You must use MS Word. The Open Office Word Processor will not work, nor will Abiword.
+
+NOTE: This initial step can be performed by anyone
+Start with the Word doc of the 'Martus User Guide.doc' for the language you want to create the online help for.
+Save the file as a UTF8 Text file.
+
+NOTE: The rest of this should be performed by a developer
+
+Open the UTF8 text file in MS Word.
+Copy the Martus Version # info to the clipboard (Martus' Software User Guide Version x.x)
+Paste this text at the start of the main body of the document, after the Table of contents.
+Insert it right after (1. Introduction to the Martus' Software) in the body of the document,
+and delete the newlines so the copyright is all on one line. 
+
+Delete from the top of the document to the first line of the Table of Contents 
+(delete up to and including 'TABLE OF CONTENTS' and the blank lines that follow).
+
+Next, go to the end of the document and remove the trailing footer left behind.
+
+Now save the document, making sure it is still in UTF8.
+
+Copy this document to martus-client/help-xx.txt 
+(where xx is the language code of the help file, using -en for English)
+NOTE: Do not copy it over MartusHelp-xx.txt as that will be created later
+
+Bring up Eclipse and open 'org.martus.client.tools.BuildHelp'
+If you have never run it before in this eclipse workspace, do so once 
+to create an empty run configuration (Run/Run As.../Java Application)
+Then, In the eclipse menu, choose Run/Run Configurations... and select BuildHelp 
+Go to the Arguments tab, and in the command line arguments field 
+enter the two character language code for the help file you copied earlier.
+
+Now run BuildHelp from within eclipse. 
+This will look for the help-xx.txt file (where xx is the language code) 
+in '.\martus-client\help-xx.txt'
+Then the program will create MartusHelp-xx.txt and MartusHelpToc-xx.txt' in this same directory.
+After this, it is best to refresh the martus-client tree in eclipse.
+
+NOTE: If you get an error when you try to run the tool saying "Unsupported major.minor version 51.0" 
+make sure your Windows/Preferences/Java/Compiler tab has the compliance level set to 1.6 (or less). 
+
+If this is a built-in language, move these files to martus-client/source/org/martus/client/swingui/
+(which you can do with eclipse Refactor/Move)
+If this is a language pack language, put these new files in the Martus Language Pack mlpFiles directory 
+(e.g. .\binary-martus\Releases\ClientMLPs\fr\mlpFiles) 
+
+Delete the help-xx.txt files from '.\martus-client' once you are done.
+
+Remember you need to Refresh you workspace for eclipse to recognize 
+that you updated files within this project.

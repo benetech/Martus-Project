@@ -1,0 +1,93 @@
+#*
+The Martus(tm) free, social justice documentation and
+monitoring software. Copyright (C) 2001-2003, Beneficent
+Technology, Inc. (Benetech).
+
+Martus is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later
+version with the additions and exceptions described in the
+accompanying Martus license file entitled "license.txt".
+
+It is distributed WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, including warranties of fitness of purpose or
+merchantability.  See the accompanying Martus License and
+GPL license for more details on the required license terms
+for this software.
+
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free
+Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.
+
+*#
+<html>
+	#if ($problemReport)
+	    #set ($pageTitle="Report Technical Problems")
+	#else
+	    #set ($pageTitle="Dissatisfied with Search Results?")
+	#end
+    <head>
+    		#parse("Meta.vm")           
+    </head>
+    <body>
+	   	#set ($pageInfo="")
+		#set ($showSearchForm = false)
+		#parse ("ResultHeader.vm")
+		
+		<br/><br/>
+		<table cellpadding='5'>
+			<tr>
+				<td width='5%'></td>
+				<td bgcolor='#dddddd' fgcolor='#000000'>
+					You searched for: <strong>$searchedFor</strong><br/>
+					<br/>
+					Please tell us what specific information you were seeking<br/>
+					and why you were dissatisfied with the search results.<br/>
+					<br/>
+					If there was an error message, tell us what it said.<br/>
+					Also tell us what happened right before the error occurred,<br/>
+					such as what page you were on, which links you followed, <br/>
+					what options you chose or terms you entered.<br/>
+					<br/>
+					<form name="feedback" action="FeedbackSubmitted" method="post">
+						#if ($problemReport)
+							<textarea name='userFeedbackProblem' rows='10' cols='60'></textarea>
+						#else
+							<textarea name='userFeedbackDissatisfied' rows='10' cols='60'></textarea>
+						#end
+						<br/><br/>
+						<input type='submit' value='Submit'></input>
+					</form>					
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					Thank you for helping us improve Martus.<br/> 
+					<br/>
+					Although we cannot respond directly to feedback submitted on this form, <br/>
+					your comments will be reviewed by our quality team. <br/>
+					If you would like us to respond to your comment, <br/>
+					please include your email address in the text of your message.
+					
+					<br/><br/>
+					For more help, see the 
+					<a href='SearchTips'>Martus search tips</a> page.
+					<br/><br/>
+					Return to <a href='SimpleSearch'>Martus Search</a>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+        
+		<br/><br/>
+		
+		#set ($showSearchForm = false)
+		#parse ("ResultFooter.vm")
+
+		<!-- $runningVersion -->
+    </body>
+</html>

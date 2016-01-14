@@ -1,0 +1,96 @@
+Project:	MartusClient
+Iteration:	10
+Begin:		September 17
+End:		September 28
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 4
+Velocity: 4.5
+
+Committed Stories:
+
+1. Complete/cleanup Printing [.5]
+Fix right truncation, work with multiple pages, use white background, 
+prepopulate source in create bulletin.
+
+2. Send New Bulletins to Server [1]
+Timer, outbox/sealed, drag restrict, send, result dialog
+
+3. Export/Import individual bulletins to files [1.5]
+
+4. Retrieve Bulletins from Current Server [.5]
+
+5. Search Functionality: And/or [1]
+
+Stories that might be started:
+
+6. Simple QBE Search [1]
+
+7. Display month names [.5]
+Always show month names instead of numbers
+
+
+Stories added during the iteration:
+
+8. Remove "Connect" toolbar button [0]
+
+9. Drag bulletins out of Martus [.75]
+Drag from the bulletin list, and drop on 
+an external app (e.g. the desktop).
+
+10. Drag bulletins into martus [.75]
+Drag a file containing a Martus bulletin back into Martus, 
+dropping it on a folder (or the folder list). The file must 
+have previously been dragged out of Martus--no other file 
+types will be supported at this point.
+
+11. Automatic send to server on timer [.5]
+
+Results:
+------
+Workdays: 4 (only counting coding)
+Velocity: 2.25
+
+Pairing: Charles 1 hr, 
+
+Story 1: Took a bit over half a day. Print truncation was avoided (not 
+solved) by switching from Courier to SansSerif (Arial) font for preview. 
+As a bonus, I had to switch the preview checkbox and dropdown to print 
+normal values, rather than disabled controls, which was a low-priority 
+story way down on the list somewhere. Paired with Charles for an hour. 
+Total: .75 days.
+
+Story 2 (and 11): One hour to add a timer tick to check for an available 
+server (NOTE: The http we are currently using does not have proxy support). 
+Adding an Outbox folder, Sealed status, and drag restrictions took about 
+2 hours. Another hour to add an error dialog for a failed drag. Two hours 
+of refactoring the existing xmlrpc client/server code. Total: .75 days
+
+Story 8: Five minutes.
+
+Stories 9 and 10 were inserted into this iteration, instead of Story 3.
+
+Story 9: Refactor existing drag code: 3 hrs. Research: 3 hrs. Get drag 
+working as a MOVE: 3 hrs. Make it copy to the desktop or other apps, but 
+move within Martus: 3 hrs. Total: 1.5 days
+
+Story 10: Spent a full day, including several hours of refactoring the 
+generic XML parsing code, a couple hours refactoring the drag code, and 
+a couple hours of new code. Along the way, I pulled several methods out 
+of the UI code so I could add unit tests for them. Total: 1 day, but this 
+story was NOT COMPLETED.
+
+
+
+There are [STILL] two meta-tasks that we need to spend some time on to avoid 
+slowing down the project:
+1. Automated "acceptance tests" (CRITICAL)
+2. Automate the process of generating release packages (would be nice)
+
+Marc has approved my spending some time working on the acceptance tests. I 
+did more research into AWT.Robot, but it doesn't seem to be the answer. Now, 
+I am considering 1) "Command-level" AT's, or 2) WinRunner or equivalent.
+
+-------

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<top>
+		<StackPane fx:id="headerPane" />
+	</top>
+	<center>
+		<StackPane fx:id="bodyPane" />
+	</center>
+	<bottom>
+		<VBox>
+   			<children>
+   			<StackPane fx:id="footerPane" />
+            <BorderPane>
+               <left>
+      				<Button onAction="#onSaveBulletin" text="%Button.saveBulletin" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+         			<HBox alignment="CENTER_LEFT" styleClass="groupBox" BorderPane.alignment="CENTER">
+            			<children>
+                        <CheckBox fx:id="immutableOnServer" mnemonicParsing="false" text="%NeverDeleteVersionOnServer" />
+                        	<Button mnemonicParsing="false" onAction="#onVersionBulletin" text="%Button.versionBulletin" />
+            				<Button fx:id="shareButton" onAction="#onShareBulletin" text="%Button.shareBulletin" />
+            			</children>
+         			</HBox>
+               </right>
+            </BorderPane>
+  			</children>
+		</VBox>
+	</bottom>
+</BorderPane>

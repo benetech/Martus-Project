@@ -1,0 +1,48 @@
+Project:	MartusClient
+Iteration:	5
+Begin:		July 9
+End:		July 20
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 4
+Velocity: 3
+
+Committed Stories:
+
+1. Create/Rename/Delete Folders [2]
+Cannot rename or delete any of the initial system folders. 
+Initial pass will have some simple UI; a later story will be 
+needed to make the interface better.
+
+2. Save and load bulletins on disk [1]
+
+Stories that might be started:
+
+3. Drag bulletins between folders [2]
+
+Results:
+------
+Workdays: 3
+Velocity: 3
+
+Did not pair.
+
+Story 1 only took one day during this iteration, thanks to the work last iteration.
+This is heavy UI code, so it lacks tests, and it also probably needs refactoring.
+
+Story 2 had to be split and re-estimated:
+
+2a. Save bulletins and folders to disk [1]
+This took one full day, to create a valid, reasonable, unicode xml file. Quite a 
+bit of refactoring was required.
+
+2b. Read folders and bulletins from disk [1]
+Not finished. Half day of spike on XML parsing. Ran into strange behavior 
+during integration of working load functions into the app itself. Probably 
+less than 1/2 day from completion. With hindsight, using SAX might not have 
+been the best (simplest) option.
+
+
+-------

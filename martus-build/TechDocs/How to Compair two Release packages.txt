@@ -1,0 +1,35 @@
+How to compare releases to ensure only the files you expect to change did.
+
+1. First download the current release and the previous release from the Jenkins website
+https://hrdag.benetech.org/martus-client/Releases/jenkins/
+Eg:
+MartusClient-Linux-5.0.1-3485-404.zip 
+MartusClient-Linux-5.0.2-3486-405.zip
+
+2. unzip both zip files into two separate folders
+
+3. unzip the Martus.jar
+
+4. unzip the SourceFiles/martus-sources.zip
+
+5. use your favorite directory/file comparison utility 
+   (Mac you can try the command line diff program) 
+   (Linux you may try diff/meld program)
+   Remember to make sure it compares recursivly 
+   Ex:  diff -r MartusClient-5.0.1 MartusClient-5.0.2
+   
+6. At a minimum the following files should have changed.
+
+	README.txt
+
+	/SourceFiles/martus-sources.zip 
+	/SourceFiles/martus-sources/org/martus/client/swingui/UiConstants.java
+	/SourceFiles/martus-sources/org/martus/common/VersionBuildDate.java
+
+	/martus.jar
+	/martus/META-INF/MANIFEST.MF
+	/martus/META-INF/SSMTSJAR.RSA
+	/martus/META-INF/SSMTSJAR.SF
+	/martus/org/martus/client/swingui/UiConstants.class 
+	/martus/org/martus/common/VersionBuildDate.class
+

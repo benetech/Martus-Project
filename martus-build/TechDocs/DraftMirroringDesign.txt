@@ -1,0 +1,187 @@
+Draft Mirroring Design Spec
+v2.2
+2006-05-26 kbs
+2006-06-02 cml
+
+------------------------------------------------------------------------
+
+1. MIRRORING DRAFTS
+
+We would create a new XMLRPC command to pull a list of mirrorable
+information, which would replace the existing command. We can
+discuss whether to keep the old command around for one version to avoid
+needing to upgrade all the servers at one time. [cml Done]
+
+This new command would take an author account id and would return a list
+of all mirrorable information that can be pulled from this server. Each
+entry in the returned list would contain:
+  - local id (of the B- packet)
+  - status of the bulletin (draft/sealed/deleted)
+  - "mtime" of the B-packet file (file system modification timestamp), 
+    or DEL-packet file,
+    as a Long value containing the number of millis since the epoch.
+[cml Done]
+
+A. LISTENING SIDE
+
+It should be coded to ignore additional fields that we might add in
+future versions (such as SHA-1 values).[cml Done]
+
+The existing code to retrieve individual bulletins should already work
+for drafts, so no changes required there. Confirm that the timestamp
+that gets written for each entry in the zip file is the "mtime" value of
+the corresponding file on disk.[cml Done]
+
+The existing code for retrieving BUR packets will need to be updated to
+work for draft bulletins. The API does not need to change, and we will
+not modify the BUR data format at this time (we will do so in the
+future, to make the originating server transparent instead of hidden).[cml Done]
+
+The MirroringRetriever would pass the desired mtime into 
+store.saveZipFileToDatabase and the existing store.saveZipFileToDatabase 
+would pass "now" to the new version with the extra mtime parameter.
+so clients, and the upload code, would continue to use "now". But instead 
+of each packet getting the "now" at which it was written to this disk, 
+they would all get the same "now" which was the moment in time that 
+store.saveZipFileToDatabase was called.[cml Done]
+
+B. CALLING SIDE
+
+MirroringRetriever.getNextUidToRetrieve will need to be updated to call
+the new XMLRPC command that returns drafts as well as sealed bulletins.
+Obviously it will need to handle the new/different data structure that
+will be returned by the new call.[cml Done]
+
+MirroringRetriever.listOnlyPacketsThatWeWant will need to be updated to
+correctly filter which bulletins we want, using these rules:
+  Sealed bulletins that we do not have should be retrieved
+  Draft bulletins that are newer than what we have should be retrieved.[cml Done]
+
+Receiving a sealed version should delete the corresponding draft
+version, if we have one. We should reuse the same code that is called
+when a client directly uploads a sealed bulletin that replaces a draft. 
+This occures in importBulletinPacketsFromZipFileToDatabase which is
+called by saveZipFileToDatabase. [cml Done] 
+
+Packets received via mirroring must be given the same timestamp as they
+had in the zip file. This must happen prior to calling db.importFiles.
+Note that packets received via client uploads must have their "mtime"
+written with the current server time, which is the default, but since
+they are also retrieved as zip files it means we should pass in the
+desired mtime as a parameter to the zip extractor. [cml Done]
+
+As with sealed bulletins, BUR packets should be pulled along with each
+bulletin. [cml Done]
+
+
+C. STORING DELETE REQUESTS
+
+Whenever a client deletes a draft bulletin, the server must store the
+delete request to disk. That way, in a later version, we can propagate
+these delete requests to mirroring servers. [cml done]
+
+A delete request from the client can specify multiple bulletins. For
+each bulletin that was deleted, we will store a copy of the delete
+request attached to that bulletin id. We should create a
+"DeleteRequestRecord" which will be like the existing
+BulletinUploadRecord, but with a DEL- prefix instead of BUR-. [cml done]
+
+When the client submits a delete request, we should write each DEL
+packet before deleting each bulletin. If the bulletin already exists
+sealed, or if it does not exist as a draft, we should not write that DEL
+copy. An error writing a DEL should be reported back to the caller as
+the existing INCOMPLETE return code. Each DEL packet will be written
+with the current time as the mtime, which happens by default. [cml done]
+
+Whenever a client uploads a draft or sealed bulletin, we should first
+write the bulletin, and then delete the corresponding DEL record, if
+any. Errors deleting the DEL packet should be logged but not reported
+back to the caller. [cml done]
+
+The format of the file will be utf-8 text (using UnicodeWriter and
+UnicodeReader), containing the actual request as sent by the client, 
+and some metadata. The first line will have an identifier string, 
+like "Martus Draft Delete Request". 
+Second line will be the mTime when it was first created. [cml done]
+
+Immediately after that will be the client request. Within that, 
+the first line will contain the account Id. The second
+line will contain the number of local ids in the request. Each local id
+will follow on a line by itself. The last line will be the signature, as
+sent by the client. To verify the signature, the same rules must be 
+followed as are currently used in the server XMLRPC call handler. [cml done]
+
+Additional metadata would follow. Since there is none right now, 
+any extra lines should be ignored. [cml done]
+
+MirroringRetriever.listOnlyPacketsThatWeWant will need to be updated to
+correctly filter which bulletins we want, using these new rules:
+  Sealed bulletins that we do not have should be retrieved regardless if it
+  has a DEL request packet for the draft version of this bulletin.
+  Draft bulletins that are newer than what we have should be retrieved unless
+  a DEL request packet exists for this draft.  If a DEL request packet exists
+  only retrieve the draft if it is newer than the DEL request. [cml done]
+  
+
+If we want to get this new draft/sealed bulletin based on the rules above
+and a DEL request packet exists, ensure that the DEL request is deleted,
+this should use the same code as if a client uploaded the bulletin. [cml done]
+
+-------------------------------------------------------------------------
+2. PROPAGATING DELETES
+
+We are not sure if this will be implemented for this release, or
+postponed to the next one.
+
+While deciding what to copy or delete, the caller should use the sealed 
+bulletin if there is one. Otherwise, if both a draft bulletin and a DEL 
+packet exist, the newer one should be used (according to the mtime). 
+This logic should be used in any case that one of these items is being 
+retrieved.
+
+Later, we would build some process to actually delete the obsolete items.
+
+A new API call would retrieve a single DEL packet, given an
+account id and bulletin local id. We might want to generalize the BUR
+api call, to allow for additional special packet types in the future.
+Because a DEL packet could be large, I would prefer not to return more
+than one of them with a single call. Each DEL packet will be transmitted
+as a single String, which is the entire contents of the DEL file.
+
+So the mirroring puller, after retrieving all bulletins for all
+accounts, would process delete requests. This code is going to be
+somewhat difficult to integrate, because of how the mirroring code is
+structured.
+
+For each entry:
+
+First, we should check to see if we have both a DEL record and a draft
+bulletin, and should delete the older one as described above.
+
+Then, we should compare the mtime of our file (bulletin or DEL packet)
+against the mtime of the incoming delete request. If our item is newer,
+we should ignore the incoming entry. If we have neither a DEL file nor a
+draft bulletin for this item, we should pull the DEL record.
+
+Next, we would pull the actual DEL packet, and then apply these rules:
+
+First, the request must be validated:
+  account id must be the one we expected
+  signature must be valid
+  the local id we expected must be present in the list
+
+Next, if we already have a DEL packet, but the incoming DEL packet is
+newer, then we should write the newer copy to disk.
+
+Otherwise, if we have a draft bulletin, we should write the DEL packet
+and then delete the bulletin and its BUR.
+
+
+The code that handles client retrieves will also need to be updated. It
+needs to do the standard check (described earlier) for having both a DEL
+packet and a draft bulletin. This check should take place early on in
+both the call that gets a list of ids, and also the call that retrieves
+a specific bulletin.
+
+
+

@@ -1,0 +1,64 @@
+﻿1. Introducción al programa Martus™
+1a. ¿Qué es Martus™?
+1b. ¿Por qué es importante la seguridad al usar Martus?
+1c. ¿Cómo mantiene Martus mi información segura?
+1d. ¿Qué tengo que hacer para mantener mi información segura?
+1e. ¿Cuáles son las limitaciones de seguridad de Martus?
+1f. ¿Por qué tengo que enviar mis boletines a un servidor?
+1g. ¿Por qué Martus es una aplicación de código abierto?
+2. Inicio
+2a. Instalación
+2b. Desinstalar
+2c. Actualizar su versión de Martus (Windows solamente)
+2d. Actualizar el archivo de Martus
+2e. Activar su cuenta
+2f. Escoger su contraseña
+2g. Configurar una conexión a un servidor
+2h. Configurar sus preferencias del programa
+3. El área de trabajo de Martus
+4. Crear un boletín
+4a. Rellenar los campos de un boletín
+4b. Personalizar sus boletines
+4c. Comprobación de la ortografía del texto en sus boletines
+5. Guardar y modificar sus boletines
+5a. ¿Cómo guardar un boletín sellado?
+5b. ¿Cómo guardar un borrador?
+5c. Crear una nueva versión de un boletín sellado
+5d. ¿Cómo modificar un borrador?
+5e. ¿Cómo desechar un borrador?
+5f. ¿Cómo desechar un boletín sellado?
+5g. Sellado de un grupo de boletines borrador al mismo tiempo
+6. Trabajando con sus boletines
+6a. Carpetas por defecto
+6b. Otras carpetas creadas por Martus
+6c. ¿Cómo crear nuevas carpetas?
+6d. ¿Cómo desechar y eliminar boletines?
+6e. ¿Cómo organizar sus boletines?
+6f. ¿Cómo mover boletines a su escritorio?
+6g. ¿Cómo bajar sus boletines sellados?
+6h. ¿Cómo bajar sus borradores?
+6i. ¿Cómo bajar boletines creados por los contactos?
+6j. ¿Cómo ver versiones anteriores de un boletín?
+6k. ¿Cómo ver y guardar archivos adjuntos a un boletín?
+6l. ¿Cómo ver boletines dañados?
+6m. ¿Cómo buscar boletines específicos?
+6n. ¿Cómo imprimir boletines?
+6o. ¿Cómo crear reportes?
+6q. ¿Cómo exportar la información de sus boletines?
+6r. ¿Cómo importar boletin(es)?
+7. Eliminar todos sus boletines y la información de su cuenta
+8. Eliminar toda la información en Martus, incluyendo el programa
+9. Para mantener su información segura
+9a. La seguridad de Martus y cómo funciona
+9b. Creando copia de seguridad de su clave
+9c. ¿Cómo recuperar su llave de una copia de seguridad?
+9d. Precauciones en el uso de su contraseña
+9e. Uso seguro de su computadora
+9f. Compartiendo su información privada con los contactos
+9g. ¿Cómo permitir que otras cuentas envíen sus boletines a un servidor?
+9h. ¿Cómo cambiar su nombre de usuario o contraseña?
+10. Personalizando Martus
+10a. Personalizando los campos de sus boletines
+10b. Utilizar Plantillas Personalizadas
+10c. Personalizando la visualización de su boletín
+11. Preguntas frecuentes

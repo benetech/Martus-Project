@@ -1,0 +1,139 @@
+Miscellaneous notes to help us as we try to get Martus working with new languages
+
+The following describe font support in each major Java version:
+
+http://download.oracle.com/javase/1.4.2/docs/guide/intl/font.html
+http://download.oracle.com/javase/1.5.0/docs/guide/intl/font.html
+http://download.oracle.com/javase/6/docs/technotes/guides/intl/font.html
+
+Good FAQ which has a whole section on fonts:
+http://java.sun.com/javase/technologies/core/basic/intl/faq.jsp
+
+From that doc:
+-------------------------------------------------------------------------
+What choices does an application have in selecting fonts?
+
+An application using lightweight components can select fonts in four different ways:
+
+    * Using logical font names: The Java platform defines five logical 
+      font names that every implementation must support: 
+      Serif, SansSerif, Monospaced, Dialog, and DialogInput. 
+      These logical font names are mapped to physical fonts in 
+      implementation dependent ways. Typically one logical font 
+      name maps to several physical fonts in order to cover a 
+      large range of characters.
+    * Using physical font names: The Java platform provides APIs 
+      that let an application determine which fonts are available 
+      to a given runtime and which characters these fonts can handle, 
+      and request these fonts using their real name (for example, 
+      "Times Roman" or "Helvetica"). The application can either let 
+      the user choose fonts or programmatically determine the fonts 
+      to be used.
+    * Using the Lucida fonts: Sun's JREs contain this family of 
+      physical fonts, which is also licensed for use in other 
+      implementations of the Java platform. These fonts are physical 
+      fonts, but don't depend on the host operating system.
+    * Using bundled physical fonts: An application can bundle 
+      TrueType fonts and instantiate them using the Font.createFont 
+      method. 
+
+An application using peered AWT components can only use logical font names.
+
+What are the advantages and disadvantages of these four approaches?
+
+Here's a brief summary:
+
+    * Using logical font names:
+          o Advantages: These font names are guaranteed to work anywhere, 
+            and they enable text rendering in at least the language that 
+            the host operating system is localized for (often a much 
+            larger range of languages).
+          o Disadvantages: The physical fonts used for rendering the text 
+            vary between different implementations, host operating systems, 
+            and locales, so an application can not achieve the same look 
+            everywhere. Also, the mapping mechanisms occasionally limit 
+            the range of characters that can be rendered. The latter used 
+            to be a big problem on JRE versions before 5.0: for example, 
+            Japanese text could only be rendered on Japanese localized 
+            host operating systems, not on other localized systems even 
+            if Japanese fonts have been installed. For applications using 
+            2D font rendering, this problem is much rarer with JRE 
+            version 5.0, because the mapping mechanism now generally 
+            recognizes and uses fonts for all supported writing systems 
+            if they are installed. 
+    * Using physical font names:
+          o Advantages: This approach lets an application take full 
+            advantage of all available fonts, to accomplish both different 
+            text appearances and maximum language coverage.
+          o Disadvantages: This approach is substantially harder to program. 
+    * Using the Lucida fonts:
+          o Advantages: Applications using these fonts can achieve the same 
+            look wherever these fonts are available. Also, these fonts cover 
+            a large range of languages (especially European and Middle 
+            Eastern), so you can create fully multilingual applications for 
+            the supported languages.
+          o Disadvantages: These fonts may not be available in all JREs. 
+            Also, they currently do not cover the complete Unicode character 
+            set; in particular, Chinese, Japanese, and Korean are not 
+            supported. 
+    * Using bundled physical fonts:
+          o Advantages: Applications using these fonts can achieve the same 
+            look everywhere, and have full control over which languages 
+            they support.
+          o Disadvantages: The bundled fonts may be quite big, in particular 
+            if they support Chinese, Japanese, and Korean. Licensing issues 
+            need to be resolved. 
+
+-----------------------------------------------------------------
+
+Discussion of font.properties, which is only used in Java 1.4:
+http://download.oracle.com/javase/1.4.2/docs/guide/intl/fontprop.html
+
+For newer Java versions, use font configurations instead.
+Also: 
+
+"For Sun's JRE 5.0, the easiest way is to install the font into the JRE's 
+lib/fonts/fallback directory - it will be automatically added as a 
+fallback font to all logical fonts for 2D rendering. "
+
+
+The Bangla Martus folks recommended the rupali font, which is now 
+available under a very free license:
+http://ekushey.org/index.php/blog/show/Rupalifontisupdatedwithhighqualityglyphs.html
+
+"Ekushey Fonts and Typing solutions will work without any problem on Windows 7."
+
+
+Unicode font resources:
+http://www.unicode.org/resources/fonts.html
+
+Excellent overview page about Bangla fonts:
+http://en.wikipedia.org/wiki/Wikipedia:Bangla_script_display_help
+
+Under "Check Existing Support", the second row of glyphs has A + BC -> D
+You can first copy A, and paste it into a text entry field. 
+Then copy BC (two glyphs) and paste them in right after A.
+If it is working properly, the three glyphs (ABC) will be merged into
+a single glyph (D).
+On Ubuntu 10.4, Java 6: Martus works perfectly out of the box.
+Java 4 and 5 are not easily available for Ubuntu so I won't test those.
+On Vista, Java 4:
+ In Martus, pasting the first glyph shows a box
+ With a correct font.properties, glyphs get pasted and combined
+On Vista, Java 6:
+ In Martus, pasting the first glyph shows a box
+ Copying Rupali font to jre6/lib/fonts/fallback/ causes glyphs to 
+    get pasted and combined
+
+
+Great summary of Indic language support and how to test it:
+http://en.wikipedia.org/wiki/Wikipedia:Multilingual_support_%28Indic%29
+
+
+Free Bangla fonts:
+http://www.nongnu.org/freebangfont/
+
+Bangla is supported by MS Arial (as of 2002), but not MS Verdana.
+
+List of Bangla fonts:
+http://www.angelfire.com/tx/rezaul/font.htm

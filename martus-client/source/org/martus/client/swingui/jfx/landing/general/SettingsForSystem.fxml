@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fillWidth="false" spacing="12.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<children>
+      <VBox spacing="3.0">
+         <children>
+            <Label styleClass="headingLevel1" text="%FieldTypeLANGUAGE" />
+            <HBox alignment="CENTER_LEFT">
+ 		     <children>
+                  <Label fx:id="languageChoiceLabel" text="%SelectLanguage" />
+                  <ChoiceBox fx:id="languageSelection">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></ChoiceBox>
+      </children>
+            </HBox>
+            <CheckBox fx:id="useZawgyiFont" mnemonicParsing="false" text="%preferencesUseZawgyi" />
+         </children>
+      </VBox>
+      <VBox>
+         <children>
+            <Label styleClass="headingLevel1" text="%Calendar" />
+            <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="175.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="433.0" minWidth="10.0" prefWidth="433.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      <children>
+                  <Label text="%DateDelimiter" GridPane.rowIndex="1" />
+                  <Label text="%DateFormatSequence" />
+                  <Label text="%CalendarType" GridPane.rowIndex="2" />
+                  <ChoiceBox fx:id="dateFormat" GridPane.columnIndex="1" />
+                  <ChoiceBox fx:id="dateDelimiter" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ChoiceBox fx:id="calendarType" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      </children>
+      </GridPane>
+         </children>
+      </VBox>
+      <VBox spacing="3.0">
+         <children>
+            <Label styleClass="headingLevel1" text="%RecordSettings" />
+            <CheckBox fx:id="immutableOnServer" mnemonicParsing="false" text="%NeverDeleteVersionOnServer">
+               <tooltip>
+                  <Tooltip anchorLocation="WINDOW_TOP_LEFT" text="%Tooltip.NeverDeleteFromServer" />
+               </tooltip></CheckBox>
+         </children>
+      </VBox>
+      <Button mnemonicParsing="false" onAction="#onSaveChanges" text="%Button.SaveChanges" />
+</children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" top="10.0" />
+   </padding></VBox>

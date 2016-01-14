@@ -1,0 +1,122 @@
+Notes about the new hudson/buildr build system for Martus
+
+Builds will continue to be identified by an incrementing build number
+
+Everything in martus-thirdparty will be pulled from a maven-style 
+artifact repository so buildr will be happy,  
+but the authoritative copy will be in version control, 
+to make it easy for developers to inject new third-party libraries 
+into the build machine without requiring ssh access.
+The repository will be populated at build time.
+
+Any third-party artifacts that are available via standard maven repos
+should come from there, instead of from martus-thirtparty.
+See www.mvnbrowser.com for a search engine to see what is there. 
+
+There will be three top-level build scripts that a user would run:
+1. Server
+2. ClientJars
+3. ClientRelease
+
+There might also be:
+4. MspaClientJars
+5. MspaClientRelease
+
+The two "Release" scripts would only be run by humans, as they 
+would create signed jars. The others would be run by hudson.
+
+The scripts that require signing jars would expect the 
+password-protected signing key file to be present at a specific 
+location when the script is run, and as soon as possible, 
+it will 'wipe' the file. (The file will be copied in from a
+secure workstation just prior to the build). 
+
+ClientJars would also build Meta so it can run all the tests.
+
+ClientRelease would build and sign bc-jce, would build and 
+sign all the jars and language packs (from scratch, 
+not from an earlier build of ClientJars), 
+and would build all the artifacts including 
+Windows installer, Mac DMG, Linux zip, source zip, ISO, 
+and multipart.
+
+
+Each of the following will become its own buildr project 
+(source code sub-projects indicated with nested -)
+- martus-thirdparty
+	(no single artifact, so might be a rakefile instead of buildr)
+	it will just install all the third-party jars to the artifact repo
+	
+- martus-bc-jce
+	bc-jce.jar
+- martus-utils
+	martus-utils.jar
+- martus-common
+	martus-common.jar
+- martus-jar-verifier
+	[[NOT NEEDED??]]
+
+- martus-server-jar
+	martus-server.jar
+	- martus-amplifier
+- martus-server-source
+	martus-server-source.zip
+- martus-server
+	martus-server.zip
+
+- martus-swing
+	martus-swing.jar
+- martus-client
+	martus.jar
+	- martus-js-xml-generator
+	- martus-logi
+	- martus-hrdag
+	- martus-clientside
+- martus-client-windows
+	martus-setup.exe
+- martus-client-mac
+	martus-mac.zip (martus.dmg)
+- martus-client-linux
+	martus-linux.zip
+- martus-client-source
+	martus-client-source.zip
+- martus-client-iso
+	- martus-client.iso
+- martus-client-multipart
+	- martus-client-windows-multipart.zip
+
+- martus-mlp-xxx (several of these)
+	martus-xxx.jar
+- martus-mspa-client
+	martus-mspa-client.zip
+	- martus-clientside
+- martus-meta
+	martus-meta.jar
+
+	
+After each artifact is built, it will be pushed to an artifact repo on the build machine.
+That artifact repo must be backed up on a regular basis.
+
+Internally, this one master buildr project will contain several sub-projects.
+It will do a checkout of each sub, and run its buildr, 
+which will install the sub-project artifact into the repo.
+
+
+
+Each hudson build project will have two variations:
+1. One that builds automatically
+	environment "production"
+	ENV['VERSION']='SNAPSHOT'
+2. One that is run manually
+	environment "production"
+	ENV['VERSION'] not set
+
+If VERSION is set, it will replace the version number 
+that would normally be appended to the artifact name.
+If it is not set, then the build will fail if that artifact already exists.
+I think we can use File.exists(locate(spec)) to check
+
+
+As of 2010-07-23, to run the script, you must have JAVA_HOME set, 
+and then run something like:
+ buildr clean checkout martus-client:package test=no

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<VBox styleClass="BackgroundTaskMainPanel" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Label styleClass="headingLevel3"  fx:id="fxLabel" text="" textAlignment="CENTER" wrapText="true" />
+    <ProgressBar fx:id="fxProgressBar" disable="false" prefHeight="24.0" prefWidth="360.0" progress="0.0" />
+    <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelPressed" text="%Button.cancel" />
+  </children>
+</VBox>

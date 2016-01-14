@@ -1,0 +1,89 @@
+Project:	MartusClient
+Iteration:	13
+Begin:		October 29
+End:		November 9
+Developers:	Kevin
+
+Expectations:
+-------------
+Workdays: 5
+Velocity: 5
+
+Committed Stories:
+
+1. Package Martus into a .jar file [1]
+
+2. Retrieve bulletins from server [.5]
+Be able to retrieve "all" bulletins from the "current" server.
+
+3. Choose server [.5]
+Enter a server name/number. Complain if it isn't available.
+
+4. Display list of servers that we have uploaded to [.5]
+List all servers that we have ever uploaded a bulletin to.
+[[Marc has agreed to change this story to: Keep a log of all 
+bulletin uploads, and display this log to the user in a 
+scrolling plain text window]]
+
+5. Actual signin [1]
+Include a bypass for testing purposes
+
+6. Allow creation of custom fields [1]
+Not sure if this will be done through UI or through a config 
+file. Fields will be single-line strings and will appear 
+near the bottom of the bulletin (probably above the 
+"attachments")
+
+Stories that might get done:
+
+?
+
+Stories added during the iteration:
+
+7. Fix English language dropdown [.25]
+
+
+
+Results:
+--------
+Workdays: 4.5
+Velocity: 3
+
+Pairing: Charles 6 hrs, Ivo 4 hrs
+
+Story 1: Took about half a day. Still need to figure out how to package 
+the third-party jar files, and the .mtf files in a friendly way. 
+Total: .5 days
+
+Story 7: Took two hours. Total: .25 days
+
+Story 2: Spent about 4 hours trying to figure out Java packages and .jar 
+files before I realized I didn't need any of it! Spent another 2 hours 
+refactoring the Server stuff. Another 2 hours implementing the "list 
+bulletins" feature backend stuff. Charles and I spent 2 hours implementing 
+downloadBulletin in the back end. Took 3 more hours to hook it into the UI.
+Total: 1.5 days
+
+Story 3: Took 4 hours, pairing with Charles and Ivo. Total: .5 days.
+
+Story 4: Added ability to log uploads, but not to view the file. 
+Total: .5 days
+
+Story 5: Done. Total .5 days.
+
+Story 6: Worked 2 hrs with Ivo, adding basic custom fields to the Bulletin 
+class, and saving a list of custom fields in the config file. Total: .25 days
+
+
+
+
+Issues:
+-------
+I still haven't put much time into Acceptance Tests. My latest thinking is 
+that it will be more productive to extend Unit Tests into the GUI than to 
+work with a WinRunner-type testing tool. Recently this has not affected 
+velocity as much, but it is still important for the long run.
+
+Creating release packages is also necessary, but perhaps it would make sense 
+to postpone this until we start working on the install package itself.
+-------

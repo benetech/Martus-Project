@@ -1,0 +1,250 @@
+Martus Security Lifecycles
+Kevin Smith
+Last updated: November 30 2001
+
+
+Software System Risks
+---------------------
+Martus is a completely open source project. Therefore, anyone can download 
+the source code, and build a client or server package. They can make any 
+modifications they wish (good or bad), and distribute the altered package 
+to anyone who will accept it.
+
+We need to evaluate the benefits (and costs) of measures such as:
+- Signing the executable software itself (.jar and .exe files)
+- Including various run-time validity checks
+- Attempting to validate by contacting a central Martus server
+- Publishing CRC values
+- Attempting to detect malicious JVM's and/or class loaders
+- Attempting to try to detect if the O/S or app software has been tampered 
+  with since the last time Martus was run
+- Creating a self-booting and executing CD
+- Disabling virtual memory swapping
+- ...and many more...
+
+
+Client Account Lifecycle
+------------------------
+A client account can be created on any computer without being connected to 
+a network. The user chooses a username and passphrase which will normally 
+be used to sign into the Martus client software. 
+
+The client software creates an authentication public/private key pair. The 
+public key is the unique identifier of that account. If it becomes 
+compromised, the account should be revoked (at which point the user would 
+have to create a new account). 
+
+The private key, along with various account configuration data including the 
+username, is encrypted using a digest of the passphrase, and then is written 
+to the hard drive. The passphrase is not written anywhere. 
+
+To sign into the system, the user enters a username and passphrase (the 
+passphrase goes into a standard Java password entry field). The system 
+attempts to decrypt the configuration file using the passphrase, and if the 
+decrypted username matches the entered username, the user is given system 
+access (and the system has the private key in memory).
+
+The user can change their username or passphrase at any time. This will 
+re-write the configuration data (including the private key), encrypted with 
+the new passphrase. We need to decide policies for passphrase length and 
+complexity, and perhaps expiration.
+
+There is some benefit to using two public/private key pairs: One for cipher 
+work, and another for authentication. We need to decide whether to take 
+this approach or not.
+
+We need to choose a revocation model. I am aware of two options:
+1. When the account is created, a revocation certificate is automatically 
+generated. Submitting this certificate to a server would revoke this account. 
+The risks are a) if the certificate is lost, there is no way to revoke, and 
+b) anyone who obtains that certificate can revoke that account.
+
+2. An account could designate one or more other trusted Martus accounts as 
+having the authority to revoke this account. The risks are a) A trusted 
+account might revoke this account without permission, or b) The trusted 
+account might not revoke this account when requested to do so.
+
+
+Server Account Lifecycle
+------------------------
+A server account can be created on any computer that meets the technical 
+requirements to be a Martus server. There is no central authority to oversee 
+the creation of new accounts. A server creates a public/private key pair, 
+and the public key is the unique identifier of that server. Each server will 
+generate a self-signed SSL certificate. 
+
+The private key may be stored on the hard drive, if the server needs to be 
+able to reboot without the administrator being present. Or it may be written 
+on a floppy disk for added security.
+
+A server stores bulletins that were uploaded from clients. Aside from adding 
+a signed timestamp, it does not modify the bulletins. When a client requests 
+a bulletin download, the server omits any portions which have not been 
+encrypted with that client's public key. The server never performs any 
+encryption or decryption of bulletin data.
+
+There is no explicit method of "revoking" a server. Clients and other servers, 
+upon discovering that a server has been compromised, would simply remove it 
+from the list of servers that they interact with. Effectively, the server 
+would be exiled from the Martus network.
+
+
+Bulletin Data Lifecycle
+-----------------------
+Optionally, a bulletin may be flagged for "no encryption". In that case, all 
+bulletin data, including attachments, will be stored in pure plain text. 
+However, it would still contain the normal signatures.
+
+As bulletin data is entered, it is held in memory in plain text. Before being 
+written to disk, it is encrypted using a symmetric cipher. One or more copies 
+of that session key, each encrypted with a different public key, are written 
+with the data. This would allow each portion to be viewable by specific 
+Martus accounts, such as a government or umbrella organization. Typically the 
+policies for this would be established on the client when the account was 
+set up.
+
+The bulletin is first saved in "draft" status, which indicates that the 
+author can make additional changes. Draft bulletins are signed, to detect 
+tampering. Draft bulletins could be maliciously deleted without detection.
+
+Next, bulletins are "sealed" by the user. Sealed bulletins are still only 
+stored on the client computer, but the author is no longer permitted to 
+modify them. They will be automatically sent to a server at the first 
+opportunity. They are signed, so modifications would be detected. Sealed 
+bulletins could be deleted without detection, unfortunately. 
+
+When a client performs a search on encrypted bulletins that are stored 
+locally, each bulletin will be decrypted in memory.
+
+If the author's private key is compromised but not revoked, it could be used 
+to create fake bulletins, or to modify existing draft or sealed bulletins. 
+
+Each server will keep a list of public keys of known clients. The policy 
+administrator will determine what operations can be performed by unknown 
+clients, and which can only be performed by known clients. 
+
+When a bulletin is uploaded to (and accepted by) a server, the server adds 
+a timestamp. That timestamp is not normally sent back down to the client, 
+but it does become a permanent part of the bulletin.
+
+After the data is sent to a server, it may be mirrored to other servers. The 
+server policy administrator controls which bulletins are sent to (or received 
+from) which other servers.
+
+On the server itself, bulletin data cannot be viewed without having one of 
+the private keys to decrypt the session key. Bulletins could be deleted, but 
+mirroring should mitigate that risk. Existing bulletin data cannot be 
+modified without having both the author's private key, and the server's 
+private key (because of the timestamp). 
+
+A client may ask a server for a list of stored bulletins for a given account. 
+Only the bulletin ids (a UID) are returned.
+
+A client may request copy of a specific bulletin (by its UID) from a 
+server. Servers will only send the portions of that bulletin that contain 
+the session key encrypted using that client's public key.
+
+After a bulletin has been uploaded to a server, the author may need to 
+associate additional information with that bulletin. They cannot modify or 
+delete the existing data, but they can submit more information about the 
+bulletin. Examples of possible additions would be: "withdrawal" requests, 
+links to other bulletins, or "can openers", which are additional encrypted 
+copies of session keys, intended to allow the bulletin to be viewed by a 
+wider audience. 
+
+We need to decide how to handle these additional information packets. We 
+could have the server add them to the bulletin itself, or we could store 
+(and mirror) each packet individually. In the latter case, a bulletin would 
+conceptually consist of the main bulletin itself, plus all the associated 
+information packets.
+
+If we append these additional packets to the bulletin, there are at least 
+two significant complications: What if the client appends different 
+information to the same bulletin on different servers? How can the client 
+be sure that one or more of the additions are not removed at some point? How 
+can the client be sure that the server's copy is in sync with the local 
+copy stored on the client?
+
+However, storing them as separate data items adds some general complexity, 
+especially for the "can openers". A server would have to evaluate all the 
+"can openers" for a particular bulletin in order to decide which portions 
+of that bulletin to send to a requesting client. If Joe downloads one of 
+Mary's bulletins, and later Mary adds a can opener for Joe, Joe would have 
+to re-download the bulletin (as well as the can opener itself) in order to 
+be able to view the data.
+
+
+Exchanging Public Keys
+----------------------
+Public keys need to be exchanged in various directions between clients and 
+servers. These exchanges may take place directly within Martus, or may 
+require an out-of-band transmission. Here are some examples of why public 
+keys would need to be exchanged:
+Client->Server, so a client can become authorized to upload and download
+Server->Client, so a client can authenticate the server
+Client->Client, for key backup, and bulletin data sharing
+Server->Server, to authenticate servers for mirroring of bulletin data
+
+Martus will use a single data format for all public key exchanges. This 
+may be the PGP format, which would allow the use of the existing network 
+of PGP key servers as one means of transmitting keys. 
+
+Regardless of the data format, public key files could be emailed, or sent 
+on a floppy disk. The software distribution CD, for client and/or server, 
+could contain important public keys. We could also build support into the 
+server software to allow clients to directly upload and download public 
+key files.
+
+In order for a public key to be added to a system (client or server), it 
+must be confirmed as being the intended key. The system will prompt the 
+user to enter the fingerprint, which must match the computed fingerprint 
+of that key. Unlike PGP, it will not display the computed fingerprint. 
+This will force users to actually verify the fingerprint.
+
+Once a public key has been added to a system, it is stored in a list of 
+public keys that is encrypted (using the system's public key) and signed 
+(using the system's private key). The keys could be deleted, but no keys 
+could be added or modified without having the system's private key.
+
+
+Private Key Backups
+-------------------
+We need to choose a client key backup model. One possibility is that the 
+client software would allow the user to choose one or more other Martus 
+accounts, and the client account's private key would be encrypted with 
+the public key(s) of those other account(s). The result would be a 
+base64 file which could be printed, emailed, or backed up electronically. 
+To recover the key, this file would have to be decrypted using the 
+private key(s) of those other account(s).
+
+On the server side, I don't think we need any private key backup ability, 
+because server keys are only used for authentication and encryption of 
+recoverable data (e.g. lists of public keys), not encryption of bulletin 
+data. 
+
+If a server key is lost, a new one can be created without losing data. 
+Each client or server that was using the old key would have to discard 
+that old public key, and replace it with the new key. 
+
+Creating backups of the server private key would increase the chances of 
+a key being stolen, so in this case having backups actually increases 
+risk, on balance.
+
+
+PGP Issue
+---------
+If we implement encryption by executing a standalone PGP or GnuPG program, 
+there are some additional risks. These programs can only accept/generate 
+plaintext through two mechanisms: disk file, or stdin/stdout pipe. Under 
+unix and Windows NT/XP, using stdin/stdout should be reasonably secure. 
+
+However, under Windows 95/98 and perhaps ME, pipes are implemented 
+by writing the data to a temp file. This would expose private data as 
+plain text on the disk.
+
+We might be able to provide RAMDISK software that would simulate a network 
+drive, in RAM, dynamically. At run time, we would create this "drive", and 
+we would use it for all plaintext crypto operations. The RAMDISK would only 
+have to provide sequential access for one file at a time, so it should be 
+pretty simple to implement. This needs more research.
+

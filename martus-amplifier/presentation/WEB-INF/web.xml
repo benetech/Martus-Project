@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <display-name>Martus Amplifier</display-name>
+    <description>
+        Welcome to the Martus Amplifier
+    </description>
+    
+     <servlet>
+      <servlet-name> SimpleSearch </servlet-name>
+      <servlet-class> org.martus.amplifier.presentation.SimpleSearch </servlet-class>
+    </servlet>
+
+     <servlet>
+      <servlet-name> AdvancedSearch </servlet-name>
+      <servlet-class> org.martus.amplifier.presentation.AdvancedSearch </servlet-class>
+    </servlet>
+
+     <servlet>
+      <servlet-name> DoSearch </servlet-name>
+      <servlet-class> org.martus.amplifier.presentation.DoSearch </servlet-class>
+    </servlet>
+
+     <servlet>
+      <servlet-name> SearchResults </servlet-name>
+      <servlet-class> org.martus.amplifier.presentation.SearchResults </servlet-class>
+    </servlet>
+
+	<servlet>
+		<servlet-name> FoundBulletin </servlet-name>
+		<servlet-class> org.martus.amplifier.presentation.FoundBulletin </servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name> PrintFoundBulletin </servlet-name>
+		<servlet-class> org.martus.amplifier.presentation.PrintFoundBulletin </servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name> DownloadAttachment </servlet-name>
+		<servlet-class> org.martus.amplifier.presentation.DownloadAttachment </servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name> UserFeedbackForm </servlet-name>
+		<servlet-class> org.martus.amplifier.presentation.UserFeedbackForm </servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name> FeedbackSubmitted </servlet-name>
+		<servlet-class> org.martus.amplifier.presentation.FeedbackSubmitted </servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name> ContactInfo </servlet-name>
+		<servlet-class> org.martus.amplifier.presentation.ContactInfo </servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name> SearchTips </servlet-name>
+		<servlet-class> org.martus.amplifier.presentation.SearchTips </servlet-class>
+	</servlet>
+
+    <taglib>
+        <taglib-uri>amplifiertaglib</taglib-uri>
+        <taglib-location>/WEB-INF/amp.tld</taglib-location>
+    </taglib>
+    
+     
+</web-app>

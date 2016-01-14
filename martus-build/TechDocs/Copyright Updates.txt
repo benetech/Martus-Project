@@ -1,0 +1,10 @@
+This file contains all the separate files that need their copyright's updated each year.
+
+martus-client
+	org.martus.client.swingui.UIConstants.java
+
+martus-build
+	BuildFiles/License.txt
+	BuildFiles/Windows/Win32_NSIS_Unicode/Common/NSIS_Martus_Installer_Details.nsi
+	
+	

@@ -1,0 +1,121 @@
+HOWTO Import Martus Client Source Code into Eclipse
+2006-08-23
+In the document to follow MartusClient-X.X with:
+MartusClient-3.0
+
+NOTE: This document is outdated, and needs to be updated to describe 
+how to download the Martus source code from the Mercurial source code 
+repository (currently on Google Code), into eclipse.
+
+
+ 
+It is written from a GNU/Linux perspective, so if you are using MS Windows or 
+Mac OS X you will have to adjust accordingly. The basic process is the same on 
+all platforms.
+
+Please submit suggestions and changes to help@martus.org
+
+
+PREREQUISITES:
+- Java JDK 1.5+
+- Eclipse 3.1 
+- MartusClient.zip (from a Martus CD or from martus.org)
+
+
+Lines preceded with a '$' denote commands that should be run from a terminal.
+
+Unzip the MartusClient zip archive:
+  $ unzip MartusClient-X.X.zip
+This file (MartusClient-X.X.zip) can be found on the Martus main download website www.martus.org
+
+This will create a new dir called MartusClient-X.X in the current dir. 
+From now on, we will refer to this directory as as $MARTUSCLIENT.
+Create an eclipse directory:
+
+  $ cd MartusClient-X.X/Sources
+  $ mkdir eclipse
+  $ cd eclipse
+
+Unzip MartusClient-X.X-src.zip into this dir:
+
+
+  $ unzip ../MartusClient-X.X-src.zip
+This file (MartusClient-X.X-src.zip) is also found on SourceForge (www.SourceForge.net)
+
+The Velocity third-party library needs to be unpacked manually:
+
+  $ cd martus-thirdparty/common/Velocity/source
+  $ unzip velocity-1.4-rc1.zip
+  $ cd velocity-1.4-rc1/
+
+Then the jar needs to be copied to the $MARTUSCLIENT/LibExt/ folder so 
+eclipse can see it:
+
+  $ cp velocity-1.4-rc1.jar $MARTUSCLIENT/LibExt/
+
+After the jar has been copied, remove the velocity-1.4-rc1 dir.
+
+  $ cd ../
+  $ rm -r velocity-1.4-rc1
+
+Start Eclipse
+Choose or create an empty workspace
+Create a new Java Project:
+  File -> New -> Project -> Java Project, then Next
+  Give the project a name (MartusClient-X.X might be a good choice)
+  Now choose the Create project from existing source radio button
+  Browse to the $MARTUSCLIENT/Sources/eclipse folder created earlier
+  Click Next, and you should see all of the Martus Source listed
+  Click OK
+
+
+Now that the source is available to be worked on, there are a some things
+that need to be modified. Martus uses a few third party libraries, and
+these must be made available to Eclipse.
+
+Within Eclipse, choose Window -> Preferences, expand Java, and click 
+Installed JREs
+Click 1.4.2 and then Edit
+Uncheck Use default system libraries
+Click Add External JARs. Browse to where the MartusClient-X.X.zip was 
+extracted, and then LibExt
+Highlight the following jars:
+  bc-jce.jar
+  bcprov-jdk14-128.jar
+  icu4j_3_2_calendar.jar
+  js.jar
+  junit.jar
+  InfiniteMonkey.jar
+  persiancalendar.jar
+  velocity-1.4-rc1.jar
+  xmlrpc-1.2-b1.jar
+Click OK
+Those libraries will now show up in the window
+Select bc-jce.jar, and click the Up button so that it comes _before_ Java's 
+own jce.jar
+Click OK
+
+Let Eclipse rebuild your workspace. 
+
+You should now only have warnings left stating that serializable class'
+do not declare a serialVersionUID. You can safely turn off this warning:
+
+  Select Project -> Properties
+  Expand Java Compilier, choos Errors/Warnings
+  Check Enable project specific settings
+  Scroll to Potential programming problems, and change 
+    Serializable class without serialVersionUID to Ignore, and then OK
+  Eclipse will inform you that the workspace needs to be rebuilt, click Yes
+
+You should now have the MartusClient code base cleanly imported into Eclipse
+with no errors and warnings.
+
+Next, create an eclipse Run entry that will allow you to launch Martus:
+  Click the run button, and choose Java Application
+  Click New
+  Give this configuration a name, such as Martus
+  For Main class, click Search
+  Double click Martus, hit apply, and then Run
+  Martus should now start
+
+From now on, you can choose that entry from the run drop down.

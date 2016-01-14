@@ -1,0 +1,73 @@
+BorderPane {
+    -fx-font-family: "DejaVuSans";
+  -fx-line-height: inherit 21px;
+}
+
+.root {
+    -fx-background-color: #253342;
+    -fx-font-size: 13px;
+}
+
+.button {
+    -fx-background-color: #253342,linear-gradient(#FFFF66, #666600);
+    -fx-border-radius: 5;
+    -fx-text-fill: #4c5e70;
+	-fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-padding: 5 35 5 35;
+}
+
+.button:hover {
+	-fx-background-color: linear-gradient(DarkGreen 0%, Green  50%, Green 51%, DarkGreen 100%);
+	-fx-border-radius: 5;
+	-fx-font-weight: bold;
+	-fx-text-fill: White;
+	-fx-alignment: center;
+	-fx-font-size: 13px;
+	-fx-padding: 5 35 5 35;
+}
+
+.button:pressed {
+	-fx-background-color:
+        linear-gradient(DarkGreen 0%, Green  50%, Green 51%, DarkGreen 100%);
+	-fx-font-weight: bold;
+	-fx-border-radius: 5;
+	-fx-text-fill: White;
+	-fx-alignment: center;
+	-fx-font-size: 13px;
+	-fx-padding: 5 35 5 35;
+}
+
+.headingLevel1 {
+    -fx-text-fill: White;
+    -fx-font-size: 27px;
+}
+
+.headingLevel2 {
+    -fx-text-fill: #e2c92f;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.headingLevel3 {
+    -fx-text-fill: #e2c92f;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-alignment: top-left;
+    -fx-padding: 10 0 0 0;
+}
+
+.stepNumber {
+    -fx-text-fill: #707e87;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 0 0;
+}
+
+.mainText {
+    -fx-text-fill: White;
+    -fx-font-size: 11px;
+    -fx-line-height: 18px;
+    -fx-padding: 10 0 0 0;
+}

@@ -1,0 +1,100 @@
+This document describes how the amplifier code works and 
+provides an overview of some of the major classes. 
+It is current as of 9-May-2003.
+
+MartusAmplifier:
+This is the main (entry point) class for the amplifier. 
+It creates a task which is invoked periodically using a timer. 
+The purpose of the task is to contact the MartusAmplifierServer, 
+download all public (or partially public) bulletins, 
+and index any bulletins it doesn't already have indexed.
+
+NOTE: I believe the current code is incorrect to schedule the tasks 
+at a fixed rate. If the indexing process takes a long time 
+(with respect to the timer interval), the amplifier will spend most 
+of its time indexing. Since it isn't critical that the amplifier be 
+absolutely in sync with the server, this seems unnecessary: 
+I would go with fixed-delay execution.
+
+DataSynchManager:
+This class has a function which downloads all bulletin identifiers 
+from the Martus server. If a bulletin has not yet been indexed, 
+the bulletin content is requested and extracted by the BulletinExtractor.
+
+BulletinExtractor:
+This class takes a downloaded bulletin, in the form of a zip file, 
+and extracts it to the index. It does this by reconstructing the bulletin 
+from the zip file, and calling into a BulletinIndexer and AttachmentManager 
+to handle the bulletin data and attachments.
+
+NOTE: There is a class, org.martus.common.BulletinZipImporter, which seems 
+perfectly designed for this task, but I found it to be un-usable since the 
+loadFromFile() method fails when it doesn't find the private data packets. 
+It seems like it wouldn't be too difficult to provide a loadPublicDataFromFile() 
+method, which doesn't require the private data packets. As a result, some of the 
+code in BulletinExtractor duplicates some of the functionality of BulletinZipImporter.
+
+BulletinIndexer:
+An implementation of this interface takes a FieldDataPacket and indexes its data 
+so that it can be retrieved quickly by a BulletinSearcher. 
+A BulletinIndexer should always be closed to persist any updates made to it. 
+Currently there is one implementation of BulletinIndexer using Lucene. 
+There are currently no plans to use another indexing engine, 
+but the interface is defined to be Lucene-independent, so that another indexing engine 
+could be substituted without breaking a lot of code. 
+Also, the tests are set up so that an alternate implementation could be added 
+without re-writing the tests. There's an abstract Test class which tests the API, 
+and then a smaller, concrete Test class designed specifically for a LuceneBulletinIndexer.
+
+
+AttachmentManager:
+An implementation of this interface associates attachment UniversalIds with InputStreams. 
+It has two primary methods, getAttachment() and putAttachment(). 
+In both cases, the caller is responsible for closing the InputStreams. 
+As with the BulletinIndexer, an AttachmentManager should always be closed after use, 
+to make changes permanent. 
+
+Currently there is a FileSystem implementation of AttachmentManager. 
+It works by creating a directory for each account it encounters and then storing the 
+attachment as file whose name is its localId in the associated account directory. 
+It is not designed to scale up well to many different accounts, nor many attachments 
+for an account (on Windows at least, there seems to be a significant performance hit 
+when the size [number of files or sub-directories] of a directory gets above a certain amount).
+
+At one point there was the start of an implementation using BerkeleyDB. 
+That's why there's currently BerkeleyDB source and binaries in the buildfiles directory. 
+The BerkeleyDB API is problematic in that it requires a record to be completely in memory 
+when storing or retrieving it. For attachments of potentially huge sizes, this is 
+unacceptable. It's still possible to use BerkeleyDB by breaking up a file into smaller 
+chunks and associating multiple values (file chunks) with the same key. As with the 
+BulletinIndexer, the AttachmentManager interface is FileSystem-independent, so an 
+alternative implementation could be substituted without breaking a lot of code. 
+Also, the tests are set up the way they are for BulletinIndexer.
+
+Web site:
+The web site consists of a set of JSP pages to handle searching the bulletin index and 
+accessing stored attachments. It currently features a text search and a date range search. 
+Each of these are very basic implementations which could use improvement 
+(see TODO.txt). A session-wide SearchBean is used to conduct searches. 
+A subset of the results are cached in the bean until the user changes the search parameters, 
+or accesses a result that's out of cache (in which case the cache is updated). 
+Also, because the SearchBean is in the session scope, I have it and all its data members 
+implement java.io.Serializable. This is considered "good practice" for session or 
+application wide objects. (It becomes necessary when you've got server clustering and a 
+session might be handed off to another machine). 
+
+BulletinSearcher:
+An implementation of this interface looks up bulletins through a couple of search methods, 
+one based on text, the other on dates. Results are returned in the form of BulletinInfo 
+objects, which have a representation that's independent of the Martus representation 
+(org.martus.common.Bulletin): BulletinInfo objects are lighter-weight than Bulletins, 
+and the class conforms to the definition of a Java Bean, as beans are required when 
+using JSP and JSTL tags. The implementation will almost always be closely tied to the 
+BulletinIndexer implementation. As with the current BulletinIndexer implementation, 
+the current BulletinSearcher implementation is Lucene-based. 
+
+A BulletinSearcher should always be closed after use to free any system resources 
+associated with it. Using a BulletinSearcher.Results object after its BulletinSearcher 
+has been closed is an error. This is another reason why results are cached: 
+so the BulletinSearcher doesn't have to remain open for the duration of the session.
+

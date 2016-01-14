@@ -1,0 +1,50 @@
+Project:	MartusClient
+Iteration:	2
+Begin:		June 5
+End:		June 8
+Developers:	Kevin
+
+Expectations:
+-------
+Workdays: 3
+Velocity: 1
+
+Committed Stories:
+
+1. List of Bulletins [1] (3 hrs)
+Skeleton Menubar and Toolbar
+Multi-column listbox: Status, Date, Subject, Author.
+Pre-populated with hard-coded sample data
+Column headings resizable
+Horizontal and vertical scrollbars
+Sortable by clicking on column headings
+
+Future Stories which may be started:
+
+2. Create and Save Bulletin [2]
+Allow user to create a bulletin, and save it locally.
+Saved bulletins will appear in the list of bulletins.
+Cannot delete bulletins yet
+Cannot preview or edit bulletins yet
+No encryption
+
+3. Bulletin Preview [1]
+Display the entire bulletin contents in a preview pane,
+for whichever bulletin is selected in the list 
+
+Results:
+------
+Workdays: 3
+Velocity: 2
+
+Story 1 was completed, except for sorting.
+
+Story 2 was split into "Create New Bulletin [1]" and 
+"Save and Load Bulletins on Disk [1]". The Create 
+story was completed, and the Save story was moved to 
+a future iteration.
+
+Some progress was made on story 3, and it will be 
+completed in the next iteration.
+
+-------

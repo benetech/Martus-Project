@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox>
+<VBox styleClass="popupMargin">
+<children>
+    <Label styleClass="headingLevel2" text="%DownloadFormFromAnotherUser" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+	<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="181.0" prefWidth="609.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+	  <children>
+    		<Label styleClass="headingLevel3" text="%EnterAccessToken" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <TextField fx:id="accessTokenTextField" promptText="%AccessTokenInstructions" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <ChoiceBox fx:id="formTemplateChoiceBox" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Label fx:id="noTemplatesAvailableLabel" styleClass="headingLevel3" text="%NoTemplatesAvailable" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Button mnemonicParsing="false" onAction="#onCancel" text="%Button.cancel" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+      <children>
+        <Button fx:id="continueButton" mnemonicParsing="false" onAction="#onContinue" text="%Button.Continue" />
+      </children>
+    </HBox>
+    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <children>
+        <Button fx:id="seeFormTemplatesButton" mnemonicParsing="false" onAction="#onSeeForms" text="%Button.SeeForms" />
+      </children>
+    </HBox>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="184.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.0" minWidth="10.0" prefWidth="263.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="162.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>
+</children>
+
+</VBox>
+</VBox>

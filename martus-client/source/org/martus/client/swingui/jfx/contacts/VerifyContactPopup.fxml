@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox minWidth="725.0" prefHeight="332.0" prefWidth="949.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+   <VBox styleClass="popupMargin">
+        <children>
+           <Label styleClass="headingLevel2" text="%VerifyContactPublicCode" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+         <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="931.0">
+         <children>
+           <Label fx:id="contactPublicCode40Label" styleClass="headingLevel2" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+           <Label fx:id="labelOldPublicCode" text="%VerifyContactPublicCodeOld" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+           <Label fx:id="contactPublicCodeLabel" styleClass="headingLevel2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="%VerifyContactPublicCodeNew" GridPane.rowIndex="2" />
+                  <TextArea fx:id="verificationMessage" editable="false" wrapText="true" GridPane.columnIndex="1" />
+         </children>
+         <columnConstraints>
+           <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="253.0" />
+           <ColumnConstraints hgrow="SOMETIMES" maxWidth="651.0" minWidth="10.0" prefWidth="642.0" />
+         </columnConstraints>
+         <rowConstraints>
+           <RowConstraints maxHeight="204.0" minHeight="10.0" prefHeight="175.0" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="85.0" minHeight="0.0" prefHeight="41.0" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+       </GridPane>
+     </children>
+     <padding>
+       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+     </padding>
+   </VBox>
+      <GridPane alignment="TOP_RIGHT">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+        </rowConstraints>
+         <children>
+     <Button mnemonicParsing="false" onAction="#verifyContact" text="%Button.VerifyContactNow" textAlignment="CENTER" />
+            <HBox alignment="TOP_RIGHT" GridPane.columnIndex="1">
+               <children>
+           <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#willVerifyLater" text="%Button.VerifyContactLater" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

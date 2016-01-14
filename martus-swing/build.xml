@@ -1,0 +1,117 @@
+<!-- Ant build file - Needs Ant v1.6.x or later -->
+<project name="martus-swing" default="release">
+    <description>
+        Build File for martus-swing
+    </description>
+	
+    <tstamp>
+        <format property="version.timestamp" pattern="yyyy-MM-dd_HH_mm_ss"/>
+    </tstamp>
+	
+	<property name="multiproject.root" value=".."/>
+	<property name="martus-thirdparty" value="${multiproject.root}/martus-thirdparty"/>
+	<property name="thirdparty.common.root" value="${martus-thirdparty}/common"/>
+	<property name="junit.jar" value="${martus-thirdparty}/libext/JUnit/bin/junit.jar"/>
+	
+	<property name="martus-swing.module"  value="martus-swing"/>
+	<property name="martus-swing.src.root" value="source"/>
+	<property name="martus-swing.class.root" value="bin"/>
+    <property name="martus-swing.dist.dir" value="dist"/>
+	<property name="jar.basename" value="martus-swing"/>
+	<property name="jar.filespec" value="${martus-swing.dist.dir}/${jar.basename}.jar"/>
+	<property name="sourcejar.filespec" value="${martus-swing.dist.dir}/${jar.basename}-src.jar"/>
+
+	<property name="cvsroot" value=":extssh:kevins@cvs/var/local/cvs"/>
+
+	<!-- ================================================================== -->
+	<!-- I N I T                                                            -->
+	<!-- ================================================================== -->
+	
+	<target name="init" description="Initialize version timestamps">
+		<echo message="Date timestamp is ${DSTAMP}" />
+		<echo message="Time timestamp is ${TSTAMP}" />
+		<echo message="Version timestamp is ${version.timestamp}" />
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- C L E A N                                                         -->
+	<!-- ================================================================== -->
+	<target name="clean">
+		<delete dir="${martus-swing.dist.dir}"/>
+		<delete dir="${martus-swing.class.root}"/>
+	</target>
+	
+	<!-- ================================================================== -->
+	<!-- B U I L D                                                          -->
+	<!-- ================================================================== -->
+	
+	<target name="build" depends="init" description="Compile">
+		<mkdir dir="${martus-swing.class.root}"/>
+		
+		<echo message="${thirdparty.common.root}"/>
+		<javac target="1.4" source="1.4" optimize="on" failonerror="true" 
+					srcdir="${martus-swing.src.root}" destdir="${martus-swing.class.root}">
+			<classpath>
+				<fileset dir="${thirdparty.common.root}">
+					<include name="**/*.jar"/>
+				</fileset>
+				<fileset file="${junit.jar}"/>
+			</classpath>
+			<include name="**/*.java"/>
+		</javac>
+		
+		<echo file="${martus-swing.dist.dir}/version.txt" append="false" message="${version.timestamp}"/>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- J A R S                                                       -->
+	<!-- ================================================================== -->
+	<target name="jars" depends="build" description="Create jars">
+		<mkdir dir="${martus-swing.dist.dir}"/>
+		<jar destfile="${jar.filespec}">
+			<fileset dir="${martus-swing.class.root}" includes="**/*.class"/>
+			<fileset dir="${martus-swing.dist.dir}" includes="version.txt"/>
+		</jar>
+		<jar destfile="${sourcejar.filespec}">
+			<fileset dir="${martus-swing.src.root}" includes="**/*"/>
+			<fileset dir="${martus-swing.dist.dir}" includes="version.txt"/>
+		</jar>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- R E L E A S E                                                      -->
+	<!-- ================================================================== -->
+    <target name="release" depends="jars">
+        <echo message="Commiting entire project to cvs..."/>
+    	<exec executable='cvs' 
+	    		outputproperty="cvsout"
+    			failonerror="true">
+    		<arg value="-d"/>
+    		<arg value="${cvsroot}"/>
+    		<arg value="commit"/>
+    		<arg value="-m"/>
+    		<arg value="&quot;${version.timestamp}&quot;"/>
+    	</exec>
+
+    	<!--
+    	<echo message="${cvsout}"/>
+    	-->
+    	
+    	<property name="tag" value="${martus-swing.module}_${version.timestamp}"/>
+        <echo message="Tagging entire project as ${tag}"/>
+    	<exec executable='cvs' 
+	    		outputproperty="cvsout"
+    			failonerror="true">
+    		<arg value="-d"/>
+    		<arg value="${cvsroot}"/>
+    		<arg value="tag"/>
+    		<arg value="${tag}"/>
+    	</exec>
+
+    	<!--
+    	<echo message="${cvsout}"/>
+    	-->
+    	
+   </target>
+	
+</project>

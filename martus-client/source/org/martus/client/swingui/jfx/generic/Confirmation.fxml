@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="messageTitle" styleClass="headingLevel1" />
+      <Label fx:id="messageTextArea" />
+      <CheckBox fx:id="hideForSessionCheckBox" visible="FALSE" mnemonicParsing="false" text="%DoNotShowAgainThisSession" />
+   </children>
+   <padding>
+      <Insets left="10.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="messageTitle" styleClass="headingLevel1" />
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Label alignment="BOTTOM_LEFT" text="%FolderCreateNewName" />
+            <TextField fx:id="folderName" prefWidth="300.0" promptText="%HintEnterFolderName" />
+         </children>
+      </HBox>
+      <Label />
+      <Label fx:id="hintFolderError" styleClass="errorText" />
+   </children>
+</VBox>

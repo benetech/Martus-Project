@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="src" path="/martus-utils"/>
+	<classpathentry kind="src" path="/martus-common"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/server/Jetty/bin/org.mortbay.jetty.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/server/Lucene/bin/lucene-1.3-rc1.jar" sourcepath="/martus-thirdparty/server/Lucene/source/lucene-1.3-rc1-src.zip"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/server/Jetty/bin/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/common/Velocity/bin/velocity-dep-1.4-rc1.jar"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/libext/JUnit/bin/junit-4.11.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

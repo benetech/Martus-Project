@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="src" path="docs"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/client/RhinoJavaScript/bin/js.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/martus-utils"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/martus-common"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/libext/JUnit/bin/junit-4.11.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

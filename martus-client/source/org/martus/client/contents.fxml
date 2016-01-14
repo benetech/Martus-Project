@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane id="MainAnchorPane" maxHeight="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+              <GridPane hgap="100.0" vgap="10.0" >
+                <children>
+                  <ChoiceBox fx:id="dateFormatSequenceDropDown" GridPane.columnIndex="1" />
+                </children>
+              </GridPane>
+  </children>
+</AnchorPane>
