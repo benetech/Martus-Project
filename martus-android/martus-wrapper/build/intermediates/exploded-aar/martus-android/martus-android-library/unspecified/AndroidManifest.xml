@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.martus.android.library"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="19" />
+
+    <!--
+     These application properties are specified to override conflicts merging the
+         manifests of odk and martus-android-server-comm-library. Since these libraries'
+         Manifest application properties will all in turn be overridden by the main app,
+         their values here are inconsequential
+    -->
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppBaseTheme"
+        tools:replace="android:theme,android:icon" />
+
+</manifest>

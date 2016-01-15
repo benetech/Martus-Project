@@ -54,20 +54,20 @@ import org.martus.common.MartusUtilities;
 import org.martus.common.MartusUtilities.FileVerificationException;
 import org.martus.common.Version;
 import org.martus.common.crypto.MartusCrypto;
-import org.martus.common.crypto.MartusCrypto.CreateDigestException;
 import org.martus.common.database.Database.RecordHiddenException;
 import org.martus.common.database.DatabaseKey;
 import org.martus.common.database.DeleteRequestRecord;
 import org.martus.common.database.FileDatabase;
 import org.martus.common.database.ReadableDatabase;
 import org.martus.common.database.ReadableDatabase.AccountVisitor;
-import org.martus.common.fieldspec.CustomFieldTemplate;
+import org.martus.common.fieldspec.FormTemplate;
 import org.martus.common.fieldspec.FormTemplateParsingException;
 import org.martus.common.network.MartusXmlRpcServer;
 import org.martus.common.network.NetworkInterface;
 import org.martus.common.network.NetworkInterfaceConstants;
 import org.martus.common.network.NetworkInterfaceXmlRpcConstants;
 import org.martus.common.network.NonSSLNetworkAPI;
+import org.martus.common.network.SummaryOfAvailableBulletins;
 import org.martus.common.packet.BulletinHeaderPacket;
 import org.martus.common.packet.UniversalId;
 import org.martus.common.utilities.MartusServerUtilities;
@@ -414,7 +414,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		return result;
 	}
 	
-	public String getTokensFromMartusCentralTokenAuthority(String accountId) throws Exception
+	protected String getTokensFromMartusCentralTokenAuthority(String accountId) throws Exception
 	{
 		String encodedPublicKey = URLEncoder.encode(accountId, "UTF-8");
 		String tokenAuthorityCall = coreServer.tokenAuthorityBase + "/tokens/byKey/" + encodedPublicKey;
@@ -450,7 +450,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		}
 	}
 	
-	public String getAccountIdForTokenFromMartusCentralTokenAuthority(MartusAccountAccessToken token) throws Exception
+	protected String getAccountIdForTokenFromMartusCentralTokenAuthority(MartusAccountAccessToken token) throws Exception
 	{
 		String encodedToken = URLEncoder.encode(token.getToken(), "UTF-8");
 		String tokenAuthorityCall = coreServer.tokenAuthorityBase + "/keys/byToken/" + encodedToken;
@@ -593,14 +593,14 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		return result;
 	}
 	
-	public String getAccountIdFromNetworkResponse(String networkResponseData) throws ParseException
+	private String getAccountIdFromNetworkResponse(String networkResponseData) throws ParseException
 	{
 		EnhancedJsonObject jsonContainer = new EnhancedJsonObject(networkResponseData);
 		EnhancedJsonObject innerPackage = jsonContainer.getJson(MartusAccountAccessToken.MARTUS_ACCOUNT_ACCESS_TOKEN_JSON_TAG);
 		return innerPackage.getString(MartusAccountAccessToken.MARTUS_ACCESS_ACCOUNT_ID_JSON_TAG);
 	}
 
-	public String getTokenFromNetworkResponse(String networkResponseData) throws ParseException
+	private String getTokenFromNetworkResponse(String networkResponseData) throws ParseException
 	{
 		EnhancedJsonObject jsonContainer = new EnhancedJsonObject(networkResponseData);
 		EnhancedJsonObject innerPackage = jsonContainer.getJson(MartusAccountAccessToken.MARTUS_ACCOUNT_ACCESS_TOKEN_JSON_TAG);
@@ -663,11 +663,6 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		return result;
 	}
 	
-	public static String calculateFileNameFromString(String inputText) throws CreateDigestException  
-	{
-		return MartusCrypto.getHexDigest(inputText) + CustomFieldTemplate.CUSTOMIZATION_TEMPLATE_EXTENSION;
-	}
-	
 	public Vector putFormTemplate(String myAccountId, Vector formTemplateData) 
 	{
 		String loggingData = "putFormTemplate: " + coreServer.getClientAliasForLogging(myAccountId);
@@ -710,7 +705,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		}
 	}
 
-	public void saveBase64FormTemplate(String myAccountId, String base64TemplateData) throws Exception
+	private void saveBase64FormTemplate(String myAccountId, String base64TemplateData) throws Exception
 	{
 		ServerBulletinStore store = getStore();
 		MartusCrypto security = getSecurity();
@@ -739,7 +734,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		output.flush();
 		output.close();
 		
-		CustomFieldTemplate template = new CustomFieldTemplate();
+		FormTemplate template = new FormTemplate();
 		boolean templateImported = template.importTemplate(tempFormTemplateFile, security);
 		if(!templateImported)
 		{
@@ -752,7 +747,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 			tempFormTemplateFile.delete();
 			throw new FormTemplateParsingException();
 		}
-		File accountsFormTemplateFile = new File(accountFolderForTemplates, calculateFileNameFromString(template.getTitle()));
+		File accountsFormTemplateFile = new File(accountFolderForTemplates, FormTemplate.calculateFileNameFromString(template.getTitle()));
 		store.moveFormTemplateIntoAccount(myAccountId, tempFormTemplateFile, accountsFormTemplateFile, logger);
 	}
 
@@ -798,6 +793,36 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		return result;
 	}
 
+	public Vector listAvailableRevisionsSince(String myAccountId, String availableBulletinsRequestJson) 
+	{
+		String loggingData = "listAvailableBulletinsSince: " + coreServer.getClientAliasForLogging(myAccountId);
+		logInfo(loggingData);
+		Vector result = new Vector();
+		if(isClientBanned(myAccountId))
+		{
+			result.add(NetworkInterfaceConstants.REJECTED);
+			return result;
+		}
+		
+		try 
+		{
+			EnhancedJsonObject requestJson = new EnhancedJsonObject(availableBulletinsRequestJson);
+			EnhancedJsonObject resultJson = getStore().listAvailableRevisionsSince(myAccountId, requestJson);
+			result.add(NetworkInterfaceConstants.OK);
+			result.add(new String[] {resultJson.toString()});
+			String jsonKey = SummaryOfAvailableBulletins.JSON_KEY_COUNT;
+			String loggingInfo = "Revisions Found:" + resultJson.optInt(jsonKey);
+			logInfo(loggingInfo);
+		} 
+		catch (Exception e) 
+		{
+			MartusLogger.logException(e);
+			result.add(NetworkInterfaceConstants.SERVER_ERROR);
+		}
+
+		return result;
+	}
+
 	public boolean doesAccountExist(String accountIdToUse) 
 	{
 		try 
@@ -823,7 +848,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		}
 		try 
 		{
-			String formTemplateFileName = calculateFileNameFromString(formTitle);
+			String formTemplateFileName = FormTemplate.calculateFileNameFromString(formTitle);
 			File formTemplateFile = getStore().getFormTemplateFileFromAccount(accountIdToUse, formTemplateFileName);
 			byte [] rawFormTemplateData = MartusServerUtilities.getFileContents(formTemplateFile);
 			String base64FormTemplateData = StreamableBase64.encode(rawFormTemplateData);
@@ -918,7 +943,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 				if(coreServer.doesDraftExist(uid))
 				{
 					writeDELPacket(uid, originalRequest, signature);
-					DatabaseKey key = DatabaseKey.createDraftKey(uid);
+					DatabaseKey key = DatabaseKey.createMutableKey(uid);
 					getStore().deleteBulletinRevision(key);
 				}
 				else
@@ -1026,12 +1051,12 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		return result;
 	}
 
-	File getBannedFile()
+	private File getBannedFile()
 	{
 		return new File(getConfigDirectory(), BANNEDCLIENTSFILENAME);
 	}
 	
-	File getTestAccountsFile()
+	private File getTestAccountsFile()
 	{
 		return new File(getConfigDirectory(), TESTACCOUNTSFILENAME);
 	}
@@ -1094,7 +1119,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		return true;
 	}
 	
-	public int getNumberOfNewsItems()
+	private int getNumberOfNewsItems()
 	{
 		return newsItems.size();
 	}
@@ -1130,7 +1155,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		return new File(getConfigDirectory(), MAGICWORDSFILENAME);
 	}
 
-	void loadMagicWordsFile() throws IOException
+	private void loadMagicWordsFile() throws IOException
 	{
 		magicWords.loadMagicWords(getMagicWordsFile());
 	}
@@ -1175,7 +1200,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 		return new File(coreServer.getDataDirectory(), AUTHORIZELOGFILENAME);
 	}
 
-	void loadCanUploadFile()
+	private void loadCanUploadFile()
 	{
 		logInfo("loadCanUploadList");
 		clientsThatCanUpload = MartusUtilities.loadClientList(getAllowUploadFile());
@@ -1227,7 +1252,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 
 		public boolean isWanted(DatabaseKey key)
 		{
-			return(key.isSealed());
+			return(key.isImmutable());
 		}
 	}
 
@@ -1240,7 +1265,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 
 		public boolean isWanted(DatabaseKey key)
 		{
-			return(key.isDraft());
+			return(key.isMutable());
 		}
 	}
 	
@@ -1277,7 +1302,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 
 		public boolean isWanted(DatabaseKey key)
 		{
-			return(key.isSealed());
+			return(key.isImmutable());
 		}
 	}
 
@@ -1290,7 +1315,7 @@ public class ServerForClients implements ServerForNonSSLClientsInterface, Server
 
 		public boolean isWanted(DatabaseKey key)
 		{
-			return(key.isDraft());
+			return(key.isMutable());
 		}
 	}
 

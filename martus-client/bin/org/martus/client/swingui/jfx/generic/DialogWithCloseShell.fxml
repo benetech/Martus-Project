@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox alignment="BOTTOM_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#onCloseClicked" text="%Button.ok" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <ScrollPane BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane>
+               <children>
+                  <Pane fx:id="contentPane" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+	</center>
+</BorderPane>

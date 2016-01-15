@@ -207,7 +207,7 @@ public class ServerForMirroring implements ServerSupplierInterface
 			{
 				try
 				{
-					if(key.isDraft())
+					if(key.isMutable())
 						return;
 					if(!BulletinHeaderPacket.isValidLocalId(key.getLocalId()))
 						return;

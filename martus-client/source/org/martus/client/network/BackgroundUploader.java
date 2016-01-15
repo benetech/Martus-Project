@@ -174,22 +174,15 @@ public class BackgroundUploader
 				return uploadResult;
 		
 			int index = new Random().nextInt(uploadFromFolder.getBulletinCount());
-			Bulletin b = store.chooseBulletinToUpload(uploadFromFolder, index);
-			uploadResult.uid = b.getUniversalId();
+			Bulletin bulletin = store.chooseBulletinToUpload(uploadFromFolder, index);
+			uploadResult.uid = bulletin.getUniversalId();
 
-			uploadResult.result = uploadBulletin(b);
+			uploadResult.result = uploadBulletin(bulletin);
 			if(uploadResult.result == null)
 				return uploadResult;
 			
-			if(uploadResult.result.equals(NetworkInterfaceConstants.OK) || 
-					uploadResult.result.equals(NetworkInterfaceConstants.DUPLICATE))
-			{
-				store.setIsOnServer(b);
-				if(UiSession.isJavaFx() && mainWindow != null)
-					mainWindow.bulletinContentsHaveChanged(b);
-				// TODO: Is the file this creates ever used???
-				app.resetLastUploadedTime();
-			}
+			if(isBulletinOnServer(uploadResult))
+				bulletinSuccessfullyUploadedToServer(bulletin);
 			else
 				uploadResult.bulletinNotSentAndRemovedFromQueue = true;
 				
@@ -246,6 +239,33 @@ public class BackgroundUploader
 			store.saveFolders();
 		}
 		return uploadResult;
+	}
+
+	private void bulletinSuccessfullyUploadedToServer(Bulletin bulletin) throws IOException
+	{
+		possiblyDestroyBulletin(bulletin);
+		app.getStore().setIsOnServer(bulletin);
+		if(UiSession.isJavaFx() && mainWindow != null)
+			mainWindow.bulletinContentsHaveChanged(bulletin);
+		
+		// TODO: Is the file this creates ever used???
+		app.resetLastUploadedTime();
+	}
+	
+	private void possiblyDestroyBulletin(Bulletin bulletin) throws IOException
+	{
+		if (!UiSession.isWriteOnlyFlavor())
+			return;
+		
+		if (!bulletin.isShared())
+			return;
+		
+		app.getStore().destroyBulletin(bulletin);
+	}
+
+	private boolean isBulletinOnServer(UploadResult uploadResult)
+	{
+		return uploadResult.result.equals(NetworkInterfaceConstants.OK) || uploadResult.result.equals(NetworkInterfaceConstants.DUPLICATE);
 	}
 
 	public String putContactInfoOnServer(Vector info)  throws

@@ -267,4 +267,35 @@ public interface TestBulletinFromXFormsLoaderConstants
 				"</nm>"+
 			"</xforms_instance>";
 
+	public static final String MESSAGE_LABEL = "This should be a Message Field";
+
+	public static final String XFORMS_MODEL_MESSAGE_FIELD =
+			"<xforms_model>" +
+				"<h:html xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.w3.org/2002/xforms\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" >" +
+					"<h:head>"+
+						"<h:title>secureApp Prototype</h:title>"+
+						"<model>"+
+							"<instance>"+
+								"<nm id=\"VitalVoices\" >"+
+									"<message></message>"+
+								"</nm>"+
+							"</instance>"+				""+
+							"<bind nodeset=\"/nm/message\" type=\"xsd:string\" readonly=\"true()\" ></bind>"+
+						"</model>"+
+					"</h:head>"+
+				"<h:body>"+
+					"<input ref=\"/nm/message\" appearance=\"minimal\">" +
+					"<label>" + MESSAGE_LABEL + "</label>"+
+					"</input>"+
+				"</h:body>"+
+			"</h:html>" +
+		"</xforms_model>";
+
+	public static final String XFORMS_INSTANCE_MESSAGE_FIELD = 
+			"<xforms_instance>" +
+				"<nm id=\"nm\">"+
+					"<message></message>"+
+				"</nm>"+
+			"</xforms_instance>";
+	
 }

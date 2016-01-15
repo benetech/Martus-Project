@@ -1,0 +1,37 @@
+1. Install Gradle (http://gradle.org) latest was 2.3
+
+2. Update .bash_profile
+	#Setting PATH for Gradle 2.3
+	GRADLE_HOME=~/Dev/gradle-2.3;
+	export GRADLE_HOME
+	export PATH=$PATH:$GRADLE_HOME/bin
+	
+3. Install Android SDK API 17, 19, 20 and 21 (Or Android Studio) 
+		Use SDK Manager in Android Studio to install this
+		
+4. Update .bash_profile
+	#Setting up ANDROID_HOME for gradle builds
+	export ANDROID_HOME=~/Library/Android/sdk
+
+5. Install Build Tools revision 20.0.0, and 19.1
+	Use SDK Manager in Android Studio to install this
+
+6. Not sure why I needed to add the following to the VitalVoices gradle script
+	in the section 
+	android {
+	I added    
+		lintOptions {
+       		 abortOnError false
+    		}
+    		
+    	Lint was complaining from the command line about an Invalid package due to
+    	reference in library; not included in Android: javax.swing.table. Referenced from org.martus.util.SortableTableModel.
+    	But Android Studio seemed to ignore this.
+
+7. From Terminal change to the correct build directory
+	eg. cd ~/EclipseMartus/martus-android/secure-app-vital-voices
+	
+8. Start the Build
+	eg. gradle build
+	
+

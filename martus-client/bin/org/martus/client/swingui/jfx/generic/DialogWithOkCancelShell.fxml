@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox styleClass="margin" alignment="BOTTOM_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="ok" mnemonicParsing="false" onMouseClicked="#onOkClicked" text="%Button.ok" />
+            <Separator visible="false" HBox.hgrow="ALWAYS" />
+            <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#onCancelClicked" text="%Button.cancel" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <Pane fx:id="contentPane" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

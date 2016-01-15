@@ -26,25 +26,20 @@ import com.actionbarsherlock.view.MenuItem;
 import com.ipaulpro.afilechooser.utils.FileUtils;
 
 import org.martus.android.dialog.ConfirmationDialog;
-import org.martus.android.dialog.DeterminateProgressDialog;
-import org.martus.android.dialog.IndeterminateProgressDialog;
 import org.martus.android.dialog.LoginDialog;
-import org.martus.client.bulletinstore.MobileClientBulletinStore;
-import org.martus.common.FieldCollection;
-import org.martus.common.FieldSpecCollection;
+import org.martus.android.library.common.dialog.DeterminateProgressDialog;
+import org.martus.android.library.common.dialog.IndeterminateProgressDialog;
+import org.martus.android.library.utilities.BulletinSender;
+import org.martus.clientside.MobileClientBulletinStore;
 import org.martus.common.HeadquartersKey;
 import org.martus.common.HeadquartersKeys;
 import org.martus.common.bulletin.AttachmentProxy;
 import org.martus.common.bulletin.Bulletin;
 import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.crypto.MartusSecurity;
-import org.martus.common.fieldspec.CustomFieldTemplate;
 import org.martus.common.network.NetworkInterfaceConstants;
 import org.martus.common.packet.UniversalId;
 import org.martus.util.StreamCopier;
-import org.martus.util.inputstreamwithseek.FileInputStreamWithSeek;
-import org.odk.collect.android.application.Collect;
-import org.odk.collect.android.logic.FormController;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -59,7 +54,6 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -421,9 +415,6 @@ public class BulletinActivity extends AbstractMainActivityWithMainMenuHandler im
         indeterminateDialog.show(getSupportFragmentManager(), "dlg_zipping");
 
 	    if (haveFormInfo) {
-		    FormController formController = Collect.getInstance().getFormController();
-
-		    ODKUtils.populateBulletin(bulletin, formController);
 	    }  else {
 
 	        String title = titleText.getText().toString().trim();
@@ -459,9 +450,6 @@ public class BulletinActivity extends AbstractMainActivityWithMainMenuHandler im
         stopInactivityTimer();
         parentApp.setIsSendInProgress(true);
 
-	    //remove saved custom form data
-	    clearDirectory(new File(Collect.INSTANCES_PATH));
-
         bulletin.set(Bulletin.TAGLANGUAGE, getDefaultLanguageForNewBulletin());
         final AsyncTask<Object, Integer, File> zipTask = new ZipBulletinTask(bulletin, this);
         zipTask.execute(getAppDir(), store);
@@ -472,38 +460,14 @@ public class BulletinActivity extends AbstractMainActivityWithMainMenuHandler im
     {
         Bulletin bulletin;
 	    if (haveFormInfo) {
-		    if (MartusApplication.getInstance().getCustomTopSectionSpecs() == null || MartusApplication.getInstance().getCustomBottomSectionSpecs() == null) {
-			    CustomFieldTemplate template = new CustomFieldTemplate();
-                Vector authorizedKeys = new Vector<String>();
-                authorizedKeys.add(hqKey.getPublicKey());
-                File customTemplate = new File(Collect.MARTUS_TEMPLATE_PATH + File.separator + ODKUtils.MARTUS_CUSTOM_TEMPLATE);
-
-                FileInputStreamWithSeek inputStream = new FileInputStreamWithSeek(customTemplate);
-                try
-                {
-                    if(template.importTemplate(martusCrypto, inputStream))
-                    {
-                        String topSectionXML = template.getImportedTopSectionText();
-                        String bottomSectionXML = template.getImportedBottomSectionText();
-
-                        FieldSpecCollection topFields = FieldCollection.parseXml(topSectionXML);
-                        MartusApplication.getInstance().setCustomTopSectionSpecs(topFields);
-                        FieldSpecCollection bottomFields = FieldCollection.parseXml(bottomSectionXML);
-                        MartusApplication.getInstance().setCustomBottomSectionSpecs(bottomFields);
-                    }
-                }
-                finally
-                {
-                    inputStream.close();
-                }
-		    }
-			bulletin = store.createEmptyBulletin(MartusApplication.getInstance().getCustomTopSectionSpecs(), MartusApplication.getInstance().getCustomBottomSectionSpecs());
+	    	bulletin = store.createEmptyBulletin(MartusApplication.getInstance().getCustomTopSectionSpecs(), MartusApplication.getInstance().getCustomBottomSectionSpecs());
 	    } else  {
 			bulletin = store.createEmptyBulletin();
 	    }
         bulletin.set(Bulletin.TAGLANGUAGE, getDefaultLanguageForNewBulletin());
         bulletin.setAuthorizedToReadKeys(new HeadquartersKeys(hqKey));
-        bulletin.setDraft();
+        bulletin.setMutable();
+        bulletin.changeState(Bulletin.BulletinState.STATE_SHARED);
         bulletin.setAllPrivate(true);
         return bulletin;
     }
@@ -572,8 +536,7 @@ public class BulletinActivity extends AbstractMainActivityWithMainMenuHandler im
         } catch (IOException e) {
             Log.e(AppConfig.LOG_LABEL, "problem destroying bulletin", e);
         }
-        AsyncTask<Object, Integer, String> uploadTask = new UploadBulletinTask((MartusApplication)getApplication(),
-                this, bulletinId);
+        AsyncTask<Object, Integer, String> uploadTask = new UploadBulletinTask(getApplication(), this, bulletinId);
         MartusSecurity cryptoCopy = cloneSecurity(AppConfig.getInstance().getCrypto());
         uploadTask.execute(bulletin.getUniversalId(), zippedFile, getNetworkGateway(), cryptoCopy);
         clearFieldsAndAttachmentsMap();
@@ -618,7 +581,6 @@ public class BulletinActivity extends AbstractMainActivityWithMainMenuHandler im
         switch (getConfirmationType()) {
             case CONFIRMATION_TYPE_CANCEL_BULLETIN :
                 removeCachedUnsentAttachments();
-                clearDirectory(new File(Collect.INSTANCES_PATH));
                 this.finish();
                 break;
             case CONFIRMATION_TYPE_DELETE_ATTACHMENT :

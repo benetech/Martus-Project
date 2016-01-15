@@ -88,6 +88,11 @@ public class TestCustomDropDownFieldSpec extends TestCaseEnhanced
 		catch(ArrayIndexOutOfBoundsException expected)
 		{
 		}
+		
+		CustomDropDownFieldSpec checkXML = new CustomDropDownFieldSpec();
+		checkXML.setChoices(choices);
+		assertEquals("XML incorrect?", CHOICES_XML, checkXML.toXml());
+		
 	}
 	
 	public void testDataSource() throws Exception
@@ -173,8 +178,8 @@ public class TestCustomDropDownFieldSpec extends TestCaseEnhanced
 		flipped.setTag(tagA);
 		flipped.setLabel(labelC);
 		assertNotEquals("not checking choice order?", specAC, flipped);
-		
-	}
+	
+		}
 
 	public void testDataDrivenDropdownId()
 	{
@@ -190,6 +195,15 @@ public class TestCustomDropDownFieldSpec extends TestCaseEnhanced
 
 	
 	static final ChoiceItem[] choices = {new ChoiceItem("tag", "value"), new ChoiceItem("othertag", "othervalue"),};
+	public static final String CHOICES_XML = "<Field type='DROPDOWN'>\n" +
+			"<Tag></Tag>\n" +
+			"<Label></Label>\n" +
+			"<Choices>\n" +
+			"<Choice>value</Choice>\n" +
+			"<Choice>othervalue</Choice>\n" +
+			"</Choices>\n" +
+			"</Field>\n";
+
 	public static final String SAMPLE_DROPDOWN_CHOICE1 = "choice #1";
 	public static final String SAMPLE_DROPDOWN_CHOICE2 = "choice #2";
 	public static final String SAMPLE_DROPDOWN_LABEL = "Dropdown Label";

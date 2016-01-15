@@ -263,7 +263,12 @@ public class MiniLocalization
 
 	public String getLabel(String languageCode, String category, String tag)
 	{
-		return getLabel(languageCode, category + ":" + tag);
+		return getLabel(languageCode, createKey(category, tag));
+	}
+
+	public static String createKey(String category, String tag)
+	{
+		return category + ":" + tag;
 	}
 
 	public String getFieldLabelHtml(String fieldName)
@@ -308,7 +313,7 @@ public class MiniLocalization
 
 	public String getTooltipLabel(String code)
 	{
-		return getLabel(getCurrentLanguageCode(), "tooltip", code);
+		return getLabel(getCurrentLanguageCode(), CATEGORY_TOOLTIP_CODE, code);
 	}
 
 	public String getStatusLabel(String code)
@@ -626,6 +631,8 @@ public class MiniLocalization
 
 	public static final String NotTranslatedBeginCharacter = "<";
 	public static final String NotTranslatedEndCharacter = ">";
+	
+	public static final String CATEGORY_TOOLTIP_CODE = "tooltip";
 	
 	protected Map textResources;
 	protected Vector rightToLeftLanguages;

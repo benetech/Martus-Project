@@ -117,6 +117,7 @@ public class VerifyAllPackets
 			//TODO security issue here password is a string.
 			String passphrase = reader.readLine();
 			security = loadCurrentMartusSecurity(keyPairFile, passphrase.toCharArray());
+			reader.close();
 		}
 		catch(Exception e)
 		{

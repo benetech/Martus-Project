@@ -27,17 +27,13 @@ package org.martus.amplifier.datasynch.test;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-
-import junit.framework.Assert;
 
 import org.martus.amplifier.attachment.AttachmentStorageException;
 import org.martus.amplifier.attachment.DataManager;
@@ -66,8 +62,8 @@ import org.martus.common.bulletin.Bulletin;
 import org.martus.common.bulletin.BulletinForTesting;
 import org.martus.common.bulletinstore.BulletinStore;
 import org.martus.common.crypto.MartusCrypto;
-import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.crypto.MartusCrypto.CryptoException;
+import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.database.ReadableDatabase;
 import org.martus.common.fieldspec.FieldSpec;
 import org.martus.common.packet.FieldDataPacket;
@@ -76,8 +72,6 @@ import org.martus.common.test.MockBulletinStore;
 import org.martus.common.utilities.MartusFlexidate;
 import org.martus.util.DirectoryUtils;
 import org.martus.util.MultiCalendar;
-import org.martus.util.StreamCopier;
-import org.martus.util.inputstreamwithseek.StringInputStreamWithSeek;
 
 
 public class TestBulletinExtractor extends AbstractAmplifierTestCase
@@ -178,10 +172,10 @@ public class TestBulletinExtractor extends AbstractAmplifierTestCase
 			HashMap fields = new HashMap();
 			fields.put(SearchResultConstants.RESULT_BASIC_QUERY_KEY, b.get(BulletinField.TAGAUTHOR));			
 			Results results = searcher.search(fields);
-			Assert.assertEquals(1, results.getCount());
+			assertEquals(1, results.getCount());
 			BulletinInfo info = 
 				searcher.lookup(b.getUniversalId());
-			Assert.assertNotNull(info);
+			assertNotNull(info);
 			compareBulletins(b, info);
 		} finally {
 			searcher.close();
@@ -233,10 +227,10 @@ public class TestBulletinExtractor extends AbstractAmplifierTestCase
 			HashMap fields = new HashMap();
 			fields.put(SearchResultConstants.RESULT_BASIC_QUERY_KEY, b.get(BulletinField.TAGAUTHOR));			
 			Results results = searcher.search(fields);
-			Assert.assertEquals(1, results.getCount());
+			assertEquals(1, results.getCount());
 			BulletinInfo info = 
 				searcher.lookup(b.getUniversalId());
-			Assert.assertNotNull(info);
+			assertNotNull(info);
 			compareBulletins(b, info);
 		} 
 		finally 
@@ -285,10 +279,10 @@ public class TestBulletinExtractor extends AbstractAmplifierTestCase
 			HashMap fields = new HashMap();
 			fields.put(SearchResultConstants.RESULT_BASIC_QUERY_KEY, b.get(BulletinField.TAGAUTHOR));			
 			Results results = searcher.search(fields);
-			Assert.assertEquals(1, results.getCount());
+			assertEquals(1, results.getCount());
 			BulletinInfo info = 
 				searcher.lookup(b.getUniversalId());
-			Assert.assertNotNull(info);
+			assertNotNull(info);
 			compareBulletins(b, info);
 			compareAttachments(b.getAccount(), attachments, info.getAttachments());
 		} finally {
@@ -355,7 +349,7 @@ public class TestBulletinExtractor extends AbstractAmplifierTestCase
 		String accountId, File[] attachments, List retrieved) 
 		throws IOException, AttachmentStorageException
 	{
-		Assert.assertEquals(attachments.length, retrieved.size());
+		assertEquals(attachments.length, retrieved.size());
 		for (int i = 0; i < attachments.length; i++) {
 			String s1 = fileToString(attachments[i]);
 			AttachmentInfo info = (AttachmentInfo) retrieved.get(i);
@@ -363,7 +357,7 @@ public class TestBulletinExtractor extends AbstractAmplifierTestCase
 				attachmentManager.getAttachment(
 					UniversalId.createFromAccountAndLocalId(accountId, info.getLocalId()));
 			try {
-				Assert.assertEquals(s1, inputStreamToString(in));
+				assertEquals(s1, inputStreamToString(in));
 			} finally {
 				in.close();
 			}
@@ -382,7 +376,7 @@ public class TestBulletinExtractor extends AbstractAmplifierTestCase
 		}
 		b.setAllPrivate(false);
 		b.getFieldDataPacket().setEncrypted(false);
-		b.setSealed();
+		b.setImmutable();
 		return b;
 	}
 	
@@ -398,29 +392,15 @@ public class TestBulletinExtractor extends AbstractAmplifierTestCase
 		}
 		b.setAllPrivate(false);
 		b.getFieldDataPacket().setEncrypted(false);
-		b.setSealed();
+		b.setImmutable();
 		return b;
 	}
 
-	private File createAttachment(String data) 
-		throws IOException
+	public File createAttachment(String data) throws IOException 
 	{
-		return stringToFile(data);
+		return stringToFile("$$$MartusExtractionTempAttachment", null, data);
 	}
-	
-	private File stringToFile(String s) throws IOException
-	{
-		File temp = createTempFileFromName("$$$MartusAmpTempAttachment");
-		InputStream in = new StringInputStreamWithSeek(s);
-		OutputStream out = new FileOutputStream(temp);
-		try {
-			new StreamCopier().copyStream(in, out);
-		} finally {
-			out.close();
-		}
-		return temp;
-	}
-	
+
 	private String fileToString(File f) throws IOException
 	{
 		InputStream in = new FileInputStream(f);

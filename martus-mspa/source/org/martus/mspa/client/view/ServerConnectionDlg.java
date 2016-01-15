@@ -75,7 +75,7 @@ public class ServerConnectionDlg extends JDialog
 		getContentPane().add(mainPanel);
 		getRootPane().setDefaultButton(connect);
 		pack();
-		Utilities.centerDlg(this);
+		Utilities.packAndCenterWindow(this);
 	}
 	
 	public UiMainWindow getMainWindow()

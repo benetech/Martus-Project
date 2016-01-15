@@ -14,20 +14,6 @@
 
 package org.odk.collect.android.provider;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-
-import org.odk.collect.android.R;
-import org.odk.collect.android.application.Collect;
-import org.odk.collect.android.database.ItemsetDbAdapter;
-import org.odk.collect.android.database.ODKSQLiteOpenHelper;
-import org.odk.collect.android.provider.FormsProviderAPI.FormsColumns;
-import org.odk.collect.android.utilities.FileUtils;
-import org.odk.collect.android.utilities.MediaUtils;
-
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -40,6 +26,20 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
+import org.odk.collect.android.R;
+import org.odk.collect.android.application.Collect;
+import org.odk.collect.android.database.ItemsetDbAdapter;
+import org.odk.collect.android.database.ODKSQLiteOpenHelper;
+import org.odk.collect.android.provider.FormsProviderAPI.FormsColumns;
+import org.odk.collect.android.utilities.FileUtils;
+import org.odk.collect.android.utilities.MediaUtils;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+
 /**
  *
  */
@@ -47,9 +47,9 @@ public class FormsProvider extends ContentProvider {
 
 	private static final String t = "FormsProvider";
 
-	private static final String DATABASE_NAME = "forms.db";
+	private static final String DATABASE_NAME = "forms_s.db";
 	private static final int DATABASE_VERSION = 4;
-	private static final String FORMS_TABLE_NAME = "forms";
+	private static final String FORMS_TABLE_NAME = "forms_s";
 
 	private static HashMap<String, String> sFormsProjectionMap;
 
@@ -80,6 +80,8 @@ public class FormsProvider extends ContentProvider {
 					+ " integer primary key, " + FormsColumns.DISPLAY_NAME
 					+ " text not null, " + FormsColumns.DISPLAY_SUBTEXT
 					+ " text not null, " + FormsColumns.DESCRIPTION
+					+ " text, " + FormsColumns.FORM_INSTANCE_AUTHOR
+					+ " text, " + FormsColumns.FORM_INSTANCE_ORGANIZATION
 					+ " text, "
 					+ FormsColumns.JR_FORM_ID
 					+ " text not null, "
@@ -123,6 +125,10 @@ public class FormsProvider extends ContentProvider {
 						+ ", "
 						+ FormsColumns.DESCRIPTION
 						+ ", "
+						+ FormsColumns.FORM_INSTANCE_AUTHOR
+						+ ", "
+						+ FormsColumns.FORM_INSTANCE_ORGANIZATION
+						+ ", "
 						+ FormsColumns.JR_FORM_ID
 						+ ", "
 						+ FormsColumns.MD5_HASH
@@ -150,6 +156,10 @@ public class FormsProvider extends ContentProvider {
 						+ FormsColumns.DISPLAY_SUBTEXT
 						+ ", "
 						+ FormsColumns.DESCRIPTION
+						+ ", "
+						+ FormsColumns.FORM_INSTANCE_AUTHOR
+						+ ", "
+						+ FormsColumns.FORM_INSTANCE_ORGANIZATION
 						+ ", "
 						+ FormsColumns.JR_FORM_ID
 						+ ", "
@@ -190,6 +200,10 @@ public class FormsProvider extends ContentProvider {
 						+ ", "
 						+ FormsColumns.DESCRIPTION
 						+ ", "
+						+ FormsColumns.FORM_INSTANCE_AUTHOR
+						+ ", "
+						+ FormsColumns.FORM_INSTANCE_ORGANIZATION
+						+ ", "
 						+ FormsColumns.JR_FORM_ID
 						+ ", "
 						+ FormsColumns.MD5_HASH
@@ -209,6 +223,10 @@ public class FormsProvider extends ContentProvider {
 						+ FormsColumns.DISPLAY_SUBTEXT
 						+ ", "
 						+ FormsColumns.DESCRIPTION
+						+ ", "
+						+ FormsColumns.FORM_INSTANCE_AUTHOR
+						+ ", "
+						+ FormsColumns.FORM_INSTANCE_ORGANIZATION
 						+ ", "
 						+ FormsColumns.JR_FORM_ID
 						+ ", "
@@ -328,7 +346,7 @@ public class FormsProvider extends ContentProvider {
 
 		// Normalize the file path.
 		// (don't trust the requester).
-		String filePath = values.getAsString(FormsColumns.FORM_FILE_PATH);
+		String filePath = normalizePath(values.getAsString(FormsColumns.FORM_FILE_PATH));
 		File form = new File(filePath);
 		filePath = form.getAbsolutePath(); // normalized
 		values.put(FormsColumns.FORM_FILE_PATH, filePath);
@@ -349,14 +367,14 @@ public class FormsProvider extends ContentProvider {
 		}
 
 		if (values.containsKey(FormsColumns.DISPLAY_NAME) == false) {
-			values.put(FormsColumns.DISPLAY_NAME, form.getName());
+			values.put(FormsColumns.DISPLAY_NAME, getNameForFormAtPath(filePath));
 		}
 
 		// don't let users put in a manual md5 hash
 		if (values.containsKey(FormsColumns.MD5_HASH)) {
 			values.remove(FormsColumns.MD5_HASH);
 		}
-		String md5 = FileUtils.getMd5Hash(form);
+		String md5 = getMd5HashForFormAtPath(filePath);
 		values.put(FormsColumns.MD5_HASH, md5);
 
 		if (values.containsKey(FormsColumns.JRCACHE_FILE_PATH) == false) {
@@ -383,7 +401,6 @@ public class FormsProvider extends ContentProvider {
 					selectionArgs, null, null, null);
 			if (c.getCount() > 0) {
 				// already exists
-				/** This error message seems incorrect **/
 				throw new SQLException("FAILED Insert into " + uri
 						+ " -- row already exists for form definition file: "
 						+ filePath);
@@ -409,7 +426,21 @@ public class FormsProvider extends ContentProvider {
 		throw new SQLException("Failed to insert row into " + uri);
 	}
 
-	private void deleteFileOrDir(String fileName) {
+
+    protected String getNameForFormAtPath(String path) {
+        return new File(path).getName();
+    }
+
+    protected String normalizePath(String path) {
+        File form = new File(path);
+        return form.getAbsolutePath();
+    }
+
+    protected String getMd5HashForFormAtPath(String path) {
+        return FileUtils.getMd5Hash(new File(path));
+    }
+
+    protected void deleteFileOrDir(String fileName) {
 		File file = new File(fileName);
 		if (file.exists()) {
 			if (file.isDirectory()) {
@@ -551,10 +582,10 @@ public class FormsProvider extends ContentProvider {
 			// updated
 			// this probably isn't a great thing to do.
 			if (values.containsKey(FormsColumns.FORM_FILE_PATH)) {
-				String formFile = values
-						.getAsString(FormsColumns.FORM_FILE_PATH);
+				String formFile = normalizePath(values
+                        .getAsString(FormsColumns.FORM_FILE_PATH));
 				values.put(FormsColumns.MD5_HASH,
-						FileUtils.getMd5Hash(new File(formFile)));
+                        getMd5HashForFormAtPath(formFile));
 			}
 
 			Cursor c = null;
@@ -726,6 +757,9 @@ public class FormsProvider extends ContentProvider {
 		sFormsProjectionMap.put(FormsColumns.JRCACHE_FILE_PATH,
 				FormsColumns.JRCACHE_FILE_PATH);
 		sFormsProjectionMap.put(FormsColumns.LANGUAGE, FormsColumns.LANGUAGE);
+
+		sFormsProjectionMap.put(FormsColumns.FORM_INSTANCE_AUTHOR, FormsColumns.FORM_INSTANCE_AUTHOR);
+		sFormsProjectionMap.put(FormsColumns.FORM_INSTANCE_ORGANIZATION, FormsColumns.FORM_INSTANCE_ORGANIZATION);
 	}
 
 }

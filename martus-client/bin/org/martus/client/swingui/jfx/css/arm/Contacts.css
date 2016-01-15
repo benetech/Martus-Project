@@ -1,0 +1,11 @@
+.root {
+	-fx-background-color: #e6e7e9;
+  -fx-font-family: "DejaVuSans";
+  -fx-line-height: inherit 28px;
+}
+
+.wv-sidebar-hint {
+	background-color: #e6e7e9;
+	font: 9px "DejaVuSans";
+	border: none;
+}

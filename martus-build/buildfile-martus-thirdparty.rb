@@ -51,16 +51,15 @@ define name, :layout=>create_layout_with_source_as_source(name) do
 	install artifact(XMLRPC_WS_COMMONS_UTIL_SPEC).from(jar_file(name, 'common/XMLRPC', 'ws-commons-util-1.0.2.jar'))
 	install artifact(XMLRPC_SOURCE_SPEC).from(source_file(name, 'common/XMLRPC', 'apache-xmlrpc-3.1.3-src.zip'))
 	install artifact(XMLRPC_LICENSE_SPEC).from(license_file(name, 'common/XMLRPC', 'LICENSE.txt'))
-# TODO: Find ICU4J source code
-#	install artifact(ICU4J_SOURCE_SPEC).from(source_file(name, 'common/PersianCalendar', 'icu4j_3_2_license.html'))
+	install artifact(ICU4J_SOURCE_SPEC).from(source_file(name, 'common/PersianCalendar', 'icu4jsrc_3_2.jar.zip'))
 	install artifact(ICU4J_LICENSE_SPEC).from(license_file(name, 'common/PersianCalendar', 'icu4j_3_2_license.html'))
 
 	install artifact(ORCHID_SPEC).from(jar_file(name, 'common/orchid', "orchid-#{$ORCHID_VERSION}.25f1ae1.jar"))
 	install artifact(ORCHID_SOURCE_SPEC).from(source_file(name, 'common/orchid', "orchid-#{$ORCHID_VERSION}.25f1ae1-src.zip"))
 	install artifact(ORCHID_LICENSE_SPEC).from(license_file(name, 'common/orchid', 'LICENSE'))
 	
-	install artifact(JAVAROSA_SPEC).from(jar_file(name, 'common/JavaRosa', "javarosa-libraries.jar"))
-	install artifact(JAVAROSA_SOURCE_SPEC).from(source_file(name, 'common/JavaRosa', "src.zip"))
+	install artifact(JAVAROSA_SPEC).from(jar_file(name, 'common/JavaRosa', "javarosa-libraries-7-30-2015.jar"))
+	install artifact(JAVAROSA_SOURCE_SPEC).from(source_file(name, 'common/JavaRosa', "javarosa-7-30-1015-src.zip"))
 	install artifact(JAVAROSA_LICENSE_SPEC).from(license_file(name, 'common/JavaRosa', 'LICENSE'))
 	install artifact(KXML_SPEC).from(jar_file(name, 'common/JavaRosa', 'kxml2-2.3.0.jar'))
 

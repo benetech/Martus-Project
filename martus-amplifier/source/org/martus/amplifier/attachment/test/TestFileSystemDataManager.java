@@ -31,8 +31,6 @@ import java.io.InputStream;
 import java.util.Vector;
 import java.util.zip.ZipFile;
 
-import junit.framework.Assert;
-
 import org.martus.amplifier.attachment.AttachmentStorageException;
 import org.martus.amplifier.attachment.DataManager;
 import org.martus.amplifier.attachment.FileSystemDataManager;
@@ -134,7 +132,7 @@ public class TestFileSystemDataManager
 		dataManager.clearAllAttachments();
 		File attachmentDir = new File(
 			getTestBasePath());
-		Assert.assertNull(
+		assertNull(
 			"attachments directory not empty", 
 			attachmentDir.listFiles());
 	}
@@ -148,7 +146,7 @@ public class TestFileSystemDataManager
 		b.set(BulletinField.TAGKEYWORDS, "testing");
 		b.set(BulletinField.TAGENTRYDATE, "2003-04-30");
 		b.setAllPrivate(false);
-		b.setSealed();
+		b.setImmutable();
 		b.getFieldDataPacket().setEncrypted(false);
 
 		File tempFile = createTempFileFromName("$$$MartusAmpBulletinExtractorTest");
@@ -189,7 +187,7 @@ public class TestFileSystemDataManager
 		InputStream in = null;
 		try {
 			in = dataManager.getAttachment(id);
-			Assert.assertEquals(testString, inputStreamToString(in));
+			assertEquals(testString, inputStreamToString(in));
 		} finally {
 			if (in != null) {
 				in.close();

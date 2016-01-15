@@ -50,7 +50,7 @@ public class FieldValuesLoader
 		localization = app.getLocalization();
 	}
 	
-	public HashSet loadFieldValuesFromAllBulletinRevisions(UiProgressWithCancelDlg progressMeter, FieldSpec fieldSpec)
+	public HashSet loadFieldValuesFromAllBulletinRevisions(UiProgressWithCancelDlg progressMeter, FieldSpec fieldSpec) throws Exception
 	{
 		MiniFieldSpec miniSpec = new MiniFieldSpec(fieldSpec);
 		HashSet choices = getFieldValueFromAllBulletinRevisions(progressMeter, miniSpec);
@@ -58,7 +58,7 @@ public class FieldValuesLoader
 		return choices;
 	}
 
-	private HashSet getFieldValueFromAllBulletinRevisions(UiProgressWithCancelDlg progressMeter, MiniFieldSpec miniSpec)
+	private HashSet getFieldValueFromAllBulletinRevisions(UiProgressWithCancelDlg progressMeter, MiniFieldSpec miniSpec) throws Exception
 	{
 		HashSet choices = new HashSet();
 		Vector allUids = store.getUidsOfAllBulletinRevisions();

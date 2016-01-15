@@ -22,7 +22,8 @@ define name, :layout=>create_layout_with_source_as_source('.') do
 		source_zip_name = "martus-client-sources-#{input_build_number}.zip"
     	source_zip = "#{input_dir}/#{source_zip_name}"
 		p.include(signed_jar, :as=>"martus.jar")
-    	p.include(source_zip, :as=>"SourceFiles/martus-sources.zip")
+		#Excluding source zip
+    	#p.include(source_zip, :as=>"SourceFiles/martus-sources.zip")
 
     	p.include(_('martus-build', "BuildFiles", "Documents", "license.txt"))
     	p.include(_('martus-build', "BuildFiles", "Documents", "gpl.txt"))
@@ -41,7 +42,8 @@ define name, :layout=>create_layout_with_source_as_source('.') do
     	p.include(artifact(XMLRPC_CLIENT_SPEC), :path=>'ThirdParty')
     	p.include(artifact(XMLRPC_COMMON_SPEC), :path=>'ThirdParty')
     	p.include(third_party_client_jars, :path=>'ThirdParty')
-    	include_artifacts_in_zip(p, third_party_client_source, "SourceFiles", "zip")
+    #Excluding source zip  
+    	#include_artifacts_in_zip(p, third_party_client_source, "SourceFiles", "zip")
     	include_artifacts_in_zip(p, third_party_client_licenses, "ThirdParty/Licenses", "txt")
 	end
 	

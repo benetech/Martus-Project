@@ -68,7 +68,7 @@ public class TestAll extends java.lang.Object
 		// Turn down logging verbosity...
 		// should be in main() or runTests(), but neither of those get 
 		// hit if you run the tests from inside eclipse
-		Logger.global.setLevel(Level.WARNING);
+		Logger.getGlobal().setLevel(Level.WARNING);
 		MartusLogger.disableLogging();
 		
 		TestSuite suite= new TestSuite("All Martus Tests");

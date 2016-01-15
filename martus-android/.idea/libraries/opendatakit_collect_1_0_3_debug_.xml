@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="opendatakit.collect-1.0_3-debug-">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/gson-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/google-http-client-gson-1.17.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/httpmime-4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/commons-io-2.4.jar!/" />
+      <root url="file://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/res" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/joda-time-2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/kxml2-2.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/javarosa-libraries-2015-05-21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/google-http-client-android-1.17.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/httpclientandroidlib-4.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/google-oauth-client-1.17.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/opencsv-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/google-http-client-1.15.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/apache-mime4j-0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/jars/libs/google-api-client-1.15.0-rc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

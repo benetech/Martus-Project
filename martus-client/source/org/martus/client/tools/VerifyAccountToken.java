@@ -96,7 +96,7 @@ public class VerifyAccountToken
 			System.exit(1);
 		}
 		
-		String token = (String)response.getResultVector().get(0);
+		String token = response.getResultVector().get(0);
 		System.out.println("Access Token: " + token);
 		
 		System.exit(0);

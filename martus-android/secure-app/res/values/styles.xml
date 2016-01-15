@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="VitalVoices.Theme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:buttonStyle">@style/VitalVoices.Widget.Button</item>
+        <item name="android:actionBarStyle">@style/VitalVoices.Widget.ActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/VitalVoicesActionBarTabText</item>
+    </style>
+    
+    <!-- Button -->
+    <style name="VitalVoices.Widget.Button" parent="android:Widget.Holo.Button">
+        <item name="android:padding">8dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:background">@drawable/button_bg_selector</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+    
+    <!-- ImageButton -->
+    <style name="VitalVoices.Widget.ImageButton" parent="android:Widget.Holo.ImageButton">
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/image_button_bg_selector</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+    
+    <!-- ActionBar -->
+    <style name="VitalVoices.Widget.ActionBar"
+           parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/martus_primary</item>
+        <item name="android:titleTextStyle">@style/VitalVoicesActionBarTitleText</item>
+    </style>
+    
+    <!-- ActionBar title text -->
+    <style name="VitalVoicesActionBarTitleText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- ActionBar tabs text styles -->
+    <style name="VitalVoicesActionBarTabText" parent="@android:style/Widget.Holo.ActionBar.TabText">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    
+    <!-- Section text -->
+    <style name="VitalVoices.SectionText" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@color/martus_primary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+
+</resources>

@@ -1,0 +1,531 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	package
+		ADDED from AndroidManifest.xml:4:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:versionName
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	xmlns:tools
+		ADDED from AndroidManifest.xml:3:5
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+	android:versionCode
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-sdk
+ADDED from AndroidManifest.xml:6:5
+MERGED from com.android.support:multidex:1.0.1:18:5
+MERGED from :aFileChooser-1.0.4_5::7:5
+MERGED from :IOCipherCameraExample-1.0_1-debug::7:5
+MERGED from :martus-android-library-1.0_2-debug::8:5
+MERGED from :martus-android-server-comm-library-1.0_3-debug::7:5
+MERGED from :opendatakit.collect-1.0_3-debug::16:5
+MERGED from com.iangclifton.android:floatlabel:1.0.1:7:5
+MERGED from com.actionbarsherlock:actionbarsherlock:4.4.0:3:3
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:8:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:7:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:10:5
+MERGED from :opendatakit.collect-1.0_3-debug::38:5
+	android:name
+		ADDED from AndroidManifest.xml:10:22
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:11:5
+MERGED from :IOCipherCameraExample-1.0_1-debug::12:5
+MERGED from :opendatakit.collect-1.0_3-debug::42:5
+	android:name
+		ADDED from AndroidManifest.xml:11:22
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:12:5
+MERGED from :opendatakit.collect-1.0_3-debug::41:5
+	android:name
+		ADDED from AndroidManifest.xml:12:22
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from AndroidManifest.xml:13:5
+MERGED from :opendatakit.collect-1.0_3-debug::45:5
+	android:name
+		ADDED from AndroidManifest.xml:13:22
+uses-permission#android.permission.WRITE_OWNER_DATA
+ADDED from AndroidManifest.xml:14:5
+	android:name
+		ADDED from AndroidManifest.xml:14:22
+uses-permission#android.permission.READ_OWNER_DATA
+ADDED from AndroidManifest.xml:15:5
+	android:name
+		ADDED from AndroidManifest.xml:15:22
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from AndroidManifest.xml:16:5
+MERGED from :opendatakit.collect-1.0_3-debug::37:5
+	android:name
+		ADDED from AndroidManifest.xml:16:22
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from AndroidManifest.xml:17:5
+MERGED from :opendatakit.collect-1.0_3-debug::36:5
+	android:name
+		ADDED from AndroidManifest.xml:17:22
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from AndroidManifest.xml:18:5
+MERGED from :opendatakit.collect-1.0_3-debug::43:5
+	android:name
+		ADDED from AndroidManifest.xml:18:22
+uses-permission#android.permission.CAMERA
+ADDED from AndroidManifest.xml:19:5
+MERGED from :IOCipherCameraExample-1.0_1-debug::11:5
+	android:name
+		ADDED from AndroidManifest.xml:19:22
+application
+ADDED from AndroidManifest.xml:21:5
+MERGED from :aFileChooser-1.0.4_5::11:5
+MERGED from :martus-android-library-1.0_2-debug::18:5
+MERGED from :martus-android-server-comm-library-1.0_3-debug::11:5
+MERGED from :opendatakit.collect-1.0_3-debug::69:5
+MERGED from com.iangclifton.android:floatlabel:1.0.1:11:5
+MERGED from com.actionbarsherlock:actionbarsherlock:4.4.0:4:3
+	android:label
+		ADDED from AndroidManifest.xml:24:9
+		REJECTED from :aFileChooser-1.0.4_5::13:9
+		REJECTED from :opendatakit.collect-1.0_3-debug::72:9
+		REJECTED from com.iangclifton.android:floatlabel:1.0.1:14:9
+	android:icon
+		ADDED from AndroidManifest.xml:23:9
+		REJECTED from :aFileChooser-1.0.4_5::12:9
+		REJECTED from :opendatakit.collect-1.0_3-debug::71:9
+		REJECTED from com.iangclifton.android:floatlabel:1.0.1:13:9
+	android:largeHeap
+		ADDED from :opendatakit.collect-1.0_3-debug::73:9
+	android:allowBackup
+		ADDED from com.iangclifton.android:floatlabel:1.0.1:12:9
+	android:theme
+		ADDED from AndroidManifest.xml:25:9
+		REJECTED from :martus-android-library-1.0_2-debug::19:9
+		REJECTED from :opendatakit.collect-1.0_3-debug::74:9
+		REJECTED from com.iangclifton.android:floatlabel:1.0.1:15:9
+	tools:replace
+		ADDED from AndroidManifest.xml:26:9
+	android:name
+		ADDED from AndroidManifest.xml:22:9
+		REJECTED from :opendatakit.collect-1.0_3-debug::70:9
+activity#org.benetech.secureapp.activities.CacheWordHandlerActivity
+ADDED from AndroidManifest.xml:27:9
+	android:label
+		ADDED from AndroidManifest.xml:30:13
+	android:noHistory
+		ADDED from AndroidManifest.xml:29:13
+	android:name
+		ADDED from AndroidManifest.xml:28:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:31:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:32:17
+	android:name
+		ADDED from AndroidManifest.xml:32:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:34:17
+	android:name
+		ADDED from AndroidManifest.xml:34:27
+intent-filter#android.intent.action.EDIT+android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:36:13
+action#android.intent.action.VIEW
+ADDED from AndroidManifest.xml:37:17
+	android:name
+		ADDED from AndroidManifest.xml:37:25
+action#android.intent.action.EDIT
+ADDED from AndroidManifest.xml:38:17
+	android:name
+		ADDED from AndroidManifest.xml:38:25
+category#android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:40:17
+	android:name
+		ADDED from AndroidManifest.xml:40:27
+data
+ADDED from AndroidManifest.xml:42:17
+	android:mimeType
+		ADDED from AndroidManifest.xml:42:23
+provider#org.benetech.secureapp.collect.provider.SecureFormsProvider
+ADDED from AndroidManifest.xml:47:9
+	android:authorities
+		ADDED from AndroidManifest.xml:49:13
+	android:exported
+		ADDED from AndroidManifest.xml:50:13
+	android:name
+		ADDED from AndroidManifest.xml:48:13
+provider#org.benetech.secureapp.collect.provider.SecureInstanceProvider
+ADDED from AndroidManifest.xml:51:9
+	android:authorities
+		ADDED from AndroidManifest.xml:53:13
+	android:exported
+		ADDED from AndroidManifest.xml:54:13
+	android:name
+		ADDED from AndroidManifest.xml:52:13
+activity#org.odk.collect.android.activities.FormEntryActivity
+ADDED from AndroidManifest.xml:56:9
+MERGED from :opendatakit.collect-1.0_3-debug::80:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::83:13
+	android:launchMode
+		ADDED from AndroidManifest.xml:58:13
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:59:13
+	android:configChanges
+		ADDED from :opendatakit.collect-1.0_3-debug::82:13
+	android:name
+		ADDED from AndroidManifest.xml:57:13
+activity#org.odk.collect.android.activities.DrawActivity
+ADDED from AndroidManifest.xml:61:9
+MERGED from :opendatakit.collect-1.0_3-debug::95:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::97:13
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:63:13
+	android:name
+		ADDED from AndroidManifest.xml:62:13
+activity#org.odk.collect.android.activities.FormHierarchyActivity
+ADDED from AndroidManifest.xml:65:9
+MERGED from :opendatakit.collect-1.0_3-debug::158:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::160:13
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:67:13
+	android:name
+		ADDED from AndroidManifest.xml:66:13
+activity#org.odk.collect.android.preferences.PreferencesActivity
+ADDED from AndroidManifest.xml:69:9
+MERGED from :opendatakit.collect-1.0_3-debug::152:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::154:13
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:71:13
+	android:name
+		ADDED from AndroidManifest.xml:70:13
+activity#org.benetech.secureapp.activities.CreatePassphraseActivity
+ADDED from AndroidManifest.xml:73:9
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:75:13
+	android:name
+		ADDED from AndroidManifest.xml:74:13
+activity#org.benetech.secureapp.activities.LoginActivity
+ADDED from AndroidManifest.xml:77:9
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:79:13
+	android:name
+		ADDED from AndroidManifest.xml:78:13
+activity#org.benetech.secureapp.activities.MainActivity
+ADDED from AndroidManifest.xml:81:9
+	android:label
+		ADDED from AndroidManifest.xml:83:13
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:84:13
+	android:name
+		ADDED from AndroidManifest.xml:82:13
+activity#org.benetech.secureapp.activities.MainFormEntryActivity
+ADDED from AndroidManifest.xml:86:9
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:89:13
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:88:13
+	android:name
+		ADDED from AndroidManifest.xml:87:13
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:91:13
+	android:value
+		ADDED from AndroidManifest.xml:93:17
+	android:name
+		ADDED from AndroidManifest.xml:92:17
+activity#org.benetech.secureapp.activities.BulletinActivity
+ADDED from AndroidManifest.xml:95:9
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:97:13
+	android:name
+		ADDED from AndroidManifest.xml:96:13
+activity#org.benetech.secureapp.activities.ManageAttachmentsActivty
+ADDED from AndroidManifest.xml:100:9
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:102:13
+	android:name
+		ADDED from AndroidManifest.xml:101:13
+service#info.guardianproject.cacheword.CacheWordService
+ADDED from AndroidManifest.xml:105:9
+	android:name
+		ADDED from AndroidManifest.xml:105:18
+activity#org.odk.collect.android.activities.SplashScreenActivity
+ADDED from AndroidManifest.xml:108:9
+REJECTED from :opendatakit.collect-1.0_3-debug::173:9
+	tools:node
+		ADDED from AndroidManifest.xml:110:13
+	android:name
+		ADDED from AndroidManifest.xml:109:13
+activity#org.benetech.secureapp.activities.FormGroupActivity
+ADDED from AndroidManifest.xml:112:9
+	android:label
+		ADDED from AndroidManifest.xml:114:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:115:13
+	android:name
+		ADDED from AndroidManifest.xml:113:13
+activity#net.hockeyapp.android.UpdateActivity
+ADDED from AndroidManifest.xml:122:9
+	android:name
+		ADDED from AndroidManifest.xml:122:19
+activity#info.guardianproject.iocipher.camera.StillCameraActivity
+ADDED from AndroidManifest.xml:124:9
+	android:label
+		ADDED from AndroidManifest.xml:126:13
+	android:exported
+		ADDED from AndroidManifest.xml:127:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:128:13
+	android:theme
+		ADDED from AndroidManifest.xml:129:13
+	android:name
+		ADDED from AndroidManifest.xml:125:13
+activity#org.benetech.secureapp.activities.SecureGallery
+ADDED from AndroidManifest.xml:131:9
+	android:label
+		ADDED from AndroidManifest.xml:133:13
+	android:exported
+		ADDED from AndroidManifest.xml:134:13
+	android:theme
+		ADDED from AndroidManifest.xml:135:13
+	android:name
+		ADDED from AndroidManifest.xml:132:13
+activity#info.guardianproject.iocipher.camera.viewer.ImageViewerActivity
+ADDED from AndroidManifest.xml:137:9
+	android:label
+		ADDED from AndroidManifest.xml:139:13
+	android:exported
+		ADDED from AndroidManifest.xml:140:13
+	android:theme
+		ADDED from AndroidManifest.xml:141:13
+	android:name
+		ADDED from AndroidManifest.xml:138:13
+activity#com.ipaulpro.afilechooser.FileChooserActivity
+ADDED from :aFileChooser-1.0.4_5::14:9
+	android:label
+		ADDED from :aFileChooser-1.0.4_5::16:13
+	android:name
+		ADDED from :aFileChooser-1.0.4_5::15:13
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from :IOCipherCameraExample-1.0_1-debug::13:5
+	android:name
+		ADDED from :IOCipherCameraExample-1.0_1-debug::13:22
+uses-feature#android.hardware.location
+ADDED from :opendatakit.collect-1.0_3-debug::20:5
+	android:required
+		ADDED from :opendatakit.collect-1.0_3-debug::22:9
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::21:9
+uses-feature#android.hardware.location.network
+ADDED from :opendatakit.collect-1.0_3-debug::23:5
+	android:required
+		ADDED from :opendatakit.collect-1.0_3-debug::25:9
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::24:9
+uses-feature#android.hardware.location.gps
+ADDED from :opendatakit.collect-1.0_3-debug::26:5
+	android:required
+		ADDED from :opendatakit.collect-1.0_3-debug::28:9
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::27:9
+uses-feature#android.hardware.telephony
+ADDED from :opendatakit.collect-1.0_3-debug::29:5
+	android:required
+		ADDED from :opendatakit.collect-1.0_3-debug::31:9
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::30:9
+uses-feature#android.hardware.wifi
+ADDED from :opendatakit.collect-1.0_3-debug::32:5
+	android:required
+		ADDED from :opendatakit.collect-1.0_3-debug::34:9
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::33:9
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from :opendatakit.collect-1.0_3-debug::39:5
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::39:22
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from :opendatakit.collect-1.0_3-debug::40:5
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::40:22
+uses-permission#android.permission.USE_CREDENTIALS
+ADDED from :opendatakit.collect-1.0_3-debug::44:5
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::44:22
+permission#org.opendatakit.tables.permission.MAPS_RECEIVE
+ADDED from :opendatakit.collect-1.0_3-debug::54:5
+	android:protectionLevel
+		ADDED from :opendatakit.collect-1.0_3-debug::56:9
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::55:9
+uses-permission#org.opendatakit.tables.permission.MAPS_RECEIVE
+ADDED from :opendatakit.collect-1.0_3-debug::58:5
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::58:22
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from :opendatakit.collect-1.0_3-debug::59:5
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::59:22
+supports-screens
+ADDED from :opendatakit.collect-1.0_3-debug::61:5
+	android:largeScreens
+		ADDED from :opendatakit.collect-1.0_3-debug::63:9
+	android:smallScreens
+		ADDED from :opendatakit.collect-1.0_3-debug::66:9
+	android:normalScreens
+		ADDED from :opendatakit.collect-1.0_3-debug::64:9
+	android:xlargeScreens
+		ADDED from :opendatakit.collect-1.0_3-debug::67:9
+	android:resizeable
+		ADDED from :opendatakit.collect-1.0_3-debug::65:9
+	android:anyDensity
+		ADDED from :opendatakit.collect-1.0_3-debug::62:9
+activity#org.odk.collect.android.activities.MainMenuActivity
+ADDED from :opendatakit.collect-1.0_3-debug::75:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::78:13
+	android:configChanges
+		ADDED from :opendatakit.collect-1.0_3-debug::77:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::76:13
+activity#org.odk.collect.android.activities.InstanceChooserList
+ADDED from :opendatakit.collect-1.0_3-debug::98:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::100:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::99:13
+activity#org.odk.collect.android.activities.InstanceChooserTabs
+ADDED from :opendatakit.collect-1.0_3-debug::111:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::113:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::112:13
+activity#org.odk.collect.android.activities.FormChooserList
+ADDED from :opendatakit.collect-1.0_3-debug::114:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::116:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::115:13
+intent-filter#android.intent.action.EDIT+android.intent.action.PICK+android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from :opendatakit.collect-1.0_3-debug::117:13
+action#android.intent.action.PICK
+ADDED from :opendatakit.collect-1.0_3-debug::120:17
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::120:25
+activity#org.odk.collect.android.activities.FormManagerList
+ADDED from :opendatakit.collect-1.0_3-debug::127:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::129:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::128:13
+activity#org.odk.collect.android.activities.FormDownloadList
+ADDED from :opendatakit.collect-1.0_3-debug::130:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::132:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::131:13
+activity#org.odk.collect.android.activities.DataManagerList
+ADDED from :opendatakit.collect-1.0_3-debug::133:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::135:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::134:13
+activity#org.odk.collect.android.activities.FileManagerTabs
+ADDED from :opendatakit.collect-1.0_3-debug::136:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::138:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::137:13
+activity#org.odk.collect.android.activities.InstanceUploaderList
+ADDED from :opendatakit.collect-1.0_3-debug::139:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::141:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::140:13
+activity#org.odk.collect.android.activities.InstanceUploaderActivity
+ADDED from :opendatakit.collect-1.0_3-debug::149:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::151:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::150:13
+activity#org.odk.collect.android.preferences.AdminPreferencesActivity
+ADDED from :opendatakit.collect-1.0_3-debug::155:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::157:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::156:13
+activity#org.odk.collect.android.activities.GeoPointActivity
+ADDED from :opendatakit.collect-1.0_3-debug::161:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::163:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::162:13
+activity#org.odk.collect.android.activities.GeoPointMapActivity
+ADDED from :opendatakit.collect-1.0_3-debug::164:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::166:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::165:13
+activity#org.odk.collect.android.activities.GeoPointMapActivitySdk7
+ADDED from :opendatakit.collect-1.0_3-debug::167:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::169:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::168:13
+activity#org.odk.collect.android.activities.BearingActivity
+ADDED from :opendatakit.collect-1.0_3-debug::170:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::172:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::171:13
+activity#org.odk.collect.android.activities.AndroidShortcuts
+ADDED from :opendatakit.collect-1.0_3-debug::187:9
+	android:label
+		ADDED from :opendatakit.collect-1.0_3-debug::189:13
+	android:theme
+		ADDED from :opendatakit.collect-1.0_3-debug::190:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::188:13
+intent-filter#android.intent.action.CREATE_SHORTCUT+android.intent.category.DEFAULT
+ADDED from :opendatakit.collect-1.0_3-debug::191:13
+action#android.intent.action.CREATE_SHORTCUT
+ADDED from :opendatakit.collect-1.0_3-debug::192:17
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::192:25
+receiver#org.odk.collect.android.receivers.NetworkReceiver
+ADDED from :opendatakit.collect-1.0_3-debug::198:9
+	android:enabled
+		ADDED from :opendatakit.collect-1.0_3-debug::200:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::199:13
+intent-filter#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from :opendatakit.collect-1.0_3-debug::201:13
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from :opendatakit.collect-1.0_3-debug::202:17
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::202:25
+intent-filter#org.odk.collect.android.FormSaved
+ADDED from :opendatakit.collect-1.0_3-debug::204:13
+action#org.odk.collect.android.FormSaved
+ADDED from :opendatakit.collect-1.0_3-debug::205:17
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::205:25
+meta-data#com.google.android.maps.v2.API_KEY
+ADDED from :opendatakit.collect-1.0_3-debug::209:9
+	android:value
+		ADDED from :opendatakit.collect-1.0_3-debug::211:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::210:13
+uses-library#com.google.android.maps
+ADDED from :opendatakit.collect-1.0_3-debug::213:9
+	android:required
+		ADDED from :opendatakit.collect-1.0_3-debug::215:13
+	android:name
+		ADDED from :opendatakit.collect-1.0_3-debug::214:13

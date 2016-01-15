@@ -23,7 +23,7 @@ import android.provider.BaseColumns;
  * Convenience definitions for NotePadProvider
  */
 public final class FormsProviderAPI {
-    public static final String AUTHORITY = "org.odk.collect.android.provider.odk.forms";
+    public static final String AUTHORITY = "org.odk.collect.android.provider.odk.forms.secureApp";
 
     // This class cannot be instantiated
     private FormsProviderAPI() {}
@@ -54,9 +54,11 @@ public final class FormsProviderAPI {
         public static final String MD5_HASH = "md5Hash";
         public static final String DATE = "date";        
         public static final String JRCACHE_FILE_PATH = "jrcacheFilePath";
-        public static final String FORM_MEDIA_PATH = "formMediaPath";      
-        
-        
+        public static final String FORM_MEDIA_PATH = "formMediaPath";
+
+        public static final String FORM_INSTANCE_AUTHOR = "FormInstanceAuthor";
+        public static final String FORM_INSTANCE_ORGANIZATION = "FormInstanceOrganization";
+
         // this is null on create, and can only be set on an update.
         public static final String LANGUAGE = "language";
         

@@ -127,8 +127,7 @@ public class FileUtils {
         }
     }
 
-
-    public static String getMd5Hash(File file) {
+    public static String getMd5Hash(InputStream is) {
         try {
             // CTS (6/15/2010) : stream file through digest instead of handing it the byte[]
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -136,29 +135,17 @@ public class FileUtils {
 
             byte[] chunk = new byte[chunkSize];
 
-            // Get the size of the file
-            long lLength = file.length();
-
-            if (lLength > Integer.MAX_VALUE) {
-                Log.e(t, "File " + file.getName() + "is too large");
-                return null;
-            }
-
-            int length = (int) lLength;
-
-            InputStream is = null;
-            is = new FileInputStream(file);
-
-            int l = 0;
-            for (l = 0; l + chunkSize < length; l += chunkSize) {
-                is.read(chunk, 0, chunkSize);
-                md.update(chunk, 0, chunkSize);
-            }
-
-            int remaining = length - l;
-            if (remaining > 0) {
-                is.read(chunk, 0, remaining);
-                md.update(chunk, 0, remaining);
+            // Process the InputStream while enforcing
+            // a maximum data size.
+            long lLength = 0;
+            int bytesRead;
+            while ((bytesRead = is.read(chunk)) != -1) {
+                md.update(chunk, 0, bytesRead);
+                lLength += bytesRead;
+                if (lLength > Integer.MAX_VALUE) {
+                    Log.e(t, "Input is too large");
+                    return null;
+                }
             }
             byte[] messageDigest = md.digest();
 
@@ -180,9 +167,19 @@ public class FileUtils {
             Log.e("Problem reading from file", e.getMessage());
             return null;
         }
-
     }
 
+
+    public static String getMd5Hash(File file) {
+        InputStream is = null;
+        try {
+            is = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            Log.e("No Cache File", e.getMessage());
+            return null;
+        }
+        return getMd5Hash(is);
+    }
 
     public static Bitmap getBitmapScaledToDisplay(File f, int screenHeight, int screenWidth) {
         // Determine image size of f
@@ -262,15 +259,8 @@ public class FileUtils {
         }
     }
 
-    public static HashMap<String, String> parseXML(File xmlFile) {
+    public static HashMap<String, String> parseXML(InputStream is) {
         HashMap<String, String> fields = new HashMap<String, String>();
-        InputStream is;
-        try {
-            is = new FileInputStream(xmlFile);
-        } catch (FileNotFoundException e1) {
-            throw new IllegalStateException(e1);
-        }
-
         InputStreamReader isr;
         try {
             isr = new InputStreamReader(is, "UTF-8");
@@ -285,13 +275,13 @@ public class FileUtils {
             try {
                 doc = XFormParser.getXMLDocument(isr);
             } catch (IOException e) {
-				e.printStackTrace();
-				throw new IllegalStateException("Unable to parse XML document", e);
-			} finally {
+                e.printStackTrace();
+                throw new IllegalStateException("Unable to parse XML document", e);
+            } finally {
                 try {
                     isr.close();
                 } catch (IOException e) {
-                    Log.w(t, xmlFile.getAbsolutePath() + " Error closing form reader");
+                    Log.w(t, "Error closing form reader");
                     e.printStackTrace();
                 }
             }
@@ -326,14 +316,14 @@ public class FileUtils {
                 String version = cur.getAttributeValue(null, "version");
                 String uiVersion = cur.getAttributeValue(null, "uiVersion");
                 if ( uiVersion != null ) {
-                	// pre-OpenRosa 1.0 variant of spec
-                	Log.e(t, "Obsolete use of uiVersion -- IGNORED -- only using version: " + version);
+                    // pre-OpenRosa 1.0 variant of spec
+                    Log.e(t, "Obsolete use of uiVersion -- IGNORED -- only using version: " + version);
                 }
 
                 fields.put(FORMID, (id == null) ? xmlns : id);
                 fields.put(VERSION, (version == null) ? null : version);
             } else {
-                throw new IllegalStateException(xmlFile.getAbsolutePath() + " could not be parsed");
+                throw new IllegalStateException("InputStream could not be parsed");
             }
             try {
                 Element submission = model.getElement(xforms, "submission");
@@ -341,15 +331,24 @@ public class FileUtils {
                 fields.put(SUBMISSIONURI, (submissionUri == null) ? null : submissionUri);
                 String base64RsaPublicKey = submission.getAttributeValue(null, "base64RsaPublicKey");
                 fields.put(BASE64_RSA_PUBLIC_KEY,
-                  (base64RsaPublicKey == null || base64RsaPublicKey.trim().length() == 0)
-                  ? null : base64RsaPublicKey.trim());
+                        (base64RsaPublicKey == null || base64RsaPublicKey.trim().length() == 0)
+                                ? null : base64RsaPublicKey.trim());
             } catch (Exception e) {
-                Log.i(t, xmlFile.getAbsolutePath() + " does not have a submission element");
+                Log.i(t,"InputStream does not have a submission element");
                 // and that's totally fine.
             }
 
         }
         return fields;
+    }
+
+    public static HashMap<String, String> parseXML(File xmlFile) {
+        InputStream is;
+        try {
+            return parseXML(new FileInputStream(xmlFile));
+        } catch (FileNotFoundException e1) {
+            throw new IllegalStateException(e1);
+        }
     }
 
     // needed because element.getelement fails when there are attributes

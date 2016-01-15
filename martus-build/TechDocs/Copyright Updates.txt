@@ -7,4 +7,11 @@ martus-build
 	BuildFiles/License.txt
 	BuildFiles/Windows/Win32_NSIS_Unicode/Common/NSIS_Martus_Installer_Details.nsi
 	
-	
+Eclipse
+	Preferences
+		Java 
+			Code Style
+				Code Template
+					Comments / Files
+					Code / New Files
+			

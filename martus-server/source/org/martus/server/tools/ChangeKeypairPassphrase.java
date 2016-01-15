@@ -95,6 +95,11 @@ public class ChangeKeypairPassphrase
 				System.err.println("ChangeServerPassphrase.main: " + e);
 				System.exit(3);
 			}
+			finally
+			{
+				reader.close();
+			}
+			
 			System.out.println("Server passphrase updated.");
 			System.out.flush();
 			System.exit(0);

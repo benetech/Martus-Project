@@ -623,6 +623,29 @@ public class ServerSideNetworkHandler implements ServerSideNetworkInterface, Net
 		}
 	}
 
+	@Override
+	public Vector listAvailableRevisionsSince(String myAccountId, Vector parameters, String signature)
+	{
+		server.clientConnectionStart(myAccountId);
+		try
+		{
+			logInfo("listAvailableRevisionsSince");
+			Vector result = checkSignature(myAccountId, parameters, signature);
+			if(result != null)
+				return result;
+
+			int index = 0;
+			String requestJsonString = (String)parameters.get(index++);
+			result = server.listAvailableRevisionsSince(myAccountId, requestJsonString);
+			logDebug("listAvailableRevisionsSince: Exit");
+			return result;
+		}
+		finally
+		{
+			server.clientConnectionExit();
+		}
+	}
+
 	private Vector checkSignature(String myAccountId, Vector parameters, String signature)
 	{
 		if(!isSignatureOk(myAccountId, parameters, signature, server.getSecurity()))
@@ -647,4 +670,5 @@ public class ServerSideNetworkHandler implements ServerSideNetworkInterface, Net
 	final static String defaultReservedResponse = "";
 
 	ServerForClientsInterface server;
+
 }

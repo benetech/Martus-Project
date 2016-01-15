@@ -28,14 +28,15 @@ package org.martus.meta;
 
 import java.util.Vector;
 
+import org.martus.client.network.OrchidTransportWrapperWithActiveProperty;
 import org.martus.clientside.ClientSideNetworkHandlerUsingXmlRpc;
 import org.martus.common.MartusLogger;
 import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.network.MartusSecureWebServer;
 import org.martus.common.network.NetworkInterfaceConstants;
 import org.martus.common.network.NetworkResponse;
+import org.martus.common.network.OrchidTransportWrapper;
 import org.martus.common.network.SimpleX509TrustManager;
-import org.martus.common.network.TorTransportWrapper;
 import org.martus.server.forclients.MockMartusServer;
 import org.martus.server.forclients.ServerForClients;
 import org.martus.server.forclients.ServerSideNetworkHandler;
@@ -58,7 +59,7 @@ public class TestSSL extends TestCaseEnhanced
 			int[] nonSslPorts = {1988};
 			int[] sslPorts = {1987};
 			mockSecurityForServer = MockMartusSecurity.createServer();
-			mockServer = new MockMartusServer();
+			mockServer = new MockMartusServer(this);
 			mockServer.verifyAndLoadConfigurationFiles();
 			mockServer.setSecurity(mockSecurityForServer);
 			MartusSecureWebServer.security = mockSecurityForServer;
@@ -68,8 +69,9 @@ public class TestSSL extends TestCaseEnhanced
 			serverForClients.handleSSL(sslPorts);
 			
 //			XmlRpc.debug = true;
-			TorTransportWrapper torTransport = TorTransportWrapper.createWithoutPersistentStore();
-			proxy1 = new ClientSideNetworkHandlerUsingXmlRpc("localhost", sslPorts, torTransport);
+			OrchidTransportWrapper torTransport = OrchidTransportWrapperWithActiveProperty.createWithoutPersistentStore();
+			torTransport.setIsOnline(true);
+			proxy1 = new ClientSideNetworkHandlerUsingXmlRpc("127.0.0.1", sslPorts, torTransport);
 //			proxy2 = new ClientSideNetworkHandlerUsingXmlRpc("localhost", testport);
 		}
 	}
@@ -81,21 +83,13 @@ public class TestSSL extends TestCaseEnhanced
 		super.tearDown();
 	}
 
-	
-	public void testBasics() throws Exception
-	{
-		verifyBadCertBeforeGoodCertHasBeenAccepted();
-		verifyGoodCertAndItWillNotBeReverifiedThisSession();
-
-	}
-	
 	public void verifyBadCertBeforeGoodCertHasBeenAccepted() throws Exception
 	{
 		SimpleX509TrustManager trustManager = proxy1.getSimpleX509TrustManager();
+		trustManager.setExpectedPublicCode("Not a valid code");
 		assertNull("Already trusted?", trustManager.getExpectedPublicKey());
-
-		proxy1.getSimpleX509TrustManager().setExpectedPublicCode("Not a valid code");
 		trustManager.clearCalledCheckServerTrusted();
+		
 		MartusLogger.temporarilyDisableLogging();
 		try
 		{
@@ -113,19 +107,21 @@ public class TestSSL extends TestCaseEnhanced
 		}
 	}
 	
-	public void verifyGoodCertAndItWillNotBeReverifiedThisSession()
+	public void testGoodCertAndItWillNotBeReverifiedThisSession() throws Exception
 	{
+		verifyBadCertBeforeGoodCertHasBeenAccepted();
+		
 		String serverAccountId = mockSecurityForServer.getPublicKeyString();
 		SimpleX509TrustManager trustManager = proxy1.getSimpleX509TrustManager();
 		trustManager.setExpectedPublicKey(serverAccountId);
 
-		Vector parameters = new Vector();
-		NetworkResponse result = new NetworkResponse(proxy1.getServerInfo(parameters));
+		Vector noParameters = new Vector();
+		NetworkResponse result = new NetworkResponse(proxy1.getServerInfo(noParameters));
 		assertEquals(NetworkInterfaceConstants.OK, result.getResultCode());
 		assertEquals(NetworkInterfaceConstants.VERSION, result.getResultVector().get(0));
 		assertEquals(serverAccountId, trustManager.getExpectedPublicKey());
 
-		NetworkResponse response = new NetworkResponse(proxy1.getServerInfo(new Vector()));
+		NetworkResponse response = new NetworkResponse(proxy1.getServerInfo(noParameters));
 		assertEquals(NetworkInterfaceConstants.OK, response.getResultCode());
 		assertEquals(NetworkInterfaceConstants.VERSION, response.getResultVector().get(0));
 	}

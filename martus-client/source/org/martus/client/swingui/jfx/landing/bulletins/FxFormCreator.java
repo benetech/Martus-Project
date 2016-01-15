@@ -58,7 +58,8 @@ abstract public class FxFormCreator
 		
 		Vector<FieldSpec> fieldSpecs = bulletin.getFieldSpecs();
 		fieldSpecs.forEach(fieldSpec -> addField(bulletin.getField(fieldSpec)));
-
+		currentSection.endCurrentRow();
+		
 		Accordion accordion = new Accordion();
 		ObservableList<TitledPane> panes = accordion.getPanes();
 		sections.forEach(section -> panes.add(createTitledPane(section)));

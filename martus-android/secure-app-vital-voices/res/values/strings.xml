@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Vital Voices</string>
-    <string name="survey_loading_reading_form_message">Reading form definition…</string>
-    <string name="button_label_complete_new_form">Complete New Form</string>
-    <string name="title_existing_forms">Existing Forms</string>
-</resources>

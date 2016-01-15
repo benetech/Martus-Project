@@ -1,0 +1,338 @@
+/*Button font size 14 not 17 like in Martus.css*/
+.button {
+		-fx-background-color:
+        #797769,
+       linear-gradient(#35536b, #597489);
+		-fx-border-radius: 5;
+		-fx-text-fill: White;
+		-fx-alignment: center;
+		-fx-font-size: 14px;
+		-fx-padding: 5 35 5 35;
+}
+
+.button:hover {
+		-fx-background-color: #638a4b;
+		-fx-border-radius: 5;
+		-fx-text-fill: White;
+		-fx-alignment: center;
+		-fx-font-size: 14px;
+		-fx-padding: 5 35 5 35;
+}
+
+.button:pressed {
+		-fx-background-color: DarkGreen;
+		-fx-border-radius: 5;
+		-fx-text-fill: White;
+		-fx-alignment: center;
+		-fx-font-size: 14px;
+		-fx-padding: 5 35 5 35;
+}
+
+.button_not_main_action {
+		-fx-background-color:
+        #797769,
+       linear-gradient(#35536b, #597489);
+		-fx-border-radius: 5;
+		-fx-text-fill: Black;
+		-fx-alignment: center;
+		-fx-font-size: 14px;
+		-fx-padding: 5 35 5 35;
+}
+
+.button_guided_action {
+    -fx-background-color: #253342,linear-gradient(#FFFF66, #666600);
+    -fx-border-radius: 5;
+    -fx-text-fill: #4c5e70;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-padding: 5 35 5 35;
+}
+
+.button_guided_action:hover {
+	-fx-background-color:
+        linear-gradient(DarkGreen 0%, Green  50%, Green 51%, DarkGreen 100%);
+	-fx-border-radius: 5;
+	-fx-font-weight: bold;
+	-fx-text-fill: White;
+	-fx-alignment: center;
+	-fx-font-size: 14px;
+	-fx-padding: 5 35 5 35;
+}
+
+.button_guided_action:pressed {
+	-fx-background-color:
+        linear-gradient(DarkGreen 0%, Green  50%, Green 51%, DarkGreen 100%);
+	-fx-effect: innershadow( three-pass-box , Black , 2 , 2.0 , 2, 2 );
+	-fx-font-weight: bold;
+	-fx-border-radius: 5;
+	-fx-text-fill: White;
+	-fx-alignment: center;
+	-fx-font-size: 14px;
+	-fx-padding: 5 35 5 35;
+}
+
+.headingLevel1 {
+	-fx-font-size: 24px;
+  -fx-font-weight: bold;
+	-fx-text-fill: White;
+	-fx-padding: 0 5 10 5;
+}
+
+.headingLevel2 {
+  -fx-font-weight: bold;
+	-fx-text-fill: #4c5e70;
+	-fx-font-size: 24px;
+	-fx-padding: 10 5 10 5;
+}
+
+.headingLevel3 {
+  -fx-font-weight: bold;
+	-fx-text-fill: #4c5e70;
+	-fx-font-size: 13px;
+	-fx-padding: 5 3 5 3;
+}
+
+
+#topBar {
+	-fx-background-color: #4c5e70;
+  -fx-padding: 6 25 6 25;
+	-fx-spacing: 10;
+	-fx-alignment: center-left;
+}
+
+.mainText {
+	-fx-text-fill: #4c5e70;
+	-fx-alignment: center-left;
+	-fx-font-size: 12px;
+	-fx-padding: 0 10 0 10;
+}
+
+.mainTextBox {
+	-fx-background-color: #9ba5ae;
+  -fx-padding: 25 10 35 10;
+	-fx-alignment: center-left;
+	-fx-background-radius: 7.0;
+	-fx-background-insets: 0 0 20 0;
+}
+
+.mainTextBoxText {
+	-fx-text-fill: #4c5e70;
+	-fx-alignment: center-left;
+	-fx-font-size: 13px;
+	-fx-font-weight: bold;
+	-fx-padding: 0 10 0 7;
+}
+
+.hintText {
+	-fx-text-fill: #638a4b;
+	-fx-alignment: center-left;
+	-fx-font-size: 13px;
+}
+
+.errorText {
+	-fx-text-fill: #FF2819;
+	-fx-alignment: center-left;
+	-fx-font-size: 13px;
+}
+
+.Icon {
+    -fx-padding: 16 16 16 16;
+    -fx-alignment: top-left;
+}
+
+.form-pane {
+	-fx-background-color: #e6e7e9;
+	-fx-padding: 25 25 25 25;
+}
+
+
+
+.sidebar {
+	-fx-background-color: #6a6a6a;
+	-fx-border: none;
+  -fx-width: 100%;
+  -fx-padding: 25 15 25 15;
+	-fx-alignment: center-left;
+	-fx-background-radius: 7.0;
+}
+
+.outerSidebar {
+  -fx-padding: 0 0 0 25;
+}
+
+.sidebarText {
+	-fx-text-fill: White;
+	-fx-font-size: 11px;
+  -fx-font-weight: bold;
+}
+
+.sidebarTextHeading1 {
+	-fx-text-fill: White;
+  -fx-font-weight: bold;
+	-fx-font-size: 13px;
+}
+
+
+.not-used-yet {
+	-fx-background-insets: 25;
+	-fx-insets: 10 10 10 10;
+	-fx-border-insets: 5;
+	-fx-border-color: Red;
+	-fx-border-style: solid;
+	-fx-border-width: 2;
+    -fx-padding: 6 6 6 6;
+	-fx-spacing: 10;
+	-fx-insets: 10 10 10 10;
+}
+
+.table-view {
+  -fx-base: #9ba5ae;
+  -fx-control-inner-background: transparent;
+  -fx-background-color: transparent;
+  -fx-table-cell-border-color: white;
+  -fx-table-header-border-color: transparent;
+  -fx-padding: 5;
+}
+
+
+.table-view .column-header-background {
+    -fx-background-color: #9ba5ae;
+}
+
+
+.table-view .column-header {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color:
+        transparent
+        transparent
+        derive(-fx-base, 80%)
+        transparent;
+    -fx-border-insets: 0 5 1 0;
+    -fx-font-size: 11;
+}
+
+
+
+.table-cell {
+	-fx-background-color: transparent;
+	-fx-text-fill: #4c5e70;
+}
+
+
+.remove-contact-button {
+        -fx-background-color:Red;
+        -fx-border-radius: 5;
+        -fx-text-fill: White;
+        -fx-alignment: center;
+        -fx-font-size: 15px;
+        -fx-padding: 3 5 3 5;
+}
+
+.remove-contact-button:hover {
+        -fx-background-color:#638a4b;
+        -fx-border-radius: 5;
+        -fx-text-fill: White;
+        -fx-alignment: center;
+        -fx-font-size: 15px;
+        -fx-padding: 3 5 3 5;
+}
+
+.remove-contact-button:pressed {
+        -fx-background-color:DarkGreen;
+        -fx-border-radius: 5;
+        -fx-text-fill: White;
+        -fx-alignment: center;
+        -fx-font-size: 15px;
+        -fx-padding: 3 5 3 5;
+}
+
+
+.table-cell .verified-label  {
+	-fx-text-fill: Green;
+}
+
+
+#BelowTitle {
+	-fx-border-color: #e6e7e9;
+	-fx-border-style: solid;
+	-fx-border-width: 25;
+}
+
+#contentPane {
+}
+
+
+
+.step {
+	-fx-fill-height: true;
+	-fx-alignment: center-left;
+}
+
+.current-step {
+}
+
+.current-step .TopBarStepNumber {
+	-fx-text-fill: White;
+	-fx-font-size: 27px;
+}
+
+.current-step .TopBarStepName {
+	-fx-text-fill: White;
+	-fx-font-size: 15px;
+}
+
+.TopBarStepNumber {
+	-fx-text-fill: #707e87;
+	-fx-font-size: 27px;
+	-fx-padding: 0 5 0 3;
+}
+
+.TopBarStepName {
+	-fx-text-fill: #707e87;
+	-fx-alignment: center-left;
+	-fx-font-size: 15px;
+}
+
+.TopBarArrow {
+	-fx-text-fill: #707e87;
+  -fx-padding: 4 4 4 4;
+	-fx-font-size: 26px;
+  -fx-font-weight: bold;
+}
+
+#contacts-table {
+	-fx-table-cell-border-color: #e6e7e9;
+	-fx-font-size: 13px;
+	-fx-text-fill: #4c5e70;
+}
+
+
+.radioButtonText {
+	-fx-font-size: 13px;
+	-fx-text-fill: #4c5e70;
+}
+
+.choice-box {
+		-fx-background-color:
+        #797769,
+       linear-gradient(#35536b, #597489);
+        }
+
+.choice-box .label {
+     -fx-text-fill: white;
+}
+
+.bigLink {
+	-fx-font-size: 15px;
+	-fx-text-fill: Black;
+}
+
+.pageMargin {
+  -fx-padding: 25 25 25 25;
+}
+
+
+.leftMargin {
+  -fx-padding: 0 0 0 25;
+}

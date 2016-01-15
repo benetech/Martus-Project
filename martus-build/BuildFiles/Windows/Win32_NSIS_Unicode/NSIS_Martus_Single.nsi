@@ -85,8 +85,10 @@ Section "MainSection" SEC01
     MessageBox MB_OK 'Copy jars...'
     SetOutPath "$MARTUS_INSTALLATION_DIR\lib\ext"
     File "..\BuildFiles\Jars\*.jar"
-    SetOutPath "$MARTUS_INSTALLATION_DIR\src\"
-    File "..\BuildFiles\SourceFiles\*.*"
+    
+    ;Excluding source zip
+    ;SetOutPath "$MARTUS_INSTALLATION_DIR\src\"
+    ;File "..\BuildFiles\SourceFiles\*.*"
     
     ; copy martus jars
     SetOutPath $MARTUS_INSTALLATION_DIR

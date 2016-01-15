@@ -129,6 +129,14 @@ public class Martus
 			options.remove(foundPureFx);
 		}
 		
+		int writeOnlyFlavorIndex = options.indexOf("--writeonly");
+		if (writeOnlyFlavorIndex >= 0)
+		{
+			System.out.println(options.get(writeOnlyFlavorIndex));
+			UiSession.isWriteOnlyFlavor = true;
+			options.remove(writeOnlyFlavorIndex);
+		}
+		
 		timeoutInXSeconds = DEFAULT_TIMEOUT_SECONDS;
 		int foundTimeout = findOption(options, TIMEOUT_OPTION_TEXT);
 		if(foundTimeout >= 0)

@@ -26,7 +26,8 @@ define name, :layout=>create_layout_with_source_as_source('.') do
 	
 	
 	package(:zip).include(signed_jar, :as=>"martus.jar")
-	package(:zip).include(source_zip, :path=>'BuildFiles/SourceFiles')
+	#Excluding source zip
+	#package(:zip).include(source_zip, :path=>'BuildFiles/SourceFiles')
 	  
 	package(:zip).include(_('martus-build', 'BuildFiles', '*.txt'), :path=>'BuildFiles')
 	package(:zip).include(_('martus-jar-verifier/*.txt'), :path=>'BuildFiles/Verifier')
@@ -42,7 +43,8 @@ define name, :layout=>create_layout_with_source_as_source('.') do
 
 	package(:zip).tap do | zip |
 		puts "Adding files to #{zip}"
-		include_artifacts(zip, third_party_client_source, 'BuildFiles/SourceFiles') 
+   		#Excluding source zip  
+		#include_artifacts(zip, third_party_client_source, 'BuildFiles/SourceFiles') 
 	    
 	    #TODO: Need to include MartusSetupLauncher?
 	  

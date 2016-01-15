@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android-library/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-mg/values-mg.xml -->
+    <eat-comment/>
+    <string name="capture_image">Maka sary</string>
+    <string name="change_password">Teny miafina ODK</string>
+</resources>

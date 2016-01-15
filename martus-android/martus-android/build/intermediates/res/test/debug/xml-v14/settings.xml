@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+                
+    <PreferenceCategory
+            android:title="@string/user_preferences">
+
+        <ListPreference
+                android:key="timeout_preference"
+                android:defaultValue="7"
+                android:title="@string/title_timeout_preference"
+                android:summary="@string/summary_timeout_preference"
+                android:entries="@array/entries_timeout_preference"
+                android:entryValues="@array/values_timeout_preference"
+                android:dialogTitle="@string/dialog_title_timeout_preference" />
+
+        <EditTextPreference
+                android:key="author_preference"
+                android:title="@string/title_author_preference"
+                android:summary="@string/title_author_preference"
+                android:dialogTitle="@string/title_author_preference" />
+                
+        <ListPreference
+                android:key="language_preference"
+                android:title="@string/title_language_preference"
+                android:summary="@string/summary_language_preference"
+                android:entries="@array/entries_language_preference"
+                android:entryValues="@array/values_language_preference"
+                android:dialogTitle="@string/title_language_preference" />
+
+        <SwitchPreference
+                android:key="wifi_only_preference"
+                android:defaultValue="false"
+                android:title="@string/title_wifi_only_preference"
+                android:summaryOn="@string/wifi_only_preference_on"
+                android:summaryOff="@string/wifi_only_preference_on"
+        />
+
+<!--        <SwitchPreference
+                android:key="zawgyi_preference"
+                android:defaultValue="false"
+                android:title="@string/title_zawgyi_preference"
+                android:summaryOff="@string/zawgyi_preference_off"
+                android:summaryOn="@string/zawgyi_preference_on"
+        />-->
+
+        <Preference
+            android:title="@string/replace_contact_menu_item"
+            android:key="replace_contact_preference_key"/>
+
+        <Preference
+            android:title="@string/server_menu_title"
+            android:key="choose_connection_preference_key"/>
+
+    </PreferenceCategory>
+
+<!--    <PreferenceCategory
+            android:key="@string/client"
+            android:title="@string/client" >
+
+        <ListPreference
+            android:id="@+id/navigation"
+            android:defaultValue="swipe"
+            android:dialogTitle="@string/navigation"
+            android:summary="@string/navigation"
+            android:entries="@array/navigation_entries"
+            android:entryValues="@array/navigation_entry_values"
+            android:key="navigation"
+            android:title="@string/navigation" />
+
+        <ListPreference
+            android:id="@+id/font_size"
+            android:defaultValue="21"
+            android:dialogTitle="@string/change_font_size"
+            android:entries="@array/font_size_entries"
+            android:entryValues="@array/font_size_entry_values"
+            android:key="font_size"
+            android:title="@string/font_size" />
+
+    </PreferenceCategory>-->
+
+</PreferenceScreen>
+
+<!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/xml-v14/settings.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/xml-v14/settings.xml -->

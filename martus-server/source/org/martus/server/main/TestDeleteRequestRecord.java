@@ -118,7 +118,7 @@ public class TestDeleteRequestRecord extends TestCaseEnhanced
 		assertTrue(delRequest.doesSignatureMatch(serverSecurity));
 
 		MockServerDatabase db = new MockServerDatabase();
-		MockMartusServer server = new MockMartusServer(db);
+		MockMartusServer server = new MockMartusServer(db, this);
 		ServerBulletinStore store = server.getStore();
 		store.writeDel(b1.getUniversalId(), delRequest);
 		

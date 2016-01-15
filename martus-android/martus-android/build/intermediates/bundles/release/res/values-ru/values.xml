@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-ru/arrays.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+        <item>Английский</item>
+        <item>Арабский</item>
+        <item>Армянский</item>
+        <item>Азербайджанский</item>
+        <item>Болгарский</item>
+        <item>Бенгальский</item>
+        <item>Бирманский</item>
+        <item>Chinese</item>
+        <item>Голландский</item>
+        <item>Эсперанто</item>
+        <item>Фарси/дари</item>
+        <item>Французский</item>
+        <item>Немецкий</item>
+        <item>Гуджарати</item>
+        <item>Хауса</item>
+        <item>Иврит</item>
+        <item>Хинди</item>
+        <item>Венгерский</item>
+        <item>Итальянский</item>
+        <item>Японский</item>
+        <item>Яванский</item>
+        <item>Каннада</item>
+        <item>Казахский</item>
+        <item>Кхмерский</item>
+        <item>Киргизский</item>
+        <item>Корейский</item>
+        <item>Курдский</item>
+        <item>Малайялам</item>
+        <item>Маратхи</item>
+        <item>Непальский</item>
+        <item>Орийя</item>
+        <item>Пенджаби</item>
+        <item>Польский</item>
+        <item>Польский</item>
+        <item>Португальский</item>
+        <item>Румынский</item>
+        <item>Русский</item>
+        <item>Сербский</item>
+        <item>Синдхи</item>
+        <item>Сингальский</item>
+        <item>Испанский</item>
+        <item>Тамильский</item>
+        <item>Таджикский</item>
+        <item>Телугу</item>
+        <item>Тайский</item>
+        <item>Турецкий</item>
+        <item>Туркменский</item>
+        <item>Украинский</item>
+        <item>Урду</item>
+        <item>Узбекский</item>
+        <item>Вьетнамский</item>
+    </string-array>
+    <string-array name="entries_timeout_preference">
+        <item>10 минут</item>
+        <item>7 минут</item>
+        <item>5 минут</item>
+        <item>3 минуты</item>
+        <item>1 минута</item>
+    </string-array>
+    <string-array name="values_language_preference">
+        <item>en</item>
+        <item>ar</item>
+        <item>arm</item>
+        <item>az</item>
+        <item>bg</item>
+        <item>bn</item>
+        <item>bur</item>
+        <item>zh</item>
+        <item>nl</item>
+        <item>eo</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>gu</item>
+        <item>ha</item>
+        <item>he</item>
+        <item>hi</item>
+        <item>hu</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>jv</item>
+        <item>kn</item>
+        <item>kk</item>
+        <item>km</item>
+        <item>ky</item>
+        <item>ko</item>
+        <item>ku</item>
+        <item>ml</item>
+        <item>mr</item>
+        <item>ne</item>
+        <item>or</item>
+        <item>pa</item>
+        <item>ps</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ro</item>
+        <item>ru</item>
+        <item>sr</item>
+        <item>sd</item>
+        <item>si</item>
+        <item>es</item>
+        <item>ta</item>
+        <item>tg</item>
+        <item>te</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>tk</item>
+        <item>uk</item>
+        <item>ur</item>
+        <item>uz</item>
+        <item>vi</item>
+    </string-array>
+    <string-array name="values_timeout_preference">
+        <item>10</item>
+        <item>7</item>
+        <item>5</item>
+        <item>3</item>
+        <item>1</item>
+    </string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-ru/strings.xml -->
+    <eat-comment/>
+    <plurals name="confirm_reset_install_extra">
+        <item quantity="one">Вы потеряете %1$s неотправленный или в настоящее время отправляемый сводку.</item>
+        <item quantity="few">Вы потеряете %1$s неотправленных или в настоящее время отправляемые сводки.</item>
+        <item quantity="other">Вы потеряете %1$s неотправленных или в настоящее время отправляемые сводки.</item>
+    </plurals>
+    <plurals name="show_unsent_count">
+        <item quantity="one">Имеется %1$s неотправленный бюллетень. Можно перейти в меню Инструменты и повторно отправить его.</item>
+        <item quantity="few">Имеется %1$s неотправленных сводки. Можно перейти в меню Сервис и повторно отправить их.</item>
+        <item quantity="other">Имеется %1$s неотправленных сводки. Можно перейти в меню Сервис и повторно отправить их.</item>
+    </plurals>
+    <string name="add_attachment">Добавить вложение</string>
+    <string name="alert_dialog_confirm_password">Подтвердите пароль:</string>
+    <string name="alert_dialog_magic_word">Волшебное слово:</string>
+    <string name="alert_dialog_ok">ОК</string>
+    <string name="alert_dialog_password">Пароль:</string>
+    <string name="app_name">Martus</string>
+    <string name="attachment_no_longer_exists">Не удалось отправить из-за того, что вложение %1$s уже удалено с устройства</string>
+    <string name="attachments_add_label">Вложения (для добавления нажмите скрепку):</string>
+    <string name="attachments_added_label">Вложения (для удаления нажмите и удерживайте):</string>
+    <string name="boolean_false">Нет</string>
+    <string name="boolean_true">Да</string>
+    <string name="bulletin_cancel">Отмена</string>
+    <string name="bulletin_packaging_progress">Шифрование и сжатие...</string>
+    <string name="bulletin_sending_progress">Отправка...</string>
+    <string name="buttons_instructions">Вы в начале %s. Нажимайте ниже кнопки со стрелками, чтобы перейти вперёд и назад.</string>
+    <string name="buttons_navigation">Использовать кнопки вперёд/назад</string>
+    <string name="cancel_server">Отмена</string>
+    <string name="change_font_size">Размер текстового шрифта</string>
+    <string name="choose_file">Проводник Martus</string>
+    <string name="choose_server_intro">Далее потребуется настроить подключение к серверу Martus, на который будете отправлять сводки.</string>
+    <string name="choose_server_title">Выбрать сервер</string>
+    <string name="client">Интерфейс пользователя</string>
+    <string name="confirm_cancel_bulletin">Отменить эту Сводку?</string>
+    <string name="confirm_default">Вы уверены?</string>
+    <string name="confirm_password_hint">Повторите пароль</string>
+    <string name="confirm_remove_attachment">Удалить %1$s ?</string>
+    <string name="confirm_reset_install">Уверены, что хотите удалить?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message"> С файлами установки произошла ошибка. В интересах обеспечения безопасности удалите свою учетную запись. Нажатие на кнопку Да запустит этот процесс. Martus не будет работать с повреждённым файлом настроек, поэтому нажатие Нет завершит работу Martus.</string>
+    <string name="confirm_tamper_reset_title">Ошибка настройки</string>
+    <string formatted="false" name="contact_us_info">Если имеются вопросы или пожелания к Martus, пишите на info@martus.org</string>
+    <string name="contact_us_menu_item">Контакты</string>
+    <string name="create_account_dialog_cancel">Выход</string>
+    <string name="create_account_dialog_title">Создание нового пароля</string>
+    <string name="create_account_intro">Добро пожаловать в программу Martus! Сначала необходимо создать новую учетную запись мобильного Martus.</string>
+    <string name="create_password_hint">Новый пароль</string>
+    <string name="create_sample_bulletin">Создать Сводку</string>
+    <string name="custom_form_transition">Это ваш шанс для добавления любых приложений, или нажмите возврат к редактированию ввода формы.</string>
+    <string name="date_range_end">(окончание)</string>
+    <string name="date_range_start">(начало)</string>
+    <string name="date_validation_min">Дата должна быть не ранее %1$s .</string>
+    <string name="date_validation_min_max">Дата должна быть не ранее %1$s  и не позднее %2$s.</string>
+    <string name="default_author">Неизвестный автор</string>
+    <string name="desktop_public_code_hint">Открытый код настольной учетной записи</string>
+    <string name="desktop_sync_choose_file">Выберите файл учетной записи (.mpi) настольного Martus</string>
+    <string name="desktop_sync_public_code">Затем введите Общий код учетной записи настольного Martus:</string>
+    <string name="desktop_sync_title">Сведения по учетной записи настольного Martus</string>
+    <string name="dialog_title_author_preference">Автор</string>
+    <string name="dialog_title_language_preference">Язык сводки</string>
+    <string name="dialog_title_timeout_preference">Длительность ожидания</string>
+    <string name="end_form_button">Добавить вложение и отправить</string>
+    <string name="enter_magic_word_hint">Введите волшебное слово</string>
+    <string name="enter_password_hint">Введите пароль</string>
+    <string name="enter_summary">Дополнительное резюме</string>
+    <string name="error_computing_public_code">Проблема с сохранением настроек сервера</string>
+    <string name="error_create_account">Проблема с созданием учетной записи</string>
+    <string name="error_getting_server_key">Проблема подключения к серверу</string>
+    <string name="error_message">Ошибка</string>
+    <string name="export_public_account_id_dialog_error">Не удалось экспортировать ID учетной записи</string>
+    <string name="export_public_account_id_dialog_title">Ошибка экспорта ID общей учетной записи</string>
+    <string name="export_public_account_id_menu_item">Экспорт ID общего учетной записи</string>
+    <string name="exported_account_id_file_confirmation">Экспортировано в</string>
+    <string name="failed_send_notification">Отправка не удалась из-за: %1$s .  Попытайтесь повторить отправку позже.</string>
+    <string name="failure_choosing_file">Сбой выбора файла</string>
+    <string name="failure_zipping_bulletin">Сжатие сводки дало сбой</string>
+    <string name="feedback_dialog_title">Контакты</string>
+    <string name="fetched_picasa_image">Получить изображение Picasa</string>
+    <string name="fetching_picasa_image">Извлечение изображения Picasa</string>
+    <string formatted="false" name="file_explorer_store_link">play.google.com/store/search?q=%22open+source%22+file+manager+explorer</string>
+    <string name="font_size">Размер текстового шрифта</string>
+    <string name="font_size_extra_large">Очень крупный</string>
+    <string name="font_size_extra_small">Очень мелкий</string>
+    <string name="font_size_large">Крупный</string>
+    <string name="font_size_medium">Средний</string>
+    <string name="font_size_small">Маленький</string>
+    <string name="goto_server_setup_button">Далее</string>
+    <string name="help_menu">Помощь</string>
+    <string name="import_hq_intro">Наконец, нужно ввести информацию об учетной записи Martus, с которой отправляете сводки для своего мобильного Martus.\n\nДля завершения этого шага, чтобы затребовать получать сводки на своём мобильном Martus, необходимо иметь файл ID общий учетной записи Martus (заканчивающегося на \".mpi\") и открытый код для учетной записи настольного Martus.</string>
+    <string name="incorrect_password">Неверный пароль</string>
+    <string name="install_explorer_text">Если не удаётся найти предполагаемый файл, попробуйте установить более совершенный файловый менеджер:</string>
+    <string name="install_file_explorer">Попробуйте другой файловый менеджер</string>
+    <string name="install_orbot_">Установить Orbot</string>
+    <string name="invalid_magic_word">Неверное волшебное слово</string>
+    <string name="invalid_orbot_message">Переустановите Orbot из Play-магазина Google</string>
+    <string name="invalid_orbot_title">Неверная установка Orbot</string>
+    <string name="invalid_password">Пароль должен быть не менее 8 символов</string>
+    <string name="invalid_public_account_file">Неверный файл настольной учетной записи</string>
+    <string name="invalid_public_code">Общий код не соответствует файлу</string>
+    <string name="invalid_server_code">Неверный общий код сервера</string>
+    <string name="invalid_server_info">Введены неправильные данные сервера</string>
+    <string name="invalid_server_ip">Неверный IP адрес сервера</string>
+    <string name="label_author">Автор</string>
+    <string name="label_entrydate">Дата ввода</string>
+    <string name="label_eventdate">Дата события</string>
+    <string name="label_keywords">Ключевые слова</string>
+    <string name="label_location">Место события</string>
+    <string name="label_organization">Организация</string>
+    <string name="label_privateinfo">Конфиденциальная информация</string>
+    <string name="label_publicinfo">Открытая информация</string>
+    <string name="label_summary">Резюме</string>
+    <string name="label_title">Заголовок</string>
+    <string name="load_form_menu_item">Импорт пользовательской формы</string>
+    <string name="logout_while_sending_message">Ожидайте до окончания отправки сводки.</string>
+    <string name="logout_while_sending_title">Пока нельзя выйти</string>
+    <string name="market_orbot">market://search?q=pname:org.torproject.android</string>
+    <string name="must_login_first_message">Перед отправкой этой сводки необходимо авторизоватся</string>
+    <string name="must_login_first_title">Предупреждение!</string>
+    <string name="navigation">Навигация</string>
+    <string name="no">Нет</string>
+    <string name="no_network_connection">Устройство не подключено!</string>
+    <string name="no_network_create_bulletin_warning">Любая попытка отправить сводку потерпит неудачу из-за отсутствия подключения. (Возможно, в настройках выбрано Только Wi-Fi.) \n\n Но нажатие Отправить зашифрует и сохранит сводку, и при получении связи можно будет повторно отправить его из меню Сервис.</string>
+    <string name="no_upload_rights">Неверное волшебное слово</string>
+    <string name="notification_title">Martus - %1$s</string>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot не запущен. Вы хотели бы его запустить?</string>
+    <string name="password_dialog_cancel">Отмена</string>
+    <string name="password_dialog_title">Логин</string>
+    <string name="ping_result_down">Сервер остановлен</string>
+    <string name="ping_result_ok">Сервер запущен</string>
+    <string name="ping_server_menu_item">Регистрация сервера</string>
+    <string name="problem_adding_attachment">Проблема добавления вложения в сводку</string>
+    <string name="problem_confirming_magic_word">Проблема проверки Волшебного слова</string>
+    <string name="problem_creating_bulletin">Не удалось создать новый сводку</string>
+    <string name="progress_confirming_magic_word">Подтверждение Волшебного слова</string>
+    <string name="progress_connecting_to_server">Подключение к серверу</string>
+    <string name="progress_creating_account">Создание учетной записи</string>
+    <string name="public_code_validation_empty">Общий код не может быть пустым</string>
+    <string name="quit_menu_title">Выход</string>
+    <string name="resend_menu_item">Повторно передать неотправленные сводки</string>
+    <string name="resending">Повторно отправить!</string>
+    <string name="resending_no_bulletins">У вас нет неотправленных сводки.</string>
+    <string name="resending_no_network">Отсутствует связь или включено на Только Wi-Fi.</string>
+    <string name="reset_to_install">Удалить свою учетную запись</string>
+    <string name="reset_while_sending_title">Пока нельзя сбросить</string>
+    <string name="retry_server">Повторный ввод</string>
+    <string name="select_file_picker">Выбрать файловый менеджер</string>
+    <string name="send_bulletin">Отправить</string>
+    <string name="send_failed_cant_reach_server">Не удаётся получить доступ к серверу</string>
+    <string name="send_public_account_id_menu_item">Отправить письмом ID общей учетной записи</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">Отправить ID общей учетной записи в сводке</string>
+    <string name="server_ip_hint">Введите IP адрес сервера</string>
+    <string name="server_ip_label">IP адрес сервера:</string>
+    <string name="server_menu">Серверы</string>
+    <string name="server_menu_title">Выбор сервера</string>
+    <string name="server_public_code_hint">Введите общий код сервера</string>
+    <string name="server_public_code_label">Общий код сервера:</string>
+    <string name="settings_pwd_equal">Пароли совпадают</string>
+    <string name="settings_pwd_not_equal">Пароли не совпадают!</string>
+    <string name="settings_title">Настройки</string>
+    <string name="show_unsent_title">Имеются неотправленные сводки.</string>
+    <string name="show_version">Показать версию</string>
+    <string name="start_orbot_">Запуск Orbot</string>
+    <string name="starting_send_notification">Отправка …</string>
+    <string name="success_import_hq_key">Вы успешно настроили учетную запись в настольном Martus для получения своих сводки с мобильного Martus. Настройка мобильного Martus завершена!</string>
+    <string name="success_magic_word">Подключение к серверу Martus успешно настроено!</string>
+    <string name="successful_send_notification">Сводка отправлена!</string>
+    <string name="successful_server_choice">Успешное подключение к серверу!</string>
+    <string name="summary_author_preference">Автор</string>
+    <string name="summary_language_preference">Выберите язык, на котором будете вводить в сводку данные</string>
+    <string name="summary_timeout_preference">В минутах</string>
+    <string name="swipe_buttons_instructions">Вы в начале %s. Проводите по экрану, как показано ниже, или нажимайте кнопки со стрелками, чтобы перейти вперёд и назад.</string>
+    <string name="swipe_buttons_navigation">Использовать скольжение и кнопки</string>
+    <string name="swipe_instructions">Вы в начале %s. Проводите по экрану, как показано ниже, чтобы перейти вперёд и назад.</string>
+    <string name="swipe_navigation">Использовать горизонтальное скольжение</string>
+    <string name="title_author_preference">Автор</string>
+    <string name="title_hint">Заголовок</string>
+    <string name="title_language_preference">Язык сводки</string>
+    <string name="title_timeout_preference">Время ожидания</string>
+    <string name="title_wifi_only_preference">Использовать только Wi-Fi</string>
+    <string name="tools_menu">Сервис</string>
+    <string formatted="false" name="tor_link">https://www.torproject.org</string>
+    <string name="tor_option_intro">Далее, при необходимости можно включить Tor.</string>
+    <string formatted="false" name="use_tor"><b>Использовать Tor</b> (Может помочь скрыть ваше подключение к серверу Martus и найти серверы Martus, если они блокированы из вашего расположения, но затормозит отправку сводки )</string>
+    <string name="user_preferences"> Настройки пользователя</string>
+    <string name="valid_public_account_file">Действительный файл настольной учетной записи</string>
+    <string formatted="false" name="view_docs_info">https://www.martus.org/mobile/docs</string>
+    <string name="view_docs_menu">Просмотр документации</string>
+    <string name="view_public_code_dialog_error">Не удалось показать общий код</string>
+    <string name="view_public_code_dialog_title">общий код</string>
+    <string name="view_public_code_menu_item">Прсмотр Общего Кода</string>
+    <string name="wifi_only_preference_off">Отправка данных только при доступности Wi-Fi</string>
+    <string name="wifi_only_preference_on">Отправка данных только при доступности Wi-Fi</string>
+    <string name="yes">Да</string>
+    <string name="you_must_have_orbot">Orbot должен быть установлен</string>
+</resources>

@@ -69,9 +69,9 @@ class BackgroundTimerTask extends TimerTask
 		mainWindow = mainWindowToUse;
 		statusBar = statusBarToUse;
 		ProgressMeterInterface progressMeter = getProgressMeter();
-		uploader = new BackgroundUploader(mainWindow.getApp(), mainWindow, progressMeter);
-		retriever = new BackgroundRetriever(getApp(), progressMeter);
-		syncRetriever = new SyncBulletinRetriever(getApp());
+		uploader = new BackgroundUploader(getApp(), mainWindow, progressMeter);
+		retriever = new BackgroundRetriever(getApp(), mainWindow, progressMeter);
+		syncRetriever = new SyncBulletinRetriever(getApp(), mainWindow);
 		if(mainWindow.isServerConfigured() && getApp().getTransport().isOnline())
 			setWaitingForServer();
 		isSyncEnabled = true;
@@ -224,6 +224,7 @@ class BackgroundTimerTask extends TimerTask
 			mainWindow.uploadResult = uploadResult.result;	
 			if(uploadResult.isHopelesslyDamaged)
 			{
+				MartusLogger.log(uploadResult.exceptionThrown);
 				ThreadedNotify damagedBulletin = new ThreadedNotify("DamagedBulletinMovedToDiscarded", uploadResult.uid);
 				SwingUtilities.invokeAndWait(damagedBulletin);
 				mainWindow.folderContentsHaveChanged(getStore().getFolderSealedOutbox());
@@ -234,6 +235,7 @@ class BackgroundTimerTask extends TimerTask
 			else if(uploadResult.bulletinNotSentAndRemovedFromQueue)
 			{
 				tag = "UploadFailedProgressMessage"; 
+				MartusLogger.log(uploadResult.exceptionThrown);
 				ThreadedNotify bulletinNotSent = new ThreadedNotify("UploadFailedBulletinNotSentToServer", uploadResult.uid);
 				SwingUtilities.invokeAndWait(bulletinNotSent);
 				updateDisplay();
@@ -325,7 +327,7 @@ class BackgroundTimerTask extends TimerTask
 				throw new ServerCallFailedException();
 			}
 
-			String resultJson = (String) response.getResultVector().get(0);
+			String resultJson = response.getResultVector().get(0);
 			EnhancedJsonObject json = new EnhancedJsonObject(resultJson);
 			SummaryOfAvailableBulletins summary = new SummaryOfAvailableBulletins(json);
 			syncRetriever.startRetrieve(summary);

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/empty_label_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="@string/label_no_images_in_gallery"/>
+
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="90dp"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="9dp"
+        android:horizontalSpacing="9dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:layout_margin="3dp"
+        />
+
+</RelativeLayout>
+<!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/res/layout/activity_gallery.xml -->

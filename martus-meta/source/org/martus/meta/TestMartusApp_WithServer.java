@@ -32,19 +32,20 @@ import java.util.Vector;
 
 import org.martus.client.bulletinstore.BulletinFolder;
 import org.martus.client.bulletinstore.ClientBulletinStore;
-import org.martus.client.core.BackgroundUploader;
-import org.martus.client.swingui.Retriever;
+import org.martus.client.network.BackgroundUploader;
+import org.martus.client.network.Retriever;
 import org.martus.client.swingui.UiConstants;
 import org.martus.client.test.MockMartusApp;
 import org.martus.client.test.NullProgressMeter;
 import org.martus.clientside.ClientSideNetworkGateway;
+import org.martus.clientside.ClientSideNetworkHandlerUsingXmlRpc;
 import org.martus.clientside.test.NoServerNetworkInterfaceForNonSSLHandler;
 import org.martus.clientside.test.NoServerNetworkInterfaceHandler;
 import org.martus.common.Exceptions.AccountNotFoundException;
 import org.martus.common.Exceptions.NoFormsAvailableException;
 import org.martus.common.Exceptions.ServerCallFailedException;
 import org.martus.common.Exceptions.ServerNotAvailableException;
-import org.martus.common.FieldCollection;
+import org.martus.common.FieldSpecCollection;
 import org.martus.common.HeadquartersKey;
 import org.martus.common.HeadquartersKeys;
 import org.martus.common.MartusAccountAccessToken;
@@ -60,7 +61,7 @@ import org.martus.common.bulletin.BulletinForTesting;
 import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.crypto.MartusCrypto.MartusSignatureException;
 import org.martus.common.crypto.MockMartusSecurity;
-import org.martus.common.fieldspec.CustomFieldTemplate;
+import org.martus.common.fieldspec.FormTemplate;
 import org.martus.common.fieldspec.StandardFieldSpecs;
 import org.martus.common.network.ClientSideNetworkInterface;
 import org.martus.common.network.NetworkInterfaceConstants;
@@ -98,7 +99,7 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		if(mockSecurityForServer == null)
 			mockSecurityForServer = MockMartusSecurity.createServer();
 
-		mockServer = new MockMartusServer();
+		mockServer = new MockMartusServer(this);
 		mockServer.serverForClients.loadBannedClients();
 		mockServer.verifyAndLoadConfigurationFiles();
 		mockServer.setSecurity(mockSecurityForServer);
@@ -113,7 +114,8 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		}
 		
 		appWithServer = MockMartusApp.create(mockSecurityForApp, getName());
-		appWithServer.setServerInfo("mock", mockServer.getAccountId(), "");
+		ClientSideNetworkHandlerUsingXmlRpc.addAllowedServer(mockServerName);
+		appWithServer.setServerInfo(mockServerName, mockServer.getAccountId(), "");
 		appWithServer.setSSLNetworkInterfaceHandlerForTesting(mockSSLServerHandler);
 
 		File keyPairFile = appWithServer.getCurrentKeyPairFile();
@@ -168,20 +170,20 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		Bulletin b1 = appWithServer.createBulletin();
 		b1.setAllPrivate(true);
 		b1.set(Bulletin.TAGTITLE, sampleSummary1);
-		b1.setSealed();
+		b1.setImmutable();
 		appWithServer.setDefaultHQKeysInBulletin(b1);
 		appWithServer.getStore().saveBulletin(b1);
 		
 		Bulletin b2 = appWithServer.createBulletin();
 		b2.setAllPrivate(false);
 		b2.set(Bulletin.TAGTITLE, sampleSummary2);
-		b2.setSealed();
+		b2.setImmutable();
 		appWithServer.setDefaultHQKeysInBulletin(b2);
 		appWithServer.getStore().saveBulletin(b2);
 		
 		Bulletin b3 = appWithServer.createBulletin();
 		b3.set(Bulletin.TAGTITLE, sampleSummary3);
-		b3.setSealed();
+		b3.setImmutable();
 		appWithServer.getStore().saveBulletin(b3);
 	
 		mockServer.allowUploads(appWithServer.getAccountId());
@@ -297,7 +299,7 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 
 	public void testPutAndGetListOfFormTemplates() throws Exception 
 	{
-		CustomFieldTemplate emptyTemplate = new CustomFieldTemplate();
+		FormTemplate emptyTemplate = new FormTemplate();
 		try 
 		{
 			appWithoutServer.putFormTemplateOnServer(emptyTemplate);
@@ -344,9 +346,9 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 
 		String formTemplateTitle1 = "New Form Title";
 		String formTemplateDescription1 = "New Form Description";
-		FieldCollection defaultFieldsTopSection1 = new FieldCollection(StandardFieldSpecs.getDefaultTopSetionFieldSpecs().asArray());
-		FieldCollection defaultFieldsBottomSection1 = new FieldCollection(StandardFieldSpecs.getDefaultBottomSectionFieldSpecs().asArray());
-		CustomFieldTemplate template1 = new CustomFieldTemplate(formTemplateTitle1, formTemplateDescription1, defaultFieldsTopSection1, defaultFieldsBottomSection1);
+		FieldSpecCollection defaultFieldsTopSection1 = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
+		FieldSpecCollection defaultFieldsBottomSection1 = StandardFieldSpecs.getDefaultBottomSectionFieldSpecs();
+		FormTemplate template1 = new FormTemplate(formTemplateTitle1, formTemplateDescription1, defaultFieldsTopSection1, defaultFieldsBottomSection1);
 		String accountId = appWithServer.getAccountId();
 		mockServer.allowUploads(accountId);
 		appWithServer.putFormTemplateOnServer(template1);
@@ -356,16 +358,16 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		assertEquals("Did not return the title for this template?",formTemplateTitle1, listOfTemplatesFromServer.get(0));
 		assertEquals("Did not return the description for this template?",formTemplateDescription1, listOfTemplatesFromServer.get(1));
 	
-		CustomFieldTemplate templateReturned = appWithServer.getFormTemplateOnServer(accountId, formTemplateTitle1);
+		FormTemplate templateReturned = appWithServer.getFormTemplateOnServer(accountId, formTemplateTitle1);
 		assertEquals("Form title not what we asked for?",formTemplateTitle1 , templateReturned.getTitle());
 		assertEquals("Form description not the same?",formTemplateDescription1 , templateReturned.getDescription());
 		
 		
 		String formTemplateTitle2 = "New Form Title 2";
 		String formTemplateDescription2 = "New Form Description 2";
-		FieldCollection defaultFieldsTopSection2 = new FieldCollection(StandardFieldSpecs.getDefaultTopSetionFieldSpecs().asArray());
-		FieldCollection defaultFieldsBottomSection2 = new FieldCollection(StandardFieldSpecs.getDefaultBottomSectionFieldSpecs().asArray());
-		CustomFieldTemplate template2 = new CustomFieldTemplate(formTemplateTitle2, formTemplateDescription2, defaultFieldsTopSection2, defaultFieldsBottomSection2);
+		FieldSpecCollection defaultFieldsTopSection2 = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
+		FieldSpecCollection defaultFieldsBottomSection2 = StandardFieldSpecs.getDefaultBottomSectionFieldSpecs();
+		FormTemplate template2 = new FormTemplate(formTemplateTitle2, formTemplateDescription2, defaultFieldsTopSection2, defaultFieldsBottomSection2);
 		appWithServer.putFormTemplateOnServer(template2);
 		Vector returnedVectorListOfTemplatesFromServer2 = appWithServer.getListOfFormTemplatesOnServer(accountId);
 		assertEquals("Did not return 2 items in the Vector? the title and description for both templates?",2 , returnedVectorListOfTemplatesFromServer2.size());
@@ -377,12 +379,12 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		assertTrue("Did not return the title for the 2nd template?",returnedTitles.contains(formTemplateTitle2));
 		assertTrue("Did not return the description for the first template?",returnedDescritions.contains(formTemplateDescription1));
 		assertTrue("Did not return the description for the 2nd template?",returnedDescritions.contains(formTemplateDescription2));
-		CustomFieldTemplate templateReturned2 = appWithServer.getFormTemplateOnServer(accountId, formTemplateTitle2);
+		FormTemplate templateReturned2 = appWithServer.getFormTemplateOnServer(accountId, formTemplateTitle2);
 		assertEquals("Form2 title not what we asked for?",formTemplateTitle2 , templateReturned2.getTitle());
 		assertEquals("Form2 description not the same?",formTemplateDescription2 , templateReturned2.getDescription());
 		
 		String formTemplateDescription1New = "Form 1's new description";
-		CustomFieldTemplate template1Updated = new CustomFieldTemplate(formTemplateTitle1, formTemplateDescription1New, defaultFieldsTopSection1, defaultFieldsBottomSection1);
+		FormTemplate template1Updated = new FormTemplate(formTemplateTitle1, formTemplateDescription1New, defaultFieldsTopSection1, defaultFieldsBottomSection1);
 		appWithServer.putFormTemplateOnServer(template1Updated);
 		Vector returnedListOfTemplatesFromServer3 = appWithServer.getListOfFormTemplatesOnServer(accountId);
 		assertEquals("Did not return 2 items in the Vector? the title and description for both templates?",2 , returnedListOfTemplatesFromServer3.size());
@@ -395,15 +397,15 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		assertFalse("Returned the old description for the first template?",returnedDescritions3.contains(formTemplateDescription1));
 		assertTrue("Did not return the updated description for the first template?",returnedDescritions3.contains(formTemplateDescription1New));
 		assertTrue("Did not return the same description for the 2nd template?",returnedDescritions3.contains(formTemplateDescription2));
-		CustomFieldTemplate templateReturned3 = appWithServer.getFormTemplateOnServer(accountId, formTemplateTitle1);
+		FormTemplate templateReturned3 = appWithServer.getFormTemplateOnServer(accountId, formTemplateTitle1);
 		assertEquals("Form3 title not what we asked for?",formTemplateTitle1 , templateReturned3.getTitle());
 		assertEquals("Form3 description not the same?",formTemplateDescription1New , templateReturned3.getDescription());
 		
 		String formTemplateTitleEmpty = "";
 		String formTemplateDescriptionEmpty = "";
-		FieldCollection defaultFieldsTopSection3 = new FieldCollection(StandardFieldSpecs.getDefaultTopSetionFieldSpecs().asArray());
-		FieldCollection defaultFieldsBottomSection3 = new FieldCollection(StandardFieldSpecs.getDefaultBottomSectionFieldSpecs().asArray());
-		CustomFieldTemplate template3 = new CustomFieldTemplate(formTemplateTitleEmpty, formTemplateDescriptionEmpty, defaultFieldsTopSection3, defaultFieldsBottomSection3);
+		FieldSpecCollection defaultFieldsTopSection3 = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
+		FieldSpecCollection defaultFieldsBottomSection3 = StandardFieldSpecs.getDefaultBottomSectionFieldSpecs();
+		FormTemplate template3 = new FormTemplate(formTemplateTitleEmpty, formTemplateDescriptionEmpty, defaultFieldsTopSection3, defaultFieldsBottomSection3);
 		appWithServer.putFormTemplateOnServer(template3);
 		Vector returnedListOfTemplatesFromServer4 = appWithServer.getListOfFormTemplatesOnServer(accountId);
 		assertEquals("Did not return 3 items in the Vector? the title and description for all 3 templates?",3 , returnedListOfTemplatesFromServer4.size());
@@ -565,14 +567,16 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 
 	public void testSetServerInfo() throws Exception
 	{
-		final String server1 = "Server1";
-		final String server2 = "Server2";
+		final String server1 = "127.0.0.1";
+		final String server2 = "127.0.0.2";
 		final String key1 = "ServerKey1";
 		final String key2 = "ServerKey2";
 		final String serverCompliance1 = "Compliant1";
 		final String serverCompliance2 = "Compliant2";
 		
 		MockMartusApp app = MockMartusApp.create(getName());
+		ClientSideNetworkHandlerUsingXmlRpc.addAllowedServer(server1);
+		ClientSideNetworkHandlerUsingXmlRpc.addAllowedServer(server2);
 		app.setServerInfo(server1, key1, serverCompliance1);
 		assertEquals("Didn't set Contactinfo name", server1, app.getConfigInfo().getServerName());
 		assertEquals("Didn't set Contactinfo key", key1, app.getConfigInfo().getServerPublicKey());
@@ -703,9 +707,9 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 	class MockMartusServerChunks extends MockMartusServer 
 	{
 	
-		public MockMartusServerChunks() throws Exception 
+		public MockMartusServerChunks(TestCaseEnhanced testCase) throws Exception 
 		{
-			super();
+			super(testCase);
 		}
 
 		public String uploadBulletin(String authorAccountId, String bulletinLocalId, String data) 
@@ -735,7 +739,7 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 	public void testUploadBulletinUsesChunks() throws Exception
 	{
 		ClientSideNetworkInterface oldSSLServer = appWithServer.currentNetworkInterfaceHandler;
-		MockMartusServerChunks server = new MockMartusServerChunks();
+		MockMartusServerChunks server = new MockMartusServerChunks(this);
 		server.verifyAndLoadConfigurationFiles();
 		server.setSecurity(mockSecurityForServer);
 		server.serverForClients.clearCanUploadList();
@@ -744,7 +748,7 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		appWithServer.setSSLNetworkInterfaceHandlerForTesting(new ServerSideNetworkHandler(server.serverForClients));
 		appWithServer.serverChunkSize = 100;
 		Bulletin b = appWithServer.createBulletin();
-		b.setSealed();
+		b.setImmutable();
 		appWithServer.getStore().saveBulletin(b);
 		assertEquals("result not ok?", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b));
 		assertTrue("count not > 1?", server.chunkCount > 1);
@@ -781,14 +785,14 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		assertTrue("must be able to ping", appWithServer.isSSLServerAvailable());
 
 		Bulletin b1 = appWithServer.createBulletin();
-		b1.setSealed();
+		b1.setImmutable();
 		appWithServer.getStore().saveBulletin(b1);
 		Bulletin b2 = appWithServer.createBulletin();
-		b2.setSealed();
+		b2.setImmutable();
 		appWithServer.getStore().saveBulletin(b2);
 		Bulletin b3 = appWithServer.createBulletin();
 		b3.set(Bulletin.TAGAUTHOR, "author");
-		b3.setSealed();
+		b3.setImmutable();
 		appWithServer.getStore().saveBulletin(b3);
 		mockServer.allowUploads(appWithServer.getAccountId());
 		assertEquals("upload b1", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b1));
@@ -839,19 +843,19 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		TRACE_BEGIN("testSendAlreadySentBulletin");
 
 		Bulletin b1 = appWithServer.createBulletin();
-		b1.setSealed();
+		b1.setImmutable();
 		appWithServer.getStore().saveBulletin(b1);
 		mockServer.allowUploads(appWithServer.getAccountId());
 		assertEquals("upload b1", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b1));
 
 		Bulletin b2 = appWithServer.createBulletin();
-		b2.setSealed();
+		b2.setImmutable();
 		appWithServer.getStore().saveBulletin(b2);
 		appWithServer.getStore().setIsOnServer(b2);
 		assertEquals("try to upload sealded b2 that is already on server, should be rejected as duplicate.", NetworkInterfaceConstants.DUPLICATE, uploaderWithServer.uploadBulletin(b2));
 		
 		Bulletin b3 = appWithServer.createBulletin();
-		b3.setDraft();
+		b3.setMutable();
 		appWithServer.getStore().saveBulletin(b3);
 		appWithServer.getStore().setIsOnServer(b3);
 		assertEquals("try to upload draft b3 that is already on server, should be ok.", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b3));
@@ -868,7 +872,7 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		ClientBulletinStore store = appWithServer.getStore();
 
 		Bulletin b1 = appWithServer.createBulletin();
-		b1.setSealed();
+		b1.setImmutable();
 		appWithServer.getStore().saveBulletin(b1);
 		
 		Vector justB1 = new Vector();
@@ -893,11 +897,11 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		mockServer.downloadResponse = null;
 
 		Bulletin b2 = appWithServer.createBulletin();
-		b2.setSealed();
+		b2.setImmutable();
 		appWithServer.getStore().saveBulletin(b2);
 		Bulletin b3 = appWithServer.createBulletin();
 		b3.set(Bulletin.TAGAUTHOR, "author");
-		b3.setSealed();
+		b3.setImmutable();
 		appWithServer.getStore().saveBulletin(b3);
 		mockServer.allowUploads(appWithServer.getAccountId());
 		assertEquals("upload b1", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b1));
@@ -1318,19 +1322,19 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		UniversalId uid = b1.getUniversalId();		
 		b1.setAllPrivate(true);
 
-		b1.setDraft();
+		b1.setMutable();
 		appWithServer.getStore().saveBulletin(b1);
 		assertEquals("failed upload1?", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b1));
 		
 		BulletinHeaderPacket bhpDraft = appWithServer.retrieveHeaderPacketFromServer(uid);
-		assertEquals(BulletinConstants.STATUSDRAFT, bhpDraft.getStatus());
+		assertEquals(BulletinConstants.STATUSMUTABLE, bhpDraft.getStatus());
 		
-		b1.setSealed();
+		b1.setImmutable();
 		appWithServer.getStore().saveBulletin(b1);
 		assertEquals("failed upload2?", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b1));
 		
 		BulletinHeaderPacket bhpSealed = appWithServer.retrieveHeaderPacketFromServer(uid);
-		assertEquals(BulletinConstants.STATUSSEALED, bhpSealed.getStatus());
+		assertEquals(BulletinConstants.STATUSIMMUTABLE, bhpSealed.getStatus());
 		
 	}
 
@@ -1344,13 +1348,13 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		Bulletin b1 = appWithServer.createBulletin();
 		b1.setAllPrivate(true);
 		b1.set(Bulletin.TAGTITLE, sampleSummary1);
-		b1.setSealed();
+		b1.setImmutable();
 		appWithServer.getStore().saveBulletin(b1);
 		
 		Bulletin b2 = appWithServer.createBulletin();
 		b2.setAllPrivate(false);
 		b2.set(Bulletin.TAGTITLE, sampleSummary2);
-		b2.setSealed();
+		b2.setImmutable();
 		appWithServer.getStore().saveBulletin(b2);
 
 		String accountId = appWithServer.getAccountId();
@@ -1452,7 +1456,7 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		assertEquals("No file and draft outbox empty", true, appWithServer.isSealedOutboxEmpty());
 
 		Bulletin b = appWithServer.createBulletin();
-		b.setSealed();
+		b.setImmutable();
 		appWithServer.getStore().saveBulletin(b);
 		store.addBulletinToFolder(sealedOutbox, b.getUniversalId());
 		assertEquals("Sealed file got created somehow?", false, file.exists());
@@ -1541,7 +1545,7 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 		ClientBulletinStore store = appWithServer.getStore();
 		mockServer.allowUploads(appWithServer.getAccountId());
 		Bulletin b2 = appWithServer.createBulletin();
-		b2.setSealed();
+		b2.setImmutable();
 		store.saveBulletin(b2);
 		assertEquals("upload b2", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b2));
 		store.destroyBulletin(b2);
@@ -1552,7 +1556,8 @@ public class TestMartusApp_WithServer extends TestCaseEnhanced
 	{
 		return StreamableBase64.decode(BulletinForTesting.saveToZipString(appWithServer.getStore().getDatabase(), b, mockSecurityForApp));
 	}
-		
+	
+	final private String mockServerName = "mock";
 	private static MockMartusSecurity mockSecurityForApp;
 	private static MockMartusSecurity mockSecurityForServer;
 

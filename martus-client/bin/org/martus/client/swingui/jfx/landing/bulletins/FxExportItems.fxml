@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox prefHeight="65.0" prefWidth="431.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="textMessageArea" editable="false" prefHeight="267.0" prefWidth="614.0" wrapText="true" />
+            <CheckBox fx:id="encryptExportFile" mnemonicParsing="false" text="%Button.Encrypted" />
+            <CheckBox fx:id="includeAttachments" mnemonicParsing="false" text="%Button.IncludeAttachments" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="%Location" />
+                  <TextField fx:id="fileLocation" editable="false" prefHeight="26.0" prefWidth="360.0" />
+                  <Button mnemonicParsing="false" onAction="#onChangeFileLocation" text="%Button.ExportTo" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -80,15 +80,15 @@ public class TestBulletinUploadRecord extends TestCaseEnhanced
 	{
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
 
-		DatabaseKey draftKey = DatabaseKey.createDraftKey(uid);
-		assertTrue("not draft?", BulletinUploadRecord.getBurKey(draftKey).isDraft());
+		DatabaseKey draftKey = DatabaseKey.createMutableKey(uid);
+		assertTrue("not Mutable?", BulletinUploadRecord.getBurKey(draftKey).isMutable());
 
-		DatabaseKey sealedKey = DatabaseKey.createSealedKey(uid);
-		DatabaseKey sealedBurKey = BulletinUploadRecord.getBurKey(sealedKey);
-		assertTrue("not sealed?", sealedBurKey.isSealed());
+		DatabaseKey immutableKey = DatabaseKey.createImmutableKey(uid);
+		DatabaseKey immutableBurKey = BulletinUploadRecord.getBurKey(immutableKey);
+		assertTrue("not Immutable?", immutableBurKey.isImmutable());
 		
-		assertEquals(uid.getAccountId(), sealedBurKey.getAccountId());
-		assertEquals("BUR-" + uid.getLocalId(), sealedBurKey.getLocalId());
+		assertEquals(uid.getAccountId(), immutableBurKey.getAccountId());
+		assertEquals("BUR-" + uid.getLocalId(), immutableBurKey.getLocalId());
 	}
 	
 	public void testWasBurCreatedByThisCrypto() throws Exception

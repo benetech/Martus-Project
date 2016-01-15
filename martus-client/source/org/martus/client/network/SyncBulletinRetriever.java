@@ -33,6 +33,7 @@ import java.util.Vector;
 import org.martus.client.bulletinstore.BulletinFolder;
 import org.martus.client.bulletinstore.ClientBulletinStore;
 import org.martus.client.core.MartusApp;
+import org.martus.client.swingui.UiMainWindow;
 import org.martus.common.MartusLogger;
 import org.martus.common.bulletin.Bulletin;
 import org.martus.common.crypto.MartusCrypto;
@@ -53,9 +54,10 @@ interface ThreadMonitor
 
 public class SyncBulletinRetriever implements ThreadMonitor
 {
-	public SyncBulletinRetriever(MartusApp appToUse) throws Exception
+	public SyncBulletinRetriever(MartusApp appToUse, UiMainWindow mainWindowToUse) throws Exception
 	{
 		app = appToUse;
+		mainWindow = mainWindowToUse;
 		String jsonString = app.getConfigInfo().getSyncStatusJson();
 		syncStatus = new SyncStatus(jsonString);
 	}
@@ -111,7 +113,7 @@ public class SyncBulletinRetriever implements ThreadMonitor
 		if(isBusy())
 			throw new AlreadyRetrievingException();
 		
-		actualRetriever = new ActualRetrieverThread(app, this, bulletinsToRetrieve);
+		actualRetriever = new ActualRetrieverThread(app, mainWindow, this, bulletinsToRetrieve);
 		new Thread(actualRetriever).start();
 	}
 	
@@ -123,9 +125,10 @@ public class SyncBulletinRetriever implements ThreadMonitor
 
 	private static class ActualRetrieverThread implements Runnable
 	{
-		public ActualRetrieverThread(MartusApp appToUse, ThreadMonitor monitorToUse, SummaryOfAvailableBulletins bulletinsToRetrieve) throws Exception
+		public ActualRetrieverThread(MartusApp appToUse, UiMainWindow mainWindowToUse, ThreadMonitor monitorToUse, SummaryOfAvailableBulletins bulletinsToRetrieve) throws Exception
 		{
 			app = appToUse;
+			mainWindow = mainWindowToUse;
 			monitor = monitorToUse;
 			summaryOfAvailableBulletins = bulletinsToRetrieve;
 			toRetrieve = new Vector<ServerBulletinSummary>();
@@ -205,6 +208,11 @@ public class SyncBulletinRetriever implements ThreadMonitor
 			MartusLogger.log("Retrieving " + publicCode + localId);
 			
 			getApp().retrieveOneBulletinToFolder(uid, destinationFolder, null);
+			if(mainWindow != null)
+			{
+				if(mainWindow.getMainStage().getBulletinsListController().isAllBeingDisplayed())
+					mainWindow.allFolderContentsHaveChanged();
+			}
 		}
 
 		private boolean shouldRetrieve(String accountId, ShortServerBulletinSummary summary) throws Exception
@@ -259,6 +267,7 @@ public class SyncBulletinRetriever implements ThreadMonitor
 		}
 
 		private MartusApp app;
+		private UiMainWindow mainWindow;
 		private ThreadMonitor monitor;
 		private SummaryOfAvailableBulletins summaryOfAvailableBulletins;
 		private BulletinFolder destinationFolder;
@@ -270,6 +279,7 @@ public class SyncBulletinRetriever implements ThreadMonitor
 	}
 
 	private MartusApp app;
+	UiMainWindow mainWindow;
 	private Runnable actualRetriever;
 	private SyncStatus syncStatus; 
 	private Exception exceptionToReport;

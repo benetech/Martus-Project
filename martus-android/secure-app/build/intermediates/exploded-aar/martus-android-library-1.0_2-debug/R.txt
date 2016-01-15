@@ -1,0 +1,5 @@
+int drawable ic_menu_attachments 0x7f020000
+int drawable ic_menu_discard 0x7f020001
+int drawable icon 0x7f020002
+int style AppBaseTheme 0x7f030000
+int style AppTheme 0x7f030001

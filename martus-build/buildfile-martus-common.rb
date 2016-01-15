@@ -1,5 +1,13 @@
 name = "martus-common"
 
+def main_source_dir
+  return _('source', 'main', 'java')
+end
+
+def main_target_dir
+  return _('target', 'main', 'classes')
+end
+
 define name, :layout=>create_layout_with_source_as_source(name) do
 	project.group = 'org.martus'
   project.version = $BUILD_NUMBER
@@ -36,7 +44,11 @@ define name, :layout=>create_layout_with_source_as_source(name) do
 		end
 		puts "BuildDate set to: #{build_date}"
 	end
-  
+
+	build do
+		filter(main_source_dir).include('**/*.jpg').into(main_target_dir).run
+	end
+	  
 	test.with(
 	)
 

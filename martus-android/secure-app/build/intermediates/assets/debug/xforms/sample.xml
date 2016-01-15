@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:jr="http://openrosa.org/javarosa"
+    >
+    <h:head>
+        <h:title>secureApp Prototype</h:title>
+        <model>
+            <instance>
+                <nm id="VitalVoices">
+                    <name>John Doe</name>
+                    <nationality>China</nationality>
+                    <date/>
+                    <age/>
+                    <sourceOfRecordInformation/>
+                    <eventLocation/>
+                    <anonymous/>
+                    <additionalInfo/>
+                    <testify/>
+                    <victim_information>
+                        <victimFirstName/>
+                        <victimLastName/>
+                        <sex/>
+                    </victim_information>
+
+                    <cascading_select_regions id="cascading_select_regions">
+                        <regions/>
+                        <region1Cities/>
+                        <region2Cities/>
+                        <region3Cities/>
+                    </cascading_select_regions>
+                </nm>
+            </instance>
+
+            <bind nodeset="/nm/name" type="string" required="true()"/>
+            <bind nodeset="/nm/nationality" type="string" required="true()"/>
+            <bind nodeset="/nm/date" type="date" constraint=". >= date('2000-01-01')" jr:constraintMsg="No dates before 2000-01-01 allowed"/>
+            <bind nodeset="/nm/age" type="integer"/>
+            <bind nodeset="/nm/sourceOfRecordInformation" type="select1"/>
+            <bind nodeset="/nm/victim_information/victimFirstName" type="string"/>
+            <bind nodeset="/nm/victim_information/victimLastName" type="string"/>
+            <bind nodeset="/nm/victim_information/sex" type="select1"/>
+            <bind nodeset="/nm/eventLocation" type="select1"/>
+            <bind nodeset="/nm/anonymous" type="select"/>
+            <bind nodeset="/nm/additionalInfo" type="select"/>
+            <bind nodeset="/nm/testify" type="select"/>
+
+            <bind nodeset="/nm/cascading_select_regions/regions" type="select1"/>
+            <bind nodeset="/nm/cascading_select_regions/region1Cities" relevant="/nm/cascading_select_regions/regions='region1'" type="select1"/>
+            <bind nodeset="/nm/cascading_select_regions/region2Cities" relevant="/nm/cascading_select_regions/regions='region2'" type="select1"/>
+            <bind nodeset="/nm/cascading_select_regions/region3Cities" relevant="/nm/cascading_select_regions/regions='region3'" type="select1"/>
+        </model>
+    </h:head>
+
+    <h:body>
+        <group appearance="field-list">
+            <label>Section 1 (Text fields)</label>
+            <input ref="name">
+                <label>What is your name:</label>
+                <hint>(required)</hint>
+            </input>
+            <input ref="nationality">
+                <label>What is your country of origin:</label>
+                <hint>(required)</hint>
+            </input>
+            <input ref="age">
+                <label>What is your age:</label>
+            </input>
+
+        </group>
+
+        <group appearance="field-list">
+            <label>Section 2 (Date field)</label>
+            <input ref="date">
+                <label>Date of incident</label>
+                <hint>(No dates before 2000-01-01 allowed)</hint>
+            </input>
+        </group>
+
+        <group appearance="field-list">
+            <label>Section 3 (Drop down lists)</label>
+            <select1  appearance="minimal" ref="sourceOfRecordInformation">
+                <label>Source of record information</label>
+                <item>
+                    <label>Media/Press</label>
+                    <value>mediaPress</value>
+                </item>
+                <item>
+                    <label>Legal Report</label>
+                    <value>legalReport</value>
+                </item>
+                <item>
+                    <label>Personal Interview</label>
+                    <value>personalInterview</value>
+                </item>
+                <item>
+                    <label>Other</label>
+                    <value>other</value>
+                </item>
+            </select1>
+
+            <select1  appearance="minimal" ref="eventLocation">
+                <label>Event Location</label>
+                <item>
+                    <label>Region 1</label>
+                    <value>r1</value>
+                </item>
+                <item>
+                    <label>Region 2</label>
+                    <value>r2</value>
+                </item>
+                <item>
+                    <label>Region 3</label>
+                    <value>r3</value>
+                </item>
+            </select1>
+        </group>
+
+        <group appearance="field-list">
+            <label>Section 4 (Check boxes)</label>
+            <select ref="anonymous">
+                <label>Does interviewee wish to remain anonymous?</label>
+                <item>
+                    <label></label>
+                    <value>1</value>
+                </item>
+            </select>
+
+            <select ref="additionalInfo">
+                <label>Is interviewee willing to give additional information if needed?</label>
+                <item>
+                    <label></label>
+                    <value>1</value>
+                </item>
+            </select>
+
+            <select ref="testify">
+                <label>Is interviewee willing to testify?</label>
+                <item>
+                    <label></label>
+                    <value>1</value>
+                </item>
+            </select>
+        </group>
+
+        <!--<group>
+            <label>Section 5 (Multi-level Drop down)</label>
+            <select1 ref="/nm/cascading_select_regions/regions" appearance="minimal">
+                <label>Choose your region:</label>
+                <item>
+                    <label>Region 1</label>
+                    <value>region1</value>
+                </item>
+                <item>
+                    <label>Region 2</label>
+                    <value>region2</value>
+                </item>
+                <item>
+                    <label>Region 3</label>
+                    <value>region3</value>
+                </item>
+            </select1>
+            <select1 ref="/nm/cascading_select_regions/region1Cities" appearance="minimal">
+                <label>Choose your city:</label>
+                <item>
+                    <label>City 1</label>
+                    <value>city1</value>
+                </item>
+                <item>
+                    <label>City 2</label>
+                    <value>city2</value>
+                </item>
+            </select1>
+            <select1 ref="/nm/cascading_select_regions/region2Cities" appearance="minimal">
+                <label>Choose your city:</label>
+                <item>
+                    <label>City 3</label>
+                    <value>city3</value>
+                </item>
+                <item>
+                    <label>City 4</label>
+                    <value>city4</value>
+                </item>
+            </select1>
+            <select1 ref="/nm/cascading_select_regions/region3Cities" appearance="minimal">
+                <label>Choose your city:</label>
+                <item>
+                    <label>City 5</label>
+                    <value>city5</value>
+                </item>
+                <item>
+                    <label>City 6</label>
+                    <value>city6</value>
+                </item>
+            </select1>
+        </group>-->
+
+        <group>
+            <label>Section 5 (Repeating group of fields)</label>
+            <repeat nodeset="/nm/victim_information">
+                <input ref="victimFirstName">
+                    <label>Victim first name</label>
+                </input>
+
+                <input ref="victimLastName">
+                    <label>Victim last name</label>
+                </input>
+
+                <select1 ref="sex" appearance="minimal">
+                    <label>Victim Sex</label>
+                    <item>
+                        <label>Female</label>
+                        <value>female</value>
+                    </item>
+
+                    <item>
+                        <label>Male</label>
+                        <value>male</value>
+                    </item>
+                    <item>
+                        <label>Other</label>
+                        <value>other</value>
+                    </item>
+                </select1>
+
+            </repeat>
+        </group>
+
+    </h:body>
+</h:html>

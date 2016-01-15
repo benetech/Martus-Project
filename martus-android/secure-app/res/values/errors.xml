@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_message_failed_to_mount_storage">Failed to mount storage</string>
+    <string name="error_message_could_not_create_record">Could not create record</string>
+    <string name="error_message_failed_to_load_form_model_or_instance">Failed to load form model or form instance</string>
+    <string name="error_message_error_verifying_zip_file">Error verifying zip file</string>
+    <string name="error_message_form_was_deleted_after_upload_was_completed">Form was deleted after upload was completed</string>
+    <string name="error_message_form_could_not_be_deleted">Form could not be deleted</string>
+    <string name="error_message_instance_form_deleted_delete_count">Instance form deleted. Delete count = %1$s</string>
+    <string name="error_message_problem_copying_crypto">Problem copying crypto</string>
+    <string name="error_message_forms_constraint_issue_during_validation">XForms constraint issues found during validation process</string>
+    <string name="error_message_xforms_required_fields_missing">XForms required fields missing</string>
+    <string name="error_message_exception_thrown_trying_to_populate_record">Exception thrown trying to populate record</string>
+    <string name="error_message_error_reading_file_path">Error reading file path: %1$s</string>
+    <string name="error_message_file_to_attach_does_not_exist">File to attach does not exist: %1$s</string>
+    <string name="error_message_could_not_clear_odk_folders_from_prvious_account">Could not clear odk folders from previous account</string>
+    <string name="error_message_odk_folders_deleted_as_part_of_cleanup">ODK folders deleted as part of cleanup: %1$s</string>
+    <string name="error_message_cacheword_initialization_failed">Cacheword pass initialization failed</string>
+    <string name="error_message_failed_to_create_account">Failed to create account</string>
+    <string name="error_message_could_not_create_martus_crypto_key_pair">Counld not create martus crypto key pair</string>
+    <string name="error_message_activity_should_only_should_groups">FormGroupActivity should only be showing Groups, type = %1$s</string>
+    <string name="error_message_cacheword_pass_verification_failed">Cacheword pass verification failed.</string>
+    <string name="error_message_problem_confirming_password">Problem confirming password</string>
+    <string name="error_message_copying_assets_to_secure_storage_failed">Copying form from assets folder to secure storage failed!</string>
+    <string name="error_message_problem_finding_form_file">problem finding form file</string>
+    <string name="error_message_could_not_copy_image_to_gallary">Could not copy image file to gallary</string>
+    <string name="error_message_no_relevant_activity_found">No relevant Activity found</string>
+    <string name="error_message_error_showing_thumbnail">error showing thumbnail</string>
+    <string name="error_message_error_decoding_bitmap_preview">error decoding bitmap preview</string>
+    <string name="error_message_unable_to_initialize_crypto">unable to initialize crypto</string>
+    <string name="error_message_untable_to_initialize_store">unable to initialize store</string>
+    <string name="error_message_secure_storage_has_not_been_initialized">Secure storage has not been initialized</string>
+    <string name="error_message_unmountSecureStorage_called_with_no_storage_mounted">unmountSecureStorage called with no storage mounted</string>
+    <string name="error_message_cannot_mount_secure_storage">Cannot mount secure storage before SECURE_STORAGE_LOCATION set. Did the Application complete onCreate()?</string>
+    <string name="error_message_cacheWord_activity_handler_is_null">CacheWord activity handler is null</string>
+    <string name="error_message_error_reading">Error reading %1$s </string>
+    <string name="error_message_could_not_find_data_for_path">Could not find data for path %1$s</string>
+    <string name="error_message_problem_verifying_upload_rights">Problem verifying upload rights</string>
+    <string name="error_message_problem_processing_server_ip">problem processing server IP</string>
+    <string name="error_message_secure_file_storage_not_mounted">Secure File storage not mounted!</string>
+    <string name="error_message_incorrect_number_of_forms_copied">Incorrect number of forms copied</string>
+    <string name="error_message_failed_to_read_secure_file">Failed to read secure file:  %1$s</string>
+    <string name="error_message_unable_to_validate_form_not_found_in_filesystem">Unable to validate form: Not found in filesystem %1$s</string>
+    <string name="error_message_incorrect_number_of_form_files_found">Incorrect number of form files found: %1$s</string>
+    <string name="error_message_form_file_could_not_be_found">Form file could not be found: %1$s</string>
+    <string name="error_message_error_handling_form_file">Error handling form file!</string>
+    <string name="error_message_error_copying_from_file">Error copying form file!</string>
+    <string name="error_message_form_file_from_assets_folder_was_not_copied_to_secure_storage">Form file from assets folder was not copied to secure storage!</string>
+    <string name="error_message_bundled_Asset_form_does_not_contain_any_formId_information">Bundled Asset form does not contain any formId information!</string>
+    <string name="error_message_problem_creating_account">Problem creating account</string>
+    <string name="error_message_problem_moving_failed_bulletin_to_failed_directory">problem moving failed bulletin to failed directory</string>
+    <string name="error_message_file_too_large_to_upload">file too large to upload</string>
+    <string name="error_message_io_problem_uploading_file">io problem uploading file</string>
+    <string name="error_message_crypto_problem_uploading_file">crypto problem uploading file</string>
+    <string name="error_message_exception_uploading_file">exception uploading file</string>
+    <string name="error_message_could_not_find_record_zip_file_after_it_was_created">Could not find record zip file after it was created</string>
+    <string name="error_message_problem_serializing_record_to_zip">problem serializing record to zip</string>
+    <string name="error_message_file_not_found_exception">File not found exception: %1$s</string>
+    <string name="error_message_file_io_exception">File IO Exception: %1$s</string>
+    <string name="error_message_error_serializing_form_def">Error serializing form def: %1$s</string>
+    <string name="error_message_unable_to_open_file">Unable to open file %1$s</string>
+    <string name="error_message_error_reading_secure_file">Error reading secureFile %1$s</string>
+</resources>

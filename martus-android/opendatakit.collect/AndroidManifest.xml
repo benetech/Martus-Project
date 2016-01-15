@@ -59,14 +59,6 @@
         android:icon="@drawable/notes"
         android:label="@string/app_name"
         android:theme="@style/Collect" >
-        <provider
-            android:exported="true"
-            android:name="org.odk.collect.android.provider.FormsProvider"
-            android:authorities="org.odk.collect.android.provider.odk.forms" />
-        <provider
-            android:exported="true"
-            android:name="org.odk.collect.android.provider.InstanceProvider"
-            android:authorities="org.odk.collect.android.provider.odk.instances" />
 
         <activity
             android:name=".activities.MainMenuActivity"
@@ -170,12 +162,12 @@
             android:name=".activities.SplashScreenActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Dialog" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <!-- Enable Shortcuts for Command Actions -->
         <activity

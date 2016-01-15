@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/show_version_menu_item" android:title="@string/show_version" />
+
+</menu>
+
+<!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/res/menu/main.xml -->

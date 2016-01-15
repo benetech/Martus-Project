@@ -34,7 +34,7 @@ import java.util.Set;
 import java.util.Vector;
 
 import org.martus.common.MartusLogger;
-import org.martus.common.bulletin.BulletinConstants;
+import org.martus.common.bulletin.Bulletin;
 import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.database.Database;
@@ -94,7 +94,7 @@ class FakeServerSupplier implements ServerSupplierInterface
 
 	void addBur(UniversalId uid, String bur, String status)
 	{
-		if(status.equals(BulletinConstants.STATUSDRAFT))
+		if(Bulletin.isMutable(status))
 			burContentsDraft.put(uid,bur);
 		else
 			burContentsSealed.put(uid,bur);

@@ -121,21 +121,21 @@ public class TestServerForClients extends TestCaseEnhanced
 			HeadquartersKey key1 = new HeadquartersKey(hqSecurity.getPublicKeyString());
 			keys.add(key1);
 			b1.setAuthorizedToReadKeys(keys);
-			b1.setSealed();
+			b1.setImmutable();
 			store.saveEncryptedBulletinForTesting(b1);
-			b1 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createSealedKey(b1.getUniversalId()), clientSecurity);
+			b1 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createImmutableKey(b1.getUniversalId()), clientSecurity);
 	
 			b2 = new Bulletin(clientSecurity);
 			b2.set(Bulletin.TAGTITLE, "Title2");
 			b2.set(Bulletin.TAGPUBLICINFO, "Details2");
 			b2.set(Bulletin.TAGPRIVATEINFO, "PrivateDetails2");
-			b2.setSealed();
+			b2.setImmutable();
 			store.saveEncryptedBulletinForTesting(b2);
 			
-			draft = new Bulletin(clientSecurity);
-			draft.set(Bulletin.TAGPUBLICINFO, "draft public");
-			draft.setDraft();
-			store.saveEncryptedBulletinForTesting(draft);
+			mutable = new Bulletin(clientSecurity);
+			mutable.set(Bulletin.TAGPUBLICINFO, "draft public");
+			mutable.setMutable();
+			store.saveEncryptedBulletinForTesting(mutable);
 
 
 			privateBulletin = new Bulletin(clientSecurity);
@@ -143,7 +143,7 @@ public class TestServerForClients extends TestCaseEnhanced
 			privateBulletin.set(Bulletin.TAGTITLE, "TitlePrivate");
 			privateBulletin.set(Bulletin.TAGPUBLICINFO, "DetailsPrivate");
 			privateBulletin.set(Bulletin.TAGPRIVATEINFO, "PrivateDetailsPrivate");
-			privateBulletin.setSealed();
+			privateBulletin.setImmutable();
 			store.saveEncryptedBulletinForTesting(privateBulletin);
 
 			b1ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b1, clientSecurity);
@@ -157,7 +157,7 @@ public class TestServerForClients extends TestCaseEnhanced
 			
 		}
 		
-		mockServer = new MockMartusServer(); 
+		mockServer = new MockMartusServer(this); 
 		mockServer.setClientListenerEnabled(true);
 		mockServer.verifyAndLoadConfigurationFiles();
 		mockServer.setSecurity(testServerSecurity);
@@ -188,12 +188,12 @@ public class TestServerForClients extends TestCaseEnhanced
 		ServerFileDatabase serverdb = new ServerFileDatabase(fileDbDir, serverSecurity);
 		serverStore.doAfterSigninInitialization(serverDir, serverdb);
 		
-		Bulletin draftThenSealedBulletin = new Bulletin(clientSecurity);
-		draftThenSealedBulletin.setDraft();
-		store.saveBulletinForTesting(draftThenSealedBulletin);
+		Bulletin mutableThenImmutableBulletin = new Bulletin(clientSecurity);
+		mutableThenImmutableBulletin.setMutable();
+		store.saveBulletinForTesting(mutableThenImmutableBulletin);
 		File zipFile = createTempFileFromName("$$$MartusTestZipDraft");
-		UniversalId uid = draftThenSealedBulletin.getUniversalId();
-		BulletinForTesting.saveToFile(store.getDatabase(),draftThenSealedBulletin, zipFile, clientSecurity);
+		UniversalId uid = mutableThenImmutableBulletin.getUniversalId();
+		BulletinForTesting.saveToFile(store.getDatabase(),mutableThenImmutableBulletin, zipFile, clientSecurity);
 		
 		serverStore.deleteAllData();
 		Set draftLeafUids = serverStore.getAllBulletinLeafUids();
@@ -204,10 +204,10 @@ public class TestServerForClients extends TestCaseEnhanced
 		draftLeafUids = serverStore.getAllBulletinLeafUids();
 		assertContains(uid, draftLeafUids);
 		
-		draftThenSealedBulletin.setSealed();
-		store.saveBulletinForTesting(draftThenSealedBulletin);
+		mutableThenImmutableBulletin.setImmutable();
+		store.saveBulletinForTesting(mutableThenImmutableBulletin);
 		zipFile = createTempFileFromName("$$$MartusTestZipSealed");
-		BulletinForTesting.saveToFile(store.getDatabase(),draftThenSealedBulletin, zipFile, clientSecurity);
+		BulletinForTesting.saveToFile(store.getDatabase(),mutableThenImmutableBulletin, zipFile, clientSecurity);
 
 		serverStore.importZipFileToStoreWithSameUids(zipFile);
 		zipFile.delete();
@@ -238,29 +238,29 @@ public class TestServerForClients extends TestCaseEnhanced
 		
 		MartusCrypto otherServerSecurity = MockMartusSecurity.createOtherServer();
 
-		Bulletin bulletinSealed = new Bulletin(clientSecurity);
+		Bulletin bulletinImmutable = new Bulletin(clientSecurity);
 		HeadquartersKeys keys = new HeadquartersKeys();
 		HeadquartersKey key1 = new HeadquartersKey(hqSecurity.getPublicKeyString());
 		HeadquartersKey key2 = new HeadquartersKey(otherServerSecurity.getPublicKeyString());
 		keys.add(key1);
 		keys.add(key2);
-		bulletinSealed.setAuthorizedToReadKeys(keys);
-		bulletinSealed.setSealed();
-		bulletinSealed.setAllPrivate(true);
-		store.saveEncryptedBulletinForTesting(bulletinSealed);
-		mockServer.uploadBulletin(clientSecurity.getPublicKeyString(), bulletinSealed.getLocalId(), BulletinForTesting.saveToZipString(getClientDatabase(), bulletinSealed, clientSecurity));
+		bulletinImmutable.setAuthorizedToReadKeys(keys);
+		bulletinImmutable.setImmutable();
+		bulletinImmutable.setAllPrivate(true);
+		store.saveEncryptedBulletinForTesting(bulletinImmutable);
+		mockServer.uploadBulletin(clientSecurity.getPublicKeyString(), bulletinImmutable.getLocalId(), BulletinForTesting.saveToZipString(getClientDatabase(), bulletinImmutable, clientSecurity));
 
-		Bulletin bulletinDraft = new Bulletin(clientSecurity);
-		bulletinDraft.setAuthorizedToReadKeys(keys);
-		bulletinDraft.setDraft();
-		store.saveEncryptedBulletinForTesting(bulletinDraft);
-		mockServer.uploadBulletin(clientSecurity.getPublicKeyString(), bulletinDraft.getLocalId(), BulletinForTesting.saveToZipString(getClientDatabase(), bulletinDraft, clientSecurity));
+		Bulletin bulletinMutable = new Bulletin(clientSecurity);
+		bulletinMutable.setAuthorizedToReadKeys(keys);
+		bulletinMutable.setMutable();
+		store.saveEncryptedBulletinForTesting(bulletinMutable);
+		mockServer.uploadBulletin(clientSecurity.getPublicKeyString(), bulletinMutable.getLocalId(), BulletinForTesting.saveToZipString(getClientDatabase(), bulletinMutable, clientSecurity));
 
 		Vector list2 = testServer.listFieldOfficeDraftBulletinIds(hqSecurity.getPublicKeyString(), fieldSecurity1.getPublicKeyString(), new Vector());
 		assertEquals("wrong length list2", 2, list2.size());
 		assertNotNull("null id1 [0] list2", list2.get(0));
 		assertEquals(NetworkInterfaceConstants.OK, list2.get(0));
-		String b1Summary = bulletinDraft.getLocalId() + "=" + bulletinDraft.getFieldDataPacket().getLocalId();
+		String b1Summary = bulletinMutable.getLocalId() + "=" + bulletinMutable.getFieldDataPacket().getLocalId();
 		
 		Object[] rawInfos = (Object[]) list2.get(1);
 		List<Object> infoList = Arrays.asList(rawInfos);
@@ -271,7 +271,7 @@ public class TestServerForClients extends TestCaseEnhanced
 		assertEquals("wrong length list hq2", 2, list3.size());
 		assertNotNull("null id1 [0] list hq2", list3.get(0));
 		assertEquals(NetworkInterfaceConstants.OK, list3.get(0));
-		String b1Summaryhq2 = bulletinDraft.getLocalId() + "=" + bulletinDraft.getFieldDataPacket().getLocalId();
+		String b1Summaryhq2 = bulletinMutable.getLocalId() + "=" + bulletinMutable.getFieldDataPacket().getLocalId();
 		Object[] rawList3 = (Object[]) list3.get(1);
 		Vector list3Ids = new Vector(Arrays.asList(rawList3));
 		assertContains("missing bulletin Draft for HQ2?",b1Summaryhq2, list3Ids);
@@ -400,34 +400,34 @@ public class TestServerForClients extends TestCaseEnhanced
 	{
 		BulletinStore testStoreUploadDraftsSealeds = mockServer.getStore();
 		testStoreUploadDraftsSealeds.deleteAllData();
-		Bulletin draft1 = new Bulletin(clientSecurity);
-		draft1.setDraft();
-		uploadSampleBulletin(draft1);
+		Bulletin mutable1 = new Bulletin(clientSecurity);
+		mutable1.setMutable();
+		uploadSampleBulletin(mutable1);
 		assertEquals("Didn't save 1?", 1, testStoreUploadDraftsSealeds.getBulletinCount());
-		Bulletin draftThenSealed = new Bulletin(clientSecurity);
-		draftThenSealed.setDraft();
-		uploadSampleBulletin(draftThenSealed);
+		Bulletin mutableThenImmutable = new Bulletin(clientSecurity);
+		mutableThenImmutable.setMutable();
+		uploadSampleBulletin(mutableThenImmutable);
 		assertEquals("Didn't save 2?", 2, testStoreUploadDraftsSealeds.getBulletinCount());
 
-		internalTestDelRecord(draft1.getUniversalId(), "DEL already exists for draft1?", false);
-		internalTestDelRecord(draftThenSealed.getUniversalId(), "DEL already exists for draft2?", false);
+		internalTestDelRecord(mutable1.getUniversalId(), "DEL already exists for draft1?", false);
+		internalTestDelRecord(mutableThenImmutable.getUniversalId(), "DEL already exists for draft2?", false);
 		
-		String[] allIds = new String[] {draft1.getLocalId(), draftThenSealed.getLocalId()};
+		String[] allIds = new String[] {mutable1.getLocalId(), mutableThenImmutable.getLocalId()};
 		String resultAllOk = testServer.deleteDraftBulletins(clientAccountId, getOriginalRequest(allIds), "signature");
 		assertEquals("Good 2 not ok?", NetworkInterfaceConstants.OK, resultAllOk);
 		assertEquals("Didn't delete all?", 0, testStoreUploadDraftsSealeds.getBulletinCount());
 
-		internalTestDelRecord(draft1.getUniversalId(), "DEL does not exist for draft1?", true);
-		internalTestDelRecord(draftThenSealed.getUniversalId(), "DEL does not exist for draft2?", true);
+		internalTestDelRecord(mutable1.getUniversalId(), "DEL does not exist for draft1?", true);
+		internalTestDelRecord(mutableThenImmutable.getUniversalId(), "DEL does not exist for draft2?", true);
 		
-		uploadSampleBulletin(draft1);
+		uploadSampleBulletin(mutable1);
 		assertEquals("Didn't resave draft?", 1, testStoreUploadDraftsSealeds.getBulletinCount());
-		draftThenSealed.setSealed();
-		uploadSampleBulletin(draftThenSealed);
+		mutableThenImmutable.setImmutable();
+		uploadSampleBulletin(mutableThenImmutable);
 		assertEquals("Didn't resave sealed?", 2, testStoreUploadDraftsSealeds.getBulletinCount());
 		
-		internalTestDelRecord(draft1.getUniversalId(), "DEL should not exist after upload of new draft.", false);
-		internalTestDelRecord(draftThenSealed.getUniversalId(), "DEL should not exist after upload of new sealed?", false);
+		internalTestDelRecord(mutable1.getUniversalId(), "DEL should not exist after upload of new draft.", false);
+		internalTestDelRecord(mutableThenImmutable.getUniversalId(), "DEL should not exist after upload of new sealed?", false);
 	}
 	
 	public void testLoadingMagicWords() throws Exception
@@ -452,7 +452,7 @@ public class TestServerForClients extends TestCaseEnhanced
 		writer.writeln(sampleMagicWordline4);
 		writer.close();
 
-		MockMartusServer other = new MockMartusServer(mockServer.getDataDirectory());
+		MockMartusServer other = new MockMartusServer(mockServer.getDataDirectory(), this);
 		other.setClientListenerEnabled(true);
 		other.verifyAndLoadConfigurationFiles();
 		MartusCrypto otherServerSecurity = MockMartusSecurity.createOtherServer();
@@ -491,7 +491,7 @@ public class TestServerForClients extends TestCaseEnhanced
 		String dummyMagicWord = "elwijfjf";
 		
 		testServer.allowUploads(sampleId, dummyMagicWord);
-		MockMartusServer other = new MockMartusServer(mockServer.getDataDirectory());
+		MockMartusServer other = new MockMartusServer(mockServer.getDataDirectory(), this);
 		other.setSecurity(mockServer.getSecurity());
 		other.setClientListenerEnabled(true);
 		other.verifyAndLoadConfigurationFiles();
@@ -1081,7 +1081,7 @@ public class TestServerForClients extends TestCaseEnhanced
 	
 	static Bulletin b2;
 	static Bulletin privateBulletin;
-	static Bulletin draft;
+	static Bulletin mutable;
 
 	static File tempFile;
 

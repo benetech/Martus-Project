@@ -147,7 +147,7 @@ public class ClientSideNetworkHandlerUsingXmlRpcWithUnverifiedServer extends Non
 			return null;
 		
 		Vector result = new Vector();
-		String serverVersion = (String) networkResponse.getResultVector().get(0);
+		String serverVersion = networkResponse.getResultVector().get(0);
 		result.add(serverVersion);
 		String publicKey = tm.getServerPublicKeyString();
 		result.add(publicKey);

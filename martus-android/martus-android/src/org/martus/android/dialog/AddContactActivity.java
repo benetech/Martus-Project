@@ -70,12 +70,9 @@ public class AddContactActivity extends BaseActivity {
         getPublicKeyFromServer(code);
     }
 
-    public String getPublicKeyFromServer(String code) {
-
+    public void getPublicKeyFromServer(String code) {
         final AsyncTask <Object, Void, NetworkResponse> keyTask = new RetrieveContactTask();
         keyTask.execute(code);
-
-        return null;
     }
 
     private void processResult(NetworkResponse response) {

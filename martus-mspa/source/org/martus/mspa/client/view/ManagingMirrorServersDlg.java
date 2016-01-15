@@ -74,7 +74,7 @@ public class ManagingMirrorServersDlg extends JDialog
 		getContentPane().add(getCenterPanel(), BorderLayout.CENTER);
 		getContentPane().add(getCommitButtonsPanel(), BorderLayout.SOUTH);
 						
-		Utilities.centerDlg(this);
+		Utilities.packAndCenterWindow(this);
 	}
 	
 	private JPanel getTopPanel()

@@ -206,6 +206,11 @@ public class BulletinsListController extends AbstractFxLandingContentController 
 		return bulletinTableProvider.getAllFolderBeingDisplayedBooleanProperty().not();
 	}
 	
+	public boolean isAllBeingDisplayed()
+	{
+		return bulletinTableProvider.getAllFolderBeingDisplayedBooleanProperty().get();
+	}
+	
 	private Boolean isSearchResultsBeingDisplayed()
 	{
 		return bulletinTableProvider.getSearchResultsFolderBeingDisplayedBooleanProperty().getValue();

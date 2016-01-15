@@ -30,6 +30,7 @@ import junit.framework.TestSuite;
 
 import org.martus.util.TestCaseEnhanced;
 import org.martus.util.xml.TestSimpleXmlParser;
+import org.martus.util.xml.TestXmlUtilities;
 
 public class TestMetaQuick extends TestCaseEnhanced
 {
@@ -62,6 +63,7 @@ public class TestMetaQuick extends TestCaseEnhanced
 		suite.addTestSuite(TestHeadquartersManagementTableModel.class);
 		suite.addTestSuite(TestHeadquartersEditorTableModel.class);
 		suite.addTestSuite(TestHeadquartersListTableModel.class);
+		suite.addTestSuite(TestListAvailableRevisionsSince.class);
 		suite.addTestSuite(TestLoggerUtil.class);
 		suite.addTestSuite(TestMartusApp_WithServer.class);
 		suite.addTestSuite(TestRetrieveHQDraftsTableModel.class);
@@ -75,6 +77,7 @@ public class TestMetaQuick extends TestCaseEnhanced
 		
 		// from org.martus.utils
 		suite.addTestSuite(TestSimpleXmlParser.class);
+		suite.addTestSuite(TestXmlUtilities.class);
 		
 		return suite;
 	}	

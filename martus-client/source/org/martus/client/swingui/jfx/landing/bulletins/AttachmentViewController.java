@@ -116,6 +116,32 @@ public class AttachmentViewController extends FxController
 		return new Dimension(dialogWidth, dialogHeight);
 	}
 
+	private Dimension getImagePreferredDimension()
+	{
+		double preferedWidth = attachmentImage.getWidth();
+		double preferedHeight =  attachmentImage.getHeight();
+		Dimension containerDimensions = getPreferredDimension();
+		double containerWidth = containerDimensions.getWidth();
+		double containerHeight = containerDimensions.getHeight();
+		
+		if(preferedWidth > containerWidth)
+		{
+			double widthRatio =  preferedWidth / containerWidth;
+			preferedWidth = containerWidth;
+			preferedHeight = preferedHeight / widthRatio;
+		}
+		
+		if(preferedHeight > containerHeight)
+		{
+			double  heightRatio = preferedHeight / containerHeight;
+			preferedHeight = containerHeight;
+			preferedWidth = preferedWidth / heightRatio;
+		}
+		
+		return new Dimension((int)preferedWidth, (int)preferedHeight);
+	}
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle bundle)
 	{
@@ -180,7 +206,7 @@ public class AttachmentViewController extends FxController
 	{
 		Platform.runLater(() -> {
 			attachmentImageView.setImage(attachmentImage);
-			Dimension preferredDimension = getPreferredDimension();
+			Dimension preferredDimension = getImagePreferredDimension();
 			attachmentImageView.fitWidthProperty().set(preferredDimension.getWidth());
 			attachmentImageView.fitHeightProperty().set(preferredDimension.getHeight());
 			showNode(attachmentPane);

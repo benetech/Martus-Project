@@ -101,6 +101,7 @@ public class ShowServerAccountList
 			//TODO password is a string
 			String passphrase = reader.readLine();
 			security = MartusServerUtilities.loadCurrentMartusSecurity(keyPairFile, passphrase.toCharArray());
+			reader.close();
 		}
 		catch(Exception e)
 		{

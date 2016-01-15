@@ -32,7 +32,6 @@ import org.martus.common.network.NetworkInterfaceConstants;
 import org.martus.common.network.NetworkInterfaceXmlRpcConstants;
 import org.martus.common.network.NetworkResponse;
 import org.martus.util.StreamableBase64;
-import org.odk.collect.android.application.Collect;
 
 import java.io.File;
 import java.io.IOException;
@@ -420,7 +419,6 @@ abstract public class AbstractMainActivityWithMainMenuHandler extends AbstractTo
 
     private void deleteAccount() {
         removePacketsDir();
-        removeFormsDir();
         clearPreferences(mySettings.edit());
         clearPreferences(getSharedPreferences(PREFS_DESKTOP_KEY, MODE_PRIVATE).edit());
         clearPreferences(getSharedPreferences(PREFS_SERVER_IP, MODE_PRIVATE).edit());
@@ -456,12 +454,6 @@ abstract public class AbstractMainActivityWithMainMenuHandler extends AbstractTo
         File packetsDirFile = new File(getAppDir(), PACKETS_DIR);
         clearDirectory(packetsDirFile);
         packetsDirFile.delete();
-    }
-
-    private void removeFormsDir() {
-        File formsDirFile = new File(getAppDir(), Collect.FORMS_DIR_NAME);
-        clearDirectory(formsDirFile);
-        formsDirFile.delete();
     }
 
     private void clearPreferences(SharedPreferences.Editor editor) {

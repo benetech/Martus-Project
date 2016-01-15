@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+apply from: 'generated.build.gradle'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    def version = "${versionMajor}.${versionMinor}.${versionBuild}.${versionSagBuild}"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+        applicationId = project.ext.get("customApplicationId")
+        versionCode = project.ext.get("versionBuild").toInteger() * 100000 + project.ext.get("versionSagBuild").toInteger()
+        versionName = project.ext.get("appName") + " " + "${version}"
+        multiDexEnabled true
+    }
+
+    project.archivesBaseName = project.ext.get("appName") + "-" + "${version}"
+
+    dexOptions {
+        preDexLibraries = false
+        incremental true
+        javaMaxHeapSize "1280m"
+    }
+
+    signingConfigs {
+        release{
+            storeFile file("secureApp-internal-release-key.keystore")
+            storePassword "12345678"
+            keyAlias "secureApp"
+            keyPassword "12345678"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig  signingConfigs.release
+            zipAlignEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+    }
+
+lintOptions {
+          abortOnError false
+      }
+      
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'aars'
+    }
+}
+
+
+task copyLibraryAars(type: Copy) {
+        from('../martus-android-library/build/outputs/aar/')
+        from('../martus-android-server-comm-library/build/outputs/aar/')
+        from('../IOCipherCameraExample/build/outputs/aar/')
+        from('../opendatakit.collect/build/outputs/aar/')
+        into('aars')
+        include '*debug.aar'
+    }
+
+dependencies  {
+    build.dependsOn('copyLibraryAars')
+
+    compile files('libs/persiancalendar.jar')
+    compile (name:'aFileChooser-1.0.4_5', ext:'aar')
+    compile (name:'IOCipherCameraExample-1.0_2-debug', ext:'aar')
+    compile (name:'martus-android-library-1.0_5-debug', ext:'aar')
+
+    compile (name:'martus-android-server-comm-library-1.0_3-debug', ext:'aar')
+    compile (name:'opendatakit.collect-1.0_3-debug', ext:'aar')
+
+    compile 'com.iangclifton.android:floatlabel:1.0.1'
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+}
+

@@ -28,10 +28,12 @@ package org.martus.client.core;
 
 import java.util.Vector;
 
+import org.martus.client.test.MockMartusApp;
 import org.martus.common.FieldSpecCollection;
 import org.martus.common.GridData;
 import org.martus.common.MiniLocalization;
 import org.martus.common.bulletin.Bulletin;
+import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.field.MartusDateRangeField;
 import org.martus.common.field.MartusField;
@@ -186,6 +188,37 @@ public class TestSafeReadableBulletin extends TestCaseEnhanced
 			}
 		}
 		assertTrue("didn't find grid column?", found);
-		
 	}
+	
+	public void testXFormRecord() throws Exception
+	{
+		MiniLocalization localization = new MiniLocalization();
+		MockMartusSecurity security = MockMartusSecurity.createClient();
+		Bulletin b = createSampleXFormsBulletin(security);
+		SafeReadableBulletin srb = new SafeReadableBulletin(b, localization);
+		assertTrue("Original Bulletin should be an xForms record", b.isXFormsBulletin());
+
+		String xFormsTag = "name";
+		MartusField xFormField = srb.field(xFormsTag);
+		assertEquals("x Form's field not found?", "xforms Name Field", xFormField.getData());
+	}
+
+	public void testXFormUids() throws Exception
+	{
+		MiniLocalization localization = new MiniLocalization();
+		MockMartusSecurity security = MockMartusSecurity.createClient();
+		Bulletin b = createSampleXFormsBulletin(security);
+		SafeReadableBulletin srb = new SafeReadableBulletin(b, localization);
+		assertEquals("Original UId different from SafeReadableBulletin?", b.getUniversalId(), srb.getUniversalId());
+		assertEquals("Original Local Id different from SafeReadableBulletin?", b.getLocalId(), srb.getLocalId());
+	}
+	
+	private Bulletin createSampleXFormsBulletin(MartusCrypto authorSecurity) throws Exception
+	{
+		Bulletin b = new Bulletin(authorSecurity, StandardFieldSpecs.getDefaultTopSectionFieldSpecs(), StandardFieldSpecs.getDefaultBottomSectionFieldSpecs());
+		b.getFieldDataPacket().setXFormsModelAsString(MockMartusApp.getXFormsModelWithOnStringInputFieldXmlAsString());
+		b.getFieldDataPacket().setXFormsInstanceAsString(MockMartusApp.getXFormsInstanceXmlAsString());
+		return b;
+	}
+
 }

@@ -29,14 +29,10 @@ import java.io.File;
 
 import javafx.application.Platform;
 
-import org.martus.client.core.MartusApp;
 import org.martus.client.swingui.MartusLocalization;
 import org.martus.client.swingui.UiMainWindow;
 import org.martus.client.swingui.actions.ActionDoer;
-import org.martus.client.swingui.filefilters.KeyPairFormatFilter;
 import org.martus.common.MartusLogger;
-import org.martus.util.FileTransfer;
-import org.martus.util.FileVerifier;
 import org.martus.util.TokenReplacement;
 
 public class BackupKeyAction implements ActionDoer
@@ -63,30 +59,17 @@ public class BackupKeyAction implements ActionDoer
 	private void doBackupKeyPairToSingleEncryptedFile() throws Exception 
 	{
 		setControllerMessageLabel("");
-		File keypairFile = getApp().getCurrentKeyPairFile();
-		MartusLocalization localization = getLocalization();
-		if(keypairFile.length() > UiMainWindow.MAX_KEYPAIRFILE_SIZE)
-		{
-			setControllerMessageLabel(localization.getFieldLabel("KeypairTooLarge"));
+		File newBackupFile = getMainWindow().getKeyPairBackupFile();
+		String resultMessageTag = getMainWindow().createMartusKeypairBackup(newBackupFile);
+		if(resultMessageTag.isEmpty())
 			return;
-		}
-
-		KeyPairFormatFilter keyPairFilter = getMainWindow().getKeyPairFormatFilter();
-		File newBackupFile = getMainWindow().showFileSaveDialog("SaveKeyPair", MartusApp.KEYPAIR_FILENAME, keyPairFilter);
-		if(newBackupFile == null)
-			return;
-		
-		if(!newBackupFile.getName().contains("."))
-			newBackupFile = new File(newBackupFile.getAbsolutePath() + keyPairFilter.getExtension());
-		
-		FileTransfer.copyFile(keypairFile, newBackupFile);
-		if(FileVerifier.verifyFiles(keypairFile, newBackupFile))
+		if(resultMessageTag.equals("OperationCompleted"))
 		{
-			String message = TokenReplacement.replaceToken(localization.getFieldLabel("SingleEncryptedKeyBackupCreated"), "#backupFileName", newBackupFile.getName());
+			String message = TokenReplacement.replaceToken(getLocalization().getFieldLabel("SingleEncryptedKeyBackupCreated"), "#backupFileName", newBackupFile.getName());
 			setControllerMessageLabel(message);
-			getApp().getConfigInfo().setBackedUpKeypairEncrypted(true);
-			getApp().saveConfigInfo();
+			return;
 		}
+		setControllerMessageLabel(getLocalization().getFieldLabel(resultMessageTag));
 	}
 
 	private void setControllerMessageLabel(String translatedMessage)
@@ -94,11 +77,6 @@ public class BackupKeyAction implements ActionDoer
 		Platform.runLater(new MessageLabelUpdater(translatedMessage));
 	}
 
-	private MartusApp getApp()
-	{
-		return getBackupKeyController().getApp(); 
-	}
-	
 	private UiMainWindow getMainWindow()
 	{
 		return getBackupKeyController().getMainWindow();

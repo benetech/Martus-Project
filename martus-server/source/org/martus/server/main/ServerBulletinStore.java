@@ -29,9 +29,10 @@ package org.martus.server.main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
+import java.time.Instant;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Vector;
 import java.util.zip.ZipEntry;
@@ -47,44 +48,108 @@ import org.martus.common.MartusUtilities.FileVerificationException;
 import org.martus.common.bulletinstore.BulletinStore;
 import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.crypto.MartusCrypto.CreateDigestException;
-import org.martus.common.crypto.MartusCrypto.CryptoException;
-import org.martus.common.crypto.MartusCrypto.DecryptionException;
 import org.martus.common.crypto.MartusCrypto.MartusSignatureException;
-import org.martus.common.crypto.MartusCrypto.NoKeyPairException;
 import org.martus.common.database.BulletinUploadRecord;
 import org.martus.common.database.Database;
 import org.martus.common.database.Database.RecordHiddenException;
 import org.martus.common.database.DatabaseKey;
 import org.martus.common.database.DeleteRequestRecord;
-import org.martus.common.fieldspec.CustomFieldTemplate;
-import org.martus.common.fieldspec.CustomFieldTemplate.FutureVersionException;
+import org.martus.common.database.ReadableDatabase;
+import org.martus.common.database.ReadableDatabase.PacketVisitor;
+import org.martus.common.fieldspec.FormTemplate;
+import org.martus.common.fieldspec.FormTemplate.FutureVersionException;
 import org.martus.common.network.NetworkInterfaceConstants;
+import org.martus.common.network.SummaryOfAvailableBulletins;
 import org.martus.common.packet.BulletinHeaderPacket;
-import org.martus.common.packet.Packet.InvalidPacketException;
-import org.martus.common.packet.Packet.SignatureVerificationException;
-import org.martus.common.packet.Packet.WrongPacketTypeException;
 import org.martus.common.packet.UniversalId;
 import org.martus.common.utilities.MartusServerUtilities;
 import org.martus.common.utilities.MartusServerUtilities.MartusSignatureFileAlreadyExistsException;
 import org.martus.common.utilities.MartusServerUtilities.MartusSignatureFileDoesntExistsException;
+import org.miradi.utils.EnhancedJsonObject;
 
 
 public class ServerBulletinStore extends BulletinStore
 {
+	public ServerBulletinStore()
+	{
+	}
+	
+	public ServerBulletinStore(ServerMetaDatabase smdFactory)
+	{
+		metaDatabaseFactory = smdFactory;
+	}
+	
+	@Override
+	public void doAfterSigninInitialization(File dataRootDirectory, Database db) throws Exception 
+	{
+		if(initialized)
+		{
+			final String message = "ServerBulletinStore already initialized";
+			// NOTE: For now, tests don't always show exceptions on console
+			MartusLogger.logError(message);
+			throw new Exception();
+		}
+		
+		super.doAfterSigninInitialization(dataRootDirectory, db);
+
+		if(metaDatabaseFactory == null)
+		{
+			File metaDatabaseDirectory = getMetaDatabaseDirectory(dataRootDirectory);
+			boolean needToCreateAndPopulateDatabase = !ServerMetaDatabase.exists(metaDatabaseDirectory);
+			if(needToCreateAndPopulateDatabase)
+				ServerMetaDatabase.create(metaDatabaseDirectory);
+			metaDatabaseFactory = ServerMetaDatabase.open(metaDatabaseDirectory);
+		}
+		
+		metaDatabaseFactory.doWithConnection(connection -> populateDatabaseFromBulletinsIfNecessary(connection));
+		initialized = true;
+	}
+	
+	public void close() 
+	{
+		super.close();
+		initialized = false;
+	}
+	
+	@Override
+	public void revisionWasSaved(BulletinHeaderPacket bhp) throws Exception
+	{
+		super.revisionWasSaved(bhp);
+		DatabaseKey key = bhp.createKeyWithHeaderStatus(bhp.getUniversalId());
+		Instant serverFileTimestamp = getPacketTimestampInstant(getDatabase(), key);
+		metaDatabaseFactory.doWithConnection(connection -> connection.revisionWasSaved(bhp, serverFileTimestamp));
+	}
+	
+	@Override
+	public void revisionWasRemoved(UniversalId uid) throws Exception
+	{
+		super.revisionWasRemoved(uid);
+		metaDatabaseFactory.doWithConnection(connection -> connection.revisionWasRemoved(uid));
+	}
+	
+	public void deleteAllData() throws Exception
+	{
+		if(metaDatabaseFactory != null)
+			metaDatabaseFactory.deleteAllData();
+		super.deleteAllData();
+	}
+
 	public void fillHistoryAndHqCache()
 	{
 		getHistoryAndHqCache().fillCache();
 	}
 
-	public void deleteBulletinRevision(DatabaseKey keyToDelete)
-			throws IOException, CryptoException, InvalidPacketException,
-			WrongPacketTypeException, SignatureVerificationException,
-			DecryptionException, UnsupportedEncodingException,
-			NoKeyPairException
+	public void deleteBulletinRevision(DatabaseKey keyToDelete) throws Exception
 	{
 		super.deleteBulletinRevision(keyToDelete);
 		DatabaseKey burKey = BulletinUploadRecord.getBurKey(keyToDelete);
 		deleteSpecificPacket(burKey);			
+	}
+
+	public static File getMetaDatabaseDirectory(File dataRootDirectory) 
+	{
+		File packetsDirectory = MartusServer.getPacketsDirectory(dataRootDirectory);
+		return new File(packetsDirectory, META_DATABASE_DIRECTORY_NAME);
 	}
 
 	public File getIncomingInterimFile(UniversalId uid) throws IOException, RecordHiddenException
@@ -202,7 +267,7 @@ public class ServerBulletinStore extends BulletinStore
 		for(int i = 0; i < allFilesInFolder.length; ++i)
 		{
 			File currentFIle = allFilesInFolder[i];
-			if(currentFIle.isFile() && currentFIle.getName().endsWith(CustomFieldTemplate.CUSTOMIZATION_TEMPLATE_EXTENSION))
+			if(currentFIle.isFile() && currentFIle.getName().endsWith(FormTemplate.CUSTOMIZATION_TEMPLATE_EXTENSION))
 			{
 				signatureVerifiedFormTemplateFiles.add(currentFIle);
 			}
@@ -289,11 +354,11 @@ public class ServerBulletinStore extends BulletinStore
 		{
 			ZipEntry entry = (ZipEntry)entries.nextElement();
 			UniversalId uid = UniversalId.createFromAccountAndLocalId(authorAccountId, entry.getName());
-			DatabaseKey trySealedKey = DatabaseKey.createSealedKey(uid);
-			if(getDatabase().doesRecordExist(trySealedKey))
+			DatabaseKey tryImmutableKey = DatabaseKey.createImmutableKey(uid);
+			if(getDatabase().doesRecordExist(tryImmutableKey))
 			{
 				DatabaseKey newKey = header.createKeyWithHeaderStatus(uid);
-				if(newKey.isDraft())
+				if(newKey.isMutable())
 					throw new SealedPacketExistsException(entry.getName());
 				throw new DuplicatePacketException(entry.getName());
 			}
@@ -333,7 +398,7 @@ public class ServerBulletinStore extends BulletinStore
 		{
 			try
 			{
-				CustomFieldTemplate formTemplate = new CustomFieldTemplate();
+				FormTemplate formTemplate = new FormTemplate();
 				File fileToImport = (File)formsTemplateFiles.get(i);
 				formTemplate.importTemplate(fileToImport, security);
 				Vector currentFormVectorToAdd = new Vector();
@@ -348,6 +413,66 @@ public class ServerBulletinStore extends BulletinStore
 			
 		}
 		return formTemplatesTitleAndDescriptions;
+	}
+	
+	public EnhancedJsonObject listAvailableRevisionsSince(String authorId, EnhancedJsonObject requestJson) throws Exception
+	{
+		
+		ServerMetaDatabaseConnection connection = metaDatabaseFactory.getConnection();
+		try
+		{
+			String lowestTimestamp = requestJson.optString(SummaryOfAvailableBulletins.JSON_KEY_EARLIEST_SERVER_TIMESTAMP);
+			SummaryOfAvailableBulletins summary = connection.listRecentBulletinsDownloadableBy(authorId, lowestTimestamp);
+			return summary.toJson();
+		}
+		finally
+		{
+			connection.close();
+		}
+	}
+
+	private void populateDatabaseFromBulletinsIfNecessary(ServerMetaDatabaseConnection connection) throws Exception
+	{
+		if(connection.countAccounts() == 0 && connection.countBulletins() == 0)
+			populateDatabaseFromBulletins(connection);
+	}
+
+	private void populateDatabaseFromBulletins(ServerMetaDatabaseConnection connection) throws Exception
+	{
+		class Updater implements PacketVisitor
+		{
+			@Override
+			public void visit(DatabaseKey key)
+			{
+				try
+				{
+					Instant serverFileTimestamp = getPacketTimestampInstant(getDatabase(), key);
+					BulletinHeaderPacket bhp = loadBulletinHeaderPacket(getDatabase(), key, getSignatureVerifier());
+					connection.revisionWasSaved(bhp, serverFileTimestamp);
+				} 
+				catch (Exception e)
+				{
+					throw new RuntimeException(e);
+				}
+			}
+		}
+		MartusLogger.logBeginProcess("Populating database");
+		visitAllBulletinRevisions(new Updater());
+		MartusLogger.logEndProcess("Populating database");
+		long accounts = connection.countAccounts();
+		long bulletins = connection.countBulletins();
+		if(accounts > 0 || bulletins > 0)
+		{
+			MartusLogger.log("Added accounts to database: " + accounts);
+			MartusLogger.log("Added bulletins to database: " + bulletins);
+		}
+	}
+
+	// NOTE: I really want this inside ReadableDatabase, but that class
+	// must remain compatible with Java 7
+	public static Instant getPacketTimestampInstant(ReadableDatabase db, DatabaseKey key) throws Exception
+	{
+		return new Date(db.getPacketTimestamp(key)).toInstant();
 	}
 
 	public static class DuplicatePacketException extends Exception
@@ -367,5 +492,9 @@ public class ServerBulletinStore extends BulletinStore
 		}
 
 	}
-	
+
+	private static final String META_DATABASE_DIRECTORY_NAME = "metaDatabase";
+
+	private boolean initialized;
+	private ServerMetaDatabase metaDatabaseFactory;
 }

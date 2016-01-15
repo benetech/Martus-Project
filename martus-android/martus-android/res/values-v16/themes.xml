@@ -5,7 +5,6 @@
         <item name="android:actionBarStyle">@style/MartusActionBar</item>
         <item name="android:actionMenuTextColor">@color/button_text_white</item>
         <item name="android:textSize">13sp</item>
-        <item name="android:textColor">@color/text_blue</item>
     </style>
 
     <style name="Widget.Button" parent="android:Widget">

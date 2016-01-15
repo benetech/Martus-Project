@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:floatlabel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/welcomeSubTitle"
+        android:paddingTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Enter a password to get started"
+        android:textSize="18sp" />
+
+    <!--
+    <TextView
+        android:id="@+id/passphraseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeSubTitle"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_enter_passphrase" />
+    -->
+
+    <com.iangclifton.android.floatlabel.FloatLabel
+        android:id="@+id/passphrase_edit_field"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeSubTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/hint_password_field"/>
+
+    <!--
+    <TextView
+        android:id="@+id/confirmPassphraseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passphrase_edit_field"
+        android:text="@string/label_confirm_passphrase" />
+    -->
+
+    <com.iangclifton.android.floatlabel.FloatLabel
+        android:id="@+id/passphrase_confirm_edit_field"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passphrase_edit_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:hint="@string/hint_confirm_password_field"
+        android:ems="10"/>
+
+    <Button
+        android:id="@+id/create_account_button"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@id/passphrase_confirm_edit_field"
+        android:layout_alignRight="@id/passphrase_confirm_edit_field"
+        android:layout_below="@id/passphrase_confirm_edit_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="createAccount"
+        android:text="@string/label_create_account" />
+
+</RelativeLayout>

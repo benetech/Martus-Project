@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/aFileChooser/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="list_item_padding">6dp</dimen>
+    <dimen name="list_padding">0dp</dimen>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/aFileChooser/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">Choose file</string>
+    <string name="choose_file">Choose a file</string>
+    <string name="empty_directory">Empty Directory</string>
+    <string name="error_selecting_file">Problem selecting file</string>
+    <string name="storage_removed">Storage was removed or unmounted.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/aFileChooser/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="fileChooserIcon">
+        <item name="android:layout_marginLeft">@dimen/list_item_padding</item>
+    </style>
+    <style name="fileChooserName">
+        <item name="android:layout_marginLeft">@dimen/list_item_padding</item>
+        <item name="android:layout_marginRight">@dimen/list_item_padding</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>

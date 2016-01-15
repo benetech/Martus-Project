@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-v16/values.xml -->
+    <eat-comment/>
+    <style name="MartusActionBar" parent="android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/top_bar_background_color</item>
+        <item name="android:titleTextStyle">@style/DialogTitle</item>
+        <item name="android:backgroundSplit">@color/top_bar_background_color</item>
+    </style>
+    <style name="MartusHeading1" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="MartusTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+    </style>
+    <style name="MartusTheme" parent="@style/Theme.Sherlock.Light">
+        <item name="actionBarStyle">@style/MartusActionBar</item>
+        <item name="android:actionBarStyle">@style/MartusActionBar</item>
+        <item name="android:actionMenuTextColor">@color/button_text_white</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="Widget.Button" parent="android:Widget">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+    <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.Light.ActionBar">
+        <item name="background">@color/top_bar_background_color</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+</resources>

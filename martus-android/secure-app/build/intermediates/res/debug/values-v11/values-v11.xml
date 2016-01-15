@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/build/intermediates/exploded-aar/aFileChooser-1.0.4_5/res/values-v11/values.xml -->
+    <eat-comment/>
+    <dimen name="list_item_padding">6dp</dimen>
+    <dimen name="list_padding">12dp</dimen>
+    <string name="choose_file">Choose a file</string>
+    <string name="empty_directory">Empty Directory</string>
+    <string name="storage_removed">Storage was removed or unmounted.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/build/intermediates/exploded-aar/martus-android-library-1.0_2-debug/res/values-v11/values-v11.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/res/values-v11/values-v11.xml -->
+    <eat-comment/>
+    <style name="Collect" parent="android:Theme.Holo.Light">
+	    <item name="android:scrollbarThumbHorizontal">@+drawable/thumb</item>
+	    <item name="android:scrollbarThumbVertical">@+drawable/thumb</item>
+	    <item name="android:scrollbarSize">1.75mm</item>
+	    <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+	    <item name="android:fadeScrollbars">false</item>
+	</style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/build/intermediates/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values-v11/values.xml -->
+    <eat-comment/>
+    <style name="Sherlock.__Theme" parent="android:Theme.Holo">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+    <style name="Sherlock.__Theme.Light" parent="android:Theme.Holo.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+</resources>

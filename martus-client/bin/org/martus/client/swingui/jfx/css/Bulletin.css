@@ -1,0 +1,123 @@
+Scene {
+	-fx-background-color: #FFFFFF;
+}
+
+.accordion .titled-pane > *.content {
+   -fx-background-color: #FFFFFF;
+}
+
+.editFieldLabel { 
+	-fx-font-size: 15px;
+    -fx-fill: #405980;
+	-fx-font-weight: bold;
+}
+
+.requiredAsterisk {
+	-fx-text-fill: #ff0000;
+	-fx-font-size: 24px;
+}
+
+.messageText {
+	-fx-padding: 5 5 5 5;
+}
+
+.bulletin-editor-grid {
+	-fx-padding: 15 15 15 15;
+}
+
+.bulletin-editor-label-cell {
+	-fx-padding: 5 5 5 5;
+}
+
+.bulletin-editor-field-cell {
+	-fx-padding: 5 5 15 5;
+}
+
+.bulletin-warning-message {
+	-fx-background-color: yellow;
+	-fx-font-size: 20px;
+}
+
+.scroll-free-text-area {
+}
+
+.scroll-free-text-area-container {
+}
+
+.groupBox {
+ 	-fx-content-display: top;
+ 	-fx-border-insets: 2 2 2 2;
+	-fx-padding: 5 5 5 5;
+ 	-fx-border-color: black;
+ 	-fx-border-width: 2;
+}
+
+.background {
+	-fx-background-color: #FFFFFF;
+}
+
+.titleBox {
+	-fx-padding:3 10 5 3;
+	-fx-alignment:baseline-center;
+	-fx-background-color:#2c2c2c;
+	-fx-border-color: #405980;
+	-fx-border-width: 0 0 2 0;
+	-fx-border-style:solid;
+}
+
+.titleText {
+	-fx-font-size: 13px;
+	-fx-text-fill: #ffffff;
+	-fx-text-alignment:center;
+}
+
+.systemFieldTitle {	
+	-fx-font-size: 15px;
+	-fx-text-fill: #405980;
+	-fx-font-weight: bold;
+	-fx-text-alignment:left;
+	-fx-padding:5 0 5 0;
+	}
+
+.systemTextField {
+	-fx-font-size: 14px;
+	-fx-text-fill: #2c2c2c;
+    -fx-border-color: #bdbdbd;
+	-fx-border-width: 1;
+}
+
+.context-menu {
+-fx-background-color: white;
+}
+
+.choice-box {
+-fx-padding: 2 6 3 6;
+-fx-font-size: 13px;
+-fx-text-fill: #FFFFFF;
+-fx-control-inner-background: #2c2c2c;
+-fx-background-color: white;
+-fx-border-color: #bdbdbd;
+-fx-border-width: 2;
+-fx-background-radius: 0;
+}
+
+.choice-box .label {
+     -fx-text-fill: black;
+ }
+
+
+.headerFieldBox {
+	-fx-padding:0 10 0 10;
+	-fx-background-color:#FFFFFF;
+}
+
+.headerButtonHBox {
+	-fx-padding:0 10 0 10;
+	-fx-background-color:#FFFFFF;
+}
+
+.accordion .editFieldLabel { 
+	-fx-font-size: 15px;
+	-fx-font-weight: bold;
+	-fx-text-fill: #405980;
+}

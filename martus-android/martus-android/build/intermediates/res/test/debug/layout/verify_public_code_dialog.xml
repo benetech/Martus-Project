@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/top_bar_background_color">
+
+    <TextView
+        android:id="@+id/verify_text_view_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        style="@style/PopupDialogStyle"
+    />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/verify_field"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:background="@color/top_bar_background_color"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_no_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:text="@string/no"
+            style="@style/Widget.Button"
+            android:layout_alignParentRight="true"
+         />
+
+        <Button
+            android:id="@+id/button_yes_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:clickable="true"
+            android:text="@string/yes"
+            style="@style/Widget.Button"
+        />
+
+    </RelativeLayout>
+
+</LinearLayout><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/layout/verify_public_code_dialog.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/layout/verify_public_code_dialog.xml -->

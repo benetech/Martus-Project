@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <TableView fx:id="attachmentsTable" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="nameColumn" editable="false" maxWidth="800.0" minWidth="300.0" prefWidth="-1.0" text="%Button.attachmentLabel" />
+          <TableColumn fx:id="sizeColumn" editable="false" maxWidth="200.0" minWidth="100.0" prefWidth="-1.0" text="%Button.attachmentSize" />
+            <TableColumn fx:id="thumbnailColumn" />
+            <TableColumn fx:id="viewColumn" maxWidth="-1.0" minWidth="120.0" prefWidth="-1.0" text="%Button.viewattachment" />
+            <TableColumn fx:id="removeColumn" editable="false" maxWidth="-1.0" minWidth="120.0" prefWidth="-1.0" sortable="false" text="%Button.removeattachment" />
+            <TableColumn fx:id="saveColumn" maxWidth="-1.0" minWidth="120.0" prefWidth="-1.0" text="%Button.saveattachment" />
+        </columns>
+      </TableView>
+   </center>
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="addAttachmentButton" mnemonicParsing="false" onAction="#onAddAttachment" text="%Button.addattachment" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

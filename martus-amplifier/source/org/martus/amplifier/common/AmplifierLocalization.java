@@ -46,8 +46,6 @@ public class AmplifierLocalization extends MiniLocalization
 		super(EnglishCommonStrings.strings);
 		setCurrentLanguageCode(MartusAmplifier.AMP_DEFAULT_LANGUAGE);
 		setCurrentDateFormatCode(new DatePreference("ymd", '-').getDateTemplate());
-		setAdjustPersianLegacyDates(true);
-		setAdjustThaiLegacyDates(true);
 	}
 
 	public static String getLanguageString(String code)

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-ta/values.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+    <item>ஆங்கிலம்</item>
+    <item>அரபிக்</item>
+    <item>ஆர்மேனியன்</item>
+    <item>Azerbaijani</item>
+    <item>பல்கேரியன்</item>
+    <item>பெங்காலி, பங்காலா</item>
+    <item>பர்மியன்</item>
+    <item>சீனம்</item>
+    <item>டச்</item>
+    <item>Esperanto</item>
+    <item>Farsi/Dari</item>
+    <item>பிரெஞ்சு</item>
+    <item>ஜேர்மன்</item>
+    <item>குஜராத்தி</item>
+    <item>Hausa</item>
+    <item>ஹீபுரு</item>
+    <item>இந்தி</item>
+    <item>ஹங்கேரியன்</item>
+    <item>இத்தாலியன்</item>
+    <item>ஜப்பானீஸ்</item>
+    <item>ஜவனீஸ்</item>
+    <item>கன்னடம்</item>
+    <item>Kazakh</item>
+    <item>Khmer</item>
+    <item>Kirghiz</item>
+    <item>கொரியன்</item>
+    <item>குர்திஸ்</item>
+    <item>மலையாளம்</item>
+    <item>மராத்தி</item>
+    <item>நேபாளம்</item>
+    <item>ஒரியா</item>
+    <item>பஞ்சாபி</item>
+    <item>Pashto, Pushto</item>
+    <item>பொலிஸ்</item>
+    <item>போர்த்துக்கேயம்</item>
+    <item>உரோமானியன்</item>
+    <item>உருசியன்</item>
+    <item>சேர்பியன்</item>
+    <item>சிந்தி</item>
+    <item>சிங்களம்</item>
+    <item>ஸ்பானிஸ்</item>
+    <item>தமிழ்</item>
+    <item>Tajik</item>
+    <item>தெலுங்கு</item>
+    <item>தாய்</item>
+    <item>துருக்கியனம்</item>
+    <item>Turkmen</item>
+    <item>உக்ரேனியன்</item>
+    <item>உருது</item>
+    <item>Uzbek</item>
+    <item>வியட்நாமியம்</item>
+  </string-array>
+    <string-array name="entries_timeout_preference">
+    <item>10 நிமிடங்கள்</item>
+    <item>7 நிமிடங்கள்</item>
+    <item>5 நிமிடங்கள்</item>
+    <item>3 நிமிடங்கள்</item>
+    <item>1 நிமிடம்</item>
+  </string-array>
+    <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+    <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+    <string name="alert_dialog_confirm_password">கடவுச்சொல்லை உறுதிப்படுத்து:</string>
+    <string name="alert_dialog_ok">சரி</string>
+    <string name="alert_dialog_password">கடவுச்சொல்:</string>
+    <string name="app_name">Martus</string>
+    <string name="bulletin_cancel">நிராகரி</string>
+    <string name="bulletin_sending_progress">அனுப்பப்படுகின்றது...</string>
+    <string name="cancel_server">நிராகரி</string>
+    <string name="confirm_default">நிச்சயமாக?</string>
+    <string name="confirm_reset_install">நிச்சயமாக நீங்கள் நீக்க விரும்புகின்றீர்களா?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="create_account_dialog_cancel">வெளியேறு</string>
+    <string name="create_account_dialog_title">புதிய கடவுச்சொல்லை உருவாக்குங்கள்</string>
+    <string name="create_password_hint">புதிய கடவுச்சொல்</string>
+    <string name="dialog_title_author_preference">ஆசிரியர்</string>
+    <string name="enter_password_hint">கடவுச்சொல்லை உள்ளிடவும்</string>
+    <string name="error_create_account">கணக்கை உருவாக்குவதில் பிரச்சனை</string>
+    <string name="error_getting_server_key">வழங்கியுடன் இணைப்பேற்படுத்துவதில் பிரச்சனை</string>
+    <string name="error_message">தவறு</string>
+    <string name="help_menu">உதவி</string>
+    <string name="incorrect_password">பிழையான கடவுச்சொல்</string>
+    <string name="install_orbot_">Orbot இனை நிறுவு</string>
+    <string name="invalid_orbot_title">பிழையான Orbot நிறுவல்</string>
+    <string name="invalid_password">கடவுச்சொல்லில் குறைந்தது 8 எழுத்துக்கள் இருக்க வேண்டும்</string>
+    <string name="label_author">ஆசிரியர்</string>
+    <string name="label_organization">நிறுவனம்</string>
+    <string name="label_title">தலைப்பு</string>
+    <string name="market_orbot">market://search?q=pname:org.torproject.android</string>
+    <string name="must_login_first_title">எச்சரிக்கை!</string>
+    <string name="no">இல்லை</string>
+    <string name="password_dialog_cancel">நிராகரி</string>
+    <string name="password_dialog_title">உள்நுழை</string>
+    <string name="ping_server_menu_item">வழங்கியை பரிசோதி</string>
+    <string name="progress_creating_account">கணக்கு உருவாக்கப்படுகின்றது</string>
+    <string name="quit_menu_title">வெளியேறு</string>
+    <string name="resending">மீள அனுப்புகின்றது</string>
+    <string name="reset_to_install">எனது கணக்கை நீக்கு</string>
+    <string name="retry_server">மீள உள்ளிடவும்</string>
+    <string name="send_bulletin">அனுப்பு</string>
+    <string name="server_menu">வழங்கிகள்</string>
+    <string name="server_menu_title">வழங்கியை தேர்ந்தெடு</string>
+    <string name="settings_title">அமைப்புக்கள்</string>
+    <string name="show_version">பதிப்பை காட்டு</string>
+    <string name="start_orbot_">Orbot இனை தொடங்கு</string>
+    <string name="starting_send_notification">அனுப்பப்படுகின்றது...</string>
+    <string name="summary_author_preference">ஆசிரியர்</string>
+    <string name="summary_timeout_preference">நிமிடங்களில்</string>
+    <string name="title_author_preference">ஆசிரியர்</string>
+    <string name="title_hint">தலைப்பு</string>
+    <string name="tools_menu">கருவிகள்</string>
+    <string formatted="false" name="tor_link">https://www.torproject.org</string>
+    <string name="user_preferences">பயனர் அமைப்புக்கள்</string>
+    <string formatted="false" name="view_docs_info">https://www.martus.org/mobile/docs </string>
+    <string name="yes">ஓம்</string>
+    <string name="you_must_have_orbot">நீங்கள் கட்டாயம் Orbot இனை நிறுவியிருக்க வேண்டும்</string>
+</resources>

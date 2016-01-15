@@ -23,7 +23,7 @@ import android.provider.BaseColumns;
  * Convenience definitions for NotePadProvider
  */
 public final class InstanceProviderAPI {
-    public static final String AUTHORITY = "org.odk.collect.android.provider.odk.instances";
+    public static final String AUTHORITY = "org.odk.collect.android.provider.odk.instances.secureApp";
 
     // This class cannot be instantiated
     private InstanceProviderAPI() {}
@@ -59,6 +59,9 @@ public final class InstanceProviderAPI {
         public static final String LAST_STATUS_CHANGE_DATE = "date";
         public static final String DISPLAY_SUBTEXT = "displaySubtext";
         //public static final String DISPLAY_SUB_SUBTEXT = "displaySubSubtext";
+
+        public static final String FORM_INSTANCE_AUTHOR = "FormInstanceAuthor";
+        public static final String FORM_INSTANCE_ORGANIZATION = "FormInstanceOrganization";
 
 
 //        public static final String DEFAULT_SORT_ORDER = "modified DESC";

@@ -35,7 +35,6 @@ import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -149,6 +148,7 @@ import org.martus.swing.UiNotifyDlg;
 import org.martus.swing.UiOptionPane;
 import org.martus.swing.UiPopupMenu;
 import org.martus.swing.Utilities;
+import org.martus.util.FileTransfer;
 import org.martus.util.FileVerifier;
 import org.martus.util.TokenReplacement;
 import org.martus.util.TokenReplacement.TokenInvalidException;
@@ -200,7 +200,7 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 			
 			// Uncomment the call to restrictToOnlyTestServers for test builds which might
 			// generate bad data that we don't want cluttering up production servers
-			//restrictToOnlyTestServers();
+			// restrictToOnlyTestServers();
 			
 		}
 		catch(MartusApp.MartusAppInitializationException e)
@@ -1909,7 +1909,6 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 	{
 		getApp().createOrFindFolder(folderName);
 		getApp().getStore().saveFolders();
-		folderTreeContentsHaveChanged();
 
 		RetrieveCommand command = new RetrieveCommand(folderName, uidList);
 		getApp().startBackgroundRetrieve(command);
@@ -1968,7 +1967,7 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 		}
 		return true;
 	}
-
+	
 	public void deleteMutableRecordsFromServer(Vector uidList)
 			throws MartusSignatureException, WrongAccountException, Exception
 	{
@@ -2008,53 +2007,67 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 		backup.backupKeyPairToMultipleUnencryptedFiles();
 	}
 
+	public File getKeyPairBackupFile()
+	{
+		String defaultBackupExtension = ".dat";
+		String defaultBackupFilename = "MartusKeyPairBackup" + defaultBackupExtension;
+		KeyPairFormatFilter keyPairFilter = getKeyPairFormatFilter();
+		File newBackupFile = showFileSaveDialog("SaveKeyPair", defaultBackupFilename, keyPairFilter);
+		if(newBackupFile == null)
+			return null;
+		if(!newBackupFile.getName().contains("."))
+			newBackupFile = new File(newBackupFile.getAbsolutePath() + defaultBackupExtension);
+		return newBackupFile;
+	}
+	
 	public void doBackupKeyPairToSingleEncryptedFile() 
 	{
-		File keypairFile = getApp().getCurrentKeyPairFile();
-		if(keypairFile.length() > MAX_KEYPAIRFILE_SIZE)
-		{
-			System.out.println("keypair file too large!");
-			notifyDlg("ErrorBackingupKeyPair");
+		File newBackupFile = getKeyPairBackupFile();
+		String reportMessageTag = createMartusKeypairBackup(newBackupFile);
+		if(reportMessageTag.isEmpty())
 			return;
-		}
-		
-		String defaultBackupFilename = "MartusKeyPairBackup.dat";
-		File newBackupFile = showFileSaveDialog("SaveKeyPair", defaultBackupFilename, new KeyPairFormatFilter(getLocalization()));
-		if(newBackupFile == null)
-			return;
+		notifyDlg(reportMessageTag);
+	}
 
+	public String createMartusKeypairBackup(File newBackupFile)
+	{
 		try
 		{
-			FileInputStream input = new FileInputStream(keypairFile);
-			FileOutputStream output = new FileOutputStream(newBackupFile);
-	
-			int originalKeyPairFileSize = (int) keypairFile.length();
-			byte[] inputArray = new byte[originalKeyPairFileSize];
-	
-			input.read(inputArray);
-			output.write(inputArray);
-			input.close();
-			output.close();
+			if(newBackupFile == null)
+				return "";
+
+			File keypairFile = getApp().getCurrentKeyPairFile();
+			if(keypairFile == null || keypairFile.length() > MAX_KEYPAIRFILE_SIZE)
+			{
+				System.out.println("keypair file too large!");
+				return "ErrorBackingupKeyPair";
+			}
+
+			if(keypairFile.getAbsolutePath().equals(newBackupFile.getAbsolutePath()))
+			{
+				System.out.println("preventing overwrite of original keypair file!");
+				return "ErrorBackingupKeyPair";
+			}
+
+			FileTransfer.copyFile(keypairFile, newBackupFile);
 			if(FileVerifier.verifyFiles(keypairFile, newBackupFile))
 			{
-				notifyDlg("OperationCompleted");
 				getApp().getConfigInfo().setBackedUpKeypairEncrypted(true);
 				getApp().saveConfigInfo();
+				return "OperationCompleted";
 			}
-			else
-			{
-				notifyDlg("ErrorBackingupKeyPair");
-			}
+			System.out.println("error backing up keypair file!");
+			return "ErrorBackingupKeyPair";
 		}
 		catch (SaveConfigInfoException e)
 		{
-			e.printStackTrace();
-			notifyDlg("ErrorSavingConfig");
+			MartusLogger.logException(e);
+			return "ErrorSavingConfig";
 		}
 		catch (Exception e)
 		{
 			MartusLogger.logException(e);
-			notifyDlg("ErrorSavingFile");
+			return "ErrorSavingFile";
 		}
 	}
 	

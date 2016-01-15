@@ -45,7 +45,7 @@ public class TestServerDeleteStartupFilesAndFolders extends TestCaseEnhanced
 
 	public void testStartupFiles() throws Exception
 	{
-		MockMartusServer testServer = new MockMartusServer();
+		MockMartusServer testServer = new MockMartusServer(this);
 		testServer.enterSecureMode();
 		File triggerDirectory = testServer.getTriggerDirectory();
 		triggerDirectory.deleteOnExit();
@@ -81,7 +81,7 @@ public class TestServerDeleteStartupFilesAndFolders extends TestCaseEnhanced
 
 	public void testStartupFolders() throws Exception
 	{
-		MockMartusServer testServer = new MockMartusServer();
+		MockMartusServer testServer = new MockMartusServer(this);
 		testServer.enterSecureMode();
 		File triggerDirectory = testServer.getTriggerDirectory();
 		triggerDirectory.deleteOnExit();

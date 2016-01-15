@@ -166,6 +166,16 @@ public class UiSession
 	{
 		return !isSwing;
 	}
+	
+	public static boolean isWriteOnlyFlavor()
+	{
+		return isWriteOnlyFlavor;
+	}
+	
+	public static boolean isFullDesktopFlavor()
+	{
+		return !isWriteOnlyFlavor();
+	}
 
 	private MartusLocalization localization;
 	private MartusApp app;
@@ -173,6 +183,8 @@ public class UiSession
 	public static boolean isAlphaTester;
 	public static boolean isSwing;
 	public static boolean isPureFx;
+	
+	public static boolean isWriteOnlyFlavor;
 	
 	public static boolean defaultFoldersUnsorted;
 	private static Map<String, File> memorizedFileOpenDirectories;

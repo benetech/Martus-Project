@@ -1,0 +1,374 @@
+<MartusBulletins>
+<MartusBulletin>
+<MainFieldSpecs>
+<Field type='STRING'>
+<Tag>Witness</Tag>
+<Label>Witness</Label>
+</Field>
+<Field type='STRING'>
+<Tag>WitnessComment</Tag>
+<Label>Comment</Label>
+</Field>
+<Field type='LANGUAGE'>
+<Tag>language</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>author</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>title</Tag>
+<Label></Label>
+</Field>
+<Field type='DATE'>
+<Tag>entrydate</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>summary</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>location</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>organization</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>publicinfo</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>keywords</Tag>
+<Label></Label>
+</Field>
+<Field type='DATERANGE'>
+<Tag>eventdate</Tag>
+<Label></Label>
+</Field>
+</MainFieldSpecs>
+
+<PrivateFieldSpecs>
+<Field type='MULTILINE'>
+<Tag>privateinfo</Tag>
+<Label></Label>
+</Field>
+</PrivateFieldSpecs>
+
+<FieldValues>
+<Field tag='Witness'>
+<Value>John  Doe</Value>
+</Field>
+
+<Field tag='WitnessComment'>
+<Value>Message 1</Value>
+</Field>
+
+<Field tag='language'>
+<Value>en</Value>
+</Field>
+
+<Field tag='author'>
+<Value>Bob Jones</Value>
+</Field>
+
+<Field tag='title'>
+<Value>Bulletin #1</Value>
+</Field>
+
+<Field tag='entrydate'>
+<Value>Simple:2000-02-04</Value>
+</Field>
+
+<Field tag='summary'>
+<Value>C.C.</Value>
+</Field>
+
+<Field tag='location'>
+<Value>Message 1</Value>
+</Field>
+
+<Field tag='organization'>
+<Value>XYZ NGO</Value>
+</Field>
+
+<Field tag='publicinfo'>
+<Value>212</Value>
+</Field>
+
+<Field tag='keywords'>
+<Value>212, C.C.</Value>
+</Field>
+
+<Field tag='eventdate'>
+<Value>Range:2002-10-05,2004-12-31</Value>
+</Field>
+
+<Field tag='privateinfo'>
+<Value>MY PRIVATE DATE = C.C.</Value>
+</Field>
+
+<TopAttachmentList>
+<Attachment>
+<Filename>Attachment 1.txt</Filename>
+</Attachment>
+<Attachment>
+<Filename>Attachment 2.txt</Filename>
+</Attachment>
+</TopAttachmentList>
+
+<BottomAttachmentList>
+<Attachment>
+<Filename>Attachment 3.txt</Filename>
+</Attachment>
+</BottomAttachmentList>
+
+</FieldValues>
+</MartusBulletin>
+
+<MartusBulletin>
+<MainFieldSpecs>
+<Field type='STRING'>
+<Tag>Witness</Tag>
+<Label>Witness</Label>
+</Field>
+<Field type='STRING'>
+<Tag>WitnessComment</Tag>
+<Label>Comment</Label>
+</Field>
+<Field type='LANGUAGE'>
+<Tag>language</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>author</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>title</Tag>
+<Label></Label>
+</Field>
+<Field type='DATE'>
+<Tag>entrydate</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>summary</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>location</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>organization</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>publicinfo</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>keywords</Tag>
+<Label></Label>
+</Field>
+<Field type='DATERANGE'>
+<Tag>eventdate</Tag>
+<Label></Label>
+</Field>
+</MainFieldSpecs>
+
+<PrivateFieldSpecs>
+<Field type='MULTILINE'>
+<Tag>privateinfo</Tag>
+<Label></Label>
+</Field>
+</PrivateFieldSpecs>
+
+<FieldValues>
+<Field tag='Witness'>
+<Value>Jane  Doe</Value>
+</Field>
+
+<Field tag='WitnessComment'>
+<Value>Message 2</Value>
+</Field>
+
+<Field tag='language'>
+<Value>fr</Value>
+</Field>
+
+<Field tag='author'>
+<Value>Bob Jones</Value>
+</Field>
+
+<Field tag='title'>
+<Value>Bulletin #2</Value>
+</Field>
+
+<Field tag='entrydate'>
+<Value>Simple:2000-02-05</Value>
+</Field>
+
+<Field tag='summary'>
+<Value>T.I..</Value>
+</Field>
+
+<Field tag='location'>
+<Value>Message 2</Value>
+</Field>
+
+<Field tag='organization'>
+<Value>XYZ NGO</Value>
+</Field>
+
+<Field tag='publicinfo'>
+<Value>234</Value>
+</Field>
+
+<Field tag='keywords'>
+<Value>234, T.I..</Value>
+</Field>
+
+<Field tag='eventdate'>
+<Value>Range:2001-12-03,2005-10-22</Value>
+</Field>
+
+<Field tag='privateinfo'>
+<Value>MY PRIVATE DATE = T.I..</Value>
+</Field>
+
+<BottomAttachmentList>
+<Attachment>
+<Filename>Attachment 4.txt</Filename>
+</Attachment>
+</BottomAttachmentList>
+
+<BottomAttachmentList>
+<Attachment>
+<Filename>C:\xmltest\Attachment 5.txt</Filename>
+</Attachment>
+</BottomAttachmentList>
+
+</FieldValues>
+</MartusBulletin>
+
+<MartusBulletin>
+<MainFieldSpecs>
+<Field type='STRING'>
+<Tag>Witness</Tag>
+<Label>Witness</Label>
+</Field>
+<Field type='STRING'>
+<Tag>WitnessComment</Tag>
+<Label>Comment</Label>
+</Field>
+<Field type='LANGUAGE'>
+<Tag>language</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>author</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>title</Tag>
+<Label></Label>
+</Field>
+<Field type='DATE'>
+<Tag>entrydate</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>summary</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>location</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>organization</Tag>
+<Label></Label>
+</Field>
+<Field type='MULTILINE'>
+<Tag>publicinfo</Tag>
+<Label></Label>
+</Field>
+<Field type='STRING'>
+<Tag>keywords</Tag>
+<Label></Label>
+</Field>
+<Field type='DATERANGE'>
+<Tag>eventdate</Tag>
+<Label></Label>
+</Field>
+</MainFieldSpecs>
+
+<PrivateFieldSpecs>
+<Field type='MULTILINE'>
+<Tag>privateinfo</Tag>
+<Label></Label>
+</Field>
+</PrivateFieldSpecs>
+
+<FieldValues>
+<Field tag='Witness'>
+<Value>Bobby  Doe</Value>
+</Field>
+
+<Field tag='WitnessComment'>
+<Value>Message 2</Value>
+</Field>
+
+<Field tag='language'>
+<Value>es</Value>
+</Field>
+
+<Field tag='author'>
+<Value>Bob Jonesa</Value>
+</Field>
+
+<Field tag='title'>
+<Value>Bulletin #2</Value>
+</Field>
+
+<Field tag='entrydate'>
+<Value>Simple:2000-02-06</Value>
+</Field>
+
+<Field tag='summary'>
+<Value>T.I..</Value>
+</Field>
+
+<Field tag='location'>
+<Value>Message 2</Value>
+</Field>
+
+<Field tag='organization'>
+<Value>XYZ NGO</Value>
+</Field>
+
+<Field tag='publicinfo'>
+<Value>235</Value>
+</Field>
+
+<Field tag='keywords'>
+<Value>235, T.I..</Value>
+</Field>
+
+<Field tag='eventdate'>
+<Value>Range:2001-12-03,2005-10-22</Value>
+</Field>
+
+<Field tag='privateinfo'>
+<Value>MY PRIVATE DATE = T.I..</Value>
+</Field>
+
+</FieldValues>
+</MartusBulletin>
+
+</MartusBulletins>

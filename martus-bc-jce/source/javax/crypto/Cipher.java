@@ -1420,4 +1420,16 @@ public class Cipher
     	return getInstance(transformation, provider.getName());
     }
     
+    /*
+     * This getMaxAllowedKeyLength method was added by Beneficent, to provide compatibility
+     * with the JSSE that ships with Oracle Java 8. 
+     * FOR THIS METHOD ONLY:
+     * Copyright (C) 2005-2014, Beneficent Technology, Inc. (The Benetech Initiative).
+     * Licensed under the same terms as the rest of this source file.
+     */
+	public static final int getMaxAllowedKeyLength(String transformation)
+			throws NoSuchAlgorithmException 
+	{
+		return Integer.MAX_VALUE;
+	}
 }

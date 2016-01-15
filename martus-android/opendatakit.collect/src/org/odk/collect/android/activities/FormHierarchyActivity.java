@@ -45,20 +45,20 @@ public class FormHierarchyActivity extends ListActivity {
 
     private static final String t = "FormHierarchyActivity";
 
-    private static final int CHILD = 1;
-    private static final int EXPANDED = 2;
-    private static final int COLLAPSED = 3;
-    private static final int QUESTION = 4;
+    protected static final int CHILD = 1;
+    protected static final int EXPANDED = 2;
+    protected static final int COLLAPSED = 3;
+    protected static final int QUESTION = 4;
 
-    private static final String mIndent = "     ";
+    protected static final String mIndent = "     ";
 
-    private Button jumpPreviousButton;
+    protected Button jumpPreviousButton;
 
-    List<HierarchyElement> formList;
-    TextView mPath;
+    protected List<HierarchyElement> formList;
+    protected TextView mPath;
 
     FormIndex mStartIndex;
-    private FormIndex currentIndex;
+    protected FormIndex currentIndex;
 
 
     @Override
@@ -142,14 +142,14 @@ public class FormHierarchyActivity extends ListActivity {
     	super.onStop();
     }
 
-    private void goUpLevel() {
+    protected void goUpLevel() {
     	Collect.getInstance().getFormController().stepToOuterScreenEvent();
 
         refreshView();
     }
 
 
-    private String getCurrentPath() {
+    protected String getCurrentPath() {
     	FormController formController = Collect.getInstance().getFormController();
         FormIndex index = formController.getFormIndex();
         // move to enclosing group...
@@ -322,9 +322,7 @@ public class FormHierarchyActivity extends ListActivity {
                         formController.stepToNextEvent(FormController.STEP_INTO_GROUP);
             }
 
-            HierarchyListAdapter itla = new HierarchyListAdapter(this);
-            itla.setListItems(formList);
-            setListAdapter(itla);
+            setAdapterItems(formList);
 
             // set the controller back to the current index in case the user hits 'back'
             formController.jumpToIndex(currentIndex);
@@ -337,7 +335,7 @@ public class FormHierarchyActivity extends ListActivity {
     /**
      * Creates and displays dialog with the given errorMsg.
      */
-    private void createErrorDialog(String errorMsg) {
+    protected void createErrorDialog(String errorMsg) {
         Collect.getInstance()
                 .getActivityLogger()
                 .logInstanceAction(this, "createErrorDialog", "show.");
@@ -421,10 +419,14 @@ public class FormHierarchyActivity extends ListActivity {
         }
 
         // Should only get here if we've expanded or collapsed a group
+        setAdapterItems(formList);
+        getListView().setSelection(position);
+    }
+
+    protected void setAdapterItems(List<HierarchyElement> elements) {
         HierarchyListAdapter itla = new HierarchyListAdapter(this);
         itla.setListItems(formList);
         setListAdapter(itla);
-        getListView().setSelection(position);
     }
 
 

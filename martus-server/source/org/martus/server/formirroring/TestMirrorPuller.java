@@ -28,13 +28,13 @@ public class TestMirrorPuller extends TestCaseEnhanced
 	
 	public void testLoadMirrorsToCall() throws Exception
 	{
-		MockMartusServer noCallsToMakeCore = new MockMartusServer();
+		MockMartusServer noCallsToMakeCore = new MockMartusServer(this);
 		MirrorPuller noCallsToMake = new MirrorPuller(noCallsToMakeCore, logger);
 		noCallsToMake.createMirroringRetrievers();
 		assertEquals(0, noCallsToMake.retrieversWeWillCall.size());
 		noCallsToMakeCore.deleteAllFiles();
 		
-		MockMartusServer twoCallsToMakeCore = new MockMartusServer();
+		MockMartusServer twoCallsToMakeCore = new MockMartusServer(this);
 		twoCallsToMakeCore.enterSecureMode();
 		File mirrorsWhoWeCall = new File(twoCallsToMakeCore.getStartupConfigDirectory(), "mirrorsWhoWeCall");
 		mirrorsWhoWeCall.mkdirs();

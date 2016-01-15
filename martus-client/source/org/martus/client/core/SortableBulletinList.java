@@ -55,7 +55,7 @@ public class SortableBulletinList
 		this(localizationToUse, specsForSorting, new MiniFieldSpec[0]);
 	}
 	
-	public void add(Bulletin b)
+	public void add(Bulletin b) throws Exception
 	{
 		SafeReadableBulletin readableBulletin = new SafeReadableBulletin(b, localization);
 		PartialBulletin pb = new PartialBulletin(readableBulletin, specsToStore);

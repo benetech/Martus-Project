@@ -31,8 +31,8 @@ import java.util.Set;
 import java.util.Vector;
 
 import org.martus.client.bulletinstore.ClientBulletinStore;
-import org.martus.client.core.BackgroundUploader;
 import org.martus.client.core.MartusApp;
+import org.martus.client.network.BackgroundUploader;
 import org.martus.client.swingui.tablemodels.RetrieveHQDraftsTableModel;
 import org.martus.client.swingui.tablemodels.RetrieveHQTableModel;
 import org.martus.client.swingui.tablemodels.RetrieveMyDraftsTableModel;
@@ -85,7 +85,7 @@ public class TestRetrieveTableModel extends TestCaseEnhanced
 
 		if(mockServer == null)
 		{
-			mockServer = new MockMartusServer();
+			mockServer = new MockMartusServer(this);
 			mockServer.serverForClients.loadBannedClients();
 			mockServer.verifyAndLoadConfigurationFiles();
 			mockServer.setSecurity(mockSecurityForServer);
@@ -95,7 +95,7 @@ public class TestRetrieveTableModel extends TestCaseEnhanced
 		if(appWithoutServer == null)
 		{
 			appWithoutServer = MockMartusApp.create(mockSecurityForApp, getName());
-			mockServerNotAvailable = new MockServerNotAvailable();
+			mockServerNotAvailable = new MockServerNotAvailable(this);
 			ServerSideNetworkHandler handler = new ServerSideNetworkHandler(mockServerNotAvailable.serverForClients);
 			appWithoutServer.setSSLNetworkInterfaceHandlerForTesting(handler);
 		}
@@ -150,7 +150,7 @@ public class TestRetrieveTableModel extends TestCaseEnhanced
 			app.deleteAllFiles();
 		}
 		
-		protected void populateAllSummariesList() throws ServerErrorException
+		protected void populateAllSummariesList() throws Exception
 		{
 		}
 		
@@ -935,13 +935,13 @@ public class TestRetrieveTableModel extends TestCaseEnhanced
 	
 	
 
-	Bulletin createBulletin(MartusApp app, String title, boolean allPrivate, boolean sealed) throws Exception
+	Bulletin createBulletin(MartusApp app, String title, boolean allPrivate, boolean immutable) throws Exception
 	{
 		Bulletin b = app.createBulletin();
 		b.setAllPrivate(allPrivate);
 		b.set(Bulletin.TAGTITLE, title);
-		if(sealed)
-			b.setSealed();
+		if(immutable)
+			b.setImmutable();
 		app.setDefaultHQKeysInBulletin(b);
 		app.getStore().saveBulletin(b);
 		return b;
@@ -952,7 +952,7 @@ public class TestRetrieveTableModel extends TestCaseEnhanced
 		Bulletin clone = app.createBulletin();
 		clone.createDraftCopyOf(original, app.getWriteableDatabase());
 		clone.set(Bulletin.TAGTITLE, summary);
-		clone.setSealed();
+		clone.setImmutable();
 		ClientBulletinStore store = app.getStore();
 		store.saveBulletin(clone);
 		return clone;
@@ -997,9 +997,9 @@ public class TestRetrieveTableModel extends TestCaseEnhanced
 
 	public static class MockServerNotAvailable extends MockMartusServer
 	{
-		MockServerNotAvailable() throws Exception
+		MockServerNotAvailable(TestCaseEnhanced testCase) throws Exception
 		{
-			super();
+			super(testCase);
 		}
 
 		public ServerForClients createServerForClients()

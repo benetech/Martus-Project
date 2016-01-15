@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/nimaa/Development/martus-mobile-gradel/secure-app-vital-voices/opendatakit.collect/res/values-mg/strings.xml -->
+    <eat-comment/>
+    <string name="capture_image">Maka sary</string>
+    <string name="change_password">Teny miafina ODK</string>
+</resources>

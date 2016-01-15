@@ -393,11 +393,11 @@ public class ServerForAmplifiers implements NetworkInterfaceConstants, LoggerInt
 	public DatabaseKey findHeaderKeyInDatabase(String authorAccountId,String bulletinLocalId) 
 	{
 		UniversalId uid = UniversalId.createFromAccountAndLocalId(authorAccountId, bulletinLocalId);
-		DatabaseKey headerKey = DatabaseKey.createSealedKey(uid);
+		DatabaseKey headerKey = DatabaseKey.createImmutableKey(uid);
 		if(getDatabase().doesRecordExist(headerKey))
 			return headerKey;
 
-		headerKey.setDraft();
+		headerKey.setMutable();
 		if(getDatabase().doesRecordExist(headerKey))
 			return headerKey;
 

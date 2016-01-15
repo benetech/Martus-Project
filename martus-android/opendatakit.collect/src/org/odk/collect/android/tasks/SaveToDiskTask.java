@@ -14,10 +14,11 @@
 
 package org.odk.collect.android.tasks;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.util.Log;
 
 import org.javarosa.core.model.FormDef;
 import org.javarosa.core.services.transport.payload.ByteArrayPayload;
@@ -25,7 +26,6 @@ import org.javarosa.form.api.FormEntryController;
 import org.odk.collect.android.R;
 import org.odk.collect.android.application.Collect;
 import org.odk.collect.android.exception.EncryptionException;
-import org.odk.collect.android.io.SecureFileStorageManager;
 import org.odk.collect.android.listeners.FormSavedListener;
 import org.odk.collect.android.logic.FormController;
 import org.odk.collect.android.provider.FormsProviderAPI.FormsColumns;
@@ -35,11 +35,9 @@ import org.odk.collect.android.utilities.EncryptionUtils;
 import org.odk.collect.android.utilities.EncryptionUtils.EncryptedFormInformation;
 import org.odk.collect.android.utilities.FileUtils;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.util.Log;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Background task for loading a form.
@@ -55,7 +53,6 @@ public class SaveToDiskTask extends AsyncTask<Void, String, SaveResult> {
     private Boolean mMarkCompleted;
     private Uri mUri;
     private String mInstanceName;
-    private SecureFileStorageManager mSecureStorage;
 
     public static final int SAVED = 500;
     public static final int SAVE_ERROR = 501;
@@ -64,12 +61,11 @@ public class SaveToDiskTask extends AsyncTask<Void, String, SaveResult> {
     public static final int SAVED_AND_EXIT = 504;
 
 
-    public SaveToDiskTask(Uri uri, SecureFileStorageManager secureStorage, Boolean saveAndExit, Boolean markCompleted, String updatedName) {
+    public SaveToDiskTask(Uri uri, Boolean saveAndExit, Boolean markCompleted, String updatedName) {
         mUri = uri;
         mSave = saveAndExit;
         mMarkCompleted = markCompleted;
         mInstanceName = updatedName;
-        mSecureStorage = secureStorage;
     }
 
 
@@ -246,7 +242,7 @@ public class SaveToDiskTask extends AsyncTask<Void, String, SaveResult> {
      * @param markCompleted
      * @return
      */
-    private void exportData(boolean markCompleted) throws IOException, EncryptionException {
+    protected void exportData(boolean markCompleted) throws IOException, EncryptionException {
         FormController formController = Collect.getInstance().getFormController();
 
         publishProgress(Collect.getInstance().getString(R.string.survey_saving_collecting_message));
@@ -365,7 +361,7 @@ public class SaveToDiskTask extends AsyncTask<Void, String, SaveResult> {
      * @param path
      * @return
      */
-    private void exportXmlFile(ByteArrayPayload payload, String path) throws IOException {
+    protected void exportXmlFile(ByteArrayPayload payload, String path) throws IOException {
         File file = new File(path);
         if (file.exists() && !file.delete()) {
             throw new IOException("Cannot overwrite " + path + ". Perhaps the file is locked?");
@@ -376,9 +372,8 @@ public class SaveToDiskTask extends AsyncTask<Void, String, SaveResult> {
         int len = (int) payload.getLength();
 
         // read from data stream
-        mSecureStorage.writeFile(path, is);
-//        byte[] data = new byte[len];
-////        try {
+        byte[] data = new byte[len];
+//        try {
 //            int read = is.read(data, 0, len);
 //            if (read > 0) {
 //                // write xml file

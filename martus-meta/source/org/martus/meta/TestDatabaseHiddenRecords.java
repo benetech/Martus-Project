@@ -59,10 +59,10 @@ public class TestDatabaseHiddenRecords extends TestCaseEnhanced
 		mockDatabase = new MockServerDatabase();
 
 		draftUid = UniversalIdForTesting.createFromAccountAndPrefix("bogus account", "G");
-		draftKey = DatabaseKey.createDraftKey(draftUid);
+		mutableKey = DatabaseKey.createMutableKey(draftUid);
 
 		sealedUid = UniversalIdForTesting.createFromAccountAndPrefix("bogus account", "G");
-		sealedKey = DatabaseKey.createSealedKey(sealedUid);
+		sealedKey = DatabaseKey.createImmutableKey(sealedUid);
 		
 		assertNotEquals("duplicate uids?", draftUid, sealedUid);
 	}
@@ -95,9 +95,9 @@ public class TestDatabaseHiddenRecords extends TestCaseEnhanced
 	
 	public void testHiddenFromReading() throws Exception
 	{
-		verifyHiddenFromReading(mockDatabase, draftKey);
+		verifyHiddenFromReading(mockDatabase, mutableKey);
 		verifyHiddenFromReading(mockDatabase, sealedKey);
-		verifyHiddenFromReading(fileDatabase, draftKey);
+		verifyHiddenFromReading(fileDatabase, mutableKey);
 		verifyHiddenFromReading(fileDatabase, sealedKey);
 	}
 	
@@ -136,17 +136,17 @@ public class TestDatabaseHiddenRecords extends TestCaseEnhanced
 
 	public void testHiddenFromWriting() throws Exception
 	{
-		verifyHiddenFromWriting(mockDatabase, draftKey);
+		verifyHiddenFromWriting(mockDatabase, mutableKey);
 		verifyHiddenFromWriting(mockDatabase, sealedKey);
-		verifyHiddenFromWriting(fileDatabase, draftKey);
+		verifyHiddenFromWriting(fileDatabase, mutableKey);
 		verifyHiddenFromWriting(fileDatabase, sealedKey);
 	}
 
 	public void testHiddenFromOverwriting() throws Exception
 	{
-		verifyHiddenFromOverwriting(mockDatabase, draftKey);
+		verifyHiddenFromOverwriting(mockDatabase, mutableKey);
 		verifyHiddenFromOverwriting(mockDatabase, sealedKey);
-		verifyHiddenFromOverwriting(fileDatabase, draftKey);
+		verifyHiddenFromOverwriting(fileDatabase, mutableKey);
 		verifyHiddenFromOverwriting(fileDatabase, sealedKey);
 	}
 	
@@ -201,9 +201,9 @@ public class TestDatabaseHiddenRecords extends TestCaseEnhanced
 		db.hide(draftUid);
 		db.hide(sealedUid);
 		
-		DatabaseKey visibleKey = DatabaseKey.createSealedKey(visibleUid);
-		DatabaseKey hiddenDraftKey = DatabaseKey.createSealedKey(draftUid);
-		DatabaseKey hiddenSealedKey = DatabaseKey.createSealedKey(sealedUid);
+		DatabaseKey visibleKey = DatabaseKey.createImmutableKey(visibleUid);
+		DatabaseKey hiddenDraftKey = DatabaseKey.createImmutableKey(draftUid);
+		DatabaseKey hiddenSealedKey = DatabaseKey.createImmutableKey(sealedUid);
 		HashMap entries = new HashMap();
 		entries.put(visibleKey, null);
 		entries.put(hiddenDraftKey, null);
@@ -222,9 +222,9 @@ public class TestDatabaseHiddenRecords extends TestCaseEnhanced
 	
 	public void testHiddenFromVisiting() throws Exception
 	{
-		verifyHiddenFromVisiting(mockDatabase, draftKey);
+		verifyHiddenFromVisiting(mockDatabase, mutableKey);
 		verifyHiddenFromVisiting(mockDatabase, sealedKey);
-		verifyHiddenFromVisiting(fileDatabase, draftKey);
+		verifyHiddenFromVisiting(fileDatabase, mutableKey);
 		verifyHiddenFromVisiting(fileDatabase, sealedKey);
 		
 	}
@@ -233,9 +233,9 @@ public class TestDatabaseHiddenRecords extends TestCaseEnhanced
 	{
 		String accountId = key.getAccountId();
 		UniversalId visibleUid = UniversalId.createFromAccountAndLocalId(accountId, "Y");
-		DatabaseKey visibleKey = DatabaseKey.createSealedKey(visibleUid);
-		if(key.isDraft())
-			visibleKey.setDraft();
+		DatabaseKey visibleKey = DatabaseKey.createImmutableKey(visibleUid);
+		if(key.isMutable())
+			visibleKey.setMutable();
 		
 		class Visitor implements Database.PacketVisitor
 		{
@@ -297,7 +297,7 @@ public class TestDatabaseHiddenRecords extends TestCaseEnhanced
 	Database mockDatabase;
 	
 	UniversalId draftUid;
-	DatabaseKey draftKey;
+	DatabaseKey mutableKey;
 
 	UniversalId sealedUid;
 	DatabaseKey sealedKey;

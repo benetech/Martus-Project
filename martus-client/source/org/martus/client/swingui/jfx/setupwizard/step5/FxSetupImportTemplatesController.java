@@ -39,6 +39,7 @@ import javafx.util.StringConverter;
 
 import org.martus.client.core.templates.GenericFormTemplates;
 import org.martus.client.swingui.UiMainWindow;
+import org.martus.client.swingui.UiSession;
 import org.martus.client.swingui.jfx.common.AbstractFxImportFormTemplateController;
 import org.martus.client.swingui.jfx.landing.general.ManageTemplatesController;
 import org.martus.client.swingui.jfx.setupwizard.AbstractFxSetupWizardContentController;
@@ -69,6 +70,9 @@ public class FxSetupImportTemplatesController extends FxStep5Controller
 	@Override
 	public AbstractFxSetupWizardContentController getNextController()
 	{
+		if (UiSession.isWriteOnlyFlavor())
+			return null;
+		
 		return new FxSetupBackupYourKeyController(getMainWindow());
 	}
 

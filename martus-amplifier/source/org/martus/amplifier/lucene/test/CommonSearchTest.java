@@ -32,8 +32,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-import junit.framework.Assert;
-
 import org.martus.amplifier.attachment.FileSystemDataManager;
 import org.martus.amplifier.common.SearchResultConstants;
 import org.martus.amplifier.lucene.LuceneBulletinIndexer;
@@ -226,7 +224,7 @@ public abstract class CommonSearchTest
 
 	private void addAttachments(FieldDataPacket fdp, String[] attachmentsAssocList)
 	{
-		Assert.assertEquals(
+		assertEquals(
 			"Uneven assoc list: " + Arrays.asList(attachmentsAssocList), 
 			0, attachmentsAssocList.length % 2);
 

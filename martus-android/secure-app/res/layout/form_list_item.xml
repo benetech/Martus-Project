@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/image_button_bg_selector"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_delete"
+        android:contentDescription="@string/content_description_delete_record"
+        />
+
+    <ImageButton
+        android:id="@+id/syncButton"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@id/deleteButton"
+        android:background="@drawable/image_button_bg_selector"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_upload"
+        android:contentDescription="@string/content_description_upload"/>
+
+    <ImageButton
+        android:id="@+id/manageAttachmentsButton"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@id/syncButton"
+        android:background="@drawable/image_button_bg_selector"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_attachments_management"
+        android:contentDescription="@string/content_description_manage_attachments"
+        />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="Test Title"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_toStartOf="@+id/manageAttachmentsButton" />
+
+</RelativeLayout>

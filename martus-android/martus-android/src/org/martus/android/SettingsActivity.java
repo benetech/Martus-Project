@@ -91,7 +91,10 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         SharedPreferences mySettings = getPreferenceScreen().getSharedPreferences();
 
         setReplaceContactSummaryValue();
+        attachIntentToContactSummaryItem();
+
         setChooseConnectionSummaryValue();
+        attachIntentToConnectionSummaryItem();
 
         Map<String, ?> allPrefs = mySettings.getAll();
 
@@ -100,6 +103,25 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         for (String key : prefKeys) {
             setPreferenceSummary(mySettings, key);
         }
+    }
+
+    private void attachIntentToContactSummaryItem() {
+        addClickHandler(KEY_REPLACE_CONTACT, ContactImportChoiceActivity.class);
+    }
+
+    private void attachIntentToConnectionSummaryItem() {
+        addClickHandler(KEY_CHOOSE_CONNECTION, ChooseConnectionActivity.class);
+    }
+
+    private void addClickHandler(String preferenceItemKey, final Class intentClassForPreference) {
+        Preference replaceContactPreference = findPreference(preferenceItemKey);
+        replaceContactPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(SettingsActivity.this, intentClassForPreference);
+                startActivity(intent);
+                return true;
+            }
+        });
     }
 
     private void setChooseConnectionSummaryValue() {

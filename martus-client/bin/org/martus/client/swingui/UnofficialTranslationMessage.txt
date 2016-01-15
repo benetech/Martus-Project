@@ -1,0 +1,15 @@
+﻿WARNING:  This translation was not created by the Martus team, and therefore may not be trustworthy.  If you only want to use official translations then exit Martus, remove the file #UseUnofficialTranslationFiles# from your Martus directory, and restart Martus.
+
+AVISO: Esta traducción no fue creada por el equipo Martus, y tal vez no se le debe confiar.  Si Ud. solamente desea traducciones oficiales, sálga de Martus, y quite #UseUnofficialTranslationFiles# de su directorio Martus, y reempiézelo.
+
+ПРЕДУПРЕЖДЕНИЕ:  Данный перевод создан не разработчиками Martus и может быть недостоверным.  Если Вы хотите использовать только официальные переводы, выйдите из Martus, удалите из своего каталога Martus файл #UseUnofficialTranslationFiles# и запустите Martus заново.
+
+ATTENTION : Cette traduction n'a pas été effectuée par l'équipe Martus et peut donc ne pas être fiable. Si vous souhaitez n'utiliser que des traductions officielles, quittez Martus, supprimez le fichier #UseUnofficialTranslationFiles# de votre répertoire Martus, et redémarrez Martus.
+
+चेतावनी: यो अनुवाद मार्टस समुहद्धारा सृजना गरेको थिएन, र त्यसकारण विश्वासिलो नहुनसक्छ । यदि तपाईले मात्र आधिकारिक अनुवाद मात्र प्रयोग गर्न चाहनु हुन्छ भने मार्टसबाट बाहिर निस्कनुहोस्, तपाईको मार्टस निदेशकबाट #UseUnofficialTranslationFiles# फाइल हटाउनुहोस् र मार्टसलाई पून: संचालन गर्नुहोस् ।
+
+คำเตือน:  การแปลนี้ไม่ได้ถูกสร้างโดยคณะทำงานของ Martus ฉะนั้นอย่าได้เชื่อถือ\nถ้าคุณต้องการใช้การแปลอย่างเป็นทางการ กรุณาออกจาก Martus ลบแฟ้ม #UseUnofficialTranslationFiles# ออกจากโฟลเดอร์ของ Martus และเปิด Martus ใหม่
+
+သတိေပးခဵက္ : ဤဘာသာဴပန္မႁသည္ Martus အဖၾဲႚမႀ တည္ေဆာက္ထားဴခင္း မဟုတ္ပၝ။ ထိုႛေဳကာင့္ ယံုဳကည္၍ မရႎိုင္ပၝ။ တရားဝင္ ဘာသာဴပန္မႁမဵားကိုသာ အသံုးဴပႂလိုပၝက Martus မႀ ထၾက္ပၝ။ #UseUnofficialTranslationFiles# စာတၾဲကို သင့္ Martus လမ္းညၿန္ထဲမႀ ဖယ္ရႀားလိုက္ပၝ။ ထိုႛေနာက္ Martus ကို ဴပန္လည္စတင္ပၝ။
+
+ՆԱԽԱԶԳՈՒՇԱՑՈՒՄ. Այս թարգմանությունը Martus-ի թիմի կողմից չի ստեղծվել, և այդ պատճառով հնարավոր է, որ այն վստահելի չլինի:  Եթե Դուք ցանկանում եք միայն պաշտոնական թարգմանություններն օգտագործել, ապա դուրս եկեք Martus-ից, հեռացրեք #UseUnofficialTranslationFiles# ֆայլը Ձեր Martus-ի ֆայլերի քարտացուցակից/դիրեկտորիայից և վերագործարկեք Martus-ը:

@@ -14,17 +14,11 @@
 
 package org.odk.collect.android.application;
 
-import android.app.Application;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.Environment;
-import android.preference.PreferenceManager;
+import java.io.File;
 
 import org.odk.collect.android.R;
 import org.odk.collect.android.database.ActivityLogger;
 import org.odk.collect.android.external.ExternalDataManager;
-import org.odk.collect.android.io.SecureFileStorageManager;
 import org.odk.collect.android.logic.FormController;
 import org.odk.collect.android.logic.PropertyManager;
 import org.odk.collect.android.preferences.PreferencesActivity;
@@ -36,7 +30,12 @@ import org.opendatakit.httpclientandroidlib.impl.client.BasicCookieStore;
 import org.opendatakit.httpclientandroidlib.protocol.BasicHttpContext;
 import org.opendatakit.httpclientandroidlib.protocol.HttpContext;
 
-import java.io.File;
+import android.app.Application;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Environment;
+import android.preference.PreferenceManager;
 
 /**
  * Extends the Application class to implement
@@ -46,9 +45,6 @@ import java.io.File;
 public class Collect extends Application {
 
     // Storage paths
-	/** Why do we store this data on external storage? (vs internal which is only 
-	 * readable by the application process) */
-	
     public static final String ODK_ROOT = Environment.getExternalStorageDirectory()
             + File.separator + "odk";
     public static final String FORMS_PATH = ODK_ROOT + File.separator + "forms";
@@ -59,7 +55,6 @@ public class Collect extends Application {
     public static final String TMPDRAWFILE_PATH = CACHE_PATH + File.separator + "tmpDraw.jpg";
     public static final String TMPXML_PATH = CACHE_PATH + File.separator + "tmp.xml";
     public static final String LOG_PATH = ODK_ROOT + File.separator + "log";
-    public static final String SECURE_STORAGE_PATH = ODK_ROOT + File.separator + "secureStorage";
 
     public static final String DEFAULT_FONTSIZE = "21";
 
@@ -70,9 +65,6 @@ public class Collect extends Application {
     private ActivityLogger mActivityLogger;
     private FormController mFormController = null;
     private ExternalDataManager externalDataManager;
-    private SecureFileStorageManager mSecureStorage;
-    private int mSecureStorageHolds = 0; // Count how many references there are to SecureStorage
-    									 // To prevent unmounting while still in use
 
     private static Collect singleton = null;
 
@@ -208,7 +200,7 @@ public class Collect extends Application {
     public CookieStore getCookieStore() {
         return cookieStore;
     }
-
+    
     @Override
     public void onCreate() {
         singleton = this;
@@ -230,43 +222,11 @@ public class Collect extends Application {
         super.onCreate();
 
         PropertyManager mgr = new PropertyManager(this);
+
+        FormController.initializeJavaRosa(mgr);
+        
         mActivityLogger = new ActivityLogger(
                 mgr.getSingularProperty(PropertyManager.DEVICE_ID_PROPERTY));
-    }
-    
-    /**
-     * Mount the secure filesystem. This should be called when the
-     * application takes focus. e.g: On host Activity's onResume()
-     */
-    public SecureFileStorageManager mountSecureStorage() {
-    	mSecureStorageHolds++;
-    	if (mSecureStorage == null || !mSecureStorage.isFilesystemMounted()) {
-    		mSecureStorage = new SecureFileStorageManager(SECURE_STORAGE_PATH);
-    		mSecureStorage.mountFilesystem(getSecureStorageKey());
-    	}
-    	return mSecureStorage;
-    }
-    
-    /**
-     * Unmount the secure filesystem. This should be called when the
-     * application loses focus. e.g: On host Activity's onDestroy()
-     * 
-     * Note that SecureFileStorageManager will only be unmounted when
-     * all callers of {@link #mountSecureStorage()} have called here.
-     * The basic idea is that the next Activity of an application will
-     * take a hold on its onResume() before the old activity will release
-     * its hold via onDestroy(), thus we shouldn't have to unmount and re-mount
-     * on every Activity transition. This behavior would break asynchronous tasks.
-     */
-    public void unmountSecureStorage() {
-    	if (--mSecureStorageHolds == 0) {
-    		mSecureStorage.unmountFilesystem();
-    	}
-    }
-    
-    private String getSecureStorageKey() {
-    	// TODO: Obtain key somehow
-    	return "38wrjeiukeiru";
     }
 
 }

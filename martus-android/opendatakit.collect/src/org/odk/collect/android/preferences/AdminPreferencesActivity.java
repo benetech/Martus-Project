@@ -20,6 +20,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+import android.preference.ListPreference;
+import android.preference.Preference;
+
+import org.javarosa.core.model.FormDef;
 import org.odk.collect.android.R;
 import org.odk.collect.android.application.Collect;
 import org.odk.collect.android.utilities.CompatibilityUtils;
@@ -29,6 +33,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -53,17 +58,18 @@ public class AdminPreferencesActivity extends PreferenceActivity {
     public static String KEY_GET_BLANK = "get_blank";
     public static String KEY_DELETE_SAVED = "delete_saved";
     // server
-    public static String KEY_CHANGE_URL = "change_url";
     public static String KEY_CHANGE_SERVER = "change_server";
     public static String KEY_CHANGE_USERNAME = "change_username";
     public static String KEY_CHANGE_PASSWORD = "change_password";
     public static String KEY_CHANGE_GOOGLE_ACCOUNT = "change_google_account";
+    public static String KEY_CHANGE_PROTOCOL_SETTINGS = "change_protocol_settings";
     // client
     public static String KEY_CHANGE_FONT_SIZE = "change_font_size";
     public static String KEY_DEFAULT_TO_FINALIZED = "default_to_finalized";
     public static String KEY_HIGH_RESOLUTION = "high_resolution";
     public static String KEY_SHOW_SPLASH_SCREEN = "show_splash_screen";
     public static String KEY_SELECT_SPLASH_SCREEN = "select_splash_screen";
+    public static String KEY_DELETE_AFTER_SEND = "delete_after_send";
     // form entry
     public static String KEY_SAVE_MID = "save_mid";
     public static String KEY_JUMP_TO = "jump_to";
@@ -78,6 +84,8 @@ public class AdminPreferencesActivity extends PreferenceActivity {
     public static String KEY_NAVIGATION = "navigation";
     public static String KEY_CONSTRAINT_BEHAVIOR = "constraint_behavior";
 
+    public static String KEY_FORM_PROCESSING_LOGIC = "form_processing_logic";
+
     private static final int SAVE_PREFS_MENU = Menu.FIRST;
 
     @Override
@@ -91,6 +99,19 @@ public class AdminPreferencesActivity extends PreferenceActivity {
         prefMgr.setSharedPreferencesMode(MODE_WORLD_READABLE);
 
         addPreferencesFromResource(R.xml.admin_preferences);
+
+        ListPreference mFormProcessingLogicPreference = (ListPreference) findPreference(KEY_FORM_PROCESSING_LOGIC);
+        mFormProcessingLogicPreference.setSummary(mFormProcessingLogicPreference.getEntry());
+        mFormProcessingLogicPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                int index = ((ListPreference) preference).findIndexOfValue(newValue.toString());
+                String entry = (String) ((ListPreference) preference).getEntries()[index];
+                preference.setSummary(entry);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -175,4 +196,45 @@ public class AdminPreferencesActivity extends PreferenceActivity {
 		return res;
 	}
 
+    public static FormDef.EvalBehavior getConfiguredFormProcessingLogic(Context context) {
+        FormDef.EvalBehavior mode;
+
+        SharedPreferences adminPreferences = context.getSharedPreferences(ADMIN_PREFERENCES, 0);
+        String formProcessingLoginIndex = adminPreferences.getString(KEY_FORM_PROCESSING_LOGIC, context.getString(R.string.default_form_processing_logic));
+        try {
+            if ("-1".equals(formProcessingLoginIndex)) {
+                mode = FormDef.recommendedMode;
+            } else {
+					int preferredModeIndex = Integer.parseInt(formProcessingLoginIndex);
+					switch (preferredModeIndex) {
+						case 0: {
+							mode = FormDef.EvalBehavior.Fast_2014;
+							break;
+						}
+						case 1: {
+							mode = FormDef.EvalBehavior.Safe_2014;
+							break;
+						}
+						case 2: {
+							mode = FormDef.EvalBehavior.April_2014;
+							break;
+						}
+						case 3: {
+							mode = FormDef.EvalBehavior.Legacy;
+							break;
+						}
+						default: {
+							mode = FormDef.recommendedMode;
+							break;
+						}
+					}
+				}
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.w("AdminPreferencesActivity", "Unable to get EvalBehavior -- defaulting to recommended mode");
+            mode = FormDef.recommendedMode;
+        }
+
+        return mode;
+    }
 }

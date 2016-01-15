@@ -26,21 +26,21 @@ Boston, MA 02111-1307, USA.
 
 package org.martus.server.forclients;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
 import org.martus.common.bulletin.Bulletin;
-import org.martus.common.bulletinstore.BulletinStore;
 import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.database.DatabaseKey;
-import org.martus.common.database.MockServerDatabase;
 import org.martus.common.database.ReadableDatabase;
 import org.martus.common.network.NetworkInterfaceConstants;
 import org.martus.common.packet.BulletinHeaderPacket;
 import org.martus.common.packet.UniversalId;
 import org.martus.server.main.MartusServer;
 import org.martus.server.main.ServerBulletinStore;
+import org.martus.server.main.TestServerBulletinStore;
 import org.martus.util.TestCaseEnhanced;
 
 
@@ -53,23 +53,28 @@ public class TestSummaryCollector extends TestCaseEnhanced
 	
 	public void setUp() throws Exception
 	{
-		server = new MockMartusServer();
-		server.initializeBulletinStore(new MockServerDatabase());
+		server = new MockMartusServer(this);
 		authorSecurity = MockMartusSecurity.createClient();
-		BulletinStore store = server.getStore();
+		ServerBulletinStore store = server.getStore();
 
 		original = new Bulletin(authorSecurity);
-		original.setSealed();
-		store.saveBulletinForTesting(original);
+		original.setImmutable();
+		File zip1 = TestServerBulletinStore.createZipFile(original, authorSecurity);
+		store.saveZipFileToDatabase(zip1, authorSecurity.getPublicKeyString());
+		zip1.delete();
 		
 		firstClone = new Bulletin(authorSecurity);
 		firstClone.createDraftCopyOf(original, store.getDatabase());
-		firstClone.setSealed();
-		store.saveBulletinForTesting(firstClone);
+		firstClone.setImmutable();
+		File zip2 = TestServerBulletinStore.createZipFile(firstClone, authorSecurity);
+		store.saveZipFileToDatabase(zip2, authorSecurity.getPublicKeyString());
+		zip2.delete();
 
 		clone = new Bulletin(authorSecurity); 
 		clone.createDraftCopyOf(firstClone, store.getDatabase());
-		store.saveBulletinForTesting(clone);
+		File zip3 = TestServerBulletinStore.createZipFile(clone, authorSecurity);
+		store.saveZipFileToDatabase(zip3, authorSecurity.getPublicKeyString());
+		zip3.delete();
 		
 	}
 	
@@ -147,24 +152,25 @@ public class TestSummaryCollector extends TestCaseEnhanced
 		
 		String history = original.getLocalId() + " " + firstClone.getLocalId() + " ";
 
-		
-		String expectedSizeDateHistory = minimalSummary + "=0=" + bhp.getLastSavedTime() + "=" + history;
+		String expectedSizeDateHistoryStart = minimalSummary + "=";
+		String expectedSizeDateHistoryEnd = "=" + bhp.getLastSavedTime() + "=" + history;
 
 		tags.add(NetworkInterfaceConstants.TAG_BULLETIN_SIZE);
 		tags.add(NetworkInterfaceConstants.TAG_BULLETIN_DATE_SAVED);
 		tags.add(NetworkInterfaceConstants.TAG_BULLETIN_HISTORY);
 		String gotSizeDateHistory = SummaryCollector.extractSummary(bhp, db, tags, server.getLogger());
-		assertEquals(expectedSizeDateHistory, gotSizeDateHistory);
+		assertStartsWith(expectedSizeDateHistoryStart, gotSizeDateHistory);
+		assertEndsWith(expectedSizeDateHistoryEnd, gotSizeDateHistory);
 		
 		
-		String expectedHistoryDateSize = minimalSummary + "=" + history + "=" + bhp.getLastSavedTime() +"=0";
+		String expectedHistoryDateSizeStart = minimalSummary + "=" + history + "=" + bhp.getLastSavedTime() +"=";
 
 		tags.clear();
 		tags.add(NetworkInterfaceConstants.TAG_BULLETIN_HISTORY);
 		tags.add(NetworkInterfaceConstants.TAG_BULLETIN_DATE_SAVED);
 		tags.add(NetworkInterfaceConstants.TAG_BULLETIN_SIZE);
 		String gotHistoryDateSize = SummaryCollector.extractSummary(bhp, db, tags, server.getLogger());
-		assertEquals(expectedHistoryDateSize, gotHistoryDateSize);
+		assertStartsWith(expectedHistoryDateSizeStart, gotHistoryDateSize);
 	}
 
 	MockMartusServer server;

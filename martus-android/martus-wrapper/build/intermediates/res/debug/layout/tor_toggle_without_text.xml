@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:autoLink="web"
+        android:id="@+id/checkBox_use_tor"
+        android:layout_gravity="left|center_vertical"/>
+
+</LinearLayout><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/layout/tor_toggle_without_text.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/layout/tor_toggle_without_text.xml -->

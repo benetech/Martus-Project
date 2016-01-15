@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string name="survey_loading_reading_form_message">Lecture de la définition du formulaire...</string>
+    <string name="button_label_complete_new_form">Créer un bulletin</string>
+    <string name="title_existing_forms">Bulletins existants</string>
+    <string name="label_enter_passphrase">Saisir un mot de passe</string>
+    <string name="label_confirm_passphrase">Confirmez le mot de passe</string>
+    <string name="label_create_account">Créer un compte</string>
+    <string name="title_login">Se connecter</string>
+    <string name="label_pass_phrases_do_not_match">Les mots de passe ne correspondent pas !</string>
+    <string name="label_invalid_pass_phrase_length">La longueur du mot de passe est invalide, il doit comporter au moins 8 caractères !</string>
+    <string name="label_empty_pass_phrase">Veuillez saisir un mot de passe</string>
+    <string name="label_incorrect_pass_phrase">Mot de passe erroné</string>
+    <string name="invalid_server_ip">Adresse IP invalide</string>
+    <string name="label_connecting_to_server">Connexion au serveur</string>
+    <string name="error_message">Erreur</string>
+    <string name="error_connecting_to_server">Erreur de connexion au serveur</string>
+    <string name="no_upload_rights">Mot magique incorrect</string>
+    <string name="label_server_connection_setup_successful">Vous avez configuré avec succès une connexion vers le serveur Martus !</string>
+    <string name="invalid_server_public_code">Code public du serveur invalide</string>
+    <string name="progress_confirming_upload_rights">Confirmation des droits de téléversement</string>
+    <string name="successful_server_choice">Connecté au serveur avec succès !</string>
+    <string name="invalid_server_info">Les informations du serveur saisies sont invalides</string>
+    <string name="error_establishing_upload_rights">Erreur de détermination des droits de téléversement</string>
+    <string name="no_network_connection">L\'appareil n\'a pas de connectivité !</string>
+    <string name="progress_preparing_to_connect">Préparation de connexion au serveur</string>
+    <string name="error_create_account">Erreur de création du compte</string>
+    <string name="label_setup_secure_storage">Mise en place du stockage sécurisé</string>
+    <string name="no_forms">Aucun bulletin</string>
+    <string name="my_forms">Bulletins existants</string>
+    <string name="passphrase">Mot de passe</string>
+    <string name="blank_label"></string>
+    <string name="send_bulletin">Envoyer le bulletin</string>
+    <string name="invalid_password">Le mot de passe doit comporter au moins 8 caractères</string>
+    <string name="settings_pwd_equal">Mots de passe identiques !</string>
+    <string name="settings_pwd_not_equal">Les mots de passe ne correspondent pas !</string>
+    <string name="error_incorrect_passphrase">Mot de passe erroné, veuillez ressayer !</string>
+    <string name="form_title_label">Titre du formulaire</string>
+    <string name="save">Enregistrer</string>
+    <string name="syncing_form">Synchro du formulaire</string>
+    <string name="keypair_creation_failed">Échec de création de la biclé Martus</string>
+    <string name="error_message_unexpected_error">Erreur inattendue</string>
+    <string name="error_message_invalid_chars">Des caractères invalides ont été utilisés dans le mot de passe</string>
+    <string name="error_message_move_failed">Problème de déplacement du bulletin en échec</string>
+    <string name="label_no_attachments">Aucune pièce jointe</string>
+    <string name="label_no_images_in_gallery">Aucune photo</string>
+    <string name="form_author_field_hint">Auteur du formulaire</string>
+    <string name="form_organization_field_hint">Organisation d\'appartenance du formulaire</string>
+    <string name="label_auto_generated_orphan_group_name">SANS NOM</string>
+    <string name="preparing_record_for_upload">Préparation du bulletin pour le téléversement</string>
+    <string name="uploading_record">Téléversement du bulletin...</string>
+    <string name="could_not_delete_attachment">Impossible de supprimer la pièce jointe : %1$s</string>
+    <string name="show_version">Montrer la version</string>
+    <string name="version_name_label">Nom de la version : %1$s</string>
+    <string name="version_code_label">Code de la version : %1$s</string>
+    <string name="send_failed_cant_reach_server">Impossible d\'atteindre le serveur</string>
+    <string name="bulletin_sending_progress">Envoi...</string>
+    <string name="default_author">Auteur inconnu</string>
+    <string name="error_cleaning_up_odk_folders">Erreur lors du nettoyage des dossiers</string>
+    <string name="failed_send_notification">L\'envoi a échoué à cause de : %1$s. Ressayez plus tard.</string>
+    <string name="failure_choosing_file">Échec de choix du fichier</string>
+    <string name="failure_zipping_bulletin">Échec de compression du bulletin</string>
+    <string name="starting_send_notification">Envoi...</string>
+    <string name="successful_send_notification">Bulletin envoyé !</string>
+    <string name="title_attachments">Pièces jointes de formulaire</string>
+    <string name="xforms_constraint_error">Impossible de téléverser :\nUn problème de contrainte a été trouvé dans le formulaire</string>
+    <string name="xforms_missing_required_field">Impossible de téléverser :\n Il manque un champ obligatoire</string>
+    <string name="hint_password_field">Mot de passe</string>
+    <string name="hint_confirm_password_field">Confirmez le mot de passe</string>
+    <string name="label_enter_your_password">Entrez votre mot de passe pour continuer</string>
+    <!--Override Cacheword-->
+    <string name="cacheword_notification_cached_title">Compte déverrouillé</string>
+    <string name="cacheword_notification_cached">Le prototype secureApp est déverrouillé. Toquer pour verrouiller.</string>
+    <string name="cacheword_notification_cached_message">Le prototype secureApp est déverrouillé. Toquer pour verrouiller.</string>
+    <!--End override Cacheword-->
+    <!--Override ODK-->
+    <string name="required_answer_error">Il manque une réponse obligatoire.</string>
+    <!--End override ODK-->
+</resources>

@@ -307,6 +307,17 @@ public class Bulletin implements BulletinConstants
 		return false;
 	}
 	
+	public boolean isShared()
+	{
+		if (!isSnapshot())
+			return false;
+		
+		if (getAuthorizedToReadKeys().isEmpty())
+			return false;
+		
+		return true;
+	}
+	
 	public void setImmutableOnServer(boolean immutable)
 	{
 		getBulletinHeaderPacket().setImmutableOnServer(immutable);

@@ -32,8 +32,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
-import junit.framework.Assert;
-
 import org.martus.amplifier.common.AmplifierLocalization;
 import org.martus.amplifier.common.SearchParameters;
 import org.martus.amplifier.common.SearchResultConstants;
@@ -147,13 +145,13 @@ public class TestLuceneSearcher extends CommonSearchTest
 		indexBulletin1();
 
 		Results foundAuthors = simpleSearch(fdp1.get(SEARCH_AUTHOR_INDEX_FIELD));
-		Assert.assertEquals(1, foundAuthors.getCount());
+		assertEquals(1, foundAuthors.getCount());
 		
 		Results foundKeywords = simpleSearch(fdp1.get(SEARCH_KEYWORDS_INDEX_FIELD));
-		Assert.assertEquals(1,foundKeywords.getCount());
+		assertEquals(1,foundKeywords.getCount());
 		
 		Results foundDetails = simpleSearch(fdp1.get(SEARCH_DETAILS_INDEX_FIELD));
-		Assert.assertEquals(1, foundDetails.getCount());
+		assertEquals(1, foundDetails.getCount());
 	}
 	
 	public void testSearchForWords() throws Exception
@@ -178,7 +176,7 @@ public class TestLuceneSearcher extends CommonSearchTest
 	private void verifyWordFoundCount(int expectedCount, String searchWord) throws Exception, BulletinIndexException
 	{
 		Results foundWord = simpleSearch(searchWord);
-		Assert.assertEquals(expectedCount, foundWord.getCount());
+		assertEquals(expectedCount, foundWord.getCount());
 	}
 
 	private Results simpleSearch(String searchValue) throws Exception
@@ -223,36 +221,36 @@ public class TestLuceneSearcher extends CommonSearchTest
 		BulletinSearcher searcher = openBulletinSearcher();
 		try {
 			BulletinInfo found = searcher.lookup(bulletinId1);
-			Assert.assertNotNull(
+			assertNotNull(
 				"Didn't find indexed bulletin", 
 				found);
 			
 			AttachmentProxy[] origProxies = fdp1.getAttachments();
 			List foundAttachments = found.getAttachments();
-			Assert.assertEquals(
+			assertEquals(
 				origProxies.length, foundAttachments.size());
 			for (int i = 0; i < origProxies.length; i++) {
-				Assert.assertEquals(
+				assertEquals(
 					origProxies[i].getUniversalId().getLocalId(), 
 					((AttachmentInfo) foundAttachments.get(i)).getLocalId());	
-				Assert.assertEquals(
+				assertEquals(
 					origProxies[i].getLabel(), 
 					((AttachmentInfo) foundAttachments.get(i)).getLabel());
 			}
 			
-			Assert.assertEquals(
+			assertEquals(
 				bulletinId1, found.getBulletinId());
 			Collection fields = BulletinField.getSearchableFields();
 			for (Iterator iter = fields.iterator(); iter.hasNext();) 
 			{
 				BulletinField field = (BulletinField) iter.next();
 				if(field.isDateRangeField())
-					Assert.assertEquals(
+					assertEquals(
 						fdp1.get(field.getXmlId()), 
 						found.get(field.getIndexId()+"-start"));
 					
 				else
-					Assert.assertEquals(
+					assertEquals(
 						fdp1.get(field.getXmlId()), 
 						found.get(field.getIndexId()));
 			}

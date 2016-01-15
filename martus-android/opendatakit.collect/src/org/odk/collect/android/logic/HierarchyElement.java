@@ -111,4 +111,7 @@ public class HierarchyElement {
         return mColor;
     }
 
+    public String toString() {
+        return getPrimaryText();
+    }
 }

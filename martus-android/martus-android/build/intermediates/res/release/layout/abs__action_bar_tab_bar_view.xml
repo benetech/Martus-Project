@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.actionbarsherlock.internal.widget.IcsLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?attr/actionBarTabBarStyle"
+/><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/actionbarSherlock/res/layout/abs__action_bar_tab_bar_view.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/layout/abs__action_bar_tab_bar_view.xml -->

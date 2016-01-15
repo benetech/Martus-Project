@@ -1,7 +1,7 @@
 #! /usr/env ruby
 =begin
 The Martus(tm) free, social justice documentation and
-monitoring software. Copyright (C) 2006-2013, Beneficent
+monitoring software. Copyright (C) 2006-2015, Beneficent
 Technology, Inc. (Benetech).
 
 Martus is free software; you can redistribute it and/or

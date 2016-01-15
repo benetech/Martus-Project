@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+    <item>Englisch</item>
+    <item>Arabisch</item>
+    <item>Armenisch</item>
+    <item>Aserbeidschanisch</item>
+    <item>Bulgarisch</item>
+    <item>Bengalisch</item>
+    <item>Birmanisch</item>
+    <item>Chinesisch</item>
+    <item>Niederländisch</item>
+    <item>Esperanto</item>
+    <item>Farsi/Dari</item>
+    <item>Französisch</item>
+    <item>Deutsch</item>
+    <item>Gujarati</item>
+    <item>Hausa</item>
+    <item>Hebräisch</item>
+    <item>Hindi</item>
+    <item>Ungarisch</item>
+    <item>Italienisch</item>
+    <item>Japanisch</item>
+    <item>Javanisch</item>
+    <item>Kannada</item>
+    <item>Kasachisch</item>
+    <item>Khmer</item>
+    <item>Kirgisisch</item>
+    <item>Koreanisch</item>
+    <item>Kurdisch</item>
+    <item>Malayalam</item>
+    <item>Marathi</item>
+    <item>Nepali</item>
+    <item>Oriya</item>
+    <item>Panjabi</item>
+    <item>Paschtunisch</item>
+    <item>Polnisch</item>
+    <item>Portugiesisch</item>
+    <item>Rumänisch</item>
+    <item>Russisch</item>
+    <item>Serbisch</item>
+    <item>Sindhi</item>
+    <item>Singhalesisch</item>
+    <item>Spanisch</item>
+    <item>Tamil</item>
+    <item>Tadschikisch</item>
+    <item>Telugu</item>
+    <item>Thailändisch</item>
+    <item>Türkisch</item>
+    <item>Turkmenisch</item>
+    <item>Ukrainisch</item>
+    <item>Urdu</item>
+    <item>Usbekisch</item>
+    <item>Vietnamesisch</item>
+  </string-array>
+    <string-array name="entries_timeout_preference">
+    <item>10 Minuten</item>
+    <item>7 Minuten</item>
+    <item>5 Minuten</item>
+    <item>3 Minuten</item>
+    <item>1 Minute</item>
+  </string-array>
+    <string-array name="font_size_entries">
+    <item>@string/font_size_extra_large</item>
+    <item>@string/font_size_large</item>
+    <item>@string/font_size_medium</item>
+    <item>@string/font_size_small</item>
+    <item>@string/font_size_extra_small</item>
+  </string-array>
+    <string-array name="navigation_entries">
+    <item>@string/swipe_navigation</item>
+    <item>@string/buttons_navigation</item>
+    <item>@string/swipe_buttons_navigation</item>
+  </string-array>
+    <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+    <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+    <plurals name="confirm_reset_install_extra">
+    <item quantity="one">Sie werden %1$s nicht versandte oder gerade in Sendung befindliche Einträge verlieren.</item>
+    <item quantity="other">Sie werden %1$s nicht versandte oder gerade in Sendung befindliche Einträge verlieren.</item>
+  </plurals>
+    <plurals name="show_unsent_count">
+    <item quantity="one">Sie haben %1$s ungesendete Einträge. Sie können sie über das Extrasmenü erneut versenden.</item>
+    <item quantity="other">Sie haben %1$s ungesendete Einträge. Sie können sie über das Extrasmenü erneut versenden.</item>
+  </plurals>
+    <string name="about_tor_label">Tor verstehen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="accept_location">Standort erfassen</string>
+    <string name="access_error">Fehler beim Zugriff auf %s: </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="access_token">Zugriffs-Token:</string>
+    <string name="account_access_token_label">Zugriffs-Token: %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="accuracy">Genauigkeit</string>
+    <string name="activity_not_found">Folgende Applikation wurde nicht gefunden: %s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="add_another">Gruppe hinzufügen</string>
+    <string name="add_another_repeat">Eine weitere \"%s\"-Gruppe hinzufügen?</string>
+    <string name="add_attachment">Anhang hinzufügen</string>
+    <string name="add_contact_from_file">Kontakt aus Datei importieren</string>
+    <string name="add_contact_using_access_token">Kontakt von Server hinzufügen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="add_more">Mehr hinzufügen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="add_repeat">Eine neue \"%s\"-Gruppe hinzufügen?</string>
+    <string name="add_repeat_no">Nicht hinzufügen</string>
+    <string name="added_on_date_at_time">\'Hinzugefügt am\' EEE, MMM tt, jjjj \'um\' HH:mm</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="admin_access_settings">Tap for admin access to settings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_changed">Administratorpasswort erfolgreich geändert</string>
+    <string name="admin_password_disabled">Administratorpasswort deaktiviert</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_incorrect">Sorry, password is incorrect!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_mismatch">Entschuldigung, Passwörter stimmen nicht überein!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="admin_preferences">Admin Settings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="advanced_server_options">Erweiterte Servereinstellungen</string>
+    <string name="alert_dialog_confirm_password">Passwort bestätigen:</string>
+    <string name="alert_dialog_magic_word">Magisches Wort:</string>
+    <string name="alert_dialog_ok">OK</string>
+    <string name="alert_dialog_password">Passwort:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="altitude">Höhe über Meer</string>
+    <string name="app_url">http://opendatakit.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="attachment_no_longer_exists">Konnte nicht gesendet werden, da Anhang %1$s gelöscht wurde vom Gerät </string>
+    <string name="attachments_add_label">Anhänge:</string>
+    <string name="attachments_added_label">Anhänge (zum löschen drücken und festhalten):</string>
+    <string name="audio_file_error">Es wurde keine Audiodatei angegeben.</string>
+    <string name="audio_file_invalid">Datei: %s ist keine gültige Audiodatei.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values-de/strings.xml -->
+    <eat-comment/>
+    <string msgid="3983201110833868073" name="auth_client_needs_enabling_title">"Anwendung erfordert aktivierte Google Play-Dienste"</string>
+    <string msgid="7999585836145154206" name="auth_client_needs_installation_title">"Anwendung erfordert die Installation von Google Play-Diensten"</string>
+    <string msgid="6488605506794595966" name="auth_client_needs_update_title">"Anwendung erfordert ein Update für Google Play-Dienste"</string>
+    <string msgid="3635065018897986478" name="auth_client_play_services_err_notification_msg">"Fehler bei Google Play-Diensten"</string>
+    <string msgid="6304135633531965756" name="auth_client_requested_by_msg">"Angefordert von <ns1:g id="APP_NAME">%1$s</ns1:g>"</string>
+    <string msgid="2534454398764507874" name="auth_client_using_bad_version_title">"Anwendung versuchte, defekte Google Play-Dienste-Version zu verwenden"</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="autosend">Auto Send</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="autosend_network">Automatisch über Netzwerk senden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="autosend_network_summary">Auto send when network is available</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="autosend_wifi">Automatisch über Wi-Fi senden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="autosend_wifi_summary">Auto send when Wi-Fi is available</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="barcode_scanner_error">Entschuldigung, Barcode Scanner ist nicht installiert!</string>
+    <string name="boolean_false">Nein</string>
+    <string name="boolean_true">Ja</string>
+    <string name="bulletin_packaging_progress">Verschlüsseln und komprimieren...</string>
+    <string name="bulletin_sending_progress">Sende…</string>
+    <string name="buttons_instructions">Sie sind am Anfang von %s. Tippen Sie unten auf die Pfeiltasten, um rückwärts und vorwärts zu gehen.</string>
+    <string name="buttons_navigation">Vorwärts-/Zurück-Schaltflächen verwenden</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="cancel_loading_form">Abbrechen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="cancel_location">Löschen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="cancel_saving_form">Abbrechen</string>
+    <string name="cancel_server">Abbrechen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="cannot_edit_completed_form">Dieses Formular kann nicht mehr geändert werden nachdem es als vollständig markiert wurde. Möglicherweise ist es verschlüsselt.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="capture_audio">Ton aufnehmen</string>
+    <string name="capture_image">Bild aufnehmen</string>
+    <string name="capture_video">Video aufnehmen</string>
+    <string name="change_font_size">Schriftgröße des Textes</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_formlist_url">Formularlisten-Pfad (der Server-URL angehängt)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_language">Sprache ändern</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_password">Passwort</string>
+    <string name="change_protocol">Server Plattform</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_server">Plattform</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_server_url">Server URL</string>
+    <string name="change_splash_path">Bild ändern</string>
+    <string name="change_submission_url">Submissionspfad (der Server-URL angehängt)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_url_default">URL</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_username">ODK Benutzername</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_username_default">Benutzername</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="change_view">Ansicht ändern</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="choose_file">Martus Datei-Explorer</string>
+    <string name="choose_image">Bild auswählen</string>
+    <string name="choose_server_intro">Als nächstes richten Sie eine Verbindung zum Martus-Server ein, an den Sie die Einträge senden.</string>
+    <string name="choose_server_title">Server auswählen</string>
+    <string name="choose_sound">Ton auswählen</string>
+    <string name="choose_video">Video auswählen</string>
+    <string name="clear_answer">Antwort entfernen</string>
+    <string name="clear_answer_ask">Diese Antwort entfernen?</string>
+    <string name="clear_answer_no">Abbrechen</string>
+    <string name="clearanswer_confirm">Antwort an \"%s\"  entfernen?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="click_to_web">Berühren um zu http://opendatakit.org zu gelangen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="client">Benutzeroberfläche</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values-de/strings.xml -->
+    <eat-comment/>
+    <string msgid="4181637455539816337" name="common_google_play_services_enable_button">"Google Play-Dienste aktivieren"</string>
+    <string msgid="7627896071867667758" name="common_google_play_services_enable_text">"Diese App funktioniert nur, wenn Sie die Google Play-Dienste aktivieren."</string>
+    <string msgid="529078775174559253" name="common_google_play_services_enable_title">"Google Play-Dienste aktivieren"</string>
+    <string msgid="8515591849428043265" name="common_google_play_services_install_button">"Google Play-Dienste installieren"</string>
+    <string msgid="8685301130651051380" name="common_google_play_services_install_text_phone">"Zur Nutzung dieser App sind Google Play-Dienste erforderlich, die auf Ihrem Telefon nicht installiert sind."</string>
+    <string msgid="1589957570365247855" name="common_google_play_services_install_text_tablet">"Zur Nutzung dieser App sind Google Play-Dienste erforderlich, die auf Ihrem Tablet nicht installiert sind."</string>
+    <string msgid="26645092511305524" name="common_google_play_services_install_title">"Google Play-Dienste installieren"</string>
+    <string msgid="4983316348021735578" name="common_google_play_services_invalid_account_text">"Das angegebene Konto ist auf diesem Gerät nicht vorhanden. Bitte wählen Sie ein anderes Konto aus."</string>
+    <string msgid="1066672360770936753" name="common_google_play_services_invalid_account_title">"Ungültiges Konto"</string>
+    <string msgid="9038847255613537209" name="common_google_play_services_network_error_text">"Um eine Verbindung zu den Google Play-Diensten herzustellen, ist eine Datenverbindung erforderlich."</string>
+    <string msgid="3827284619958211114" name="common_google_play_services_network_error_title">"Netzwerkfehler"</string>
+    <string msgid="4762332809710093730" name="common_google_play_services_unknown_issue">"Unbekanntes Problem mit Google Play-Diensten"</string>
+    <string msgid="4725396522367789365" name="common_google_play_services_unsupported_date_text">"Das Datum auf dem Gerät scheint falsch zu sein. Bitte überprüfen Sie das Datum auf dem Gerät."</string>
+    <string msgid="3542578567569488671" name="common_google_play_services_unsupported_text">"Google Play-Dienste, auf denen einige Ihrer Apps basieren, werden von diesem Gerät nicht unterstützt. Wenden Sie sich für weitere Informationen an den Hersteller."</string>
+    <string msgid="6334768798839376943" name="common_google_play_services_unsupported_title">"Google Play-Dienste"</string>
+    <string msgid="8932944190611227642" name="common_google_play_services_update_button">"Aktualisieren"</string>
+    <string msgid="448354684997260580" name="common_google_play_services_update_text">"Diese App wird nur ausgeführt, wenn Sie die Google Play-Dienste aktualisieren."</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">"Google Play-Dienste aktualisieren"</string>
+    <string msgid="9071884888741449141" name="common_signin_button_text">"Anmelden"</string>
+    <string msgid="2429381841831957106" name="common_signin_button_text_long">"Über Google anmelden"</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="completed_data">(%s) vervollständigen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="confirm_cancel_bulletin">Diesen Eintrag zurückziehen?</string>
+    <string name="confirm_data_loss">Wenn Sie diese Seite verlassen, gehen alle bisher eingetragenen Daten verloren. Sind Sie sicher, dass Sie diese Seite verlassen wollen?</string>
+    <string name="confirm_default">Sind Sie sicher?</string>
+    <string name="confirm_go_to_device_home">Sind Sie sicher, dass Sie Martus verlassen wollen?</string>
+    <string name="confirm_logout">Sind Sie sicher, dass Sie sich abmelden wollen?</string>
+    <string name="confirm_password_hint">Passwort bestätigen</string>
+    <string name="confirm_remove_attachment">%1$s entfernen?</string>
+    <string name="confirm_reset_install">Sind Sie sicher, dass Sie das löschen wollen?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message">Es ist ein Fehler mit Ihren Einrichtungsdateien aufgetreten. Im Interesse der Sicherheit, löschen Sie bitte Ihr Konto. Drücken Sie auf Ja, um den Vorgang zu starten. Martus wird nicht mit einer beschädigten Einstellungsdatei arbeiten, drücken Sie Nein, um Martus zu beenden.</string>
+    <string name="confirm_tamper_reset_title">Einstellungsfehler</string>
+    <string name="contact_access_token">Kontaktzugriffsinformation</string>
+    <string formatted="false" name="contact_us_info">Für Rückfragen und Rückmeldungen wenden Sie sich per E-Mail an martus@benetech.org</string>
+    <string name="contact_us_menu_item">Kontaktieren Sie uns</string>
+    <string name="create_account_dialog_cancel">Verlassen</string>
+    <string name="create_account_dialog_title">Erstellen Sie ein Passwort</string>
+    <string name="create_account_intro">Willkommen bei Martus! Erstellen Sie zuerst ein neues Mobiles Martus-Konto.</string>
+    <string name="create_password_hint">Neues Passwort</string>
+    <string name="create_sample_bulletin">Eintrag erstellen</string>
+    <string name="custom_form_transition">Sie haben jetzt die Möglichkeit, Anhänge hinzuzufügen oder zurückzukehren zur Bearbeitung des Eingabemaskeneintrags.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="data">Gespeicherte Formulare</string>
+    <string name="data_saved_error">Speichervorgang gescheitert!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="data_saved_ok">Eingabemaske erfolgreich gespeichert!</string>
+    <string name="date_range_end"> (Ende)</string>
+    <string name="date_range_start"> (Anfang)</string>
+    <string name="date_validation_min">Datum muss %1$s oder später sein.</string>
+    <string name="date_validation_min_max">Datum muss zwischen %1$s und %2$s liegen.</string>
+    <string name="default_author">Unbekannter Verfasser</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="default_completed">Standardmässig als Vollständig markieren</string>
+    <string name="default_completed_summary">Formular wird standardmässig als Vollständig markiert</string>
+    <string name="default_splash_path">ODK Standard</string>
+    <string name="delete_confirm">%s Formular(e) löschen?</string>
+    <string name="delete_file">Auswahl löschen</string>
+    <string name="delete_no">Nicht löschen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="delete_repeat">Gruppe entfernen</string>
+    <string name="delete_repeat_ask">Diese Gruppe entfernen?</string>
+    <string name="delete_repeat_confirm">Gruppe \"%s\" mit all ihren Untergruppen entfernen?</string>
+    <string name="delete_repeat_no">Abbrechen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="delete_yes">Formulare löschen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="desktop_public_code_hint">Öffentlicher Code des Desktop-Kontos</string>
+    <string name="desktop_sync_choose_file">Martus Desktop-Kontodatei auswählen (.mpi)</string>
+    <string name="desktop_sync_public_code">Dann den Öffentlichen Code des Martus Desktop-Kontos eingeben:</string>
+    <string name="desktop_sync_title">Martus Desktop-Konto Informationen</string>
+    <string name="dialog_title_timeout_preference">Zeitüberschreitungsdauer</string>
+    <string name="discard_answer">Antwort entfernen</string>
+    <string name="discard_group">Gruppe entfernen</string>
+    <string name="do_not_change">Abbrechen</string>
+    <string name="do_not_exit">Abbrechen</string>
+    <string name="do_not_save">Eingabemaske löschen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="download">Auswahl herunterladen</string>
+    <string name="download_forms_result">Download Resultat</string>
+    <string name="downloading_data">Verbindung mit dem Server wird aufgebaut</string>
+    <string name="draw_image">Zeichnung erstellen</string>
+    <string name="edit_prompt">Eingabe ändern</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="end_form_button">Anhänge hinzufügen und senden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="enter_admin_password">Enter Admin Password</string>
+    <string name="enter_data">Leeres Formular ausfüllen</string>
+    <string name="enter_data_button">Leeres Formular ausfüllen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="enter_magic_word_hint">Magisches Wort eingeben</string>
+    <string name="enter_new_password">Neues Passwort eingeben</string>
+    <string name="enter_password_hint">Passwort eingeben</string>
+    <string name="entering_repeat">Gruppe hinzufügen</string>
+    <string name="entering_repeat_ask">Neue Gruppe hinzufügen?</string>
+    <string name="error_computing_public_code">Fehler beim Speichern der Servereinstellungen</string>
+    <string name="error_create_account">Fehler beim Erstellen des Kontos</string>
+    <string name="error_getting_server_key">Fehler beim Verbinden zum Server</string>
+    <string name="error_message">Fehler</string>
+    <string name="error_occured">Fehler aufgetreten</string>
+    <string name="error_retrieving_contact">Fehler beim Abruf der Kantaktdaten</string>
+    <string name="export_public_account_id_dialog_error">Kontokennung konnte nicht exportiert werden</string>
+    <string name="export_public_account_id_dialog_title">Fehler beim exportieren der öffentlichen Kontokennung</string>
+    <string name="export_public_account_id_menu_item">Öffentliche Kontokennung exportieren</string>
+    <string name="exported_account_id_file_confirmation">Exportiert nach</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="ext_file_no_data_error">Die Datei enthält keine Daten!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="failed_send_notification">Senden fehlgeschlagen wegen: %1$s . Senden später wiederholen.</string>
+    <string name="failure_choosing_file">Auswahl der Datei ist fehlgeschlagen</string>
+    <string name="failure_zipping_bulletin">Konnte Eintrag nicht komprimieren</string>
+    <string name="fetched_picasa_image">Picasa-Bild erhalten</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="fetching_manifest">%s. Manifest wird geladen </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="fetching_picasa_image">Picasa-Bild wird abgerufen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="file_delete_in_progress">Ein Formular wird bereits gelöscht!</string>
+    <string name="file_deleted_error">%1$s von %2$s Formular(en) konnte(n) nicht gelöscht werden!</string>
+    <string name="file_deleted_ok">%s Formular(e) erfolgreich gelöscht!</string>
+    <string name="file_fetch_failed">Fehler: %2$s (%3$s) at %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="file_invalid">Datei: %s ist ungültig.</string>
+    <string name="file_missing">Datei: %s fehlt.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="finalized_on_date_at_time">\'Fertig gestellt am\' EEE, MMM dd, yyyy \'um\' HH:mm</string>
+    <string name="finished_disk_scan">File-Suche beendet. Alle Formulare wurden geladen.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="font_size">Schriftgröße des Textes</string>
+    <string name="font_size_extra_large">Extragroß</string>
+    <string name="font_size_extra_small">Extraklein</string>
+    <string name="font_size_large">Groß</string>
+    <string name="font_size_medium">Mittelgroß</string>
+    <string name="font_size_small">Klein</string>
+    <string name="form_backward">Vorh</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="form_download_progress">%1$s. Media Files werden geladen: %2$s von %3$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="form_forward">Weiter</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="form_scan_starting">Formulare werden gesucht…</string>
+    <string name="formlist_url">Formularlisten-Pfad</string>
+    <string name="forms">Leere Formulare</string>
+    <string name="found_at_end">Uncheck to hide from end of Form Entry</string>
+    <string name="found_in_main">Uncheck to hide from Main Menu</string>
+    <string name="found_in_menu">Found using Menu button in Form Entry</string>
+    <string name="found_in_settings">Uncheck to hide from General Settings</string>
+    <string name="fs_create_media_folder_error">Das media Verzeichnis \'%s\' kann nicht angelegt werden.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="general_preferences">Einstellungen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="get_barcode">Strichcode erfassen</string>
+    <string name="get_forms">Leeres Formular herunterladen</string>
+    <string name="get_location">Standort erfassen</string>
+    <string name="getting_location">Standort wird erhoben</string>
+    <string name="go_to_location">Zum Standort</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="goto_server_setup_button">Weiter</string>
+    <string name="help_menu">Hilfe</string>
+    <string name="import_contact_title">Kontakt importieren</string>
+    <string name="import_hq_intro">Zum Schluss trage die Informationen über den Martus Account ein, zu dem Du Deine Mobilen Martus Einträge senden möchtest. Du musst eine öffentliche Martus Account ID Datei (endet auf “.mpi”) und den öffentlichen Schlüssel von dem Martus Desktop Account haben, auf dem Du Deine Mobilen Martus Einträge empfangen möchtest, um diesen Schritt abzuschließen.</string>
+    <string name="incorrect_password">Falsches Passwort</string>
+    <string name="install_explorer_text">Falls Sie die gesuchte Datei nicht finden können, installieren Sie bitte einen besseren Datei-Manager:</string>
+    <string name="install_file_explorer">Probieren Sie einen anderen Datei-Explorer aus</string>
+    <string name="install_orbot_">Orbot installieren</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="invalid_answer_error">Diese Antwort ist nicht gültig!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="invalid_orbot_message">Bitte installieren Sie Orbot aus dem Google Play Store erneut</string>
+    <string name="invalid_orbot_title">Ungültige Orbot-Installation</string>
+    <string name="invalid_password">Passwort muss mindestens 8 Zeichen lang sein</string>
+    <string name="invalid_public_account_file">Ungültige Desktop-Kontodatei</string>
+    <string name="invalid_public_code">Öffentlicher Code stimmt nicht mit der Datei überein</string>
+    <string name="invalid_server_code">Ungültiger öffentlicher Server-Code</string>
+    <string name="invalid_server_info">Ungültige Serverinformationen eingegeben</string>
+    <string name="invalid_server_ip">Ungültige IP-Adresse</string>
+    <string name="jump_to_beginning">Zum Anfang</string>
+    <string name="jump_to_end">Zum Ende</string>
+    <string name="jump_to_previous">Nach oben</string>
+    <string name="keep_changes">Änderungen speichern</string>
+    <string name="label_author">Verfasser</string>
+    <string name="label_entrydate">Eintragsdatum</string>
+    <string name="label_eventdate">Ereignisdatum</string>
+    <string name="label_keywords">Schlüsselwörter</string>
+    <string name="label_location">Ort</string>
+    <string name="label_organization">Organisation</string>
+    <string name="label_privateinfo">Private Infos</string>
+    <string name="label_publicinfo">Öffentliche Infos</string>
+    <string name="label_summary">Zusammenfassung</string>
+    <string name="label_title">Titel</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="latitude">Breitengrad</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="launch_app">Starten</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="launch_printer">Initiate Printing</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="leave_repeat_yes">Nicht hinzufügen</string>
+    <string name="leaving_repeat_ask">Eine weitere Gruppe hinzufügen?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="list_failed_with_error">Formularauflistung gescheitert. %s.</string>
+    <string name="load_remote_form_error">Fehler bei der Formularauflistung</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="loading_form">Eingabemaske wird geladen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="location_accuracy">Genauigkeit beträgt %1$s m</string>
+    <string name="location_provider_accuracy">Verwendung von %1$s. Genauigkeit beträgt %2$s m.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="logout_while_sending_message">Warten Sie bis der Datensatz gesendet wurde.</string>
+    <string name="logout_while_sending_title">Kann momentan nicht abmelden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="longitude">Längengrad</string>
+    <string name="main_menu">Haupt-Menu</string>
+    <string name="main_menu_details">Datenerhebung einfach gemacht…</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="manage_bulletins_menu">Einträge verwalten</string>
+    <string name="manage_files">Gespeicherte Eingabemaske löschen</string>
+    <string name="manage_my_account_menu">Mein Konto verwalten</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="manifest_server_error">Manifest Meldung findet keine OpenRosa Version — Serverfehler?</string>
+    <string name="manifest_tag_error">Bei Manifest Eintrag %s fehlt ein oder mehrere Tag(s): filename, hash, oder downloadUrl</string>
+    <string name="mark_finished">Formular als Vollständig markieren</string>
+    <string name="markup_image">Zeichnung bearbeiten</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="must_login_first_message">Sie müssen sich vor dem Senden des Datensatzes erst anmelden</string>
+    <string name="must_login_first_title">Warnung!</string>
+    <string name="navigation">Navigation</string>
+    <string name="no">Nein</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="no_account">No account</string>
+    <string name="no_app">Die gewünschte Applikation steht nicht zur Verfügung. Bitte tragen sie den Wert manuell ein.</string>
+    <string name="no_connection">Keine Netzwerkverbindung vorhanden</string>
+    <string name="no_forms_uploaded">Kein Formular wurde hochgeladen.</string>
+    <string name="no_items_display">Keine Inhalte vorhanden.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="no_network_connection">Gerät hat keine Verbindung!</string>
+    <string name="no_network_create_bulletin_warning">Jeder Eintrag-Versand, wird aufgrund einer fehlenden Verbindung scheitern (Möglicherweise haben Sie in den Einstellungen nur Wi-Fi ausgewählt).
+
+Klicken Sie auf Senden, um das Eintrag zu verschliessen und zu speichern. Sie können es dann erneut aus dem Extrasmenü senden, sobald Sie wieder verbunden sind.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="no_printer">The requested printer is not installed. Please install the printer.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="no_upload_rights">Ungültiges magisches Wort</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="noselect_error">Keine Formulare ausgewählt!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="off_switch_label">Aus</string>
+    <string name="ok">OK</string>
+    <string name="on_switch_label">Ein</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="open_url">URL öffnen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot wird nicht ausgeführt. Möchten Sie es starten?</string>
+    <string name="orbot_running_should_stop_message">Orbot läuft. Möchten Sie es stoppen?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="parse_error">Formularverarbeitung nicht möglich.</string>
+    <string name="parse_legacy_formlist_failed">Der Server hat kein Vorhandene-Formulare Dokument geliefert, welches mit Aggregate 0.9.x. kompatibel ist : %s</string>
+    <string name="parse_openrosa_formlist_failed">Der Server hat kein Vorhandene-Formulare Dokument geliefert, welches mit dem OpenRosa version 1.0 Standard kompatibel ist: %s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="password">Passwort</string>
+    <string name="password_dialog_title">Anmelden</string>
+    <string name="ping_result_down">Server ist nicht verfügbar</string>
+    <string name="ping_result_ok">Server ist verfügbar</string>
+    <string name="ping_server_menu_item">Server überprüfen</string>
+    <string name="play_audio">Ton abspielen</string>
+    <string name="play_video">Video wiedergeben</string>
+    <string name="please_wait">Bitte warten Sie ein paar Augenblicke.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="please_wait_long">Bitte warten. Dies kann einige Minuten dauern.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="problem_adding_attachment">Fehler beim Hinzufügen von Anhängen zum Datensatz</string>
+    <string name="problem_confirming_magic_word">Fehler beim Überprüfen des Magischen Wortes</string>
+    <string name="problem_creating_bulletin">Konnte neuen Eintrag nicht erstellen</string>
+    <string name="progress_confirming_magic_word">Magisches Wort bestätigen</string>
+    <string name="progress_connecting_to_server">Verbinde mit Server</string>
+    <string name="progress_creating_account">Konto wird erstellt</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="protocol">Server Plattform</string>
+    <string name="provider_disabled_error">Standortdienste sind nicht aktiviert!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="public_code_validation_empty">Öffentlicher Code darf nicht leer sein</string>
+    <string name="quit_application">Beenden %s</string>
+    <string name="quit_entry">Eingabemaske speichern und beenden</string>
+    <string name="quit_menu_title">Abmelden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="refresh">Aktualisieren</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="replace_barcode">Strichcode ersetzen</string>
+    <string name="replace_contact_menu_item">Kontakt aktualisieren</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="replace_location">Standort ersetzen</string>
+    <string name="required_answer_error">Diese Antwort ist erforderlich!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="resend_menu_item">Ungesendete Einträge erneut versenden</string>
+    <string name="resending">Erneutes Senden!</string>
+    <string name="resending_no_bulletins">Sie haben keine ungesendeten Einträge.</string>
+    <string name="resending_no_network">Sie haben keine Verbindung oder Nur Wi-Fi ausgewählt.</string>
+    <string name="reset_image">Zurücksetzen</string>
+    <string name="reset_to_install">Mein Konto löschen</string>
+    <string name="reset_while_sending_title">Kann momentan nicht zurücksetzen</string>
+    <string name="retrieving_contact_information_label">Kontaktinformationen werden abgerufen.</string>
+    <string name="retry_server">Eingabe wiederholen</string>
+    <string name="review_data">Gespeicherte Eingabemaske bearbeiten</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="review_data_button">Gespeichertes Formular ändern</string>
+    <string name="root_element_error">Root element ist nicht &lt;manifest\> — war %s</string>
+    <string name="root_namespace_error">Root element Namespace is falsch: %s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="save_all_answers">Gespeicherte Eingabemaske</string>
+    <string name="save_and_close">Speichern und Schließen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="save_as_error">Gespeicherter Name darf nicht leer sein!</string>
+    <string name="save_enter_data_description">Sie sind am Ende von \"%s\" angelangt.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="save_form_as">Diese Eingabemaske benennen</string>
+    <string name="save_mid">Eingabemaske speichern</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="save_preferences">Save Settings to Disk</string>
+    <string name="saved_data">Unvollständig (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="saved_on_date_at_time">\'Gespeichert am\' EEE, MMM tt, jjjj \'um\' HH:mm</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="savepoint_used">Nicht-gespeicherte Einträge aus dem letzten automatischen Speichern wiederhergestellt!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="saving_form">Eingabemaske wird gespeichert</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="select_another_image">Anderes Bild auswählen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="select_answer">Antwort wählen</string>
+    <string name="select_drawing_color">Zeichnungsfarbe auswählen</string>
+    <string name="select_file_picker">Datei-Explorer auswählen</string>
+    <string name="select_one">Wählen Sie eine Antwort</string>
+    <string name="selected">Ausgewählt: </string>
+    <string name="selected_google_account_text">Google-Konto</string>
+    <string name="send_bulletin">Senden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="send_data">Vollständiges Formular hochladen</string>
+    <string name="send_data_button">Vollständiges Formular hochladen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="send_email_title">E-Mail senden...</string>
+    <string name="send_failed_cant_reach_server">Server kann nicht erreicht werden</string>
+    <string name="send_public_account_id_menu_item">Öffentliche E-Mail-Kontokennung</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">Öffentliche Kontokennung im Eintrag senden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="send_selected_data">Auswahl hochladen</string>
+    <string name="sending_failed_on_date_at_time">\'Senden gescheitert am\' EEE, MMM dd, yyyy \'um\' HH:mm</string>
+    <string name="sending_items">%1$s von %2$s Formular(en) werden hochgeladen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="sent_on_date_at_time">\'Gesendet am\' EEE, MMM tt, jjjj \'um\' HH:mm</string>
+    <string name="server_ip_hint">IP-Adresse eingeben</string>
+    <string name="server_ip_label">IP-Adresse:</string>
+    <string name="server_menu_title">Server auswählen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="server_platform_google_forms">Google Formulare</string>
+    <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+    <string name="server_platform_other">Andere</string>
+    <string name="server_preferences">Server</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="server_public_code_hint">Öffentlichen Server-Code eingeben</string>
+    <string name="server_public_code_label">Öffentlicher Server-Code:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="server_requires_auth">Server verlangt Authentifizierung</string>
+    <string name="server_url">URL</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="set_color">Farbe festlegen</string>
+    <string name="settings_pwd_equal">Passwörter stimmen überein!</string>
+    <string name="settings_pwd_not_equal">Passwörter stimmen nicht überein!</string>
+    <string name="settings_title">Einstellungen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="show_location">Standort anzeigen</string>
+    <string name="show_sent_and_unsent_forms">Gesendete und nicht gesendete Formulare</string>
+    <string name="show_splash">Startbild anzeigen</string>
+    <string name="show_splash_summary">Wird angezeigt während die Applikation aufstartet</string>
+    <string name="show_unsent_forms">Nur nicht gesendete Formulare</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="show_unsent_title">Sie haben ungesendete Einträge.</string>
+    <string name="show_version">Version anzeigen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="sign_button">Unterschrift erfassen</string>
+    <string name="splash_path">Ausgewähltes Startbild</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="start_orbot_">Orbot starten</string>
+    <string name="starting_send_notification">Sende …</string>
+    <string name="stop_orbot">Orbot stoppen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="submission_url">Submissionspfad</string>
+    <string name="success">Erfolg</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="success_import_hq_key">Sie haben erfolgreich ein Martus Desktop-Konto eingerichtet, um Ihre Mobil Martus Einträge zu empfangen. Das Mobil Martus Setup ist abgeschlossen!</string>
+    <string name="success_magic_word">Die Verbindung zum Martus-Server wurde erfolgreich eingerichtet!</string>
+    <string name="successful_send_notification">Eintrag gesendet?</string>
+    <string name="successful_server_choice">Erfolgreich mit dem Server verbunden!</string>
+    <string name="summary_language_preference">Bitte wählen Sie eine Sprache, in der Sie die  Eintragsdaten eingeben</string>
+    <string name="summary_optional_label">Optional</string>
+    <string name="summary_timeout_preference">In Minuten</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="survey_loading_reading_csv_message">Lese CSV Dateien ...</string>
+    <string name="survey_saving_saving_message">Speichere auf SD-Karte...</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="swipe_buttons_instructions">Sie sind am Anfang von %s. Wischen Sie über den Bildschirm wie unten gezeigt oder tippen Sie auf die Pfeiltasten, um rückwärts und vorwärts zu gehen.</string>
+    <string name="swipe_buttons_navigation">Wischen und Schaltflächen verwenden</string>
+    <string name="swipe_instructions">Sie sind am Anfang von %s. Wischen Sie über den Bildschirm wie unten gezeigt, um rückwärts und vorwärts zu gehen.</string>
+    <string name="swipe_navigation">Horizontales Wischen verwenden</string>
+    <string name="title_author_preference">Verfasser</string>
+    <string name="title_hint">Titel</string>
+    <string name="title_language_preference">Eintragssprache</string>
+    <string name="title_summary">Zusammenfassung</string>
+    <string name="title_timeout_preference">Zeitüberschreitung</string>
+    <string name="title_wifi_only_preference">Nur WiFi benutzen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="toggle_selected">Alle auswählen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="tor_label">Tor</string>
+    <string name="tor_option_intro">Schalten Sie als nächstes Tor ein, falls gewünscht.</string>
+    <string name="trigger">OK. Bitte fortfahren.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="upload_results">Hochlad-Ergebnisse</string>
+    <string name="uploading_data">Formular wird gesendet</string>
+    <string name="url_error">Ungültige URL!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="use_default_server">Standardserver verwenden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="use_odk_default">Standardbild verwenden</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string formatted="false" name="use_tor"><b>Tor verwenden</b> (Kann dabei helfen zu verbergen, dass Sie eine Verbindung zu einem Martus-Server herstellen, und kann helfen, die Martus-Server zu erreichen, wenn diese von Ihrem Standort aus blockiert werden, wird aber langsam beim Versenden von Einträge.)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="user_access_form_entry">User can access Form Entry items:</string>
+    <string name="user_access_main_menu">User can access Main Menu items:</string>
+    <string name="user_access_preferences">User can access Change Settings items:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="user_preferences">Einstellungen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="username">Benutzername</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="valid_public_account_file">Gültige Desktop-Kontodatei</string>
+    <string name="verify_new_password">Neues Passwort erneut eingeben</string>
+    <string name="verify_public_code">Öffentlichen Schlüssel bestätigen:\n %1$s</string>
+    <string name="version">Version:</string>
+    <string name="version_code_label">Version %1$s</string>
+    <string name="version_name_label">Versionsname %1$s</string>
+    <string name="view_access_token_menu_item">Zugriffs-Token anzeigen </string>
+    <string name="view_docs_menu">Link zu den Hilfedokumenten</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="view_hierarchy">Zur Eingabeaufforderung</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="view_new_public_code_message">Öffentlicher Code (Neu):\n%1$s</string>
+    <string name="view_old_public_code_message">Öffentlicher Code (Alt):\n%1$s</string>
+    <string name="view_public_code_dialog_error">Kann öffentlichen Code nicht anzeigen</string>
+    <string name="view_public_code_dialog_title">Öffentlicher Code</string>
+    <string name="view_public_code_menu_item">Öffentlichen Code anzeigen</string>
+    <string name="wifi_only_preference_on">Daten nur senden, wenn Wi-Fi verfügbar ist.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="xform_parse_error">XForm parse error. Bei %1$s fehlt Element %2$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-de/values.xml -->
+    <eat-comment/>
+    <string name="yes">Ja</string>
+    <string name="you_must_have_orbot">Orbot muss installiert sein</string>
+</resources>

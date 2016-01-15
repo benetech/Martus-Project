@@ -223,7 +223,7 @@ public class SearchFieldTreeDialog extends FieldTreeDialog
 			}
 		}
 
-		private synchronized void doWork()
+		private synchronized void doWork() throws Exception
 		{
 			FieldValuesLoader loader = new FieldValuesLoader(mainWindow.getApp());
 			loadedValues = loader.loadFieldValuesFromAllBulletinRevisions(progressMeter, spec);

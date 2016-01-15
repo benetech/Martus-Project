@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Label alignment="CENTER" styleClass="headingLevel1" text="%TitleCaseManagement" />
+         </children>
+      </HBox>
+      <Label />
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Label text="     " />
+            <Label styleClass="headingLevel2" text="%MainFolderLabel" />
+            <Label text="     " />
+            <ChoiceBox fx:id="fxFolderChoiceBox" />
+            <Label text="     " />
+            <TextField fx:id="fxFolderCustomTextField" promptText="%EmptyCustomName" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="10.0" top="10.0" />
+   </padding>
+</VBox>

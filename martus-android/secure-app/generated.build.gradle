@@ -1,0 +1,6 @@
+project.ext.set("versionMajor", "0")
+project.ext.set("versionMinor", "0")
+project.ext.set("versionBuild","27")
+project.ext.set("versionSagBuild", "0")
+project.ext.set("appName", "secureAppDemo")
+project.ext.set("customApplicationId", "org.benetech.secureapp")

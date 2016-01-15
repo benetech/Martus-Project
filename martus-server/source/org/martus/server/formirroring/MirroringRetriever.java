@@ -360,7 +360,7 @@ public class MirroringRetriever implements LoggerInterface
 		{
 			throw new MissingBulletinUploadRecordException();
 		}
-		String bur = (String)response.getResultVector().get(0);
+		String bur = response.getResultVector().get(0);
 		return bur;
 	}
 	
@@ -408,8 +408,8 @@ public class MirroringRetriever implements LoggerInterface
 			return false;
 		
 		UniversalId uid = mirroringInfo.getUid();
-		DatabaseKey sealedKey = DatabaseKey.createSealedKey(uid);
-		if(store.doesBulletinRevisionExist(sealedKey))
+		DatabaseKey immutableKey = DatabaseKey.createImmutableKey(uid);
+		if(store.doesBulletinRevisionExist(immutableKey))
 			return false;
 		
 		try
@@ -444,9 +444,9 @@ public class MirroringRetriever implements LoggerInterface
 	{
 		DatabaseKey key = null;
 		if(mirroringInfo.isSealed())
-			key = DatabaseKey.createSealedKey(mirroringInfo.getUid());
+			key = DatabaseKey.createImmutableKey(mirroringInfo.getUid());
 		else if(mirroringInfo.isDraft())
-			key = DatabaseKey.createDraftKey(mirroringInfo.getUid());
+			key = DatabaseKey.createMutableKey(mirroringInfo.getUid());
 		return key;
 	}
 	

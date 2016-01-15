@@ -1,0 +1,66 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/new_password_label"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:text="@string/alert_dialog_password"
+        android:gravity="left"
+        style="@style/MartusTextViewStyle" />
+
+    <org.martus.android.dialog.TextViewWithCorrectTextDirection
+        android:id="@+id/new_password_field"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:scrollHorizontally="true"
+        android:autoText="false"
+        android:capitalize="none"
+        android:gravity="fill_horizontal"
+        android:password="true"
+        android:hint="@string/create_password_hint"
+        android:singleLine="true"
+        style="@style/MartusTextViewStyle" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/confirm_password_label"
+        android:text="@string/alert_dialog_confirm_password"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:gravity="left"
+        style="@style/MartusTextViewStyle" />
+
+    <org.martus.android.dialog.TextViewWithCorrectTextDirection
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/confirm_password_field"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:scrollHorizontally="true"
+        android:autoText="false"
+        android:capitalize="none"
+        android:gravity="fill_horizontal"
+        android:password="true"
+        android:hint="@string/confirm_password_hint"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
+        style="@style/MartusTextViewStyle" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/password_problem_text"
+        android:textStyle="bold"
+        android:gravity="center"
+        style="@style/MartusTextViewStyle"/>
+
+</LinearLayout><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/layout/create_account_fields.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/layout/create_account_fields.xml -->

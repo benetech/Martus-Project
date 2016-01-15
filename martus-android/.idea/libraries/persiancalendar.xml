@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="persiancalendar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/secure-app/libs/persiancalendar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

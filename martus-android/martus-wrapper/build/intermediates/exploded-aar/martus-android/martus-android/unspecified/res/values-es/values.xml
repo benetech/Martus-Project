@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-es/arrays.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+    <item>Inglés</item>
+    <item>Árabe</item>
+    <item>Armenio</item>
+    <item>Azerbaiyano</item>
+    <item>Búlgaro</item>
+    <item>Bengalí, Bangla</item>
+    <item>Birmano</item>
+    <item>Chino</item>
+    <item>Holandés</item>
+    <item>Esperanto</item>
+    <item>Persa/Dari</item>
+    <item>Francés</item>
+    <item>Alemán</item>
+    <item>Gujarati</item>
+    <item>Hausa</item>
+    <item>Hebreo</item>
+    <item>Hindi</item>
+    <item>Húngaro</item>
+    <item>Italiano</item>
+    <item>Japonés</item>
+    <item>Javanés</item>
+    <item>Kannada</item>
+    <item>Kazajo</item>
+    <item>Jemer</item>
+    <item>Kirguís</item>
+    <item>Coreano</item>
+    <item>Kurdo</item>
+    <item>Malayo</item>
+    <item>Marathi</item>
+    <item>Nepalés</item>
+    <item>Oriya</item>
+    <item>Panjabí</item>
+    <item>Pastún</item>
+    <item>Polaco</item>
+    <item>Portugués</item>
+    <item>Rumano</item>
+    <item>Ruso</item>
+    <item>Serbio</item>
+    <item>Sindhi</item>
+    <item>Cingalés</item>
+    <item>Español</item>
+    <item>Tamil</item>
+    <item>Tayiko</item>
+    <item>Telugu</item>
+    <item>Tailandés</item>
+    <item>Turco</item>
+    <item>Turcomano</item>
+    <item>Ucraniano</item>
+    <item>Urdu</item>
+    <item>Uzbeko</item>
+    <item>Vietnamita</item>
+  </string-array>
+    <string-array name="entries_timeout_preference">
+    <item>10 Minutos</item>
+    <item>7 Minutos</item>
+    <item>5 Minutos</item>
+    <item>3 Minutos</item>
+    <item>1 Minuto</item>
+  </string-array>
+    <string-array name="font_size_entries">
+    <item>@string/font_size_extra_large</item>
+    <item>@string/font_size_large</item>
+    <item>@string/font_size_medium</item>
+    <item>@string/font_size_small</item>
+    <item>@string/font_size_extra_small</item>
+  </string-array>
+    <string-array name="navigation_entries">
+    <item>@string/swipe_navigation</item>
+    <item>@string/buttons_navigation</item>
+    <item>@string/swipe_buttons_navigation</item>
+  </string-array>
+    <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+    <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-es/strings.xml -->
+    <eat-comment/>
+    <plurals name="confirm_reset_install_extra">
+    <item quantity="one">Perderá %1$s expediente no enviado o cuyo envío está en curso.</item>
+    <item quantity="other">Perderá %1$s expedientes no enviados o cuyo envío está en curso.</item>
+  </plurals>
+    <plurals name="show_unsent_count">
+    <item quantity="one">Tiene %1$s expediente no enviado. Puede ir al menú Herramientas y reenviarlo.</item>
+    <item quantity="other">Tiene %1$s expedientes no enviados. Puede ir al menú Herramientas y reenviarlos.</item>
+  </plurals>
+    <string name="about_tor_label">Entender Tor</string>
+    <string name="access_token">Credencial de acceso:</string>
+    <string name="account_access_token_label">Credencial de acceso: %1$s</string>
+    <string name="activity_not_found">No se encontró actividad para manejar: %s</string>
+    <string name="add_another">Añadir grupo</string>
+    <string name="add_another_repeat">¿Añadir otro grupo \"%s\"?</string>
+    <string name="add_attachment">Añadir adjunto</string>
+    <string name="add_contact_from_file">Importar contacto desde archivo</string>
+    <string name="add_contact_using_access_token">Añadir contacto desde el servidor</string>
+    <string name="add_repeat">¿Añadir un nuevo grupo \"%s\"?</string>
+    <string name="add_repeat_no">No añadir</string>
+    <string name="added_on_date_at_time">\'Añadido el\' EEE, dd \'de\' MMM \'de\' yyyy \'a las\' HH:mm</string>
+    <string name="admin_access_settings">Pulse para obtener acceso de admin a las configuraciones</string>
+    <string name="admin_password_changed">La contraseña de admin (usuario administrador) fue cambiada con éxito</string>
+    <string name="admin_password_disabled">Contraseña de admin (usuario administrador) deshabilitada</string>
+    <string name="admin_password_mismatch">¡Lo sentimos, las contraseñas no coinciden!</string>
+    <string name="advanced_server_options">Configuración avanzada de servidor</string>
+    <string name="alert_dialog_confirm_password">Confirmar contraseña:</string>
+    <string name="alert_dialog_magic_word">Palabra mágica:</string>
+    <string name="alert_dialog_ok">Aceptar</string>
+    <string name="alert_dialog_password">Contraseña:</string>
+    <string name="attachment_no_longer_exists">No pudo enviarse porque el siguiente adjunto, %1$s , ha sido borrado del dispositivo</string>
+    <string name="attachments_add_label">Adjuntos:</string>
+    <string name="attachments_added_label">Adjuntos (mantenga pulsado para eliminar) :</string>
+    <string name="audio_file_error">No se especificó archivo de audio.</string>
+    <string name="audio_file_invalid">Archivo: %s no es un archivo de audio válido.</string>
+    <string name="autosend_network">Auto enviar por red telefónica</string>
+    <string name="autosend_wifi">Auto enviar por Wi-Fi</string>
+    <string name="barcode_scanner_error">¡Lo sentimos, Barcode Scanner no está instalado!</string>
+    <string name="boolean_false">No</string>
+    <string name="boolean_true">Sí</string>
+    <string name="bulletin_packaging_progress">Cifrando y comprimiendo...</string>
+    <string name="bulletin_sending_progress">Enviando...</string>
+    <string name="buttons_instructions">Usted está al principio de %s. Pulse los botones de flecha de debajo para ir atrás y adelante.</string>
+    <string name="buttons_navigation">Usar botones adelante/atrás</string>
+    <string name="cancel">Cancelar</string>
+    <string name="cancel_loading_form">Cancelar</string>
+    <string name="cancel_saving_form">Cancelar</string>
+    <string name="cancel_server">Cancelar</string>
+    <string name="capture_audio">Grabar sonido</string>
+    <string name="capture_image">Tomar fotografía</string>
+    <string name="capture_video">Grabar vídeo</string>
+    <string name="change_font_size">Tamaño de fuente del texto</string>
+    <string name="change_language">Cambiar idioma</string>
+    <string name="change_server">Plataforma</string>
+    <string name="change_url_default">URL</string>
+    <string name="change_username_default">Nombre de usuario</string>
+    <string name="choose_file">Explorador de archivos de Martus</string>
+    <string name="choose_image">Elegir imagen</string>
+    <string name="choose_server_intro">A continuación, configure una conexión al servidor Martus al que va a estar enviando expedientes.</string>
+    <string name="choose_server_title">Seleccionar servidor</string>
+    <string name="choose_sound">Elegir sonido</string>
+    <string name="choose_video">Elegir vídeo</string>
+    <string name="clear_answer">Eliminar respuesta</string>
+    <string name="clear_answer_ask">¿Eliminar esta respuesta?</string>
+    <string name="clear_answer_no">Cancelar</string>
+    <string name="clearanswer_confirm">¿Eliminar la respuesta a \"%s\"?</string>
+    <string name="client">Interfaz de usuario</string>
+    <string name="confirm_cancel_bulletin">¿Cancelar este expediente?</string>
+    <string name="confirm_data_loss">Si abandona esta pantalla ahora, perderá cualquier dato que haya introducido. ¿Está seguro de que quiere abandonarla?</string>
+    <string name="confirm_default">¿Está seguro?</string>
+    <string name="confirm_go_to_device_home">¿Está seguro de que quiere salir de Martus?</string>
+    <string name="confirm_logout">¿Está seguro de que quiere cerrar sesión?</string>
+    <string name="confirm_password_hint">Repita la contraseña</string>
+    <string name="confirm_remove_attachment">¿Eliminar %1$s ?</string>
+    <string name="confirm_reset_install">¿Está seguro de que la quiere borrar?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message">Ha habido un error con sus archivos de configuración. En interés de la seguridad, por favor, borre su cuenta. Pulsando el botón Sí iniciará este proceso. Martus no funcionará con un archivo de configuración corrupto, así que si pulsa No saldrá de Martus.</string>
+    <string name="confirm_tamper_reset_title">Error de configuración</string>
+    <string name="constraint_behavior">Comportamiento de procesamiento restringido</string>
+    <string name="contact_access_token">Credencial de acceso del contacto</string>
+    <string formatted="false" name="contact_us_info">Si tiene alguna pregunta o comentario sobre Martus, por favor envíe un correo a martus@benetech.org</string>
+    <string name="contact_us_menu_item">Contacte con nosotros</string>
+    <string name="create_account_dialog_cancel">Salir</string>
+    <string name="create_account_dialog_title">Crear una nueva contraseña</string>
+    <string name="create_account_intro">¡Bienvenido a Martus! Primero cree una nueva cuenta de Martus Móvil.</string>
+    <string name="create_password_hint">Nueva contraseña</string>
+    <string name="create_sample_bulletin">Crear expediente</string>
+    <string name="custom_form_transition">Esta es su oportunidad de añadir cualquier adjunto, o de pulsar atrás para editar la entrada del expediente.</string>
+    <string name="data_saved_error">¡Lo sentimos, fallo al guardar el formulario!</string>
+    <string name="data_saved_ok">¡Formulario guardado con éxito!</string>
+    <string name="date_range_end">(final)</string>
+    <string name="date_range_start">(principio)</string>
+    <string name="date_validation_min">La fecha debe ser de, o posterior al %1$s .</string>
+    <string name="date_validation_min_max">La fecha debe estar entre (incluídas) el %1$s y el %2$s.</string>
+    <string name="default_author">Autor desconocido</string>
+    <string name="default_completed">Por defecto a finalizado</string>
+    <string name="delete_repeat">Eliminar grupo</string>
+    <string name="delete_repeat_ask">¿Eliminar este grupo?</string>
+    <string name="delete_repeat_confirm">¿Eliminar grupo \"%s\" y todos sus sub-grupos?</string>
+    <string name="delete_repeat_no">Cancelar</string>
+    <string name="desktop_public_code_hint">Código público de cuenta de escritorio</string>
+    <string name="desktop_sync_choose_file">Elija un archivo de cuenta (.mpi) de Martus de Escritorio</string>
+    <string name="desktop_sync_public_code">Entonces introduzca el código público de cuenta de Martus de Escritorio:</string>
+    <string name="desktop_sync_title">Información de cuenta de Martus de Escritorio</string>
+    <string name="dialog_title_timeout_preference">Tiempo hasta la expiración</string>
+    <string name="discard_answer">Eliminar respuesta</string>
+    <string name="discard_group">Eliminar grupo</string>
+    <string name="do_not_change">Cancelar</string>
+    <string name="do_not_exit">Cancelar</string>
+    <string name="do_not_save">Limpiar formulario</string>
+    <string name="draw_image">Esbozar imagen</string>
+    <string name="edit_prompt">Solicitud de edición</string>
+    <string name="end_form_button">Añadir adjuntos y enviar</string>
+    <string name="enter_magic_word_hint">Introduzca palabra mágica</string>
+    <string name="enter_new_password">Introduzca la nueva contraseña</string>
+    <string name="enter_password_hint">Introduzca contraseña</string>
+    <string name="entering_repeat">Añadir grupo</string>
+    <string name="entering_repeat_ask">¿Añadir nuevo grupo?</string>
+    <string name="error_computing_public_code">Error al guardar las preferencias del servidor</string>
+    <string name="error_create_account">Error al crear cuenta</string>
+    <string name="error_getting_server_key">Error al conectar al servidor</string>
+    <string name="error_message">Error</string>
+    <string name="error_occured">Ocurrió un error</string>
+    <string name="error_retrieving_contact">Error al obtener el contacto</string>
+    <string name="export_public_account_id_dialog_error">No se pudo exportar la identificación de cuenta</string>
+    <string name="export_public_account_id_dialog_title">Error al exportar identificación pública de cuenta</string>
+    <string name="export_public_account_id_menu_item">Exportar identificación pública de cuenta</string>
+    <string name="exported_account_id_file_confirmation">Exportado a</string>
+    <string name="failed_send_notification">El envío falló debido a: %1$s . Intente reenviarlo más tarde.</string>
+    <string name="failure_choosing_file">Fallo al escoger archivo</string>
+    <string name="failure_zipping_bulletin">Fallo al comprimir expediente</string>
+    <string name="fetched_picasa_image">Se obtuvo la imagen de Picasa</string>
+    <string name="fetching_picasa_image">Obteniendo imagen de Picasa</string>
+    <string name="file_invalid">Archivo: %s no es válido.</string>
+    <string name="file_missing">Archivo: %s está ausente.</string>
+    <string name="finalized_on_date_at_time">\'Finalizado el\' EEE, dd \'de\' MMM \'de\' yyyy \'a las\' HH:mm</string>
+    <string name="finished_disk_scan">Escaneado finalizado. Cargados todos los formularios.</string>
+    <string name="font_size">Tamaño de fuente del texto</string>
+    <string name="font_size_extra_large">Extra grande</string>
+    <string name="font_size_extra_small">Extra pequeña</string>
+    <string name="font_size_large">Grande</string>
+    <string name="font_size_medium">Mediana</string>
+    <string name="font_size_small">Pequeña</string>
+    <string name="form_backward">Anterior</string>
+    <string name="form_forward">Siguiente</string>
+    <string name="found_at_end">Desmarcar para ocultar al final del Formulario de Entrada</string>
+    <string name="found_in_main">Desmarcar para ocultar en el Menú Principal</string>
+    <string name="found_in_menu">Desmarcar para ocultar del menú en el Formulario de Entrada</string>
+    <string name="found_in_settings">Desmarcar para ocultar en la Configuración General</string>
+    <string name="general_preferences">Configuración</string>
+    <string name="get_barcode">Obtener código de barras</string>
+    <string name="get_forms">Obtener formulario en blanco</string>
+    <string name="goto_server_setup_button">Siguiente</string>
+    <string name="help_menu">Ayuda</string>
+    <string name="import_contact_title">Importar contacto</string>
+    <string name="import_hq_intro">Finalmente, introduzca información sobre la cuenta de Martus a la que está enviando sus expedientes de Martus Móvil.\n\nPara completar este paso debe tener un archivo de identificación pública de cuenta de Martus (terminado en \".mpi\") y el código público de la cuenta de Martus de Escritorio que desee que reciba sus expedientes de Martus Móvil.</string>
+    <string name="incorrect_password">Contraseña incorrecta</string>
+    <string name="install_explorer_text">Si no puede encontrar el archivo en el que estaba pensando, intente instalar un explorador de archivos más avanzado:</string>
+    <string name="install_file_explorer">Pruebe con otro explorador de archivos</string>
+    <string name="install_orbot_">Instalar Orbot</string>
+    <string name="invalid_answer_error">¡Lo sentimos, esta respuesta no es válida!</string>
+    <string name="invalid_orbot_message">Por favor reinstale Orbot desde la tienda Google Play</string>
+    <string name="invalid_orbot_title">Instalación de Orbot no válida</string>
+    <string name="invalid_password">La contraseña debe tener al menos 8 caracteres</string>
+    <string name="invalid_public_account_file">Archivo de cuenta de escritorio no válido</string>
+    <string name="invalid_public_code">El código público no coincide con el del archivo</string>
+    <string name="invalid_server_code">Código público de servidor no válido</string>
+    <string name="invalid_server_info">La información de servidor introducida no es válida</string>
+    <string name="invalid_server_ip">Dirección IP no válida</string>
+    <string name="jump_to_beginning">Ir al inicio</string>
+    <string name="jump_to_end">Ir al final</string>
+    <string name="jump_to_previous">Subir</string>
+    <string name="keep_changes">Guardar cambios</string>
+    <string name="label_author">Autor</string>
+    <string name="label_entrydate">Fecha de entrada</string>
+    <string name="label_eventdate">Fecha del evento</string>
+    <string name="label_keywords">Palabras clave</string>
+    <string name="label_location">Lugar</string>
+    <string name="label_organization">Organización</string>
+    <string name="label_privateinfo">Información privada</string>
+    <string name="label_publicinfo">Información pública</string>
+    <string name="label_summary">Resumen</string>
+    <string name="label_title">Título</string>
+    <string name="launch_app">Ejecutar</string>
+    <string name="launch_printer">Iniciar impresión</string>
+    <string name="leave_repeat_yes">No añadir</string>
+    <string name="leaving_repeat_ask">¿Añadir un grupo más?</string>
+    <string name="loading_form">Cargando formulario</string>
+    <string name="logout_while_sending_message">Por favor espere hasta que el expediente haya terminado de enviarse.</string>
+    <string name="logout_while_sending_title">Aún no puede cerrar sesión</string>
+    <string name="manage_bulletins_menu">Administrar expedientes</string>
+    <string name="manage_files">Borrar formulario guardado</string>
+    <string name="manage_my_account_menu">Administrar mi cuenta</string>
+    <string name="mark_finished">Marcar formulario como finalizado</string>
+    <string name="markup_image">Imagen de etiquetado</string>
+    <string name="must_login_first_message">Primero tiene que iniciar sesión antes de enviar este expediente</string>
+    <string name="must_login_first_title">¡Advertencia!</string>
+    <string name="navigation">Navegación</string>
+    <string name="no">No</string>
+    <string name="no_app">La aplicación requerida está ausente. Por favor introduzca la lectura manualmente.</string>
+    <string name="no_items_display">No hay nada disponible que mostrar.</string>
+    <string name="no_network_connection">¡El dispositivo no tiene conectividad!</string>
+    <string name="no_network_create_bulletin_warning">Cualquier expediente que intente enviar fallará debido a la falta de conectividad (puede que tenga marcado Sólo Usar Wi-Fi en la Configuración).\n\nPero al hacer clic en Enviar cifrará y guardará el expediente, y cuando tenga conectividad usted podrá reenviarlo desde el menú Herramientas.</string>
+    <string name="no_printer">La impresora solicitada no está instalada. Por favor instale la impresora.</string>
+    <string name="no_upload_rights">Palabra mágica incorrecta</string>
+    <string name="off_switch_label">Desactivado</string>
+    <string name="ok">Aceptar</string>
+    <string name="on_switch_label">Activado</string>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot no está ejecutándose. ¿Le gustaría iniciarlo?</string>
+    <string name="orbot_running_should_stop_message">Orbot está ejecutándose. ¿Desea apagarlo?</string>
+    <string name="parse_error">Lo sentimos, no se pudo procesar el formulario.</string>
+    <string name="password">Contraseña</string>
+    <string name="password_dialog_title">Iniciar sesión</string>
+    <string name="ping_result_down">El servidor está caído</string>
+    <string name="ping_result_ok">El servidor está activo</string>
+    <string name="ping_server_menu_item">Comprobar servidor</string>
+    <string name="play_audio">Reproducir sonido</string>
+    <string name="play_video">Reproducir vídeo</string>
+    <string name="please_wait">Por favor espere unos momentos.</string>
+    <string name="problem_adding_attachment">Error al añadir un adjunto al expediente</string>
+    <string name="problem_confirming_magic_word">Error al confirmar la palabra mágica</string>
+    <string name="problem_creating_bulletin">No se pudo crear un expediente nuevo</string>
+    <string name="progress_confirming_magic_word">Confirmando la palabra mágica</string>
+    <string name="progress_connecting_to_server">Conectando con el servidor</string>
+    <string name="progress_creating_account">Creando cuenta</string>
+    <string name="public_code_validation_empty">El código público no puede estar vacío</string>
+    <string name="quit_application">Salir de %s</string>
+    <string name="quit_entry">Guardar formulario y salir</string>
+    <string name="quit_menu_title">Cerrar sesión</string>
+    <string name="replace_barcode">Reemplazar código de barras</string>
+    <string name="replace_contact_menu_item">Actualizar contacto</string>
+    <string name="required_answer_error">¡Lo sentimos, se requiere esta respuesta!</string>
+    <string name="resend_menu_item">Reenviar expedientes no enviados</string>
+    <string name="resending">¡Reenviando!</string>
+    <string name="resending_no_bulletins">No tiene expedientes sin enviar.</string>
+    <string name="resending_no_network">No tiene conectividad, o tiene activado Sólo Usar Wi-Fi.</string>
+    <string name="reset_image">Restablecer</string>
+    <string name="reset_to_install">Borrar mi cuenta</string>
+    <string name="reset_while_sending_title">Aún no puede restablecer</string>
+    <string name="retrieving_contact_information_label">Obteniendo información de contacto.</string>
+    <string name="retry_server">Reintroducir</string>
+    <string name="review_data">Editar formulario guardado</string>
+    <string name="save_all_answers">Guardar formulario</string>
+    <string name="save_and_close">Guardar y cerrar</string>
+    <string name="save_enter_data_description">Está al final del formulario.</string>
+    <string name="save_form_as">Dé nombre a este formulario</string>
+    <string name="save_mid">Guardar formulario</string>
+    <string name="saved_on_date_at_time">\'Guardado el\' EEE, dd \'de\' MMM \'de\' yyyy \'a las\' HH:mm</string>
+    <string name="savepoint_used">¡Cambios no guardados recuperados desde el punto de guardado automático!</string>
+    <string name="saving_form">Guardando formulario</string>
+    <string name="select_answer">Seleccionar respuesta:</string>
+    <string name="select_drawing_color">Seleccionar color del dibujo</string>
+    <string name="select_file_picker">Seleccione un explorador de archivos</string>
+    <string name="select_one">Seleccionar una respuesta</string>
+    <string name="selected">Seleccionada:</string>
+    <string name="selected_google_account_text">Cuenta de Google</string>
+    <string name="send_bulletin">Enviar</string>
+    <string name="send_data">Enviar formulario finalizado</string>
+    <string name="send_email_title">Enviar correo...</string>
+    <string name="send_failed_cant_reach_server">No se pudo alcanzar el servidor</string>
+    <string name="send_public_account_id_menu_item">Enviar correo con la identificación pública de cuenta</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">Enviar identificación pública de cuenta en el expediente</string>
+    <string name="sending_failed_on_date_at_time">\'Envío fallido el\' EEE, dd \'de\' MMM \'de\' yyyy \'a las\' HH:mm</string>
+    <string name="sent_on_date_at_time">\'Enviado el\' EEE, dd \'de\' MMM \'de\' yyyy \'a las\' HH:mm</string>
+    <string name="server_ip_hint">Introduzca dirección IP</string>
+    <string name="server_ip_label">Dirección IP:</string>
+    <string name="server_menu_title">Seleccionar servidor</string>
+    <string name="server_public_code_hint">Introduzca el código público del servidor</string>
+    <string name="server_public_code_label">Código público del servidor:</string>
+    <string name="set_color">Configurar color</string>
+    <string name="settings_pwd_equal">Las contraseñas coinciden</string>
+    <string name="settings_pwd_not_equal">¡Las contraseñas no coinciden!</string>
+    <string name="settings_title">Configuración</string>
+    <string name="show_splash">Mostrar pantalla de inicio</string>
+    <string name="show_unsent_title">Tiene expedientes no enviados.</string>
+    <string name="show_version">Mostrar versión</string>
+    <string name="sign_button">Adjuntar firma</string>
+    <string name="start_orbot_">Iniciar Orbot</string>
+    <string name="starting_send_notification">Enviando...</string>
+    <string name="stop_orbot">Apagar Orbot</string>
+    <string name="success_import_hq_key">Ha configurado con éxito una cuenta de Martus de Escritorio para que reciba sus expedientes de Martus Móvil. ¡Ha completado la instalación de Martus Móvil!</string>
+    <string name="success_magic_word">¡Ha configurado con éxito una conexión al servidor Martus!</string>
+    <string name="successful_send_notification">¡Expediente enviado!</string>
+    <string name="successful_server_choice">¡Ha conectado con éxito con el servidor!</string>
+    <string name="summary_language_preference">Seleccione el idioma en el que introducirá los datos en el expediente.</string>
+    <string name="summary_optional_label">Opcional</string>
+    <string name="summary_timeout_preference">En minutos</string>
+    <string name="swipe_buttons_instructions">Usted está al principio de %s. Deslize la pantalla como se muestra debajo, o pulse en los botones de flecha para ir atrás y adelante.</string>
+    <string name="swipe_buttons_navigation">Usar gestos de deslizamiento y botones</string>
+    <string name="swipe_instructions">Usted está al principio de %s. Deslize la pantalla como se muestra debajo para ir atrás y adelante.</string>
+    <string name="swipe_navigation">Usar gestos de deslizamiento horizontal</string>
+    <string name="title_author_preference">Autor</string>
+    <string name="title_hint">Título</string>
+    <string name="title_language_preference">Idioma del expediente</string>
+    <string name="title_summary">Resumen</string>
+    <string name="title_timeout_preference">Expiración</string>
+    <string name="title_wifi_only_preference">Sólo usar Wi-Fi</string>
+    <string name="tor_label">Tor</string>
+    <string name="tor_option_intro">A continuación, inicie Tor si lo desea.</string>
+    <string name="trigger">OK. Por favor continúe.</string>
+    <string name="use_default_server">Usar servidor predeterminado</string>
+    <string formatted="false" name="use_tor"><b>Utilice Tor</b> (puede ayudar a ocultar que está conectando a un servidor Martus, y puede ayudarle a alcanzar los servidores Martus si están bloqueados desde su ubicación, pero ralentizará el envío de expedientes).</string>
+    <string name="user_access_form_entry">El usuario puede acceder a los elementos del Formulario de Entrada:</string>
+    <string name="user_access_main_menu">El usuario puede acceder a los elementos del Menú Principal:</string>
+    <string name="user_access_preferences">El usuario puede acceder a los elementos de Cambiar Configuración:</string>
+    <string name="user_preferences">Configuración</string>
+    <string name="valid_public_account_file">Archivo de cuenta de escritorio válido</string>
+    <string name="verify_new_password">Re-introduzca la nueva contraseña</string>
+    <string name="verify_public_code">Verifique el código público:\n%1$s</string>
+    <string name="version">Versión:</string>
+    <string name="version_code_label">Versión de compilación %1$s</string>
+    <string name="version_name_label">Nombre de la versión %1$s</string>
+    <string name="view_access_token_menu_item">Ver credencial de acceso</string>
+    <string name="view_docs_menu">Enlace a documentos de ayuda</string>
+    <string name="view_hierarchy">Ir al indicador</string>
+    <string name="view_new_public_code_message">Código público (nuevo):\n%1$s</string>
+    <string name="view_old_public_code_message">Código público (antiguo):\n%1$s</string>
+    <string name="view_public_code_dialog_error">No se pudo mostrar el código público</string>
+    <string name="view_public_code_dialog_title">Código público</string>
+    <string name="view_public_code_menu_item">Ver código público</string>
+    <string name="wifi_only_preference_on">Sólo envía datos cuando el Wi-Fi esté disponible</string>
+    <string name="xform_parse_error">Error procesando XForm (formulario en XML). A %1$s le falta el elemento %2$s</string>
+    <string name="yes">Sí</string>
+    <string name="you_must_have_orbot">Ha de tener Orbot instalado</string>
+</resources>

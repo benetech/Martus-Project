@@ -1,0 +1,1857 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string-array name="constraint_behavior_entries">
+		<item>@string/constraint_behavior_on_swipe</item>
+		<item>@string/constraint_behavior_on_finalize</item>
+	</string-array>
+    <string-array name="constraint_behavior_entry_values" translatable="false">
+		<item>on_swipe</item>
+		<item>on_finalize</item>
+	</string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+        <item>English</item>
+        <item>Arabic</item>
+        <item>Armenian</item>
+        <item>Azerbaijani</item>
+        <item>Bulgarian</item>
+        <item>Bengali, Bangla</item>
+        <item>Burmese</item>
+        <item>Chinese</item>
+        <item>Dutch</item>
+        <item>Esperanto</item>
+        <item>Farsi/Dari</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Gujarati</item>
+        <item>Hausa</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>Hungarian</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Javanese</item>
+        <item>Kannada</item>
+        <item>Kazakh</item>
+        <item>Khmer</item>
+        <item>Kirghiz</item>
+        <item>Korean</item>
+        <item>Kurdish</item>
+        <item>Malayalam</item>
+        <item>Marathi</item>
+        <item>Nepali</item>
+        <item>Oriya</item>
+        <item>Panjabi</item>
+        <item>Pashto, Pushto</item>
+        <item>Polish</item>
+        <item>Portuguese</item>
+        <item>Romanian</item>
+        <item>Russian</item>
+        <item>Serbian</item>
+        <item>Sindhi</item>
+        <item>Sinhalese</item>
+        <item>Spanish</item>
+        <item>Tamil</item>
+        <item>Tajik</item>
+        <item>Telugu</item>
+        <item>Thai</item>
+        <item>Turkish</item>
+        <item>Turkmen</item>
+        <item>Ukranian</item>
+        <item>Urdu</item>
+        <item>Uzbek</item>
+        <item>Vietnamese</item>
+    </string-array>
+    <string-array name="entries_timeout_preference">
+        <item>10 Minutes</item>
+        <item>7 Minutes</item>
+        <item>5 Minutes</item>
+        <item>3 Minutes</item>
+        <item>1 Minute</item>
+    </string-array>
+    <string-array name="font_size_entries">
+    		<item>@string/font_size_extra_large</item>
+    		<item>@string/font_size_large</item>
+    		<item>@string/font_size_medium</item>
+    		<item>@string/font_size_small</item>
+    		<item>@string/font_size_extra_small</item>
+    	</string-array>
+    <string-array name="font_size_entry_values" translatable="false">
+    		<item>29</item>
+    		<item>25</item>
+    		<item>21</item>
+    		<item>17</item>
+    		<item>13</item>
+    	</string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string-array name="form_processing_logic_entries">
+		<item>@string/form_processing_logic_recommended</item>
+		<item>@string/form_processing_logic_0</item>
+		<item>@string/form_processing_logic_1</item>
+		<item>@string/form_processing_logic_2</item>
+		<item>@string/form_processing_logic_3</item>
+	</string-array>
+    <string-array name="form_processing_logic_entry_values" translatable="false">
+		<item>-1</item>
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+	</string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="navigation_entries">
+    		<item>@string/swipe_navigation</item>
+    		<item>@string/buttons_navigation</item>
+    		<item>@string/swipe_buttons_navigation</item>
+    	</string-array>
+    <string-array name="navigation_entry_values" translatable="false">
+    		<item>swipe</item>
+    		<item>buttons</item>
+    		<item>swipe_buttons</item>
+    	</string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string-array name="protocol_entries">
+		<item>@string/server_platform_odk_aggregate</item>
+		<item>@string/server_platform_google_maps_engine</item>
+		<item>@string/server_platform_other</item>
+	</string-array>
+    <string-array name="protocol_entry_values">
+		<item>@string/protocol_odk_default</item>
+		<item>@string/protocol_google_maps_engine</item>
+		<item>@string/protocol_other</item>
+	</string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="values_language_preference">
+        <item>en</item>
+        <item>ar</item>
+        <item>arm</item>
+        <item>az</item>
+        <item>bg</item>
+        <item>bn</item>
+        <item>bur</item>
+        <item>zh</item>
+        <item>nl</item>
+        <item>eo</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>gu</item>
+        <item>ha</item>
+        <item>he</item>
+        <item>hi</item>
+        <item>hu</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>jv</item>
+        <item>kn</item>
+        <item>kk</item>
+        <item>km</item>
+        <item>ky</item>
+        <item>ko</item>
+        <item>ku</item>
+        <item>ml</item>
+        <item>mr</item>
+        <item>ne</item>
+        <item>or</item>
+        <item>pa</item>
+        <item>ps</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ro</item>
+        <item>ru</item>
+        <item>sr</item>
+        <item>sd</item>
+        <item>si</item>
+        <item>es</item>
+        <item>ta</item>
+        <item>tg</item>
+        <item>te</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>tk</item>
+        <item>uk</item>
+        <item>ur</item>
+        <item>uz</item>
+        <item>vi</item>
+    </string-array>
+    <string-array name="values_timeout_preference">
+        <item>10</item>
+        <item>7</item>
+        <item>5</item>
+        <item>3</item>
+        <item>1</item>
+    </string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <attr format="reference|color" name="background"/>
+    <attr format="reference|color" name="backgroundSplit"/>
+    <attr format="reference" name="divider"/>
+    <attr format="dimension" name="height"/>
+    <attr format="reference" name="subtitleTextStyle"/>
+    <attr format="reference" name="titleTextStyle"/>
+    <bool name="abs__action_bar_embed_tabs">false</bool>
+    <bool name="abs__action_bar_expanded_action_views_exclusive">true</bool>
+    <bool name="abs__config_actionMenuItemAllCaps">false</bool>
+    <bool name="abs__config_allowActionMenuItemTextWithIcon">false</bool>
+    <bool name="abs__config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+    <bool name="abs__split_action_bar_is_narrow">true</bool>
+    <color name="abs__background_holo_dark">#ff000000</color>
+    <color name="abs__background_holo_light">#fff3f3f3</color>
+    <color name="abs__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="abs__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="abs__bright_foreground_holo_dark">@color/abs__background_holo_light</color>
+    <color name="abs__bright_foreground_holo_light">@color/abs__background_holo_dark</color>
+    <color name="abs__bright_foreground_inverse_holo_dark">@color/abs__bright_foreground_holo_light</color>
+    <color name="abs__bright_foreground_inverse_holo_light">@color/abs__bright_foreground_holo_dark</color>
+    <color name="abs__holo_blue_light">#ff33b5e5</color>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="button_disabled_background">#dd9c9c9c</color>
+    <color name="button_gradient_end_color">#597489</color>
+    <color name="button_gradient_start_color">#35536b</color>
+    <color name="button_pressed_color">#797769</color>
+    <color name="button_stroke_color">#597489</color>
+    <color name="button_text_white">#ffffffff</color>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="common_action_bar_splitter">#d2d2d2</color>
+    <color name="common_signin_btn_dark_text_default">@android:color/white</color>
+    <color name="common_signin_btn_dark_text_disabled">#FFAAAAAA</color>
+    <color name="common_signin_btn_dark_text_focused">@android:color/white</color>
+    <color name="common_signin_btn_dark_text_pressed">@android:color/white</color>
+    <color name="common_signin_btn_default_background">#FFDD4B39</color>
+    <color name="common_signin_btn_light_text_default">#FF737373</color>
+    <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
+    <color name="common_signin_btn_light_text_focused">#FF737373</color>
+    <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="main_screen_background">#e6e7e9</color>
+    <color name="text_blue">#4c5e70</color>
+    <color name="top_bar_background_color">#4c5e70</color>
+    <declare-styleable name="AdsAttrs"><attr format="string" name="adSize"/><attr format="string" name="adUnitId"/></declare-styleable>
+    <declare-styleable name="MapAttrs"><attr format="enum" name="mapType"><enum name="none" value="0"/><enum name="normal" value="1"/><enum name="satellite" value="2"/><enum name="terrain" value="3"/><enum name="hybrid" value="4"/></attr><attr format="float" name="cameraBearing"/><attr format="float" name="cameraTargetLat"/><attr format="float" name="cameraTargetLng"/><attr format="float" name="cameraTilt"/><attr format="float" name="cameraZoom"/><attr format="boolean" name="uiCompass"/><attr format="boolean" name="uiRotateGestures"/><attr format="boolean" name="uiScrollGestures"/><attr format="boolean" name="uiTiltGestures"/><attr format="boolean" name="uiZoomControls"/><attr format="boolean" name="uiZoomGestures"/><attr format="boolean" name="useViewLifecycle"/><attr format="boolean" name="zOrderOnTop"/></declare-styleable>
+    <declare-styleable name="SherlockActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr format="string" name="title"/><attr format="string" name="subtitle"/><attr name="titleTextStyle"/><attr name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr name="divider"/><attr name="background"/><attr format="reference|color" name="backgroundStacked"/><attr name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr format="dimension" name="itemPadding"/></declare-styleable>
+    <declare-styleable name="SherlockActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
+    <declare-styleable name="SherlockActionMode"><attr name="titleTextStyle"/><attr name="subtitleTextStyle"/><attr name="background"/><attr name="backgroundSplit"/><attr name="height"/></declare-styleable>
+    <declare-styleable name="SherlockActivityChooserView"><attr format="string" name="initialActivityCount"/><attr format="reference" name="expandActivityOverflowButtonDrawable"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="SherlockMenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
+    <declare-styleable name="SherlockMenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="android:showAsAction"/><attr name="android:actionLayout"/><attr name="android:actionViewClass"/><attr name="android:actionProviderClass"/></declare-styleable>
+    <declare-styleable name="SherlockMenuView"><attr format="reference" name="itemTextAppearance"/><attr format="reference" name="horizontalDivider"/><attr format="reference" name="verticalDivider"/><attr format="color|reference" name="headerBackground"/><attr format="color|reference" name="itemBackground"/><attr format="reference" name="windowAnimationStyle"/><attr format="float" name="itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/></declare-styleable>
+    <declare-styleable name="SherlockSearchView"><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/></declare-styleable>
+    <declare-styleable name="SherlockSpinner"><attr name="android:prompt"/><attr name="android:dropDownSelector"/><attr name="android:popupBackground"/><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/><attr name="android:dropDownWidth"/><attr name="android:popupPromptView"/><attr name="android:gravity"/></declare-styleable>
+    <declare-styleable name="SherlockTheme"><attr format="reference" name="actionBarTabStyle"/><attr format="reference" name="actionBarTabBarStyle"/><attr format="reference" name="actionBarTabTextStyle"/><attr format="reference" name="actionOverflowButtonStyle"/><attr format="reference" name="actionBarStyle"/><attr format="reference" name="actionBarSplitStyle"/><attr format="reference" name="actionBarWidgetTheme"/><attr format="dimension" name="actionBarSize"><enum name="wrap_content" value="0"/></attr><attr format="reference" name="actionBarDivider"/><attr format="reference" name="actionBarItemBackground"/><attr format="reference" name="actionMenuTextAppearance"/><attr format="color|reference" name="actionMenuTextColor"/><attr format="reference" name="actionModeStyle"/><attr format="reference" name="actionModeCloseButtonStyle"/><attr format="reference" name="actionModeBackground"/><attr format="reference" name="actionModeSplitBackground"/><attr format="reference" name="actionModeCloseDrawable"/><attr format="reference" name="actionModeShareDrawable"/><attr format="reference" name="actionModePopupWindowStyle"/><attr format="reference" name="buttonStyleSmall"/><attr format="reference" name="selectableItemBackground"/><attr format="reference" name="windowContentOverlay"/><attr format="reference" name="textAppearanceLargePopupMenu"/><attr format="reference" name="textAppearanceSmallPopupMenu"/><attr format="reference" name="textAppearanceSmall"/><attr format="color" name="textColorPrimary"/><attr format="color" name="textColorPrimaryDisableOnly"/><attr format="color" name="textColorPrimaryInverse"/><attr format="reference" name="spinnerItemStyle"/><attr format="reference" name="spinnerDropDownItemStyle"/><attr format="reference" name="searchAutoCompleteTextView"/><attr format="reference" name="searchDropdownBackground"/><attr format="reference" name="searchViewCloseIcon"/><attr format="reference" name="searchViewGoIcon"/><attr format="reference" name="searchViewSearchIcon"/><attr format="reference" name="searchViewVoiceIcon"/><attr format="reference" name="searchViewEditQuery"/><attr format="reference" name="searchViewEditQueryBackground"/><attr format="reference" name="searchViewTextField"/><attr format="reference" name="searchViewTextFieldRight"/><attr format="reference|color" name="textColorSearchUrl"/><attr format="dimension" name="searchResultListItemHeight"/><attr format="reference" name="textAppearanceSearchResultTitle"/><attr format="reference" name="textAppearanceSearchResultSubtitle"/><attr format="dimension" name="listPreferredItemHeightSmall"/><attr format="dimension" name="listPreferredItemPaddingLeft"/><attr format="dimension" name="listPreferredItemPaddingRight"/><attr format="reference" name="textAppearanceListItemSmall"/><attr format="dimension" name="windowMinWidthMajor"/><attr format="dimension" name="windowMinWidthMinor"/><attr format="reference" name="dividerVertical"/><attr format="reference" name="actionDropDownStyle"/><attr format="reference" name="actionButtonStyle"/><attr format="reference" name="homeAsUpIndicator"/><attr format="reference" name="dropDownListViewStyle"/><attr format="reference" name="popupMenuStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="actionSpinnerItemStyle"/><attr format="boolean" name="windowNoTitle"/><attr format="boolean" name="windowActionBar"/><attr format="boolean" name="windowActionBarOverlay"/><attr format="boolean" name="windowActionModeOverlay"/><attr format="boolean" name="windowSplitActionBar"/><attr format="reference" name="listPopupWindowStyle"/><attr format="reference" name="activityChooserViewStyle"/><attr format="reference" name="activatedBackgroundIndicator"/><attr name="android:windowIsFloating"/></declare-styleable>
+    <declare-styleable name="SherlockView"><attr name="android:focusable"/></declare-styleable>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="abs__action_bar_default_height">48dip</dimen>
+    <dimen name="abs__action_bar_icon_vertical_padding">8dip</dimen>
+    <dimen name="abs__action_bar_subtitle_bottom_margin">5dip</dimen>
+    <dimen name="abs__action_bar_subtitle_text_size">14dp</dimen>
+    <dimen name="abs__action_bar_subtitle_top_margin">-3dp</dimen>
+    <dimen name="abs__action_bar_title_text_size">18dp</dimen>
+    <dimen name="abs__action_button_min_width">56dip</dimen>
+    <dimen name="abs__alert_dialog_title_height">64dip</dimen>
+    <dimen name="abs__config_prefDialogWidth">320dp</dimen>
+    <item name="abs__dialog_min_width_major" type="dimen">65%</item>
+    <item name="abs__dialog_min_width_minor" type="dimen">95%</item>
+    <dimen name="abs__dropdownitem_icon_width">32dip</dimen>
+    <dimen name="abs__dropdownitem_text_padding_left">8dip</dimen>
+    <dimen name="abs__dropdownitem_text_padding_right">8dip</dimen>
+    <dimen name="abs__search_view_preferred_width">320dip</dimen>
+    <dimen name="abs__search_view_text_min_width">160dip</dimen>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/aFileChooser/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="list_item_padding">6dp</dimen>
+    <dimen name="list_padding">0dp</dimen>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/colors.xml -->
+    <eat-comment/>
+    <drawable name="black">#ff000000</drawable>
+    <drawable name="white">#ffffffff</drawable>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <item name="abs__action_menu_divider" type="id"/>
+    <item name="abs__action_menu_presenter" type="id"/>
+    <item name="abs__home" type="id"/>
+    <item name="abs__progress_circular" type="id"/>
+    <item name="abs__progress_horizontal" type="id"/>
+    <item name="abs__up" type="id"/>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/untranslated.xml -->
+    <eat-comment/>
+    <item name="mapview" type="id"/>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <integer name="abs__max_action_buttons">2</integer>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values/version.xml -->
+    <eat-comment/>
+    <integer name="google_play_services_version">4030500</integer>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <plurals name="confirm_reset_install_extra">
+        <item quantity="one">You will lose %1$s unsent or currently sending record.</item>
+        <item quantity="other">You will lose %1$s unsent or currently sending records.</item>
+    </plurals>
+    <plurals name="show_unsent_count">
+        <item quantity="one">You have %1$s unsent record. You may go to the Tools menu and resend it.</item>
+        <item quantity="other">You have %1$s unsent records. You may go to the Tools menu and resend them.</item>
+    </plurals>
+    <string name="about_tor_label">Understanding Tor</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="abs__action_bar_home_description">Navigate home</string>
+    <string name="abs__action_bar_up_description">Navigate up</string>
+    <string name="abs__action_menu_overflow_description">More options</string>
+    <string name="abs__action_mode_done">Done</string>
+    <string name="abs__activity_chooser_view_dialog_title_default">Select activity</string>
+    <string name="abs__activity_chooser_view_see_all">See all...</string>
+    <string name="abs__activitychooserview_choose_application">Choose an application</string>
+    <string name="abs__searchview_description_clear">Clear query</string>
+    <string name="abs__searchview_description_query">Search query</string>
+    <string name="abs__searchview_description_search">Search</string>
+    <string name="abs__searchview_description_submit">Submit query</string>
+    <string name="abs__searchview_description_voice">Voice search</string>
+    <string name="abs__share_action_provider_share_with">Share with...</string>
+    <string name="abs__shareactionprovider_share_with">Share with</string>
+    <string name="abs__shareactionprovider_share_with_application">Share with <ns1:g example="Bluetooth" id="application_name">%s</ns1:g></string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="accept_bearing">Record Bearing</string>
+    <string name="accept_location">Record Location</string>
+    <string name="access_error">Error while accessing %s: </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="access_token">Access Token:</string>
+    <string name="account_access_token_label">Access Token: %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="accuracy">Accuracy</string>
+    <string name="activity_not_found">No activity found to handle: %s</string>
+    <string name="add_another">Add Group</string>
+    <string name="add_another_repeat">Add another \"%s\" group?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="add_attachment">Add attachment</string>
+    <string name="add_contact_from_file">Import Contact from File</string>
+    <string name="add_contact_using_access_token">Add Contact from Server</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="add_more">Add more</string>
+    <string name="add_repeat">Add a new \"%s\" group?</string>
+    <string name="add_repeat_no">Do Not Add</string>
+    <string name="added_on_date_at_time">\'Added on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="admin_access_settings">Tap for admin access to settings</string>
+    <string name="admin_advanced_settings">Advanced settings (when advised):</string>
+    <string name="admin_password_changed">Admin password successfully changed</string>
+    <string name="admin_password_disabled">Admin password disabled</string>
+    <string name="admin_password_incorrect">Sorry, password is incorrect!</string>
+    <string name="admin_password_mismatch">Sorry, passwords do not match!</string>
+    <string name="admin_preferences">Admin Settings</string>
+    <string name="advance">forward to\nnext\nprompt</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="advanced_server_options">Advanced server settings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="aggregate_preferences">ODK Aggregate settings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="alert_dialog_confirm_password">Confirm Password:</string>
+    <string name="alert_dialog_magic_word">Magic Word:</string>
+    <string name="alert_dialog_ok">OK</string>
+    <string name="alert_dialog_password">Password:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="altitude">Altitude</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string name="app_name" translate="false">Martus</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="app_url">http://opendatakit.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="attachment_no_longer_exists">Couldn\'t send because the following attachment, %1$s , has been deleted from the device</string>
+    <string name="attachments_add_label">Attachments:</string>
+    <string name="attachments_added_label">Attachments (press and hold to remove) :</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="audio_file_error">No audio file was specified.</string>
+    <string name="audio_file_invalid">File: %s is not a valid audio file.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="auth_client_needs_enabling_title">
+      An application requires Google Play Services to be enabled.
+  </string>
+    <string name="auth_client_needs_installation_title">
+      An application requires installation of Google Play Services.
+  </string>
+    <string name="auth_client_needs_update_title">
+      An application requires an update for Google Play Services.
+  </string>
+    <string name="auth_client_play_services_err_notification_msg">Google Play services error</string>
+    <string name="auth_client_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
+    <string name="auth_client_using_bad_version_title">
+      An application attempted to use a bad version of Google Play Services.
+  </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="autosend">Auto Send</string>
+    <string name="autosend_network">Auto send with network</string>
+    <string name="autosend_network_summary">Auto send when network is available</string>
+    <string name="autosend_wifi">Auto send with Wi-Fi</string>
+    <string name="autosend_wifi_summary">Auto send when Wi-Fi is available</string>
+    <string name="backup">backward to\nprevious\nprompt</string>
+    <string name="barcode_scanner_error">Sorry, Barcode Scanner is not installed!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="boolean_false">No</string>
+    <string name="boolean_true">Yes</string>
+    <string name="bulletin_packaging_progress">Encrypting and zipping…</string>
+    <string name="bulletin_sending_progress">Sending…</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="buttons_instructions">You are at the start of %s. Tap the arrow buttons below to go backward and forward.</string>
+    <string name="buttons_navigation">Use forward/backward buttons</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel_loading_form">Cancel</string>
+    <string name="cancel_location">Cancel</string>
+    <string name="cancel_saving_form">Cancel</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="cancel_server">Cancel</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="cannot_edit_completed_form">This form cannot be edited once it has been marked as complete. It may be encrypted.</string>
+    <string name="capture_audio">Record Sound</string>
+    <string name="capture_image">Take Picture</string>
+    <string name="capture_osm">Launch OpenMapKit</string>
+    <string name="capture_video">Record Video</string>
+    <string name="change_font_size">Text font size</string>
+    <string name="change_formlist_url">Form list path (appended to URL)</string>
+    <string name="change_language">Change Language</string>
+    <string name="change_password">ODK Password</string>
+    <string name="change_protocol">Platform</string>
+    <string name="change_protocol_settings_default">Platform Settings</string>
+    <string name="change_server">Platform</string>
+    <string name="change_server_url">Server URL</string>
+    <string name="change_splash_path">Change image</string>
+    <string name="change_submission_url">Submission path (appended to URL)</string>
+    <string name="change_url_default">URL</string>
+    <string name="change_username">ODK Username</string>
+    <string name="change_username_default">Username</string>
+    <string name="change_view">Change View</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="choose_file">Martus File Explorer</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="choose_image">Choose Image</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="choose_server_intro">Next, configure a connection to the Martus server you will be sending records to.</string>
+    <string name="choose_server_title">Select Server</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="choose_sound">Choose Sound</string>
+    <string name="choose_video">Choose Video</string>
+    <string name="clear_answer">Remove response</string>
+    <string name="clear_answer_ask">Remove This Response?</string>
+    <string name="clear_answer_no">Cancel</string>
+    <string name="clearanswer_confirm">Remove the response to \"%s\"?</string>
+    <string name="click_to_web">Tap to visit http://opendatakit.org</string>
+    <string name="client">User Interface</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values/strings.xml -->
+    <eat-comment/>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable Google Play services</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">This app won\'t work unless you enable Google Play services.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Get Google Play services</string>
+    <string msgid="2122112764540849864" name="common_google_play_services_install_text_phone">This app won\'t run without Google Play services, which are missing from your phone.</string>
+    <string msgid="7351599665250191022" name="common_google_play_services_install_text_tablet">This app won\'t run without Google Play services, which are missing from your tablet.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_invalid_account_text">The specified account does not exist on this device. Please choose a different account.</string>
+    <string name="common_google_play_services_invalid_account_title">Invalid Account</string>
+    <string name="common_google_play_services_network_error_text">A data connection is required to connect to Google Play services.</string>
+    <string name="common_google_play_services_network_error_title">Network Error</string>
+    <string name="common_google_play_services_unknown_issue">Unknown issue with Google Play services.</string>
+    <string name="common_google_play_services_unsupported_date_text">The date on the device appears to be incorrect. Please check the date on the device.</string>
+    <string name="common_google_play_services_unsupported_text">Google Play services, which some of your applications rely on, is not supported by your device. Please contact the manufacturer for assistance.</string>
+    <string name="common_google_play_services_unsupported_title">Google Play services</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">This app won\'t run unless you update Google Play services.</string>
+    <string msgid="1788179980625863495" name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="completed_data">Complete (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="confirm_cancel_bulletin">Cancel this Record?</string>
+    <string name="confirm_data_loss">If you leave this screen now, you will lose any data you have entered. Are you sure you want to leave?</string>
+    <string name="confirm_default">Are you sure?</string>
+    <string name="confirm_go_to_device_home">Are you sure you want to leave Martus?</string>
+    <string name="confirm_logout">Are you sure want to logout?</string>
+    <string name="confirm_password_hint">Confirm password</string>
+    <string name="confirm_remove_attachment">Remove %1$s ?</string>
+    <string name="confirm_reset_install">Are you sure you want to delete?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message">There has been an error with your setup files. In the interest of security, please delete your account. Pressing the Yes button will start this process. Martus will not work with a corrupted settings file, so pressing No will exit Martus.</string>
+    <string name="confirm_tamper_reset_title">Setup Error</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="constraint_behavior">Constraint processing behavior</string>
+    <string name="constraint_behavior_on_finalize">Defer validation until finalized</string>
+    <string name="constraint_behavior_on_swipe">Validate upon forward swipe</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="contact_access_token">Contact Access Token</string>
+    <string formatted="false" name="contact_us_info">If you have any questions or feedback on Martus, please email martus@benetech.org</string>
+    <string name="contact_us_menu_item">Contact Us</string>
+    <string name="create_account_dialog_cancel">Exit</string>
+    <string name="create_account_dialog_title">Create a password</string>
+    <string name="create_account_intro">Welcome to Martus! First, create a new Mobile Martus account.</string>
+    <string name="create_password_hint">New password</string>
+    <string name="create_sample_bulletin">Create Record</string>
+    <string name="custom_form_transition">This is your chance to add any attachments or press back to edit form entry.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="data">Saved Forms</string>
+    <string name="data_saved_error">Sorry, form save failed!</string>
+    <string name="data_saved_ok">Form successfully saved!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="date_range_end"> (end)</string>
+    <string name="date_range_start"> (start)</string>
+    <string name="date_validation_min">Date must be on or after %1$s .</string>
+    <string name="date_validation_min_max">Date must be on or after %1$s  and on or before %2$s.</string>
+    <string name="default_author">Unknown Author</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="default_completed">Default to finalized</string>
+    <string name="default_completed_summary">Mark form as finalized by default</string>
+    <string name="default_form_processing_logic" translatable="false">-1</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/untranslated.xml -->
+    <eat-comment/>
+    <string name="default_odk_formlist" translatable="false">/formList</string>
+    <string name="default_odk_submission" translatable="false">/submission</string>
+    <string name="default_server_url" translatable="false">https://opendatakit.appspot.com</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="default_splash_path">ODK Default</string>
+    <string name="delete_after_send">Delete after send</string>
+    <string name="delete_after_send_summary">Deletes finalized forms and media after sending to server</string>
+    <string name="delete_confirm">Delete %s form(s)?</string>
+    <string name="delete_file">Delete Selected</string>
+    <string name="delete_no">Do Not Delete</string>
+    <string name="delete_repeat">Remove group</string>
+    <string name="delete_repeat_ask">Remove This Group?</string>
+    <string name="delete_repeat_confirm">Remove group \"%s\" and all of its sub-groups?</string>
+    <string name="delete_repeat_no">Cancel</string>
+    <string name="delete_yes">Delete Forms</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="desktop_public_code_hint">Desktop account Public Code</string>
+    <string name="desktop_sync_choose_file">Choose Martus Desktop account (.mpi) file</string>
+    <string name="desktop_sync_public_code">Then enter Martus Desktop account Public Code:</string>
+    <string name="desktop_sync_title">Martus Desktop account information</string>
+    <string name="dialog_title_timeout_preference">Timeout duration</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="discard_answer">Remove response</string>
+    <string name="discard_group">Remove group</string>
+    <string name="do_not_change">Cancel</string>
+    <string name="do_not_exit">Cancel</string>
+    <string name="do_not_save">Ignore Changes</string>
+    <string name="download">Get Selected</string>
+    <string name="download_forms_result">Download Result</string>
+    <string name="downloading_data">Connecting to Server</string>
+    <string name="draw_image">Sketch Image</string>
+    <string name="drive_get_file">Getting %1$s and media files.</string>
+    <string name="edit_prompt">Edit Prompt</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/aFileChooser/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="empty_directory">Empty Directory</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="end_form_button">Add Attachments and Send</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="enter_admin_password">Enter Admin Password</string>
+    <string name="enter_data">Fill Blank Form</string>
+    <string name="enter_data_button">Fill Blank Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="enter_magic_word_hint">Enter Magic Word</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="enter_new_password">Enter new password</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="enter_password_hint">Enter password</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="entering_repeat">Add Group</string>
+    <string name="entering_repeat_ask">Add New Group?</string>
+    <string name="error_attaching_binary_file">An error occurred while attaching the media: %s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/martus-android-library/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="error_cleaning_up_odk_folders">Error cleaning up folders</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="error_computing_public_code">Error saving server preferences</string>
+    <string name="error_create_account">Error creating account</string>
+    <string name="error_getting_server_key">Error connecting to server</string>
+    <string name="error_message">Error</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="error_occured">Error Occurred</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="error_retrieving_contact">Error retrieving contact</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/aFileChooser/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="error_selecting_file">Problem selecting file</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="export_public_account_id_dialog_error">Unable to export Account ID</string>
+    <string name="export_public_account_id_dialog_title">Export Public Account ID Error</string>
+    <string name="export_public_account_id_menu_item">Export Public Account ID</string>
+    <string name="exported_account_id_file_confirmation">Exported To</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="ext_assign_value_error">Cannot assign the value at \'%s\'.</string>
+    <string name="ext_conflicting_columns_error">Columns %s match!</string>
+    <string name="ext_file_no_data_error">The file contains no data!</string>
+    <string name="ext_import_cancelled_message">Reading data cancelled!</string>
+    <string name="ext_import_completed_message">Reading data completed!</string>
+    <string name="ext_import_csv_missing_error">External data for %1$s has not been imported. Perhaps you forgot to include the %2$s.csv file with your form?</string>
+    <string name="ext_import_finalizing_message">Finalizing pre-loaded data…</string>
+    <string name="ext_import_generic_error">Could not import data from %1$s. Reason: %2$s</string>
+    <string name="ext_import_progress_message">Pre-loading data from \'%1$s\', please wait… %2$s</string>
+    <string name="ext_not_initialized_error">The ExternalDataManager has not been initialized.</string>
+    <string name="ext_search_bad_function_error">Syntax error in search() function: \'%s\' was not evaluated as a function.</string>
+    <string name="ext_search_generic_error">Syntax error in search() function: %s</string>
+    <string name="ext_search_return_error">The search handler returned a object of type \'%s\'.</string>
+    <string name="ext_search_wrong_arguments_error">"Syntax error in search() function: The function needs 1, 4 or 6 arguments."</string>
+    <string name="ext_search_wrong_function_error">Syntax error in search() function : Unrecognised function \'%s\'.</string>
+    <string name="ext_sortBy_numeric_error">Your sortby column should contain only numeric values. Conflicting value was \'%s\'.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="failed_send_notification">Send failed due to: %1$s . Try resending later.</string>
+    <string name="failure_choosing_file">Failed choosing file</string>
+    <string name="failure_zipping_bulletin">Failed zipping record</string>
+    <string name="fetched_picasa_image">Got Picasa image</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="fetching_file">Getting %1$s.\n\nForm %2$s of %3$s form(s).</string>
+    <string name="fetching_manifest">%s. Getting manifest </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="fetching_picasa_image">Fetching Picasa image</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="file_delete_in_progress">Sorry, a form delete action is already in progress!</string>
+    <string name="file_deleted_error">Sorry, %1$s of %2$s selected form(s) failed to delete!</string>
+    <string name="file_deleted_ok">%s form(s) successfully deleted!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string formatted="false" name="file_explorer_store_link" translate="false">play.google.com/store/search?q=%22open+source%22+file+manager+explorer</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="file_fetch_failed">Error: %2$s (%3$s) at %1$s</string>
+    <string name="file_invalid">File: %s is invalid.</string>
+    <string name="file_missing">File: %s is missing.</string>
+    <string name="finalized_on_date_at_time">\'Finalized on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="finished_disk_scan">Finished scanning. All forms loaded.</string>
+    <string name="font_size">Text font size</string>
+    <string name="font_size_extra_large">Extra Large</string>
+    <string name="font_size_extra_small">Extra Small</string>
+    <string name="font_size_large">Large</string>
+    <string name="font_size_medium">Medium</string>
+    <string name="font_size_small">Small</string>
+    <string name="form_backward">Prev</string>
+    <string name="form_download_progress">%1$s. Getting media files: %2$s of %3$s</string>
+    <string name="form_forward">Next</string>
+    <string name="form_processing_logic">Form processing logic</string>
+    <string name="form_processing_logic_0">January 2015 (fastest)</string>
+    <string name="form_processing_logic_1">January 2015 (safest)</string>
+    <string name="form_processing_logic_2">Mid 2014 (slow)</string>
+    <string name="form_processing_logic_3">Early 2014 (fast)</string>
+    <string name="form_processing_logic_recommended">Recommended (default)</string>
+    <string name="form_scan_starting">Scanning for forms…</string>
+    <string name="formlist_url">Form list path</string>
+    <string name="forms">Blank Forms</string>
+    <string name="found_at_end">Uncheck to hide from end of Form Entry</string>
+    <string name="found_in_main">Uncheck to hide from Main Menu</string>
+    <string name="found_in_menu">Uncheck to hide from menu in Form Entry</string>
+    <string name="found_in_settings">Uncheck to hide from General Settings</string>
+    <string name="fs_create_folder_error">Collect reports: Cannot create directory: %s</string>
+    <string name="fs_create_folder_is_file_error">Collect reports: \'%s\' exists, but is not a directory.</string>
+    <string name="fs_create_media_folder_error">Could not create media folder \'%s\'.</string>
+    <string name="fs_delete_media_path_if_file_error">Could not delete \'%s\'. Please delete the file manually and re-download the form.</string>
+    <string name="fs_file_copy_error">Could not copy \'%1$s\' over \'%2$s\'. Reason: %3$s</string>
+    <string name="general_preferences">General Settings</string>
+    <string name="get_barcode">Get Barcode</string>
+    <string name="get_bearing">Record Bearing</string>
+    <string name="get_forms">Get Blank Form</string>
+    <string name="get_location">Record Location</string>
+    <string name="get_project_IDs">Getting Project IDs</string>
+    <string name="getting_bearing">Loading Bearing</string>
+    <string name="getting_location">Loading Location</string>
+    <string name="gme_create_400">Received 400 BAD REQUEST. This is a known bug with Google Maps Engine after a table is newly created, please try submitting again in a few seconds.</string>
+    <string name="gme_preferences">Google Maps Engine settings</string>
+    <string name="gme_project_id">Project ID</string>
+    <string name="gme_project_id_error">No project ID found. Must declare project ID in either Google Maps Engine settings or in the form.</string>
+    <string name="gme_repeat_error">Repeats are not supported by Google Maps Engine at this time.</string>
+    <string name="gme_search_browse">Search for forms. Or select \'My Drive\' below to browse.</string>
+    <string name="gme_set_account">You have selected Google Maps Engine as your server, please select a corresponding Google account in the General Settings before continuing</string>
+    <string name="gme_table_error">Unable to find or create a Google Maps Engine table</string>
+    <string name="go_drive">My Drive</string>
+    <string name="go_shared">Shared with Me</string>
+    <string name="go_to_location">Go to Location</string>
+    <string name="google_drive">Google Drive</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="goto_server_setup_button">Next</string>
+    <string name="help_menu">Help</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="high_resolution">Enable hi-res video</string>
+    <string name="high_resolution_summary">Enable high-resolution video recordings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="import_contact_title">Import contact</string>
+    <string name="import_hq_intro">Finally, enter information about the Martus account that you are sending your Mobile Martus records to.\n\nYou must have a Martus Public Account ID file (ending with “.mpi”) and public code from the Martus Desktop account that you want to receive your Mobile Martus records to complete this step.</string>
+    <string name="incorrect_password">Incorrect Password</string>
+    <string name="install_explorer_text">If you can\'t find the file you were thinking of, try installing a more advanced file explorer:</string>
+    <string name="install_file_explorer">Try another file explorer</string>
+    <string name="install_orbot_">Install Orbot</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="invalid_answer_error">Sorry, this response is invalid!</string>
+    <string name="invalid_oauth">Invalid OAuth 2 token</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="invalid_orbot_message">Please reinstall Orbot from the Google Play Store</string>
+    <string name="invalid_orbot_title">Invalid Orbot Installation</string>
+    <string name="invalid_password">Password must be at least 8 characters long</string>
+    <string name="invalid_public_account_file">Invalid Desktop account file</string>
+    <string name="invalid_public_code">Public Code doesn\'t match file</string>
+    <string name="invalid_server_code">Invalid Server Public Code</string>
+    <string name="invalid_server_info">Invalid Server Information Entered</string>
+    <string name="invalid_server_ip">Invalid IP Address</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="jump_to_beginning">Go To Start</string>
+    <string name="jump_to_end">Go To End</string>
+    <string name="jump_to_previous">Go Up</string>
+    <string name="keep_changes">Save Changes</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="label_author">Author</string>
+    <string name="label_entrydate">Entry Date</string>
+    <string name="label_eventdate">Event Date</string>
+    <string name="label_keywords">Keywords</string>
+    <string name="label_location">Location</string>
+    <string name="label_organization">Organization</string>
+    <string name="label_privateinfo">Private Info</string>
+    <string name="label_publicinfo">Public Info</string>
+    <string name="label_summary">Summary</string>
+    <string name="label_title">Title</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="latitude">Latitude</string>
+    <string name="launch_app">Launch</string>
+    <string name="launch_printer">Initiate Printing</string>
+    <string name="leave_repeat_yes">Do Not Add</string>
+    <string name="leaving_repeat_ask">Add One More Group?</string>
+    <string name="list_failed_with_error">Form listing failed. %s.</string>
+    <string name="load_remote_form_error">Error Getting Form List</string>
+    <string name="loading_form">Loading Form</string>
+    <string name="location_accuracy">Accuracy is %1$s m</string>
+    <string name="location_provider_accuracy">Using %1$s. Accuracy is %2$s m.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="logout_while_sending_message">Please wait until the record has finished sending.</string>
+    <string name="logout_while_sending_title">Can\'t logout yet</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="longitude">Longitude</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="main_menu_details">Data collection made easier…</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="manage_bulletins_menu">Manage Records</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="manage_files">Delete Saved Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="manage_my_account_menu">Manage My Account</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="manifest_server_error">Manifest reply does not report an OpenRosa version — bad server?</string>
+    <string name="manifest_tag_error">Manifest entry %s is missing one or more tags: filename, hash, or downloadUrl</string>
+    <string name="mark_finished">Mark form as finalized</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string name="market_orbot" translate="false">market://search?q=pname:org.torproject.android</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="markup_image">Markup Image</string>
+    <string name="modified_on_date_at_time">\'Modified on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="must_login_first_message">You must first login before sending this record</string>
+    <string name="must_login_first_title">Warning!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="navigation">Navigation</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="no">No</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="no_account">No account</string>
+    <string name="no_app">The requested application is missing. Please manually enter the reading.</string>
+    <string name="no_blank_search">Search field cannot be blank.</string>
+    <string name="no_connection">No network connection available</string>
+    <string name="no_coordinates">Instance has no coordinates. Unable to upload.</string>
+    <string name="no_forms_uploaded">Sorry, no form was uploaded.</string>
+    <string name="no_google_account">No Google Account Selected!</string>
+    <string name="no_items_display">Nothing available to display.</string>
+    <string name="no_items_display_forms">Nothing available to display.\n\nTry getting and filling out a blank form.</string>
+    <string name="no_items_display_instances">Nothing available to display.\n\nTry finalizing saved forms before sending.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="no_network_connection">Device has no connectivity!</string>
+    <string name="no_network_create_bulletin_warning">Any record you try to send will fail due to lack of connectivity. (You may have Wi-Fi Only checked in Settings.) \n\n But clicking Send will encrypt and save the record, and when you have connectivity, you may resend it from the Tools menu.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="no_printer">The requested printer is not installed. Please install the printer.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="no_upload_rights">Incorrect Magic Word</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="noselect_error">Sorry, you have not selected any forms!</string>
+    <string name="notification_error">Error displaying notification text</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string name="notification_title" translate="false">Martus - %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="odk_auth_auth_fail">ODK Autosend authentication failure, please make sure your settings are correct</string>
+    <string name="odk_auto_note">ODK Autosend Notification</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="off_switch_label">Off</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="ok">OK</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="on_switch_label">On</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="open_url">Open Url</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot is not running. Would you like to start it?</string>
+    <string name="orbot_running_should_stop_message">Orbot is running. Would you like to stop it?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="other_preferences">Other platform settings</string>
+    <string name="parent_form_not_present">Unable to edit this saved form because the corresponding blank form is not present or was deleted.\n\nForm ID: %1$s</string>
+    <string name="parse_error">Sorry, unable to parse form.</string>
+    <string name="parse_legacy_formlist_failed">The server has not provided an available-forms document compatible with Aggregate 0.9.x. : %s</string>
+    <string name="parse_openrosa_formlist_failed">The server has not provided an available-forms document compatible with the OpenRosa version 1.0 standard: %s</string>
+    <string name="password">Password</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="password_dialog_title">Login</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="picasa_upload_error">Failed to upload photo that does not exist: %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="ping_result_down">Server is down</string>
+    <string name="ping_result_ok">Server is up</string>
+    <string name="ping_server_menu_item">Check Server</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="play_audio">Play Sound</string>
+    <string name="play_video">Play Video</string>
+    <string name="please_wait">Please wait a few moments.</string>
+    <string name="please_wait_google_drive">Please wait. Accessing Google Drive.</string>
+    <string name="please_wait_long">Please wait. This could take a few minutes.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="problem_adding_attachment">Error adding attachment to record</string>
+    <string name="problem_confirming_magic_word">Error confirming Magic Word</string>
+    <string name="problem_creating_bulletin">Couldn\'t create new record</string>
+    <string name="progress_confirming_magic_word">Confirming Magic Word</string>
+    <string name="progress_connecting_to_server">Connecting to server</string>
+    <string name="progress_creating_account">Creating Account</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="protocol">Platform</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/untranslated.xml -->
+    <eat-comment/>
+    <string name="protocol_google" translatable="false">google</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="protocol_google_maps_engine" translatable="false">google_maps_engine</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/untranslated.xml -->
+    <eat-comment/>
+    <string name="protocol_odk_default" translatable="false">odk_default</string>
+    <string name="protocol_other" translatable="false"/>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="protocol_settings">Configure platform settings</string>
+    <string name="provider_disabled_error">Sorry, Location providers are disabled!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="public_code_validation_empty">Public Code can\'t be empty</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="quit_application">Exit %s</string>
+    <string name="quit_entry">Save Form and Exit</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="quit_menu_title">Logout</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="refresh">Refresh</string>
+    <string name="replace_barcode">Replace Barcode</string>
+    <string name="replace_bearing">Replace Bearing</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="replace_contact_menu_item">Update Contact</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="replace_location">Replace Location</string>
+    <string name="required_answer_error">Sorry, this response is required!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="resend_menu_item">Resend Unsent Records</string>
+    <string name="resending">Resending!</string>
+    <string name="resending_no_bulletins">You have no unsent records.</string>
+    <string name="resending_no_network">You don\'t have connectivity, or have Wi-Fi Only turned on.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="reset_image">Reset</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="reset_to_install">Delete My Account</string>
+    <string name="reset_while_sending_title">Can\'t reset yet</string>
+    <string name="retrieving_contact_information_label">Retrieving contact information.</string>
+    <string name="retry_server">Re-enter</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="review_data">Edit Saved Form</string>
+    <string name="review_data_button">Edit Saved Form (%s)</string>
+    <string name="root_element_error">Root element is not &lt;manifest\> — was %s</string>
+    <string name="root_namespace_error">Root element Namespace is incorrect: %s</string>
+    <string name="save_all_answers">Save Form</string>
+    <string name="save_and_close">Save and Close</string>
+    <string name="save_as_error">Saved name must not be blank!</string>
+    <string name="save_enter_data_description">You are at the end of %s.</string>
+    <string name="save_form_as">Name this form</string>
+    <string name="save_mid">Save Form</string>
+    <string name="save_point_error">Error saving recovery point: %s</string>
+    <string name="save_preferences">Save Settings to Disk</string>
+    <string name="saved_data">Incomplete (%s)</string>
+    <string name="saved_on_date_at_time">\'Saved on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="savepoint_used">Unsaved changes recovered from savepoint!</string>
+    <string name="saving_form">Saving Form</string>
+    <string name="sdcard_unmounted">Collect cannot access the SD card. Perhaps it is mounted via USB? (Current state: %s)</string>
+    <string name="select_another_image">Select another image</string>
+    <string name="select_answer">Select Answer</string>
+    <string name="select_drawing_color">Select Drawing Color</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="select_file_picker">Select a file explorer</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="select_maps_account">You have selected Google Maps Engine as your server, please select a corresponding Google Account in the General Settings before continuing</string>
+    <string name="select_one">Select One Answer</string>
+    <string name="selected">Selected: </string>
+    <string name="selected_google_account_text">Google account</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="send_bulletin">Send</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="send_data">Send Finalized Form</string>
+    <string name="send_data_button">Send Finalized Form (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="send_email_title">Send email...</string>
+    <string name="send_failed_cant_reach_server">Can\'t reach server</string>
+    <string name="send_public_account_id_menu_item">Email Public Account ID</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">Send Public Account ID in Record</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="send_selected_data">Send Selected</string>
+    <string name="sending_failed_on_date_at_time">\'Sending failed on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="sending_items">Sending %1$s of %2$s form(s)</string>
+    <string name="sent_on_date_at_time">\'Sent on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="server_auth_credentials">Please enter username and password for server:\n%s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="server_ip_hint">Enter IP Address</string>
+    <string name="server_ip_label">IP Address:</string>
+    <string name="server_menu_title">Select Server</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="server_platform_google_forms">Google Forms</string>
+    <string name="server_platform_google_maps_engine">Google Drive, Google Maps Engine</string>
+    <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+    <string name="server_platform_other">Other</string>
+    <string name="server_preferences">Server Settings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="server_public_code_hint">Enter Server Public Code</string>
+    <string name="server_public_code_label">Server Public Code:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="server_requires_auth">Server Requires Authentication</string>
+    <string name="server_url">URL</string>
+    <string name="set_color">Set Color</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="settings_pwd_equal">Passwords match!</string>
+    <string name="settings_pwd_not_equal">Passwords don\'t match!</string>
+    <string name="settings_title">Settings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="show_location">Show Location</string>
+    <string name="show_sent_and_unsent_forms">Show Sent and Unsent Forms</string>
+    <string name="show_splash">Show splash screen</string>
+    <string name="show_splash_summary">Shows when application starts</string>
+    <string name="show_unsent_forms">Show Unsent Forms</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="show_unsent_title">You have unsent records.</string>
+    <string name="show_version">Show Version</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="sign_button">Gather Signature</string>
+    <string name="splash_path">Selected splash image</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="start_orbot_">Start Orbot</string>
+    <string name="starting_send_notification">Sending …</string>
+    <string name="stop_orbot">Stop Orbot</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/aFileChooser/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="storage_removed">Storage was removed or unmounted.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="submission_url">Submission path</string>
+    <string name="success">Success</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="success_import_hq_key">You have successfully configured a Martus Desktop account to receive your Mobile Martus records. Mobile Martus setup is complete!</string>
+    <string name="success_magic_word">You have successfully set up a connection to the Martus server!</string>
+    <string name="successful_send_notification">Record sent!</string>
+    <string name="successful_server_choice">Successfully connected to server!</string>
+    <string name="summary_language_preference">Please select language you will enter record data in</string>
+    <string name="summary_optional_label">Optional</string>
+    <string name="summary_timeout_preference">In minutes</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="survey_internal_error">Internal error: step to prompt failed.</string>
+    <string name="survey_loading_reading_csv_message">Reading CSV files…</string>
+    <string name="survey_loading_reading_data_message">Reading survey data…</string>
+    <string name="survey_loading_reading_form_message">Reading form definition…</string>
+    <string name="survey_multiple_forms_error">You have downloaded two different forms with the same form ID and version. Maybe they were the same form uploaded at different times or to different servers. In any case, you should delete one.</string>
+    <string name="survey_saving_collecting_message">Collecting data…</string>
+    <string name="survey_saving_encrypting_message">Encrypting data…</string>
+    <string name="survey_saving_finalizing_message">Finalizing to SD card…</string>
+    <string name="survey_saving_saving_message">Saving to SD card…</string>
+    <string name="survey_saving_validating_message">Validating answers…</string>
+    <string name="swipe_buttons_instructions">You are at the start of %s. Swipe the screen as shown below or tap the arrow buttons to go backward and forward.</string>
+    <string name="swipe_buttons_navigation">Use swipes and buttons</string>
+    <string name="swipe_instructions">You are at the start of %s. Swipe the screen as shown below to go backward and forward.</string>
+    <string name="swipe_navigation">Use horizontal swipes</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/martus-android-library/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="title_attachments">Form Attachments</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="title_author_preference">Author</string>
+    <string name="title_hint">Title</string>
+    <string name="title_language_preference">Record language</string>
+    <string name="title_summary">Summary</string>
+    <string name="title_timeout_preference">Timeout</string>
+    <string name="title_wifi_only_preference">Use Wi-Fi Only</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="toggle_selected">Toggle All</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="tor_label">Tor</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string formatted="false" name="tor_link" translate="false">https://www.torproject.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="tor_option_intro">Next, turn on Tor if desired.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="trigger">OK. Please continue.</string>
+    <string name="upload_results">Upload Results</string>
+    <string name="uploading_data">Sending Form</string>
+    <string name="url_error">Sorry, invalid URL!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="use_default_server">Use default server</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="use_odk_default">Use default image</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string formatted="false" name="use_tor"><b>Use Tor</b> (May help hide that you are connecting to a Martus server, and may help reach the Martus servers if they are blocked from your location, but will slow sending of records.)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="user_access_form_entry">User can access Form Entry items:</string>
+    <string name="user_access_main_menu">User can access Main Menu items:</string>
+    <string name="user_access_preferences">User can access Change Settings items:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="user_preferences">Settings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="username">Username</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="valid_public_account_file">Valid Desktop account file</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="verify_new_password">Re-enter new password</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="verify_public_code">Verify public code:\n %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="version">Version:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="version_code_label">Build %1$s</string>
+    <string name="version_name_label">Version name %1$s</string>
+    <string name="view_access_token_menu_item">View Access Token</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="view_change_location">View or Change Location</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string formatted="false" name="view_docs_info" translate="false">https://www.martus.org/mobile/docs </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="view_docs_menu">Link to Help Docs</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="view_hierarchy">Go To Prompt</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="view_new_public_code_message">Public Code (New):\n%1$s</string>
+    <string name="view_old_public_code_message">Public Code (Old):\n%1$s</string>
+    <string name="view_public_code_dialog_error">Unable to show Public Code</string>
+    <string name="view_public_code_dialog_title">Public Code</string>
+    <string name="view_public_code_menu_item">View Public Code</string>
+    <string name="wifi_only_preference_on">Only send data when Wi-Fi is available</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="xform_parse_error">XForm parse error. %1$s is missing element %2$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/martus-android-library/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="xforms_constraint_error">Cannot upload:\n Constraint issue found in form</string>
+    <string name="xforms_missing_required_field">Cannot upload:\n Missing required field</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="yes">Yes</string>
+    <string name="you_must_have_orbot">You must have Orbot installed</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/martus-android-library/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="Collect" parent="android:Theme.Light">
+	    <item name="android:scrollbarThumbHorizontal">@+drawable/thumb</item>
+	    <item name="android:scrollbarThumbVertical">@+drawable/thumb</item>
+	    <item name="android:scrollbarSize">1.75mm</item>
+	    <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+	    <item name="android:fadeScrollbars">false</item>
+	</style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/themes.xml -->
+    <eat-comment/>
+    <style name="DialogTitle" parent="Theme.Sherlock.Dialog">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="DialogWindowTitle.Sherlock" parent="Widget">
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.Sherlock.DialogWindowTitle</item>
+        <item name="android:minHeight">@dimen/abs__alert_dialog_title_height</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+    </style>
+    <style name="DialogWindowTitle.Sherlock.Light" parent="Widget">
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.Sherlock.Light.DialogWindowTitle</item>
+        <item name="android:minHeight">@dimen/abs__alert_dialog_title_height</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+    </style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/themes.xml -->
+    <eat-comment/>
+    <style name="MartusActionBar" parent="android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/top_bar_background_color</item>
+    </style>
+    <style name="MartusHeading1" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="MartusTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+    </style>
+    <style name="MartusTheme" parent="@style/Theme.Sherlock.Light">
+        <item name="actionBarStyle">@style/MartusActionBar</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+    </style>
+    <style name="PopupDialogStyle" parent="MartusTheme">
+        <item name="android:background">@color/text_blue</item>
+        <item name="android:textAppearance">@style/DialogTitle</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="Sherlock.__TextAppearance.Small" parent="Widget">
+      <item name="android:textSize">14sp</item>
+      <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="Sherlock.__Theme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="Sherlock.__Theme.DarkActionBar" parent="Theme.Sherlock.Light">
+    </style>
+    <style name="Sherlock.__Theme.Dialog" parent="android:Theme.Dialog">
+    </style>
+    <style name="Sherlock.__Theme.Light" parent="android:Theme.Light.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="Sherlock.__Widget.ActionBar" parent="Widget">
+        <item name="displayOptions">useLogo|showHome|showTitle</item>
+        <item name="height">?attr/actionBarSize</item>
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingTop">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+        <item name="android:paddingBottom">0dip</item>
+        <item name="homeLayout">@layout/abs__action_bar_home</item>
+    </style>
+    <style name="Sherlock.__Widget.ActionMode" parent="Widget">
+        <item name="background">?attr/actionModeBackground</item>
+        <item name="backgroundSplit">?attr/actionModeSplitBackground</item>
+        <item name="height">?attr/actionBarSize</item>
+    </style>
+    <style name="Sherlock.__Widget.ActivityChooserView" parent="Widget">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/abs__ab_share_pack_holo_dark</item>
+        <item name="android:divider">?attr/dividerVertical</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:dividerPadding">6dip</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+    </style>
+    <style name="Sherlock.__Widget.Holo.DropDownItem" parent="Widget">
+        <item name="android:textAppearance">@style/TextAppearance.Sherlock.Widget.DropDownItem</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="Sherlock.__Widget.Holo.ListView" parent="android:Widget.ListView">
+        <item name="android:divider">@drawable/abs__list_divider_holo_dark</item>
+        <item name="android:listSelector">@drawable/abs__list_selector_holo_dark</item>
+    </style>
+    <style name="Sherlock.__Widget.Holo.Spinner" parent="Widget">
+        <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_dark</item>
+        <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_dark</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="Sherlock.__Widget.SearchAutoCompleteTextView" parent="Widget">
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMediumInverse</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:completionHintView">@layout/abs__simple_dropdown_hint</item>
+        <item name="android:completionThreshold">2</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+    </style>
+    <style name="TextAppearance.Sherlock.DialogWindowTitle" parent="Widget">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/abs__holo_blue_light</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Light.DialogWindowTitle" parent="Widget">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/abs__holo_blue_light</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Light.Small" parent="TextAppearance.Sherlock.Small">
+    </style>
+    <style name="TextAppearance.Sherlock.Light.Widget.PopupMenu.Large" parent="TextAppearance.Sherlock.Widget.PopupMenu.Large">
+    </style>
+    <style name="TextAppearance.Sherlock.Light.Widget.PopupMenu.Small" parent="TextAppearance.Sherlock.Widget.PopupMenu.Small">
+    </style>
+    <style name="TextAppearance.Sherlock.Small" parent="Sherlock.__TextAppearance.Small">
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionBar.Menu" parent="Widget">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/actionMenuTextColor</item>
+        <item name="android:textAllCaps">@bool/abs__config_actionMenuItemAllCaps</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionBar.Subtitle" parent="Widget">
+        <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionBar.Subtitle.Inverse" parent="Widget">
+        <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionBar.Title" parent="Widget">
+        <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionBar.Title.Inverse" parent="Widget">
+        <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionMode.Subtitle" parent="Widget">
+        <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionMode.Subtitle.Inverse" parent="Widget">
+        <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionMode.Title" parent="Widget">
+        <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.ActionMode.Title.Inverse" parent="Widget">
+        <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.DropDownHint" parent="Widget">
+        <item name="android:textColor">?textColorPrimary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.DropDownItem" parent="Widget">
+        <item name="android:textColor">?textColorPrimaryDisableOnly</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.PopupMenu" parent="Widget">
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.PopupMenu.Large">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.PopupMenu.Small">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Widget.TextView.SpinnerItem" parent="Widget">
+        <item name="android:textColor">?textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="Theme.Sherlock" parent="Sherlock.__Theme">
+        <!-- Action bar styles (from Theme.Holo) -->
+        <item name="actionDropDownStyle">@style/Widget.Sherlock.Spinner.DropDown.ActionBar</item>
+        <item name="actionButtonStyle">@style/Widget.Sherlock.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.Sherlock.ActionButton.Overflow</item>
+        <item name="actionModeBackground">@drawable/abs__cab_background_top_holo_dark</item>
+        <item name="actionModeSplitBackground">@drawable/abs__cab_background_bottom_holo_dark</item>
+        <item name="actionModeCloseDrawable">@drawable/abs__ic_cab_done_holo_dark</item>
+        <item name="actionBarTabStyle">@style/Widget.Sherlock.ActionBar.TabView</item>
+        <item name="actionBarTabBarStyle">@style/Widget.Sherlock.ActionBar.TabBar</item>
+        <item name="actionBarTabTextStyle">@style/Widget.Sherlock.ActionBar.TabText</item>
+        <item name="actionModeStyle">@style/Widget.Sherlock.ActionMode</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
+        <item name="actionBarStyle">@style/Widget.Sherlock.ActionBar</item>
+        <item name="actionBarSize">@dimen/abs__action_bar_default_height</item>
+        <!-- Internal --><item name="actionModePopupWindowStyle">@style/Widget.Sherlock.PopupWindow.ActionMode</item>
+        <item name="actionBarWidgetTheme">@null</item>
+
+        <!-- Action bar styles (defaults from Theme) -->
+        <item name="actionBarSplitStyle">?attr/actionBarStyle</item>
+        <item name="actionMenuTextAppearance">@style/TextAppearance.Sherlock.Widget.ActionBar.Menu</item>
+        <item name="actionMenuTextColor">?attr/textColorPrimary</item>
+        <item name="actionBarDivider">?attr/dividerVertical</item>
+        <item name="actionBarItemBackground">?attr/selectableItemBackground</item>
+
+        <item name="buttonStyleSmall">@style/Widget.Sherlock.Button.Small</item>
+
+        <item name="selectableItemBackground">@drawable/abs__item_background_holo_dark</item>
+
+        <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_dark</item>
+        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_dark</item>
+        <item name="activityChooserViewStyle">@style/Widget.Sherlock.ActivityChooserView</item>
+
+        <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_dark</item>
+
+        <item name="dividerVertical">@drawable/abs__list_divider_holo_dark</item>
+
+        <item name="spinnerDropDownItemStyle">@style/Widget.Sherlock.DropDownItem.Spinner</item>
+        <item name="spinnerItemStyle">@style/Widget.Sherlock.TextView.SpinnerItem</item>
+
+        <item name="textColorPrimary">@color/abs__primary_text_holo_dark</item>
+        <item name="textColorPrimaryDisableOnly">@color/abs__primary_text_disable_only_holo_dark</item>
+        <item name="textColorPrimaryInverse">@color/abs__primary_text_holo_light</item>
+
+        <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
+        <item name="dropDownListViewStyle">@style/Widget.Sherlock.ListView.DropDown</item>
+
+        <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Small</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.Sherlock.Widget.PopupMenu.Large</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.Sherlock.Widget.PopupMenu.Small</item>
+
+        <item name="popupMenuStyle">@style/Widget.Sherlock.PopupMenu</item>
+        <!-- Internal --><item name="listPopupWindowStyle">@style/Widget.Sherlock.ListPopupWindow</item>
+
+        <item name="searchDropdownBackground">@drawable/abs__search_dropdown_dark</item>
+        <item name="searchViewTextField">@drawable/abs__textfield_searchview_holo_dark</item>
+        <item name="searchViewTextFieldRight">@drawable/abs__textfield_searchview_right_holo_dark</item>
+        <item name="searchViewCloseIcon">@drawable/abs__ic_clear</item>
+        <item name="searchViewSearchIcon">@drawable/abs__ic_search</item>
+        <item name="searchViewGoIcon">@drawable/abs__ic_go</item>
+        <item name="searchViewVoiceIcon">@drawable/abs__ic_voice_search</item>
+        <item name="searchAutoCompleteTextView">@style/Widget.Sherlock.SearchAutoCompleteTextView</item>
+        <item name="android:dropDownHintAppearance">@style/TextAppearance.Sherlock.Widget.DropDownHint</item>
+
+        <item name="windowActionBar">true</item>
+        <item name="windowActionModeOverlay">false</item>
+        <item name="windowContentOverlay">@null</item>
+    </style>
+    <style name="Theme.Sherlock.Dialog" parent="android:Theme">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowTitleStyle">@style/DialogWindowTitle.Sherlock</item>
+        <item name="android:windowBackground">@drawable/abs__dialog_full_holo_dark</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+
+        <item name="android:colorBackgroundCacheHint">@null</item>
+
+        <item name="android:textColorPrimary">@color/abs__primary_text_holo_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/abs__primary_text_holo_light</item>
+
+        <item name="windowMinWidthMajor">@dimen/abs__dialog_min_width_major</item>
+        <item name="windowMinWidthMinor">@dimen/abs__dialog_min_width_minor</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowContentOverlay">@null</item>
+    </style>
+    <style name="Theme.Sherlock.Light" parent="Sherlock.__Theme.Light">
+        <!-- Action bar styles (from Theme.Holo) -->
+        <item name="actionDropDownStyle">@style/Widget.Sherlock.Light.Spinner.DropDown.ActionBar</item>
+        <item name="actionButtonStyle">@style/Widget.Sherlock.Light.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.Sherlock.Light.ActionButton.Overflow</item>
+        <item name="actionModeBackground">@drawable/abs__cab_background_top_holo_light</item>
+        <item name="actionModeSplitBackground">@drawable/abs__cab_background_bottom_holo_light</item>
+        <item name="actionModeCloseDrawable">@drawable/abs__ic_cab_done_holo_light</item>
+        <item name="actionBarTabStyle">@style/Widget.Sherlock.Light.ActionBar.TabView</item>
+        <item name="actionBarTabBarStyle">@style/Widget.Sherlock.Light.ActionBar.TabBar</item>
+        <item name="actionBarTabTextStyle">@style/Widget.Sherlock.Light.ActionBar.TabText</item>
+        <item name="actionModeStyle">@style/Widget.Sherlock.Light.ActionMode</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.Light.ActionButton.CloseMode</item>
+        <item name="actionBarStyle">@style/Widget.Sherlock.Light.ActionBar.Solid</item>
+        <item name="actionBarSize">@dimen/abs__action_bar_default_height</item>
+        <!-- Internal --><item name="actionModePopupWindowStyle">@style/Widget.Sherlock.Light.PopupWindow.ActionMode</item>
+        <item name="actionBarWidgetTheme">@null</item>
+
+        <!-- Action bar styles (defaults from Theme) -->
+        <item name="actionBarSplitStyle">?attr/actionBarStyle</item>
+        <item name="actionMenuTextAppearance">@style/TextAppearance.Sherlock.Widget.ActionBar.Menu</item>
+        <item name="actionMenuTextColor">?attr/textColorPrimary</item>
+        <item name="actionBarDivider">?attr/dividerVertical</item>
+        <item name="actionBarItemBackground">?attr/selectableItemBackground</item>
+
+        <item name="buttonStyleSmall">@style/Widget.Sherlock.Light.Button.Small</item>
+
+        <item name="selectableItemBackground">@drawable/abs__item_background_holo_light</item>
+
+        <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_light</item>
+        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_light</item>
+        <item name="activityChooserViewStyle">@style/Widget.Sherlock.Light.ActivityChooserView</item>
+
+        <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_light</item>
+
+        <item name="dividerVertical">@drawable/abs__list_divider_holo_light</item>
+
+        <item name="spinnerDropDownItemStyle">@style/Widget.Sherlock.Light.DropDownItem.Spinner</item>
+        <item name="spinnerItemStyle">@style/Widget.Sherlock.TextView.SpinnerItem</item>
+
+        <item name="textColorPrimary">@color/abs__primary_text_holo_light</item>
+        <item name="textColorPrimaryDisableOnly">@color/abs__primary_text_disable_only_holo_light</item>
+        <item name="textColorPrimaryInverse">@color/abs__primary_text_holo_dark</item>
+
+        <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
+        <item name="dropDownListViewStyle">@style/Widget.Sherlock.Light.ListView.DropDown</item>
+
+        <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Light.Small</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.Sherlock.Light.Widget.PopupMenu.Large</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.Sherlock.Light.Widget.PopupMenu.Small</item>
+
+        <item name="popupMenuStyle">@style/Widget.Sherlock.Light.PopupMenu</item>
+        <!-- Internal --><item name="listPopupWindowStyle">@style/Widget.Sherlock.Light.ListPopupWindow</item>
+
+        <item name="searchDropdownBackground">@drawable/abs__search_dropdown_light</item>
+        <item name="searchViewTextField">@drawable/abs__textfield_searchview_holo_light</item>
+        <item name="searchViewTextFieldRight">@drawable/abs__textfield_searchview_right_holo_light</item>
+        <item name="searchViewCloseIcon">@drawable/abs__ic_clear_holo_light</item>
+        <item name="searchViewSearchIcon">@drawable/abs__ic_search_api_holo_light</item>
+        <item name="searchViewGoIcon">@drawable/abs__ic_go_search_api_holo_light</item>
+        <item name="searchViewVoiceIcon">@drawable/abs__ic_voice_search_api_holo_light</item>
+        <item name="searchAutoCompleteTextView">@style/Widget.Sherlock.Light.SearchAutoCompleteTextView</item>
+        <item name="android:dropDownHintAppearance">@style/TextAppearance.Sherlock.Widget.DropDownHint</item>
+
+        <item name="windowActionBar">true</item>
+        <item name="windowActionModeOverlay">false</item>
+        <item name="windowContentOverlay">@null</item>
+    </style>
+    <style name="Theme.Sherlock.Light.DarkActionBar" parent="Sherlock.__Theme.DarkActionBar">
+        <item name="windowContentOverlay">@drawable/abs__ab_solid_shadow_holo</item>
+        <item name="actionBarStyle">@style/Widget.Sherlock.Light.ActionBar.Solid.Inverse</item>
+        <item name="actionBarWidgetTheme">@style/Theme.Sherlock</item>
+
+        <item name="actionDropDownStyle">@style/Widget.Sherlock.Spinner.DropDown.ActionBar</item>
+        <item name="actionButtonStyle">@style/Widget.Sherlock.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.Sherlock.ActionButton.Overflow</item>
+        <item name="actionModeBackground">@drawable/abs__cab_background_top_holo_dark</item>
+        <item name="actionModeSplitBackground">@drawable/abs__cab_background_bottom_holo_dark</item>
+        <item name="actionModeCloseDrawable">@drawable/abs__ic_cab_done_holo_dark</item>
+        <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_dark</item>
+        <item name="actionBarTabStyle">@style/Widget.Sherlock.Light.ActionBar.TabView.Inverse</item>
+        <item name="actionBarTabBarStyle">@style/Widget.Sherlock.Light.ActionBar.TabBar.Inverse</item>
+        <item name="actionBarTabTextStyle">@style/Widget.Sherlock.Light.ActionBar.TabText.Inverse</item>
+        <item name="actionBarDivider">@drawable/abs__list_divider_holo_dark</item>
+        <item name="actionBarItemBackground">@drawable/abs__item_background_holo_dark</item>
+        <item name="actionMenuTextColor">?attr/textColorPrimaryInverse</item>
+        <item name="actionModeStyle">@style/Widget.Sherlock.Light.ActionMode.Inverse</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
+        <item name="actionModePopupWindowStyle">@style/Widget.Sherlock.PopupWindow.ActionMode</item>
+
+        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_dark</item>
+    </style>
+    <style name="Theme.Sherlock.Light.Dialog" parent="android:Theme.Light">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowTitleStyle">@style/DialogWindowTitle.Sherlock.Light</item>
+        <item name="android:windowBackground">@drawable/abs__dialog_full_holo_light</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+
+        <item name="android:colorBackgroundCacheHint">@null</item>
+
+        <item name="android:textColorPrimary">@color/abs__primary_text_holo_light</item>
+        <item name="android:textColorPrimaryInverse">@color/abs__primary_text_holo_dark</item>
+
+        <item name="windowMinWidthMajor">@dimen/abs__dialog_min_width_major</item>
+        <item name="windowMinWidthMinor">@dimen/abs__dialog_min_width_minor</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowContentOverlay">@null</item>
+    </style>
+    <style name="Theme.Sherlock.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Sherlock.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Widget">
+    </style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/themes.xml -->
+    <eat-comment/>
+    <style name="Widget.Button" parent="android:Widget">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/actionbarSherlock/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="Widget.Sherlock.ActionBar" parent="Sherlock.__Widget.ActionBar">
+        <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Subtitle</item>
+        <item name="background">@drawable/abs__ab_transparent_dark_holo</item>
+        <item name="backgroundStacked">@drawable/abs__ab_stacked_transparent_dark_holo</item>
+        <item name="backgroundSplit">@drawable/abs__ab_bottom_transparent_dark_holo</item>
+        <item name="divider">?attr/dividerVertical</item>
+        <item name="progressBarStyle">@style/Widget.Sherlock.ProgressBar.Horizontal</item>
+        <item name="indeterminateProgressStyle">@style/Widget.Sherlock.ProgressBar</item>
+        <item name="progressBarPadding">32dip</item>
+        <item name="itemPadding">8dip</item>
+    </style>
+    <style name="Widget.Sherlock.ActionBar.Solid" parent="Sherlock.__Widget.ActionBar">
+        <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Subtitle</item>
+        <item name="background">@drawable/abs__ab_solid_dark_holo</item>
+        <item name="backgroundStacked">@drawable/abs__ab_stacked_solid_dark_holo</item>
+        <item name="backgroundSplit">@drawable/abs__ab_bottom_solid_dark_holo</item>
+        <item name="divider">?attr/dividerVertical</item>
+        <item name="progressBarStyle">@style/Widget.Sherlock.ProgressBar.Horizontal</item>
+        <item name="indeterminateProgressStyle">@style/Widget.Sherlock.ProgressBar</item>
+        <item name="progressBarPadding">32dip</item>
+        <item name="itemPadding">8dip</item>
+    </style>
+    <style name="Widget.Sherlock.ActionBar.TabBar" parent="Widget">
+        <item name="android:divider">?attr/actionBarDivider</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:dividerPadding">12dip</item>
+    </style>
+    <style name="Widget.Sherlock.ActionBar.TabText" parent="Widget">
+        <item name="android:textAppearance">@null</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:maxLines">2</item>
+    </style>
+    <style name="Widget.Sherlock.ActionBar.TabView" parent="Widget">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/abs__tab_indicator_ab_holo</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+    </style>
+    <style name="Widget.Sherlock.ActionButton" parent="Widget">
+        <item name="android:background">?attr/actionBarItemBackground</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+
+        <item name="android:minWidth">@dimen/abs__action_button_min_width</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">12dip</item>
+        <item name="android:paddingRight">12dip</item>
+        <item name="android:scaleType">center</item>
+    </style>
+    <style name="Widget.Sherlock.ActionButton.CloseMode">
+        <item name="android:background">@drawable/abs__btn_cab_done_holo_dark</item>
+    </style>
+    <style name="Widget.Sherlock.ActionButton.Overflow">
+        <item name="android:src">@drawable/abs__ic_menu_moreoverflow_holo_dark</item>
+        <item name="android:background">?attr/actionBarItemBackground</item>
+        <item name="android:contentDescription">@string/abs__action_menu_overflow_description</item>
+    </style>
+    <style name="Widget.Sherlock.ActionMode" parent="Sherlock.__Widget.ActionMode">
+        <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionMode.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionMode.Subtitle</item>
+    </style>
+    <style name="Widget.Sherlock.ActivityChooserView" parent="Sherlock.__Widget.ActivityChooserView">
+    </style>
+    <style name="Widget.Sherlock.Button.Small" parent="Widget">
+      <item name="android:textAppearance">?attr/textAppearanceSmall</item>
+      <item name="android:textColor">@color/abs__primary_text_holo_dark</item>
+      <item name="android:minHeight">48dip</item>
+      <item name="android:minWidth">48dip</item>
+    </style>
+    <style name="Widget.Sherlock.DropDownItem.Spinner" parent="Sherlock.__Widget.Holo.DropDownItem">
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar" parent="Widget.Sherlock.ActionBar">
+        <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Subtitle</item>
+        <item name="background">@drawable/abs__ab_transparent_light_holo</item>
+        <item name="backgroundStacked">@drawable/abs__ab_stacked_transparent_light_holo</item>
+        <item name="backgroundSplit">@drawable/abs__ab_bottom_transparent_light_holo</item>
+        <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_light</item>
+        <item name="progressBarStyle">@style/Widget.Sherlock.Light.ProgressBar.Horizontal</item>
+        <item name="indeterminateProgressStyle">@style/Widget.Sherlock.Light.ProgressBar</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar.Solid">
+        <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Subtitle</item>
+        <item name="background">@drawable/abs__ab_solid_light_holo</item>
+        <item name="backgroundStacked">@drawable/abs__ab_stacked_solid_light_holo</item>
+        <item name="backgroundSplit">@drawable/abs__ab_bottom_solid_light_holo</item>
+        <item name="divider">?attr/dividerVertical</item>
+        <item name="progressBarStyle">@style/Widget.Sherlock.Light.ProgressBar.Horizontal</item>
+        <item name="indeterminateProgressStyle">@style/Widget.Sherlock.Light.ProgressBar</item>
+        <item name="progressBarPadding">32dip</item>
+        <item name="itemPadding">8dip</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Title.Inverse</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Subtitle.Inverse</item>
+        <item name="background">@drawable/abs__ab_solid_dark_holo</item>
+        <item name="backgroundStacked">@drawable/abs__ab_stacked_solid_dark_holo</item>
+        <item name="backgroundSplit">@drawable/abs__ab_bottom_solid_inverse_holo</item>
+        <item name="divider">@drawable/abs__list_divider_holo_dark</item>
+        <item name="progressBarStyle">@style/Widget.Sherlock.ProgressBar.Horizontal</item>
+        <item name="indeterminateProgressStyle">@style/Widget.Sherlock.ProgressBar</item>
+        <item name="progressBarPadding">32dip</item>
+        <item name="itemPadding">8dip</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar.TabBar" parent="Widget.Sherlock.ActionBar.TabBar">
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar.TabBar.Inverse">
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar.TabText" parent="Widget.Sherlock.ActionBar.TabText">
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar.TabText.Inverse">
+        <item name="android:textColor">?attr/textColorPrimaryInverse</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar.TabView" parent="Widget.Sherlock.ActionBar.TabView">
+    </style>
+    <style name="Widget.Sherlock.Light.ActionBar.TabView.Inverse">
+    </style>
+    <style name="Widget.Sherlock.Light.ActionButton" parent="Widget.Sherlock.ActionButton">
+    </style>
+    <style name="Widget.Sherlock.Light.ActionButton.CloseMode">
+        <item name="android:background">@drawable/abs__btn_cab_done_holo_light</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/abs__ic_menu_moreoverflow_holo_light</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ActionMode" parent="Widget.Sherlock.ActionMode">
+        <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionMode.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionMode.Subtitle</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ActionMode.Inverse" parent="Sherlock.__Widget.ActionMode">
+        <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionMode.Title.Inverse</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionMode.Subtitle.Inverse</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ActivityChooserView" parent="Widget.Sherlock.ActivityChooserView">
+        <item name="android:background">@drawable/abs__ab_share_pack_holo_light</item>
+    </style>
+    <style name="Widget.Sherlock.Light.Button.Small" parent="Widget">
+      <item name="android:textAppearance">?attr/textAppearanceSmall</item>
+      <item name="android:textColor">@color/abs__primary_text_holo_light</item>
+      <item name="android:minHeight">48dip</item>
+      <item name="android:minWidth">48dip</item>
+    </style>
+    <style name="Widget.Sherlock.Light.DropDownItem.Spinner" parent="Sherlock.__Widget.Holo.DropDownItem">
+    </style>
+    <style name="Widget.Sherlock.Light.ListPopupWindow" parent="Widget">
+        <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_light</item>
+        <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_light</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ListView.DropDown" parent="Sherlock.__Widget.Holo.ListView">
+        <item name="android:divider">@drawable/abs__list_divider_holo_light</item>
+        <item name="android:listSelector">@drawable/abs__list_selector_holo_light</item>
+    </style>
+    <style name="Widget.Sherlock.Light.PopupMenu" parent="Widget.Sherlock.Light.ListPopupWindow">
+    </style>
+    <style name="Widget.Sherlock.Light.PopupWindow.ActionMode" parent="Widget">
+        <item name="android:popupBackground">@android:color/white</item>
+    </style>
+    <style name="Widget.Sherlock.Light.ProgressBar" parent="Widget.Sherlock.ProgressBar">
+    </style>
+    <style name="Widget.Sherlock.Light.ProgressBar.Horizontal" parent="Widget.Sherlock.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/abs__progress_horizontal_holo_light</item>
+    </style>
+    <style name="Widget.Sherlock.Light.SearchAutoCompleteTextView" parent="Sherlock.__Widget.SearchAutoCompleteTextView">
+        <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_light</item>
+        <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_light</item>
+    </style>
+    <style name="Widget.Sherlock.Light.Spinner.DropDown.ActionBar" parent="Sherlock.__Widget.Holo.Spinner">
+        <item name="android:background">@drawable/abs__spinner_ab_holo_light</item>
+        <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_light</item>
+        <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_light</item>
+    </style>
+    <style name="Widget.Sherlock.ListPopupWindow" parent="Widget">
+        <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_dark</item>
+        <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_dark</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+    </style>
+    <style name="Widget.Sherlock.ListView.DropDown" parent="Sherlock.__Widget.Holo.ListView">
+    </style>
+    <style name="Widget.Sherlock.PopupMenu" parent="Widget.Sherlock.ListPopupWindow">
+    </style>
+    <style name="Widget.Sherlock.PopupWindow.ActionMode" parent="Widget">
+    </style>
+    <style name="Widget.Sherlock.ProgressBar" parent="android:Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/abs__progress_medium_holo</item>
+        <item name="android:animationResolution">33</item>
+    </style>
+    <style name="Widget.Sherlock.ProgressBar.Horizontal" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/abs__progress_horizontal_holo_dark</item>
+        <!--item name="android:indeterminateDrawable">@drawable/abs__progress_indeterminate_horizontal_holo</item-->
+        <item name="android:minHeight">16dip</item>
+        <item name="android:maxHeight">16dip</item>
+    </style>
+    <style name="Widget.Sherlock.SearchAutoCompleteTextView" parent="Sherlock.__Widget.SearchAutoCompleteTextView">
+        <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_dark</item>
+        <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_dark</item>
+    </style>
+    <style name="Widget.Sherlock.Spinner.DropDown.ActionBar" parent="Sherlock.__Widget.Holo.Spinner">
+        <item name="android:background">@drawable/abs__spinner_ab_holo_dark</item>
+    </style>
+    <style name="Widget.Sherlock.TextView.SpinnerItem" parent="Widget">
+        <item name="android:textAppearance">@style/TextAppearance.Sherlock.Widget.TextView.SpinnerItem</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/aFileChooser/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="fileChooserIcon">
+        <item name="android:layout_marginLeft">@dimen/list_item_padding</item>
+    </style>
+    <style name="fileChooserName">
+        <item name="android:layout_marginLeft">@dimen/list_item_padding</item>
+        <item name="android:layout_marginRight">@dimen/list_item_padding</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>

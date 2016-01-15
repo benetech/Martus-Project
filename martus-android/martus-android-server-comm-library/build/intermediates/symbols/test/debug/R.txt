@@ -1,0 +1,4 @@
+int drawable ic_launcher 0x7f020000
+int layout main 0x7f030000
+int string app_name 0x7f040000
+int string send_failed_cant_reach_server 0x7f040001

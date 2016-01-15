@@ -47,6 +47,8 @@ public class TestServerCore
 		TestSuite suite= new TestSuite("All Server Core Martus Tests");
 
 		suite.addTest(new TestSuite(TestBulletinUploadRecord.class));
+		suite.addTest(new TestSuite(TestServerMetaDatabaseConnection.class));
+		suite.addTest(new TestSuite(TestServerMetadatabaseFactory.class));
 		suite.addTest(new TestSuite(TestDeleteRequestRecord.class));
 		suite.addTest(new TestSuite(TestServerBulletinStore.class));
 		suite.addTest(new TestSuite(TestServerDeleteStartupFilesAndFolders.class));

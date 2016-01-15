@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="2.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <CheckBox fx:id="selectAll" mnemonicParsing="false" onAction="#onSelectAll" text="%Button.SelectAll">
+         <padding>
+            <Insets bottom="10.0" />
+         </padding></CheckBox>
+      <ListView fx:id="contactsList" />
+   </children>
+</VBox>

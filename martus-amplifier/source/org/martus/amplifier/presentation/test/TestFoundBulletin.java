@@ -102,7 +102,7 @@ public class TestFoundBulletin extends AbstractAmplifierTestCase
 		b.set(BulletinField.TAGKEYWORDS, "testing"+bulletinNumber);
 		b.set(BulletinField.TAGENTRYDATE, "2003-04-30");
 		b.setAllPrivate(false);
-		b.setSealed();
+		b.setImmutable();
 		b.getFieldDataPacket().setEncrypted(false);
 		return b;
 	}

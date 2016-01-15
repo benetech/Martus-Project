@@ -32,6 +32,7 @@ import java.util.Vector;
 
 import org.martus.common.LoggerToNull;
 import org.martus.common.MartusUtilities;
+import org.martus.common.bulletin.Bulletin;
 import org.martus.common.bulletin.BulletinConstants;
 import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.crypto.MockMartusSecurity;
@@ -229,17 +230,17 @@ public class TestSupplierSideMirroringHandler extends TestCaseEnhanced
 		String authorAccountId = authorSecurity.getPublicKeyString();
 		
 		BulletinHeaderPacket bhp1 = new BulletinHeaderPacket(authorSecurity);
-		bhp1.setStatus(BulletinConstants.STATUSSEALED);
+		bhp1.setStatus(BulletinConstants.STATUSIMMUTABLE);
 		Vector result1 = writeSampleHeaderPacket(bhp1);
 		String localId1 = (String) result1.get(0);
 		
 		BulletinHeaderPacket bhp2 = new BulletinHeaderPacket(authorSecurity);
-		bhp2.setStatus(BulletinConstants.STATUSSEALED);
+		bhp2.setStatus(BulletinConstants.STATUSIMMUTABLE);
 		Vector result2 = writeSampleHeaderPacket(bhp2);
 		String localId2 = (String) result2.get(0);
 
 		BulletinHeaderPacket bhpDraft = new BulletinHeaderPacket(authorSecurity);
-		bhpDraft.setStatus(BulletinConstants.STATUSDRAFT);
+		bhpDraft.setStatus(BulletinConstants.STATUSMUTABLE);
 		Vector result3 = writeSampleHeaderPacket(bhpDraft);
 		assertNull("Can't mirror drafts", result3);
 		
@@ -268,15 +269,15 @@ public class TestSupplierSideMirroringHandler extends TestCaseEnhanced
 		String authorAccountId = authorSecurity.getPublicKeyString();
 		
 		BulletinHeaderPacket bhp1 = new BulletinHeaderPacket(authorSecurity);
-		bhp1.setStatus(BulletinConstants.STATUSSEALED);
+		bhp1.setStatus(BulletinConstants.STATUSIMMUTABLE);
 		Vector result1 = writeSampleAvailableIDPacket(bhp1);
 		
 		BulletinHeaderPacket bhp2 = new BulletinHeaderPacket(authorSecurity);
-		bhp2.setStatus(BulletinConstants.STATUSSEALED);
+		bhp2.setStatus(BulletinConstants.STATUSIMMUTABLE);
 		Vector result2 = writeSampleAvailableIDPacket(bhp2);
 
 		BulletinHeaderPacket bhpDraft = new BulletinHeaderPacket(authorSecurity);
-		bhpDraft.setStatus(BulletinConstants.STATUSDRAFT);
+		bhpDraft.setStatus(BulletinConstants.STATUSMUTABLE);
 		Vector resultDraft = writeSampleAvailableIDPacket(bhpDraft);
 		
 		supplier.authorizedCaller = callerAccountId;
@@ -315,7 +316,7 @@ public class TestSupplierSideMirroringHandler extends TestCaseEnhanced
 		
 		CallerSideMirroringGateway gateway = new CallerSideMirroringGateway(wrappedHandler);
 		LoggerToNull logger = new LoggerToNull();
-		MockMartusServer server = new MockMartusServer();
+		MockMartusServer server = new MockMartusServer(this);
 
 		MirroringRetriever mirroringRetriever = new MirroringRetriever(server.getStore(), gateway, "Dummy IP", logger);
 		Vector returnedListWeWantToMirror = mirroringRetriever.listOnlyPacketsThatWeWantUsingBulletinMirroringInformation(authorSecurity.getPublicKeyString(), infosAsVector);
@@ -361,7 +362,7 @@ public class TestSupplierSideMirroringHandler extends TestCaseEnhanced
 
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
 		String bur = "This pretends to be a BUR";
-		supplier.addBur(uid, bur, BulletinConstants.STATUSSEALED);
+		supplier.addBur(uid, bur, BulletinConstants.STATUSIMMUTABLE);
 		Vector parameters = new Vector();
 		parameters.add(MirroringInterface.CMD_MIRRORING_GET_BULLETIN_UPLOAD_RECORD);
 		parameters.add(uid.getAccountId());
@@ -379,12 +380,12 @@ public class TestSupplierSideMirroringHandler extends TestCaseEnhanced
 
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
 		String bur = "This pretends to be a BUR";
-		supplier.addBur(uid, bur, BulletinConstants.STATUSSEALED);
+		supplier.addBur(uid, bur, BulletinConstants.STATUSIMMUTABLE);
 		Vector parameters = new Vector();
 		parameters.add(MirroringInterface.CMD_MIRRORING_GET_BULLETIN_UPLOAD_RECORD);
 		parameters.add(uid.getAccountId());
 		parameters.add(uid.getLocalId());
-		parameters.add(BulletinConstants.STATUSSEALED);
+		parameters.add(BulletinConstants.STATUSIMMUTABLE);
 		String sig = callerSecurity.createSignatureOfVectorOfStrings(parameters);
 		Vector result = handler.request(callerAccountId, parameters, sig);
 		assertEquals(NetworkInterfaceConstants.OK, result.get(0));
@@ -398,12 +399,12 @@ public class TestSupplierSideMirroringHandler extends TestCaseEnhanced
 
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
 		String bur = "This pretends to be a BUR";
-		supplier.addBur(uid, bur, BulletinConstants.STATUSDRAFT);
+		supplier.addBur(uid, bur, BulletinConstants.STATUSMUTABLE);
 		Vector parameters = new Vector();
 		parameters.add(MirroringInterface.CMD_MIRRORING_GET_BULLETIN_UPLOAD_RECORD);
 		parameters.add(uid.getAccountId());
 		parameters.add(uid.getLocalId());
-		parameters.add(BulletinConstants.STATUSDRAFT);
+		parameters.add(BulletinConstants.STATUSMUTABLE);
 		String sig = callerSecurity.createSignatureOfVectorOfStrings(parameters);
 		Vector result = handler.request(callerAccountId, parameters, sig);
 		assertEquals(NetworkInterfaceConstants.OK, result.get(0));
@@ -526,8 +527,8 @@ public class TestSupplierSideMirroringHandler extends TestCaseEnhanced
 	{
 		StringWriter writer = new StringWriter();
 		byte[] sigBytes = bhp.writeXml(writer, authorSecurity);
-		DatabaseKey key = DatabaseKey.createSealedKey(bhp.getUniversalId());
-		if(bhp.getStatus().equals(BulletinConstants.STATUSDRAFT))
+		DatabaseKey key = DatabaseKey.createImmutableKey(bhp.getUniversalId());
+		if(Bulletin.isMutable(bhp.getStatus()))
 			return null;
 		String sigString = StreamableBase64.encode(sigBytes);
 		supplier.addBulletinToMirror(key, sigString);
@@ -544,10 +545,10 @@ public class TestSupplierSideMirroringHandler extends TestCaseEnhanced
 		StringWriter writer = new StringWriter();
 		byte[] sigBytes = bhp.writeXml(writer, authorSecurity);
 		DatabaseKey key = null;
-		if(bhp.getStatus().equals(BulletinConstants.STATUSDRAFT))
-			key = DatabaseKey.createDraftKey(bhp.getUniversalId());
+		if(Bulletin.isMutable(bhp.getStatus()))
+			key = DatabaseKey.createMutableKey(bhp.getUniversalId());
 		else
-			key = DatabaseKey.createSealedKey(bhp.getUniversalId());
+			key = DatabaseKey.createImmutableKey(bhp.getUniversalId());
 
 		String sigString = StreamableBase64.encode(sigBytes);
 		MockDatabase db = new MockServerDatabase();

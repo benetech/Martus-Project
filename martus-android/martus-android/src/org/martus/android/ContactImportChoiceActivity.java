@@ -2,10 +2,7 @@ package org.martus.android;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
-import android.text.style.URLSpan;
 import android.view.View;
 import android.widget.TextView;
 

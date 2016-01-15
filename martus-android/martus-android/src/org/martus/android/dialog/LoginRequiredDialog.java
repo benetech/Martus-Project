@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
 import org.martus.android.R;
+import org.martus.android.library.common.dialog.BackButtonIgnorer;
 
 /**
  * @author roms

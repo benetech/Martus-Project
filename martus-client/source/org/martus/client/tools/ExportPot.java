@@ -26,6 +26,7 @@ Boston, MA 02111-1307, USA.
 package org.martus.client.tools;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -42,6 +43,8 @@ import org.martus.common.i18n.TranslationEntry;
 
 public class ExportPot
 {
+	//FIXME this utility is 99% similar to ExportPot, we need to combine them with a 2nd parameter
+	//Only Header and extra blank entries seem to be the difference 
 	public static void main(String[] args) throws Exception
 	{
 		if(args.length == 0)
@@ -50,25 +53,25 @@ public class ExportPot
 			System.exit(1);
 		}
 			
-		PrintStream out = new PrintStream(new File(args[0]), "UTF-8");
-		new ExportPot().exportPot(out);
-		out.flush();
-		out.close();
-		
-		System.out.println("Done.");
+		File potFile = new File(args[0]);
+		new ExportPot(potFile);
+		System.out.println("Done.  Saved: " + potFile.getAbsolutePath());
 	}
 
-	public ExportPot() throws Exception
+	//TODO add unit test
+	public ExportPot(File potFile) throws Exception
 	{
 		File translationsDirectory = MartusApp.getTranslationsDirectory();
 		String[] allEnglishStrings = UiSession.getAllEnglishStrings();
 		localization = new MartusLocalization(translationsDirectory, allEnglishStrings);
-	}
-	
-	public void exportPot(PrintStream out) throws Exception
-	{
+
+		FileOutputStream outputStream = new FileOutputStream(potFile);
+		boolean autoflush = true;
+		PrintStream out = new PrintStream(outputStream, autoflush, "UTF-8");
 		exportHeader(out);
 		exportEntries(out);
+		out.flush();
+		out.close();
 	}
 
 	private void exportHeader(PrintStream out)
@@ -124,8 +127,10 @@ public class ExportPot
 		printlnQuoted(out, entry.getContext());
 		out.print("msgid ");
 		printlnQuoted(out, "");
-		out.print("msgstr ");
 		printlnQuoted(out, english_text);
+		out.print("msgstr ");
+		printlnQuoted(out, "");
+		printlnQuoted(out, "");
 		out.println();
 	}
 	

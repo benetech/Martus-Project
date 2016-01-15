@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android-library/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">Martus Android Library</string>
+    <string name="bulletin_sending_progress">Sending…</string>
+    <string name="default_author">Unknown Author</string>
+    <string name="error_cleaning_up_odk_folders">Error cleaning up folders</string>
+    <string name="failed_send_notification">Send failed due to: %1$s . Try resending later.</string>
+    <string name="failure_choosing_file">Failed choosing file</string>
+    <string name="failure_zipping_bulletin">Failed zipping bulletin</string>
+    <string name="notification_title" translate="false">Martus - %1$s</string>
+    <string name="send_failed_cant_reach_server">Can\'t reach server</string>
+    <string name="starting_send_notification">Sending …</string>
+    <string name="successful_send_notification">Record sent!</string>
+    <string name="title_attachments">Form Attachments</string>
+    <string name="xforms_constraint_error">Cannot upload:\n Constraint issue found in form</string>
+    <string name="xforms_missing_required_field">Cannot upload:\n Missing required field</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android-library/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

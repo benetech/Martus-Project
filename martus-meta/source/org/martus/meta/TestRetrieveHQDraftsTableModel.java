@@ -98,7 +98,7 @@ public class TestRetrieveHQDraftsTableModel extends TestCaseEnhanced
 		bulletinVersion1.set(Bulletin.TAGAUTHOR, author1);
 		bulletinVersion1.setAllPrivate(false);
 		bulletinVersion1.setAuthorizedToReadKeys(hqKey);
-		bulletinVersion1.setSealed();
+		bulletinVersion1.setImmutable();
 		store1.saveBulletin(bulletinVersion1);
 
 		bulletinVersion2 = fieldApp2.createBulletin();
@@ -110,11 +110,11 @@ public class TestRetrieveHQDraftsTableModel extends TestCaseEnhanced
 		history2.add(bulletinVersion1.getLocalId());
 		historyId = UniversalId.createFromAccountAndLocalId(bulletinVersion2.getAccount(), bulletinVersion1.getLocalId());
 		bulletinVersion2.setHistory(history2);
-		bulletinVersion2.setDraft();
+		bulletinVersion2.setMutable();
 		store2.saveBulletin(bulletinVersion2);
 		bulletinVersion2Size = MartusUtilities.getBulletinSize(store2.getDatabase(), bulletinVersion2.getBulletinHeaderPacket());
 
-		testServer = new MockServer();
+		testServer = new MockServer(this);
 		testServer.verifyAndLoadConfigurationFiles();
 		testSSLServerInterface = new ServerSideNetworkHandler(testServer.serverForClients);
 		hqApp.setSSLNetworkInterfaceHandlerForTesting(testSSLServerInterface);
@@ -277,9 +277,9 @@ public class TestRetrieveHQDraftsTableModel extends TestCaseEnhanced
 
 	class MockServer extends MockMartusServer
 	{
-		MockServer() throws Exception
+		MockServer(TestCaseEnhanced testCase) throws Exception
 		{
-			super();
+			super(testCase);
 			setSecurity(MockMartusSecurity.createServer());
 		}
 		

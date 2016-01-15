@@ -257,7 +257,7 @@ public class ActionMenuCharts extends UiMenuAction implements ActionDoer
 		throw new RuntimeException("Unsupported chart type: " + answers.getChartType());
 	}
 
-	private HashMap<String, Integer> extractBulletinCounts(MiniFieldSpec selectedSpec, SortableBulletinList sortableList)
+	private HashMap<String, Integer> extractBulletinCounts(MiniFieldSpec selectedSpec, SortableBulletinList sortableList) throws Exception
 	{
 		HashMap<String, Integer> counts = new HashMap<String, Integer>();
 		

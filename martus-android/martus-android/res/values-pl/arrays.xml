@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string-array name="entries_language_preference">
+    <item>Angielski</item>
+    <item>Arabski</item>
+    <item>Armeński</item>
+    <item>Azerski</item>
+    <item>Bułgarski</item>
+    <item>Bengalski, Bangla</item>
+    <item>Burmejski</item>
+    <item>Chiński</item>
+    <item>Niderlandzki</item>
+    <item>Esperanto</item>
+    <item>Farsi</item>
+    <item>Frencuski</item>
+    <item>Niemiecki</item>
+    <item>Gujarati</item>
+    <item>Hausa</item>
+    <item>Hebrajski</item>
+    <item>Hindi</item>
+    <item>Węgierski</item>
+    <item>Włoski</item>
+    <item>Japoński</item>
+    <item>Jawajski</item>
+    <item>Kanadyjski</item>
+    <item>Kazachski</item>
+    <item>Khmerski</item>
+    <item>Kirgizki</item>
+    <item>Koreański</item>
+    <item>Kurdyjski</item>
+    <item>Malajaski</item>
+    <item>Marathi</item>
+    <item>Nepalski</item>
+    <item>Oriya</item>
+    <item>Pandżabi</item>
+    <item>Pashto, Pushto</item>
+    <item>Polski</item>
+    <item>Portugalski</item>
+    <item>Romski</item>
+    <item>Rosyjski</item>
+    <item>Serbski</item>
+    <item>Sindi</item>
+    <item>Sinhalese</item>
+    <item>Hiszpański</item>
+    <item>Tamilski</item>
+    <item>Tajik</item>
+    <item>Telugu</item>
+    <item>Thajski</item>
+    <item>Turecki</item>
+    <item>Turkmeński</item>
+    <item>Ukraniński</item>
+    <item>Urdu</item>
+    <item>Uzbecki</item>
+    <item>Wietnamski</item>
+  </string-array>
+  <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+  <string-array name="entries_timeout_preference">
+    <item>10 Minut</item>
+    <item>7 Minut</item>
+    <item>5 Minut</item>
+    <item>3 Minuty</item>
+    <item>1 Minuta</item>
+  </string-array>
+  <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+  <!--DO NOT alter font_size_entry_values - used internally in preferences activity-->
+  <string-array name="font_size_entries">
+    <item>@string/font_size_extra_large</item>
+    <item>@string/font_size_large</item>
+    <item>@string/font_size_medium</item>
+    <item>@string/font_size_small</item>
+    <item>@string/font_size_extra_small</item>
+  </string-array>
+  <!--DO NOT alter navigation_entry_values - used internally in preferences activity-->
+  <string-array name="navigation_entries">
+    <item>@string/swipe_navigation</item>
+    <item>@string/buttons_navigation</item>
+    <item>@string/swipe_buttons_navigation</item>
+  </string-array>
+</resources>

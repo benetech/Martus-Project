@@ -1,0 +1,13 @@
+/**
+ * Automatically generated file. DO NOT MODIFY
+ */
+package org.martus.androidwrapper;
+
+public final class BuildConfig {
+  public static final boolean DEBUG = Boolean.parseBoolean("true");
+  public static final String APPLICATION_ID = "org.martus.androidwrapper";
+  public static final String BUILD_TYPE = "debug";
+  public static final String FLAVOR = "";
+  public static final int VERSION_CODE = 27;
+  public static final String VERSION_NAME = "";
+}

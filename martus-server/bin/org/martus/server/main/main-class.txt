@@ -1,0 +1,2 @@
+Main-class: org.martus.server.main.MartusServer
+Sealed: true

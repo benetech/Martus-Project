@@ -46,6 +46,7 @@ import org.martus.common.bulletin.BulletinConstants;
 import org.martus.common.bulletin.BulletinFromXFormsLoader;
 import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.fieldspec.ChoiceItem;
+import org.martus.common.fieldspec.CustomDropDownFieldSpec;
 import org.martus.common.fieldspec.DropDownFieldSpec;
 import org.martus.common.fieldspec.FieldSpec;
 import org.martus.common.fieldspec.FieldType;
@@ -198,6 +199,71 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		FxBulletinField field = fxBulletin.getField(fieldSpec);
 		assertEquals("Incorrect field value?", FIELD_VALUE, field.getValue());
 	}
+
+	public void testFxBulletinWithXFormsWithOneDropdownFieldInsideGroup() throws Exception
+	{
+		FxBulletin fxBulletin = new FxBulletin(getLocalization());
+		assertEquals("FxBulletin field specs should be filled?", 0, fxBulletin.getFieldSpecs().size());
+		
+		Bulletin bulletin = new Bulletin(security);
+		bulletin.getFieldDataPacket().setXFormsModelAsString(getXFormsModelWithOneDropdownFieldInGroupXmlAsString());
+		bulletin.getFieldDataPacket().setXFormsInstanceAsString(getXFormsInstanceWithOneDropdownFieldInGroupXmlAsString());
+		fxBulletin.copyDataFromBulletin(bulletin, store);
+		assertEquals("FxBulletin filled from bulletin with data should have data?", getExpectedFieldCountWithNoSections(4), fxBulletin.getFieldSpecs().size());
+		
+		String TAG = "MultiID";
+		FieldSpec fieldSpec = fxBulletin.findFieldSpecByTag(TAG);
+		assertEquals("Incorrect field label?", DROPDOWN_IN_GROUP_LABEL, fieldSpec.getLabel());
+		assertEquals("Incorrect field tag?", TAG, fieldSpec.getTag());
+		FxBulletinField field = fxBulletin.getField(fieldSpec);
+		assertEquals("Incorrect field value?", DROPDOWN_IN_GROUP_OPTION1_LABEL, field.getValue());
+
+		Bulletin updatedBulletin = BulletinFromXFormsLoader.createNewBulletinFromXFormsBulletin(bulletin);
+		DropDownFieldSpec spec = (DropDownFieldSpec)updatedBulletin.getField(TAG).getFieldSpec();
+		assertEquals(3, spec.getCount());
+		assertEquals("", spec.getValue(0));
+		assertEquals(DROPDOWN_IN_GROUP_OPTION1_LABEL, spec.getValue(1));
+		assertEquals(DROPDOWN_IN_GROUP_OPTION2_LABEL, spec.getValue(2));
+		assertEquals(XFORM_DROPDOWN_FIELD_XML, spec.toString());
+
+	}
+	
+	public void testFxBulletinWithXFormsWithDropdownFieldInsideRepeatGroup() throws Exception
+	{
+		FxBulletin fxBulletin = new FxBulletin(getLocalization());
+		assertEquals("FxBulletin field specs should be filled?", 0, fxBulletin.getFieldSpecs().size());
+		
+		Bulletin bulletin = new Bulletin(security);
+		bulletin.getFieldDataPacket().setXFormsModelAsString(getXFormsModelWithDropdownFieldInRepeatGroupXmlAsString());
+		bulletin.getFieldDataPacket().setXFormsInstanceAsString(getXFormsInstanceWithDropdownFieldInRepeatGroupXmlAsString());
+		fxBulletin.copyDataFromBulletin(bulletin, store);
+		assertEquals("FxBulletin filled from bulletin with data should have data?", getExpectedFieldCountWithNoSections(12), fxBulletin.getFieldSpecs().size());
+		
+		String TAG = "MultiID1";
+		FieldSpec fieldSpec = fxBulletin.findFieldSpecByTag(TAG);
+		assertEquals("Incorrect field label?", "MultiLabel1", fieldSpec.getLabel());
+		assertEquals("Incorrect field tag?", "MultiID1", fieldSpec.getTag());
+		FxBulletinField field = fxBulletin.getField(fieldSpec);
+		assertEquals("Incorrect field value?", "OptionALabel1", field.getValue());
+
+		TAG = "_data_RepeatIDTagGrid";
+		fieldSpec = fxBulletin.findFieldSpecByTag(TAG);
+		assertEquals("Incorrect field label?", "RepeatLabel", fieldSpec.getLabel());
+		assertEquals("Incorrect field tag?", "_data_RepeatIDTagGrid", fieldSpec.getTag());
+		 field = fxBulletin.getField(fieldSpec);
+		 
+		 String expectedFieldValud = "<GridData columns='4'>\n<Row>\n<Column>Repeat 1</Column>\n<Column>555</Column>\n<Column>2015-12-01</Column>\n<Column>OptionALabel2</Column>\n</Row>\n<Row>\n<Column>Item 2</Column>\n<Column>2</Column>\n<Column>2015-11-30</Column>\n<Column>OptionBLabel2</Column>\n</Row>\n</GridData>\n";
+		 
+		assertEquals("Incorrect field value for dropdown inside grid?", expectedFieldValud, field.getValue());
+		
+		Bulletin updatedBulletin = BulletinFromXFormsLoader.createNewBulletinFromXFormsBulletin(bulletin);
+		GridFieldSpec gridspec = (GridFieldSpec)updatedBulletin.getField(TAG).getFieldSpec();
+		CustomDropDownFieldSpec spec = (CustomDropDownFieldSpec)gridspec.getFieldSpec(3);
+		assertEquals(3, spec.getCount());
+		assertEquals("", spec.getValue(0));
+		assertEquals("OptionALabel2", spec.getValue(1));
+		assertEquals("OptionBLabel2", spec.getValue(2));
+	}
 	
 	public void testNumberOfCustomFields() throws Exception
 	{
@@ -263,6 +329,26 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		assertEquals("Incorrect field value?", TestBulletinFromXFormsLoaderConstants.AGE_VALUE, field.getValue());
 	}
 	
+	public void testFxBulletinWithXFormsWithMessageField() throws Exception
+	{
+		FxBulletin fxBulletin = new FxBulletin(getLocalization());
+		verifyFieldSpecCount(fxBulletin, 0);
+		
+		Bulletin bulletin = new Bulletin(security);
+		bulletin.getFieldDataPacket().setXFormsModelAsString(TestBulletinFromXFormsLoaderConstants.XFORMS_MODEL_MESSAGE_FIELD);
+		bulletin.getFieldDataPacket().setXFormsInstanceAsString(TestBulletinFromXFormsLoaderConstants.XFORMS_INSTANCE_MESSAGE_FIELD);
+		fxBulletin.copyDataFromBulletin(bulletin, store);
+		assertEquals("FxBulletin filled from bulletin with data should have data?", getExpectedFieldCountWithSections(1, 1), fxBulletin.getFieldSpecs().size());
+		
+		String TAG = "message";
+		FieldSpec fieldSpec = fxBulletin.findFieldSpecByTag(TAG);
+		assertTrue("Only field should be message?", fieldSpec.getType().isMessage());
+		assertEquals("Incorrect field label?", TestBulletinFromXFormsLoaderConstants.MESSAGE_LABEL, fieldSpec.getLabel());
+		assertEquals("Incorrect field tag?", TAG, fieldSpec.getTag());
+		FxBulletinField field = fxBulletin.getField(fieldSpec);
+		assertEquals("Incorrect field value?", "", field.getValue());
+	}
+
 	public void testFxBulletinWithXFormsEditing() throws Exception
 	{
 		Bulletin bulletin = new Bulletin(security);
@@ -313,15 +399,16 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 	{
 		Vector<ObservableChoiceItemList> choiceItems = field.getChoiceItemLists();
 		assertEquals("Incorrect number of choiceItems?", 1, choiceItems.size());
-		assertEquals("Incorrect choice?", DROPDOWN_FIELD_CHOICE_PERSONAL_INTERVIEW_CODE, field.getValue());
+		assertEquals("Incorrect choice?", DROPDOWN_FIELD_CHOICE_PERSONAL_INTERVIEW_LABEL, field.getValue());
 	}
 	
 	private List<ChoiceItem> getExpectedChoiceItems()
 	{
 		List<ChoiceItem> expectedChoiceItems = new ArrayList<ChoiceItem>();
-		expectedChoiceItems.add(new ChoiceItem(DROPDOWN_FIELD_CHOICE_LEGAL_REPORT_CODE, DROPDOWN_FIELD_CHOICE_LEGAL_REPORT_LABEL));
-		expectedChoiceItems.add(new ChoiceItem(DROPDOWN_FIELD_CHOICE_MEDIA_PRESS_CODE, DROPDOWN_FIELD_CHOICE_MEDIA_PRESS_LABEL));
-		expectedChoiceItems.add(new ChoiceItem(DROPDOWN_FIELD_CHOICE_PERSONAL_INTERVIEW_CODE, DROPDOWN_FIELD_CHOICE_PERSONAL_INTERVIEW_LABEL));
+		expectedChoiceItems.add(new ChoiceItem("",""));
+		expectedChoiceItems.add(new ChoiceItem(DROPDOWN_FIELD_CHOICE_LEGAL_REPORT_LABEL, DROPDOWN_FIELD_CHOICE_LEGAL_REPORT_LABEL));
+		expectedChoiceItems.add(new ChoiceItem(DROPDOWN_FIELD_CHOICE_MEDIA_PRESS_LABEL, DROPDOWN_FIELD_CHOICE_MEDIA_PRESS_LABEL));
+		expectedChoiceItems.add(new ChoiceItem(DROPDOWN_FIELD_CHOICE_PERSONAL_INTERVIEW_LABEL, DROPDOWN_FIELD_CHOICE_PERSONAL_INTERVIEW_LABEL));
 		
 		return expectedChoiceItems;
 	}
@@ -424,7 +511,8 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 
 	private int getExpectedFieldCountWithNoSections(int expectedFieldsConverted)
 	{
-		return getExpectedFieldCountWithSections(expectedFieldsConverted, 0);
+		int autogeneratedSectionForUngroupedFields = 1;
+		return getExpectedFieldCountWithSections(expectedFieldsConverted, autogeneratedSectionForUngroupedFields);
 	}
 	
 	private int getExpectedFieldCountWithSections(int expectedFieldsConverted, int expectedSections)
@@ -442,11 +530,24 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		bulletin.getFieldDataPacket().setXFormsInstanceAsString(getXFormsInstanceWithRepeats());
 		fxBulletin.copyDataFromBulletin(bulletin, store);
 		Vector<FieldSpec> fieldSpecs = fxBulletin.getFieldSpecs();
-		assertEquals("FxBulletin filled from bulletin with data should have grid field?", getExpectedFieldCountWithNoSections(2), fieldSpecs.size());
+		assertEquals("FxBulletin filled from bulletin with data should have grid field?", getExpectedFieldCountWithNoSections(1), fieldSpecs.size());
 		FieldSpec fieldSpec = fxBulletin.findFieldSpecByTag("_nm_victim_informationTagGrid");
 		verifyGridFieldSpec(fieldSpec);
 		verifyGridFieldData(fxBulletin, fieldSpec);
 	}
+	
+	public void testCustomDropDownFieldSpec() throws Exception
+	{
+		Bulletin bulletin = new Bulletin(security);
+		bulletin.getFieldDataPacket().setXFormsModelAsString(TestBulletinFromXFormsLoaderConstants.COMPLETE_XFORMS_MODEL);
+		bulletin.getFieldDataPacket().setXFormsInstanceAsString(TestBulletinFromXFormsLoaderConstants.COMPLETE_XFORMS_INSTANCE);
+	
+		Bulletin converted = BulletinFromXFormsLoader.createNewBulletinFromXFormsBulletin(bulletin);
+		CustomDropDownFieldSpec dropdownSpec = (CustomDropDownFieldSpec)converted.getField("sourceOfRecordInformation").getFieldSpec();
+		assertEquals("Didn't get correct choice count?", 5, dropdownSpec.getCount());
+	}
+
+	
 	
 	public void testOwnershipOfXFormsRecordWhenCreatingACopy() throws Exception
 	{
@@ -542,6 +643,7 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		assertTrue("should contain section label?", verifyContainsSectionName(sectionFieldSpecs, "Section 3 (Drop down lists)"));
 		assertTrue("should contain section label?", verifyContainsSectionName(sectionFieldSpecs, "Section 4 (Check boxes)"));
 		assertTrue("should contain section label?", verifyContainsSectionName(sectionFieldSpecs, "Section 5 (Repeating group of fields)"));
+		assertTrue("should contain grid label?", verifyGridContainsLabel(fieldSpecs, "Section 5 (Repeating group of fields)"));
 	}
 
 	private FieldSpecCollection getOnlySectionFieldSpecs(FieldSpecCollection fieldSpecs)
@@ -565,7 +667,21 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 			if (sectionFieldSpec.getLabel().equals(sectionLabelToMatch))
 				return true;
 		}
-		
+		return false;
+	}
+	
+	private boolean verifyGridContainsLabel(FieldSpecCollection sectionFieldSpecs, String labelToMatch)
+	{
+		for (int index = 0; index < sectionFieldSpecs.size(); ++index)
+		{
+			FieldSpec fieldSpec = sectionFieldSpecs.get(index);
+			if(fieldSpec.getType().isGrid())
+			{
+				GridFieldSpec gridSpec = (GridFieldSpec)fieldSpec;
+				if (gridSpec.getLabel().equals(labelToMatch))
+					return true;
+			}
+		}
 		return false;
 	}
 
@@ -603,12 +719,12 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		GridRow firstRow = gridData.getRow(0);
 		assertEquals("incorrect grid column value", "John", firstRow.getCellText(0));
 		assertEquals("incorrect grid column value", "Smith", firstRow.getCellText(1));
-		assertEquals("incorrect grid column value", "male", firstRow.getCellText(2));
+		assertEquals("incorrect grid column value", "Male", firstRow.getCellText(2));
 		
 		GridRow secondRow = gridData.getRow(1);
 		assertEquals("incorrect grid column value", "Sunny", secondRow.getCellText(0));
 		assertEquals("incorrect grid column value", "Dale", secondRow.getCellText(1));
-		assertEquals("incorrect grid column value", "other", secondRow.getCellText(2));
+		assertEquals("incorrect grid column value", "Other", secondRow.getCellText(2));
 	}
 
 	private void verifyGridFieldSpec(FieldSpec fieldSpec)
@@ -691,6 +807,215 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 				      "<name>" + FIELD_VALUE + "</name>" +
 				   "</nm>" +
 				"</xforms_instance>";
+	}
+	
+	private static String DROPDOWN_IN_GROUP_LABEL = "MultiLabel";
+	private static String DROPDOWN_IN_GROUP_OPTION1_LABEL = "option1Label";
+	private static String DROPDOWN_IN_GROUP_OPTION2_LABEL = "option2Label";
+	private static String DROPDOWN_IN_GROUP_OPTION1_CODE = "option1ID";
+	private static String DROPDOWN_IN_GROUP_OPTION2_CODE = "option2ID";
+	public static final String XFORM_DROPDOWN_FIELD_XML = "<Field type='DROPDOWN'>\n" +
+			"<Tag>MultiID</Tag>\n" +
+			"<Label>"+DROPDOWN_IN_GROUP_LABEL+"</Label>\n" +
+			"<Choices>\n" +
+			"<Choice>" +
+			"</Choice>\n" +
+			"<Choice>" +
+			DROPDOWN_IN_GROUP_OPTION1_LABEL +
+			"</Choice>\n" +
+			"<Choice>" +
+			DROPDOWN_IN_GROUP_OPTION2_LABEL +
+			"</Choice>\n" +
+			"</Choices>\n" +
+			"</Field>\n";
+	
+	private static String getXFormsModelWithOneDropdownFieldInGroupXmlAsString()
+	{
+		return 
+		"<h:html xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.w3.org/2002/xforms\" xmlns:vellum=\"http://commcarehq.org/xforms/vellum\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:orx=\"http://openrosa.org/jr/xforms\" >"+
+		"<h:head>"+
+			"<h:title>Untitled Form</h:title>"+
+			"<model>"+
+				"<instance>"+
+					"<data xmlns=\"http://openrosa.org/formdesigner/B1C7ECF2-1D47-4BC8-B883-C99CC14FEE90\" name=\"Untitled Form\" uiVersion=\"1\" xmlns:jrm=\"http://dev.commcarehq.org/jr/xforms\" version=\"1\" >"+
+						"<GroupID>"+
+							"<textID></textID>"+
+							"<MultiID></MultiID>"+
+							"<NumberID></NumberID>"+
+							"<DateID></DateID>"+
+						"</GroupID>"+
+					"</data>"+
+				"</instance>"+
+				"<bind nodeset=\"/data/GroupID\" ></bind>"+
+				"<bind nodeset=\"/data/GroupID/textID\" type=\"xsd:string\" ></bind>"+
+				"<bind nodeset=\"/data/GroupID/MultiID\" ></bind>"+
+				"<bind nodeset=\"/data/GroupID/NumberID\" type=\"xsd:int\" ></bind>"+
+				"<bind nodeset=\"/data/GroupID/DateID\" type=\"xsd:date\" ></bind>"+
+			"</model>"+
+		"</h:head>"+
+		"<h:body>"+
+			"<group ref=\"/data/GroupID\" appearance=\"field-list\" >"+
+				"<label>GroupLabel</label>"+
+				"<input ref=\"/data/GroupID/textID\" >"+
+					"<label>textLabel</label>"+
+				"</input>"+
+				"<select1 ref=\"/data/GroupID/MultiID\" >"+
+					"<label>" + DROPDOWN_IN_GROUP_LABEL +"</label>"+
+					"<item>"+
+						"<label>"+DROPDOWN_IN_GROUP_OPTION1_LABEL+"</label>"+
+						"<value>"+DROPDOWN_IN_GROUP_OPTION1_CODE+"</value>"+
+					"</item>"+
+					"<item>"+
+					"<label>"+DROPDOWN_IN_GROUP_OPTION2_LABEL+"</label>"+
+						"<value>"+DROPDOWN_IN_GROUP_OPTION2_CODE+"</value>"+
+					"</item>"+
+				"</select1>"+
+				"<input ref=\"/data/GroupID/NumberID\" >"+
+					"<label>NumberLabel</label>"+
+				"</input>"+
+				"<input ref=\"/data/GroupID/DateID\" >"+
+					"<label>DateLabel</label>"+
+				"</input>"+
+			"</group>"+
+		"</h:body>"+
+		"</h:html>";
+	}
+	
+	private static String getXFormsInstanceWithOneDropdownFieldInGroupXmlAsString()
+	{
+		return "<xforms_instance><data><GroupID><textID>Textanswer</textID><MultiID>"+DROPDOWN_IN_GROUP_OPTION1_CODE+"</MultiID><NumberID>1</NumberID><DateID>2015-12-03</DateID></GroupID></data></xforms_instance>";
+	}
+	
+	private static String getXFormsModelWithDropdownFieldInRepeatGroupXmlAsString()
+	{
+		return 
+		"<h:html xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.w3.org/2002/xforms\" xmlns:vellum=\"http://commcarehq.org/xforms/vellum\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:orx=\"http://openrosa.org/jr/xforms\" >"+
+		"<h:head>"+
+		"<h:title>Untitled Form</h:title>"+
+		"<model>"+
+			"<instance>"+
+				"<data xmlns:jrm=\"http://dev.commcarehq.org/jr/xforms\" xmlns=\"http://openrosa.org/formdesigner/4C9E839F-FA97-4755-BA92-4EBD5D6603EB\" uiVersion=\"1\" version=\"1\" name=\"Untitled Form\">"+
+					"<OrphanMultiID1 />"+
+					"<GroupID>"+
+						"<TextID1 />"+
+						"<NumberID1 />"+
+						"<DateID1 />"+
+						"<MultiID1 />"+
+					"</GroupID>"+
+					"<OrphanMultiID2 />"+
+					"<RepeatID>"+
+						"<TextID2 />"+
+						"<NumberID2 />"+
+						"<DateID2 />"+
+						"<MultiID2 />"+
+					"</RepeatID>"+
+					"<OrphanMultiID3 />"+
+				"</data>"+
+			"</instance>"+
+			"<bind nodeset=\"/data/OrphanMultiID1\" />"+
+			"<bind nodeset=\"/data/GroupID\" />"+
+			"<bind nodeset=\"/data/GroupID/TextID1\" type=\"xsd:string\" />"+
+			"<bind nodeset=\"/data/GroupID/NumberID1\" type=\"xsd:int\" />"+
+			"<bind nodeset=\"/data/GroupID/DateID1\" type=\"xsd:date\" />"+
+			"<bind nodeset=\"/data/GroupID/MultiID1\" />"+
+			"<bind nodeset=\"/data/OrphanMultiID2\" />"+
+			"<bind nodeset=\"/data/RepeatID\" />"+
+			"<bind nodeset=\"/data/RepeatID/TextID2\" type=\"xsd:string\" />"+
+			"<bind nodeset=\"/data/RepeatID/NumberID2\" type=\"xsd:int\" />"+
+			"<bind nodeset=\"/data/RepeatID/DateID2\" type=\"xsd:date\" />"+
+			"<bind nodeset=\"/data/RepeatID/MultiID2\" />"+
+			"<bind nodeset=\"/data/OrphanMultiID3\" />"+
+		"</model>"+
+	"</h:head>"+
+	"<h:body>"+
+		"<select1 ref=\"/data/OrphanMultiID1\">"+
+			"<label>OrphanMultiLabel1</label>"+
+			"<item>"+
+				"<label>OrphanOptionALabel1</label>"+
+				"<value>OrphanOptionAID1</value>"+
+			"</item>"+
+			"<item>"+
+				"<label>OrphanOptionBLabel1</label>"+
+				"<value>OrphanOptionBID1</value>"+
+			"</item>"+
+		"</select1>"+
+		"<group ref=\"/data/GroupID\" appearance=\"field-list\">"+
+			"<label>GroupLabel</label>"+
+			"<input ref=\"/data/GroupID/TextID1\">"+
+				"<label>TextLabel1</label>"+
+			"</input>"+
+			"<input ref=\"/data/GroupID/NumberID1\">"+
+				"<label>NumberLabel1</label>"+
+			"</input>"+
+			"<input ref=\"/data/GroupID/DateID1\">"+
+				"<label>DateLabel1</label>"+
+			"</input>"+
+			"<select1 ref=\"/data/GroupID/MultiID1\">"+
+				"<label>MultiLabel1</label>"+
+				"<item>"+
+					"<label>OptionALabel1</label>"+
+					"<value>OptionAID1</value>"+
+				"</item>"+
+				"<item>"+
+					"<label>OptionBLabel1</label>"+
+					"<value>OptionBID1</value>"+
+				"</item>"+
+			"</select1>"+
+		"</group>"+
+		"<select1 ref=\"/data/OrphanMultiID2\">"+
+			"<label>OrphanMultiLabel2</label>"+
+			"<item>"+
+				"<label>OrphanOptionALabel2</label>"+
+				"<value>OrphanOptionAID2</value>"+
+			"</item>"+
+			"<item>"+
+				"<label>OrphanOptionBLabel2</label>"+
+				"<value>OrphanOptionBID2</value>"+
+			"</item>"+
+		"</select1>"+
+		"<group>"+
+			"<label>RepeatLabel</label>"+
+			"<repeat nodeset=\"/data/RepeatID\" appearance=\"field-list\">"+
+				"<input ref=\"/data/RepeatID/TextID2\">"+
+					"<label>TextLabel2</label>"+
+				"</input>"+
+				"<input ref=\"/data/RepeatID/NumberID2\">"+
+					"<label>NumberLabel2</label>"+
+				"</input>"+
+				"<input ref=\"/data/RepeatID/DateID2\">"+
+					"<label>DateLabel2</label>"+
+				"</input>"+
+				"<select1 ref=\"/data/RepeatID/MultiID2\">"+
+					"<label>MultiLabel2</label>"+
+					"<item>"+
+						"<label>OptionALabel2</label>"+
+						"<value>OptionAID2</value>"+
+					"</item>"+
+					"<item>"+
+						"<label>OptionBLabel2</label>"+
+						"<value>OptionBID2</value>"+
+					"</item>"+
+				"</select1>"+
+			"</repeat>"+
+		"</group>"+
+		"<select1 ref=\"/data/OrphanMultiID3\">"+
+			"<label>OrphanMultiLabel3</label>"+
+			"<item>"+
+				"<label>OrphanOptionALabel3</label>"+
+				"<value>OrphanOptionAID3</value>"+
+			"</item>"+
+			"<item>"+
+				"<label>OrphanOptionBLabel3</label>"+
+				"<value>OrphanOptionBID3</value>"+
+			"</item>"+
+		"</select1>"+
+	"</h:body>"+
+"</h:html>";
+}
+	
+	private static String getXFormsInstanceWithDropdownFieldInRepeatGroupXmlAsString()
+	{
+		return "<xforms_instance><data><OrphanMultiID1>OrphanOptionBID1</OrphanMultiID1><GroupID><TextID1>Group name</TextID1><NumberID1>123</NumberID1><DateID1>2015-12-02</DateID1><MultiID1>OptionAID1</MultiID1></GroupID><OrphanMultiID2>OrphanOptionAID2</OrphanMultiID2><RepeatID><TextID2>Repeat 1</TextID2><NumberID2>555</NumberID2><DateID2>2015-12-01</DateID2><MultiID2>OptionAID2</MultiID2></RepeatID><RepeatID><TextID2>Item 2</TextID2><NumberID2>2</NumberID2><DateID2>2015-11-30</DateID2><MultiID2>OptionBID2</MultiID2></RepeatID><OrphanMultiID3>OrphanOptionBID3</OrphanMultiID3></data></xforms_instance>";
 	}
 	
 	private static String getXFormsModelWithOneChoiceInputFieldXmlAsString()

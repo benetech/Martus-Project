@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="info.guardianproject.iocipher.camera"
+    android:versionCode="201"
+    android:versionName="2.0.1-dev" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<!-- this is a library project; if you want to build the app, you can uncomment the code below -->
+<!--     
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:allowBackup="false"
+        android:theme="@android:style/Theme.Holo"
+         >
+        <activity
+            android:name="info.guardianproject.iocipher.camera.GalleryActivity"
+            android:label="@string/app_name" 
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:icon="@drawable/ic_launcher"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            
+            <intent-filter>
+                <action android:name="android.media.action.IMAGE_CAPTURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
+            <intent-filter>
+                <action android:name="android.media.action.VIDEO_CAPTURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
+            <intent-filter>                
+				<action android:name="info.guardianproject.action.SECURE_STILL_IMAGE_CAMERA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>                
+				<action android:name="info.guardianproject.action.SECURE_VIDEO_CAMERA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                
+            
+            
+            <intent-filter>
+                <action android:name="android.provider.MediaStore.ACTION_VIDEO_CAPTURE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="info.guardianproject.iocipher.camera.LockScreenActivity"
+             android:theme="@android:style/Theme.NoTitleBar"
+           />
+         <activity
+            android:name="info.guardianproject.iocipher.camera.StillCameraActivity"
+            android:label="Secure Selfie"
+                android:theme="@android:style/Theme.NoTitleBar"/>
+
+                 <activity
+            android:name="info.guardianproject.iocipher.camera.VideoCameraActivity"
+            android:label="Secure Video (Native)"
+                android:theme="@android:style/Theme.NoTitleBar"/>                        
+        
+                 <activity
+            android:name="info.guardianproject.iocipher.camera.viewer.ImageViewerActivity"
+            android:label="Secure Selfie Viewer"
+                android:theme="@android:style/Theme.NoTitleBar"/>
+        
+                  <activity
+            android:name="info.guardianproject.iocipher.camera.viewer.MjpegViewerActivity"            
+                android:theme="@android:style/Theme.NoTitleBar"/>
+        
+        <provider
+            android:name="info.guardianproject.iocipher.camera.io.IOCipherContentProvider"
+            android:authorities="info.guardianproject.iocipher.camera"
+            android:exported="true"
+            android:multiprocess="true"
+            android:syncable="false"            
+             />
+        
+         <service
+            android:name="info.guardianproject.cacheword.CacheWordService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+-->
+</manifest>

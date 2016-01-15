@@ -49,6 +49,7 @@ import org.martus.common.bulletin.BulletinConstants;
 import org.martus.common.bulletin.BulletinXmlExportImportConstants;
 import org.martus.common.crypto.MartusCrypto.CryptoException;
 import org.martus.common.crypto.MartusCrypto.EncryptionException;
+import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.database.ReadableDatabase;
 import org.martus.common.fieldspec.ChoiceItem;
@@ -737,6 +738,24 @@ public class TestBulletinXmlExporter extends TestCaseEnhanced
 		assertContains("didn't write escaped?", "a &lt; b &amp;&amp; b &gt; c", result);
 	}
 
+	public void testExportXFormsRecord() throws Exception
+	{
+		Bulletin b = createSampleXFormsBulletin(store.getSignatureGenerator());
+		final String result = getExportedXml(b);
+		assertContains("didn't xform data as Martus Field?", "xforms Name Field", result);
+		assertContains("didn't have original author's Account?", b.getAccount(), result);
+		assertContains("didn't have original local ID?", b.getLocalId(), result);
+	}
+
+	private Bulletin createSampleXFormsBulletin(MartusCrypto authorSecurity) throws Exception
+	{
+		Bulletin b = new Bulletin(authorSecurity, StandardFieldSpecs.getDefaultTopSectionFieldSpecs(), StandardFieldSpecs.getDefaultBottomSectionFieldSpecs());
+		b.getFieldDataPacket().setXFormsModelAsString(MockMartusApp.getXFormsModelWithOnStringInputFieldXmlAsString());
+		b.getFieldDataPacket().setXFormsInstanceAsString(MockMartusApp.getXFormsInstanceXmlAsString());
+		return b;
+	}
+	
+	
 	public void testExportSimpleDate() throws Exception
 	{
 		Bulletin b = new Bulletin(store.getSignatureGenerator());

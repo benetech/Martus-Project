@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+        <item>英语</item>
+        <item>阿拉伯语</item>
+        <item>亚美尼亚语</item>
+        <item>阿塞拜疆语</item>
+        <item>保加利亚语</item>
+        <item>孟加拉语</item>
+        <item>缅甸语</item>
+        <item>中文</item>
+        <item>荷兰语</item>
+        <item>世界语</item>
+        <item>波斯语</item>
+        <item>法语</item>
+        <item>德语</item>
+        <item>吉吉拉特语</item>
+        <item>豪萨语</item>
+        <item>希伯来语</item>
+        <item>印地语</item>
+        <item>匈牙利语</item>
+        <item>意大利语</item>
+        <item>日语</item>
+        <item>爪哇语</item>
+        <item>坎纳达语</item>
+        <item>哈萨克语</item>
+        <item>高棉语</item>
+        <item>吉尔吉斯语</item>
+        <item>朝鲜语</item>
+        <item>库尔德语</item>
+        <item>蒙古语</item>
+        <item>马拉蒂语</item>
+        <item>尼泊尔语</item>
+        <item>奥里雅语</item>
+        <item>旁遮普族</item>
+        <item>普什图语</item>
+        <item>波兰语</item>
+        <item>葡萄牙语</item>
+        <item>罗马尼亚语</item>
+        <item>俄语</item>
+        <item>塞尔维亚语</item>
+        <item>克什米尔语</item>
+        <item>僧伽罗语</item>
+        <item>西班牙语</item>
+        <item>泰米尔语</item>
+        <item>塔吉克语</item>
+        <item>泰卢固语</item>
+        <item>泰语</item>
+        <item>土耳其语</item>
+        <item>土库曼语</item>
+        <item>乌克兰语</item>
+        <item>乌尔都语</item>
+        <item>乌兹别克语</item>
+        <item>越南语</item>
+    </string-array>
+    <string-array name="entries_timeout_preference">
+        <item>10 分钟</item>
+        <item>7 分钟</item>
+        <item>5 分钟</item>
+        <item>3 分钟</item>
+        <item>1 分钟</item>
+    </string-array>
+    <string-array name="font_size_entries">
+        <item>@string/font_size_extra_large</item>
+        <item>@string/font_size_large</item>
+        <item>@string/font_size_medium</item>
+        <item>@string/font_size_small</item>
+        <item>@string/font_size_extra_small</item>
+    </string-array>
+    <string-array name="navigation_entries">
+        <item>@string/swipe_navigation</item>
+        <item>@string/buttons_navigation</item>
+        <item>@string/swipe_buttons_navigation</item>
+    </string-array>
+    <string-array name="values_language_preference">
+        <item>en</item>
+        <item>ar</item>
+        <item>arm</item>
+        <item>az</item>
+        <item>bg</item>
+        <item>bn</item>
+        <item>bur</item>
+        <item>zh</item>
+        <item>nl</item>
+        <item>eo</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>gu</item>
+        <item>ha</item>
+        <item>he</item>
+        <item>hi</item>
+        <item>hu</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>jv</item>
+        <item>kn</item>
+        <item>kk</item>
+        <item>km</item>
+        <item>ky</item>
+        <item>ko</item>
+        <item>ku</item>
+        <item>ml</item>
+        <item>mr</item>
+        <item>ne</item>
+        <item>or</item>
+        <item>pa</item>
+        <item>ps</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ro</item>
+        <item>ru</item>
+        <item>sr</item>
+        <item>sd</item>
+        <item>si</item>
+        <item>es</item>
+        <item>ta</item>
+        <item>tg</item>
+        <item>te</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>tk</item>
+        <item>uk</item>
+        <item>ur</item>
+        <item>uz</item>
+        <item>vi</item>
+    </string-array>
+    <string-array name="values_timeout_preference">
+        <item>10</item>
+        <item>7</item>
+        <item>5</item>
+        <item>3</item>
+        <item>1</item>
+    </string-array>
+    <plurals name="confirm_reset_install_extra">
+        <item quantity="other">你将会丢失 %1$s 未发送或正在发送中的公告。</item>
+    </plurals>
+    <plurals name="show_unsent_count">
+        <item quantity="other">还有%1$s个公告尚未发送。你可以进入工具菜单界面重新发送他们。</item>
+    </plurals>
+    <string name="about_tor_label">Tor工具指令读懂中</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="accept_bearing">记录方位</string>
+    <string name="accept_location">记录位置</string>
+    <string name="access_error">读取 %s 中发生错误:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="access_token">访问令牌</string>
+    <string name="account_access_token_label">访问令牌: %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="accuracy">精度</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="activity_not_found">No activity found to handle: %s</string>
+    <string name="add_another">Add Group</string>
+    <string name="add_another_repeat">Add another \"%s\" group?</string>
+    <string name="add_attachment">添加附件</string>
+    <string name="add_contact_from_file">从文件中导入联系人</string>
+    <string name="add_contact_using_access_token">从服务器中添加联系人</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="add_more">添加更多</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="add_repeat">Add a new \"%s\" group?</string>
+    <string name="add_repeat_no">Do Not Add</string>
+    <string name="added_on_date_at_time">\'Added on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="admin_access_settings">Tap for admin access to settings</string>
+    <string name="admin_password_changed">Admin password successfully changed</string>
+    <string name="admin_password_disabled">Admin password disabled</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_incorrect">对不起, 密码不正确!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_mismatch">Sorry, passwords do not match!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="admin_preferences">管理员设置</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="advanced_server_options">服务器高级设置</string>
+    <string name="alert_dialog_confirm_password">确认密码：</string>
+    <string name="alert_dialog_magic_word">魔术语：</string>
+    <string name="alert_dialog_ok">是</string>
+    <string name="alert_dialog_password">密码：</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="altitude">海拔</string>
+    <string name="app_url">http://opendatakit.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="attachment_no_longer_exists">无法发送，因为下列附件 %1$s 的，已从设备中删除</string>
+    <string name="attachments_add_label">附件：</string>
+    <string name="attachments_added_label">附件（按住可删除）：</string>
+    <string name="audio_file_error">No audio file was specified.</string>
+    <string name="audio_file_invalid">File: %s is not a valid audio file.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="autosend">自动发送</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="autosend_network">Auto send with network</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="autosend_network_summary">当网络可用时自动发送</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="autosend_wifi">Auto send with Wi-Fi</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="autosend_wifi_summary">当Wi-Fi可用时自动发送</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="barcode_scanner_error">Sorry, Barcode Scanner is not installed!</string>
+    <string name="boolean_false">否</string>
+    <string name="boolean_true">是</string>
+    <string name="bulletin_packaging_progress">加密和打包中...</string>
+    <string name="bulletin_sending_progress">发送中...</string>
+    <string name="buttons_instructions">你正在 %s的开始页面，轻击以下的箭头键来选择后退还是向前。</string>
+    <string name="buttons_navigation">使用前进/后退键</string>
+    <string name="cancel">取消</string>
+    <string name="cancel_loading_form">取消</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="cancel_location">取消</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="cancel_saving_form">取消</string>
+    <string name="cancel_server">取消</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="cannot_edit_completed_form">此表格在标记为已完成之后不可更改. 它可能已被加密.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="capture_audio">Record Sound</string>
+    <string name="capture_image">Take Picture</string>
+    <string name="capture_video">Record Video</string>
+    <string name="change_font_size">文本字体大小</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_formlist_url">表格列表路径 (附加到服务器URL之后)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_language">Change Language</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_password">密码</string>
+    <string name="change_protocol">服务器平台</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_server">Platform</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_splash_path">修改图片</string>
+    <string name="change_submission_url">提交路径 (附加到服务器URL之后)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_url_default">URL</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_username">用户名</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_username_default">用户名</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="change_view">修改视图</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="choose_file">Martus 文件浏览器</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="choose_server_intro">下一步，配置一个你将要发送公告到的Martus服务器连接。</string>
+    <string name="choose_server_title">选择服务器</string>
+    <string name="choose_sound">Choose Sound</string>
+    <string name="choose_video">Choose Video</string>
+    <string name="clear_answer">Remove response</string>
+    <string name="clear_answer_ask">Remove This Response?</string>
+    <string name="clear_answer_no">取消</string>
+    <string name="clearanswer_confirm">Remove the response to \"%s\"?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="click_to_web">点击访问 http://opendatakit.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="client">用户界面</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="completed_data">完成(%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="confirm_cancel_bulletin">取消这个公告？</string>
+    <string name="confirm_data_loss">如果你离开此页面，你将会丢失输入的所有数据。你确定要离开吗？</string>
+    <string name="confirm_default">你确定吗？</string>
+    <string name="confirm_go_to_device_home">你确定要离开Martus吗？</string>
+    <string name="confirm_logout">你确定要注销吗？</string>
+    <string name="confirm_password_hint">确认密码</string>
+    <string name="confirm_remove_attachment">移除 %1$s ？</string>
+    <string name="confirm_reset_install">您确认要删除吗?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message">你的设置文件发现了一个错误。为了你的安全利益，请删除你的帐户。按“是”键将开始删除进程；Martus无法在毁坏的设置文件中运行，因此按“否”键将退出Martus。</string>
+    <string name="confirm_tamper_reset_title">安装错误</string>
+    <string name="constraint_behavior">Constraint processing behavior</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="constraint_behavior_on_finalize">推迟检验直到完成</string>
+    <string name="constraint_behavior_on_swipe">向前滑动时验证</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="contact_access_token">联系人访问令牌</string>
+    <string formatted="false" name="contact_us_info">若有任何关于Martus系统的问题或反馈，请发送电子邮件至 info@martus.org</string>
+    <string name="contact_us_menu_item">联系我们</string>
+    <string name="create_account_dialog_cancel">退出</string>
+    <string name="create_account_dialog_title">创建密码</string>
+    <string name="create_account_intro">欢迎使用 Martus！请先创建一个新的移动Martus账号。</string>
+    <string name="create_password_hint">新密码</string>
+    <string name="create_sample_bulletin">创建公告</string>
+    <string name="custom_form_transition">这是你添加附件的机会，或者点击返回去编辑表上的项目。</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="data">已保存的表格</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="data_saved_error">Sorry, form save failed!</string>
+    <string name="data_saved_ok">Form successfully saved!</string>
+    <string name="date_range_end"> (结束)</string>
+    <string name="date_range_start"> (开始)</string>
+    <string name="date_validation_min">日期必须在%1$s或它之后。</string>
+    <string name="date_validation_min_max">日期必须介于%1$s和%2$s之间。</string>
+    <string name="default_author">未知作者</string>
+    <string name="default_completed">Default to finalized</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="default_completed_summary">表格会默认标记为完成</string>
+    <string name="default_splash_path">ODK默认图片</string>
+    <string name="delete_confirm">删除表格 %s ?</string>
+    <string name="delete_file">删除选中</string>
+    <string name="delete_no">不删除</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="delete_repeat">Remove group</string>
+    <string name="delete_repeat_ask">Remove This Group?</string>
+    <string name="delete_repeat_confirm">Remove group \"%s\" and all of its sub-groups?</string>
+    <string name="delete_repeat_no">取消</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="delete_yes">删除表格</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="desktop_public_code_hint">计算机帐户公开密码</string>
+    <string name="desktop_sync_choose_file">选择Martus计算机帐户(.mpi)文件</string>
+    <string name="desktop_sync_public_code">然后输入Martus计算机帐户公开密码：</string>
+    <string name="desktop_sync_title">Martus计算机帐户信息</string>
+    <string name="dialog_title_timeout_preference">超时时间</string>
+    <string name="discard_answer">Remove response</string>
+    <string name="discard_group">Remove group</string>
+    <string name="do_not_change">取消</string>
+    <string name="do_not_exit">取消</string>
+    <string name="do_not_save">Clear Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="download">下载选中项</string>
+    <string name="download_forms_result">下载答案</string>
+    <string name="downloading_data">连接到服务器</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="draw_image">Sketch Image</string>
+    <string name="edit_prompt">Edit Prompt</string>
+    <string name="end_form_button">添加附件后发送</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="enter_admin_password">输入管理员密码</string>
+    <string name="enter_data">填写空表表格</string>
+    <string name="enter_data_button">填写空表表格</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="enter_magic_word_hint">输入魔术语</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="enter_password_hint">输入密码</string>
+    <string name="entering_repeat">Add Group</string>
+    <string name="entering_repeat_ask">Add New Group?</string>
+    <string name="error_computing_public_code">保存服务器配置出现错误</string>
+    <string name="error_create_account">创建帐户错误</string>
+    <string name="error_getting_server_key">连接服务器错误</string>
+    <string name="error_message">错误</string>
+    <string name="error_occured">Error Occurred</string>
+    <string name="error_retrieving_contact">取回联系人错误</string>
+    <string name="export_public_account_id_dialog_error">无法导出公共帐户ID</string>
+    <string name="export_public_account_id_dialog_title">导出公开帐户ID出现错误</string>
+    <string name="export_public_account_id_menu_item">导出公开账户ID</string>
+    <string name="exported_account_id_file_confirmation">导出至</string>
+    <string name="failed_send_notification">由于 %1$s 原因发送失败，请稍候重试。</string>
+    <string name="failure_choosing_file">文件选择失败</string>
+    <string name="failure_zipping_bulletin">压缩公告失败</string>
+    <string name="fetched_picasa_image">Picasa 图片已获取</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="fetching_manifest">%s. 加载Manifest</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="fetching_picasa_image">获取 Picasa 图片</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="file_delete_in_progress">正在删除表格!</string>
+    <string name="file_deleted_error">%2$s 中的 %1$s 个选定的表格不能被删除!</string>
+    <string name="file_deleted_ok">%s 表格被成功删除!</string>
+    <string name="file_fetch_failed">错误: %2$s (%3$s) 在 %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="file_invalid">File: %s is invalid.</string>
+    <string name="file_missing">File: %s is missing.</string>
+    <string name="finalized_on_date_at_time">\'Finalized on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="finished_disk_scan">Finished scanning. All forms loaded.</string>
+    <string name="font_size">文本字体大小</string>
+    <string name="font_size_extra_large">加大</string>
+    <string name="font_size_extra_small">加小</string>
+    <string name="font_size_large">大</string>
+    <string name="font_size_medium">中</string>
+    <string name="font_size_small">小</string>
+    <string name="form_backward">Prev</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="form_download_progress">%1$s. 加载媒体文件: %3$s 中的 %2$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="form_forward">下一步</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="form_scan_starting">扫描表格中…</string>
+    <string name="formlist_url">表格列表路径</string>
+    <string name="forms">空表格</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="found_at_end">Uncheck to hide from end of Form Entry</string>
+    <string name="found_in_main">Uncheck to hide from Main Menu</string>
+    <string name="found_in_menu">Uncheck to hide from menu in Form Entry</string>
+    <string name="found_in_settings">Uncheck to hide from General Settings</string>
+    <string name="general_preferences">设置</string>
+    <string name="get_barcode">Get Barcode</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="get_bearing">记录方位</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="get_forms">Get Blank Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="get_location">获取位置</string>
+    <string name="getting_bearing">加载方位</string>
+    <string name="getting_location">正在获取位置</string>
+    <string name="go_to_location">转到位置</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="goto_server_setup_button">下一步</string>
+    <string name="help_menu">帮助</string>
+    <string name="import_contact_title">导入联系人</string>
+    <string name="import_hq_intro">最后，输入你将要发送你的移动Martus公告到的Martus帐户信息。\n\n\n你必须拥有一个Martus公开账户ID文件(后缀名为“.mpi”)和一个你想要接收移动Martus公告的计算机帐户公开密码，以完成这个步骤。</string>
+    <string name="incorrect_password">密码不正确</string>
+    <string name="install_explorer_text">如果你不能找到你想要的文件，尝试安装更高级的文件管理器：</string>
+    <string name="install_file_explorer">换个文件浏览器再试</string>
+    <string name="install_orbot_">安装 Orbot</string>
+    <string name="invalid_answer_error">Sorry, this response is invalid!</string>
+    <string name="invalid_orbot_message">请从谷歌Play商店中重新安装 Orbot</string>
+    <string name="invalid_orbot_title">Orbot 安装无效</string>
+    <string name="invalid_password">密码必须在8个字符及以上</string>
+    <string name="invalid_public_account_file">无效计算机帐户文件</string>
+    <string name="invalid_public_code">公开密码与文件不匹配</string>
+    <string name="invalid_server_code">服务器公开密码无效</string>
+    <string name="invalid_server_info">所输入的服务器信息无效</string>
+    <string name="invalid_server_ip">无效IP地址</string>
+    <string name="jump_to_beginning">Go To Start</string>
+    <string name="jump_to_end">Go To End</string>
+    <string name="jump_to_previous">Go Up</string>
+    <string name="keep_changes">Save Changes</string>
+    <string name="label_author">作者</string>
+    <string name="label_entrydate">输入时间</string>
+    <string name="label_eventdate">事件日期</string>
+    <string name="label_keywords">关键字</string>
+    <string name="label_location">位置</string>
+    <string name="label_organization">组织</string>
+    <string name="label_privateinfo">隐私信息</string>
+    <string name="label_publicinfo">公开信息</string>
+    <string name="label_summary">概述</string>
+    <string name="label_title">标题</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="latitude">纬度</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="launch_app">Launch</string>
+    <string name="launch_printer">Initiate Printing</string>
+    <string name="leave_repeat_yes">Do Not Add</string>
+    <string name="leaving_repeat_ask">Add One More Group?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="list_failed_with_error">列出表格失败. %s.</string>
+    <string name="load_remote_form_error">获取表格列表错误</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="loading_form">Loading Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="location_accuracy">精度为  %1$s m</string>
+    <string name="location_provider_accuracy">使用 %1$s. 精度为  %2$s m.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="logout_while_sending_message">公告正在发布，请等待。</string>
+    <string name="logout_while_sending_title">目前不能注销</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="longitude">经度</string>
+    <string name="main_menu">主菜单</string>
+    <string name="main_menu_details">让数据收集简单…</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="manage_bulletins_menu">公告管理</string>
+    <string name="manage_files">Delete Saved Form</string>
+    <string name="manage_my_account_menu">管理我的帐户</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="manifest_server_error">Manifest回复中不包括OpenRosa版本 — 服务器错误?</string>
+    <string name="manifest_tag_error">Manifest条目 %s 缺少一个或多个标签: 文件名, 哈希值, 或者下载Url</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="mark_finished">Mark form as finalized</string>
+    <string name="markup_image">Markup Image</string>
+    <string name="must_login_first_message">登录后才能发布公告</string>
+    <string name="must_login_first_title">警告！</string>
+    <string name="navigation">导航</string>
+    <string name="no">否</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="no_account">没有账户</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="no_app">The requested application is missing. Please manually enter the reading.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="no_connection">没有可用网络</string>
+    <string name="no_forms_uploaded">没有表格被上传.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="no_items_display">Nothing available to display.</string>
+    <string name="no_network_connection">设备无连接到网络！</string>
+    <string name="no_network_create_bulletin_warning">由于网络未连接，任意发送公告的操作都会失败。(你可以在设置中检查是否打开了仅在Wi-Fi下进行联网选项)。\n\n点击“发送”能加密并保存这个公告，然后当你联网时，你可以在工具菜单中重新发送它。</string>
+    <string name="no_printer">The requested printer is not installed. Please install the printer.</string>
+    <string name="no_upload_rights">魔术语错误</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="noselect_error">没有选定表格!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="off_switch_label">关闭</string>
+    <string name="ok">是</string>
+    <string name="on_switch_label">打开</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="open_url">打开Url</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot没有运行。你想启动吗？</string>
+    <string name="orbot_running_should_stop_message">Orbot正在运行中，你想要停止它吗？</string>
+    <string name="parse_error">Sorry, unable to parse form.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="parse_legacy_formlist_failed">服务器没有提供与 Aggregate 0.9.x.兼容的表格 : %s</string>
+    <string name="parse_openrosa_formlist_failed">服务器没有提供与OpenRosa version 1.0标准兼容的表格: %s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="password">密码</string>
+    <string name="password_dialog_title">登录</string>
+    <string name="ping_result_down">服务器已崩溃</string>
+    <string name="ping_result_ok">服务器运作良好</string>
+    <string name="ping_server_menu_item">检查服务器</string>
+    <string name="play_audio">Play Sound</string>
+    <string name="play_video">Play Video</string>
+    <string name="please_wait">Please wait a few moments.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="please_wait_long">请稍候. 这可能需要几分钟.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="problem_adding_attachment">向公告添加附件时出现问题</string>
+    <string name="problem_confirming_magic_word">确认魔术语错误</string>
+    <string name="problem_creating_bulletin">未能创建新公告</string>
+    <string name="progress_confirming_magic_word">确认魔术语</string>
+    <string name="progress_connecting_to_server">服务器连接中</string>
+    <string name="progress_creating_account">创建账户</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="protocol">服务器平台</string>
+    <string name="provider_disabled_error">位置服务被关闭!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="public_code_validation_empty">公开密码不能为空</string>
+    <string name="quit_application">Exit %s</string>
+    <string name="quit_entry">Save Form and Exit</string>
+    <string name="quit_menu_title">注销</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="refresh">刷新</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="replace_barcode">Replace Barcode</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="replace_bearing">替代方位</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="replace_contact_menu_item">更新联系人</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="replace_location">替换位置</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="required_answer_error">Sorry, this response is required!</string>
+    <string name="resend_menu_item">重新发送未发送的公告</string>
+    <string name="resending">重新发送！</string>
+    <string name="resending_no_bulletins">你没有未发送的公告。</string>
+    <string name="resending_no_network">应用没有联网，或者设置了仅在Wi-Fi网络下联网。</string>
+    <string name="reset_image">Reset</string>
+    <string name="reset_to_install">删除我的帐户</string>
+    <string name="reset_while_sending_title">暂时不能重置</string>
+    <string name="retrieving_contact_information_label">取回联系人信息中</string>
+    <string name="retry_server">再次输入</string>
+    <string name="review_data">Edit Saved Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="review_data_button">修改已保存表格 (%s)</string>
+    <string name="root_element_error">根元素不是 &lt;manifest\> — 而是 %s</string>
+    <string name="root_namespace_error">根元素命名空间错误: %s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="save_all_answers">Save Form</string>
+    <string name="save_and_close">保存并关闭</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="save_as_error">保存的名字不能为空!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="save_enter_data_description">You are at the end of the form.</string>
+    <string name="save_form_as">Name this form</string>
+    <string name="save_mid">Save Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="save_preferences">保存设置到磁盘</string>
+    <string name="saved_data">未完成 (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="saved_on_date_at_time">\'Saved on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="savepoint_used">Unsaved changes recovered from savepoint!</string>
+    <string name="saving_form">Saving Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="select_another_image">选择其他图片</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="select_answer">Select Answer</string>
+    <string name="select_drawing_color">Select Drawing Color</string>
+    <string name="select_file_picker">选择一个文件浏览器</string>
+    <string name="select_one">Select One Answer</string>
+    <string name="selected">Selected:</string>
+    <string name="selected_google_account_text">Google account</string>
+    <string name="send_bulletin">发送</string>
+    <string name="send_data">Send Finalized Form</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="send_data_button">上传完成的表格 (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="send_email_title">发送电子邮件...</string>
+    <string name="send_failed_cant_reach_server">无法连接到服务器</string>
+    <string name="send_public_account_id_menu_item">电子邮件公开帐户ID</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">在公告中发送公开帐户ID</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="send_selected_data">上传选定项</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="sending_failed_on_date_at_time">\'Sending failed on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="sending_items">上传 %2$s 中的 %1$s 个表格</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="sent_on_date_at_time">\'Sent on\' EEE, MMM dd, yyyy \'at\' HH:mm</string>
+    <string name="server_ip_hint">输入IP地址</string>
+    <string name="server_ip_label">IP地址：</string>
+    <string name="server_menu_title">选择服务器</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="server_platform_google_forms">Google表格</string>
+    <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+    <string name="server_platform_other">其他</string>
+    <string name="server_preferences">服务器设置</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="server_public_code_hint">输入服务器公开密码</string>
+    <string name="server_public_code_label">服务器公开密码：</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="server_requires_auth">服务器要求验证身份</string>
+    <string name="server_url">URL</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="set_color">Set Color</string>
+    <string name="settings_pwd_equal">密码正确！</string>
+    <string name="settings_pwd_not_equal">密码不正确！</string>
+    <string name="settings_title">设置</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="show_location">显示位置</string>
+    <string name="show_sent_and_unsent_forms">显示已发送和未发送表格</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="show_splash">Show splash screen</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="show_splash_summary">当应用开始时显示</string>
+    <string name="show_unsent_forms">只显示未发送表格</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="show_unsent_title">你还有公告未发送。</string>
+    <string name="show_version">显示版本</string>
+    <string name="sign_button">Gather Signature</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="splash_path">选定的开始图片</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="start_orbot_">启动 Orbot</string>
+    <string name="starting_send_notification">发送中...</string>
+    <string name="stop_orbot">停止Orbot</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="submission_url">提交路径</string>
+    <string name="success">成功</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="success_import_hq_key">您已成功配置了Martus计算机帐户来接收移动Martus的公告。移动Martus安装完成！</string>
+    <string name="success_magic_word">您已成功连接到Martus服务器！</string>
+    <string name="successful_send_notification">公告已发送！</string>
+    <string name="successful_server_choice">成功连接到服务器</string>
+    <string name="summary_language_preference">请选择你要在公告中输入的语言</string>
+    <string name="summary_optional_label">可选择项</string>
+    <string name="summary_timeout_preference">在几分钟内</string>
+    <string name="swipe_buttons_instructions">你正在 %s的开始页面，根据下面提示滑动屏幕或轻击下面的箭头键来选择后退还是向前。</string>
+    <string name="swipe_buttons_navigation">使用滑动和按键</string>
+    <string name="swipe_instructions">你正在 %s的开始页面，根据下面提示滑动屏幕来选择后退还是向前。</string>
+    <string name="swipe_navigation">使用水平滑动</string>
+    <string name="title_author_preference">作者</string>
+    <string name="title_hint">标题</string>
+    <string name="title_language_preference">公告语言</string>
+    <string name="title_summary">概述</string>
+    <string name="title_timeout_preference">超时</string>
+    <string name="title_wifi_only_preference">仅在Wi-Fi下使用</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="toggle_selected">选定所有</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="tor_label">Tor工具</string>
+    <string name="tor_option_intro">下一步，如果需要的话，打开Tor工具。</string>
+    <string name="trigger">OK. Please continue.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="upload_results">上传结果</string>
+    <string name="uploading_data">正在发送表格</string>
+    <string name="url_error">不正确的URL!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="use_default_server">使用默认服务器</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="use_odk_default">使用默认图片</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string formatted="false" name="use_tor"><b>使用Tor工具</b>(可以有助于隐藏你正在连接到Martus服务器的信息和可以帮助你访问到Martus服务器假如你当前位置的服务器被封锁了，但是发送公告的速度将会放缓。)</string>
+    <string name="user_access_form_entry">User can access Form Entry items:</string>
+    <string name="user_access_main_menu">User can access Main Menu items:</string>
+    <string name="user_access_preferences">User can access Change Settings items:</string>
+    <string name="user_preferences">设置</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="username">用户名</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="valid_public_account_file">无效的计算机帐户文件</string>
+    <string name="verify_new_password">Re-enter new password</string>
+    <string name="verify_public_code">验证公开密码：\n%1$s</string>
+    <string name="version">版本:</string>
+    <string name="version_code_label">更新版 %1$s</string>
+    <string name="version_name_label">版本 %1$s</string>
+    <string name="view_access_token_menu_item">查看访问令牌</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="view_change_location">查看或修改位置</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-zh/values.xml -->
+    <eat-comment/>
+    <string name="view_docs_menu">帮助文档链接</string>
+    <string name="view_hierarchy">Go To Prompt</string>
+    <string name="view_new_public_code_message">(新)公开密码：\n%1$s</string>
+    <string name="view_old_public_code_message">(旧)公开密码：\n%1$s</string>
+    <string name="view_public_code_dialog_error">无法显示公开密码</string>
+    <string name="view_public_code_dialog_title">公开密码</string>
+    <string name="view_public_code_menu_item">查看公开密码</string>
+    <string name="wifi_only_preference_on">仅在连接 Wi-Fi 时传输数据</string>
+    <string name="xform_parse_error">XForm parse error. %1$s is missing element %2$s</string>
+    <string name="yes">是</string>
+    <string name="you_must_have_orbot">需要先安装 Orbot</string>
+</resources>

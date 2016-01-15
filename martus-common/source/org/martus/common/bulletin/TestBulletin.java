@@ -892,6 +892,22 @@ public class TestBulletin extends TestCaseEnhanced
 		assertTrue(b2.getImmutableOnServer());
 	}	
 	
+	public void testIsShared() throws Exception
+	{
+		Bulletin bulletin = new Bulletin(security);
+		assertFalse("Bulletin is not shared?", bulletin.isShared());
+		
+		bulletin.changeState(BulletinState.STATE_SNAPSHOT);
+		assertFalse("Bulletin is not shared?", bulletin.isShared());
+		
+		HeadquartersKeys keys = new HeadquartersKeys();
+		keys.add(new HeadquartersKey("12345"));
+		bulletin.setAuthorizedToReadKeys(keys);
+		assertTrue("bulletin should have authorized keys to read?", !bulletin.getAuthorizedToReadKeys().isEmpty());
+		
+		assertTrue("Bulletin is shared?", bulletin.isShared());
+	}
+	
 	static MockDatabase getDb()
 	{
 		return (MockDatabase)store.getDatabase();

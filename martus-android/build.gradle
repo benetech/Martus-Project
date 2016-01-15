@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+def renameAarFiles(def libraryVariants, def archivesBaseName, def versionName, def versionCode) {
+    libraryVariants.all { variant ->
+        def variantName = variant.buildType.name
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.aar')) {
+                def version = versionName + "_" + versionCode
+                def fileName = "${archivesBaseName}-${version}-${variantName}.aar"
+                println("file name = " + fileName)
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+}

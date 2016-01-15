@@ -31,15 +31,19 @@ import java.util.Vector;
 
 import org.martus.client.bulletinstore.BulletinFolder;
 import org.martus.client.bulletinstore.ClientBulletinStore;
-import org.martus.client.core.BackgroundUploader;
-import org.martus.client.core.BackgroundUploader.UploadResult;
 import org.martus.client.core.MartusApp;
+import org.martus.client.network.BackgroundUploader;
+import org.martus.client.network.BackgroundUploader.UploadResult;
+import org.martus.client.swingui.UiSession;
 import org.martus.client.test.MockMartusApp;
 import org.martus.client.test.NullProgressMeter;
 import org.martus.clientside.test.NoServerNetworkInterfaceHandler;
+import org.martus.common.HeadquartersKey;
+import org.martus.common.HeadquartersKeys;
 import org.martus.common.ProgressMeterInterface;
 import org.martus.common.bulletin.Bulletin;
 import org.martus.common.bulletin.BulletinForTesting;
+import org.martus.common.bulletin.Bulletin.BulletinState;
 import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.network.ClientSideNetworkInterface;
 import org.martus.common.network.NetworkInterfaceConstants;
@@ -66,7 +70,7 @@ public class TestBackgroundUploader extends TestCaseEnhanced
 		if(mockSecurityForServer == null)
 			mockSecurityForServer = MockMartusSecurity.createServer();
 
-		mockServer = new MockMartusServer();
+		mockServer = new MockMartusServer(this);
 		mockServer.verifyAndLoadConfigurationFiles();
 		mockServer.setSecurity(mockSecurityForServer);
 		mockSSLServerHandler = new MockServerInterfaceHandler(mockServer.serverForClients);
@@ -79,7 +83,7 @@ public class TestBackgroundUploader extends TestCaseEnhanced
 		}
 		
 		appWithServer = MockMartusApp.create(mockSecurityForApp, getName());
-		appWithServer.setServerInfo("mock", mockServer.getAccountId(), "");
+		appWithServer.setServerInfo("127.0.0.1", mockServer.getAccountId(), "");
 		appWithServer.setSSLNetworkInterfaceHandlerForTesting(mockSSLServerHandler);
 
 		File keyPairFile = appWithServer.getCurrentKeyPairFile();
@@ -91,7 +95,6 @@ public class TestBackgroundUploader extends TestCaseEnhanced
 		ProgressMeterInterface nullProgressMeter = new NullProgressMeter();
 		uploaderWithServer = new BackgroundUploader(appWithServer, nullProgressMeter);		
 		uploaderWithoutServer = new BackgroundUploader(appWithoutServer, nullProgressMeter);		
-		mockServer.deleteAllData();
 
 		TRACE_END();
 	}
@@ -103,6 +106,54 @@ public class TestBackgroundUploader extends TestCaseEnhanced
 		appWithoutServer.deleteAllFiles();
 		appWithServer.deleteAllFiles();
 		super.tearDown();
+	}
+	
+	public void testDestryBulletinAfterSuccessfulluploadDependingOnAppFlavor() throws Exception
+	{
+		TRACE_BEGIN("testWriteOnlyDestroyBulletinAfterSuccessfullupload");
+		
+		verifyBulletinStatusAfterUpload(true, false, true);
+		verifyBulletinStatusAfterUpload(true, false, false);
+		verifyBulletinStatusAfterUpload(true, true, false);
+		verifyBulletinStatusAfterUpload(false, true, true);
+	}
+
+	private void verifyBulletinStatusAfterUpload(boolean expectedToExistAfterUpload, boolean isWriteOnlyDesktop, boolean isSharedBulletin) throws Exception
+	{
+		enableWriteOnlyDesktop(isWriteOnlyDesktop);
+		mockSecurityForApp.loadSampleAccount();
+		assertTrue("must be able to ping", appWithServer.isSSLServerAvailable());
+		
+		mockServer.allowUploads(appWithServer.getAccountId());
+		mockServer.serverForClients.loadBannedClients();
+		Bulletin bulletinToUpload = createBulletin(isSharedBulletin);
+		assertFalse("Record should not yet be on server", appWithServer.getStore().isProbablyOnServer(bulletinToUpload.getUniversalId()));
+		UploadResult result = uploaderWithServer.backgroundUpload();
+		assertEquals("Should work", NetworkInterfaceConstants.OK, result.result);
+		if(expectedToExistAfterUpload)
+			assertTrue("Record should now be on server", appWithServer.getStore().isProbablyOnServer(bulletinToUpload.getUniversalId()));
+		boolean doesExistAfterUpload = appWithServer.getStore().doesBulletinRevisionExist(bulletinToUpload.getDatabaseKey());
+		assertEquals("Bulletin was not deleted after upload?", expectedToExistAfterUpload, doesExistAfterUpload);
+	}
+
+	private Bulletin createBulletin(boolean isSharedBulletin) throws Exception
+	{
+		Bulletin bulletin = createSealedBulletin(appWithServer);
+		if (isSharedBulletin)
+		{
+			bulletin.changeState(BulletinState.STATE_SNAPSHOT);
+			HeadquartersKeys keys = new HeadquartersKeys();
+			keys.add(new HeadquartersKey(mockSecurityForApp.getPublicKeyString()));
+			bulletin.setAuthorizedToReadKeys(keys);
+			appWithServer.getStore().saveBulletin(bulletin);
+		}
+		
+		return bulletin;
+	}
+	
+	private void enableWriteOnlyDesktop(boolean isWriteOnlyDesktop)
+	{
+		UiSession.isWriteOnlyFlavor = isWriteOnlyDesktop;
 	}
 
 	public void testBackgroundUploadSealedWithBadPort() throws Exception
@@ -194,7 +245,7 @@ public class TestBackgroundUploader extends TestCaseEnhanced
 		BulletinFolder folderSaved = appWithServer.getFolderSaved();
 		assertEquals("Not still in saved folder?", 1, folderSaved.getBulletinCount());
 		Bulletin stillSealed = folderSaved.getBulletinSorted(0);
-		assertTrue("Not still sealed?", stillSealed.isSealed());
+		assertTrue("Not still Immutable?", stillSealed.isImmutable());
 		mockServer.uploadResponse = null;
 		TRACE_END();
 	}
@@ -240,7 +291,7 @@ public class TestBackgroundUploader extends TestCaseEnhanced
 	private Bulletin createSealedBulletin(MartusApp app) throws Exception
 	{
 		Bulletin b = app.createBulletin();
-		b.setSealed();
+		b.setImmutable();
 		b.set(Bulletin.TAGTITLE, "test title");
 		app.getStore().saveBulletin(b);
 		app.getFolderSealedOutbox().add(b);
@@ -251,7 +302,7 @@ public class TestBackgroundUploader extends TestCaseEnhanced
 	private Bulletin createDraftBulletin(MartusApp app) throws Exception
 	{
 		Bulletin b = app.createBulletin();
-		b.setDraft();
+		b.setMutable();
 		b.set(Bulletin.TAGTITLE, "test title");
 		app.getStore().saveBulletin(b);
 		app.getFolderDraftOutbox().add(b);
@@ -265,7 +316,7 @@ public class TestBackgroundUploader extends TestCaseEnhanced
 		ClientBulletinStore store = appWithServer.getStore();
 		mockServer.allowUploads(appWithServer.getAccountId());
 		Bulletin b2 = appWithServer.createBulletin();
-		b2.setSealed();
+		b2.setImmutable();
 		store.saveBulletin(b2);
 		assertEquals("upload b2", NetworkInterfaceConstants.OK, uploaderWithServer.uploadBulletin(b2));
 		store.destroyBulletin(b2);

@@ -3,39 +3,18 @@ package org.martus.android;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.martus.android.dialog.LoginDialog;
 import org.martus.android.dialog.ModalConfirmationDialog;
-import org.martus.common.FieldCollection;
-import org.martus.common.FieldSpecCollection;
-import org.martus.common.HeadquartersKey;
 import org.martus.common.MartusUtilities;
-import org.martus.common.fieldspec.CustomFieldTemplate;
-import org.martus.common.fieldspec.FieldSpec;
-import org.martus.util.inputstreamwithseek.FileInputStreamWithSeek;
-import org.odk.collect.android.activities.FormEntryActivity;
-import org.odk.collect.android.application.Collect;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Vector;
-
-public class MartusActivity extends AbstractMainActivityWithMainMenuHandler implements LoginDialog.LoginDialogListener,
-        OrbotHandler {
-
-	private static final String CUSTOM_TEMPLATE_FILENAME = "Custom_Template.mct";
+public class MartusActivity extends AbstractMainActivityWithMainMenuHandler implements LoginDialog.LoginDialogListener, OrbotHandler {
 
     private static final int MAX_LOGIN_ATTEMPTS = 3;
 
@@ -43,9 +22,7 @@ public class MartusActivity extends AbstractMainActivityWithMainMenuHandler impl
 
     static final int ACTIVITY_DESKTOP_KEY = 2;
     public static final int ACTIVITY_BULLETIN = 3;
-	final static int ACTIVITY_CHOOSE_FORM = 4;
     public static final String RETURN_TO = "return_to";
-    public static final String FORM_NAME= "formName";
     public static final String HAVE_FORM= "haveForm";
 
     @Override
@@ -103,79 +80,8 @@ public class MartusActivity extends AbstractMainActivityWithMainMenuHandler impl
         if (requestCode == EXIT_REQUEST_CODE && resultCode == EXIT_RESULT_CODE) {
             AppConfig.getInstance().getCrypto().clearKeyPair();
             finish();
-        }  else if (requestCode == ACTIVITY_CHOOSE_FORM) {
-	        if (resultCode == RESULT_OK) {
-            Uri uri = data.getData();
-            String filePath = uri.getPath();
-            File customTemplate = new File(filePath);
-            loadCustomTemplate(customTemplate);
-            }
         }
     }
-
-	private void loadCustomTemplate(File customTemplate)
-	{
-		SharedPreferences HQSettings = getSharedPreferences(PREFS_DESKTOP_KEY, MODE_PRIVATE);
-		HeadquartersKey hqKey = new HeadquartersKey(HQSettings.getString(SettingsActivity.KEY_DESKTOP_PUBLIC_KEY, ""));
-		try {
-			CustomFieldTemplate template = new CustomFieldTemplate();
-			Vector authorizedKeys = new Vector<String>();
-		    authorizedKeys.add(hqKey.getPublicKey());
-
-            FileInputStreamWithSeek inputStream = new FileInputStreamWithSeek(customTemplate);
-            try
-            {
-                if(template.importTemplate(martusCrypto, inputStream))
-                {
-                    String topSectionXML = template.getImportedTopSectionText();
-                    String bottomSectionXML = template.getImportedBottomSectionText();
-
-                    FieldSpecCollection topFields = FieldCollection.parseXml(topSectionXML);
-                    FieldSpecCollection bottomFields = FieldCollection.parseXml(bottomSectionXML);
-                    MartusApplication.getInstance().setCustomTopSectionSpecs(topFields);
-                    MartusApplication.getInstance().setCustomBottomSectionSpecs(bottomFields);
-
-                    FieldSpecCollection allFields = mergeIntoOneSpecCollection(topFields, bottomFields);
-
-                    ODKUtils.writeXml(this, allFields);
-                    Intent intent = new Intent(MartusActivity.this, FormEntryActivity.class);
-                    intent.putExtra(MartusActivity.FORM_NAME, ODKUtils.MARTUS_CUSTOM_ODK_FORM);
-                    startActivity(intent);
-                } else {
-                    Log.e(AppConfig.LOG_LABEL, "couldn't load custom template! Likely using wrong hq public key");
-                }
-            }
-            finally{
-                inputStream.close();
-            }
-
-			deleteExistingTemplate();
-			copyFile(customTemplate, new File(Collect.MARTUS_TEMPLATE_PATH, ODKUtils.MARTUS_CUSTOM_TEMPLATE));
-		} catch (Exception e) {
-		    showMessage(this, "Invalid form file", getString(R.string.error_message));
-		    Log.e(AppConfig.LOG_LABEL, "problem getting form file", e);
-		}
-	}
-
-	private FieldSpecCollection mergeIntoOneSpecCollection(FieldSpecCollection topFields, FieldSpecCollection bottomFields)
-	{
-		FieldSpecCollection allFields = new FieldSpecCollection(topFields.asArray());
-		allFields.addAllReusableChoicesLists(topFields.getAllReusableChoiceLists());
-		FieldSpec[] bottomSpecs = bottomFields.asArray();
-		for (FieldSpec spec: bottomSpecs) {
-			allFields.add(spec);
-		}
-		allFields.addAllReusableChoicesLists(bottomFields.getAllReusableChoiceLists());
-		return allFields;
-	}
-
-	private void deleteExistingTemplate()
-	{
-		File dir = new File(Collect.MARTUS_TEMPLATE_PATH);
-		File file = new File(dir, ODKUtils.MARTUS_CUSTOM_TEMPLATE);
-		file.delete();
-	}
-
 
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
@@ -188,28 +94,6 @@ public class MartusActivity extends AbstractMainActivityWithMainMenuHandler impl
 	    }
 	    return super.onKeyUp(keyCode, event);
 	}
-
-    public void sendBulletin(View view) {
-	    File dir = new File(Collect.FORMS_PATH);
-        File file = new File(dir, ODKUtils.MARTUS_CUSTOM_ODK_FORM);
-
-	    if (file.exists()) {
-		    Intent intent = new Intent(MartusActivity.this, FormEntryActivity.class);
-            intent.putExtra(MartusActivity.FORM_NAME, ODKUtils.MARTUS_CUSTOM_ODK_FORM);
-            startActivity(intent);
-	    } else {
-		    // really is temp file so okay that its in the cache dir
-		    File destinationFile = new File(getCacheDir(), "custom.mct");
-            File templateFIle =  getFileFromAssets(CUSTOM_TEMPLATE_FILENAME, destinationFile, this);
-            if (templateFIle != null && templateFIle.exists()) {
-                Log.i(AppConfig.LOG_LABEL, "should load custom template");
-                loadCustomTemplate(templateFIle);
-            } else {
-                Intent intent = new Intent(MartusActivity.this, BulletinActivity.class);
-                startActivityForResult(intent, EXIT_REQUEST_CODE) ;
-            }
-	    }
-    }
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -328,29 +212,5 @@ public class MartusActivity extends AbstractMainActivityWithMainMenuHandler impl
 	public void refreshView()
 	{
 		setContentView(R.layout.main);
-	}
-
-	public void copyFile(File src, File dst) throws IOException {
-		InputStream in = null;
-		OutputStream out = null;
-		try {
-		    in = new FileInputStream(src);
-		    out = new FileOutputStream(dst);
-
-		    // Transfer bytes from in to out
-		    byte[] buf = new byte[1024];
-		    int len;
-		    while ((len = in.read(buf)) > 0) {
-		        out.write(buf, 0, len);
-		    }
-		} catch (Exception e) {
-			Log.e(AppConfig.LOG_LABEL, "problem copying template ", e);
-		} finally {
-			if (in != null)
-				in.close();
-			if (out != null)
-				out.close();
-		}
-
 	}
 }

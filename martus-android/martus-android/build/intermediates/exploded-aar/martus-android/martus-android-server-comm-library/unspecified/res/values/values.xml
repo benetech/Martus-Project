@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android-server-comm-library/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">ACTIVITY_ENTRY_NAME</string>
+    <string name="send_failed_cant_reach_server">Can\'t reach server</string>
+</resources>

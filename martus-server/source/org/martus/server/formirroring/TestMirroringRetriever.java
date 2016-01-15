@@ -34,7 +34,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.martus.common.FieldCollection;
+import org.martus.common.FieldSpecCollection;
 import org.martus.common.LoggerInterface;
 import org.martus.common.LoggerToNull;
 import org.martus.common.bulletin.Bulletin;
@@ -54,7 +54,7 @@ import org.martus.common.database.DeleteRequestRecord;
 import org.martus.common.database.MockDatabase;
 import org.martus.common.database.ReadableDatabase;
 import org.martus.common.database.ServerFileDatabase;
-import org.martus.common.fieldspec.CustomFieldTemplate;
+import org.martus.common.fieldspec.FormTemplate;
 import org.martus.common.fieldspec.StandardFieldSpecs;
 import org.martus.common.network.NetworkInterfaceConstants;
 import org.martus.common.network.NetworkResponse;
@@ -70,7 +70,6 @@ import org.martus.common.test.MockBulletinStore;
 import org.martus.common.test.UniversalIdForTesting;
 import org.martus.common.utilities.MartusServerUtilities;
 import org.martus.server.forclients.MockMartusServer;
-import org.martus.server.forclients.ServerForClients;
 import org.martus.server.main.ServerBulletinStore;
 import org.martus.util.DirectoryUtils;
 import org.martus.util.StreamableBase64;
@@ -88,7 +87,7 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		server = new MockMartusServer();
+		server = new MockMartusServer(this);
 		MartusCrypto security = server.getSecurity();
 		
 		supplier = new FakeServerSupplier();
@@ -113,11 +112,11 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 		String accountId1 = "123";
 		String accountId2 = "ABC";
 		
-		CustomFieldTemplate cft1 = createTemplate("1");
+		FormTemplate cft1 = createTemplate("1");
 		TemplateInfoForMirroring template1 = extractTemplateInfo(cft1);
-		CustomFieldTemplate cft2a = createTemplate("2a");
+		FormTemplate cft2a = createTemplate("2a");
 		TemplateInfoForMirroring template2a = extractTemplateInfo(cft2a);
-		CustomFieldTemplate cft2b = createTemplate("2b");
+		FormTemplate cft2b = createTemplate("2b");
 		TemplateInfoForMirroring template2b = extractTemplateInfo(cft2b);
 		
 		assertEquals(0, server.getStore().getListOfFormTemplatesForAccount(accountId1).size());
@@ -191,10 +190,10 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 		assertEquals("Time wasn't updated?", templateInfo.getLastModifiedMillis(), mTime);
 	}
 
-	private TemplateInfoForMirroring extractTemplateInfo(CustomFieldTemplate cft1) throws Exception
+	private TemplateInfoForMirroring extractTemplateInfo(FormTemplate cft1) throws Exception
 	{
 		String title = cft1.getTitle();
-		String filename = ServerForClients.calculateFileNameFromString(title);
+		String filename = FormTemplate.calculateFileNameFromString(title);
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		if(!cft1.saveContentsToOutputStream(server.getSecurity(), out))
 			throw new IOException("Unknown exception saving template to stream");
@@ -206,16 +205,16 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 		return info;
 	}
 
-	public CustomFieldTemplate createTemplate(String title) throws Exception 
+	public FormTemplate createTemplate(String title) throws Exception 
 	{
 		return createTemplate(title, "");
 	}
 
-	public CustomFieldTemplate createTemplate(String title, String description)	throws Exception 
+	public FormTemplate createTemplate(String title, String description)	throws Exception 
 	{
-		FieldCollection topFields = new FieldCollection(StandardFieldSpecs.getDefaultTopSetionFieldSpecs());
-		FieldCollection bottomFields = new FieldCollection(StandardFieldSpecs.getDefaultBottomSectionFieldSpecs());
-		return new CustomFieldTemplate(title, description, topFields, bottomFields);
+		FieldSpecCollection topFields = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
+		FieldSpecCollection bottomFields = StandardFieldSpecs.getDefaultBottomSectionFieldSpecs();
+		return new FormTemplate(title, description, topFields, bottomFields);
 	}
 	
 	public void testGetNextItemToRetrieve() throws Exception
@@ -395,12 +394,12 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 			supplier.addAvailableIdsToMirror(db, key, sigString);
 			supplier.addBur(b.getUniversalId(), bur, b.getStatus());
 			supplier.addZipData(b.getUniversalId(), getZipString(db, b, clientSecurity));
-			if(b.isSealed() || draftsShouldBeMirrored)
+			if(b.isImmutable() || draftsShouldBeMirrored)
 			{
 				supplier.addBulletinToMirror(key, sigString);
 			}
 			
-			if(b.isSealed() || draftsShouldBeMirrored)
+			if(b.isImmutable() || draftsShouldBeMirrored)
 			{
 				expectedBulletinLocalIds.add(b.getLocalId());
 			}
@@ -464,9 +463,9 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 			boolean draftsShouldBeMirrored) {
 		for(int i = 0; i < delRecords.size(); ++i)
 		{
-			UniversalId uid = (UniversalId)delRecords.get(BulletinConstants.STATUSSEALED);
+			UniversalId uid = (UniversalId)delRecords.get(BulletinConstants.STATUSIMMUTABLE);
 			assertFalse("DEL record should have been deleted forpulled sealed", mirroringDataBase.doesRecordExist(DeleteRequestRecord.getDelKey(uid)));
-			uid = (UniversalId)delRecords.get(BulletinConstants.STATUSDRAFT);
+			uid = (UniversalId)delRecords.get(BulletinConstants.STATUSMUTABLE);
 			if(draftsShouldBeMirrored)
 				assertFalse("DEL record should have been deleted for pulled draft", mirroringDataBase.doesRecordExist(DeleteRequestRecord.getDelKey(uid)));
 			else
@@ -486,9 +485,9 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 			HashMap delRecords) {
 		for(int i = 0; i < delRecords.size(); ++i)
 		{
-			UniversalId uid = (UniversalId)delRecords.get(BulletinConstants.STATUSSEALED);
+			UniversalId uid = (UniversalId)delRecords.get(BulletinConstants.STATUSIMMUTABLE);
 			assertTrue("DEL record should exist for sealed", mirroringDataBase.doesRecordExist(DeleteRequestRecord.getDelKey(uid)));
-			uid = (UniversalId)delRecords.get(BulletinConstants.STATUSDRAFT);
+			uid = (UniversalId)delRecords.get(BulletinConstants.STATUSMUTABLE);
 			assertTrue("DEL record should exist for draft", mirroringDataBase.doesRecordExist(DeleteRequestRecord.getDelKey(uid)));
 		}
 	}
@@ -507,9 +506,9 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 			MartusCrypto clientSecurity, boolean sealed) throws Exception {
 		Bulletin b = new Bulletin(clientSecurity);
 		if(sealed)
-			b.setSealed();
+			b.setImmutable();
 		else
-			b.setDraft();
+			b.setMutable();
 		serverStore.saveBulletinForTesting(b);
 		return b;
 	}
@@ -558,11 +557,11 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 		sealedWithDraftDel.mTime = sealedDraftsDelRecordmTime - earlierTime; 
 			
 		BulletinMirroringInformation draftHidden = new BulletinMirroringInformation(draftHiddenUid);
-		draftHidden.status = BulletinConstants.STATUSDRAFT;
+		draftHidden.status = BulletinConstants.STATUSMUTABLE;
 		BulletinMirroringInformation draftNotHidden = new BulletinMirroringInformation(draftNotHiddenUid);
-		draftNotHidden.status = BulletinConstants.STATUSDRAFT;
+		draftNotHidden.status = BulletinConstants.STATUSMUTABLE;
 		BulletinMirroringInformation draftWithDel = new BulletinMirroringInformation(draftWithDelUid);
-		draftWithDel.status = BulletinConstants.STATUSDRAFT;
+		draftWithDel.status = BulletinConstants.STATUSMUTABLE;
 		long draftsDelRecordmTime = MartusServerUtilities.getDateFromFormattedTimeStamp(draftDelRecord.timeStamp).getTime(); 
 		draftWithDel.mTime = draftsDelRecordmTime - earlierTime; 
 
@@ -575,8 +574,8 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 		assertFalse(realRetriever.doWeWantThis(draftWithDel));		
 		
 		//Bulletins now exist in Database with newer mTimes
-		db.writeRecord(DatabaseKey.createSealedKey(sealedNotHiddenUid), "Sealed Data");
-		db.writeRecord(DatabaseKey.createDraftKey(draftNotHiddenUid), "Draft Data");
+		db.writeRecord(DatabaseKey.createImmutableKey(sealedNotHiddenUid), "Sealed Data");
+		db.writeRecord(DatabaseKey.createMutableKey(draftNotHiddenUid), "Draft Data");
 		assertFalse(realRetriever.doWeWantThis(sealedHidden));		
 		assertFalse(realRetriever.doWeWantThis(sealedNotHidden));	
 		assertTrue("Even if a Del request packet is newer than a sealed, we still want the sealed", realRetriever.doWeWantThis(sealedWithDraftDel));
@@ -602,11 +601,11 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 		
 		//Sealed exists in the database and new draft trys to replace it.
 		UniversalId sealed = UniversalIdForTesting.createDummyUniversalId();
-		DatabaseKey sealedKey = DatabaseKey.createSealedKey(sealed);
-		db.writeRecord(sealedKey, "Sealed Data");
+		DatabaseKey immutableKey = DatabaseKey.createImmutableKey(sealed);
+		db.writeRecord(immutableKey, "Sealed Data");
 		BulletinMirroringInformation draftOfSealed = new BulletinMirroringInformation(sealed);
-		draftOfSealed.status = BulletinConstants.STATUSDRAFT;
-		draftOfSealed.mTime = db.getmTime(sealedKey) + futureTime;
+		draftOfSealed.status = BulletinConstants.STATUSMUTABLE;
+		draftOfSealed.mTime = db.getmTime(immutableKey) + futureTime;
 		assertFalse("Should not overwrite a sealed with a newer draft", realRetriever.doWeWantThis(draftOfSealed));		
 
 	}
@@ -620,7 +619,7 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 		MartusCrypto security = MockMartusSecurity.createServer();
 		ServerFileDatabase db = new ServerFileDatabase(tmpPacketDir, security);
 		db.initialize();
-		MockMartusServer mock = new MockMartusServer(db);
+		MockMartusServer mock = new MockMartusServer(db, this);
 		try
 		{
 			internalTestDatabasemTime(mock);
@@ -639,10 +638,10 @@ public class TestMirroringRetriever extends TestCaseEnhanced
 		Database db = internalServer.getWriteableDatabase();
 		
 		Bulletin b1 = new Bulletin(security);
-		b1.setSealed();
+		b1.setImmutable();
 		store.saveBulletinForTesting(b1);
 		Long mtime = new Long(b1.getBulletinHeaderPacket().getLastSavedTime());
-		db.setmTime(DatabaseKey.createSealedKey(b1.getUniversalId()), mtime);
+		db.setmTime(DatabaseKey.createImmutableKey(b1.getUniversalId()), mtime);
 
 		DatabaseKey key = b1.getDatabaseKey();
 		File zip1 = createTempFile();

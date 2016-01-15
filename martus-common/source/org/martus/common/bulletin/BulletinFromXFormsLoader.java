@@ -58,10 +58,11 @@ import org.martus.common.MartusXml;
 import org.martus.common.PoolOfReusableChoicesLists;
 import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.fieldspec.ChoiceItem;
-import org.martus.common.fieldspec.DropDownFieldSpec;
+import org.martus.common.fieldspec.CustomDropDownFieldSpec;
 import org.martus.common.fieldspec.FieldSpec;
 import org.martus.common.fieldspec.FieldTypeBoolean;
 import org.martus.common.fieldspec.FieldTypeDate;
+import org.martus.common.fieldspec.FieldTypeMessage;
 import org.martus.common.fieldspec.FieldTypeNormal;
 import org.martus.common.fieldspec.FieldTypeSectionStart;
 import org.martus.common.fieldspec.GridFieldSpec;
@@ -151,13 +152,7 @@ public class BulletinFromXFormsLoader
 			TreeReference reference = (TreeReference) question.getBind().getReference();
 			FieldDataPacket fieldDataPacket = bulletinLoadedFromXForms.getFieldDataPacket();
 			String xFormsFieldTag = reference.getNameLast();
-			String answerAsString = answer.getDisplayText();
-			if (dataType == Constants.DATATYPE_DATE)
-				answerAsString = formatDateToMartusDateFormat(answerAsString);
-			
-			if (shouldTreatSingleItemChoiceListAsBooleanField(dataType, question) && answerAsString.isEmpty())
-				answerAsString = FieldSpec.FALSESTRING;
-			
+			String answerAsString = getMartusAnswerStringFromQuestion(answer, question, dataType);
 			fieldDataPacket.set(xFormsFieldTag, answerAsString);
 		}
 		
@@ -165,6 +160,35 @@ public class BulletinFromXFormsLoader
 		copyPublicAttachmentProxies(bulletinLoadedFromXForms);
 		
 		return bulletinLoadedFromXForms;
+	}
+
+	public String getMartusAnswerStringFromQuestion(IAnswerData answer,
+					QuestionDef question, final int dataType) throws Exception
+	{
+		String answerAsString = answer.getDisplayText();
+		if (dataType == Constants.DATATYPE_DATE)
+		{
+			answerAsString = formatDateToMartusDateFormat(answerAsString);
+		}
+		else if (shouldTreatSingleItemChoiceListAsBooleanField(dataType, question) && answerAsString.isEmpty())
+		{
+			answerAsString = FieldSpec.FALSESTRING;
+		}
+		else if (dataType == Constants.DATATYPE_CHOICE)
+		{
+			List<SelectChoice> list = question.getChoices();
+			for(int i = 0; i < list.size(); ++i)
+			{
+				SelectChoice choice = list.get(i);
+				if(choice.getValue().equals(answerAsString))
+				{
+					answerAsString = choice.getLabelInnerText();
+					break;
+				}
+			}
+			
+		}
+		return answerAsString;
 	}
 
 	private FieldSpecCollection getNonEmptyTopFieldSpecs()
@@ -236,6 +260,7 @@ public class BulletinFromXFormsLoader
 		TreeReference repeatTreeReference = (TreeReference) castedRepeatDef.getBind().getReference(); 
 		String gridTag = createGridTag(repeatTreeReference);
 		GridFieldSpec foundGridFieldSpec = (GridFieldSpec) fieldsFromXForms.findBytag(gridTag);
+		foundGridFieldSpec.setLabel(getNonNullLabel(castedRepeatDef));
 		PoolOfReusableChoicesLists allReusableChoiceLists = fieldsFromXForms.getAllReusableChoiceLists();
 		GridData gridData = new GridData(foundGridFieldSpec, allReusableChoiceLists);
 		handleRepeat(formEntryController, fieldsFromXForms, gridData);
@@ -301,14 +326,8 @@ public class BulletinFromXFormsLoader
 			return;
 				
 		final int dataType = currentQuestionPrompt.getDataType();
-		String answerAsString = currentAnswer.getDisplayText();
-		if (dataType == Constants.DATATYPE_DATE)
-			answerAsString = formatDateToMartusDateFormat(answerAsString);
-
 		QuestionDef questionDef = currentQuestionPrompt.getQuestion();
-		if (shouldTreatSingleItemChoiceListAsBooleanField(dataType, questionDef) && answerAsString.isEmpty())
-			answerAsString = FieldSpec.FALSESTRING;
-
+		String answerAsString = getMartusAnswerStringFromQuestion(currentAnswer, questionDef, dataType);
 		gridRow.setCellText(columnIndex, answerAsString);
 	}
 
@@ -330,11 +349,11 @@ public class BulletinFromXFormsLoader
 	{
 		FormDef formDef = formEntryController.getModel().getForm();
 		List<IFormElement> children = formDef.getChildren();
-		
-		return recursivelyConvertXFormsFieldsToFieldSpecs(formEntryController, children);
+		unGroupedUniqueId = 0;
+		return recursivelyConvertXFormsFieldsToFieldSpecs(formEntryController, children, false);
 	}
 
-	private FieldSpecCollection recursivelyConvertXFormsFieldsToFieldSpecs(FormEntryController formEntryController, List<IFormElement> children) throws Exception
+	private FieldSpecCollection recursivelyConvertXFormsFieldsToFieldSpecs(FormEntryController formEntryController, List<IFormElement> children, boolean inGroup) throws Exception
 	{
 		FieldSpecCollection fieldsFromXForms = new FieldSpecCollection();
 		for (IFormElement child : children)
@@ -342,8 +361,8 @@ public class BulletinFromXFormsLoader
 			if (child instanceof GroupDef)
 			{
 				GroupDef groupDef = (GroupDef) child;
-				List<IFormElement> groupChildrem = groupDef.getChildren();
-				FieldSpecCollection gridChildrenFieldSpecs = recursivelyConvertXFormsFieldsToFieldSpecs(formEntryController, groupChildrem);
+				List<IFormElement> groupChildren = groupDef.getChildren();
+				FieldSpecCollection gridChildrenFieldSpecs = recursivelyConvertXFormsFieldsToFieldSpecs(formEntryController, groupChildren, true);
 				if (isRepeatGroup(groupDef))
 				{
 					GridFieldSpec gridSpec = new GridFieldSpec();
@@ -360,10 +379,18 @@ public class BulletinFromXFormsLoader
 					fieldsFromXForms.add(FieldSpec.createCustomField(sectionTag, getNonNullLabel(groupDef), new FieldTypeSectionStart()));
 					fieldsFromXForms.addAll(gridChildrenFieldSpecs);
 				}
+				inGroup = false;
 			}
 			
 			if (child instanceof QuestionDef)
 			{
+				if(!inGroup)
+				{
+					++unGroupedUniqueId;
+					String sectionTag = X_FORM_UN_GROUPED_BASE_TAG + unGroupedUniqueId;
+					fieldsFromXForms.add(FieldSpec.createCustomField(sectionTag, UN_GROUPED_SECTION_LABEL, new FieldTypeSectionStart()));
+					inGroup = true;
+				}
 				QuestionDef questionDef = (QuestionDef) child;
 				FormEntryPrompt questionPrompt = findQuestion(formEntryController, (TreeReference) questionDef.getBind().getReference());
 				FieldSpec fieldSpec = convertToFieldSpec(questionPrompt);
@@ -442,15 +469,15 @@ public class BulletinFromXFormsLoader
 		TreeReference reference = (TreeReference) question.getBind().getReference();
 		String tag = reference.getNameLast();
 		String questionLabel = questionPrompt.getQuestion().getLabelInnerText();
+
+		if(questionPrompt.isReadOnly())
+			return FieldSpec.createCustomField(tag, questionLabel, new FieldTypeMessage());
+
 		if (isNormalFieldType(dataType))
-		{
 			return FieldSpec.createCustomField(tag, questionLabel, new FieldTypeNormal());
-		}
 		
 		if (dataType == Constants.DATATYPE_DATE)
-		{
 			return FieldSpec.createCustomField(tag, questionLabel, new FieldTypeDate());
-		}
 		
 		if (shouldTreatSingleItemChoiceListAsBooleanField(dataType, question))
 			return FieldSpec.createCustomField(tag, questionLabel, new FieldTypeBoolean());
@@ -461,12 +488,13 @@ public class BulletinFromXFormsLoader
 			List<SelectChoice> choicesToConvert = question.getChoices();
 			for (SelectChoice choiceToConvert : choicesToConvert)
 			{
-				String choiceItemCode = choiceToConvert.getValue();
+				//String choiceItemCode = choiceToConvert.getValue();
 				String choiceItemLabel = choiceToConvert.getLabelInnerText();
-				convertedChoices.add(new ChoiceItem(choiceItemCode, choiceItemLabel));
+				//Martus doesn't keep Code's when exporting so use Label twice instead
+				convertedChoices.add(new ChoiceItem(choiceItemLabel, choiceItemLabel));
 			}
 			
-			FieldSpec fieldSpec = new DropDownFieldSpec(convertedChoices.toArray(new ChoiceItem[0]));
+			FieldSpec fieldSpec = new CustomDropDownFieldSpec(convertedChoices);
 			fieldSpec.setTag(tag);
 			fieldSpec.setLabel(questionLabel);
 			return fieldSpec;
@@ -538,7 +566,9 @@ public class BulletinFromXFormsLoader
 	    	byte[] xFormsInstanceBytes = xFormsInstance.getBytes(StandardCharsets.UTF_8);
 	    	TreeElement modelRootElement = formEntryController.getModel().getForm().getInstance().getRoot().deepCopy(true);
 	    	TreeElement instanceRootElement = XFormParser.restoreDataModel(xFormsInstanceBytes, null).getRoot();
-	    	if (!instanceRootElement.getName().equals(modelRootElement.getName()))
+	    	String instanceRootName = instanceRootElement.getName();
+	    	String modelRootName = modelRootElement.getName();
+	    	if (!instanceRootName.equals(modelRootName))
 	    		return null;
 	    	
 	    	if (instanceRootElement.getMult() != TreeReference.DEFAULT_MUTLIPLICITY)
@@ -563,7 +593,7 @@ public class BulletinFromXFormsLoader
     	// fix any language issues
     	// : http://bitbucket.org/javarosa/main/issue/5/itext-n-appearing-in-restored-instances
 		if (formEntryController.getModel().getLanguages() != null) 
-    		formEntryController.getModel().getForm().localeChanged(formEntryController.getModel().getLanguage(), formEntryController.getModel().getForm().getLocalizer());
+    			formEntryController.getModel().getForm().localeChanged(formEntryController.getModel().getLanguage(), formEntryController.getModel().getForm().getLocalizer());
 	}
 
 	private void populateDataModel(TreeElement modelRootElement)
@@ -578,4 +608,8 @@ public class BulletinFromXFormsLoader
 	}
 	
 	private Bulletin bulletinToLoadFrom;
+	private int unGroupedUniqueId;
+
+	private static final String UN_GROUPED_SECTION_LABEL = "+";
+	private static final String X_FORM_UN_GROUPED_BASE_TAG = "XFormUnGrouped";
 }

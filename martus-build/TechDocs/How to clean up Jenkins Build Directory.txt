@@ -9,7 +9,7 @@ releases that went outside the Martus team should be archived as well.
 For example if we sent something to the Burmese folks for testing, or to
 the Internews folks to prepare training materials.
 
-1. Get Scott to give you permission to SSH into hrdag.benetech.org as
+1. Get Scott to give you permission to SSH into jenkins@hrdag.benetech.org as
 the jenkins user.  He will use your existing public key to allow you to
 log in without entering a password.  Currently our home directory is /dev/hdc3,
 but Scott could change this at any time.

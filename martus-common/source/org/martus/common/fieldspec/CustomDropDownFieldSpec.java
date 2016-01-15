@@ -48,6 +48,15 @@ public class CustomDropDownFieldSpec extends DropDownFieldSpec
 		reusableChoicesCodes = new Vector();
 	}
 	
+	public CustomDropDownFieldSpec(Vector<ChoiceItem> choices)
+	{
+		this();
+		ChoiceItem emptyItem = new ChoiceItem("", "");
+		choices.insertElementAt(emptyItem,0);
+		ChoiceItem[] choicesIncludingEmpty = choices.toArray(new ChoiceItem[0]);
+		setChoices(choicesIncludingEmpty);
+	}
+
 	protected boolean allowUserDefaultValue()
 	{
 		return true;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="info.guardianproject.cacheword.test" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="20" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for info.guardianproject.cacheword.test"
+        android:targetPackage="info.guardianproject.cacheword.test" />
+
+    <application>
+        <uses-library android:name="android.test.runner" />
+
+        <service
+            android:name="info.guardianproject.cacheword.CacheWordService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>

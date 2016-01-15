@@ -2,7 +2,6 @@ package org.martus.android;
 
 import org.martus.common.FieldSpecCollection;
 import org.martus.common.network.PassThroughTransportWrapper;
-import org.odk.collect.android.application.Collect;
 
 import android.app.Application;
 import android.content.SharedPreferences;
@@ -48,7 +47,6 @@ public class MartusApplication extends Application {
     protected void initSingletons()
     {
         AppConfig.initInstance(this.getApplicationContext());
-	    Collect.initInstance(this.getApplicationContext());
     }
 
 	public PassThroughTransportWrapper getTransport()

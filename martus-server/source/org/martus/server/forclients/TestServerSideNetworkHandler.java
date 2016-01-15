@@ -46,7 +46,7 @@ public class TestServerSideNetworkHandler extends TestCaseEnhanced
 		super.setUp();
 		mySecurity = MockMartusSecurity.createServer();
 		
-		mockServer = new MockMartusServer();
+		mockServer = new MockMartusServer(this);
 		mockServer.serverForClients.loadBannedClients();
 		mockServer.verifyAndLoadConfigurationFiles();
 		mockServer.setSecurity(mySecurity);

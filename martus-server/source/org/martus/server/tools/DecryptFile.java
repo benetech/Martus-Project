@@ -114,6 +114,10 @@ public class DecryptFile
 			System.err.flush();
 			System.exit(3);
 		}
+		finally
+		{
+			stdin.close();
+		}
 
 		UnicodeReader encryptedFileReader = null;
 		OutputStream plainTextOutput = null;

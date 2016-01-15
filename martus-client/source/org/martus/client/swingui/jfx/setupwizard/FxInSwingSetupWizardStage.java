@@ -29,7 +29,7 @@ import org.martus.client.swingui.MartusLocalization;
 import org.martus.client.swingui.UiMainWindow;
 import org.martus.client.swingui.jfx.generic.FxContentController;
 import org.martus.client.swingui.jfx.generic.FxInSwingWizardStage;
-import org.martus.client.swingui.jfx.setupwizard.step1.FxSetupUsernamePasswordController;
+import org.martus.client.swingui.jfx.setupwizard.step1.FxSetupUserNamePasswordWithConfirmationController;
 import org.martus.common.EnglishCommonStrings;
 
 public class FxInSwingSetupWizardStage extends FxInSwingWizardStage
@@ -42,7 +42,7 @@ public class FxInSwingSetupWizardStage extends FxInSwingWizardStage
 	@Override
 	protected FxContentController getFirstController()
 	{
-		return new FxSetupUsernamePasswordController(getMainWindow());
+		return new FxSetupUserNamePasswordWithConfirmationController(getMainWindow());
 	}
 	
 	@Override

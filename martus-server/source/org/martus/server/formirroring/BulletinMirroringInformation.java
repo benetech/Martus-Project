@@ -27,6 +27,8 @@ package org.martus.server.formirroring;
 
 import java.io.IOException;
 import java.util.Vector;
+
+import org.martus.common.bulletin.Bulletin;
 import org.martus.common.bulletin.BulletinConstants;
 import org.martus.common.database.DatabaseKey;
 import org.martus.common.database.ReadableDatabase;
@@ -40,10 +42,10 @@ public class BulletinMirroringInformation
 		signature = signatureToUse;
 		uId = key.getUniversalId();
 		mTime = db.getmTime(key);
-		if(key.isDraft())
-			status = BulletinConstants.STATUSDRAFT;
+		if(key.isMutable())
+			status = BulletinConstants.STATUSMUTABLE;
 		else
-			status = BulletinConstants.STATUSSEALED;
+			status = BulletinConstants.STATUSIMMUTABLE;
 	}
 	
 	public BulletinMirroringInformation(String accountId, Vector info)
@@ -58,7 +60,7 @@ public class BulletinMirroringInformation
 	public BulletinMirroringInformation(UniversalId uIdToUse)
 	{
 		uId = uIdToUse;
-		status = BulletinConstants.STATUSSEALED;
+		status = BulletinConstants.STATUSIMMUTABLE;
 	}
 
 	public UniversalId getUid()
@@ -68,12 +70,12 @@ public class BulletinMirroringInformation
 	
 	public boolean isDraft()
 	{
-		return status.equals(BulletinConstants.STATUSDRAFT);
+		return Bulletin.isMutable(status);
 	}
 	
 	public boolean isSealed()
 	{
-		return status.equals(BulletinConstants.STATUSSEALED);
+		return Bulletin.isImmutable(status);
 	}
 	
 	public String getStatus()

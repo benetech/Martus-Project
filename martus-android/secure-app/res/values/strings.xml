@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="survey_loading_reading_form_message">Reading form definition…</string>
+    <string name="button_label_complete_new_form">Create Record</string>
+    <string name="title_existing_forms">Existing Records</string>
+    <string name="label_enter_passphrase">Enter Password</string>
+    <string name="label_confirm_passphrase">Confirm Password</string>
+    <string name="label_create_account">Create Account</string>
+    <string name="title_login">Login</string>
+    <string name="label_pass_phrases_do_not_match">Passwords do not match!</string>
+    <string name="label_invalid_pass_phrase_length">Invalid password length, must be at least 8 characters!</string>
+    <string name="label_empty_pass_phrase">Please enter a password</string>
+    <string name="label_incorrect_pass_phrase">Incorrect Password</string>
+    <string name="invalid_server_ip">Invalid IP Address</string>
+    <string name="label_connecting_to_server">Connecting to server</string>
+    <string name="error_message">Error</string>
+    <string name="error_connecting_to_server">Error connecting to server</string>
+    <string name="no_upload_rights">Incorrect Magic Word</string>
+    <string name="label_server_connection_setup_successful">You have successfully set up a connection to the Martus server!</string>
+    <string name="invalid_server_public_code">Invalid Server Public Code</string>
+    <string name="progress_confirming_upload_rights">Confirming upload rights</string>
+    <string name="successful_server_choice">Successfully connected to server!</string>
+    <string name="invalid_server_info">Invalid Server Information Entered</string>
+    <string name="error_establishing_upload_rights">Error establishing upload rights</string>
+    <string name="no_network_connection">Device has no connectivity!</string>
+    <string name="progress_preparing_to_connect">Preparing to connect with server</string>
+    <string name="error_create_account">Error creating account</string>
+    <string name="label_setup_secure_storage">Setting up secure storage</string>
+    <string name="no_forms">No records</string>
+    <string name="my_forms">Existing Records</string>
+    <string name="passphrase">Password</string>
+    <string name="blank_label"/>
+    <string name="send_bulletin">Send Record</string>
+    <string name="invalid_password">Password must be at least 8 characters long</string>
+    <string name="settings_pwd_equal">Passwords match!</string>
+    <string name="settings_pwd_not_equal">Passwords don\'t match!</string>
+    <string name="error_incorrect_passphrase">Incorrect password, please try again!</string>
+    <string name="form_title_label">Form Title</string>
+    <string name="save">Save</string>
+    <string name="syncing_form">Syncing Form</string>
+    <string name="keypair_creation_failed">Failed to create Martus KeyPair</string>
+    <string name="error_message_unexpected_error">Unexpected error</string>
+    <string name="error_message_invalid_chars">Invalid characters used in password</string>
+    <string name="error_message_move_failed">Problem moving failed record</string>
+    <string name="label_no_attachments">No Attachments</string>
+    <string name="label_no_images_in_gallery">No Pictures</string>
+    <string name="form_author_field_hint">Form Author</string>
+    <string name="form_organization_field_hint">Form Organization</string>
+    <string name="label_auto_generated_orphan_group_name">UNNAMED</string>
+    <string name="preparing_record_for_upload">Preparing record for upload</string>
+    <string name="uploading_record">Uploading record...</string>
+    <string name="could_not_delete_attachment">Could not delete attachment: %1$s</string>
+    <string name="show_version">Show Version</string>
+    <string name="version_name_label">Version Name: %1$s</string>
+    <string name="version_code_label">Version Code: %1$s</string>
+    <string name="send_failed_cant_reach_server">Can\'t reach server</string>
+    <string name="receiving_contact_public_key">Receiving Contact Key</string>
+    <string name="bulletin_sending_progress">Sending…</string>
+    <string name="default_author">Unknown Author</string>
+    <string name="error_cleaning_up_odk_folders">Error cleaning up folders</string>
+    <string name="failed_send_notification">Send failed due to: %1$s . Try resending later.</string>
+    <string name="failure_choosing_file">Failed choosing file</string>
+    <string name="failure_zipping_bulletin">Failed zipping record</string>
+    <string name="notification_title" translate="false">Martus - %1$s</string>
+    <string name="starting_send_notification">Sending …</string>
+    <string name="successful_send_notification">Record sent!</string>
+    <string name="title_attachments">Form Attachments</string>
+    <string name="xforms_constraint_error">Cannot upload:\n Constraint issue found in form</string>
+    <string name="xforms_missing_required_field">Cannot upload:\n Missing required field</string>
+    <string name="hint_password_field">Password</string>
+    <string name="hint_confirm_password_field">Confirm Password</string>
+    <string name="label_enter_your_password">Enter your password to proceed</string>
+    <string name="menu_item_export_all_records">Export All</string>
+
+    <!-- Override Cacheword -->
+    <string name="cacheword_notification_cached_title">Account Unlocked</string>
+    <string name="cacheword_notification_cached">secureApp prototype is unlocked. Tap to lock.</string>
+    <string name="cacheword_notification_cached_message">secureApp prototype is unlocked. Tap to lock.</string>
+    <!-- End override Cacheword -->
+
+    <!-- Override ODK -->
+    <string name="required_answer_error">A required response is missing.</string>
+    <!-- End override ODK -->
+
+    <!-- ACCESSIBILITY-->
+    <string name="content_description_secure_camera_button">secure camera</string>
+    <string name="content_description_gallery_button">secure gallery</string>
+    <string name="content_description_upload">upload record</string>
+    <string name="content_description_delete_record">delete record</string>
+    <string name="content_description_manage_attachments">manage attachments</string>
+    <string name="content_description_delete_attachment">delete attachment</string>
+    <string name="content_description_attachments_list">list of attachments</string>
+
+</resources>

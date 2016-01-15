@@ -84,6 +84,7 @@ public class IsPassphraseValid
 			BufferedReader stdin = new BufferedReader(new UnicodeReader(System.in));
 //			TODO security issue password is a string
 			passphrase = stdin.readLine();
+			stdin.close();
 		}
 		catch (IOException e)
 		{

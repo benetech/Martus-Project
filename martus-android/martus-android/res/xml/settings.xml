@@ -41,19 +41,11 @@
 
         <Preference
             android:title="@string/replace_contact_menu_item"
-            android:key="replace_contact_preference_key">
-            <intent
-                android:targetPackage="org.martus.android"
-                android:targetClass="org.martus.android.ContactImportChoiceActivity"/>
-        </Preference>
+            android:key="replace_contact_preference_key"/>
 
         <Preference
             android:title="@string/server_menu_title"
-            android:key="choose_connection_preference_key">
-            <intent
-                android:targetPackage="org.martus.android"
-                android:targetClass="org.martus.android.ChooseConnectionActivity"/>
-        </Preference>
+            android:key="choose_connection_preference_key"/>
 
 <!--        <CheckBoxPreference
                 android:key="zawgyi_preference"

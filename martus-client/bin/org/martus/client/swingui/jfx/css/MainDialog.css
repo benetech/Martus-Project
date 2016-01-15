@@ -1,0 +1,40 @@
+.background {
+	-fx-background-color: #FFFFFF;
+}
+
+.titleBox {
+	-fx-padding:3 10 5 3;
+	-fx-alignment:baseline-center;
+	-fx-background-color:#2c2c2c;
+	-fx-border-color: #405980;
+	-fx-border-width: 0 0 2 0;
+	-fx-border-style:solid;
+}
+
+.titleText {
+	-fx-font-size: 13px;
+	-fx-text-fill: #ffffff;
+	-fx-text-alignment:center;
+}
+
+.mainBox {
+	-fx-padding:5 15 5 15;
+}
+
+.headingLevel1 {
+	-fx-font-size: 15px;
+	-fx-text-fill: #405980;
+	-fx-font-weight: bold;
+	-fx-text-alignment:left;
+	-fx-padding:5 0 5 0;
+}
+
+.listViewBox {
+	-fx-padding:0 15 5 15;
+}
+
+.buttonRow {
+	-fx-padding:10 15 20 15;
+	-fx-alignment:baseline-right;
+}
+

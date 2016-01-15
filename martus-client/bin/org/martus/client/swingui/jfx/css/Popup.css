@@ -1,0 +1,124 @@
+.root {
+    -fx-font-family: "Helvetica";
+}
+
+
+#fxGridPane {
+	-fx-background-color: #e6e7e9;
+}
+
+.BackgroundTaskMainPanel {
+	-fx-padding: 5 35 5 35;
+	-fx-spacing: 20;
+	-fx-alignment: BOTTOM_CENTER;
+	-fx-border-style:solid;
+	-fx-border-color: #4c5e70;
+}
+
+.text-area {
+	-fx-background-color: white;
+	-fx-text-background-color: #9ba5ae;
+	-fx-text-fill: #4c5e70;
+	-fx-border-style: none;
+	-fx-font-size: 13px;
+	-fx-font-weight: bold;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: #e6e7e9;
+	-fx-border-style: none;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: #e6e7e9;
+	-fx-border-style: none;
+}
+
+.headingLevel1 {
+	-fx-text-fill: White;
+	-fx-stroke-width: 10;
+	-fx-stroke: White;
+	-fx-font-size: 20px;
+  	-fx-font-weight: bold;
+	-fx-padding: 0 5 10 5;
+}
+
+
+
+.headingLevel2 {
+	-fx-text-fill: #4c5e70;
+	-fx-stroke-width: 10;
+	-fx-stroke: #4c5e70;
+	-fx-font-size: 20px;
+  	-fx-font-weight: bold;
+	-fx-padding: 10 5 10 5;
+}
+
+
+
+.headingLevel3 {
+	-fx-text-fill: #4c5e70;
+	-fx-font-size: 11px;
+  	-fx-font-weight: bold;
+	-fx-padding: 5 3 5 3;
+}
+
+.headingLevel4 {
+	-fx-text-fill: #797769;
+	-fx-stroke-width: 10;
+	-fx-stroke: #797769;
+	-fx-font-size: 20px;
+  	-fx-font-weight: bold;
+	-fx-padding: 10 5 10 5;
+}
+
+
+.mainText {
+	-fx-text-fill: #4c5e70;
+	-fx-alignment: center-left;
+	-fx-font-size: 13px;
+}
+
+
+
+.mainTextBox {
+	-fx-background-color: #9ba5ae;
+ 	 -fx-width: 80%;
+  	-fx-padding: 25 10 15 10;
+	-fx-alignment: center-left;
+	-fx-background-radius: 7.0;
+}
+
+.mainTextBoxText {
+	-fx-text-fill: #4c5e70;
+	-fx-alignment: center-left;
+	-fx-font-size: 11px;
+}
+
+
+
+.hintText {
+	-fx-text-fill: #4c5e70;
+	-fx-alignment: center-left;
+	-fx-font-size: 13px;
+}
+
+
+
+.errorText {
+	-fx-text-fill: #638a4b;
+	-fx-alignment: center-left;
+	-fx-font-size: 13px;
+}
+
+
+.radioButtonText {
+	-fx-text-fill: #4c5e70;
+  	-fx-padding: 0 4 4 4;
+	-fx-font-size: 38px;
+}
+
+
+.popupMargin {
+  -fx-padding: 25 25 25 25;
+}

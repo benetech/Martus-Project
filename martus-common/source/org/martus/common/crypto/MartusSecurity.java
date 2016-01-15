@@ -127,6 +127,10 @@ public class MartusSecurity extends MartusCrypto
 			rand = new SecureRandom();
 			MartusLogger.log("RNG: " + rand.getAlgorithm());
 		}
+		else
+		{
+			MartusLogger.log("RNG (already initialized): " + rand.getAlgorithm());
+		}
 
 		try
 		{
@@ -193,7 +197,9 @@ public class MartusSecurity extends MartusCrypto
 	public static boolean isUnlimitedCryptoAvailable()
 			throws NoSuchAlgorithmException
 	{
-		return Cipher.getMaxAllowedKeyLength("AES") >= 256;
+		int maxAllowedKeyLength = Cipher.getMaxAllowedKeyLength("AES");
+		MartusLogger.log("AES Key Length: " + String.valueOf(maxAllowedKeyLength));
+		return maxAllowedKeyLength >= 256;
 	}
 
 	// begin MartusCrypto interface

@@ -27,13 +27,15 @@ Boston, MA 02111-1307, USA.
 package org.martus.client.network;
 
 import org.martus.client.core.MartusApp;
+import org.martus.client.swingui.UiMainWindow;
 import org.martus.common.ProgressMeterInterface;
 
 public class BackgroundRetriever
 {
-	public BackgroundRetriever(MartusApp appToUse, ProgressMeterInterface progressMeterToUse)
+	public BackgroundRetriever(MartusApp appToUse, UiMainWindow mainWindowToUse, ProgressMeterInterface progressMeterToUse)
 	{
 		app = appToUse;
+		mainWindow = mainWindowToUse;
 		progressMeter = progressMeterToUse;
 	}
 	
@@ -51,7 +53,14 @@ public class BackgroundRetriever
 	{
 		try
 		{
-			app.retrieveNextBackgroundBulletin();
+			if(app.retrieveNextBackgroundBulletin())
+			{
+				if(mainWindow != null)
+				{
+					if(mainWindow.getMainStage().getBulletinsListController().isAllBeingDisplayed())
+						mainWindow.allFolderContentsHaveChanged();
+				}
+			}
 		}
 		finally
 		{
@@ -61,5 +70,6 @@ public class BackgroundRetriever
 	}
 	
 	MartusApp app;
+	UiMainWindow mainWindow;
 	ProgressMeterInterface progressMeter;
 }

@@ -66,7 +66,7 @@ public class TestDeleteDraftsTableModel extends TestCaseEnhanced
 		b2 = app.createBulletin();
 		b2.set(Bulletin.TAGTITLE, title2);
 		
-		testServer = new MockServer();
+		testServer = new MockServer(this);
 		testServer.verifyAndLoadConfigurationFiles();
 		MockMartusSecurity serverSecurity = MockMartusSecurity.createServer();
 		testServer.setSecurity(serverSecurity);
@@ -152,9 +152,9 @@ public class TestDeleteDraftsTableModel extends TestCaseEnhanced
 
 	class MockServer extends MockMartusServer
 	{
-		MockServer() throws Exception
+		MockServer(TestCaseEnhanced testCase) throws Exception
 		{
-			super();
+			super(testCase);
 		}
 		
 		public ServerForClients createServerForClients()

@@ -62,13 +62,13 @@ define name, :layout=>create_layout_with_source_as_source(name) do
 	)
 
 	build do
-	  version_file = _('target', 'version.txt') 
-    FileUtils::mkdir_p(_('target'))
-    File.open(version_file, "w") do | file |
-      file.puts(Time.now)
-    end
+	  	version_file = _('target', 'version.txt') 
+   		FileUtils::mkdir_p(_('target'))
+    		File.open(version_file, "w") do | file |
+      		file.puts(Time.now)
+    		end
 
-    filter(main_source_dir).include('**/test/*.mlp').into(main_target_dir).run
+    		filter(main_source_dir).include('**/test/*.mlp').into(main_target_dir).run
 		filter(main_source_dir).include('**/test/Sample*.*').into(main_target_dir).run
 		# TODO: Need to exclude unapproved mtf files like km
 		filter(main_source_dir).include('**/test/Martus-*.mtf').into(main_target_dir).run
@@ -88,7 +88,6 @@ define name, :layout=>create_layout_with_source_as_source(name) do
 
 		filter(main_source_dir).include('org/martus/client/swingui/UnofficialTranslationMessage.txt').into(main_target_dir).run
 		filter(main_source_dir).include('org/martus/client/swingui/UnofficialTranslationMessageRtoL.txt').into(main_target_dir).run
-
 	end
 
 	test.with(

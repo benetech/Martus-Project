@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-pl/arrays.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+    <item>Angielski</item>
+    <item>Arabski</item>
+    <item>Armeński</item>
+    <item>Azerski</item>
+    <item>Bułgarski</item>
+    <item>Bengalski, Bangla</item>
+    <item>Burmejski</item>
+    <item>Chiński</item>
+    <item>Niderlandzki</item>
+    <item>Esperanto</item>
+    <item>Farsi</item>
+    <item>Frencuski</item>
+    <item>Niemiecki</item>
+    <item>Gujarati</item>
+    <item>Hausa</item>
+    <item>Hebrajski</item>
+    <item>Hindi</item>
+    <item>Węgierski</item>
+    <item>Włoski</item>
+    <item>Japoński</item>
+    <item>Jawajski</item>
+    <item>Kanadyjski</item>
+    <item>Kazachski</item>
+    <item>Khmerski</item>
+    <item>Kirgizki</item>
+    <item>Koreański</item>
+    <item>Kurdyjski</item>
+    <item>Malajaski</item>
+    <item>Marathi</item>
+    <item>Nepalski</item>
+    <item>Oriya</item>
+    <item>Pandżabi</item>
+    <item>Pashto, Pushto</item>
+    <item>Polski</item>
+    <item>Portugalski</item>
+    <item>Romski</item>
+    <item>Rosyjski</item>
+    <item>Serbski</item>
+    <item>Sindi</item>
+    <item>Sinhalese</item>
+    <item>Hiszpański</item>
+    <item>Tamilski</item>
+    <item>Tajik</item>
+    <item>Telugu</item>
+    <item>Thajski</item>
+    <item>Turecki</item>
+    <item>Turkmeński</item>
+    <item>Ukraniński</item>
+    <item>Urdu</item>
+    <item>Uzbecki</item>
+    <item>Wietnamski</item>
+  </string-array>
+    <string-array name="entries_timeout_preference">
+    <item>10 Minut</item>
+    <item>7 Minut</item>
+    <item>5 Minut</item>
+    <item>3 Minuty</item>
+    <item>1 Minuta</item>
+  </string-array>
+    <string-array name="font_size_entries">
+    <item>@string/font_size_extra_large</item>
+    <item>@string/font_size_large</item>
+    <item>@string/font_size_medium</item>
+    <item>@string/font_size_small</item>
+    <item>@string/font_size_extra_small</item>
+  </string-array>
+    <string-array name="navigation_entries">
+    <item>@string/swipe_navigation</item>
+    <item>@string/buttons_navigation</item>
+    <item>@string/swipe_buttons_navigation</item>
+  </string-array>
+    <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+    <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-pl/strings.xml -->
+    <eat-comment/>
+    <plurals name="confirm_reset_install_extra">
+    <item quantity="one">Stracisz %1$s niewysłanych lub wysyłanych raportów.</item>
+    <item quantity="few">Stracisz %1$s niewysłanych lub wysyłanych raportów.</item>
+    <item quantity="other">Stracisz %1$s niewysłanych lub wysyłanych biuletynów.</item>
+  </plurals>
+    <plurals name="show_unsent_count">
+    <item quantity="one">Masz %1$s niewysłanych biuletynów. Możesz przejść do menu Narzędzia i ponownie je wysłać.</item>
+    <item quantity="few">Masz %1$s niewysłanych biuletynów. Możesz przejść do menu Narzędzia i ponownie je wysłać.</item>
+    <item quantity="other">Masz %1$s niewysłanych biuletynów. Możesz przejść do menu Narzędzia i ponownie je wysłać.</item>
+  </plurals>
+    <string name="about_tor_label">Trochę na temat Tor\'a</string>
+    <string name="access_token">Token Dostępu:</string>
+    <string name="account_access_token_label">Token Dostępu: %1$s</string>
+    <string name="add_another">Dodaj Grupę</string>
+    <string name="add_attachment">Dodaj załącznik</string>
+    <string name="add_contact_from_file">Importuj kontakt z pliku</string>
+    <string name="add_contact_using_access_token">Dodaj kontakt z serwera</string>
+    <string name="advanced_server_options">Zaawansowane ustawienia serwera</string>
+    <string name="alert_dialog_confirm_password">Potwierdź Hasło:</string>
+    <string name="alert_dialog_magic_word">Magiczne Słowo:</string>
+    <string name="alert_dialog_ok">OK</string>
+    <string name="alert_dialog_password">Hasło:</string>
+    <string name="attachment_no_longer_exists">Nie wysłano następującego załącznika, %1$s , gdyż został usunięty z urządzenia</string>
+    <string name="attachments_add_label">Załączniki:</string>
+    <string name="attachments_added_label">Załączniki (naciśnij i przytrzymaj aby usunąć) :</string>
+    <string name="boolean_false">Nie</string>
+    <string name="boolean_true">Tak</string>
+    <string name="bulletin_packaging_progress">Kodowanie i kompresowanie...</string>
+    <string name="bulletin_sending_progress">Wysyłanie...</string>
+    <string name="buttons_instructions">Jesteś na początku %s. Dotknij przycisków ze strzałkami poniżej, żeby przejść do przodu lub do tyłu.</string>
+    <string name="buttons_navigation">Użyj przycisków do przodu/do tyłu</string>
+    <string name="cancel">Anuluj</string>
+    <string name="cancel_loading_form">Anuluj</string>
+    <string name="cancel_saving_form">Anuluj</string>
+    <string name="cancel_server">Anuluj</string>
+    <string name="capture_audio">Nagraj Audio</string>
+    <string name="capture_image">Take Picture</string>
+    <string name="capture_video">Nagraj Wideo</string>
+    <string name="change_font_size">Rozmiar czcionki</string>
+    <string name="change_language">Zmień Język</string>
+    <string name="change_username_default">Nazwa Użytkownika</string>
+    <string name="choose_file">Przeglądarka Plików Martus\'a</string>
+    <string name="choose_server_intro">Następnie, skonfiguruj połączenie z serwerem Martus na który będziesz wysyłał biuletyn.</string>
+    <string name="choose_server_title">Wybierz Serwer</string>
+    <string name="clear_answer_no">Anuluj</string>
+    <string name="client">Interfejs Użytkownika</string>
+    <string name="confirm_cancel_bulletin">Anulować ten Biuletyn?</string>
+    <string name="confirm_data_loss">Jeśli opuścisz bieżący widok stracisz dane które mogłeś wprowadzić. Czy jesteś pewny, że chcesz wyjść?</string>
+    <string name="confirm_default">Czy jesteś pewny?</string>
+    <string name="confirm_go_to_device_home">Czy jesteś pewny, że chcesz opuścić Martus?</string>
+    <string name="confirm_logout">Czy jesteś pewny, że chcesz się wylogować?</string>
+    <string name="confirm_password_hint">Potwierdź hasło</string>
+    <string name="confirm_remove_attachment">Usunąć %1$s ?</string>
+    <string name="confirm_reset_install">Czy jesteś pewny, że chcesz to usunąć?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message">Wystąpił błąd w plikach konfiguracyjnych. Dla własnego bezpieczeństwa usuń swoje konto. Naciśnięcie Tak rozpocznie ten proces. Martus nie oracuje z uszkodzonymi plikami konfiguracyjnymi, więc jeśli wybierzesz Nie, aplikacja zakończy swoje działanie.</string>
+    <string name="confirm_tamper_reset_title">Błąd Instalacji</string>
+    <string name="contact_access_token">Token Dostępu Kontaktu</string>
+    <string formatted="false" name="contact_us_info">Jeśli masz pytania lub uwagi do Martus\'a, wyślij e-mail martus@benetech.org</string>
+    <string name="contact_us_menu_item">Skontaktuj Się z Nami</string>
+    <string name="create_account_dialog_cancel">Wyjście</string>
+    <string name="create_account_dialog_title">Utwórz hasło</string>
+    <string name="create_account_intro">Witaj w Martus! Najpierw musisz założyć nowe mobilne konto Martus.</string>
+    <string name="create_password_hint">Nowe hasło</string>
+    <string name="create_sample_bulletin">Stwórz Raport</string>
+    <string name="custom_form_transition">Teraz możesz dodać załączniki albo nacisnąć Cofnij aby edytować zawartość formularza.</string>
+    <string name="date_range_end">(koniec)</string>
+    <string name="date_range_start">(start)</string>
+    <string name="date_validation_min">Data musi być %1$s lub późniejsza.</string>
+    <string name="date_validation_min_max">Data musi być pomiędzy %1$s oraz %2$s.</string>
+    <string name="default_author">Nieznany Autor</string>
+    <string name="delete_repeat_no">Anuluj</string>
+    <string name="desktop_public_code_hint">Kod Publiczny konta stacjonarnego</string>
+    <string name="desktop_sync_choose_file">Wybierz plik stacjonarnego konta Martus (.mpi)</string>
+    <string name="desktop_sync_public_code">Teraz wprowadź Kod Publiczny stacjonarnego konta Martus:</string>
+    <string name="desktop_sync_title">Informacje o stacjonarnym koncie Martus</string>
+    <string name="dialog_title_timeout_preference">Czas wygaśnięcia</string>
+    <string name="do_not_change">Anuluj</string>
+    <string name="do_not_exit">Anuluj</string>
+    <string name="end_form_button">Dodaj Załączniki i Wyślij</string>
+    <string name="enter_magic_word_hint">Wprowadź Magiczne Słowo</string>
+    <string name="enter_password_hint">Wprowadź hasło</string>
+    <string name="entering_repeat">Dodaj Grupę</string>
+    <string name="error_computing_public_code">Problem z zapisaniem ustawień serwera</string>
+    <string name="error_create_account">Wystąpił błąd podczas tworzenia konta</string>
+    <string name="error_getting_server_key">Wystąpił błąd podczas próby połączenia się z serwerem</string>
+    <string name="error_message">Błąd</string>
+    <string name="error_retrieving_contact">Wystąpił błąd podczas pobierania kontaktu</string>
+    <string name="export_public_account_id_dialog_error">Nie udało się wyeksportować ID Konta</string>
+    <string name="export_public_account_id_dialog_title">Błąd Eksportu ID Publicznego Konta</string>
+    <string name="export_public_account_id_menu_item">Eksportuj Identyfikator Konta Publicznego</string>
+    <string name="exported_account_id_file_confirmation">Wyeksportowano Do</string>
+    <string name="failed_send_notification">Wysyłanie nieudane z powodu: %1$s . Spróbuj wysłać później.</string>
+    <string name="failure_choosing_file">Nie wybrano pliku</string>
+    <string name="failure_zipping_bulletin">Nie udało się skompresować biuletynu</string>
+    <string name="fetched_picasa_image">Pobrano obraz Picasa</string>
+    <string name="fetching_picasa_image">Pobierz obraz Picasa</string>
+    <string name="font_size">Rozmiar czcionki</string>
+    <string name="font_size_extra_large">Bardzo duży</string>
+    <string name="font_size_extra_small">Bardzo Mały</string>
+    <string name="font_size_large">Duży</string>
+    <string name="font_size_medium">Średni</string>
+    <string name="font_size_small">Mały</string>
+    <string name="form_forward">Dalej</string>
+    <string name="general_preferences">Ustawienia</string>
+    <string name="goto_server_setup_button">Dalej</string>
+    <string name="help_menu">Pomoc</string>
+    <string name="import_contact_title">Importuj kontakt</string>
+    <string name="import_hq_intro">Na koniec musisz podać informacje na temat swojego konta Martus na które będziesz wysyłał biuletyny z konta mobilnego. Musisz mieć plik z ID Konta Publicznego Martus (z rozszerzeniem \".mpi\") oraz Kod Publiczny stacjonarnego konta Martus na który chcesz otrzymywać biuletyny z Mobilnego Martusa aby zakończyć ten etap.</string>
+    <string name="incorrect_password">Nieprawidłowe Hasło</string>
+    <string name="install_explorer_text">Jeśli nie możesz odszukać pliku o którym myślałeś, spróbuj użyć bardziej zaawansowanej przeglądarki plików:</string>
+    <string name="install_file_explorer">Spróbuj użyć innej przeglądarki plików</string>
+    <string name="install_orbot_">Zainstaluj Orbot</string>
+    <string name="invalid_orbot_message">Proszę przeinstalować Orbot\'a używając aplikacji Sklep Google Play</string>
+    <string name="invalid_orbot_title">Orbot Zainstalowany Nieprawidłowo</string>
+    <string name="invalid_password">Hasło musi składać się z co najmniej z 8 znaków</string>
+    <string name="invalid_public_account_file">Nieprawidłowy plik konta stacjonarnego</string>
+    <string name="invalid_public_code">Kod Publiczny jest niezgodny z plikiem</string>
+    <string name="invalid_server_code">Niewłaściwy Kod Publiczny Serwera</string>
+    <string name="invalid_server_info">Wprowadzono Niewłaściwe Dane Serwera</string>
+    <string name="invalid_server_ip">Nieprawidłowy Adres IP</string>
+    <string name="jump_to_beginning">Idź do Startu</string>
+    <string name="keep_changes">Zapisz zmiany</string>
+    <string name="label_author">Autor</string>
+    <string name="label_entrydate">Data Wpisu</string>
+    <string name="label_eventdate">Data Zdarzenia</string>
+    <string name="label_keywords">Słowa Kluczowe</string>
+    <string name="label_location">Lokalizacja</string>
+    <string name="label_organization">Organizacja</string>
+    <string name="label_privateinfo">Informacja Prywatna</string>
+    <string name="label_publicinfo">Informacja Publiczna</string>
+    <string name="label_summary">Podsumowanie</string>
+    <string name="label_title">Tytuł</string>
+    <string name="logout_while_sending_message">Proszę poczekać, aż biuletyn zostanie wysłany.</string>
+    <string name="logout_while_sending_title">Nie możesz się jeszcze wylogować</string>
+    <string name="manage_bulletins_menu">Zarządzaj Biuletynami</string>
+    <string name="manage_my_account_menu">Zarządzaj Swoim Kontem</string>
+    <string name="must_login_first_message">Musisz się zalogować przed wysłaniem biuletynu</string>
+    <string name="must_login_first_title">Ostrzeżenie!</string>
+    <string name="navigation">Nawigacja</string>
+    <string name="no">Nie</string>
+    <string name="no_network_connection">Urządzenie nie ma połączenia!</string>
+    <string name="no_network_create_bulletin_warning">Żaden biuletyn nie zostanie wysłany w związku z brakiem połączenia z siecią internetową. (Może zaznaczono opcję Tylko W-Fi w Ustawieniach.)
+
+Kliknięcie Wyślij spowoduje zakodowanie i skompresowanie biuletynu, a gdy uzyskasz połączenie z Internetem możasz wysłąć biuletyn z menu Narzędzia.</string>
+    <string name="no_upload_rights">Nieprawidłowe Magiczne Słowo</string>
+    <string name="off_switch_label">Wyłączone</string>
+    <string name="ok">OK</string>
+    <string name="on_switch_label">Włączone</string>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot nie został uruchominy. Czy chcesz go uruchomić?</string>
+    <string name="orbot_running_should_stop_message">Orbot jest uruchomiony. Czy chcesz go wyłączyć?</string>
+    <string name="password">Hasło</string>
+    <string name="password_dialog_title">Zaloguj się</string>
+    <string name="ping_result_down">Serwer jest nieaktywny</string>
+    <string name="ping_result_ok">Serwer jest aktywny</string>
+    <string name="ping_server_menu_item">Sprawdź Serwery</string>
+    <string name="problem_adding_attachment">Błąd przy dodawaniu załącznika do biuletynu</string>
+    <string name="problem_confirming_magic_word">Wystąpił błąd podczas potwierdzenia Magicznego Słowa</string>
+    <string name="problem_creating_bulletin">Nie udało się stworzyć nowego biuletynu</string>
+    <string name="progress_confirming_magic_word">Potwierdzanie Magicznego Słowa</string>
+    <string name="progress_connecting_to_server">Łączenie z serwerem</string>
+    <string name="progress_creating_account">Tworzenie Konta</string>
+    <string name="public_code_validation_empty">Kod Publiczny nie może być pusty</string>
+    <string name="quit_menu_title">Wyloguj się</string>
+    <string name="replace_contact_menu_item">Aktualizuj Kontant</string>
+    <string name="resend_menu_item">Wyślij Ponownie Niewysłane Biuletyny</string>
+    <string name="resending">Wysyłanie!</string>
+    <string name="resending_no_bulletins">Wszystkie biuletyny zostały już wysłane.</string>
+    <string name="resending_no_network">Nie masz połączenia z siecią lub masz włączoną opcję Tylko połączenie Wi-Fi w ustawieniach.</string>
+    <string name="reset_to_install">Usuń Moje Konto</string>
+    <string name="reset_while_sending_title">Jeszcze nie można zresetować</string>
+    <string name="retrieving_contact_information_label">Pobieranie informacji kontaktowych.</string>
+    <string name="retry_server">Wprowadź ponownie</string>
+    <string name="save_and_close">Zapisz i Zamknij</string>
+    <string name="select_file_picker">Wybierz przeglądarkę plików</string>
+    <string name="send_bulletin">Wyślij</string>
+    <string name="send_email_title">Wyślij email...</string>
+    <string name="send_failed_cant_reach_server">Nie mogę połączyć się z serwerem</string>
+    <string name="send_public_account_id_menu_item">Prześlij e-mailem ID Konta Publicznego</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">Wyślij ID Konta Publicznego w Biuletynie</string>
+    <string name="server_ip_hint">Wprowadź Adres IP</string>
+    <string name="server_ip_label">Adres IP:</string>
+    <string name="server_menu_title">Wybierz Serwer</string>
+    <string name="server_public_code_hint">Wprowadź Kod Publiczny Serwera</string>
+    <string name="server_public_code_label">Kod Publiczny Serwera:</string>
+    <string name="settings_pwd_equal">Hasła zgadzają się!</string>
+    <string name="settings_pwd_not_equal">Hasła nie są takie same!</string>
+    <string name="settings_title">Ustawienia</string>
+    <string name="show_unsent_title">Są biuletyny, które nie zostały wysłane.</string>
+    <string name="show_version">Pokaż Numer Wersji</string>
+    <string name="start_orbot_">Uruchom aplikację Orbot</string>
+    <string name="starting_send_notification">Wysyłanie ...</string>
+    <string name="stop_orbot">Stop Orbot</string>
+    <string name="success_import_hq_key">Udało ci się skonfigurować stacjonarne konto Martus aby otrzymywać mobilne biuletyny Martus. Konfigurowanie Maobilnego Martusa zakończone!</string>
+    <string name="success_magic_word">Połączenie z serwerem Martus zakończone sukcesem!</string>
+    <string name="successful_send_notification">Biuletyn wysłany!</string>
+    <string name="successful_server_choice">Połączenie z serwerem zakończone sukcesem!</string>
+    <string name="summary_language_preference">Wybierz język w którym będziesz tworzyć biuletyn</string>
+    <string name="summary_optional_label">Opcjonalne</string>
+    <string name="summary_timeout_preference">W minutach</string>
+    <string name="swipe_buttons_instructions">Jesteś na początku %s. Przeciągnij palcem po ekranie, jak pokazano poniżej, lub naciśnij przyciski ze strzałkami aby przejść do przodu lub do tyłu.</string>
+    <string name="swipe_buttons_navigation">Użyj przeciągnięć i przycisków</string>
+    <string name="swipe_instructions">Jesteś na początku %s. Przeciągnij palcem po ekranie tak, jak pokazano poniżej, żeby przejść do przodu lub do tyłu.</string>
+    <string name="swipe_navigation">Użyj poziomych przeciągnięć</string>
+    <string name="title_author_preference">Autor</string>
+    <string name="title_hint">Tytuł</string>
+    <string name="title_language_preference">Język Raportu</string>
+    <string name="title_summary">Podsumowanie</string>
+    <string name="title_timeout_preference">Przekroczono czas połączenia</string>
+    <string name="title_wifi_only_preference">Użyj tylko połączeń Wi-Fi</string>
+    <string name="tor_label">Tor</string>
+    <string name="tor_option_intro">Następnie włącz Tora jeśli jest potrzebny.</string>
+    <string name="use_default_server">Używaj serwera domyślnego</string>
+    <string formatted="false" name="use_tor"><b>Użyj Tor</b> (pomoże ukryć, że łączysz się z serwerem Martus oraz może pomóc ci połączyć się z nim, jeśli jest blokowany w miejscu, w którym jesteś. Spowolni to wysyłanie biuletynów.)</string>
+    <string name="user_preferences">Ustawienia</string>
+    <string name="valid_public_account_file">Plik konta stacjonarnego jest prawidłowy</string>
+    <string name="verify_public_code">Weryfikuj kod publiczny:\n %1$s</string>
+    <string name="version_code_label">Utworzono %1$s</string>
+    <string name="version_name_label">Nazwa wersji %1$s</string>
+    <string name="view_access_token_menu_item">Pokaż Token Dostępu</string>
+    <string name="view_docs_menu">Link do Dokumentów Pomocy</string>
+    <string name="view_new_public_code_message">Kod Publiczny (Nowy):\n%1$s</string>
+    <string name="view_old_public_code_message">Kod Publiczny (Stary):\n%1$s</string>
+    <string name="view_public_code_dialog_error">Nie mogę pokazać Kodu Publicznego</string>
+    <string name="view_public_code_dialog_title">Kod Publiczny</string>
+    <string name="view_public_code_menu_item">Zobacz Kod Publiczny</string>
+    <string name="wifi_only_preference_on">Wysyłąj dane tylko gdy sieć Wi-Fi jest dostępna</string>
+    <string name="yes">Tak</string>
+    <string name="you_must_have_orbot">Musisz mieć zainstalowańą aplikację Orbot</string>
+</resources>

@@ -20,14 +20,15 @@ package org.odk.collect.android.tasks;
 
 import android.os.AsyncTask;
 import android.util.Log;
-
 import org.javarosa.core.services.transport.payload.ByteArrayPayload;
 import org.odk.collect.android.application.Collect;
-import org.odk.collect.android.io.SecureFileStorageManager;
 import org.odk.collect.android.listeners.SavePointListener;
 import org.odk.collect.android.logic.FormController;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
 
 /**
  * Author: Meletis Margaritis
@@ -37,17 +38,15 @@ import java.io.File;
 public class SavePointTask extends AsyncTask<Void, Void, String> {
 
     private final static String t = "SavePointTask";
-    private static final Object lock = new Object();
-    private static int lastPriorityUsed = 0;
+    protected static final Object lock = new Object();
+    protected static int lastPriorityUsed = 0;
 
-    private final SecureFileStorageManager secureStorage;
     private final SavePointListener listener;
-    private int priority;
+    protected int priority;
 
-    public SavePointTask(SecureFileStorageManager secureStorage, SavePointListener listener) {
+    public SavePointTask(SavePointListener listener) {
         this.listener = listener;
         this.priority = ++lastPriorityUsed;
-        this.secureStorage = secureStorage;
     }
 
     @Override
@@ -62,7 +61,7 @@ public class SavePointTask extends AsyncTask<Void, Void, String> {
 
             try {
                 FormController formController = Collect.getInstance().getFormController();
-                //File temp = SaveToDiskTask.savepointFile(formController.getInstancePath());
+                File temp = SaveToDiskTask.savepointFile(formController.getInstancePath());
                 ByteArrayPayload payload = formController.getFilledInFormXml();
 
                 if (priority < lastPriorityUsed) {
@@ -71,12 +70,10 @@ public class SavePointTask extends AsyncTask<Void, Void, String> {
                 }
 
                 // write out xml
-                //SaveToDiskTask.exportXmlFile(payload, temp.getAbsolutePath());
-                secureStorage.writeFile(formController.getInstancePath().getAbsolutePath(), 
-                		payload.getPayloadStream());
-                
+                exportXmlFile(payload, temp.getAbsolutePath());
+
                 long end = System.currentTimeMillis();
-                Log.i(t, "Savepoint ms: " + Long.toString(end - start) + " to " + formController.getInstancePath().getAbsolutePath());
+                Log.i(t, "Savepoint ms: " + Long.toString(end - start) + " to " + temp);
 
                 return null;
             } catch (Exception e) {
@@ -95,4 +92,52 @@ public class SavePointTask extends AsyncTask<Void, Void, String> {
             listener.onSavePointError(errorMessage);
         }
     }
+
+    /**
+     * This method actually writes the xml to disk.
+     * @param payload
+     * @param path
+     * @return
+     */
+    protected void exportXmlFile(ByteArrayPayload payload, String path) throws IOException {
+        File file = new File(path);
+        if (file.exists() && !file.delete()) {
+            throw new IOException("Cannot overwrite " + path + ". Perhaps the file is locked?");
+        }
+
+        // create data stream
+        InputStream is = payload.getPayloadStream();
+        int len = (int) payload.getLength();
+
+        // read from data stream
+        byte[] data = new byte[len];
+//        try {
+        int read = is.read(data, 0, len);
+        if (read > 0) {
+            // write xml file
+            RandomAccessFile randomAccessFile = null;
+            try {
+                // String filename = path + File.separator +
+                // path.substring(path.lastIndexOf(File.separator) + 1) + ".xml";
+                randomAccessFile = new RandomAccessFile(file, "rws");
+                randomAccessFile.write(data);
+            } finally {
+                if (randomAccessFile != null) {
+                    try {
+                        randomAccessFile.close();
+                    } catch (IOException e) {
+                        Log.e(t, "Error closing RandomAccessFile: " + path, e);
+                    }
+                }
+            }
+        }
+//        } catch (IOException e) {
+//            Log.e(t, "Error reading from payload data stream");
+//            e.printStackTrace();
+//            return false;
+//        }
+//
+//        return false;
+    }
+
 }

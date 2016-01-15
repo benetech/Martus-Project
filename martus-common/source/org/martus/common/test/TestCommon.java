@@ -44,15 +44,17 @@ import org.martus.common.field.TestMartusField;
 import org.martus.common.field.TestMartusSearchableGridColumnField;
 import org.martus.common.fieldspec.TestCustomDropDownFieldSpec;
 import org.martus.common.fieldspec.TestCustomFieldSpecValidator;
-import org.martus.common.fieldspec.TestFormTemplate;
 import org.martus.common.fieldspec.TestDateFieldSpec;
 import org.martus.common.fieldspec.TestDateRangeFieldSpec;
 import org.martus.common.fieldspec.TestDropDownFieldSpec;
 import org.martus.common.fieldspec.TestFieldSpec;
+import org.martus.common.fieldspec.TestFormTemplate;
 import org.martus.common.fieldspec.TestMiniFieldSpec;
 import org.martus.common.network.TestServerBulletinSummary;
 import org.martus.common.network.TestShortServerBulletinSummary;
 import org.martus.common.utilities.TestBurmeseUtilities;
+import org.martus.common.utilities.TestCrLfSanitizer;
+import org.martus.common.utilities.TestCrLfVerifier;
 import org.martus.common.utilities.TestDateUtilities;
 import org.martus.common.utilities.TestJpegGeoTagReader;
 import org.martus.common.utilities.TestMartusFlexidate;
@@ -146,6 +148,9 @@ public class TestCommon
 		suite.addTest(new TestSuite(TestXmlWriterFilter.class));
 		suite.addTest(new TestSuite(TestZipEntryInputStream.class));
 		suite.addTest(new TestSuite(TestExceptions.class));
+		suite.addTest(new TestSuite(TestCrLfVerifier.class));
+		suite.addTest(new TestSuite(TestCrLfSanitizer.class));
+		
 		return suite;
 	}
 }

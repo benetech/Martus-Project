@@ -128,7 +128,7 @@ public class BulletinListProvider extends ArrayObservableList<BulletinTableRowDa
 
 	public Set getAllBulletinUidsIncludingDiscardedItems()
 	{
-		Set allBulletinUids = mainWindow.getStore().getAllBulletinLeafUids();
+		Set allBulletinUids = getBulletinStore().getAllBulletinLeafUids();
 		return allBulletinUids;
 	}
 
@@ -201,13 +201,18 @@ public class BulletinListProvider extends ArrayObservableList<BulletinTableRowDa
 
 	protected BulletinTableRowData getCurrentBulletinData(UniversalId leafBulletinUid) throws Exception
 	{
-		ClientBulletinStore clientBulletinStore = mainWindow.getStore();
-		Bulletin bulletin = clientBulletinStore.getBulletinRevision(leafBulletinUid);
+		ClientBulletinStore clientBulletinStore = getBulletinStore();
+		Bulletin bulletin = getRevisedBulletin(leafBulletinUid);
 		boolean onServer = clientBulletinStore.isProbablyOnServer(leafBulletinUid);
-		Integer authorsValidation = mainWindow.getApp().getKeyVerificationStatus(bulletin.getAccount());
-		MiniLocalization localization = mainWindow.getLocalization();
+		Integer authorsValidation = getMainWindow().getApp().getKeyVerificationStatus(bulletin.getAccount());
+		MiniLocalization localization = getMainWindow().getLocalization();
 		BulletinTableRowData bulletinData = new BulletinTableRowData(bulletin, onServer, authorsValidation, localization);
 		return bulletinData;
+	}
+
+	private Bulletin getRevisedBulletin(UniversalId leafBulletinUid)
+	{
+		return getBulletinStore().getBulletinRevision(leafBulletinUid);
 	}
 
 	protected int findBulletinIndexInTable(UniversalId uid)
@@ -220,20 +225,39 @@ public class BulletinListProvider extends ArrayObservableList<BulletinTableRowDa
 		return BULLETIN_NOT_IN_TABLE;
 	}
 
+	//FIXME: medium: this method always returns false,  its caller ends having dead code 
 	public boolean updateBulletin(Bulletin bulletin) throws Exception
 	{
 		UniversalId bulletinId = bulletin.getUniversalId();
-		BulletinTableRowData updatedBulletinData = getCurrentBulletinData(bulletinId);
-		int bulletinIndexInTable = findBulletinIndexInTable(bulletinId);
+		int bulletinIndexInTable = BULLETIN_NOT_IN_TABLE;
+		if (!hasBulletinBeenDiscarded(bulletinId))
+			bulletinIndexInTable = findBulletinIndexInTable(bulletinId);
+		
 		if(bulletinIndexInTable <= BULLETIN_NOT_IN_TABLE)
 		{
 			updateAllItemsInCurrentFolder();
 		}
 		else
 		{
+			BulletinTableRowData updatedBulletinData = getCurrentBulletinData(bulletinId);
 			set(bulletinIndexInTable, updatedBulletinData);
 		}
 		return false;
+	}
+
+	private boolean hasBulletinBeenDiscarded(UniversalId bulletinId)
+	{
+		return getRevisedBulletin(bulletinId) == null;
+	}
+	
+	private ClientBulletinStore getBulletinStore()
+	{
+		return getMainWindow().getStore();
+	}
+
+	private UiMainWindow getMainWindow()
+	{
+		return mainWindow;
 	}
 
 	private static final int BULLETIN_NOT_IN_TABLE = -1;

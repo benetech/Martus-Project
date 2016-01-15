@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/title_hint"
+            android:id="@+id/title_heading_id"
+            style="@style/MartusHeading1"
+        />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/createBulletinTitle"
+            android:singleLine="false"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:layout_marginTop="4dip"
+            android:layout_marginBottom="4dip"
+            style="@style/MartusTextViewStyle"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/title_summary"
+            android:id="@+id/summary_heading_id"
+            android:layout_weight="1"
+            style="@style/MartusHeading1"
+        />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="100dip"
+            android:id="@+id/bulletinSummary"
+            android:hint="@string/summary_optional_label"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="8dp"
+            style="@style/MartusTextViewStyle"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_form_transition"
+            android:id="@+id/custom_form_transition"
+            android:layout_marginTop="4dip"
+            android:textSize="18sp"
+            android:visibility="gone"
+            style="@style/MartusTextViewStyle"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/attachments_add_label"
+            android:id="@+id/attachments_help_text"
+            android:layout_marginTop="4dip"
+            style="@style/MartusHeading1"
+        />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:src="@drawable/ic_menu_attachments"
+            android:onClick="addAttachment"
+        />
+
+    </LinearLayout>
+</LinearLayout><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/layout/bulletin_list_header_view.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/layout/bulletin_list_header_view.xml -->

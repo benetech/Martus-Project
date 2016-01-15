@@ -1,4 +1,4 @@
-﻿Martus(tm) Desktop Software Version 5.1 README.txt
+﻿Martus(tm) Desktop Software Version 5.1.1 README.txt
 ----------------------------------------------------------------
 
 See https://www.martus.org for information about the Martus software.
@@ -16,18 +16,21 @@ System Requirements:
   *  Screen resolution of 960x480 or greater
 
 - Windows
-  * Windows XP, Windows Vista, Windows 7, or Windows 8 (Window 7 or higher recommended). 
+  * Windows XP, Windows Vista, Windows 7, Windows 8, or Windows 10 (Window 7 or higher recommended).  Note that 
+    in Windows 10, there may be issues uninstalling Martus - if you have issues, you can uninstall Martus by removing 
+	the martus.jar file in your C:\Martus directory.
+  
 
 - Mac
   * Officially supported on Mac OS 10.8 and above, and tested on 10.7.5 and above.
   * Java Runtime Environment (JRE) version 1.8.0_40 (sometimes called Java8).
 
 - Linux 
-  * This version of Martus does not fully support Linux (there are several display issues, etc.). 
-     For a fully supported version of Martus, download version 4.4 of Martus and refer to the 
+  * While this version should work on most versions of Linux, there are several display issues. 
+     For a fully supported version of Martus on Linux, download version 4.4 of Martus and refer to the 
      version 4.3 Martus User Guide available in the Docs folder of your Martus directory or at 
-     https://www.martus.org.  If you want to run Martus 5.1 on Linux, you need Java Runtime 
-     Environment (JRE) version 1.8.0_40 (sometimes called Java8) and graphic library gtk2 2.18+ 
+     https://www.martus.org.  If you want to run Martus 5.0 or later on Linux, you need Java Runtime 
+     Environment (JRE) version 1.8.0_40 (sometimes called Java8) or later and graphic library gtk2 2.18+ 
      (required for supporting JavaFX).  Some versions of OpenJDK do not include the JavaFX jar, 
 	 so you may need to download and install it for Martus to run.
 
@@ -35,8 +38,7 @@ System Requirements:
 Installing and Running Martus:
 
 - Windows
-  1) Insert the Martus CD into your CD-ROM drive or download the Martus installer from 
-      https://www.martus.org and run it.
+  1) Download the Martus installer from https://www.martus.org and run it, or insert the Martus CD into your CD-ROM drive.
   2) Follow the step-by-step Martus installer instructions.
   3) To start Martus in Windows, choose Start > Programs > Martus > Martus, or double-click the 
       Martus shortcut on the desktop or in the Martus directory.
@@ -46,13 +48,70 @@ Installing and Running Martus:
   2) If the Martus folder was not automatically opened, double-click on it to view the contents. 
   3) To run Martus, double-click the Martus icon/application (Martus.app file), or right click and 
       select Open. While you can copy the Martus application (Martus.app) to your Applications folder, 
-      please note that if you do so, it will not be removed when you uninstall Martus, which may be a security concern. 
+      please note that if you do so, it will not be removed when you uninstall Martus, which may be a 
+	  security concern. 
 
 - Linux
   * See note above about Martus compatibility with Linux.
 
 
 Martus desktop release information by version and release date:
+
+Version 5.1.1 		2015-12
+
+This release is available in English, Spanish, Arabic, and French, with partial translations in several 
+other languages. Other languages may be available in the future, as language-packs on https://www.martus.org 
+
+Changes in this release:  
+
+- Decreased the download size of the Martus installers.
+- Combined several account setup screens in the configuration wizard (username/password entry, confirmation of 
+   username/password, and author/organization entry)
+- Fixed bug in key backup screen of the account setup wizard that could sometimes cause the original account key file 
+   to be overwritten, which would make you unable to log into your account.
+- Fixed several issues related to custom Android secureApp records received in Martus, including display of all fields 
+   types, inclusion/display or records in searches/reports/charts, and export of records outside of Martus.
+- Fixed issue where the list of records in several folders did not update automatically when downloading records 
+   from the server.
+- Fixed issues where certain buttons required multiple clicks in some versions of Windows.
+- Improved display of images in records.
+
+Known Issues:
+- In Windows 10, there may be issues uninstalling Martus - if you have issues, you can uninstall Martus by removing 
+   the martus.jar file in your C:\Martus directory.
+- When exporting custom Android secureApp records that contain dropdown fields, data entered in those fields may be deleted 
+   in the resulting exported file outside of Martus.
+- Several display issues in right-to-left languages (e.g. Arabic, Farsi) and in other languages (e.g. Burmese) for some 
+   OSs/screen resolutions
+- In right-to-left languages (e.g. Arabic, Farsi), during the account setup wizard, the date format sequence field defaults 
+   to blank, so you must pick a value explicitly before going to the next step in the wizard or you will receive an error
+- Text in the user interface in languages that have not been translated (or where wording has changed from earlier 
+   translations) will be marked with brackets
+- Very first menu click when opening Martus must be repeated for menu to load
+- You are able to open multiple view windows for the same record
+- You are not asked to confirm when deleting an item (group of fields) in a multi-item list in a record 
+- When you add or delete a record from a list, it will unsort the list.
+- Sorting in record lists is case-sensitive (e.g. titles that start with upper-case letters are sorted before any 
+   that start with lower-case letters)
+- In Windows, some dialogs do not show that Martus is still working as they load (which makes the screen look blank 
+   if they take a long time)
+- If you have a newer version of a record that is not on the server (but there are earlier versions on the server), 
+   downloading records in the Sync Manager or automatic downloads (configured under Server Settings) will cause 
+   an error.  You can avoid this by making sure all versions of records are backed up to the server.  If you need 
+   assistance, email martus@benetech.org
+- If you have not selected the "Have Server Default On?" option under Server Settings, you will need to click the 
+   "Server On/Off" button at the top of the main Martus screen twice to turn on your server connection
+- In the Advanced Search screen, grid column fields from records sent by any custom Android secureApps will have 
+   labels that include system tag content.
+- If you have deleted a record (so it is in your Trash folder), you will not see it in the Sync Manager.  
+- If you have deleted a record with more than one version, and re-download from the server, you will only be able 
+   to view data from the final version (Martus will show that there are older versions but you cannot view them).
+- Records are referred to as "Bulletins" (pre-version 5.0 wording)in some screens (e.g. Reports, Charts). 
+- If your computer date/time is off, you may not be able to access Tor or map display for images.
+- It is possible to bring up multiple Sync Manager screens. 
+- If you install in Windows in a non-English language, you will still have to select that language on the initial 
+   Martus login screen.
+
 
 Version 5.1 		2015-04
 
@@ -100,25 +159,28 @@ Known Issues:
 - You are able to open multiple view windows for the same record
 - You are not asked to confirm when deleting an item (group of fields) in a multi-item list in a record 
 - When you add or delete a record from a list, it will unsort the list.
-- Sorting in record lists is case-sensitive (e.g. titles that start with upper-case letters are sorted before any that start 
-   with lower-case letters)
+- Sorting in record lists is case-sensitive (e.g. titles that start with upper-case letters are sorted before any 
+   that start with lower-case letters)
 - In Windows, some dialogs do not show that Martus is still working as they load (which makes the screen look blank 
    if they take a long time)
 - If you have a newer version of a record that is not on the server (but there are earlier versions on the server), 
    downloading records in the Sync Manager or automatic downloads (configured under Server Settings) will cause 
-   an error.  You can avoid this by making sure all versions of records are backed up to the server.  If you need assistance, 
-   email martus@benetech.org
-- If you have not selected the "Have Server Default On?" option under Server Settings, you will need to click the "Server 
-   On/Off" button at the top of the main Martus screen twice to turn on your server connection
-- In the Advanced Search screen, grid column fields from records sent by the secureApp prototype will have labels that include 
-  system tag content.
+   an error.  You can avoid this by making sure all versions of records are backed up to the server.  If you need 
+   assistance, email martus@benetech.org
+- If you have not selected the "Have Server Default On?" option under Server Settings, you will need to click the 
+   "Server On/Off" button at the top of the main Martus screen twice to turn on your server connection
+- In the Advanced Search screen, grid column fields from records sent by the secureApp prototype will have labels 
+   that include system tag content.
 - If you have deleted a record (so it is in your Trash folder), you will not see it in the Sync Manager.  
-- If you have deleted a record with more than one version, and re-download from the server, you will only be able to view data 
-  from the final version (Martus will show that there are older versions but you cannot view them).
+- If you have deleted a record with more than one version, and re-download from the server, you will only be able 
+   to view data from the final version (Martus will show that there are older versions but you cannot view them).
 - Records are referred to as "Bulletins" (pre-version 5.0 wording)in some screens (e.g. Reports, Charts). 
 - If your computer date/time is off, you may not be able to access Tor or map display for images.
 - It is possible to bring up multiple Sync Manager screens. 
-- If you install in Windows in a non-English language, you will still have to select that language on the initial Martus login screen.
+- If you install in Windows in a non-English language, you will still have to select that language on the initial 
+   Martus login screen.
+- In Windows 10, there may be issues uninstalling Martus - if you have issues, you can uninstall Martus by removing 
+   the martus.jar file in your C:\Martus directory.
 
 
 Version 5.0.2 		2014-12

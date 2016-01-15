@@ -66,11 +66,11 @@ public class TestRetrieveMyDraftsTableModel extends TestCaseEnhanced
 
 		b0 = app.createBulletin();
 		b0.set(Bulletin.TAGTITLE, title1);
-		b0.setDraft();
+		b0.setMutable();
 		app.getStore().saveBulletin(b0);
 		b1 = app.createBulletin();
 		b1.set(Bulletin.TAGTITLE, title1);
-		b1.setSealed();
+		b1.setImmutable();
 		app.getStore().saveBulletin(b1);
 		b2 = app.createBulletin();
 		b2.set(Bulletin.TAGTITLE, title2);
@@ -78,10 +78,10 @@ public class TestRetrieveMyDraftsTableModel extends TestCaseEnhanced
 		history2.add(b1.getLocalId());
 		historyId = UniversalId.createFromAccountAndLocalId(b2.getAccount(), b1.getLocalId());
 		b2.setHistory(history2);
-		b2.setDraft();
+		b2.setMutable();
 		app.getStore().saveBulletin(b2);
 
-		testServer = new MockServer();
+		testServer = new MockServer(this);
 		testServer.verifyAndLoadConfigurationFiles();
 		
 		testServerInterface = new ServerSideNetworkHandlerForNonSSL(testServer.serverForClients);
@@ -195,9 +195,9 @@ public class TestRetrieveMyDraftsTableModel extends TestCaseEnhanced
 
 	class MockServer extends MockMartusServer
 	{
-		MockServer() throws Exception
+		MockServer(TestCaseEnhanced testCase) throws Exception
 		{
-			super();
+			super(testCase);
 		}
 		
 		public ServerForClients createServerForClients()

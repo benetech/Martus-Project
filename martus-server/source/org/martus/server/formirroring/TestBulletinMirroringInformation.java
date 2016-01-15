@@ -48,8 +48,8 @@ public class TestBulletinMirroringInformation extends TestCaseEnhanced
 		MartusCrypto authorSecurity = MockMartusSecurity.createOtherClient();
 		
 		BulletinHeaderPacket bhp = new BulletinHeaderPacket(authorSecurity);
-		bhp.setStatus(BulletinConstants.STATUSDRAFT);
-		DatabaseKey key = DatabaseKey.createDraftKey(bhp.getUniversalId());
+		bhp.setStatus(BulletinConstants.STATUSMUTABLE);
+		DatabaseKey key = DatabaseKey.createMutableKey(bhp.getUniversalId());
 
 		String sigString = "Signature";
 		MockDatabase db = new MockServerDatabase();

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/scrollView"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:fillViewport="true" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_marginLeft="20dip"
+                  android:layout_marginRight="20dip">
+
+        <TextView
+            android:id="@+id/tor_intro_label"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dip"
+            android:layout_marginBottom="20dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:text="@string/tor_option_intro"
+            android:gravity="left"
+            style="@style/MartusTextViewStyle" />
+
+        <include layout="@layout/tor_main" android:layout_height="207dp"/>
+
+        <Button
+            android:id="@+id/gotoServerSetup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="nextScreen"
+            android:text="@string/goto_server_setup_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dip"
+            android:layout_marginBottom="40dip"
+            style="@style/Widget.Button"/>
+
+    </LinearLayout>
+
+</ScrollView><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/layout/tor_during_setup.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/layout/tor_during_setup.xml -->

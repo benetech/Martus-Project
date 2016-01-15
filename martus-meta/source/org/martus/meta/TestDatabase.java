@@ -535,9 +535,9 @@ public class TestDatabase extends TestCaseEnhanced
 
 	private void internalTestGetRecordSize(Database db) throws Exception
 	{
-		DatabaseKey shortKey = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount" , "x"));
-		DatabaseKey shortKey2 = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount2" , "cvx"));
-		DatabaseKey hiddenKey = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount2" , "cvx"));
+		DatabaseKey shortKey = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount" , "x"));
+		DatabaseKey shortKey2 = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount2" , "cvx"));
+		DatabaseKey hiddenKey = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount2" , "cvx"));
 		String testString = "This is a test";			
 		db.writeRecord(shortKey, testString);
 		db.writeRecord(hiddenKey, testString);
@@ -557,20 +557,20 @@ public class TestDatabase extends TestCaseEnhanced
 	
 	private void internalTestGetmTime(Database db) throws Exception
 	{
-		DatabaseKey sealedKey = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount" , "x"));
-		DatabaseKey burSealedKey = BulletinUploadRecord.getBurKey(sealedKey);
-		DatabaseKey unsavedKey = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount2" , "cvx"));
-		DatabaseKey hiddenKey = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount2" , "cvx"));
+		DatabaseKey immutableKey = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount" , "x"));
+		DatabaseKey burImmutableKey = BulletinUploadRecord.getBurKey(immutableKey);
+		DatabaseKey unsavedKey = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount2" , "cvx"));
+		DatabaseKey hiddenKey = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix("myAccount2" , "cvx"));
 		String testString = "This is a test";	
-		db.writeRecord(sealedKey, testString);
-		String bur = BulletinUploadRecord.createBulletinUploadRecord(sealedKey.getLocalId(), security);
-		db.writeRecord(burSealedKey, bur);
+		db.writeRecord(immutableKey, testString);
+		String bur = BulletinUploadRecord.createBulletinUploadRecord(immutableKey.getLocalId(), security);
+		db.writeRecord(burImmutableKey, bur);
 		db.writeRecord(hiddenKey, testString);
 		db.hide(hiddenKey.getUniversalId());
-		long mTimeOfFile = db.getmTime(sealedKey);
+		long mTimeOfFile = db.getmTime(immutableKey);
 		long mTimeOfBurPacket = BulletinUploadRecord.getTimeStamp(bur);
 		if (db instanceof MockDatabase)
-			mTimeOfBurPacket = db.getmTime(burSealedKey);
+			mTimeOfBurPacket = db.getmTime(burImmutableKey);
 		
 		assertEquals("mTimes not identical to bur time?", mTimeOfBurPacket, mTimeOfFile);
 		try
@@ -724,9 +724,9 @@ public class TestDatabase extends TestCaseEnhanced
 
 		String account1 = "account1";
 		String account2 = "account2";
-		DatabaseKey key1 = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix(account1, "x"));
-		DatabaseKey key2 = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix(account2, "x"));
-		DatabaseKey key3 = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix(account1, "x"));
+		DatabaseKey key1 = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix(account1, "x"));
+		DatabaseKey key2 = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix(account2, "x"));
+		DatabaseKey key3 = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix(account1, "x"));
 
 		counter.clear();
 		db.visitAllAccounts(counter);
@@ -753,7 +753,7 @@ public class TestDatabase extends TestCaseEnhanced
 		PacketCounter counter = new PacketCounter(db);
 
 		UniversalId smallUid2 = UniversalIdForTesting.createFromAccountAndPrefix(smallKey.getAccountId(), "x");
-		DatabaseKey smallKey2 = DatabaseKey.createSealedKey(smallUid2);
+		DatabaseKey smallKey2 = DatabaseKey.createImmutableKey(smallUid2);
 		db.writeRecord(smallKey, smallString);
 		db.writeRecord(smallKey2, smallString);
 		db.writeRecord(largeKey, largeString);
@@ -973,31 +973,31 @@ public class TestDatabase extends TestCaseEnhanced
 	private void internalTestQuarantine(Database db) throws Exception
 	{
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
-		DatabaseKey draftKey = DatabaseKey.createDraftKey(uid);
+		DatabaseKey mutableKey = DatabaseKey.createMutableKey(uid);
 
-		assertFalse(db.toString()+" draft already in quarantine?", db.isInQuarantine(draftKey));
-		db.moveRecordToQuarantine(draftKey);
-		assertFalse(db.toString()+" non-existant draft record in quarantine?", db.isInQuarantine(draftKey));
+		assertFalse(db.toString()+" draft already in quarantine?", db.isInQuarantine(mutableKey));
+		db.moveRecordToQuarantine(mutableKey);
+		assertFalse(db.toString()+" non-existant draft record in quarantine?", db.isInQuarantine(mutableKey));
  
-		db.writeRecord(draftKey, smallString);
-		assertFalse(db.toString()+" writing draft put it in quarantine?", db.isInQuarantine(draftKey));
+		db.writeRecord(mutableKey, smallString);
+		assertFalse(db.toString()+" writing draft put it in quarantine?", db.isInQuarantine(mutableKey));
 
-		db.moveRecordToQuarantine(draftKey);
-		assertTrue(db.toString()+" draft not moved to quarantine?", db.isInQuarantine(draftKey));
-		assertFalse(db.toString()+" draft not removed from main db?", db.doesRecordExist(draftKey));
+		db.moveRecordToQuarantine(mutableKey);
+		assertTrue(db.toString()+" draft not moved to quarantine?", db.isInQuarantine(mutableKey));
+		assertFalse(db.toString()+" draft not removed from main db?", db.doesRecordExist(mutableKey));
 		
-		DatabaseKey sealedKey = DatabaseKey.createSealedKey(uid);
-		assertFalse(db.toString()+" sealed already in quarantine?", db.isInQuarantine(sealedKey));
-		db.writeRecord(sealedKey, smallString);
-		db.moveRecordToQuarantine(sealedKey);
-		assertTrue(db.toString()+" sealed not moved to quarantine?", db.isInQuarantine(sealedKey));
-		assertFalse(db.toString()+" sealed not removed from main db?", db.doesRecordExist(sealedKey));
-		assertTrue(db.toString()+" draft not still to quarantine?", db.isInQuarantine(draftKey));
+		DatabaseKey immutableKey = DatabaseKey.createImmutableKey(uid);
+		assertFalse(db.toString()+" sealed already in quarantine?", db.isInQuarantine(immutableKey));
+		db.writeRecord(immutableKey, smallString);
+		db.moveRecordToQuarantine(immutableKey);
+		assertTrue(db.toString()+" sealed not moved to quarantine?", db.isInQuarantine(immutableKey));
+		assertFalse(db.toString()+" sealed not removed from main db?", db.doesRecordExist(immutableKey));
+		assertTrue(db.toString()+" draft not still to quarantine?", db.isInQuarantine(mutableKey));
 
-		db.writeRecord(sealedKey, smallString);
-		db.moveRecordToQuarantine(sealedKey);
-		assertTrue(db.toString()+" sealed removed from quarantine?", db.isInQuarantine(sealedKey));
-		assertFalse(db.toString()+" sealed not removed from main db again?", db.doesRecordExist(sealedKey));
+		db.writeRecord(immutableKey, smallString);
+		db.moveRecordToQuarantine(immutableKey);
+		assertTrue(db.toString()+" sealed removed from quarantine?", db.isInQuarantine(immutableKey));
+		assertFalse(db.toString()+" sealed not removed from main db again?", db.doesRecordExist(immutableKey));
 		
 		class Counter implements Database.PacketVisitor
 		{
@@ -1017,9 +1017,9 @@ public class TestDatabase extends TestCaseEnhanced
 	private void internalTestFindDraft(Database db) throws Exception
 	{
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
-		DatabaseKey draftKey = DatabaseKey.createDraftKey(uid);
-		db.writeRecord(draftKey, smallString);
-		InputStream in = db.openInputStream(draftKey, security);
+		DatabaseKey mutableKey = DatabaseKey.createMutableKey(uid);
+		db.writeRecord(mutableKey, smallString);
+		InputStream in = db.openInputStream(mutableKey, security);
 		assertNotNull("not found?", in);
 		in.close();
 	}
@@ -1027,9 +1027,9 @@ public class TestDatabase extends TestCaseEnhanced
 	private void internalTestFindSealed(Database db) throws Exception
 	{
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
-		DatabaseKey sealedKey = DatabaseKey.createSealedKey(uid);
-		db.writeRecord(sealedKey, smallString);
-		InputStream in = db.openInputStream(sealedKey, security);
+		DatabaseKey immutableKey = DatabaseKey.createImmutableKey(uid);
+		db.writeRecord(immutableKey, smallString);
+		InputStream in = db.openInputStream(immutableKey, security);
 		assertNotNull("not found?", in);
 		in.close();
 	}
@@ -1047,29 +1047,29 @@ public class TestDatabase extends TestCaseEnhanced
 		writer.close();
 
 		UniversalId uid1 = UniversalIdForTesting.createDummyUniversalId();
-		DatabaseKey sealedKey1 = DatabaseKey.createSealedKey(uid1);
+		DatabaseKey immutableKey1 = DatabaseKey.createImmutableKey(uid1);
 		
 		UniversalId uid2 = UniversalIdForTesting.createDummyUniversalId();
-		DatabaseKey sealedKey2 = DatabaseKey.createSealedKey(uid2);
+		DatabaseKey immutableKey2 = DatabaseKey.createImmutableKey(uid2);
 
 		HashMap entries = new HashMap();
-		entries.put(sealedKey1, temp1);
-		entries.put(sealedKey2, temp2);
+		entries.put(immutableKey1, temp1);
+		entries.put(immutableKey2, temp2);
 
 		db.importFiles(entries);
 		
-		InputStream in = db.openInputStream(sealedKey1, security);
+		InputStream in = db.openInputStream(immutableKey1, security);
 		assertNotNull(db.toString() + " not found 1?", in);
 		in.close();
-		in = db.openInputStream(sealedKey2, security);
+		in = db.openInputStream(immutableKey2, security);
 		assertNotNull(db.toString() + " not found 2?", in);
 		in.close();
 
 		assertFalse(temp1.toString() +" file exists?", temp1.exists());
 		assertFalse(temp2.toString() +" file exists?", temp2.exists());
 		
-		assertEquals(db.toString() + " record 1 incorrect?", smallString, db.readRecord(sealedKey1, security));
-		assertEquals(db.toString() + " record 2 incorrect?", largeString, db.readRecord(sealedKey2, security));
+		assertEquals(db.toString() + " record 1 incorrect?", smallString, db.readRecord(immutableKey1, security));
+		assertEquals(db.toString() + " record 2 incorrect?", largeString, db.readRecord(immutableKey2, security));
 	}
 	
 	private void internalTestScrubRecord(Database db) throws Exception
@@ -1100,8 +1100,8 @@ public class TestDatabase extends TestCaseEnhanced
 	}
 
 	MockMartusSecurity security;
-	DatabaseKey smallKey = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix("small account", "x"));
-	DatabaseKey largeKey = DatabaseKey.createSealedKey(UniversalIdForTesting.createFromAccountAndPrefix("large account", "x"));
+	DatabaseKey smallKey = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix("small account", "x"));
+	DatabaseKey largeKey = DatabaseKey.createImmutableKey(UniversalIdForTesting.createFromAccountAndPrefix("large account", "x"));
 	String smallString = "How are you doing?";
 	String smallString2 = "Just another string 123";
 	String largeString = buildLargeString();

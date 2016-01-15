@@ -53,11 +53,11 @@ public class NetworkResponse
 		return resultCode;
 	}
 
-	public Vector getResultVector()
+	public Vector<String> getResultVector()
 	{
 		return resultVector;
 	}
 
 	String resultCode;
-	Vector resultVector;
+	Vector<String> resultVector;
 }

@@ -86,6 +86,7 @@ public class FileSignerAndVerifier
 				BufferedReader reader = new BufferedReader(new UnicodeReader(System.in));
 				//TODO security issue password is a string
 				String passphrase = reader.readLine();
+				reader.close();
 				security = MartusServerUtilities.loadCurrentMartusSecurity(keyPairFile, passphrase.toCharArray());
 			}
 			catch(Exception e)

@@ -187,7 +187,7 @@ public class ServerSideAmplifierHandler implements SupplierSideAmplifierNetworkI
 			{
 				if(! key.getLocalId().startsWith("B-") )
 					return;
-				if(key.isDraft())
+				if(key.isMutable())
 					return;
 				
 				DatabaseKey burKey = BulletinUploadRecord.getBurKey(key);

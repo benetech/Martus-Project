@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.martus.android.library.utilities.BulletinSender;
 import org.martus.clientside.MobileClientSideNetworkGateway;
 import org.martus.common.MartusUtilities;
 import org.martus.common.crypto.MartusCrypto;
@@ -13,6 +14,7 @@ import org.martus.common.network.NetworkResponse;
 import org.martus.common.packet.UniversalId;
 import org.martus.util.StreamableBase64;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.text.format.Time;
@@ -29,9 +31,9 @@ public class UploadBulletinTask extends AsyncTask<Object, Integer, String> imple
 
     private NotificationHelper mNotificationHelper;
     private BulletinSender sender;
-    private MartusApplication myApplication;
+    private Application myApplication;
 
-    public UploadBulletinTask(MartusApplication application, BulletinSender sender, UniversalId bulletinId) {
+    public UploadBulletinTask(Application application, BulletinSender sender, UniversalId bulletinId) {
         myApplication = application;
         mNotificationHelper = new NotificationHelper(myApplication.getApplicationContext(), bulletinId.hashCode());
         this.sender = sender;
@@ -80,7 +82,7 @@ public class UploadBulletinTask extends AsyncTask<Object, Integer, String> imple
                         boolean successfulMove = zippedFile.renameTo(movedFile);
                         if (!successfulMove) {
                             Log.e(AppConfig.LOG_LABEL, "problem moving failed bulletin to failed directory");
-                            result = "problem moving failed bulletin";
+                            result = "problem moving failed record";
                         }
                     }
                 }

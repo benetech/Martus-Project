@@ -1,6 +1,7 @@
 package org.martus.android.dialog;
 
 import org.martus.android.R;
+import org.martus.android.library.common.dialog.BackButtonIgnorer;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

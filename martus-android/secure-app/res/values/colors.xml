@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="martus_primary_pressed">#201f1c</color>
+    <color name="martus_primary">#201f1c</color>
+
+    <color name="white">#ffffff</color>
+    <color name="selection_blue">#009ACD</color>
+    <color name="disabled_grey">#cecece</color>
+    <color name="button_text">#ffffff</color>
+    <color name="image_button_pressed_bg">#adaeae</color>
+    
+</resources>

@@ -51,7 +51,6 @@ import org.martus.common.PoolOfReusableChoicesLists;
 import org.martus.common.ReusableChoices;
 import org.martus.common.bulletin.AttachmentProxy;
 import org.martus.common.bulletin.Bulletin;
-import org.martus.common.bulletin.BulletinFromXFormsLoader;
 import org.martus.common.bulletinstore.BulletinStore;
 import org.martus.common.database.ReadableDatabase;
 import org.martus.common.field.MartusField;
@@ -87,9 +86,7 @@ public class FxBulletin
 		
 		universalIdProperty = new ReadOnlyObjectWrapper<UniversalId>(b.getUniversalId());
 
-		if (b.isXFormsBulletin())
-			b = BulletinFromXFormsLoader.createNewBulletinFromXFormsBulletin(b);
-
+		b = MartusApp.getNativeMartusRecord(b);
 		versionProperty = new SimpleIntegerProperty(b.getVersion());
 
 		immutableOnServer = new SimpleBooleanProperty(b.getImmutableOnServer());

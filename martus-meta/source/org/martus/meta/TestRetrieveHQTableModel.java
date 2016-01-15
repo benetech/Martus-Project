@@ -113,7 +113,7 @@ public class TestRetrieveHQTableModel extends TestCaseEnhanced
 		fieldApp2.getStore().saveBulletin(b2);
 		b2Size = MartusUtilities.getBulletinSize(fieldApp1.getStore().getDatabase(), b2.getBulletinHeaderPacket());
 	
-		testServer = new MockServer();
+		testServer = new MockServer(this);
 		testServer.verifyAndLoadConfigurationFiles();
 		testSSLServerInterface = new ServerSideNetworkHandler(testServer.serverForClients);
 		hqApp.setSSLNetworkInterfaceHandlerForTesting(testSSLServerInterface);
@@ -291,9 +291,9 @@ public class TestRetrieveHQTableModel extends TestCaseEnhanced
 
 	class MockServer extends MockMartusServer
 	{
-		MockServer() throws Exception
+		MockServer(TestCaseEnhanced testCase) throws Exception
 		{
-			super();
+			super(testCase);
 			setSecurity(MockMartusSecurity.createServer());
 		}
 		

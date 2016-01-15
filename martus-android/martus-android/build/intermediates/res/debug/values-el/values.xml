@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-el/arrays.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+    <item>Αγγλικά</item>
+    <item>Αραβικά</item>
+    <item>Αρμένικα</item>
+    <item>Αζαρμπαϊζαν</item>
+    <item>Βουλγάρικα</item>
+    <item>Bengali, Bangla</item>
+    <item>Burmese</item>
+    <item>Κινέζικα</item>
+    <item>Ολλανδικά</item>
+    <item>Esperanto</item>
+    <item>Farsi/Dari</item>
+    <item>Γαλλικά</item>
+    <item>Γερμανικά</item>
+    <item>Gujarati</item>
+    <item>Hausa</item>
+    <item>Εβραϊκά</item>
+    <item>Hindi</item>
+    <item>Ουγκαρέζικα</item>
+    <item>Ιταλικά</item>
+    <item>Ιαπωνικά</item>
+    <item>Javanese</item>
+    <item>Kannada</item>
+    <item>Kazakh</item>
+    <item>Khmer</item>
+    <item>Kirghiz</item>
+    <item>Κορεάτικα</item>
+    <item>Κουρδικά</item>
+    <item>Malayalam</item>
+    <item>Marathi</item>
+    <item>Nepali</item>
+    <item>Oriya</item>
+    <item>Panjabi</item>
+    <item>Pashto, Pushto</item>
+    <item>Πολωνικά</item>
+    <item>Πορτογαλικά</item>
+    <item>Ρουμάνικα</item>
+    <item>Ρωσικά</item>
+    <item>Σερβικά</item>
+    <item>Sindhi</item>
+    <item>Sinhalese</item>
+    <item>Ισπανικά</item>
+    <item>Tamil</item>
+    <item>Tajik</item>
+    <item>Telugu</item>
+    <item>Ταϋλανδέζικα</item>
+    <item>Τούρκικα</item>
+    <item>Turkmen</item>
+    <item>Ουκρανικά</item>
+    <item>Urdu</item>
+    <item>Uzbek</item>
+    <item>Βιετναμέζικα</item>
+  </string-array>
+    <string-array name="entries_timeout_preference">
+    <item>10 Λεπτά</item>
+    <item>7 Λεπτά</item>
+    <item>5 Λεπτά</item>
+    <item>3 Λεπτά</item>
+    <item>1 Λεπτό</item>
+  </string-array>
+    <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+    <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-el/strings.xml -->
+    <eat-comment/>
+    <string name="alert_dialog_confirm_password">Επιβεβαίωση κωδικού:</string>
+    <string name="alert_dialog_magic_word">Μαγική λέξη:</string>
+    <string name="alert_dialog_ok">OK</string>
+    <string name="alert_dialog_password">Κωδικός:</string>
+    <string name="app_name">Martus</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values-el/strings.xml -->
+    <eat-comment/>
+    <string msgid="3983201110833868073" name="auth_client_needs_enabling_title">"Μια εφαρμογή απαιτεί τις Υπηρεσίες Google Play για ενεργοποίηση."</string>
+    <string msgid="7999585836145154206" name="auth_client_needs_installation_title">"Μια εφαρμογή απαιτεί την εγκατάσταση των Υπηρεσιών Google Play."</string>
+    <string msgid="6488605506794595966" name="auth_client_needs_update_title">"Μια εφαρμογή απαιτεί μια ενημέρωση για τις Υπηρεσίες Google Play."</string>
+    <string msgid="3635065018897986478" name="auth_client_play_services_err_notification_msg">"Σφάλμα υπηρεσιών Google Play"</string>
+    <string msgid="6304135633531965756" name="auth_client_requested_by_msg">"Υποβλήθηκε αίτημα από την εφαρμογή <ns1:g id="APP_NAME">%1$s</ns1:g>"</string>
+    <string msgid="2534454398764507874" name="auth_client_using_bad_version_title">"Απόπειρα χρήσης ακατάλληλης έκδοσης Υπηρεσιών Google Play από εφαρμογή"</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-el/strings.xml -->
+    <eat-comment/>
+    <string name="bulletin_sending_progress">Γίνεται αποστολή...</string>
+    <string name="cancel_server">Ακύρωση</string>
+    <string name="choose_server_title">Επιλογή διακομηστή</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values-el/strings.xml -->
+    <eat-comment/>
+    <string msgid="4181637455539816337" name="common_google_play_services_enable_button">"Ενεργοπ. υπηρεσιών Google Play"</string>
+    <string msgid="7627896071867667758" name="common_google_play_services_enable_text">"Αυτή η εφαρμογή δεν θα λειτουργήσει εάν δεν έχετε ενεργοποιήσει τις υπηρεσίες Google Play."</string>
+    <string msgid="529078775174559253" name="common_google_play_services_enable_title">"Ενεργοποίηση υπηρεσιών Google Play"</string>
+    <string msgid="8515591849428043265" name="common_google_play_services_install_button">"Λήψη υπηρεσιών Google Play"</string>
+    <string msgid="8685301130651051380" name="common_google_play_services_install_text_phone">"Αυτή η εφαρμογή δεν θα εκτελεστεί χωρίς τις υπηρεσίες Google Play, οι οποίες λείπουν από το τηλέφωνό σας."</string>
+    <string msgid="1589957570365247855" name="common_google_play_services_install_text_tablet">"Αυτή η εφαρμογή δεν θα εκτελεστεί χωρίς τις υπηρεσίες Google Play, οι οποίες λείπουν από το tablet σας."</string>
+    <string msgid="26645092511305524" name="common_google_play_services_install_title">"Λήψη υπηρεσιών Google Play"</string>
+    <string msgid="4983316348021735578" name="common_google_play_services_invalid_account_text">"Ο συγκεκριμένος λογαριασμός δεν υπάρχει σε αυτήν τη συσκευή. Επιλέξτε έναν διαφορετικό λογαριασμό."</string>
+    <string msgid="1066672360770936753" name="common_google_play_services_invalid_account_title">"Μη έγκυρος λογαριασμός"</string>
+    <string msgid="9038847255613537209" name="common_google_play_services_network_error_text">"Απαιτείται σύνδεση δεδομένων για να συνδεθείτε με τις Υπηρεσίες Google Play."</string>
+    <string msgid="3827284619958211114" name="common_google_play_services_network_error_title">"Σφάλμα δικτύου"</string>
+    <string msgid="4762332809710093730" name="common_google_play_services_unknown_issue">"Άγνωστο πρόβλημα με τις υπηρεσίες Google Play."</string>
+    <string msgid="4725396522367789365" name="common_google_play_services_unsupported_date_text">"Η ημερομηνία στη συσκευή φαίνεται λανθασμένη. Ελέγξτε την ημερομηνία στη συσκευή."</string>
+    <string msgid="3542578567569488671" name="common_google_play_services_unsupported_text">"Οι υπηρεσίες Google Play, στις οποίες βασίζονται ορισμένες από τις εφαρμογές σας, δεν υποστηρίζονται στη συσκευή σας. Επικοινωνήστε με τον κατασκευαστή για υποστήριξη."</string>
+    <string msgid="6334768798839376943" name="common_google_play_services_unsupported_title">"Υπηρεσίες Google Play"</string>
+    <string msgid="8932944190611227642" name="common_google_play_services_update_button">"Ενημέρωση"</string>
+    <string msgid="448354684997260580" name="common_google_play_services_update_text">"Αυτή η εφαρμογή θα εκτελεστεί αφού ενημερώσετε τις υπηρεσίες Google Play."</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">"Ενημέρωση υπηρεσιών Google Play"</string>
+    <string msgid="9071884888741449141" name="common_signin_button_text">"Σύνδεση"</string>
+    <string msgid="2429381841831957106" name="common_signin_button_text_long">"Συνδεθείτε στο Google"</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values-el/strings.xml -->
+    <eat-comment/>
+    <string name="confirm_default">Είστε σίγουρος;</string>
+    <string name="confirm_password_hint">Επανάληψη κωδικού</string>
+    <string name="confirm_reset_install">Είστε σίγουρος ότι θέλετε να διαγράψετε;</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_title">Σφάλμα εγκατάστασης</string>
+    <string name="contact_us_menu_item">Επικοινωνήστε</string>
+    <string name="create_account_dialog_cancel">Έξοδος</string>
+    <string name="create_account_dialog_title">Δημιουργεία νέου κωδικού</string>
+    <string name="create_password_hint">Νέος Κωδικός</string>
+    <string name="create_sample_bulletin">Δημιουργεία δελτίου</string>
+    <string name="dialog_title_author_preference">Συγγραφέας</string>
+    <string name="dialog_title_language_preference">Γλώσσα δελτίου</string>
+    <string name="enter_magic_word_hint">Εισαγωγή Μαγικής Λέξης</string>
+    <string name="enter_password_hint">Εισαγωγή κωδικού</string>
+    <string name="error_create_account">Πρόβλημα στην δημιουργεία λογαριασμού</string>
+    <string name="error_getting_server_key">Πρόβλημα σύνδεσης στο διακομηστή</string>
+    <string name="error_message">Σφάλμα</string>
+    <string name="feedback_dialog_title">Επικοινωνήστε</string>
+    <string name="help_menu">Βοήθεια</string>
+    <string name="incorrect_password">Λάθος κωδικός</string>
+    <string name="install_orbot_">Εγκατάσταση  Orbot</string>
+    <string name="invalid_magic_word">Λανθασμένη Μαγική Λέξη</string>
+    <string name="invalid_orbot_message">Παρακαλώ εγκαταστήστε ξανά το Orbot απο το Google Play Store</string>
+    <string name="invalid_orbot_title">Λανθασμένη εγκατάσταση του Orbot</string>
+    <string name="invalid_password">Ο κωδικός πρέπει να είναι τουλάχιστον 8 χαρακτήρες</string>
+    <string name="market_orbot">market://search?q=pname:org.torproject.android</string>
+    <string name="no">Όχι</string>
+    <string name="no_network_connection">Η συσκευή δεν έχει σύνδεση!</string>
+    <string name="no_upload_rights">Λανθασμένη μαγική λέξη</string>
+    <string name="notification_title">Martus - %1$s</string>
+    <string name="password_dialog_cancel">Ακύρωση</string>
+    <string name="ping_server_menu_item">Έλεγχος Διακομηστή</string>
+    <string name="problem_confirming_magic_word">Πρόβλημα κατά την επιβεβαίωση Μαγικής Λέξης</string>
+    <string name="progress_confirming_magic_word">Επιβεβαίωση Μαγικής Λέξης</string>
+    <string name="progress_creating_account">Δημιουργεία Λογαριασμού</string>
+    <string name="quit_menu_title">Αποσύνδεση</string>
+    <string name="reset_to_install">Διαγραφή του Λογαριασμού μου</string>
+    <string name="retry_server">Επενεισαγωγή</string>
+    <string name="send_bulletin">Αποστολή</string>
+    <string name="server_ip_label">Διύθυνση IP διακομιστή:</string>
+    <string name="server_menu">Διακομηστές</string>
+    <string name="server_menu_title">Επιλογή διακομηστή</string>
+    <string name="settings_pwd_equal">Οι κωδικοί ταιρίαζουν</string>
+    <string name="settings_pwd_not_equal">Οι κωδικοί δεν ταιρίαζουν!</string>
+    <string name="settings_title">Ρυθμίσεις</string>
+    <string name="start_orbot_">Εκκίνηση Orbot</string>
+    <string name="starting_send_notification">Γίνεται αποστολή...</string>
+    <string name="summary_author_preference">Συγγραφέας</string>
+    <string name="summary_timeout_preference">Σε λεπτά</string>
+    <string name="title_author_preference">Συγγραφέας</string>
+    <string name="title_language_preference">Γλώσσα δελτίου</string>
+    <string name="title_timeout_preference">Λήξη χρονικού ορίου</string>
+    <string name="title_wifi_only_preference">Χρήση, μόνο Wi-Fi</string>
+    <string name="tools_menu">Εργαλεία</string>
+    <string formatted="false" name="tor_link">https://www.torproject.org</string>
+    <string name="user_preferences">Ρυθμίσεις Χρήστη</string>
+    <string formatted="false" name="view_docs_info">https://www.martus.org/mobile/docs </string>
+    <string name="view_docs_menu">Προβολή Τεκμηρίωσης</string>
+    <string name="yes">Ναί</string>
+    <string name="you_must_have_orbot">Πρέπει να έχετε το Orbot εγκατεστημένο</string>
+</resources>

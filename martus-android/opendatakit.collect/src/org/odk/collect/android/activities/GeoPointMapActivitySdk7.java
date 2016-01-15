@@ -39,7 +39,7 @@ package org.odk.collect.android.activities;
 //import android.widget.RelativeLayout.LayoutParams;
 //import android.widget.TextView;
 //import android.widget.Toast;
-
+//
 //import com.google.android.maps.GeoPoint;
 //import com.google.android.maps.MapActivity;
 //import com.google.android.maps.MapController;
@@ -47,9 +47,8 @@ package org.odk.collect.android.activities;
 //import com.google.android.maps.MyLocationOverlay;
 //import com.google.android.maps.Overlay;
 
-public class GeoPointMapActivitySdk7 //extends MapActivity implements LocationListener
-{
-//
+public class GeoPointMapActivitySdk7 /*extends MapActivity implements LocationListener */{
+
 //	private static final String LOCATION_COUNT = "locationCount";
 //
 //    private MapView mMapView;

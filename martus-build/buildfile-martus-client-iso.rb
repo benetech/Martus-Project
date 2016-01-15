@@ -102,8 +102,9 @@ define name, :layout=>create_layout_with_source_as_source('.') do
     source_dir = File.join(iso_dir, 'SourceFiles')
     source_zip = File.join(attic_dir, "martus-client-sources-#{$client_version}.zip")
     FileUtils.mkdir(source_dir)
-    add_artifacts(source_dir, third_party_client_source)  
-    add_file(source_zip, File.join(source_dir, "MartusClientSources-#{project.version}.zip"))
+    #Excluding source zip  
+    #add_artifacts(source_dir, third_party_client_source)
+    #add_file(source_zip, File.join(source_dir, "MartusClientSources-#{project.version}.zip"))
 	end
 	
 	file iso_file => [cd_setup_exe, iso_dir] do

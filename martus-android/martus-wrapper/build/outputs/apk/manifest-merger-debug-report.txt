@@ -1,0 +1,540 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	package
+		ADDED from AndroidManifest.xml:4:5
+	android:versionName
+		ADDED from AndroidManifest.xml:6:5
+	xmlns:tools
+		ADDED from AndroidManifest.xml:3:5
+	android:versionCode
+		ADDED from AndroidManifest.xml:5:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+uses-sdk
+ADDED from AndroidManifest.xml:7:5
+MERGED from martus-android:martus-android:unspecified:9:5
+MERGED from martus-android:martus-android-library:unspecified:8:5
+MERGED from martus-android:opendatakit.collect:unspecified:16:5
+MERGED from com.google.android.gms:play-services:4.0.30:7:5
+MERGED from martus-android.cacheword:cachewordlib:unspecified:7:5
+MERGED from martus-android:martus-android-server-comm-library:unspecified:7:5
+MERGED from martus-android:actionbarSherlock:unspecified:7:5
+MERGED from martus-android:aFileChooser:unspecified:7:5
+	tools:overrideLibrary
+		ADDED from AndroidManifest.xml:8:9
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:7:42
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:7:15
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:10:5
+MERGED from martus-android:martus-android:unspecified:14:5
+MERGED from martus-android:opendatakit.collect:unspecified:38:5
+	android:name
+		ADDED from AndroidManifest.xml:10:22
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:11:5
+MERGED from martus-android:martus-android:unspecified:15:5
+MERGED from martus-android:opendatakit.collect:unspecified:42:5
+	android:name
+		ADDED from AndroidManifest.xml:11:22
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from AndroidManifest.xml:12:5
+MERGED from martus-android:martus-android:unspecified:16:5
+MERGED from martus-android:opendatakit.collect:unspecified:45:5
+	android:name
+		ADDED from AndroidManifest.xml:12:22
+application
+ADDED from AndroidManifest.xml:14:5
+MERGED from martus-android:martus-android:unspecified:30:5
+MERGED from martus-android:martus-android-library:unspecified:18:5
+MERGED from martus-android:opendatakit.collect:unspecified:69:5
+MERGED from martus-android.cacheword:cachewordlib:unspecified:11:5
+MERGED from martus-android:martus-android-server-comm-library:unspecified:11:5
+MERGED from martus-android:actionbarSherlock:unspecified:11:5
+MERGED from martus-android:aFileChooser:unspecified:11:5
+	android:label
+		ADDED from AndroidManifest.xml:16:9
+	android:supportsRtl
+		ADDED from AndroidManifest.xml:18:9
+	android:icon
+		ADDED from AndroidManifest.xml:15:9
+		REJECTED from martus-android:martus-android-library:unspecified:19:9
+		REJECTED from martus-android:opendatakit.collect:unspecified:71:9
+		REJECTED from martus-android:martus-android-server-comm-library:unspecified:12:9
+		REJECTED from martus-android:aFileChooser:unspecified:12:9
+	android:largeHeap
+		ADDED from martus-android:opendatakit.collect:unspecified:73:9
+	android:theme
+		ADDED from AndroidManifest.xml:17:9
+		REJECTED from martus-android:martus-android-library:unspecified:20:9
+		REJECTED from martus-android:opendatakit.collect:unspecified:74:9
+	tools:replace
+		ADDED from AndroidManifest.xml:20:9
+	android:name
+		ADDED from AndroidManifest.xml:19:9
+		REJECTED from martus-android:martus-android:unspecified:31:9
+		REJECTED from martus-android:opendatakit.collect:unspecified:70:9
+activity#org.martus.android.MartusActivity
+ADDED from AndroidManifest.xml:22:9
+MERGED from martus-android:martus-android:unspecified:37:9
+	android:label
+		ADDED from AndroidManifest.xml:27:13
+	android:launchMode
+		ADDED from AndroidManifest.xml:24:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:25:13
+	android:uiOptions
+		ADDED from AndroidManifest.xml:26:13
+	android:name
+		ADDED from AndroidManifest.xml:23:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:28:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:29:17
+	android:name
+		ADDED from AndroidManifest.xml:29:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:30:17
+	android:name
+		ADDED from AndroidManifest.xml:30:27
+activity#org.martus.android.SettingsActivity
+ADDED from AndroidManifest.xml:33:9
+MERGED from martus-android:martus-android:unspecified:49:9
+	android:label
+		ADDED from AndroidManifest.xml:34:67
+	android:configChanges
+		ADDED from AndroidManifest.xml:35:16
+	android:name
+		ADDED from AndroidManifest.xml:34:16
+activity#org.martus.android.DesktopKeyActivity
+ADDED from AndroidManifest.xml:37:8
+MERGED from martus-android:martus-android:unspecified:54:9
+	android:label
+		ADDED from AndroidManifest.xml:40:16
+	android:configChanges
+		ADDED from AndroidManifest.xml:39:16
+	android:name
+		ADDED from AndroidManifest.xml:38:16
+activity#org.martus.android.BulletinActivity
+ADDED from AndroidManifest.xml:42:8
+MERGED from martus-android:martus-android:unspecified:59:9
+	android:label
+		ADDED from AndroidManifest.xml:46:12
+	android:configChanges
+		ADDED from AndroidManifest.xml:44:12
+	android:uiOptions
+		ADDED from AndroidManifest.xml:45:12
+	android:name
+		ADDED from AndroidManifest.xml:43:12
+intent-filter#android.intent.action.SEND+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:47:12
+action#android.intent.action.SEND
+ADDED from AndroidManifest.xml:48:14
+	android:name
+		ADDED from AndroidManifest.xml:48:22
+category#android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:49:14
+	android:name
+		ADDED from AndroidManifest.xml:49:24
+data
+ADDED from AndroidManifest.xml:50:14
+	android:mimeType
+		ADDED from AndroidManifest.xml:50:20
+intent-filter#android.intent.action.SEND_MULTIPLE+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:52:12
+action#android.intent.action.SEND_MULTIPLE
+ADDED from AndroidManifest.xml:53:14
+	android:name
+		ADDED from AndroidManifest.xml:53:22
+activity#org.martus.android.ServerActivity
+ADDED from AndroidManifest.xml:58:9
+MERGED from martus-android:martus-android:unspecified:79:9
+	android:label
+		ADDED from AndroidManifest.xml:61:17
+	android:configChanges
+		ADDED from AndroidManifest.xml:60:17
+	android:name
+		ADDED from AndroidManifest.xml:59:17
+activity#org.martus.android.CreateAccountActivity
+ADDED from AndroidManifest.xml:62:9
+MERGED from martus-android:martus-android:unspecified:83:9
+	android:label
+		ADDED from AndroidManifest.xml:65:17
+	android:configChanges
+		ADDED from AndroidManifest.xml:64:17
+	android:name
+		ADDED from AndroidManifest.xml:63:17
+activity#org.martus.android.TorIntroActivity
+ADDED from AndroidManifest.xml:66:9
+MERGED from martus-android:martus-android:unspecified:87:9
+	android:label
+		ADDED from AndroidManifest.xml:69:17
+	android:configChanges
+		ADDED from AndroidManifest.xml:68:17
+	android:name
+		ADDED from AndroidManifest.xml:67:17
+activity#com.ipaulpro.afilechooser.FileChooserActivity
+ADDED from AndroidManifest.xml:70:9
+MERGED from martus-android:martus-android:unspecified:91:9
+MERGED from martus-android:aFileChooser:unspecified:14:9
+	android:label
+		ADDED from AndroidManifest.xml:74:13
+		REJECTED from martus-android:martus-android:unspecified:95:13
+		REJECTED from martus-android:aFileChooser:unspecified:16:13
+	android:exported
+		ADDED from AndroidManifest.xml:72:13
+	android:icon
+		ADDED from AndroidManifest.xml:73:13
+	tools:replace
+		ADDED from AndroidManifest.xml:75:13
+	android:name
+		ADDED from AndroidManifest.xml:71:13
+intent-filter#android.intent.action.GET_CONTENT+android.intent.category.DEFAULT+android.intent.category.OPENABLE
+ADDED from AndroidManifest.xml:76:17
+action#android.intent.action.GET_CONTENT
+ADDED from AndroidManifest.xml:77:21
+	android:name
+		ADDED from AndroidManifest.xml:77:29
+category#android.intent.category.OPENABLE
+ADDED from AndroidManifest.xml:80:21
+	android:name
+		ADDED from AndroidManifest.xml:80:31
+activity#org.martus.android.ChooseConnectionActivity
+ADDED from AndroidManifest.xml:85:9
+MERGED from martus-android:martus-android:unspecified:106:9
+	android:label
+		ADDED from AndroidManifest.xml:88:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:87:13
+	android:name
+		ADDED from AndroidManifest.xml:86:13
+activity#org.martus.android.dialog.AddContactActivity
+ADDED from AndroidManifest.xml:90:9
+MERGED from martus-android:martus-android:unspecified:110:9
+	android:label
+		ADDED from AndroidManifest.xml:93:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:92:13
+	android:name
+		ADDED from AndroidManifest.xml:91:13
+activity#org.martus.android.ContactImportChoiceActivity
+ADDED from AndroidManifest.xml:95:9
+MERGED from martus-android:martus-android:unspecified:114:9
+	android:label
+		ADDED from AndroidManifest.xml:97:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:96:13
+	android:name
+		ADDED from AndroidManifest.xml:95:19
+service#org.martus.android.ResendService
+ADDED from AndroidManifest.xml:99:9
+MERGED from martus-android:martus-android:unspecified:119:9
+	android:name
+		ADDED from AndroidManifest.xml:99:18
+supports-screens
+ADDED from martus-android:martus-android:unspecified:23:5
+MERGED from martus-android:opendatakit.collect:unspecified:61:5
+	android:largeScreens
+		ADDED from martus-android:martus-android:unspecified:25:9
+	android:smallScreens
+		ADDED from martus-android:martus-android:unspecified:27:9
+	android:normalScreens
+		ADDED from martus-android:martus-android:unspecified:26:9
+	android:xlargeScreens
+		ADDED from martus-android:martus-android:unspecified:28:9
+	android:resizeable
+		ADDED from martus-android:opendatakit.collect:unspecified:65:9
+	android:anyDensity
+		ADDED from martus-android:martus-android:unspecified:24:9
+uses-feature#android.hardware.location
+ADDED from martus-android:opendatakit.collect:unspecified:20:5
+	android:required
+		ADDED from martus-android:opendatakit.collect:unspecified:22:9
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:21:9
+uses-feature#android.hardware.location.network
+ADDED from martus-android:opendatakit.collect:unspecified:23:5
+	android:required
+		ADDED from martus-android:opendatakit.collect:unspecified:25:9
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:24:9
+uses-feature#android.hardware.location.gps
+ADDED from martus-android:opendatakit.collect:unspecified:26:5
+	android:required
+		ADDED from martus-android:opendatakit.collect:unspecified:28:9
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:27:9
+uses-feature#android.hardware.telephony
+ADDED from martus-android:opendatakit.collect:unspecified:29:5
+	android:required
+		ADDED from martus-android:opendatakit.collect:unspecified:31:9
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:30:9
+uses-feature#android.hardware.wifi
+ADDED from martus-android:opendatakit.collect:unspecified:32:5
+	android:required
+		ADDED from martus-android:opendatakit.collect:unspecified:34:9
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:33:9
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from martus-android:opendatakit.collect:unspecified:36:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:36:22
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from martus-android:opendatakit.collect:unspecified:37:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:37:22
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from martus-android:opendatakit.collect:unspecified:39:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:39:22
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from martus-android:opendatakit.collect:unspecified:40:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:40:22
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from martus-android:opendatakit.collect:unspecified:41:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:41:22
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from martus-android:opendatakit.collect:unspecified:43:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:43:22
+uses-permission#android.permission.USE_CREDENTIALS
+ADDED from martus-android:opendatakit.collect:unspecified:44:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:44:22
+permission#org.opendatakit.tables.permission.MAPS_RECEIVE
+ADDED from martus-android:opendatakit.collect:unspecified:54:5
+	android:protectionLevel
+		ADDED from martus-android:opendatakit.collect:unspecified:56:9
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:55:9
+uses-permission#org.opendatakit.tables.permission.MAPS_RECEIVE
+ADDED from martus-android:opendatakit.collect:unspecified:58:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:58:22
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from martus-android:opendatakit.collect:unspecified:59:5
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:59:22
+provider#org.odk.collect.android.provider.FormsProvider
+ADDED from martus-android:opendatakit.collect:unspecified:75:9
+	android:authorities
+		ADDED from martus-android:opendatakit.collect:unspecified:77:13
+	android:exported
+		ADDED from martus-android:opendatakit.collect:unspecified:78:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:76:13
+provider#org.odk.collect.android.provider.InstanceProvider
+ADDED from martus-android:opendatakit.collect:unspecified:79:9
+	android:authorities
+		ADDED from martus-android:opendatakit.collect:unspecified:81:13
+	android:exported
+		ADDED from martus-android:opendatakit.collect:unspecified:82:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:80:13
+activity#org.odk.collect.android.activities.MainMenuActivity
+ADDED from martus-android:opendatakit.collect:unspecified:84:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:87:13
+	android:configChanges
+		ADDED from martus-android:opendatakit.collect:unspecified:86:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:85:13
+activity#org.odk.collect.android.activities.FormEntryActivity
+ADDED from martus-android:opendatakit.collect:unspecified:89:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:92:13
+	android:windowSoftInputMode
+		ADDED from martus-android:opendatakit.collect:unspecified:93:13
+	android:configChanges
+		ADDED from martus-android:opendatakit.collect:unspecified:91:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:90:13
+intent-filter#android.intent.action.EDIT+android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from martus-android:opendatakit.collect:unspecified:94:13
+action#android.intent.action.VIEW
+ADDED from martus-android:opendatakit.collect:unspecified:95:17
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:95:25
+action#android.intent.action.EDIT
+ADDED from martus-android:opendatakit.collect:unspecified:96:17
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:96:25
+activity#org.odk.collect.android.activities.DrawActivity
+ADDED from martus-android:opendatakit.collect:unspecified:104:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:106:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:105:13
+activity#org.odk.collect.android.activities.InstanceChooserList
+ADDED from martus-android:opendatakit.collect:unspecified:107:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:109:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:108:13
+activity#org.odk.collect.android.activities.InstanceChooserTabs
+ADDED from martus-android:opendatakit.collect:unspecified:120:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:122:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:121:13
+activity#org.odk.collect.android.activities.FormChooserList
+ADDED from martus-android:opendatakit.collect:unspecified:123:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:125:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:124:13
+intent-filter#android.intent.action.EDIT+android.intent.action.PICK+android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from martus-android:opendatakit.collect:unspecified:126:13
+action#android.intent.action.PICK
+ADDED from martus-android:opendatakit.collect:unspecified:129:17
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:129:25
+activity#org.odk.collect.android.activities.FormManagerList
+ADDED from martus-android:opendatakit.collect:unspecified:136:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:138:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:137:13
+activity#org.odk.collect.android.activities.FormDownloadList
+ADDED from martus-android:opendatakit.collect:unspecified:139:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:141:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:140:13
+activity#org.odk.collect.android.activities.DataManagerList
+ADDED from martus-android:opendatakit.collect:unspecified:142:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:144:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:143:13
+activity#org.odk.collect.android.activities.FileManagerTabs
+ADDED from martus-android:opendatakit.collect:unspecified:145:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:147:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:146:13
+activity#org.odk.collect.android.activities.InstanceUploaderList
+ADDED from martus-android:opendatakit.collect:unspecified:148:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:150:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:149:13
+activity#org.odk.collect.android.activities.InstanceUploaderActivity
+ADDED from martus-android:opendatakit.collect:unspecified:158:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:160:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:159:13
+activity#org.odk.collect.android.preferences.PreferencesActivity
+ADDED from martus-android:opendatakit.collect:unspecified:161:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:163:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:162:13
+activity#org.odk.collect.android.preferences.AdminPreferencesActivity
+ADDED from martus-android:opendatakit.collect:unspecified:164:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:166:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:165:13
+activity#org.odk.collect.android.activities.FormHierarchyActivity
+ADDED from martus-android:opendatakit.collect:unspecified:167:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:169:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:168:13
+activity#org.odk.collect.android.activities.GeoPointActivity
+ADDED from martus-android:opendatakit.collect:unspecified:170:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:172:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:171:13
+activity#org.odk.collect.android.activities.GeoPointMapActivity
+ADDED from martus-android:opendatakit.collect:unspecified:173:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:175:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:174:13
+activity#org.odk.collect.android.activities.GeoPointMapActivitySdk7
+ADDED from martus-android:opendatakit.collect:unspecified:176:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:178:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:177:13
+activity#org.odk.collect.android.activities.BearingActivity
+ADDED from martus-android:opendatakit.collect:unspecified:179:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:181:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:180:13
+activity#org.odk.collect.android.activities.SplashScreenActivity
+ADDED from martus-android:opendatakit.collect:unspecified:182:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:184:13
+	android:theme
+		ADDED from martus-android:opendatakit.collect:unspecified:185:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:183:13
+activity#org.odk.collect.android.activities.AndroidShortcuts
+ADDED from martus-android:opendatakit.collect:unspecified:196:9
+	android:label
+		ADDED from martus-android:opendatakit.collect:unspecified:198:13
+	android:theme
+		ADDED from martus-android:opendatakit.collect:unspecified:199:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:197:13
+intent-filter#android.intent.action.CREATE_SHORTCUT+android.intent.category.DEFAULT
+ADDED from martus-android:opendatakit.collect:unspecified:200:13
+action#android.intent.action.CREATE_SHORTCUT
+ADDED from martus-android:opendatakit.collect:unspecified:201:17
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:201:25
+receiver#org.odk.collect.android.receivers.NetworkReceiver
+ADDED from martus-android:opendatakit.collect:unspecified:207:9
+	android:enabled
+		ADDED from martus-android:opendatakit.collect:unspecified:209:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:208:13
+intent-filter#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from martus-android:opendatakit.collect:unspecified:210:13
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from martus-android:opendatakit.collect:unspecified:211:17
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:211:25
+intent-filter#org.odk.collect.android.FormSaved
+ADDED from martus-android:opendatakit.collect:unspecified:213:13
+action#org.odk.collect.android.FormSaved
+ADDED from martus-android:opendatakit.collect:unspecified:214:17
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:214:25
+meta-data#com.google.android.maps.v2.API_KEY
+ADDED from martus-android:opendatakit.collect:unspecified:218:9
+	android:value
+		ADDED from martus-android:opendatakit.collect:unspecified:220:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:219:13
+uses-library#com.google.android.maps
+ADDED from martus-android:opendatakit.collect:unspecified:222:9
+	android:required
+		ADDED from martus-android:opendatakit.collect:unspecified:224:13
+	android:name
+		ADDED from martus-android:opendatakit.collect:unspecified:223:13
+service#info.guardianproject.cacheword.CacheWordService
+ADDED from martus-android.cacheword:cachewordlib:unspecified:12:9
+	android:enabled
+		ADDED from martus-android.cacheword:cachewordlib:unspecified:14:13
+	android:exported
+		ADDED from martus-android.cacheword:cachewordlib:unspecified:15:13
+	android:name
+		ADDED from martus-android.cacheword:cachewordlib:unspecified:13:13

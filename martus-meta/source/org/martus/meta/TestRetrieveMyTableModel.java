@@ -78,7 +78,7 @@ public class TestRetrieveMyTableModel extends TestCaseEnhanced
 		b2.setHistory(history2);
 		app.getStore().saveBulletin(b2);
 
-		testServer = new MockServer();
+		testServer = new MockServer(this);
 		testServer.verifyAndLoadConfigurationFiles();
 		
 		testServerInterface = new ServerSideNetworkHandlerForNonSSL(testServer.serverForClients);
@@ -198,9 +198,9 @@ public class TestRetrieveMyTableModel extends TestCaseEnhanced
 
 	class MockServer extends MockMartusServer
 	{
-		MockServer() throws Exception
+		MockServer(TestCaseEnhanced testCase) throws Exception
 		{
-			super();
+			super(testCase);
 		}
 		
 		public ServerForClients createServerForClients()

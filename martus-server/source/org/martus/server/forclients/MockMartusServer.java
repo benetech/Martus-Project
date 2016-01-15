@@ -40,28 +40,30 @@ import org.martus.common.database.MockServerDatabase;
 import org.martus.common.network.NetworkInterfaceConstants;
 import org.martus.common.utilities.MartusServerUtilities;
 import org.martus.server.main.MartusServer;
+import org.martus.server.main.ServerMetaDatabaseForTesting;
 import org.martus.util.StreamableBase64;
+import org.martus.util.TestCaseEnhanced;
 
 public class MockMartusServer extends MartusServer
 {
-	public MockMartusServer() throws Exception
+	public MockMartusServer(TestCaseEnhanced testCase) throws Exception
 	{
-		this(new TempDirectory(), new MockServerDatabase());
+		this(new TempDirectory(), new MockServerDatabase(), testCase);
 	}
 	
-	public MockMartusServer(Database databaseToUse) throws Exception
+	public MockMartusServer(Database databaseToUse, TestCaseEnhanced testCase) throws Exception
 	{
-		this(new TempDirectory(), databaseToUse);
+		this(new TempDirectory(), databaseToUse, testCase);
 	}
 	
-	public MockMartusServer(File dataDir) throws Exception
+	public MockMartusServer(File dataDir, TestCaseEnhanced testCase) throws Exception
 	{
-		this(dataDir, new MockServerDatabase());
+		this(dataDir, new MockServerDatabase(), testCase);
 	}
 	
-	public MockMartusServer(File dataDir, Database databaseToUse) throws Exception
+	public MockMartusServer(File dataDir, Database databaseToUse, TestCaseEnhanced testCase) throws Exception
 	{
-		super(dataDir, new LoggerToNull());
+		super(dataDir, new LoggerToNull(), ServerMetaDatabaseForTesting.getEmptyDatabase(testCase));
 		getStore().setSignatureGenerator(MockMartusSecurity.createServer());
 		initializeBulletinStore(databaseToUse);
 	}
@@ -244,7 +246,7 @@ public class MockMartusServer extends MartusServer
 
 	}
 	
-	public void deleteAllFiles() throws IOException
+	public void deleteAllFiles() throws Exception
 	{
 		File allowUploadFile = serverForClients.getAllowUploadFile();
 		allowUploadFile.delete();
@@ -277,6 +279,11 @@ public class MockMartusServer extends MartusServer
 		File startupDirectory = getStartupConfigDirectory();
 		if(startupDirectory.exists())
 			startupDirectory.delete();
+		
+		getStore().deleteAllData();
+		File metaDatabasedirectory = getMetaDatabaseDirectory();
+		if(metaDatabasedirectory.exists())
+			metaDatabasedirectory.delete();
 
 		getDataDirectory().delete();
 		if(getDataDirectory().exists())

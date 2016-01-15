@@ -34,6 +34,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.DefaultListModel;
@@ -51,7 +52,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import org.martus.common.bulletin.BulletinConstants;
+import org.martus.common.bulletin.Bulletin;
 import org.martus.common.crypto.MartusCrypto;
 import org.martus.mspa.client.core.MSPAClient;
 import org.martus.mspa.common.AccountAdminOptions;
@@ -402,11 +403,11 @@ public class AccountDetailPanel extends JPanel
 											
 			if (!hiddenList.isSelectionEmpty())
 			{	
-				Object[] items = hiddenList.getSelectedValues();
+				List items = hiddenList.getSelectedValuesList();
 				Vector recoverList = new Vector();
-				for (int i=0;i< items.length;++i)
+				for (int i=0;i< items.size();++i)
 				{
-					String item = (String) items[i];
+					String item = (String) items.get(i);
 					recoverList.add(item);
 					hiddenListModel.removeElement(item);			
 				}
@@ -435,14 +436,14 @@ public class AccountDetailPanel extends JPanel
 											
 			if (!bulletinList.isSelectionEmpty())
 			{	
-				Object[] items = bulletinList.getSelectedValues();
+				List items = bulletinList.getSelectedValuesList();
 				Vector hiddenSealedList = new Vector();
-				for (int i=0;i< items.length;++i)
+				for (int i=0;i< items.size();++i)
 				{
-					String item = (String) items[i];
+					String item = (String) items.get(i);
 	
 					String status = item.substring(item.indexOf("\t")+1);			
-					if (status.equals(BulletinConstants.STATUSSEALED))				
+					if (Bulletin.isImmutable(status))				
 					{					
 						hiddenSealedList.add(item);
 						bulletinListModel.removeElement(item);

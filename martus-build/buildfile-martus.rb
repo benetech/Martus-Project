@@ -75,12 +75,13 @@ def build_xmlrpc_spec(name, type)
 	return build_spec('xmlrpc', name, type, '3.1.3')
 end
 
+#We are using 3.2 not sure why we have to download 3.4.4
 def build_icu4j_spec(type)
 	return build_spec('com.ibm.icu', 'icu4j', type, '3.4.4')
 end
 
 def build_javarosa_spec(type)
-	return build_spec('javarosa', 'javarosa', type, '1.0')
+	return build_spec('javarosa', 'javarosa', type, '7-30-2015')
 end
 
 def build_kxml_spec(type)
@@ -180,9 +181,11 @@ XMLRPC_COMMONS_LOGGING_SPEC = build_xmlrpc_commons_logging_spec('jar')
 XMLRPC_WS_COMMONS_UTIL_SPEC = build_xmlrpc_ws_commons_util_spec('jar')
 XMLRPC_SOURCE_SPEC = build_xmlrpc_spec('apache-xmlrpc', 'sources')
 XMLRPC_LICENSE_SPEC = build_xmlrpc_spec('LICENSE.txt', 'license')
+
 ICU4J_SPEC = build_icu4j_spec('jar')
 ICU4J_SOURCE_SPEC = build_icu4j_spec('sources')
 ICU4J_LICENSE_SPEC = build_icu4j_spec('license')
+
 JAVAROSA_SPEC = build_javarosa_spec('jar')
 JAVAROSA_SOURCE_SPEC = build_javarosa_spec('sources')
 JAVAROSA_LICENSE_SPEC = build_javarosa_spec('license')
@@ -391,23 +394,23 @@ def third_party_client_licenses
 end
 
 def third_party_client_source
-  sources = []
-  sources << artifact(BCPROV_SOURCE_SPEC)
-  sources << artifact(JUNIT_SOURCE_SPEC)
-  sources << artifact(PERSIANCALENDAR_SOURCE_SPEC)
-  sources << artifact(VELOCITY_SOURCE_SPEC)
+  	sources = []
+  	sources << artifact(BCPROV_SOURCE_SPEC)
+ 	 sources << artifact(JUNIT_SOURCE_SPEC)
+  	sources << artifact(PERSIANCALENDAR_SOURCE_SPEC)
+  	sources << artifact(VELOCITY_SOURCE_SPEC)
 # TODO: Find velocity-dep source code
 #	sources << artifact(VELOCITY_DEP_SOURCE_SPEC)
-  sources << artifact(XMLRPC_SOURCE_SPEC)
-# TODO: Find ICU4J source code
-#	sources << artifact(ICU4J_SOURCE_SPEC)
-  sources << artifact(LAYOUTS_SOURCE_SPEC)
-  sources << artifact(RHINO_SOURCE_SPEC)
-  sources << artifact(JORTHO_SOURCE_SPEC)
-	sources << artifact(JFREECHART_SOURCE_SPEC)
+  	sources << artifact(XMLRPC_SOURCE_SPEC)
+  	sources << artifact(LAYOUTS_SOURCE_SPEC)
+  	sources << artifact(RHINO_SOURCE_SPEC)
+  	sources << artifact(JORTHO_SOURCE_SPEC)
+  	sources << artifact(JFREECHART_SOURCE_SPEC)
 	sources << artifact(JCOMMON_SOURCE_SPEC)
 	sources << artifact(ORCHID_SOURCE_SPEC)
 	sources << artifact(JAVAROSA_SOURCE_SPEC)
+	sources << artifact(ICU4J_SOURCE_SPEC)
+
 	return sources
 end
 

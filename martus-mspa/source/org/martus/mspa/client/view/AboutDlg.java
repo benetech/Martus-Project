@@ -37,6 +37,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import org.martus.clientside.UiLocalization;
+import org.martus.common.EnglishCommonStrings;
 import org.martus.common.VersionBuildDate;
 import org.martus.mspa.main.UiMainWindow;
 import org.martus.swing.UiButton;
@@ -63,7 +64,7 @@ public class AboutDlg extends JDialog implements ActionListener
 		String buildDate = localization.getFieldLabel("aboutDlgBuildDate");
 		buildDate += " " + VersionBuildDate.getVersionBuildDate();
 
-		JButton ok = new UiButton(localization.getButtonLabel("ok"));
+		JButton ok = new UiButton(localization.getButtonLabel(EnglishCommonStrings.OK));
 		ok.addActionListener(this);			
 				
 		UiVBox vBoxVersionInfo = new UiVBox();
@@ -92,7 +93,7 @@ public class AboutDlg extends JDialog implements ActionListener
 		
 		panel.add(vBoxAboutDialog);
 		getContentPane().add(panel);
-		Utilities.centerDlg(this);
+		Utilities.packAndCenterWindow(this);
 		setVisible(true);
 	}	
 

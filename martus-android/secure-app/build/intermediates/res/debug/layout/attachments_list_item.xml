@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <ImageButton
+        android:id="@+id/deleteAttachmentButton"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/image_button_bg_selector"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_delete" />
+
+    <TextView
+        android:id="@+id/attachmentFileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/deleteAttachmentButton"
+        android:text="Placeholder Title"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+</RelativeLayout><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/res/layout/attachments_list_item.xml -->

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/save_form_menu_item"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_menu_save"
+        android:title="@string/save_all_answers" />
+
+    <item android:id="@+id/goto_form_menu_item"
+            android:showAsAction="ifRoom"
+            android:icon="@drawable/ic_menu_goto"
+            android:title="@string/view_hierarchy" />
+
+    <item android:id="@+id/settings_form_menu_item"
+        android:showAsAction="ifRoom"
+        android:title="@string/general_preferences" />
+
+</menu>
+
+<!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/menu/form_entry.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/menu/form_entry.xml -->

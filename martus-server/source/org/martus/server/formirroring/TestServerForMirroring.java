@@ -31,7 +31,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import org.martus.common.FieldCollection;
 import org.martus.common.FieldSpecCollection;
 import org.martus.common.LegacyCustomFields;
 import org.martus.common.LoggerToNull;
@@ -45,8 +44,8 @@ import org.martus.common.database.Database;
 import org.martus.common.database.DatabaseKey;
 import org.martus.common.database.MockServerDatabase;
 import org.martus.common.database.ReadableDatabase;
-import org.martus.common.fieldspec.CustomFieldTemplate;
 import org.martus.common.fieldspec.FieldSpec;
+import org.martus.common.fieldspec.FormTemplate;
 import org.martus.common.fieldspec.FormTemplateParsingException;
 import org.martus.common.fieldspec.StandardFieldSpecs;
 import org.martus.common.packet.BulletinHeaderPacket;
@@ -56,7 +55,6 @@ import org.martus.common.test.UniversalIdForTesting;
 import org.martus.server.forclients.MockMartusServer;
 import org.martus.server.forclients.ServerForClients;
 import org.martus.server.main.ServerBulletinStore;
-import org.martus.util.Base64;
 import org.martus.util.StreamableBase64;
 import org.martus.util.TestCaseEnhanced;
 
@@ -72,7 +70,7 @@ public class TestServerForMirroring extends TestCaseEnhanced
 		super.setUp();
 		logger = new LoggerToNull();
 		MockMartusSecurity serverSecurity = MockMartusSecurity.createServer();
-		coreServer = new MockMartusServer();
+		coreServer = new MockMartusServer(this);
 		coreServer.setSecurity(serverSecurity);
 		server = new ServerForMirroring(coreServer, logger);
 		
@@ -82,22 +80,22 @@ public class TestServerForMirroring extends TestCaseEnhanced
 		Database db = coreServer.getWriteableDatabase();
 
 		bhp1 = new BulletinHeaderPacket(clientSecurity1);
-		bhp1.setStatus(BulletinConstants.STATUSSEALED);
+		bhp1.setStatus(BulletinConstants.STATUSIMMUTABLE);
 		DatabaseKey key1 = bhp1.createKeyWithHeaderStatus(bhp1.getUniversalId());
 		bhp1.writeXmlToDatabase(db, key1, false, clientSecurity1);
 
 		bhp2 = new BulletinHeaderPacket(clientSecurity1);
-		bhp2.setStatus(BulletinConstants.STATUSSEALED);
+		bhp2.setStatus(BulletinConstants.STATUSIMMUTABLE);
 		DatabaseKey key2 = bhp2.createKeyWithHeaderStatus(bhp2.getUniversalId());
 		bhp2.writeXmlToDatabase(db, key2, false, clientSecurity1);
 
 		bhp3 = new BulletinHeaderPacket(clientSecurity2);
-		bhp3.setStatus(BulletinConstants.STATUSSEALED);
+		bhp3.setStatus(BulletinConstants.STATUSIMMUTABLE);
 		DatabaseKey key3 = bhp3.createKeyWithHeaderStatus(bhp3.getUniversalId());
 		bhp3.writeXmlToDatabase(db, key3, false, clientSecurity2);
 
 		bhp4 = new BulletinHeaderPacket(clientSecurity2);
-		bhp4.setStatus(BulletinConstants.STATUSDRAFT);
+		bhp4.setStatus(BulletinConstants.STATUSMUTABLE);
 		DatabaseKey key4 = bhp4.createKeyWithHeaderStatus(bhp4.getUniversalId());
 		bhp4.writeXmlToDatabase(db, key4, false, clientSecurity2);
 		
@@ -107,7 +105,7 @@ public class TestServerForMirroring extends TestCaseEnhanced
 		fdp1.writeXmlToClientDatabase(db, false, clientSecurity1);
 		
 		UniversalId otherPacketId = UniversalIdForTesting.createFromAccountAndPrefix(clientSecurity2.getPublicKeyString(), "X");
-		DatabaseKey key = DatabaseKey.createSealedKey(otherPacketId);
+		DatabaseKey key = DatabaseKey.createImmutableKey(otherPacketId);
 		db.writeRecord(key, "Not a valid packet");
 	}
 
@@ -126,7 +124,7 @@ public class TestServerForMirroring extends TestCaseEnhanced
 		ServerBulletinStore store = coreServer.getStore();
 		MartusCrypto security = server.getSecurity();
 		byte[] fakeTemplateData = new byte[] { 1,2,3,4,5};
-		String invalidBase64Template = Base64.encodeBytes(fakeTemplateData);
+		String invalidBase64Template = StreamableBase64.encode(fakeTemplateData);
 		try
 		{
 			ServerForClients.saveBase64FormTemplate(store, clientAccountId, invalidBase64Template, security, logger);
@@ -161,7 +159,7 @@ public class TestServerForMirroring extends TestCaseEnhanced
 
 		String formTitle = "First";
 		createAndSaveSampleTemplate(store, clientAccountId, formTitle, security);
-		String formFilename = ServerForClients.calculateFileNameFromString(formTitle);
+		String formFilename = FormTemplate.calculateFileNameFromString(formTitle);
 		File templateFile = store.getFormTemplateFileFromAccount(clientAccountId, formFilename);
 		String templateFilename = templateFile.getName();
 		Vector templateVector = server.getFormTemplate(clientAccountId, templateFilename);
@@ -175,17 +173,17 @@ public class TestServerForMirroring extends TestCaseEnhanced
 			String clientAccountId, String title, MartusCrypto security)
 			throws Exception 
 	{
-		CustomFieldTemplate template = createSampleTemplate(title);
+		FormTemplate template = createSampleTemplate(title);
 		String base64Template = template.getExportedTemplateAsBase64String(security);
 		ServerForClients.saveBase64FormTemplate(store, clientAccountId, base64Template, security, logger);
 	}
 
-	public CustomFieldTemplate createSampleTemplate(String title) throws Exception 
+	public FormTemplate createSampleTemplate(String title) throws Exception 
 	{
 		String description = "This is a description";
-		FieldCollection topSection = new FieldCollection(StandardFieldSpecs.getDefaultTopSetionFieldSpecs());
-		FieldCollection bottomSection = new FieldCollection(StandardFieldSpecs.getDefaultBottomSectionFieldSpecs());
-		CustomFieldTemplate template = new CustomFieldTemplate(title, description, topSection, bottomSection);
+		FieldSpecCollection topSection = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
+		FieldSpecCollection bottomSection = StandardFieldSpecs.getDefaultBottomSectionFieldSpecs();
+		FormTemplate template = new FormTemplate(title, description, topSection, bottomSection);
 		return template;
 	}
 	
@@ -203,13 +201,13 @@ public class TestServerForMirroring extends TestCaseEnhanced
 	
 	public void testIsAuthorizedForMirroring() throws Exception
 	{
-		MockMartusServer nobodyAuthorizedCore = new MockMartusServer();
+		MockMartusServer nobodyAuthorizedCore = new MockMartusServer(this);
 		ServerForMirroring nobodyAuthorized = new ServerForMirroring(nobodyAuthorizedCore, logger);
 		nobodyAuthorized.loadConfigurationFiles();
 		assertFalse("client already authorized?", nobodyAuthorized.isAuthorizedForMirroring(clientSecurity1.getPublicKeyString()));
 		nobodyAuthorizedCore.deleteAllFiles();
 		
-		MockMartusServer twoAuthorizedCore = new MockMartusServer();
+		MockMartusServer twoAuthorizedCore = new MockMartusServer(this);
 		twoAuthorizedCore.enterSecureMode();
 		File mirrorsWhoCallUs = new File(twoAuthorizedCore.getStartupConfigDirectory(), "mirrorsWhoCallUs");
 		mirrorsWhoCallUs.mkdirs();
@@ -272,7 +270,7 @@ public class TestServerForMirroring extends TestCaseEnhanced
 		for (Iterator iter = allKeys.iterator(); iter.hasNext();)
 		{
 			DatabaseKey key = (DatabaseKey)iter.next();
-			if(key.isDraft())
+			if(key.isMutable())
 				++drafts;
 			else
 				++sealeds;

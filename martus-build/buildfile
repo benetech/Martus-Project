@@ -26,6 +26,7 @@ require "#{main_dir}/buildfile-martus-server"
 require "#{main_dir}/buildfile-martus-meta"
 
 require "#{main_dir}/buildfile-martus-client-linux-zip"
+require "#{main_dir}/buildfile-martus-client-sourcefiles-zip"
 require "#{main_dir}/buildfile-martus-client-nsis-zip"
 require "#{main_dir}/buildfile-martus-client-nsis-single"
 require "#{main_dir}/buildfile-martus-client-nsis-upgrade"
@@ -34,6 +35,9 @@ require "#{main_dir}/buildfile-martus-client-nsis-pieces"
 require "#{main_dir}/buildfile-martus-client-iso"
 require "#{main_dir}/buildfile-martus-mspa-client-zip"
 require "#{main_dir}/buildfile-martus-client-mac-dmg"
+require "#{main_dir}/buildfile-martus-client-writeonly-mac-dmg"
+require "#{main_dir}/buildfile-martus-client-writeonly-nsis-single"
+require "#{main_dir}/buildfile-martus-client-writeonly-nsis-upgrade"
 
 #TODO: Need to set up proper dependency chains
 #TODO: Need to eliminate optional files from Java 6 runtime

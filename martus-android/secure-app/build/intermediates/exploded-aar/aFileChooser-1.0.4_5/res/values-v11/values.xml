@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/nimaa/Development/martus-mobile-gradel/secure-app-vital-voices/aFileChooser/res/values-v11/dimens.xml -->
+    <eat-comment/>
+    <dimen name="list_item_padding">6dp</dimen>
+    <dimen name="list_padding">12dp</dimen>
+    <!-- From: file:/Users/nimaa/Development/martus-mobile-gradel/secure-app-vital-voices/aFileChooser/res/values-v11/strings.xml -->
+    <eat-comment/>
+    <string name="choose_file">Choose a file</string>
+    <string name="empty_directory">Empty Directory</string>
+    <string name="storage_removed">Storage was removed or unmounted.</string>
+</resources>

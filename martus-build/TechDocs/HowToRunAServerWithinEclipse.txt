@@ -19,6 +19,10 @@ martus-server
 org.martus.server.tools and run CreateKeyPair.java
 The command line argument must have --keypair=xxx where xxx is the directory and file name to the keypair.dat file you wish to create
 Eg. for windows --keypair=C:\MartusServer\deleteOnStartup\keypair.dat
+Eg. for mac/Linux --keypair=/var/MartusServer/deleteOnStartup/keypair.dat
+
+NOTE: on Mac you may have to change the owner's permissions of /var/MartusServer
+eg: sudo chown charlesl /var/MartusServer
 
 NOTE:  For developers if you run INSECURE the MartusServer\deleteOnStartup directory won't be deleted so we can keep the keypair.dat 
 file in this directory and not have to copy it over each time you run the server.
@@ -42,6 +46,15 @@ See MartusServer.java (processCommandLine()) for a complete list of command line
 Here are a couple of the more common arguments when setting up a server for Martus clients
 --nopassword (will use "password") and not prompt you for one each time
 --client-listener (will be used if you want Martus Clients to be able to connect to this server)
+--token-authority= (is required so this server can give client's their tokens when requested)
+
+Here is an example of all command line args to use:
+--nopassword
+--listeners-ip=127.0.0.1
+--client-listener
+--mirror-listener
+--token-authority=http://api.dev.martus.org/server
+
 
 You will be told what is the IP address you can use to connect your Martus Client to.
 Example:

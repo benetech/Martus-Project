@@ -52,11 +52,13 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		}
 	}
 	
+	@Override
 	public String ping()
 	{
 		return "" + NetworkInterfaceConstants.VERSION;
 	}
 	
+	@Override
 	public Vector getServerInformation()
 	{
 		if(infoResponse != null)
@@ -64,6 +66,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		return (Vector)(super.getServerInformation()).clone();
 	}
 	
+	@Override
 	public String authenticateServer(String tokenToSign)
 	{
 		if(authenticateResponse != null)
@@ -71,32 +74,13 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		return "" + super.authenticateServer(tokenToSign);
 	}
 	
+	@Override
 	public String requestUploadRights(String authorAccountId, String tryMagicWord)
 	{
 		return new String(super.requestUploadRights(authorAccountId, tryMagicWord));
 	}
 
-	public String uploadBulletin(String authorAccountId, String bulletinLocalId, String data)
-	{
-		lastClientId = authorAccountId;
-		lastUploadedBulletinId = bulletinLocalId;				
-
-		if(uploadResponse != null)
-			return new String(uploadResponse);
-
-		return "" + mockUploadBulletin(authorAccountId, bulletinLocalId, data);
-	}
-	
-	public String uploadBulletinChunk(String authorAccountId, String bulletinLocalId, int totalSize, int chunkOffset, int chunkSize, String data, String signature) 
-	{
-		lastClientId = authorAccountId;
-		lastUploadedBulletinId = bulletinLocalId;				
-
-		if(uploadResponse != null)
-			return new String(uploadResponse);
-		return "" + coreServer.uploadBulletinChunk(authorAccountId, bulletinLocalId, totalSize, chunkOffset, chunkSize, data, signature);
-	}
-
+	@Override
 	public String putBulletinChunk(String uploaderAccountId, String authorAccountId, String bulletinLocalId,
 			int totalSize, int chunkOffset, int chunkSize, String data) 
 	{
@@ -110,6 +94,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 										totalSize, chunkOffset, chunkSize, data);
 	}
 
+	@Override
 	public Vector getBulletinChunk(String myAccountId, String authorAccountId, String bulletinLocalId,
 		int chunkOffset, int maxChunkSize) 
 	{
@@ -122,6 +107,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 			chunkOffset, maxChunkSize);
 	}
 
+	@Override
 	public Vector listMySealedBulletinIds(String clientId, Vector retrieveTags)
 	{
 		lastClientId = clientId;
@@ -133,6 +119,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		
 	}
 	
+	@Override
 	public Vector listMyDraftBulletinIds(String clientId, Vector retrieveTags)
 	{
 		lastClientId = clientId;
@@ -144,6 +131,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		
 	}
 	
+	@Override
 	public Vector listFieldOfficeSealedBulletinIds(String hqAccountId, String authorAccountId, Vector retrieveTags)
 	{
 		lastClientId = hqAccountId;
@@ -154,6 +142,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		return (Vector)(super.listFieldOfficeSealedBulletinIds(hqAccountId, authorAccountId, retrieveTags)).clone();
 	}
 
+	@Override
 	public Vector listFieldOfficeDraftBulletinIds(String hqAccountId, String authorAccountId, Vector retrieveTags)
 	{
 		lastClientId = hqAccountId;
@@ -164,6 +153,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		return (Vector)(super.listFieldOfficeDraftBulletinIds(hqAccountId, authorAccountId, retrieveTags)).clone();
 	}
 
+	@Override
 	public Vector listFieldOfficeAccounts(String hqAccountId)
 	{
 		lastClientId = hqAccountId;
@@ -211,6 +201,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		listFieldOfficeAccountsResponseNull = nullResponse;
 	}
 	
+	@Override
 	public Vector getNews(String accountId, String versionLabel, String versionBuildDate)
 	{
 		if(newsResponse != null)
@@ -222,6 +213,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		return super.getNews(accountId, versionLabel, versionBuildDate);
 	}
 	
+	@Override
 	public String getTokensFromMartusCentralTokenAuthority(String accountId)
 	{
 		return martusAccountAccessJsonTokenResponse;
@@ -232,6 +224,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		martusAccountAccessJsonTokenResponse = jsonTokenToUse;
 	}
 	
+	@Override
 	public Vector getMartusAccountAccessToken(String accountId)
 	{
 		if(martusAccountAccessTokenResponse != null)
@@ -242,6 +235,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 	}
 	
 	
+	@Override
 	public String getAccountIdForTokenFromMartusCentralTokenAuthority(MartusAccountAccessToken token) throws Exception
 	{
 		if(martusAccountAccessJsonTokenResponse != null)
@@ -252,11 +246,13 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 	
 	}
 	
+	@Override
 	public Vector getMartusAccountIdFromAccessToken(String accountId, MartusAccountAccessToken tokenToUse)
 	{
 		return super.getMartusAccountIdFromAccessToken(accountId, tokenToUse);
 	}
 
+	@Override
 	public Vector getServerCompliance()
 	{
 		if(complianceResponse != null)
@@ -266,6 +262,7 @@ public class MockServerForClients extends ServerForClients implements ServerForN
 		return super.getServerCompliance();
 	}	
 
+	@Override
 	public Vector getPacket(
 		String myAccountId,
 		String authorAccountId,

@@ -1768,6 +1768,20 @@ public class MartusApp
 		setLastUploadRemindedTime(new Date());
 	}
 
+	static public Bulletin getNativeMartusRecord(Bulletin nativeOrXFormsRecord) throws Exception
+	{
+		if(nativeOrXFormsRecord.isXFormsBulletin())
+			return BulletinFromXFormsLoader.createNewBulletinFromXFormsBulletin(nativeOrXFormsRecord);
+		return nativeOrXFormsRecord;
+	}
+	
+	static public Bulletin getNativeMartusRecordKeepOriginalUId(Bulletin nativeOrXFormsRecord) throws Exception
+	{
+		Bulletin b = getNativeMartusRecord(nativeOrXFormsRecord);
+		b.getBulletinHeaderPacket().setUniversalId(nativeOrXFormsRecord.getUniversalId());
+		return b;
+	}
+
 	public SortableBulletinList search(SearchTreeNode searchNode, MiniFieldSpec[] specsForSorting, MiniFieldSpec[] extraSpecs, boolean searchFinalVersionsOnly, boolean searchSameRowsOnly, ProgressMeterInterface progressMeter) throws Exception
 	{
 		Stopwatch stopWatch = new Stopwatch();
@@ -1796,8 +1810,7 @@ public class MartusApp
 			for(int j = 0; j < allRevisions.size(); ++j)
 			{
 				Bulletin b = store.getBulletinRevision((UniversalId)allRevisions.get(j));
-				if(b.containsXFormsData())
-					b = BulletinFromXFormsLoader.createNewBulletinFromXFormsBulletin(b);
+				b = MartusApp.getNativeMartusRecord(b);
 				++revisionsSearched;
 				if(b != null && matcher.doesMatch(new SafeReadableBulletin(b, localization), localization))
 				{
@@ -2108,7 +2121,7 @@ public class MartusApp
 
 			NetworkResponse response = gateway.getServerCompliance(getSecurity());
 			if(response.getResultCode().equals(NetworkInterfaceConstants.OK))
-				return (String)response.getResultVector().get(0);
+				return response.getResultVector().get(0);
 		}
 		catch (ServerNotAvailableException e)
 		{
@@ -2165,7 +2178,7 @@ public class MartusApp
 		if(!resultCode.equals(NetworkInterfaceConstants.OK))
 			throw new ServerErrorException(resultCode);
 
-		String xmlEncoded = (String)response.getResultVector().get(0);
+		String xmlEncoded = response.getResultVector().get(0);
 		String xml = new String(StreamableBase64.decode(xmlEncoded), "UTF-8");
 		byte[] xmlBytes = xml.getBytes("UTF-8");
 		ByteArrayInputStreamWithSeek in =  new ByteArrayInputStreamWithSeek(xmlBytes);
@@ -2189,7 +2202,7 @@ public class MartusApp
 		summary.setFieldDataPacket(retrieveFieldDataPacketFromServer(summary.getUniversalId(), summary.getFieldDataPacketLocalId()));
 	}
 
-	public void retrieveNextBackgroundBulletin() throws Exception
+	public boolean retrieveNextBackgroundBulletin() throws Exception
 	{
 		RetrieveCommand rc = getCurrentRetrieveCommand();
 		UniversalId uid = rc.getNextToRetrieve();
@@ -2197,6 +2210,7 @@ public class MartusApp
 		try
 		{
 			retrieveOneBulletinToFolder(uid, folder, null);
+			return true;
 		}
 		catch(NotYourBulletinErrorException okIfPreviousVersionIsNotAuthorizedToRead)
 		{
@@ -2212,7 +2226,7 @@ public class MartusApp
 			rc.markAsRetrieved(uid);
 			saveRetrieveCommand();
 		}
-		
+		return false;
 	}
 
 	public void retrieveOneBulletinToFolder(UniversalId uid, BulletinFolder retrievedFolder, ProgressMeterInterface progressMeter) throws
@@ -2224,6 +2238,7 @@ public class MartusApp
 			store.importZipFileBulletin(tempFile, retrievedFolder, true);
 			Bulletin b = store.getBulletinRevision(uid);
 			store.setIsOnServer(b);
+			
 		}
 		finally
 		{
@@ -2250,7 +2265,7 @@ public class MartusApp
 			updateOnServerFlagForLocalCopies(uidList);
 		return resultCode;
 	}
-
+	
 	private void updateOnServerFlagForLocalCopies(Vector<UniversalId> uidList)
 	{
 		for (UniversalId bulletinId : uidList)
@@ -2664,7 +2679,7 @@ public class MartusApp
 			if(!response.getResultCode().equals(NetworkInterfaceConstants.OK))
 				return false;
 
-			String version = (String)response.getResultVector().get(0);
+			String version = response.getResultVector().get(0);
 			if(version.indexOf("MartusServer") == 0)
 				return true;
 		}
@@ -2777,7 +2792,6 @@ public class MartusApp
 	public static final String USE_UNOFFICIAL_TRANSLATIONS_NAME = "use_unofficial_translations.txt";
 	public static final int DAYS_UNTIL_WE_ASK_TO_BACKUP_KEYPAIR = 7;
 	private static final String FXML_DIRECTORY_NAME = "fxml";
-	
 	private final int MAXFOLDERS = 50;
 	public int serverChunkSize = NetworkInterfaceConstants.CLIENT_MAX_CHUNK_SIZE;
 }

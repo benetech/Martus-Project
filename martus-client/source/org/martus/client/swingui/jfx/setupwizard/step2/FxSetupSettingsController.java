@@ -57,6 +57,13 @@ public class FxSetupSettingsController extends FxStep2Controller
 	
 	public void initializeMainContentPane()
 	{
+		// NOTE: Kind of an odd place for this, but it has to be 
+		// after we have signed in, and this is the earliest 
+		// point in the wizard where we know that is true.
+		getMainWindow().doPostSigninAppInitialization();
+		
+		getWizardNavigationHandler().getBackButton().setVisible(false);
+
 		torSwitchButton = new FxSwitchButton();
 		switchButtonPane.getChildren().add(torSwitchButton);
 		torSwitchButton.setSelected(getApp().getConfigInfo().useInternalTor());

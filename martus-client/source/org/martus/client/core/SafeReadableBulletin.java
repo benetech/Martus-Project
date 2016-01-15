@@ -63,12 +63,13 @@ import org.martus.swing.FontHandler;
  */
 public class SafeReadableBulletin
 {
-	public SafeReadableBulletin(Bulletin bulletinToWrap, MiniLocalization localizationToUse)
+	public SafeReadableBulletin(Bulletin bulletinToWrap, MiniLocalization localizationToUse) throws Exception
 	{
-		realBulletin = bulletinToWrap;
+		realBulletinUid = bulletinToWrap.getUniversalId();
+		realBulletin = MartusApp.getNativeMartusRecord(bulletinToWrap);
 		localization = localizationToUse;
 	}
-	
+
 	public MartusField field(MiniFieldSpec miniSpec)
 	{
 		return field(miniSpec.getTag(), miniSpec.getLabel(), miniSpec.getType().getTypeName());
@@ -154,12 +155,12 @@ public class SafeReadableBulletin
 	
 	public UniversalId getUniversalId()
 	{
-		return realBulletin.getUniversalId();
+		return realBulletinUid;
 	}
 	
 	public String getLocalId()
 	{
-		return realBulletin.getLocalId();
+		return realBulletinUid.getLocalId();
 	}
 	
 	public boolean contains(String lookFor)
@@ -246,6 +247,7 @@ public class SafeReadableBulletin
 	}
 	
 	Bulletin realBulletin;
+	UniversalId realBulletinUid;
 	MiniLocalization localization;
 	boolean omitPrivate;
 }

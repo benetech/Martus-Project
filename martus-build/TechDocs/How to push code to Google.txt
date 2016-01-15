@@ -51,4 +51,9 @@ warning: code.google.com certificate with fingerprint 76:9a:5d:41:30:bd:48:c6:93
 Follow the instructions here to remove these warnings
 http://mercurial.selenic.com/wiki/CACertificates
 
+Then go to 
+https://code.google.com/p/martus/
+To review the updates has been made
+(UIConstansts, readme, etc...)
+
 

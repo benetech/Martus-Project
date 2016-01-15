@@ -69,7 +69,7 @@ public class TestServerForAmplifiers extends TestCaseEnhanced
 		if(coreServer == null)
 		{
 			MockMartusSecurity mockServer = MockMartusSecurity.createServer();
-			coreServer = new MockMartusServer();
+			coreServer = new MockMartusServer(this);
 			coreServer.setSecurity(mockServer);
 			coreServer.serverForClients.clearCanUploadList();
 			coreServer.allowUploads(clientSecurity.getPublicKeyString());
@@ -78,7 +78,7 @@ public class TestServerForAmplifiers extends TestCaseEnhanced
 		if(otherServer == null)
 		{
 			MockMartusSecurity mockOtherServer = MockMartusSecurity.createOtherServer();
-			otherServer = new MockMartusServer();
+			otherServer = new MockMartusServer(this);
 			otherServer.setSecurity(mockOtherServer);
 			otherServer.serverForClients.clearCanUploadList();
 			otherServer.allowUploads(clientSecurity.getPublicKeyString());
@@ -98,9 +98,9 @@ public class TestServerForAmplifiers extends TestCaseEnhanced
 			out.close();
 			b1.addPublicAttachment(new AttachmentProxy(attachment));
 			b1.addPrivateAttachment(new AttachmentProxy(attachment));
-			b1.setSealed();
+			b1.setImmutable();
 			store.saveEncryptedBulletinForTesting(b1);
-			b1 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createSealedKey(b1.getUniversalId()), clientSecurity);
+			b1 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createImmutableKey(b1.getUniversalId()), clientSecurity);
 			b1ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b1, clientSecurity);
 	
 			b2 = new Bulletin(clientSecurity);
@@ -108,7 +108,7 @@ public class TestServerForAmplifiers extends TestCaseEnhanced
 			b2.set(Bulletin.TAGTITLE, "Title2");
 			b2.set(Bulletin.TAGPUBLICINFO, "Details2");
 			b2.set(Bulletin.TAGPRIVATEINFO, "PrivateDetails2");
-			b2.setSealed();
+			b2.setImmutable();
 			store.saveEncryptedBulletinForTesting(b2);
 			b2ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b2, clientSecurity);
 
@@ -116,18 +116,18 @@ public class TestServerForAmplifiers extends TestCaseEnhanced
 			b3.setAllPrivate(false);
 			b3.set(Bulletin.TAGTITLE, "Title1");
 			b3.set(Bulletin.TAGPUBLICINFO, "Details1");
-			b3.setSealed();
+			b3.setImmutable();
 			store.saveEncryptedBulletinForTesting(b3);
-			b3 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createSealedKey(b3.getUniversalId()), clientSecurity);
+			b3 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createImmutableKey(b3.getUniversalId()), clientSecurity);
 			b3ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b3, clientSecurity);
 
 			b4 = new Bulletin(clientSecurity);
 			b4.setAllPrivate(false);
 			b4.set(Bulletin.TAGTITLE, "Title4");
 			b4.set(Bulletin.TAGPUBLICINFO, "Details4");
-			b4.setDraft();
+			b4.setMutable();
 			store.saveEncryptedBulletinForTesting(b4);
-			b4 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createDraftKey(b4.getUniversalId()), clientSecurity);
+			b4 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createMutableKey(b4.getUniversalId()), clientSecurity);
 			b4ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b4, clientSecurity);
 		}
 	}
@@ -210,14 +210,14 @@ public class TestServerForAmplifiers extends TestCaseEnhanced
 
 	public void testIsAuthorizedForAmplifying() throws Exception
 	{
-		MockMartusServer nobodyAuthorizedCore = new MockMartusServer();
+		MockMartusServer nobodyAuthorizedCore = new MockMartusServer(this);
 		ServerForAmplifiers nobodyAuthorized = new ServerForAmplifiers(nobodyAuthorizedCore, logger);
 		nobodyAuthorizedCore.setAmplifierListenerEnabled(true);
 		nobodyAuthorized.loadConfigurationFiles();
 		assertFalse("client already authorized?", nobodyAuthorized.isAuthorizedAmp(clientSecurity.getPublicKeyString()));
 		nobodyAuthorizedCore.deleteAllFiles();
 		
-		MockMartusServer oneAuthorizedCore = new MockMartusServer();
+		MockMartusServer oneAuthorizedCore = new MockMartusServer(this);
 		oneAuthorizedCore.setAmplifierListenerEnabled(true);
 		oneAuthorizedCore.enterSecureMode();
 		File ampsWhoCallUs = new File(oneAuthorizedCore.getStartupConfigDirectory(), "ampsWhoCallUs");
@@ -237,7 +237,7 @@ public class TestServerForAmplifiers extends TestCaseEnhanced
 
 	public void testCanAccountBeAmplified() throws Exception
 	{
-		MockMartusServer localCoreServer = new MockMartusServer();
+		MockMartusServer localCoreServer = new MockMartusServer(this);
 		ServerForAmplifiers ampServer = new ServerForAmplifiers(localCoreServer, logger);
 		ampServer.loadConfigurationFiles();
 		assertTrue("client not authorized?", ampServer.canAccountBeAmplified(clientSecurity.getPublicKeyString()));

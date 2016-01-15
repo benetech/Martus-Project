@@ -38,7 +38,7 @@ public class MtfEntrySaver
 		if(hex != null)
 			hex_stuff = "-" + entry.getHex() + "-";
 
-		String before_equals = hex_stuff + entry.getContext();
+		String before_equals = hex_stuff + entry.getMsgid();
 		String filler = "";
 		for(int i = 0; i < entry.getContext().length() + 5; ++i)
 			filler += "_";

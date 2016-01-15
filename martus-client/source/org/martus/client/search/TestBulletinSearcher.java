@@ -140,7 +140,7 @@ public class TestBulletinSearcher extends TestCaseEnhanced
 		verifyOperatorComparison("testDoesMatchComparisons", b, fieldToSearch, "!=", aboveSample, true);
 	}
 
-	private void verifyOperatorComparison(String caller, Bulletin realBulletin, FieldSpec fieldToSearch, String operator, String value, boolean expected)
+	private void verifyOperatorComparison(String caller, Bulletin realBulletin, FieldSpec fieldToSearch, String operator, String value, boolean expected) throws Exception
 	{
 		SafeReadableBulletin b = new SafeReadableBulletin(realBulletin, localization);
 		String actual = b.getPossiblyNestedField(fieldToSearch).getSearchableData(localization);

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="aFileChooser-1.0.4_5-">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/aFileChooser-1.0.4_5/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/secure-app/build/intermediates/exploded-aar/aFileChooser-1.0.4_5/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

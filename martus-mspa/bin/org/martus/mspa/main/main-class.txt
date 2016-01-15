@@ -1,0 +1,3 @@
+Main-class: org.martus.mspa.main.MSPAMain
+Sealed: true
+Class-Path: ThirdParty/icu4j_3_2_calendar.jar ThirdParty/InfiniteMonkey.jar ThirdParty/layouts.jar ThirdParty/persiancalendar.jar ThirdParty/xmlrpc-1.2-b1.jar ThirdParty/martus-common.jar ThirdParty/Martus-swing.jar ThirdParty/Martus-utils.jar

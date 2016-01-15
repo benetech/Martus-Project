@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+	<solid android:color="#5f000040"/>
+	<stroke android:width="2dp" android:color="#00ffffff"/>
+	<corners android:radius="6dp"/>
+</shape><!-- From: file:/Users/nimaa/Development/martus-mobile-gradel/secure-app-vital-voices/opendatakit.collect/res/drawable/thumb.xml --><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/build/intermediates/exploded-aar/opendatakit.collect-1.0_3-debug/res/drawable/thumb.xml -->

@@ -64,6 +64,11 @@ public class Po2Mtf
 	
 	public static void main(String[] args) throws Exception
 	{
+		if(args.length != 2)
+		{
+			System.err.println("Usage: Po2Mtf <filename.po> <LanguageCode>");
+			System.exit(1);
+		}
 		File poFile = new File(args[0]);
 		String languageCode = args[1];
 		UnicodeReader reader = new UnicodeReader(poFile);

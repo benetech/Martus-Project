@@ -772,7 +772,7 @@ public class ClientBulletinStore extends BulletinStore
 		catch(Exception ignoreForNow)
 		{
 			// TODO: Figure out if this should be propagated
-			ignoreForNow.printStackTrace();
+			//ignoreForNow.printStackTrace();
 		}
 	}
 

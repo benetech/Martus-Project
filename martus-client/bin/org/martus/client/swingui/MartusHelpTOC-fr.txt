@@ -1,0 +1,63 @@
+﻿1. Présentation du Logiciel Martus™
+1a. A quoi sert Martus™ ?
+1b. L'importance de la sécurité dans l'utilisation de Martus
+1c. Comment Martus préserve la sécurité des données
+1d. Que doit faire un particulier pour préserver la sécurité des données ?
+1e. Quelles sont les limites de sécurité de Martus ?
+1f. Pourquoi envoyer des communiqués au serveur ?
+1g. Pourquoi Martus est-elle une application en code source libre ?
+2. Démarrage
+2a. Installation
+2b.Désinstallation
+2c. Passage à une nouvelle version de Martus (Windows uniquement)
+2d. Mise à jour de l’application Martus
+2e. Création de votre compte
+2f. Choix d'un mot de passe
+2g. Configuration d’une connexion au serveur
+2h. Paramétrage de vos préférences
+3. L'Espace de Travail Martus
+4. Création d'un Communiqué
+4a. Comment remplir les champs d'un communiqué
+4b. Personnalisation de vos communiqués
+5. Enregistrement et modification des Communiqués
+5a. Enregistrement d'un communiqué verrouillé
+5b. Enregistrement d'un Brouillon
+5c. Création d'une nouvelle version d'un communiqué verrouillé
+5d. Modification d'un brouillon
+5e. Mise au rebut d'un brouillon
+5f. Suppression d'un communiqué verrouillé
+6. Gestion des Communiqués
+6a. Dossiers par défaut
+6b. Autres dossiers créés par Martus
+6c. Création de dossiers
+6d. Suppression de communiqués
+6e. Organisation des communiqués
+6f. Placement des communiqués sur le bureau Windows
+6g. Extraction des communiqués verrouillés
+6h. Extraction des brouillons de communiqués
+6i. Extraction des communiqués créés par les bureaux de terrain
+6j. Visualisation des versions précédentes d'un communiqué
+6k. Visualisation et enregistrement des pièces jointes
+6l. Visualisation des communiqués endommagés
+6m. Recherche de communiqués spécifiques
+6n. Impression des communiqués.
+6o. Création de rapports de communiqués
+6p. Exportation des données des communiqués
+6q. Importation communiqué(s)
+7. Suppression de Vos Communiqués et de Vos Informations de Compte
+8. Suppression de Toutes les Données Martus, y Compris l'Application
+9. Sécurité de Vos Données
+9a. Fonctionnement de la sécurité Martus
+9b. Sauvegarde de votre clé
+9c. Restauration de votre clé
+9d. Utilisation intelligente de votre mot de passe
+9e. Sécurité des pratiques informatiques
+9f. Partage de vos données privées avec vos collègues
+9g. Autorisation aux autres comptes d'envoyer vos communiqués à un serveur
+9h. Modification de votre pseudo ou de votre mot de passe
+10. Personnalisation de Martus
+10a. Utilisation d'un modèle dans le champ Détails
+10b. Personnalisation des champs de communiqué
+10c. Utilisation des modèles de personnalisation
+10d. Personnalisation de l’affichage de votre communiqué
+11. Questions Fréquentes

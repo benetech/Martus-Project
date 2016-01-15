@@ -39,6 +39,7 @@ import org.martus.common.FieldSpecCollection;
 import org.martus.common.HeadquartersKeys;
 import org.martus.common.LegacyCustomFields;
 import org.martus.common.MartusConstants;
+import org.martus.common.MartusLogger;
 import org.martus.common.MartusXml;
 import org.martus.common.XmlWriterFilter;
 import org.martus.common.bulletin.AttachmentProxy;
@@ -315,9 +316,22 @@ public class FieldDataPacket extends Packet
 		ByteArrayInputStreamWithSeek inEncrypted = new ByteArrayInputStreamWithSeek(encryptedBytes);
 		ByteArrayOutputStream outPlain = new ByteArrayOutputStream();
 		security.decrypt(inEncrypted, outPlain, sessionKey);
+		if(doesDecryptedTextContainCarriageReturn(outPlain))
+			MartusLogger.logWarning("CR found in encrypted text, may cause signature to not match.");
 		ByteArrayInputStreamWithSeek inDecrypted = new ByteArrayInputStreamWithSeek(outPlain.toByteArray());
 		verifyPacketSignature(inDecrypted, security);
 		loadXml(inDecrypted);
+	}
+
+	private boolean doesDecryptedTextContainCarriageReturn(ByteArrayOutputStream outPlain)
+	{
+		byte[] data = outPlain.toByteArray();
+		for(int i=0; i<outPlain.size();++i)
+		{
+			if(data[i] == '\r')
+				return true;
+		}
+		return false;
 	}
 
 	private XmlFieldDataPacketLoader loadXml(InputStreamWithSeek in)

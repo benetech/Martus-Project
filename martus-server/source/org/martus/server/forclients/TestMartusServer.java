@@ -49,7 +49,7 @@ import java.util.zip.ZipOutputStream;
 
 import org.martus.amplifier.ServerCallbackInterface;
 import org.martus.common.ContactInfo;
-import org.martus.common.FieldCollection;
+import org.martus.common.FieldSpecCollection;
 import org.martus.common.HeadquartersKey;
 import org.martus.common.HeadquartersKeys;
 import org.martus.common.LoggerInterface;
@@ -72,8 +72,8 @@ import org.martus.common.database.MockClientDatabase;
 import org.martus.common.database.MockServerDatabase;
 import org.martus.common.database.ReadableDatabase;
 import org.martus.common.database.ServerFileDatabase;
-import org.martus.common.fieldspec.CustomFieldTemplate;
-import org.martus.common.fieldspec.CustomFieldTemplate.FutureVersionException;
+import org.martus.common.fieldspec.FormTemplate;
+import org.martus.common.fieldspec.FormTemplate.FutureVersionException;
 import org.martus.common.fieldspec.StandardFieldSpecs;
 import org.martus.common.network.NetworkInterface;
 import org.martus.common.network.NetworkInterfaceConstants;
@@ -85,10 +85,10 @@ import org.martus.common.test.MockBulletinStore;
 import org.martus.common.utilities.MartusServerUtilities;
 import org.martus.server.main.MartusServer;
 import org.martus.server.main.ServerBulletinStore;
-import org.martus.util.Base64;
+import org.martus.server.main.ServerMetaDatabaseForTesting;
+import org.martus.util.DirectoryUtils;
 import org.martus.util.StreamableBase64;
 import org.martus.util.StreamableBase64.InvalidBase64Exception;
-import org.martus.util.DirectoryUtils;
 import org.martus.util.TestCaseEnhanced;
 import org.martus.util.UnicodeReader;
 import org.martus.util.UnicodeWriter;
@@ -144,6 +144,9 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 			tempFile = createTempFileFromName("$$$MartusTestMartusServer");
 			tempFile.delete();
 		}
+
+		smdFactory = ServerMetaDatabaseForTesting.getEmptyDatabase(this);
+		
 		if(store == null)
 		{
 			store = new MockBulletinStore(this);
@@ -161,20 +164,20 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 			HeadquartersKey key1 = new HeadquartersKey(hqSecurity.getPublicKeyString());
 			keys.add(key1);
 			b1.setAuthorizedToReadKeys(keys);
-			b1.setSealed();
+			b1.setImmutable();
 			store.saveEncryptedBulletinForTesting(b1);
-			b1 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createSealedKey(b1.getUniversalId()), clientSecurity);
+			b1 = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createImmutableKey(b1.getUniversalId()), clientSecurity);
 	
 			b2 = new Bulletin(clientSecurity);
 			b2.set(Bulletin.TAGTITLE, "Title2");
 			b2.set(Bulletin.TAGPUBLICINFO, "Details2");
 			b2.set(Bulletin.TAGPRIVATEINFO, "PrivateDetails2");
-			b2.setSealed();
+			b2.setImmutable();
 			store.saveEncryptedBulletinForTesting(b2);
 			
 			draft = new Bulletin(clientSecurity);
 			draft.set(Bulletin.TAGPUBLICINFO, "draft public");
-			draft.setDraft();
+			draft.setMutable();
 			store.saveEncryptedBulletinForTesting(draft);
 
 
@@ -183,7 +186,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 			privateBulletin.set(Bulletin.TAGTITLE, "TitlePrivate");
 			privateBulletin.set(Bulletin.TAGPUBLICINFO, "DetailsPrivate");
 			privateBulletin.set(Bulletin.TAGPRIVATEINFO, "PrivateDetailsPrivate");
-			privateBulletin.setSealed();
+			privateBulletin.setImmutable();
 			store.saveEncryptedBulletinForTesting(privateBulletin);
 
 			b1ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b1, clientSecurity);
@@ -197,7 +200,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 			
 		}
 		
-		testServer = new MockMartusServer();
+		testServer = new MockMartusServer(this);
 		testServer.serverForClients.loadBannedClients();
 		testServer.setSecurity(serverSecurity);
 		testServer.verifyAndLoadConfigurationFiles();
@@ -213,6 +216,8 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		assertEquals("isShutdownRequested", false, testServer.isShutdownRequested());
 		testServer.deleteAllFiles();
 		tempFile.delete();
+		
+		smdFactory.close();
 
 		TRACE_END();
 		super.tearDown();
@@ -250,7 +255,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 	{
 		MartusCrypto security = MockMartusSecurity.createClient();
 	
-		ServerBulletinStore serverStore = new ServerBulletinStore();
+		ServerBulletinStore serverStore = new ServerBulletinStore(smdFactory);
 		serverStore.setSignatureGenerator(security);
 		MockServerDatabase serverDatabase = new MockServerDatabase();
 		serverStore.setDatabase(serverDatabase);
@@ -260,29 +265,29 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		MockClientDatabase clientDatabase = new MockClientDatabase();
 		clientStore.setDatabase(clientDatabase);
 
-		Bulletin bSealed = new Bulletin(security);
-		bSealed.setSealed();
-		clientStore.saveBulletinForTesting(bSealed);
+		Bulletin bulletinImmutable = new Bulletin(security);
+		bulletinImmutable.setImmutable();
+		clientStore.saveBulletinForTesting(bulletinImmutable);
 
-		Bulletin bDraft = new Bulletin(security);
-		bDraft.setDraft();
-		clientStore.saveBulletinForTesting(bDraft);
+		Bulletin bulletinMutable = new Bulletin(security);
+		bulletinMutable.setMutable();
+		clientStore.saveBulletinForTesting(bulletinMutable);
 		
-		DatabaseKey key1 = bSealed.getDatabaseKey();
+		DatabaseKey key1 = bulletinImmutable.getDatabaseKey();
 		File zip1 = createTempFile();
 		BulletinZipUtilities.exportBulletinPacketsFromDatabaseToZipFile(clientDatabase, key1, zip1, security);
 		serverStore.saveZipFileToDatabase(zip1, security.getPublicKeyString());
 		zip1.delete();
 		
-		DatabaseKey key2 = bDraft.getDatabaseKey(); 
+		DatabaseKey key2 = bulletinMutable.getDatabaseKey(); 
 		File zip2 = createTempFile();
 		BulletinZipUtilities.exportBulletinPacketsFromDatabaseToZipFile(clientDatabase, key2, zip2, security);
 		serverStore.saveZipFileToDatabase(zip2, security.getPublicKeyString());
 		zip2.delete();
 		
-		MockMartusServer server = new MockMartusServer((Database)serverStore.getDatabase());
-		assertFalse(server.doesDraftExist(bSealed.getUniversalId()));
-		assertTrue(server.doesDraftExist(bDraft.getUniversalId()));
+		MockMartusServer server = new MockMartusServer((Database)serverStore.getDatabase(), this);
+		assertFalse(server.doesDraftExist(bulletinImmutable.getUniversalId()));
+		assertTrue(server.doesDraftExist(bulletinMutable.getUniversalId()));
 		
 		clientStore.deleteAllData();
 		serverStore.deleteAllData();
@@ -316,7 +321,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		HeadquartersKey key = new HeadquartersKey(hqSecurity.getPublicKeyString());
 		keys.add(key);
 		bulletin.setAuthorizedToReadKeys(keys);
-		bulletin.setSealed();
+		bulletin.setImmutable();
 		store.saveEncryptedBulletinForTesting(bulletin);
 		testServer.uploadBulletin(bulletin.getAccount(), bulletin.getLocalId(), BulletinForTesting.saveToZipString(getClientDatabase(), bulletin, clientSecurity));
 
@@ -351,9 +356,9 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		HeadquartersKey key1 = new HeadquartersKey(hqAccountId);
 		hqKey.add(key1);
 		b.setAuthorizedToReadKeys(hqKey);
-		b.setSealed();
+		b.setImmutable();
 		store.saveEncryptedBulletinForTesting(b);
-		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createSealedKey(b.getUniversalId()), clientSecurity);
+		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createImmutableKey(b.getUniversalId()), clientSecurity);
 		
 		String draft1ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b, clientSecurity);
 		byte[] draft1ZipBytes = StreamableBase64.decode(draft1ZipString);
@@ -420,9 +425,9 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 			String accountId = clientSecurity.getPublicKeyString();
 			testServer.allowUploads(accountId);
 			int largeChunkSize = NetworkInterfaceConstants.CLIENT_MAX_CHUNK_SIZE + 1;
-			byte[] rawData = new byte[largeChunkSize + 10];
-			String data = Base64.encodeBytes(rawData, 0, largeChunkSize, Base64.DONT_BREAK_LINES);
-			String result = testServer.putBulletinChunk(accountId, b1.getAccount(), b1.getLocalId(), largeChunkSize + 10, 0, largeChunkSize, data);
+			byte[] rawData = new byte[largeChunkSize];
+			String data = StreamableBase64.encode(rawData);
+			String result = testServer.putBulletinChunk(accountId, b1.getAccount(), b1.getLocalId(), largeChunkSize*2, 0, largeChunkSize, data);
 			assertNotContains("Log mentioned INVALID?", "INVALID", logger.logged);
 			assertNotContains("Rejected larger chunk size?", NetworkInterfaceConstants.INVALID_DATA, result);
 		}
@@ -446,9 +451,9 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		b.set(Bulletin.TAGTITLE, "Title1");
 		b.set(Bulletin.TAGPUBLICINFO, "Details1");
 		b.set(Bulletin.TAGPRIVATEINFO, "PrivateDetails1");
-		b.setSealed();
+		b.setImmutable();
 		store.saveEncryptedBulletinForTesting(b);
-		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createSealedKey(b.getUniversalId()), clientSecurity);
+		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createImmutableKey(b.getUniversalId()), clientSecurity);
 		
 		String draft1ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b, clientSecurity);
 		byte[] draft1ZipBytes = StreamableBase64.decode(draft1ZipString);
@@ -523,7 +528,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		String[] localIds)
 		throws Exception
 	{
-		MockMartusServer server = new MockMartusServer();
+		MockMartusServer server = new MockMartusServer(this);
 		byte[] bytes = isHiddenNoTrailingNewline.getBytes("UTF-8");
 		UnicodeReader reader = new UnicodeReader(new ByteArrayInputStream(bytes));
 		Vector hiddenPackets = MartusServerUtilities.getHiddenPacketsList(reader);		
@@ -716,7 +721,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		MartusCrypto security = MockMartusSecurity.createServer();
 		ServerFileDatabase db = new ServerFileDatabase(tmpPacketDir, security);
 		db.initialize();
-		MockMartusServer mock = new MockMartusServer(db);
+		MockMartusServer mock = new MockMartusServer(db, this);
 		mock.serverForClients.loadBannedClients();
 		mock.setSecurity(security);
 		mock.verifyAndLoadConfigurationFiles();
@@ -725,9 +730,9 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		{
 			String formTemplateTitle = "New Form Title";
 			String formTemplateDescription = "New Form Description";
-			FieldCollection defaultFieldsTopSection = new FieldCollection(StandardFieldSpecs.getDefaultTopSetionFieldSpecs().asArray());
-			FieldCollection defaultFieldsBottomSection = new FieldCollection(StandardFieldSpecs.getDefaultBottomSectionFieldSpecs().asArray());
-			CustomFieldTemplate template = new CustomFieldTemplate(formTemplateTitle, formTemplateDescription, defaultFieldsTopSection, defaultFieldsBottomSection);
+			FieldSpecCollection defaultFieldsTopSection = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
+			FieldSpecCollection defaultFieldsBottomSection = StandardFieldSpecs.getDefaultBottomSectionFieldSpecs();
+			FormTemplate template = new FormTemplate(formTemplateTitle, formTemplateDescription, defaultFieldsTopSection, defaultFieldsBottomSection);
 			String formTemplateData = template.getExportedTemplateAsBase64String(clientSecurity);
 
 			Vector formTemplateVectorForNetworkCall = new Vector();
@@ -787,7 +792,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 			StreamableBase64.decode(reader, output);
 			output.flush();
 			output.close();
-			CustomFieldTemplate templateReturned = importFormTemplate(formTemplateTempFile);
+			FormTemplate templateReturned = importFormTemplate(formTemplateTempFile);
 			formTemplateTempFile.delete();
 			assertEquals("Didn't return same title of form?", formTemplateTitle, templateReturned.getTitle());
 			assertEquals("Didn't return same description of form?", formTemplateDescription, templateReturned.getDescription());
@@ -801,12 +806,12 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		TRACE_END();
 	}
 
-	private CustomFieldTemplate importFormTemplate(File formTemplateTempFile) throws FutureVersionException, IOException 
+	private FormTemplate importFormTemplate(File formTemplateTempFile) throws FutureVersionException, IOException 
 	{
 		FileInputStreamWithSeek inputStream = new FileInputStreamWithSeek(formTemplateTempFile);
 		try
 		{
-			CustomFieldTemplate templateReturned = new CustomFieldTemplate();
+			FormTemplate templateReturned = new FormTemplate();
 			templateReturned.importTemplate(serverSecurity, inputStream);
 
 			return templateReturned;
@@ -980,7 +985,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 	{
 		TRACE_BEGIN("testGetAccountInformationNoAccount");
 
-		MockMartusServer serverWithoutKeypair = new MockMartusServer();
+		MockMartusServer serverWithoutKeypair = new MockMartusServer(this);
 		serverWithoutKeypair.getSecurity().clearKeyPair();
 
 		Vector errorInfo = serverWithoutKeypair.getServerInformation();
@@ -1021,7 +1026,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 
 		ReadableDatabase db = testServer.getDatabase();
 		assertNotNull("no database?", db);
-		DatabaseKey key = DatabaseKey.createSealedKey(b1.getUniversalId());
+		DatabaseKey key = DatabaseKey.createImmutableKey(b1.getUniversalId());
 		Bulletin got = BulletinLoader.loadFromDatabase(db, key, clientSecurity);
 		assertEquals("id", b1.getLocalId(), got.getLocalId());
 
@@ -1036,7 +1041,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 
 		ReadableDatabase serverDatabase = testServer.getDatabase();
 		
-		DatabaseKey headerKey = DatabaseKey.createSealedKey(b1.getUniversalId());
+		DatabaseKey headerKey = DatabaseKey.createImmutableKey(b1.getUniversalId());
 		DatabaseKey burKey = BulletinUploadRecord.getBurKey(headerKey);
 		assertFalse("BUR already exists?", serverDatabase.doesRecordExist(burKey));
 
@@ -1196,11 +1201,11 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		keys.add(key1);
 		draftBulletin.setAuthorizedToReadKeys(keys);
 		store.saveEncryptedBulletinForTesting(draftBulletin);
-		draftBulletin = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createDraftKey(draftBulletin.getUniversalId()), clientSecurity);
+		draftBulletin = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createMutableKey(draftBulletin.getUniversalId()), clientSecurity);
 		String draftZipString = BulletinForTesting.saveToZipString(getClientDatabase(), draftBulletin, clientSecurity);
 		byte[] draftZipBytes = StreamableBase64.decode(draftZipString);
 
-		MockMartusServer tempServer = new MockMartusServer(new MockDraftDatabase());
+		MockMartusServer tempServer = new MockMartusServer(new MockDraftDatabase(), this);
 		try
 		{
 			tempServer.setSecurity(serverSecurity);
@@ -1220,7 +1225,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 	{
 		TRACE_BEGIN("testUploadSealedStatus");
 
-		MockMartusServer tempServer = new MockMartusServer(new MockSealedDatabase());
+		MockMartusServer tempServer = new MockMartusServer(new MockSealedDatabase(), this);
 		try
 		{
 			tempServer.setSecurity(serverSecurity);
@@ -1253,12 +1258,12 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		HeadquartersKey key1 = new HeadquartersKey(hqSecurity.getPublicKeyString());
 		keys.add(key1);
 		b.setAuthorizedToReadKeys(keys);
-		b.setDraft();
+		b.setMutable();
 		store.saveEncryptedBulletinForTesting(b);
-		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createDraftKey(b.getUniversalId()), clientSecurity);
+		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createMutableKey(b.getUniversalId()), clientSecurity);
 		UniversalId attachmentUid1 = b.getPublicAttachments()[0].getUniversalId();
-		DatabaseKey draftHeader1 = DatabaseKey.createDraftKey(b.getUniversalId());
-		DatabaseKey attachmentKey1 = DatabaseKey.createDraftKey(attachmentUid1);
+		DatabaseKey draftHeader1 = DatabaseKey.createMutableKey(b.getUniversalId());
+		DatabaseKey attachmentKey1 = DatabaseKey.createMutableKey(attachmentUid1);
 		String draft1ZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b, clientSecurity);
 		byte[] draft1ZipBytes = StreamableBase64.decode(draft1ZipString);
 
@@ -1268,12 +1273,12 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		out2.close();
 		b.addPublicAttachment(new AttachmentProxy(attachment));
 		store.saveEncryptedBulletinForTesting(b);
-		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createDraftKey(b.getUniversalId()), clientSecurity);
+		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createMutableKey(b.getUniversalId()), clientSecurity);
 		UniversalId attachmentUid2 = b.getPublicAttachments()[0].getUniversalId();
-		DatabaseKey attachmentKey2 = DatabaseKey.createDraftKey(attachmentUid2);
-		DatabaseKey draftHeader2 = DatabaseKey.createDraftKey(b.getUniversalId());
-		draftHeader2.setDraft();
-		attachmentKey2.setDraft();
+		DatabaseKey attachmentKey2 = DatabaseKey.createMutableKey(attachmentUid2);
+		DatabaseKey draftHeader2 = DatabaseKey.createMutableKey(b.getUniversalId());
+		draftHeader2.setMutable();
+		attachmentKey2.setMutable();
 		String draft2ZipString = BulletinForTesting.saveToZipString(getClientDatabase(),b, clientSecurity);
 		byte[] draft2ZipBytes = StreamableBase64.decode(draft2ZipString);
 
@@ -1282,14 +1287,14 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		out3.write(b1AttachmentBytes);
 		out3.close();
 		b.addPublicAttachment(new AttachmentProxy(attachment));
-		b.setSealed();
+		b.setImmutable();
 		store.saveEncryptedBulletinForTesting(b);
-		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createSealedKey(b.getUniversalId()), clientSecurity);
+		b = BulletinLoader.loadFromDatabase(getClientDatabase(), DatabaseKey.createImmutableKey(b.getUniversalId()), clientSecurity);
 		UniversalId attachmentUid3 = b.getPublicAttachments()[0].getUniversalId();
-		DatabaseKey attachmentKey3 = DatabaseKey.createSealedKey(attachmentUid3);
-		DatabaseKey sealedHeader3 = DatabaseKey.createSealedKey(b.getUniversalId());
-		sealedHeader3.setSealed();
-		attachmentKey3.setSealed();
+		DatabaseKey attachmentKey3 = DatabaseKey.createImmutableKey(attachmentUid3);
+		DatabaseKey immutableHeader3 = DatabaseKey.createImmutableKey(b.getUniversalId());
+		immutableHeader3.setImmutable();
+		attachmentKey3.setImmutable();
 		String sealedZipString = BulletinForTesting.saveToZipString(getClientDatabase(), b, clientSecurity);
 		byte[] sealedZipBytes = StreamableBase64.decode(sealedZipString);
 
@@ -1306,7 +1311,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		assertEquals("Attachment 3 exists?", false, serverDatabase.doesRecordExist(attachmentKey3));
 		assertEquals("Header 1 does not exists?", true, serverDatabase.doesRecordExist(draftHeader1));
 		assertEquals("Header 2 does not exists?", true, serverDatabase.doesRecordExist(draftHeader2));
-		assertEquals("Header 3 exists?", false, serverDatabase.doesRecordExist(sealedHeader3));
+		assertEquals("Header 3 exists?", false, serverDatabase.doesRecordExist(immutableHeader3));
 
 		assertEquals(NetworkInterfaceConstants.OK, uploadBulletinChunk(testServer, 
 			clientSecurity.getPublicKeyString(), b.getLocalId(), draft2ZipBytes.length, 0, 
@@ -1317,7 +1322,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		assertEquals("Attachment 3 exists?", false, serverDatabase.doesRecordExist(attachmentKey3));
 		assertEquals("Header 1 does not exists?", true, serverDatabase.doesRecordExist(draftHeader1));
 		assertEquals("Header 2 does not exists?", true, serverDatabase.doesRecordExist(draftHeader2));
-		assertEquals("Header 3 exists?", false, serverDatabase.doesRecordExist(sealedHeader3));
+		assertEquals("Header 3 exists?", false, serverDatabase.doesRecordExist(immutableHeader3));
 
 		assertEquals(NetworkInterfaceConstants.OK, uploadBulletinChunk(testServer, 
 			clientSecurity.getPublicKeyString(), b.getLocalId(), sealedZipBytes.length, 0, 
@@ -1328,7 +1333,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		assertEquals("Attachment 3 does not exist?", true, serverDatabase.doesRecordExist(attachmentKey3));
 		assertEquals("Header 1 exists?", false, serverDatabase.doesRecordExist(draftHeader1));
 		assertEquals("Header 2 exists?", false, serverDatabase.doesRecordExist(draftHeader2));
-		assertEquals("Header 3 does not exists?", true, serverDatabase.doesRecordExist(sealedHeader3));
+		assertEquals("Header 3 does not exists?", true, serverDatabase.doesRecordExist(immutableHeader3));
 
 		assertEquals(NetworkInterfaceConstants.SEALED_EXISTS, uploadBulletinChunk(testServer, 
 			clientSecurity.getPublicKeyString(), b.getLocalId(), draft1ZipBytes.length, 0, 
@@ -1505,7 +1510,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		TRACE_BEGIN("testKeyBelongsToClient");
 
 		UniversalId uid = UniversalId.createFromAccountAndLocalId("a", "b");
-		DatabaseKey key = DatabaseKey.createSealedKey(uid);
+		DatabaseKey key = DatabaseKey.createImmutableKey(uid);
 		assertEquals("doesn't belong ", false, MartusServer.keyBelongsToClient(key, "b"));
 		assertEquals("belongs ", true, MartusServer.keyBelongsToClient(key, "a"));
 
@@ -1728,7 +1733,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 
 		for(int i=0; i < keys.length; ++i)
 		{
-			assertEquals("Key " + i + " not sealed?", true, keys[i].isSealed());
+			assertEquals("Key " + i + " not sealed?", true, keys[i].isImmutable());
 			if(keys[i].getLocalId().equals(bhp.getLocalId()))
 				foundHeader = true;
 			if(keys[i].getLocalId().equals(bhp.getFieldDataPacketId()))
@@ -1765,7 +1770,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 
 		for(int i=0; i < keys.length; ++i)
 		{
-			assertEquals("Key " + i + " not draft?", true, keys[i].isDraft());
+			assertEquals("Key " + i + " not draft?", true, keys[i].isMutable());
 			if(keys[i].getLocalId().equals(bhp.getLocalId()))
 				foundHeader = true;
 			if(keys[i].getLocalId().equals(bhp.getFieldDataPacketId()))
@@ -1789,7 +1794,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		String result = testServer.authenticateServer(notBase64);
 		assertEquals("error not correct?", NetworkInterfaceConstants.INVALID_DATA, result);
 
-		MockMartusServer server = new MockMartusServer();
+		MockMartusServer server = new MockMartusServer(this);
 		server.setSecurity(new MartusSecurity());
 		String base64data = StreamableBase64.encode(new byte[]{1,2,3});
 		result = server.authenticateServer(base64data);
@@ -1893,7 +1898,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 	{
 		int ports[] = {1,2};
 		
-		MockMartusServer mainServer = new MockMartusServer();
+		MockMartusServer mainServer = new MockMartusServer(this);
 		
 		int[] developmentLinuxPorts = mainServer.shiftToDevelopmentPortsIfNotInSecureMode(ports);
 		for(int i=0; i < ports.length; ++i)
@@ -1967,7 +1972,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		public void writeRecord(DatabaseKey key, InputStream record)
 			throws IOException, RecordHiddenException
 		{
-			if(!key.isDraft())
+			if(!key.isMutable())
 				throw new IOException("Invalid Status");
 			super.writeRecord(key, record);
 		}
@@ -1979,7 +1984,7 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 		public void writeRecord(DatabaseKey key, InputStream record)
 			throws IOException, RecordHiddenException
 		{
-			if(!key.isSealed())
+			if(!key.isImmutable())
 				throw new IOException("Invalid Status");
 			super.writeRecord(key, record);
 		}
@@ -2012,4 +2017,6 @@ public class TestMartusServer extends TestCaseEnhanced implements NetworkInterfa
 	
 	MockMartusServer testServer;
 	NetworkInterface testServerInterface;
+	
+	private ServerMetaDatabaseForTesting smdFactory;
 }

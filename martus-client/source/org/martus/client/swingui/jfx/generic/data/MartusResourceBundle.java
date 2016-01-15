@@ -27,8 +27,11 @@ package org.martus.client.swingui.jfx.generic.data;
 
 import java.util.Enumeration;
 import java.util.ResourceBundle;
+import java.util.SortedSet;
 
 import org.martus.client.swingui.MartusLocalization;
+import org.martus.client.swingui.UiSession;
+import org.martus.common.MiniLocalization;
 
 
 public class MartusResourceBundle extends ResourceBundle
@@ -52,12 +55,43 @@ public class MartusResourceBundle extends ResourceBundle
 		if(prefix.equals(MENU_CONTROL))
 			return localization.getMenuLabel(prefixAndKey[1]);
 		if(prefix.equals(TOOLTIP_CONTROL))
-			return localization.getTooltipLabel(prefixAndKey[1]);
+			return getToolTipText(prefixAndKey);
 		if(prefix.equals(BUTTON_CONTROL))
 			return localization.getButtonLabel(prefixAndKey[1]);
 		if(prefix.equals(TITLE_CONTROL))
 			return localization.getWindowTitle(prefixAndKey[1]);
+		if(prefix.equals(IS_FULL_DESKTOP_FLAVOR))
+			return Boolean.toString(UiSession.isFullDesktopFlavor());
+					
 		return localization.getFieldLabel(key);
+	}
+
+	private String getToolTipText(String[] prefixAndKey)
+	{
+		String code = prefixAndKey[1];
+		String tooltipCodeForDesktopFlavor = getTooltipCodeForDesktopFlavor(code);
+		
+		return localization.getTooltipLabel(tooltipCodeForDesktopFlavor);
+	}
+	
+	private String getTooltipCodeForDesktopFlavor(String code)
+	{
+		if (UiSession.isFullDesktopFlavor())
+			return code;
+		
+		String readonlyDesktopFlavorToolTipCode =  READ_ONLY_DESKTOP_TOOLTIP_PREFIX + code;
+		if (tooltipExists(readonlyDesktopFlavorToolTipCode))
+			return readonlyDesktopFlavorToolTipCode;
+		
+		return code;
+	}
+
+	private boolean tooltipExists(String tooltipCode)
+	{
+		SortedSet<String> allKeysSorted = localization.getAllKeysSorted();			
+		String tooltipKey = MiniLocalization.createKey(MiniLocalization.CATEGORY_TOOLTIP_CODE, tooltipCode);
+		
+		return allKeysSorted.contains(tooltipKey);
 	}
 
 	@Override
@@ -71,4 +105,6 @@ public class MartusResourceBundle extends ResourceBundle
 	private static final String BUTTON_CONTROL = "Button";
 	private static final String MENU_CONTROL = "Menu";
 	private static final String TITLE_CONTROL = "Title";
+	private static final String IS_FULL_DESKTOP_FLAVOR = "isFullDesktopFlavor";
+	private static final String READ_ONLY_DESKTOP_TOOLTIP_PREFIX = "ReadonlyDesktopFlavor";
 }

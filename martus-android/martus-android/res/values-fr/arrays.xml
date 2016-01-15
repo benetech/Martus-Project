@@ -4,9 +4,9 @@
     <item>Anglais</item>
     <item>Arabe</item>
     <item>Arménien</item>
-    <item>Azerbaïdjanais</item>
+    <item>Azéri</item>
     <item>Bulgare</item>
-    <item>Bengali</item>
+    <item>Bengali, bangla</item>
     <item>Birman</item>
     <item>Chinois</item>
     <item>Néerlandais</item>
@@ -15,7 +15,7 @@
     <item>Français</item>
     <item>Allemand</item>
     <item>Gujarati</item>
-    <item>Hausa</item>
+    <item>Haoussa</item>
     <item>Hébreu</item>
     <item>Hindi</item>
     <item>Hongrois</item>
@@ -31,20 +31,20 @@
     <item>Malayalam</item>
     <item>Marathi</item>
     <item>Népalais</item>
-    <item>Oriya</item>
-    <item>Panjabi</item>
-    <item>Pachto</item>
+    <item>Odia</item>
+    <item>Pendjabi</item>
+    <item>Pachto, pashto</item>
     <item>Polonais</item>
     <item>Portugais</item>
     <item>Roumain</item>
     <item>Russe</item>
     <item>Serbe</item>
     <item>Sindhi</item>
-    <item>Cinghalais</item>
+    <item>Cingalais</item>
     <item>Espagnol</item>
-    <item>Tamil</item>
+    <item>Tamoul</item>
     <item>Tadjik</item>
-    <item>Telugu</item>
+    <item>Télougou</item>
     <item>Thaï</item>
     <item>Turc</item>
     <item>Turkmène</item>
@@ -107,11 +107,11 @@
     <item>vi</item>
   </string-array>
   <string-array name="entries_timeout_preference">
-    <item>10 Minutes</item>
-    <item>7 Minutes</item>
-    <item>5 Minutes</item>
-    <item>3 Minutes</item>
-    <item>1 Minutes</item>
+    <item>10 minutes</item>
+    <item>7 minutes</item>
+    <item>5 minutes</item>
+    <item>3 minutes</item>
+    <item>1 minute</item>
   </string-array>
   <string-array name="values_timeout_preference">
     <item>10</item>
@@ -119,5 +119,19 @@
     <item>5</item>
     <item>3</item>
     <item>1</item>
+  </string-array>
+  <!--DO NOT alter font_size_entry_values - used internally in preferences activity-->
+  <string-array name="font_size_entries">
+    <item>@string/font_size_extra_large</item>
+    <item>@string/font_size_large</item>
+    <item>@string/font_size_medium</item>
+    <item>@string/font_size_small</item>
+    <item>@string/font_size_extra_small</item>
+  </string-array>
+  <!--DO NOT alter navigation_entry_values - used internally in preferences activity-->
+  <string-array name="navigation_entries">
+    <item>@string/swipe_navigation</item>
+    <item>@string/buttons_navigation</item>
+    <item>@string/swipe_buttons_navigation</item>
   </string-array>
 </resources>

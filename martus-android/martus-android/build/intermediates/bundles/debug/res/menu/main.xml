@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/tor_button"
+        android:title="@string/tor_label"
+        android:showAsAction="always"
+        android:actionViewClass="android.widget.CheckBox"
+        android:actionLayout="@layout/tor_toggle_without_text"/>
+
+    <item android:id="@+id/manage_my_account_menu"
+        android:title="@string/manage_my_account_menu" >
+        <menu>
+            <item android:id="@+id/view_access_token_menu_item"
+                android:title="@string/view_access_token_menu_item"/>
+
+            <item android:id="@+id/reset_install_menu_item"
+                android:title="@string/reset_to_install" />
+
+            <item android:id="@+id/view_public_code_menu_item"
+                android:title="@string/view_public_code_menu_item" />
+
+            <item android:id="@+id/email_mpi_menu_item"
+                android:title="@string/send_public_account_id_menu_item" />
+
+            <item android:id="@+id/send_mpi_menu_item_via_bulletin"
+                android:title="@string/send_public_account_id_menu_item_via_bulletin" />
+
+            <item android:id="@+id/export_mpi_menu_item"
+                android:title="@string/export_public_account_id_menu_item" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/settings_menu_item"
+        android:title="@string/general_preferences" />
+
+    <item android:id="@+id/manage_bulletins_menu"
+        android:title="@string/manage_bulletins_menu">
+        <menu>
+            <item android:id="@+id/resend_menu_item"
+                android:title="@string/resend_menu_item" />
+
+        </menu>
+    </item>
+
+    <item android:id="@+id/help_menu"
+        android:title="@string/help_menu" >
+        <menu>
+
+            <item android:id="@+id/view_docs_menu_item"
+                android:title="@string/view_docs_menu" />
+
+            <item android:id="@+id/feedback_menu_item"
+                android:title="@string/contact_us_menu_item" />
+
+            <item android:id="@+id/view_tor_message_menu_item"
+                android:title="@string/about_tor_label"/>
+        </menu>
+    </item>
+
+    <item android:id="@+id/show_version_menu_item"
+        android:title="@string/show_version" />
+
+    <item android:id="@+id/ping_server_menu_item"
+        android:title="@string/ping_server_menu_item" />
+
+    <item android:id="@+id/quit_menu_item"
+        android:title="@string/quit_menu_title" />
+
+    <item android:id="@+id/send_bulletin_menu_item"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/send_bulletin" />
+
+    <item android:id="@+id/cancel_bulletin_menu_item"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_menu_cancel"
+        android:title="@string/cancel" />
+</menu>
+
+<!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/menu/main.xml -->

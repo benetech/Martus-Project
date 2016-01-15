@@ -1,0 +1,231 @@
+#fxGridPane {
+	-fx-background-color: #e6e7e9;
+}
+
+.BackgroundTaskMainPanel {
+	-fx-padding: 5 35 5 35;
+	-fx-spacing: 20;
+	-fx-alignment: BOTTOM_CENTER;
+}
+
+.button {
+
+		-fx-background-color:
+
+        #797769,
+
+       linear-gradient(#35536b, #597489);
+
+		-fx-border-radius: 5;
+
+		-fx-text-fill: White;
+
+		-fx-alignment: center;
+
+		-fx-font: 17px "DejaVuSans";
+
+		-fx-padding: 5 35 5 35;
+
+}
+
+.text-area {
+	-fx-background-color: white;
+	-fx-text-background-color: #9ba5ae;
+	-fx-text-fill: #4c5e70;
+	-fx-border-style: none;
+	-fx-font-size: 13px;
+	-fx-font-weight: bold;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: #e6e7e9;
+	-fx-border-style: none;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: #e6e7e9;
+	-fx-border-style: none;
+}
+
+.button_not_main_action {
+
+		-fx-background-color:
+
+        #797769,
+
+       linear-gradient(#35536b, #597489);
+
+		-fx-border-radius: 5;
+
+		-fx-text-fill: #4c5e70;
+
+		-fx-alignment: center;
+
+		-fx-font: 17px "DejaVuSans";
+
+		-fx-padding: 5 35 5 35;
+
+}
+
+
+
+.button_guided_action {
+
+		-fx-background-color:
+
+        #797769,
+
+       linear-gradient(#e2c92f, #797769);
+
+		-fx-border-radius: 5;
+
+		-fx-text-fill: #4c5e70;
+
+		-fx-alignment: center;
+
+		-fx-font: 17px "DejaVuSans";
+
+		-fx-padding: 5 35 5 35;
+
+}
+
+
+
+.headingLevel1 {
+
+	-fx-text-fill: White;
+
+	-fx-stroke-width: 10;
+
+	-fx-stroke: White;
+
+	-fx-font: 20px "DejaVuSans";
+
+  -fx-font-weight: bold;
+
+	-fx-padding: 0 5 10 5;
+
+}
+
+
+
+.headingLevel2 {
+
+	-fx-text-fill: #4c5e70;
+
+	-fx-stroke-width: 10;
+
+	-fx-stroke: #4c5e70;
+
+	-fx-font: 20px "DejaVuSans";
+
+  -fx-font-weight: bold;
+
+	-fx-padding: 10 5 10 5;
+
+}
+
+
+
+.headingLevel3 {
+
+	-fx-text-fill: #4c5e70;
+
+	-fx-font: 11px "DejaVuSans";
+
+  -fx-font-weight: bold;
+
+	-fx-padding: 5 3 5 3;
+
+}
+
+.headingLevel4 {
+
+	-fx-text-fill: #797769;
+
+	-fx-stroke-width: 10;
+
+	-fx-stroke: #797769;
+
+	-fx-font: 20px "DejaVuSans";
+
+  -fx-font-weight: bold;
+
+	-fx-padding: 10 5 10 5;
+
+}
+
+
+.mainText {
+
+	-fx-text-fill: #4c5e70;
+
+	-fx-alignment: center-left;
+
+	-fx-font: 13px "DejaVuSans";
+
+}
+
+
+
+.mainTextBox {
+
+	-fx-background-color: #9ba5ae;
+
+  -fx-width: 80%;
+
+  -fx-padding: 25 10 15 10;
+
+	-fx-alignment: center-left;
+
+	-fx-background-radius: 7.0;
+
+}
+
+
+
+.mainTextBoxText {
+
+	-fx-text-fill: #4c5e70;
+
+	-fx-alignment: center-left;
+
+	-fx-font: 11px "DejaVuSans";
+
+}
+
+
+
+.hintText {
+
+	-fx-text-fill: #4c5e70;
+
+	-fx-alignment: center-left;
+
+	-fx-font: 13px "DejaVuSans";
+
+}
+
+
+
+.errorText {
+
+	-fx-text-fill: #638a4b;
+
+	-fx-alignment: center-left;
+
+	-fx-font: 13px "DejaVuSans";
+
+}
+
+
+.radioButtonText {
+	-fx-text-fill: #4c5e70;
+  -fx-padding: 0 4 4 4;
+	-fx-font: 38px "DejaVuSans";
+}
+
+
+.popupMargin {
+  -fx-padding: 25 25 25 25;
+}

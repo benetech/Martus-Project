@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string name="survey_loading_reading_form_message">تجري قراءة تحديدات الاستمارة...</string>
+    <string name="button_label_complete_new_form">إنشاء تسجيل</string>
+    <string name="title_existing_forms">التسجيلات الموجودة</string>
+    <string name="label_enter_passphrase">ادخل كلمة السر</string>
+    <string name="label_confirm_passphrase">تأكيد كلمة السر</string>
+    <string name="label_create_account">إنشاء الحساب</string>
+    <string name="title_login">الولوج</string>
+    <string name="label_pass_phrases_do_not_match">كلمتا السر غير متوافقتين !</string>
+    <string name="label_invalid_pass_phrase_length">طول كلمة السر غير صالح، يجب أن تتكون من 8 حروف على الأقل !</string>
+    <string name="label_empty_pass_phrase">يُرجى إدخال كلمة السر</string>
+    <string name="label_incorrect_pass_phrase">كلمة السر غير صحيحة</string>
+    <string name="invalid_server_ip">عنوان IP غير صالح</string>
+    <string name="label_connecting_to_server">يجري الاتصال بالخادم</string>
+    <string name="error_message">خطأ</string>
+    <string name="error_connecting_to_server">حدث خطأ أثناء الاتصال بالخادم</string>
+    <string name="no_upload_rights">الكلمة السحرية غير صحيحة</string>
+    <string name="label_server_connection_setup_successful">لقد نجحت في إعداد الاتصال بخادم Martus !</string>
+    <string name="invalid_server_public_code">الرمز العمومي للخادم غير صالح</string>
+    <string name="progress_confirming_upload_rights">يجري تأكيد حقوق الرفع</string>
+    <string name="successful_server_choice">نجح الاتصال بالخادم !</string>
+    <string name="invalid_server_info">معلومات الخادم المدخلة غير صالحة</string>
+    <string name="error_establishing_upload_rights">فشِل إنشاء حقوق الرفع</string>
+    <string name="no_network_connection">الجهاز غير متصل !</string>
+    <string name="progress_preparing_to_connect">يجري إعداد الاتصال بالخادم</string>
+    <string name="error_create_account">حدث خطأ أثناء إنشاء الحساب</string>
+    <string name="label_setup_secure_storage">إعداد تخزين آمن</string>
+    <string name="no_forms">لا وجود للتسجيلات</string>
+    <string name="my_forms">التسجيلات الموجودة</string>
+    <string name="passphrase">كلمة السر</string>
+    <string name="blank_label"></string>
+    <string name="send_bulletin">إرسال التسجيل</string>
+    <string name="invalid_password">يجب أن تحوي كلمة السر 8 أحرف على الأقل</string>
+    <string name="settings_pwd_equal">كلمتا السر متطابقتان !</string>
+    <string name="settings_pwd_not_equal">كلمتا السر غير متطابقتين !</string>
+    <string name="error_incorrect_passphrase">كلمة السر غير صحيحة، يُرجى الإعادة !</string>
+    <string name="form_title_label">عنوان الاستمارة</string>
+    <string name="save">حفظ</string>
+    <string name="syncing_form">تجري مزامنة الاستمارة</string>
+    <string name="keypair_creation_failed">فشل إنشاء مفتاحَيْ Martus</string>
+    <string name="error_message_unexpected_error">خطأ غير متوقع</string>
+    <string name="error_message_invalid_chars">استُخدِمَت حروف غير صحيحة في كلمة السر</string>
+    <string name="error_message_move_failed">حدثت مشكلة أثناء نقل التسجيلات الفاشلة</string>
+    <string name="label_no_attachments">لا وجود للمرفقات</string>
+    <string name="label_no_images_in_gallery"> لا وجود للصور</string>
+    <string name="form_author_field_hint">مؤلف الاستمارة</string>
+    <string name="form_organization_field_hint">منظمة الاستمارة</string>
+    <string name="label_auto_generated_orphan_group_name">غير مُسمَّى</string>
+    <string name="preparing_record_for_upload">يجري إعداد رفع التسجيل</string>
+    <string name="uploading_record">يجري رفع التسجيل...</string>
+    <string name="could_not_delete_attachment">لم يتمكن من حذف المرفق : %1$s</string>
+    <string name="show_version">إظهار الإصدار</string>
+    <string name="version_name_label">اسم الإصدار : %1$s</string>
+    <string name="version_code_label">رمز الإصدار : %1$s</string>
+    <string name="send_failed_cant_reach_server">لا يمكن الوصول إلى الخادم</string>
+    <string name="bulletin_sending_progress">يجري الإرسال...</string>
+    <string name="default_author">مؤلف مجهول</string>
+    <string name="error_cleaning_up_odk_folders">حدث خطأ أثناء تنظيف المجلدات</string>
+    <string name="failed_send_notification">فشل الإرسال بسبب: %1$s. حاول إعادة الإرسال لاحقا.</string>
+    <string name="failure_choosing_file">فشل اختيار الملف</string>
+    <string name="failure_zipping_bulletin">فشِل ضغط التسجيل</string>
+    <string name="starting_send_notification">يجري الإرسال...</string>
+    <string name="successful_send_notification">أُرسِل التسجيل !</string>
+    <string name="title_attachments">مرفقات الاستمارة</string>
+    <string name="xforms_constraint_error">لا يمكن الرفع :\n وُجِدت قيود في الاستمارة</string>
+    <string name="xforms_missing_required_field">لا يمكن الرفع :\n هناك حقول إجبارية ناقصة</string>
+    <string name="hint_password_field">كلمة السر</string>
+    <string name="hint_confirm_password_field">تأكيد كلمة السر</string>
+    <string name="label_enter_your_password">أدخل كلمة السر للمتابعة</string>
+    <!--Override Cacheword-->
+    <string name="cacheword_notification_cached_title">فُكَّ قفل الحساب</string>
+    <string name="cacheword_notification_cached">إنَّ نموذج secureApp غير مقفل. المس للقفل.</string>
+    <string name="cacheword_notification_cached_message">إنَّ نموذج secureApp غير مقفل. المس للقفل.</string>
+    <!--End override Cacheword-->
+    <!--Override ODK-->
+    <string name="required_answer_error">إن الإجابة المرجوة ناقصة.</string>
+    <!--End override ODK-->
+</resources>

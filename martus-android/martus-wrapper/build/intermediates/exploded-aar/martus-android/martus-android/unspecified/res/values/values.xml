@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+        <item>English</item>
+        <item>Arabic</item>
+        <item>Armenian</item>
+        <item>Azerbaijani</item>
+        <item>Bulgarian</item>
+        <item>Bengali, Bangla</item>
+        <item>Burmese</item>
+        <item>Chinese</item>
+        <item>Dutch</item>
+        <item>Esperanto</item>
+        <item>Farsi/Dari</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Gujarati</item>
+        <item>Hausa</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>Hungarian</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Javanese</item>
+        <item>Kannada</item>
+        <item>Kazakh</item>
+        <item>Khmer</item>
+        <item>Kirghiz</item>
+        <item>Korean</item>
+        <item>Kurdish</item>
+        <item>Malayalam</item>
+        <item>Marathi</item>
+        <item>Nepali</item>
+        <item>Oriya</item>
+        <item>Panjabi</item>
+        <item>Pashto, Pushto</item>
+        <item>Polish</item>
+        <item>Portuguese</item>
+        <item>Romanian</item>
+        <item>Russian</item>
+        <item>Serbian</item>
+        <item>Sindhi</item>
+        <item>Sinhalese</item>
+        <item>Spanish</item>
+        <item>Tamil</item>
+        <item>Tajik</item>
+        <item>Telugu</item>
+        <item>Thai</item>
+        <item>Turkish</item>
+        <item>Turkmen</item>
+        <item>Ukranian</item>
+        <item>Urdu</item>
+        <item>Uzbek</item>
+        <item>Vietnamese</item>
+    </string-array>
+    <string-array name="entries_timeout_preference">
+        <item>10 Minutes</item>
+        <item>7 Minutes</item>
+        <item>5 Minutes</item>
+        <item>3 Minutes</item>
+        <item>1 Minute</item>
+    </string-array>
+    <string-array name="font_size_entries">
+    		<item>@string/font_size_extra_large</item>
+    		<item>@string/font_size_large</item>
+    		<item>@string/font_size_medium</item>
+    		<item>@string/font_size_small</item>
+    		<item>@string/font_size_extra_small</item>
+    	</string-array>
+    <string-array name="font_size_entry_values" translatable="false">
+    		<item>29</item>
+    		<item>25</item>
+    		<item>21</item>
+    		<item>17</item>
+    		<item>13</item>
+    	</string-array>
+    <string-array name="navigation_entries">
+    		<item>@string/swipe_navigation</item>
+    		<item>@string/buttons_navigation</item>
+    		<item>@string/swipe_buttons_navigation</item>
+    	</string-array>
+    <string-array name="navigation_entry_values" translatable="false">
+    		<item>swipe</item>
+    		<item>buttons</item>
+    		<item>swipe_buttons</item>
+    	</string-array>
+    <string-array name="values_language_preference">
+        <item>en</item>
+        <item>ar</item>
+        <item>arm</item>
+        <item>az</item>
+        <item>bg</item>
+        <item>bn</item>
+        <item>bur</item>
+        <item>zh</item>
+        <item>nl</item>
+        <item>eo</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>gu</item>
+        <item>ha</item>
+        <item>he</item>
+        <item>hi</item>
+        <item>hu</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>jv</item>
+        <item>kn</item>
+        <item>kk</item>
+        <item>km</item>
+        <item>ky</item>
+        <item>ko</item>
+        <item>ku</item>
+        <item>ml</item>
+        <item>mr</item>
+        <item>ne</item>
+        <item>or</item>
+        <item>pa</item>
+        <item>ps</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ro</item>
+        <item>ru</item>
+        <item>sr</item>
+        <item>sd</item>
+        <item>si</item>
+        <item>es</item>
+        <item>ta</item>
+        <item>tg</item>
+        <item>te</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>tk</item>
+        <item>uk</item>
+        <item>ur</item>
+        <item>uz</item>
+        <item>vi</item>
+    </string-array>
+    <string-array name="values_timeout_preference">
+        <item>10</item>
+        <item>7</item>
+        <item>5</item>
+        <item>3</item>
+        <item>1</item>
+    </string-array>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="button_disabled_background">#dd9c9c9c</color>
+    <color name="button_gradient_end_color">#597489</color>
+    <color name="button_gradient_start_color">#35536b</color>
+    <color name="button_pressed_color">#797769</color>
+    <color name="button_stroke_color">#597489</color>
+    <color name="button_text_white">#ffffffff</color>
+    <color name="main_screen_background">#e6e7e9</color>
+    <color name="text_blue">#4c5e70</color>
+    <color name="top_bar_background_color">#4c5e70</color>
+    <drawable name="black">#ff000000</drawable>
+    <drawable name="white">#ffffffff</drawable>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/untranslated.xml -->
+    <eat-comment/>
+    <item name="mapview" type="id"/>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <plurals name="confirm_reset_install_extra">
+        <item quantity="one">You will lose %1$s unsent or currently sending record.</item>
+        <item quantity="other">You will lose %1$s unsent or currently sending records.</item>
+    </plurals>
+    <plurals name="show_unsent_count">
+        <item quantity="one">You have %1$s unsent record. You may go to the Tools menu and resend it.</item>
+        <item quantity="other">You have %1$s unsent records. You may go to the Tools menu and resend them.</item>
+    </plurals>
+    <string name="about_tor_label">Understanding Tor</string>
+    <string name="access_token">Access Token:</string>
+    <string name="account_access_token_label">Access Token: %1$s</string>
+    <string name="add_attachment">Add attachment</string>
+    <string name="add_contact_from_file">Import Contact from File</string>
+    <string name="add_contact_using_access_token">Add Contact from Server</string>
+    <string name="advanced_server_options">Advanced server settings</string>
+    <string name="alert_dialog_confirm_password">Confirm Password:</string>
+    <string name="alert_dialog_magic_word">Magic Word:</string>
+    <string name="alert_dialog_ok">OK</string>
+    <string name="alert_dialog_password">Password:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string name="app_name" translate="false">Martus</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="attachment_no_longer_exists">Couldn\'t send because the following attachment, %1$s , has been deleted from the device</string>
+    <string name="attachments_add_label">Attachments:</string>
+    <string name="attachments_added_label">Attachments (press and hold to remove) :</string>
+    <string name="boolean_false">No</string>
+    <string name="boolean_true">Yes</string>
+    <string name="bulletin_packaging_progress">Encrypting and zipping…</string>
+    <string name="bulletin_sending_progress">Sending…</string>
+    <string name="cancel_server">Cancel</string>
+    <string name="choose_file">Martus File Explorer</string>
+    <string name="choose_server_intro">Next, configure a connection to the Martus server you will be sending records to.</string>
+    <string name="choose_server_title">Select Server</string>
+    <string name="confirm_cancel_bulletin">Cancel this Record?</string>
+    <string name="confirm_data_loss">If you leave this screen now, you will lose any data you have entered. Are you sure you want to leave?</string>
+    <string name="confirm_default">Are you sure?</string>
+    <string name="confirm_go_to_device_home">Are you sure you want to leave Martus?</string>
+    <string name="confirm_logout">Are you sure want to logout?</string>
+    <string name="confirm_password_hint">Confirm password</string>
+    <string name="confirm_remove_attachment">Remove %1$s ?</string>
+    <string name="confirm_reset_install">Are you sure you want to delete?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message">There has been an error with your setup files. In the interest of security, please delete your account. Pressing the Yes button will start this process. Martus will not work with a corrupted settings file, so pressing No will exit Martus.</string>
+    <string name="confirm_tamper_reset_title">Setup Error</string>
+    <string name="contact_access_token">Contact Access Token</string>
+    <string formatted="false" name="contact_us_info">If you have any questions or feedback on Martus, please email martus@benetech.org</string>
+    <string name="contact_us_menu_item">Contact Us</string>
+    <string name="create_account_dialog_cancel">Exit</string>
+    <string name="create_account_dialog_title">Create a password</string>
+    <string name="create_account_intro">Welcome to Martus! First, create a new Mobile Martus account.</string>
+    <string name="create_password_hint">New password</string>
+    <string name="create_sample_bulletin">Create Record</string>
+    <string name="custom_form_transition">This is your chance to add any attachments or press back to edit form entry.</string>
+    <string name="date_range_end"> (end)</string>
+    <string name="date_range_start"> (start)</string>
+    <string name="date_validation_min">Date must be on or after %1$s .</string>
+    <string name="date_validation_min_max">Date must be on or after %1$s  and on or before %2$s.</string>
+    <string name="default_author">Unknown Author</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/untranslated.xml -->
+    <eat-comment/>
+    <string name="default_odk_formlist" translatable="false">/formList</string>
+    <string name="default_odk_submission" translatable="false">/submission</string>
+    <string name="default_server_url" translatable="false">https://opendatakit.appspot.com</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="desktop_public_code_hint">Desktop account Public Code</string>
+    <string name="desktop_sync_choose_file">Choose Martus Desktop account (.mpi) file</string>
+    <string name="desktop_sync_public_code">Then enter Martus Desktop account Public Code:</string>
+    <string name="desktop_sync_title">Martus Desktop account information</string>
+    <string name="dialog_title_timeout_preference">Timeout duration</string>
+    <string name="end_form_button">Add Attachments and Send</string>
+    <string name="enter_magic_word_hint">Enter Magic Word</string>
+    <string name="enter_password_hint">Enter password</string>
+    <string name="error_computing_public_code">Error saving server preferences</string>
+    <string name="error_create_account">Error creating account</string>
+    <string name="error_getting_server_key">Error connecting to server</string>
+    <string name="error_message">Error</string>
+    <string name="error_retrieving_contact">Error retrieving contact</string>
+    <string name="export_public_account_id_dialog_error">Unable to export Account ID</string>
+    <string name="export_public_account_id_dialog_title">Export Public Account ID Error</string>
+    <string name="export_public_account_id_menu_item">Export Public Account ID</string>
+    <string name="exported_account_id_file_confirmation">Exported To</string>
+    <string name="failed_send_notification">Send failed due to: %1$s . Try resending later.</string>
+    <string name="failure_choosing_file">Failed choosing file</string>
+    <string name="failure_zipping_bulletin">Failed zipping record</string>
+    <string name="fetched_picasa_image">Got Picasa image</string>
+    <string name="fetching_picasa_image">Fetching Picasa image</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string formatted="false" name="file_explorer_store_link" translate="false">play.google.com/store/search?q=%22open+source%22+file+manager+explorer</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="goto_server_setup_button">Next</string>
+    <string name="help_menu">Help</string>
+    <string name="import_contact_title">Import contact</string>
+    <string name="import_hq_intro">Finally, enter information about the Martus account that you are sending your Mobile Martus records to.\n\nYou must have a Martus Public Account ID file (ending with “.mpi”) and public code from the Martus Desktop account that you want to receive your Mobile Martus records to complete this step.</string>
+    <string name="incorrect_password">Incorrect Password</string>
+    <string name="install_explorer_text">If you can\'t find the file you were thinking of, try installing a more advanced file explorer:</string>
+    <string name="install_file_explorer">Try another file explorer</string>
+    <string name="install_orbot_">Install Orbot</string>
+    <string name="invalid_orbot_message">Please reinstall Orbot from the Google Play Store</string>
+    <string name="invalid_orbot_title">Invalid Orbot Installation</string>
+    <string name="invalid_password">Password must be at least 8 characters long</string>
+    <string name="invalid_public_account_file">Invalid Desktop account file</string>
+    <string name="invalid_public_code">Public Code doesn\'t match file</string>
+    <string name="invalid_server_code">Invalid Server Public Code</string>
+    <string name="invalid_server_info">Invalid Server Information Entered</string>
+    <string name="invalid_server_ip">Invalid IP Address</string>
+    <string name="label_author">Author</string>
+    <string name="label_entrydate">Entry Date</string>
+    <string name="label_eventdate">Event Date</string>
+    <string name="label_keywords">Keywords</string>
+    <string name="label_location">Location</string>
+    <string name="label_organization">Organization</string>
+    <string name="label_privateinfo">Private Info</string>
+    <string name="label_publicinfo">Public Info</string>
+    <string name="label_summary">Summary</string>
+    <string name="label_title">Title</string>
+    <string name="logout_while_sending_message">Please wait until the record has finished sending.</string>
+    <string name="logout_while_sending_title">Can\'t logout yet</string>
+    <string name="manage_bulletins_menu">Manage Records</string>
+    <string name="manage_my_account_menu">Manage My Account</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string name="market_orbot" translate="false">market://search?q=pname:org.torproject.android</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="must_login_first_message">You must first login before sending this record</string>
+    <string name="must_login_first_title">Warning!</string>
+    <string name="no">No</string>
+    <string name="no_network_connection">Device has no connectivity!</string>
+    <string name="no_network_create_bulletin_warning">Any record you try to send will fail due to lack of connectivity. (You may have Wi-Fi Only checked in Settings.) \n\n But clicking Send will encrypt and save the record, and when you have connectivity, you may resend it from the Tools menu.</string>
+    <string name="no_upload_rights">Incorrect Magic Word</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string name="notification_title" translate="false">Martus - %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="off_switch_label">Off</string>
+    <string name="on_switch_label">On</string>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot is not running. Would you like to start it?</string>
+    <string name="orbot_running_should_stop_message">Orbot is running. Would you like to stop it?</string>
+    <string name="password_dialog_title">Login</string>
+    <string name="ping_result_down">Server is down</string>
+    <string name="ping_result_ok">Server is up</string>
+    <string name="ping_server_menu_item">Check Server</string>
+    <string name="problem_adding_attachment">Error adding attachment to record</string>
+    <string name="problem_confirming_magic_word">Error confirming Magic Word</string>
+    <string name="problem_creating_bulletin">Couldn\'t create new record</string>
+    <string name="progress_confirming_magic_word">Confirming Magic Word</string>
+    <string name="progress_connecting_to_server">Connecting to server</string>
+    <string name="progress_creating_account">Creating Account</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/untranslated.xml -->
+    <eat-comment/>
+    <string name="protocol_google" translatable="false">google</string>
+    <string name="protocol_odk_default" translatable="false">odk_default</string>
+    <string name="protocol_other" translatable="false"/>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="public_code_validation_empty">Public Code can\'t be empty</string>
+    <string name="quit_menu_title">Logout</string>
+    <string name="replace_contact_menu_item">Update Contact</string>
+    <string name="resend_menu_item">Resend Unsent Records</string>
+    <string name="resending">Resending!</string>
+    <string name="resending_no_bulletins">You have no unsent records.</string>
+    <string name="resending_no_network">You don\'t have connectivity, or have Wi-Fi Only turned on.</string>
+    <string name="reset_to_install">Delete My Account</string>
+    <string name="reset_while_sending_title">Can\'t reset yet</string>
+    <string name="retrieving_contact_information_label">Retrieving contact information.</string>
+    <string name="retry_server">Re-enter</string>
+    <string name="select_file_picker">Select a file explorer</string>
+    <string name="send_bulletin">Send</string>
+    <string name="send_email_title">Send email...</string>
+    <string name="send_failed_cant_reach_server">Can\'t reach server</string>
+    <string name="send_public_account_id_menu_item">Email Public Account ID</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">Send Public Account ID in Record</string>
+    <string name="server_ip_hint">Enter IP Address</string>
+    <string name="server_ip_label">IP Address:</string>
+    <string name="server_menu_title">Select Server</string>
+    <string name="server_public_code_hint">Enter Server Public Code</string>
+    <string name="server_public_code_label">Server Public Code:</string>
+    <string name="settings_pwd_equal">Passwords match!</string>
+    <string name="settings_pwd_not_equal">Passwords don\'t match!</string>
+    <string name="settings_title">Settings</string>
+    <string name="show_unsent_title">You have unsent records.</string>
+    <string name="show_version">Show Version</string>
+    <string name="start_orbot_">Start Orbot</string>
+    <string name="starting_send_notification">Sending …</string>
+    <string name="stop_orbot">Stop Orbot</string>
+    <string name="success_import_hq_key">You have successfully configured a Martus Desktop account to receive your Mobile Martus records. Mobile Martus setup is complete!</string>
+    <string name="success_magic_word">You have successfully set up a connection to the Martus server!</string>
+    <string name="successful_send_notification">Record sent!</string>
+    <string name="successful_server_choice">Successfully connected to server!</string>
+    <string name="summary_language_preference">Please select language you will enter record data in</string>
+    <string name="summary_optional_label">Optional</string>
+    <string name="summary_timeout_preference">In minutes</string>
+    <string name="title_author_preference">Author</string>
+    <string name="title_hint">Title</string>
+    <string name="title_language_preference">Record language</string>
+    <string name="title_summary">Summary</string>
+    <string name="title_timeout_preference">Timeout</string>
+    <string name="title_wifi_only_preference">Use Wi-Fi Only</string>
+    <string name="tor_label">Tor</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string formatted="false" name="tor_link" translate="false">https://www.torproject.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="tor_option_intro">Next, turn on Tor if desired.</string>
+    <string name="use_default_server">Use default server</string>
+    <string formatted="false" name="use_tor"><b>Use Tor</b> (May help hide that you are connecting to a Martus server, and may help reach the Martus servers if they are blocked from your location, but will slow sending of records.)</string>
+    <string name="user_preferences">Settings</string>
+    <string name="valid_public_account_file">Valid Desktop account file</string>
+    <string name="verify_public_code">Verify public code:\n %1$s</string>
+    <string name="version_code_label">Build %1$s</string>
+    <string name="version_name_label">Version name %1$s</string>
+    <string name="view_access_token_menu_item">View Access Token</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings-nonlocalized.xml -->
+    <eat-comment/>
+    <string formatted="false" name="view_docs_info" translate="false">https://www.martus.org/mobile/docs </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="view_docs_menu">Link to Help Docs</string>
+    <string name="view_new_public_code_message">Public Code (New):\n%1$s</string>
+    <string name="view_old_public_code_message">Public Code (Old):\n%1$s</string>
+    <string name="view_public_code_dialog_error">Unable to show Public Code</string>
+    <string name="view_public_code_dialog_title">Public Code</string>
+    <string name="view_public_code_menu_item">View Public Code</string>
+    <string name="wifi_only_preference_on">Only send data when Wi-Fi is available</string>
+    <string name="yes">Yes</string>
+    <string name="you_must_have_orbot">You must have Orbot installed</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/values/themes.xml -->
+    <eat-comment/>
+    <style name="DialogTitle" parent="Theme.Sherlock.Dialog">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+    <style name="MartusActionBar" parent="android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/top_bar_background_color</item>
+    </style>
+    <style name="MartusHeading1" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="MartusTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+    </style>
+    <style name="MartusTheme" parent="@style/Theme.Sherlock.Light">
+        <item name="actionBarStyle">@style/MartusActionBar</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_blue</item>
+    </style>
+    <style name="PopupDialogStyle" parent="MartusTheme">
+        <item name="android:background">@color/text_blue</item>
+        <item name="android:textAppearance">@style/DialogTitle</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+    <style name="Widget.Button" parent="android:Widget">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+</resources>

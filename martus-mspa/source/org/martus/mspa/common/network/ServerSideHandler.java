@@ -333,10 +333,10 @@ public class ServerSideHandler implements NetworkInterface
 							return;
 							
 						info.add(key.getLocalId().trim());							
-						if (key.isDraft())
-							info.add(BulletinConstants.STATUSDRAFT);
-						else if (key.isSealed())
-							info.add(BulletinConstants.STATUSSEALED);				
+						if (key.isMutable())
+							info.add(BulletinConstants.STATUSMUTABLE);
+						else if (key.isImmutable())
+							info.add(BulletinConstants.STATUSIMMUTABLE);				
 	
 						infos.add(info);
 					}

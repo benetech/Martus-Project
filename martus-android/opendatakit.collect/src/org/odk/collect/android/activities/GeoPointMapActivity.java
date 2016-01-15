@@ -53,8 +53,7 @@ package org.odk.collect.android.activities;
  * @author guisalmon@gmail.com
  *
  */
-public class GeoPointMapActivity// extends FragmentActivity implements LocationListener, OnMarkerDragListener, OnMapLongClickListener
-{
+public class GeoPointMapActivity /*extends FragmentActivity implements LocationListener, OnMarkerDragListener, OnMapLongClickListener */{
 
 //	private static final String LOCATION_COUNT = "locationCount";
 //
@@ -420,5 +419,5 @@ public class GeoPointMapActivity// extends FragmentActivity implements LocationL
 //	}
 //
 //
-//
+
 }

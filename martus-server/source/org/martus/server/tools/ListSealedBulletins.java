@@ -118,7 +118,7 @@ public class ListSealedBulletins
 		{
 			if(!BulletinHeaderPacket.isValidLocalId(key.getLocalId()))
 				return;
-			if(key.isDraft())
+			if(key.isMutable())
 				return;
 					
 			try

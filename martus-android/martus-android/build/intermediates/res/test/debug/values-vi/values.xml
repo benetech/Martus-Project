@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+        <item>Anh ngữ</item>
+        <item>Á-rập</item>
+        <item>Armenian</item>
+        <item>Azerbaijani</item>
+        <item>Bulgarian</item>
+        <item>Bengali, Bangla</item>
+        <item>Miến Điện</item>
+        <item>Hoa ngữ</item>
+        <item>Hà Lan</item>
+        <item>Esperanto</item>
+        <item>Farsi/Dari</item>
+        <item>Pháp ngữ</item>
+        <item>Đức ngữ</item>
+        <item>Gujarati</item>
+        <item>Hausa</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>Hungarian</item>
+        <item>Ý</item>
+        <item>Nhật</item>
+        <item>Javanese</item>
+        <item>Kannada</item>
+        <item>Kazakh</item>
+        <item>Khờ-me</item>
+        <item>Kirghiz</item>
+        <item>Hàn Quốc</item>
+        <item>Kurdish</item>
+        <item>Malayalam</item>
+        <item>Marathi</item>
+        <item>Nepali</item>
+        <item>Oriya</item>
+        <item>Panjabi</item>
+        <item>Pashto, Pushto</item>
+        <item>Ba Lan</item>
+        <item>Bồ Đào Nha</item>
+        <item>Romanian</item>
+        <item>Nga</item>
+        <item>Serbian</item>
+        <item>Sindhi</item>
+        <item>Sinhalese</item>
+        <item>Tây Ban Nha</item>
+        <item>Tamil</item>
+        <item>Tajik</item>
+        <item>Telugu</item>
+        <item>Thái</item>
+        <item>Thổ Nhĩ Kỳ</item>
+        <item>Turkmen</item>
+        <item>Ukranian</item>
+        <item>Urdu</item>
+        <item>Uzbek</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+    <string-array name="entries_timeout_preference">
+        <item>10 Phút</item>
+        <item>7 Phút</item>
+        <item>5 Phút</item>
+        <item>3 Phút</item>
+        <item>1 Phút</item>
+    </string-array>
+    <string-array name="font_size_entries">
+        <item>@string/font_size_extra_large</item>
+        <item>@string/font_size_large</item>
+        <item>@string/font_size_medium</item>
+        <item>@string/font_size_small</item>
+        <item>@string/font_size_extra_small</item>
+    </string-array>
+    <string-array name="navigation_entries">
+        <item>@string/swipe_navigation</item>
+        <item>@string/buttons_navigation</item>
+        <item>@string/swipe_buttons_navigation</item>
+    </string-array>
+    <string-array name="values_language_preference">
+        <item>en</item>
+        <item>ar</item>
+        <item>arm</item>
+        <item>az</item>
+        <item>bg</item>
+        <item>bn</item>
+        <item>bur</item>
+        <item>zh</item>
+        <item>nl</item>
+        <item>eo</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>gu</item>
+        <item>ha</item>
+        <item>he</item>
+        <item>hi</item>
+        <item>hu</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>jv</item>
+        <item>kn</item>
+        <item>kk</item>
+        <item>km</item>
+        <item>ky</item>
+        <item>ko</item>
+        <item>ku</item>
+        <item>ml</item>
+        <item>mr</item>
+        <item>ne</item>
+        <item>or</item>
+        <item>pa</item>
+        <item>ps</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ro</item>
+        <item>ru</item>
+        <item>sr</item>
+        <item>sd</item>
+        <item>si</item>
+        <item>es</item>
+        <item>ta</item>
+        <item>tg</item>
+        <item>te</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>tk</item>
+        <item>uk</item>
+        <item>ur</item>
+        <item>uz</item>
+        <item>vi</item>
+    </string-array>
+    <string-array name="values_timeout_preference">
+        <item>10</item>
+        <item>7</item>
+        <item>5</item>
+        <item>3</item>
+        <item>1</item>
+    </string-array>
+    <plurals name="confirm_reset_install_extra">
+        <item quantity="other">Bạn sẽ mất %1$s bản tin chưa gửi hoặc đang gửi.</item>
+    </plurals>
+    <plurals name="show_unsent_count">
+        <item quantity="other">Bạn có %1$s bản tin chưa gửi. Bạn có thể vào menu Công cụ để gửi lại.</item>
+    </plurals>
+    <string name="about_tor_label">Tìm hiểu về Tor</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="accept_location">Ghi lại vị trí</string>
+    <string name="access_error">Lỗi khi truy cập %s: </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="access_token">Mã Số Truy Cập:</string>
+    <string name="account_access_token_label">Mã Số Truy Cập: %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="accuracy">Độ chính xác</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="activity_not_found">Không có hoạt động gì để xử lý: %s</string>
+    <string name="add_another">Thêm Nhóm</string>
+    <string name="add_another_repeat">Thêm một nhóm \"%s\" khác?</string>
+    <string name="add_attachment">Thêm đính kèm</string>
+    <string name="add_contact_from_file">Nhập Liên Hệ từ Tập Tin</string>
+    <string name="add_contact_using_access_token">Thêm Liên Hệ từ Máy Chủ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="add_more">Thêm</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="add_repeat">Thêm một nhóm \"%s\" mới?</string>
+    <string name="add_repeat_no">Đừng Thêm</string>
+    <string name="added_on_date_at_time">\'Thêm vào ngày\' EEE, MMM dd, yyyy \'lúc\' HH:mm</string>
+    <string name="admin_access_settings">Nhấn để có quyền truy cập quản lý vào thiết đặt</string>
+    <string name="admin_password_changed">Đổi mật khẩu quản lý thành công</string>
+    <string name="admin_password_disabled">Mật khẩu quản lý bị tắt</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_incorrect">Sorry, password is incorrect!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_mismatch">Rất tiếc, mật khẩu không giống!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="admin_preferences">Admin Settings</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="advanced_server_options">Thiết đặt cao cấp cho máy chủ</string>
+    <string name="alert_dialog_confirm_password">Xác nhận Mật khẩu:</string>
+    <string name="alert_dialog_magic_word">Từ Kỳ Diệu:</string>
+    <string name="alert_dialog_ok">OK</string>
+    <string name="alert_dialog_password">Mật khẩu:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="altitude">Độ cao</string>
+    <string name="app_url">http://opendatakit.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="attachment_no_longer_exists">Không gửi được vì tập tin đính kèm, %1$s , đã bị xóa khỏi thiết bị</string>
+    <string name="attachments_add_label">Đính kèm:</string>
+    <string name="attachments_added_label">Đính kèm (nhấn và giữ để xóa):</string>
+    <string name="audio_file_error">Không có tập tin âm thanh nào được định.</string>
+    <string name="audio_file_invalid">Tập tin: %s không phải là một tập tin âm thanh.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values-vi/strings.xml -->
+    <eat-comment/>
+    <string msgid="3983201110833868073" name="auth_client_needs_enabling_title">"Ứng dụng yêu cầu Dịch vụ của Google Play phải được bật."</string>
+    <string msgid="7999585836145154206" name="auth_client_needs_installation_title">"Ứng dụng yêu cầu cài đặt Dịch vụ của Google Play."</string>
+    <string msgid="6488605506794595966" name="auth_client_needs_update_title">"Ứng dụng yêu cầu cập nhật dành cho Dịch vụ Google Play."</string>
+    <string msgid="3635065018897986478" name="auth_client_play_services_err_notification_msg">"Lỗi dịch vụ của Google Play"</string>
+    <string msgid="6304135633531965756" name="auth_client_requested_by_msg">"Được yêu cầu bởi <ns1:g id="APP_NAME">%1$s</ns1:g>"</string>
+    <string msgid="2534454398764507874" name="auth_client_using_bad_version_title">"Ứng dụng đã cố sử dụng phiên bản không đúng của Dịch vụ của Google Play."</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="autosend">Auto Send</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="autosend_network">Tự động gửi với nối mạng</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="autosend_network_summary">Auto send when network is available</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="autosend_wifi">Tự động gửi với Wi-Fi</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="autosend_wifi_summary">Auto send when Wi-Fi is available</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="barcode_scanner_error">Rất tiếc, ứng dụng Barcode Scanner không có cài đặt!</string>
+    <string name="boolean_false">Không</string>
+    <string name="boolean_true">Có</string>
+    <string name="bulletin_packaging_progress">Đang mã hóa và nén lại ...</string>
+    <string name="bulletin_sending_progress">Đang gửi ...</string>
+    <string name="buttons_instructions">Bạn ở bước đầu của %s. Nhấn vào các nút mũi tên dưới đây để đi lùi và đi tới.</string>
+    <string name="buttons_navigation">Dùng các nút tiến/lùi.</string>
+    <string name="cancel">Hủy Bỏ</string>
+    <string name="cancel_loading_form">Hủy Bỏ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="cancel_location">Huỷ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="cancel_saving_form">Hủy Bỏ</string>
+    <string name="cancel_server">Hủy bỏ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="cannot_edit_completed_form">Mẫu thu thập số liệu này không thể chỉnh sửa khi đã được đánh dấu là hoàn thành. Dữ liệu có thể bị mã hoá.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="capture_audio">Thâu Âm Thanh</string>
+    <string name="capture_image">Chụp Hình</string>
+    <string name="capture_video">Quay Phim</string>
+    <string name="change_font_size">Cỡ phông chữ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_formlist_url">Danh sách đường dẫn biểu mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_language">Đổi Ngôn Ngữ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_password">Mật khẩu</string>
+    <string name="change_protocol">Nền tảng máy chủ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_server">Nền</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_server_url">Địa chỉ máy chủ</string>
+    <string name="change_splash_path">Đổi ảnh</string>
+    <string name="change_submission_url">Đường dẫn gửi dữ liệu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_url_default">URL</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_username">Tên truy cập ODK</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_username_default">Tên Người Dùng</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="change_view">Đổi hiển thị</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="choose_file">Trình Quản Lý Tập Tin Martus</string>
+    <string name="choose_image">Chọn Hình</string>
+    <string name="choose_server_intro">Kế tiếp, cấu hình đường kết nối vào máy chủ Martus nơi bạn sẽ gửi bản tin đến.</string>
+    <string name="choose_server_title">Chọn Máy Chủ</string>
+    <string name="choose_sound">Chọn Âm Thanh</string>
+    <string name="choose_video">Chọn Video</string>
+    <string name="clear_answer">Xóa câu trả lời</string>
+    <string name="clear_answer_ask">Xóa Câu Trả Lời Này?</string>
+    <string name="clear_answer_no">Hủy Bỏ</string>
+    <string name="clearanswer_confirm">Xóa câu trả lời cho \"%s\"?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="click_to_web">Nhấn đề xem http://opendatakit.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="client">Giao Diện Người Dùng</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values-vi/strings.xml -->
+    <eat-comment/>
+    <string msgid="4181637455539816337" name="common_google_play_services_enable_button">"Bật dịch vụ của Google Play"</string>
+    <string msgid="7627896071867667758" name="common_google_play_services_enable_text">"Ứng dụng này sẽ không hoạt động trừ khi bạn bật dịch vụ của Google Play."</string>
+    <string msgid="529078775174559253" name="common_google_play_services_enable_title">"Bật dịch vụ của Google Play"</string>
+    <string msgid="8515591849428043265" name="common_google_play_services_install_button">"Cài đặt dịch vụ của Google Play"</string>
+    <string msgid="8685301130651051380" name="common_google_play_services_install_text_phone">"Ứng dụng này sẽ không chạy nếu không có dịch vụ của Google Play. Điện thoại của bạn bị thiếu dịch vụ này."</string>
+    <string msgid="1589957570365247855" name="common_google_play_services_install_text_tablet">"Ứng dụng này sẽ không chạy nếu không có dịch vụ của Google Play. Máy tính bảng của bạn bị thiếu dịch vụ này."</string>
+    <string msgid="26645092511305524" name="common_google_play_services_install_title">"Cài đặt dịch vụ của Google Play"</string>
+    <string msgid="4983316348021735578" name="common_google_play_services_invalid_account_text">"Tài khoản đã chỉ định không tồn tại trên thiết bị này. Vui lòng chọn một tài khoản khác."</string>
+    <string msgid="1066672360770936753" name="common_google_play_services_invalid_account_title">"Tài khoản không hợp lệ"</string>
+    <string msgid="9038847255613537209" name="common_google_play_services_network_error_text">"Cần có kết nối dữ liệu để kết nối với các dịch vụ của Google Play."</string>
+    <string msgid="3827284619958211114" name="common_google_play_services_network_error_title">"Lỗi mạng"</string>
+    <string msgid="4762332809710093730" name="common_google_play_services_unknown_issue">"Sự cố không xác định với dịch vụ của Google Play."</string>
+    <string msgid="4725396522367789365" name="common_google_play_services_unsupported_date_text">"Ngày trên thiết bị có vẻ không chính xác. Vui lòng kiểm tra ngày trên thiết bị."</string>
+    <string msgid="3542578567569488671" name="common_google_play_services_unsupported_text">"Các dịch vụ của Google Play mà một số ứng dụng của bạn dựa vào không được thiết bị của bạn hỗ trợ. Vui lòng liên hệ với nhà sản xuất để được hỗ trợ."</string>
+    <string msgid="6334768798839376943" name="common_google_play_services_unsupported_title">"Dịch vụ của Google Play"</string>
+    <string msgid="8932944190611227642" name="common_google_play_services_update_button">"Cập nhật"</string>
+    <string msgid="448354684997260580" name="common_google_play_services_update_text">"Ứng dụng này sẽ không chạy trừ khi bạn cập nhật dịch vụ của Google Play."</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">"Cập nhật dịch vụ của Google Play"</string>
+    <string msgid="9071884888741449141" name="common_signin_button_text">"Đăng nhập"</string>
+    <string msgid="2429381841831957106" name="common_signin_button_text_long">"Đăng nhập bằng Google"</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="completed_data">Hoàn thành (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="confirm_cancel_bulletin">Hủy bỏ Bản tin này?</string>
+    <string name="confirm_data_loss">Nếu bạn rời màn hình này thì sẽ mất các dữ liệu đã nhập vào. Bạn có chắc là muốn rời?</string>
+    <string name="confirm_default">Bạn có chắc không?</string>
+    <string name="confirm_go_to_device_home">Bạn có chắc là muốn rời Martus?</string>
+    <string name="confirm_logout">Bạn có chắc là muốn đăng xuất?</string>
+    <string name="confirm_password_hint">Xác nhận mật khẩu</string>
+    <string name="confirm_remove_attachment">Xóa %1$s ?</string>
+    <string name="confirm_reset_install">Bạn có chắc là muốn xóa không?</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message">Có lỗi với các tập tin thiết đặt. Vì lý do an ninh, hãy xóa tài khoản của bạn. Nhấn nút Có sẽ bắt đầu tiến trình này. Martus sẽ không chạy được với một tập tin thiết đặt bị hỏng, do đó nhấn nút Không sẽ rời khỏi Martus.</string>
+    <string name="confirm_tamper_reset_title">Lỗi Thiết Đặt</string>
+    <string name="constraint_behavior">Trạng thái xử lý ràng buộc</string>
+    <string name="contact_access_token">Mã Số Truy Cập của Liên Hệ</string>
+    <string formatted="false" name="contact_us_info">Nếu có thắc mắc hoặc phản hồi về Martus, xin email đến info@martus.org</string>
+    <string name="contact_us_menu_item">Liên lạc chúng tôi</string>
+    <string name="create_account_dialog_cancel">Rời</string>
+    <string name="create_account_dialog_title">Tạo mật khẩu</string>
+    <string name="create_account_intro">Chào bạn đến với Martus! Trước nhất, tạo một tài khoản Martus Di Động mới.</string>
+    <string name="create_password_hint">Mật khẩu mới</string>
+    <string name="create_sample_bulletin">Tạo Bản Tin</string>
+    <string name="custom_form_transition">Đây là dịp để thêm các đính kèm hoặc nhấn nút Lùi để điều chỉnh mẫu đã điền.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="data">Lưu biểu mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="data_saved_error">Rất tiếc, không lưu biểu mẫu được!</string>
+    <string name="data_saved_ok">Lưu biểu mẫu thành công!</string>
+    <string name="date_range_end">(kết thúc)</string>
+    <string name="date_range_start">(bắt đầu)</string>
+    <string name="date_validation_min">Ngày tháng phải đúng vào hoặc sau %1$s .</string>
+    <string name="date_validation_min_max">Ngày tháng phải đúng vào hoặc sau %1$s và đúng vào hoặc trước %2$s.</string>
+    <string name="default_author">Tác giả không rõ</string>
+    <string name="default_completed">Mặc định hoàn tất</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="default_completed_summary">Đánh dấu biểu mẫu là hoàn thành theo mặc định</string>
+    <string name="default_splash_path">Mặc định ODK</string>
+    <string name="delete_confirm">Xoá biểu mẫu %s ?</string>
+    <string name="delete_file">Xoá lựa chọn</string>
+    <string name="delete_no">Không xoá</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="delete_repeat">Xóa nhóm</string>
+    <string name="delete_repeat_ask">Xóa Nhóm Này?</string>
+    <string name="delete_repeat_confirm">Xóa nhóm \"%s\" và tất cả các nhóm phụ của nó?</string>
+    <string name="delete_repeat_no">Hủy Bỏ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="delete_yes">Xoá biểu mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="desktop_public_code_hint">Mã Số Công của tài khoản Để Bàn</string>
+    <string name="desktop_sync_choose_file">Chọn tập tin (.mpi) tài khoản Martus Để Bàn</string>
+    <string name="desktop_sync_public_code">Kế tiếp điền vào Mã Số Công của tài khoản Martus Để Bàn:</string>
+    <string name="desktop_sync_title">Chi tiết tài khoản Martus Để Bàn</string>
+    <string name="dialog_title_timeout_preference">Thời gian chờ</string>
+    <string name="discard_answer">Xóa câu trả lời</string>
+    <string name="discard_group">Xóa nhóm</string>
+    <string name="do_not_change">Hủy Bỏ</string>
+    <string name="do_not_exit">Hủy Bỏ</string>
+    <string name="do_not_save">Dọn sạch Biểu mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="download">Tải lựa chọn</string>
+    <string name="download_forms_result">Tải kết quả</string>
+    <string name="downloading_data">Kết nối máy chủ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="draw_image">Hình Phác Họa</string>
+    <string name="edit_prompt">Dấu Nhắc Sửa Đổi </string>
+    <string name="end_form_button">Thêm Đính kèm và Gửi đi</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="enter_admin_password">Enter Admin Password</string>
+    <string name="enter_data">Điền biểu mẫu</string>
+    <string name="enter_data_button">Điền biểu mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="enter_magic_word_hint">Điền Từ Kỳ Diệu</string>
+    <string name="enter_new_password">Điền vào mật khẩu mới</string>
+    <string name="enter_password_hint">Điền mật khẩu</string>
+    <string name="entering_repeat">Thêm Nhóm</string>
+    <string name="entering_repeat_ask">Thêm Nhóm Mới?</string>
+    <string name="error_computing_public_code">Có lỗi khi lưu chọn lựa máy chủ</string>
+    <string name="error_create_account">Có lỗi tạo tài khoản</string>
+    <string name="error_getting_server_key">Có lỗi kết nối vào máy chủ</string>
+    <string name="error_message">Lỗi</string>
+    <string name="error_occured">Có Lỗi</string>
+    <string name="error_retrieving_contact">Có lỗi lấy về liên hệ</string>
+    <string name="export_public_account_id_dialog_error">Không thể xuất ra Số Tài Khoản</string>
+    <string name="export_public_account_id_dialog_title">Có lỗi khi xuất Số Tài Khoản Công</string>
+    <string name="export_public_account_id_menu_item">Xuất ra Số Tài Khoản Công</string>
+    <string name="exported_account_id_file_confirmation">Xuất ra</string>
+    <string name="failed_send_notification">Gửi thất bại với lý do:: %1$s . Thử gửi lại sau đó.</string>
+    <string name="failure_choosing_file">Không chọn tập tin được</string>
+    <string name="failure_zipping_bulletin">Không nén bản tin được</string>
+    <string name="fetched_picasa_image">Lấy hình Picasa xong</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="fetching_file">Tải %1$s.\n\nForm %2$s trong số %3$s biểu mẫu.</string>
+    <string name="fetching_manifest">%s. Lấy manifest </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="fetching_picasa_image">Lấy hình Picasa về</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="file_delete_in_progress">Xin lỗi, file này đang được xoá!</string>
+    <string name="file_deleted_error">Xin lỗi, %1$s của %2$s các biểu mẫu được chọn bị lỗi khi xoá!</string>
+    <string name="file_deleted_ok">Biểu mẫu %s đã bị xoá!</string>
+    <string name="file_fetch_failed">Lỗi: %2$s (%3$s) tại %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="file_invalid">Tập tin: %s không đúng.</string>
+    <string name="file_missing">Tập tin: không tìm thấy %s</string>
+    <string name="finalized_on_date_at_time">\'Hoàn tất vào ngày\' EEE, MMM dd, yyyy \'lúc\' HH:mm</string>
+    <string name="finished_disk_scan">Quét hoàn tất. Đã nạp tất cả biểu mẫu.</string>
+    <string name="font_size">Cỡ phông chữ</string>
+    <string name="font_size_extra_large">Thật Lớn</string>
+    <string name="font_size_extra_small">Thật Nhỏ</string>
+    <string name="font_size_large">Lớn</string>
+    <string name="font_size_medium">Vừa</string>
+    <string name="font_size_small">Nhỏ</string>
+    <string name="form_backward">Trước đó</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="form_download_progress">%1$s. Lấy file đa phương tiện: %2$s of %3$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="form_forward">Tiếp</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="form_scan_starting">Quét tìm biểu mẫu …</string>
+    <string name="formlist_url">Danh sách đường dẫn biểu mẫu</string>
+    <string name="forms">Biểu mẫu trống</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="found_at_end">Gỡ dấu để ẩn trong phần cuối của Nhập Biểu Mẫu</string>
+    <string name="found_in_main">Gỡ dấu để ẩn trong Menu Chính</string>
+    <string name="found_in_menu">Gỡ dấu để ẩn trong menu của Nhập Biểu Mẫu</string>
+    <string name="found_in_settings">Gỡ dấu để ẩn trong Thiết Đặt Tổng Quát</string>
+    <string name="general_preferences">Thiết đặt</string>
+    <string name="get_barcode">Lấy Mã Vạch</string>
+    <string name="get_forms">Lấy Biểu Mẫu Trống</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="get_location">Ghi lại vị trí</string>
+    <string name="getting_location">Tải địa điểm</string>
+    <string name="go_to_location">Đến vị trí</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="goto_server_setup_button">Tiếp</string>
+    <string name="help_menu">Trợ giúp</string>
+    <string name="import_contact_title">Nhập liên hệ</string>
+    <string name="import_hq_intro">Cuối cùng, điền vào thông tin của tài khoản Martus mà bạn sẽ gửi bản tin Martus Di Động đến.\n\nĐể hoàn tất bước này, bạn phải có tập tin Số Tài Khoản Công (với phần mở rộng \".mpi\") và mã số công của tài khoản Martus Để Bàn mà bạn muốn nó nhận các bản tin Martus Di Động.</string>
+    <string name="incorrect_password">Mật khẩu sai</string>
+    <string name="install_explorer_text">Nếu không thấy tập tin bạn muốn tìm, thử cài đặt một trình quản lý tập tin cao cấp hơn:</string>
+    <string name="install_file_explorer">Thử dùng trình quản lý tập tin khác</string>
+    <string name="install_orbot_">Cài đặt Orbot</string>
+    <string name="invalid_answer_error">Rất tiếc, câu trả lời này không đúng!</string>
+    <string name="invalid_orbot_message">Xin vui lòng cài đặt lại Orbot từ Cửa Hàng Play</string>
+    <string name="invalid_orbot_title">Cài đặt Orbot không đúng</string>
+    <string name="invalid_password">Mật khẩu phải có ít nhất 8 ký tự</string>
+    <string name="invalid_public_account_file">Tập tin tài khoản Để Bàn không đúng</string>
+    <string name="invalid_public_code">Mã Số Công không trùng hợp với tập tin</string>
+    <string name="invalid_server_code">Mã Số Công của Máy Chủ không đúng</string>
+    <string name="invalid_server_info">Dữ kiện máy chủ không đúng</string>
+    <string name="invalid_server_ip">Địa chỉ IP không đúng</string>
+    <string name="jump_to_beginning">Đến Đoạn Đầu</string>
+    <string name="jump_to_end">Đến Đoạn Cuối</string>
+    <string name="jump_to_previous">Đi Lên</string>
+    <string name="keep_changes">Lưu Các Thay Đổi</string>
+    <string name="label_author">Tác giả</string>
+    <string name="label_entrydate">Ngày tháng Vô sổ</string>
+    <string name="label_eventdate">Ngày tháng Sự kiện</string>
+    <string name="label_keywords">Từ khóa</string>
+    <string name="label_location">Địa điểm</string>
+    <string name="label_organization">Tổ chức</string>
+    <string name="label_privateinfo">Thông tin riêng</string>
+    <string name="label_publicinfo">Thông tin công cộng</string>
+    <string name="label_summary">Tóm lược</string>
+    <string name="label_title">Tựa đề</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="latitude">Toạ độ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="launch_app">Khởi động</string>
+    <string name="launch_printer">Khởi động In</string>
+    <string name="leave_repeat_yes">Đừng Thêm</string>
+    <string name="leaving_repeat_ask">Thêm Một Nhóm Nữa?</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="list_failed_with_error">Lỗi hiển thị biểu mẫu. %s.</string>
+    <string name="load_remote_form_error">Lỗi hiển thị danh sách</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="loading_form">Nạp Biểu Mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="location_accuracy">Độ chính xác là %1$s m</string>
+    <string name="location_provider_accuracy">Sử dụng %1$s. Độ chính xác là %2$s m.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="logout_while_sending_message">Xin chờ cho đến khi bản tin được gửi đi xong.</string>
+    <string name="logout_while_sending_title">Chưa đăng xuất được</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="longitude">Kinh độ</string>
+    <string name="main_menu">Thực đơn</string>
+    <string name="main_menu_details">Thu thập số liệu dễ dàng và thuận tiện hơn…</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="manage_bulletins_menu">Quản Trị Bản Tin</string>
+    <string name="manage_files">Xóa Biểu Mẫu Đã Lưu</string>
+    <string name="manage_my_account_menu">Quản trị Tài Khoản của Tôi</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="manifest_server_error">Manifest không báo cáo về phiên bản của OpenRosa — máy chủ lỗi?</string>
+    <string name="manifest_tag_error">Mục Manifest %s bị thiếu 1 hoặc nhiều thẻ sau: filename, hash, or downloadUrl</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="mark_finished">Đánh dấu biểu mẫu hoàn tất</string>
+    <string name="markup_image">Hình Đánh Dấu</string>
+    <string name="must_login_first_message">Bạn phải đăng nhập trước khi gửi bản tin này đi</string>
+    <string name="must_login_first_title">Cảnh báo!</string>
+    <string name="navigation">Di chuyển</string>
+    <string name="no">Không</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="no_account">No account</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="no_app">Không tìm thấy ứng dụng yêu cầu. Xin tự điền số vào.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="no_connection">Không có kết nối internet</string>
+    <string name="no_forms_uploaded">Xin lỗi, biểu mẫu không tải lên được.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="no_items_display">Không có gì để hiển thị.</string>
+    <string name="no_network_connection">Thiết bị hiện không nối mạng!</string>
+    <string name="no_network_create_bulletin_warning">Bạn sẽ không gửi đi được bản tin nào cả vì không có đường nối mạng. (Bạn có lẻ chọn Chỉ Dùng Wi-Fi trong Thiết Đặt.)\n\nTuy nhiên bấm nút Gửi sẽ mã hóa và lưu bản tin, và khi có đường nối mạng, bạn có thể gửi lại từ menu Công Cụ.</string>
+    <string name="no_printer">Máy in yêu cầu chưa được cài đặt. Xin vui lòng cài đặt máy in.</string>
+    <string name="no_upload_rights">Từ Kỳ Diệu Không Đúng</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="noselect_error">Xin lỗi, bạn không chọn biểu mẫu nào!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="off_switch_label">Tắt</string>
+    <string name="ok">OK</string>
+    <string name="on_switch_label">Mở</string>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot chưa chạy. Bạn muốn khởi động nó?</string>
+    <string name="orbot_running_should_stop_message">Orbot đang chạy. Bạn muốn ngừng nó không?</string>
+    <string name="parse_error">Rất tiếc, không thể phân tích biểu mẫu.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="parse_legacy_formlist_failed">Máy chủ không có các biểu mẫu tương thích với Aggregate 0.9.x. : %s</string>
+    <string name="parse_openrosa_formlist_failed">Máy chủ không có các biểu mẫu tương thích với OpenRosa phiên bản chuẩn 1.0: %s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="password">Mật Khẩu</string>
+    <string name="password_dialog_title">Đăng nhập</string>
+    <string name="ping_result_down">Máy chủ không hoạt động</string>
+    <string name="ping_result_ok">Máy chủ hoạt động</string>
+    <string name="ping_server_menu_item">Kiểm máy chủ</string>
+    <string name="play_audio">Nghe Âm Thanh</string>
+    <string name="play_video">Xem Video</string>
+    <string name="please_wait">XIn chờ trong giây lát.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="please_wait_long">Hãy đợi trong ít phút.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="problem_adding_attachment">Có lỗi khi thêm đính kèm vào bản tin</string>
+    <string name="problem_confirming_magic_word">Có lỗi khi xác nhận Từ Kỳ Diệu</string>
+    <string name="problem_creating_bulletin">Không thể tạo bản tin mới</string>
+    <string name="progress_confirming_magic_word">Xác nhận Từ Kỳ Diệu</string>
+    <string name="progress_connecting_to_server">Đang nối vào máy chủ</string>
+    <string name="progress_creating_account">Tạo Tài khoản</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="protocol">Nền tảng máy chủ</string>
+    <string name="provider_disabled_error">Xin lỗi, Khả năng xác định vị trí không được kích hoạt!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="public_code_validation_empty">Mã Số Công không thể trống</string>
+    <string name="quit_application">Rời %s</string>
+    <string name="quit_entry">Lưu Biểu Mẫu và Rời</string>
+    <string name="quit_menu_title">Đăng xuất</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="refresh">Làm mới</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="replace_barcode">Thay Mã Vạch</string>
+    <string name="replace_contact_menu_item">Cập nhật Liên Hệ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="replace_location">Thay vị trí</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="required_answer_error">Rất tiếc, cần có câu trả lời!</string>
+    <string name="resend_menu_item">Gửi lại các Bản Tin Chưa Gửi</string>
+    <string name="resending">Đang gửi lại!</string>
+    <string name="resending_no_bulletins">Bạn không có bản tin nào chưa gửi.</string>
+    <string name="resending_no_network">Bạn không có nối mạng, hoặc chọn Chỉ Dùng Wi-Fi.</string>
+    <string name="reset_image">Làm lại</string>
+    <string name="reset_to_install">Xóa Tài Khoản của Tôi</string>
+    <string name="reset_while_sending_title">Chưa thể làm lại được</string>
+    <string name="retrieving_contact_information_label">Đang lấy về chi tiết liên hệ.</string>
+    <string name="retry_server">Điền lại</string>
+    <string name="review_data">Sửa Biểu Mẫu Đã Lưu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="review_data_button">Sửa biểu mẫu lưu</string>
+    <string name="root_element_error">Yếu tố gốc không &amp;lt;manifest\> — was %s</string>
+    <string name="root_namespace_error">Yếu tố gốc Namespace không đúng: %s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="save_all_answers">Lưu Biểu Mẫu</string>
+    <string name="save_and_close">Lưu và Đóng lại</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="save_as_error">Tên được lưu không để trống!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="save_enter_data_description">Bạn đang ở cuối biểu mẫu.</string>
+    <string name="save_form_as">Tên cho biểu mẫu này</string>
+    <string name="save_mid">Lưu Biểu Mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="save_preferences">Save Settings to Disk</string>
+    <string name="saved_data">Chưa hoàn thành (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="saved_on_date_at_time">\'Lưu vào ngày\' EEE, MMM dd, yyyy \'lúc\' HH:mm</string>
+    <string name="savepoint_used">Phục hồi các thay đổi chưa kịp lưu giữ!</string>
+    <string name="saving_form">Lưu Biểu Mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="select_another_image">Chọn ảnh khác</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="select_answer">Chọn Câu Trả Lời</string>
+    <string name="select_drawing_color">Chọn Màu Vẽ</string>
+    <string name="select_file_picker">Chọn một trình quản lý tập tin</string>
+    <string name="select_one">Chọn Một Trả Lời</string>
+    <string name="selected">Chọn:</string>
+    <string name="selected_google_account_text">Tài khoản Google</string>
+    <string name="send_bulletin">Gửi</string>
+    <string name="send_data">Gửi Biểu Mẫu Đã Hoàn Tất</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="send_data_button">Gửi biểu mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="send_email_title">Gửi email...</string>
+    <string name="send_failed_cant_reach_server">Không nối vào máy chủ được</string>
+    <string name="send_public_account_id_menu_item">Email Số Tài Khoản Công</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">Gửi Số Tài Khoản Công trong Bản Tin</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="send_selected_data">Gửi lựa chọn</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="sending_failed_on_date_at_time">\'Gửi đi không được vào ngày\' EEE, MMM dd, yyyy \'lúc\' HH:mm</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="sending_items">Gửi %1$s trong %2$s biểu mẫu</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="sent_on_date_at_time">\'Gửi đi vào ngày\' EEE, MMM dd, yyyy \'lúc\' HH:mm</string>
+    <string name="server_ip_hint">Điền vào Địa Chỉ IP</string>
+    <string name="server_ip_label">Địa chỉ IP:</string>
+    <string name="server_menu_title">Chọn Máy Chủ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="server_platform_google_forms">Biểu mẫu Google</string>
+    <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+    <string name="server_platform_other">Khác</string>
+    <string name="server_preferences">Máy chủ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="server_public_code_hint">Điền vào Mã Số Công của Máy Chủ</string>
+    <string name="server_public_code_label">Mã Số Công của Máy Chủ:</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="server_requires_auth">Máy chủ yêu cầu xác thực</string>
+    <string name="server_url">URL</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="set_color">Chọn Màu</string>
+    <string name="settings_pwd_equal">Mật khẩu giống!</string>
+    <string name="settings_pwd_not_equal">Mật khẩu không giống!</string>
+    <string name="settings_title">Thiết đặt</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="show_location">Hiển thị vị trí</string>
+    <string name="show_sent_and_unsent_forms">Biểu mẫu đã gửi và chưa gửi</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="show_splash">Hiển thị màn hình chờ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="show_splash_summary">Hiển thị khi chương trình khởi động</string>
+    <string name="show_unsent_forms">Chỉ các biểu mẫu chưa gửi</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="show_unsent_title">Bạn có các bản tin chưa gửi.</string>
+    <string name="show_version">Xem Phiên Bản</string>
+    <string name="sign_button">Lấy Chữ Ký</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="splash_path">Chọn ảnh màn hình chào</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="start_orbot_">Khởi động Orbot</string>
+    <string name="starting_send_notification">Đang gửi ...</string>
+    <string name="stop_orbot">Ngưng Orbot</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="submission_url">Đường dẫn gửi dữ liệu</string>
+    <string name="success">Thành công</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="success_import_hq_key">Bạn đã cấu hình thành công một tài khoản Martus Để Bàn để nhận bản tin Martus Di Động. Thiết đặt Martus Di Động đã hoàn tất!</string>
+    <string name="success_magic_word">Bạn đã thiết đặt đường nối kết vào máy chủ Martus tốt đẹp!</string>
+    <string name="successful_send_notification">Bản tin gửi xong!</string>
+    <string name="successful_server_choice">Nối vào máy chủ thành công!</string>
+    <string name="summary_language_preference">Xin chọn ngôn ngữ dùng để soạn thảo bản tin</string>
+    <string name="summary_optional_label">Tùy ý</string>
+    <string name="summary_timeout_preference">Phút</string>
+    <string name="swipe_buttons_instructions">Bạn ở bước đầu của %s. Quẹt vào màn hình như dưới đây hoặc nhấn vào các nút mũi tên để đi lùi và đi tới.</string>
+    <string name="swipe_buttons_navigation">Dùng động tác quẹt và các nút</string>
+    <string name="swipe_instructions">Bạn ở bước đầu của %s. Quẹt vào màn hình như dưới đây để đi lùi và đi tới.</string>
+    <string name="swipe_navigation">Dùng động tác quẹt qua-lại</string>
+    <string name="title_author_preference">Tác giả</string>
+    <string name="title_hint">Tựa đề</string>
+    <string name="title_language_preference">Ngôn ngữ bản tin</string>
+    <string name="title_summary">Tóm Lược</string>
+    <string name="title_timeout_preference">Thời gian chờ</string>
+    <string name="title_wifi_only_preference">Chỉ Dùng Wi-Fi</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="toggle_selected">Đánh dấu tất</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="tor_label">Tor</string>
+    <string name="tor_option_intro">Kế tiếp, bật mở Tor lên nếu muốn.</string>
+    <string name="trigger">OK. Xin tiếp tục.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="upload_results">Kết quả tải lên</string>
+    <string name="uploading_data">Gửi biểu mẫu</string>
+    <string name="url_error">Xin lỗi URL không đúng!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="use_default_server">Dùng máy chủ mặc định</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="use_odk_default">Chọn ảnh mặc định</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string formatted="false" name="use_tor"><b>Dùng Tor</b> (Có thể giúp che giấu việc bạn đang nối kết vào máy chủ Martus, và có thể giúp nối vào máy chủ Martus nếu bị chận ở địa phương bạn, tuy nhiên dùng Tor sẽ làm chậm việc gửi bản tin)</string>
+    <string name="user_access_form_entry">Người dùng được truy cập các mục Nhập Biểu Mẫu</string>
+    <string name="user_access_main_menu">Người dùng được truy cập các mục trong Menu Chính:</string>
+    <string name="user_access_preferences">Người dùng được truy cập các mục Thiết Đặt Chỉnh Sửa:</string>
+    <string name="user_preferences">Thiết đặt</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="username">Tên truy cập</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/build/intermediates/bundles/debug/res/values-vi/values.xml -->
+    <eat-comment/>
+    <string name="valid_public_account_file">Tập tin tài khoản Để Bàn đúng</string>
+    <string name="verify_new_password">Điền lại mật khẩu mới</string>
+    <string name="verify_public_code">Phối kiểm mã số công:\n%1$s</string>
+    <string name="version">Phiên bản:</string>
+    <string name="version_code_label">Bản thiết kế %1$s</string>
+    <string name="version_name_label">Phiên bản %1$s</string>
+    <string name="view_access_token_menu_item">Xem Mã Số Truy Cập</string>
+    <string name="view_docs_menu">Nối kết vào Tài Liệu Trợ Giúp</string>
+    <string name="view_hierarchy">Đến Dấu Nhắc</string>
+    <string name="view_new_public_code_message">Mã số Công (Mới):\n%1$s</string>
+    <string name="view_old_public_code_message">Mã số Công (Cũ):\n%1$s</string>
+    <string name="view_public_code_dialog_error">Không thể hiển thị Mã Số Công</string>
+    <string name="view_public_code_dialog_title">Mã Số Công</string>
+    <string name="view_public_code_menu_item">Xem Mã Số Công</string>
+    <string name="wifi_only_preference_on">Chỉ gửi dữ liệu đi khi có Wi-Fi</string>
+    <string name="xform_parse_error">Lỗi phân tích XForm. %1$s thiếu %2$s</string>
+    <string name="yes">Có</string>
+    <string name="you_must_have_orbot">Orbot phải được cài đặt sẵn</string>
+</resources>

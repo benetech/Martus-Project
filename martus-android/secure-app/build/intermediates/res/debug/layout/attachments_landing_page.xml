@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:clickable="true"
+        style="@style/AppTheme"
+        android:id="@+id/linearLayout">
+
+        <ImageButton
+            android:id="@+id/buttonStartStillCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:onClick="onStartStillCamera"
+            android:layout_weight="1"
+            android:src="@drawable/ic_camera" />
+
+        <ImageButton
+            android:id="@+id/buttonStartFileAttachment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onStartAddingAttachments"
+            android:layout_weight="1"
+            android:src="@drawable/ic_attachment" />
+
+        <ImageButton
+            android:id="@+id/buttonStartGallaryPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onStartShowGallary"
+            android:layout_weight="1"
+            android:src="@drawable/ic_gallery" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@id/android:list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_above="@+id/linearLayout" />
+
+    <TextView android:id="@+id/android:empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/label_no_attachments"
+        android:layout_marginBottom="158dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/secure-app/res/layout/attachments_landing_page.xml -->

@@ -92,7 +92,7 @@ public class TestServerFileDatabase extends TestCaseEnhanced
 		secondDatabase.visitAllAccounts(initial);
 		assertEquals(0, initial.getAccountCount());
 		
-		DatabaseKey key = DatabaseKey.createDraftKey(UniversalIdForTesting.createDummyUniversalId());
+		DatabaseKey key = DatabaseKey.createMutableKey(UniversalIdForTesting.createDummyUniversalId());
 		serverFileDb.writeRecord(key, smallString);
 
 		AccountCounter afterWrites = new AccountCounter();
@@ -111,9 +111,9 @@ public class TestServerFileDatabase extends TestCaseEnhanced
 		db.initialize();
 
 		Bulletin b = new Bulletin(security);
-		b.setSealed();
-		DatabaseKey key = DatabaseKey.createSealedKey(b.getUniversalId());
-		key.setSealed();
+		b.setImmutable();
+		DatabaseKey key = DatabaseKey.createImmutableKey(b.getUniversalId());
+		key.setImmutable();
 
 		String bur = BulletinUploadRecord.createBulletinUploadRecord(b.getLocalId(), security);
 		BulletinUploadRecord.writeSpecificBurToDatabase(db, b.getBulletinHeaderPacket(), bur);
@@ -142,24 +142,24 @@ public class TestServerFileDatabase extends TestCaseEnhanced
 	public void testBasics() throws Exception
 	{
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
-		DatabaseKey key = DatabaseKey.createSealedKey(uid);
+		DatabaseKey key = DatabaseKey.createImmutableKey(uid);
 		File dir = createTempFileFromName("$$$MartusTestServerFileDatabase");
 		dir.delete();
 		dir.mkdir();
 		ServerFileDatabase db = new ServerFileDatabase(dir, security);
 		db.initialize();
 				
-		key.setSealed();
+		key.setImmutable();
 		File sealedFile = db.getFileForRecord(key);
 		File sealedBucket = sealedFile.getParentFile();
 		String sealedBucketName = sealedBucket.getName();
-		assertStartsWith("Wrong sealed bucket name", "pb", sealedBucketName);
+		assertStartsWith("Wrong Immutable bucket name", "pb", sealedBucketName);
 		
-		key.setDraft();
+		key.setMutable();
 		File draftFile = db.getFileForRecord(key);
 		File draftBucket = draftFile.getParentFile();
 		String draftBucketName = draftBucket.getName();
-		assertStartsWith("Wrong draft bucket name", "dpb", draftBucketName);
+		assertStartsWith("Wrong Mutable bucket name", "dpb", draftBucketName);
 		
 		db.deleteAllData();
 		dir.delete();
@@ -174,14 +174,14 @@ public class TestServerFileDatabase extends TestCaseEnhanced
 	private void internalTestDrafts(Database db) throws Exception
 	{
 		UniversalId uid = UniversalIdForTesting.createDummyUniversalId();
-		DatabaseKey draftKey = DatabaseKey.createDraftKey(uid);
-		DatabaseKey sealedKey = DatabaseKey.createSealedKey(uid);
+		DatabaseKey mutableKey = DatabaseKey.createMutableKey(uid);
+		DatabaseKey immutableKey = DatabaseKey.createImmutableKey(uid);
 		
-		db.writeRecord(draftKey, smallString);
-		db.writeRecord(sealedKey, smallString2);
+		db.writeRecord(mutableKey, smallString);
+		db.writeRecord(immutableKey, smallString2);
 		
-		assertEquals(db.toString()+"draft wrong?", smallString, db.readRecord(draftKey, security));
-		assertEquals(db.toString()+"sealed wrong?", smallString2, db.readRecord(sealedKey, security));
+		assertEquals(db.toString()+"draft wrong?", smallString, db.readRecord(mutableKey, security));
+		assertEquals(db.toString()+"sealed wrong?", smallString2, db.readRecord(immutableKey, security));
 		
 		class Counter implements Database.PacketVisitor
 		{
@@ -202,8 +202,8 @@ public class TestServerFileDatabase extends TestCaseEnhanced
 		}
 		
 		Vector allKeys = new Vector();
-		allKeys.add(draftKey);
-		allKeys.add(sealedKey);
+		allKeys.add(mutableKey);
+		allKeys.add(immutableKey);
 		Counter counter = new Counter(db, allKeys);
 		db.visitAllRecords(counter);
 		assertEquals(db.toString()+"Not all keys visited?", 0, counter.expectedKeys.size());

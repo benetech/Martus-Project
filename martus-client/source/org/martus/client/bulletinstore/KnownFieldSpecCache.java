@@ -41,12 +41,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 
+import org.martus.client.core.MartusApp;
 import org.martus.common.FieldSpecCollection;
 import org.martus.common.MartusLogger;
 import org.martus.common.PoolOfReusableChoicesLists;
 import org.martus.common.ReusableChoices;
 import org.martus.common.bulletin.Bulletin;
-import org.martus.common.bulletin.BulletinFromXFormsLoader;
 import org.martus.common.bulletin.BulletinLoader;
 import org.martus.common.bulletinstore.BulletinStoreCache;
 import org.martus.common.crypto.MartusCrypto;
@@ -505,8 +505,7 @@ public class KnownFieldSpecCache extends BulletinStoreCache implements ReadableD
 	{
 		if(!b.isNonAttachmentDataValid())
 			return;
-		if(b.containsXFormsData())
-			b = BulletinFromXFormsLoader.createNewBulletinFromXFormsBulletin(b);
+		b = MartusApp.getNativeMartusRecord(b);
 		FieldSpecCollection publicSpecs = b.getTopSectionFieldSpecs();
 		FieldSpecCollection privateSpecs = b.getBottomSectionFieldSpecs();
 		setSpecs(b.getUniversalId(), new FieldSpecCollection[] {publicSpecs, privateSpecs});

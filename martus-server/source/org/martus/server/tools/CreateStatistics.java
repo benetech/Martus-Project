@@ -598,7 +598,7 @@ public class CreateStatistics
 				try
 				{
 					BulletinHeaderPacket bhp = BulletinStore.loadBulletinHeaderPacket(fileDatabase, key, security);
-					if(key.isDraft() || bhp.isAllPrivate())
+					if(key.isMutable() || bhp.isAllPrivate())
 					{
 						bulletinAuthor = "";
 						bulletinTitle = "";
@@ -613,9 +613,9 @@ public class CreateStatistics
 						return;
 					}
 					String fieldDataPacketId = bhp.getFieldDataPacketId();
-					DatabaseKey fieldKey = DatabaseKey.createSealedKey(UniversalId.createFromAccountAndLocalId(
+					DatabaseKey fieldKey = DatabaseKey.createImmutableKey(UniversalId.createFromAccountAndLocalId(
 						bhp.getAccountId(), fieldDataPacketId));
-					FieldSpecCollection standardPublicFieldSpecs = StandardFieldSpecs.getDefaultTopSetionFieldSpecs();
+					FieldSpecCollection standardPublicFieldSpecs = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
 					FieldDataPacket fdp = new FieldDataPacket(UniversalId.createFromAccountAndLocalId(
 						bhp.getAccountId(), fieldDataPacketId), standardPublicFieldSpecs);
 					FileInputStreamWithSeek in = new FileInputStreamWithSeek(fileDatabase.getFileForRecord(fieldKey));
@@ -644,7 +644,7 @@ public class CreateStatistics
 					}
 					
 					FieldSpec[] fieldSpecs = fdp.getFieldSpecs().asArray();
-					if(fdp.hasCustomFieldTemplate())
+					if(fdp.hasCustomFieldSpecs())
 						bulletinHasCustomFields = BULLETIN_HAS_CUSTOM_FIELDS_TRUE;
 					else
 						bulletinHasCustomFields = BULLETIN_HAS_CUSTOM_FIELDS_FALSE;
@@ -815,9 +815,9 @@ public class CreateStatistics
 			private String getBulletinType(DatabaseKey key)
 			{
 				String bulletinType = ERROR_MSG + " not draft or sealed?";
-				if(key.isSealed())
+				if(key.isImmutable())
 					bulletinType = BULLETIN_SEALED;
-				else if(key.isDraft())
+				else if(key.isMutable())
 					bulletinType = BULLETIN_DRAFT;
 				return bulletinType;
 			}

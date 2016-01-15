@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/martus-android.iml" filepath="$PROJECT_DIR$/martus-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/secure-app/secure-app.iml" filepath="$PROJECT_DIR$/secure-app/secure-app.iml" />
+    </modules>
+  </component>
+</project>
+

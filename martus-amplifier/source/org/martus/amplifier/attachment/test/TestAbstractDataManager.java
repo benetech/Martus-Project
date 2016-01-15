@@ -29,8 +29,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import junit.framework.Assert;
-
 import org.martus.amplifier.attachment.AttachmentNotFoundException;
 import org.martus.amplifier.attachment.AttachmentStorageException;
 import org.martus.amplifier.attachment.DataManager;
@@ -71,7 +69,7 @@ public abstract class TestAbstractDataManager
 		try {
 			in = attachmentManager.getAttachment(id);
 		} catch (AttachmentStorageException e) {
-			Assert.fail("Expected an attachment for id: " + id);
+			fail("Expected an attachment for id: " + id);
 		} finally {
 			if (in != null) {
 				in.close();
@@ -85,7 +83,7 @@ public abstract class TestAbstractDataManager
 		} finally {
 			if (in != null) {
 				in.close();
-				Assert.fail(
+				fail(
 					"Found something after clearing all attachments");
 			}
 		}
@@ -107,7 +105,7 @@ public abstract class TestAbstractDataManager
 		InputStream in = null;
 		try {
 			in = attachmentManager.getAttachment(id);
-			Assert.assertEquals(testString, inputStreamToString(in));
+			assertEquals(testString, inputStreamToString(in));
 		} finally {
 			if (in != null) {
 				in.close();
@@ -131,7 +129,7 @@ public abstract class TestAbstractDataManager
 		InputStream in = null;
 		try {
 			in = attachmentManager.getAttachment(id);
-			Assert.assertEquals(testString, inputStreamToString(in));
+			assertEquals(testString, inputStreamToString(in));
 		} finally {
 			if (in != null) {
 				in.close();
@@ -149,7 +147,7 @@ public abstract class TestAbstractDataManager
 		in = null;
 		try {
 			in = attachmentManager.getAttachment(id2);
-			Assert.assertEquals(testString2, inputStreamToString(in));
+			assertEquals(testString2, inputStreamToString(in));
 		} finally {
 			if (in != null) {
 				in.close();
@@ -174,7 +172,7 @@ public abstract class TestAbstractDataManager
 		InputStream in = null;
 		try {
 			in = attachmentManager.getAttachment(id);
-			Assert.assertEquals(testString, inputStreamToString(in));
+			assertEquals(testString, inputStreamToString(in));
 		} finally {
 			if (in != null) {
 				in.close();
@@ -193,7 +191,7 @@ public abstract class TestAbstractDataManager
 		in = null;
 		try {
 			in = attachmentManager.getAttachment(id2);
-			Assert.assertEquals(testString2, inputStreamToString(in));
+			assertEquals(testString2, inputStreamToString(in));
 		} finally {
 			if (in != null) {
 				in.close();
@@ -238,7 +236,7 @@ public abstract class TestAbstractDataManager
 		InputStream in = null;
 		try {
 			in = attachmentManager.getAttachment(id);
-			Assert.assertEquals(testString, inputStreamToString(in));
+			assertEquals(testString, inputStreamToString(in));
 		} finally {
 			if (in != null) {
 				in.close();
@@ -255,7 +253,7 @@ public abstract class TestAbstractDataManager
 		in = null;
 		try {
 			in = attachmentManager.getAttachment(id);
-			Assert.assertEquals(testString2, inputStreamToString(in));
+			assertEquals(testString2, inputStreamToString(in));
 		} finally {
 			if (in != null) {
 				in.close();

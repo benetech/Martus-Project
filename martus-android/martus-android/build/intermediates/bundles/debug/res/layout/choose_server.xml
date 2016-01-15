@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/scrollView"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/choose_server_intro_label"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dip"
+                android:layout_marginBottom="20dip"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:text="@string/choose_server_intro"
+                android:gravity="left"
+                style="@style/MartusTextViewStyle" />
+
+        <TextView
+                android:text="@string/server_ip_label"
+                android:layout_marginTop="20dip"
+                android:layout_gravity="left"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_width="wrap_content"
+                style="@style/MartusTextViewStyle"/>
+
+        <org.martus.android.dialog.TextViewWithCorrectTextDirection
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:scrollHorizontally="true"
+                android:inputType="number|text"
+                android:capitalize="none"
+                android:gravity="fill_horizontal"
+                android:hint="@string/server_ip_hint"
+                android:imeOptions="actionNext"
+                android:id="@+id/serverIpText"
+                style="@style/MartusTextViewStyle"/>
+
+        <TextView
+                android:text="@string/server_public_code_label"
+                android:layout_marginTop="20dip"
+                android:layout_gravity="left"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_width="wrap_content"
+                style="@style/MartusTextViewStyle"/>
+
+        <org.martus.android.dialog.TextViewWithCorrectTextDirection
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:scrollHorizontally="true"
+                android:inputType="number|text"
+                android:capitalize="none"
+                android:gravity="fill_horizontal"
+                android:hint="@string/server_public_code_hint"
+                android:imeOptions="actionNext"
+                android:id="@+id/serverCodeText"
+                style="@style/MartusTextViewStyle"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:text="@string/alert_dialog_magic_word"
+            android:gravity="left"
+            style="@style/MartusTextViewStyle"/>
+
+        <org.martus.android.dialog.TextViewWithCorrectTextDirection
+            android:id="@+id/serverMagicText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:scrollHorizontally="true"
+            android:autoText="false"
+            android:capitalize="none"
+            android:gravity="fill_horizontal"
+            android:password="true"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:hint="@string/enter_magic_word_hint"
+            style="@style/MartusTextViewStyle"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_gravity="right"
+                android:onClick="confirmServer"
+                android:text="@string/alert_dialog_ok"
+                android:contentDescription="@string/alert_dialog_ok"
+                android:id="@+id/serverCodeEnter"
+                style="@style/Widget.Button"/>
+    </LinearLayout>
+
+</ScrollView><!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-android/res/layout/choose_server.xml -->

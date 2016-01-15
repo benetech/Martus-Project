@@ -1,0 +1,4 @@
+entrydate|language|author|firstname|lastname|birthdate|title|comment|id|data2|guns|event_date_start|event_date_end|anonymous|public_attachments|private_attachments|private_attachments_2
+20000204|en|Bob Jones|John| Doe|15042001|Bulletin #1|Message 1|212|C.C.|No|10052002|12312004|1|Attachment 1.txt;Attachment 2.txt|Attachment 3.txt|
+20000205|fr|Bob Jones|Jane| Doe|16042001|Bulletin #2|Message 2|234|T.I..|Yes|12032001|10222005|0||Attachment 4.txt|Attachment 5.txt
+20000206|es|Bob Jonesa|Bobby| Doe|16042001|Bulletin #2|Message 2|235|T.I..|Yes|12032001|10222005|0|||

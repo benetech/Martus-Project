@@ -65,7 +65,7 @@ public class FileSystemDataManager implements DataManager
 	{
 		try
 		{
-			return db.openInputStream(DatabaseKey.createSealedKey(attachmentId), db.security);
+			return db.openInputStream(DatabaseKey.createImmutableKey(attachmentId), db.security);
 		}
 		catch (Exception e)
 		{
@@ -77,7 +77,7 @@ public class FileSystemDataManager implements DataManager
 	{
 		try
 		{
-			int sizeInBytes = db.getRecordSize(DatabaseKey.createSealedKey(attachmentId));
+			int sizeInBytes = db.getRecordSize(DatabaseKey.createImmutableKey(attachmentId));
 			int sizeInKb = sizeInBytes / Kbytes;
 			if(sizeInKb == 0)
 				sizeInKb = 1;
@@ -93,7 +93,7 @@ public class FileSystemDataManager implements DataManager
 	{
 		try
 		{
-			return db.getRecordSize(DatabaseKey.createSealedKey(attachmentId));
+			return db.getRecordSize(DatabaseKey.createImmutableKey(attachmentId));
 		}
 		catch (Exception e)
 		{
@@ -105,7 +105,7 @@ public class FileSystemDataManager implements DataManager
 	{
 		try
 		{
-			db.writeRecord(DatabaseKey.createSealedKey(attachmentId), data);
+			db.writeRecord(DatabaseKey.createImmutableKey(attachmentId), data);
 		}
 		catch (Exception e)
 		{
@@ -171,17 +171,17 @@ public class FileSystemDataManager implements DataManager
 
 	public void putDataPacket(UniversalId uid, ZipEntryInputStreamWithSeek data) throws IOException, RecordHiddenException, CryptoException
 	{
-		db.writeRecord(DatabaseKey.createSealedKey(uid), data);
+		db.writeRecord(DatabaseKey.createImmutableKey(uid), data);
 	}
 
 	public FieldDataPacket getFieldDataPacket(UniversalId uid) throws Exception
 	{
-		FieldSpecCollection standardPublicFieldSpecs = StandardFieldSpecs.getDefaultTopSetionFieldSpecs();
+		FieldSpecCollection standardPublicFieldSpecs = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
 		FieldDataPacket fdp = new FieldDataPacket(uid, standardPublicFieldSpecs);
 		InputStreamWithSeek in = null;
 		try
 		{
-		in = db.openInputStream(DatabaseKey.createSealedKey(fdp.getUniversalId()),db.security);					
+		in = db.openInputStream(DatabaseKey.createImmutableKey(fdp.getUniversalId()),db.security);					
 		fdp.loadFromXml(in, null);
 		}
 		finally

@@ -73,7 +73,7 @@ public class BulletinXmlExporter
 		int bulletinCount = bulletins.size();
 		for (int i = 0; i < bulletinCount; i++)
 		{
-			Bulletin b = (Bulletin)bulletins.get(i);
+			Bulletin b = MartusApp.getNativeMartusRecordKeepOriginalUId((Bulletin)bulletins.get(i));
 			if(progressMeter != null)
 			{
 				progressMeter.updateProgressMeter(i+1, bulletins.size());

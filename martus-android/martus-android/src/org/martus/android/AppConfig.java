@@ -4,14 +4,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import org.martus.client.bulletinstore.MobileClientBulletinStore;
 import org.martus.clientside.ClientSideNetworkHandlerUsingXmlRpc;
+import org.martus.clientside.MobileClientBulletinStore;
 import org.martus.clientside.MobileClientSideNetworkGateway;
 import org.martus.common.crypto.MartusSecurity;
 import org.martus.common.crypto.MobileMartusSecurity;
 import org.martus.common.fieldspec.StandardFieldSpecs;
 import org.martus.common.network.ClientSideNetworkInterface;
-import org.martus.common.network.MobileOrchidProgressMeter;
 import org.martus.common.network.PassThroughTransportWrapper;
 
 import java.io.File;
@@ -68,7 +67,7 @@ public class AppConfig {
             Log.e(LOG_LABEL, "unable to initialize store", e);
         }
 
-        store.setTopSectionFieldSpecs(StandardFieldSpecs.getDefaultTopSetionFieldSpecs());
+        store.setTopSectionFieldSpecs(StandardFieldSpecs.getDefaultTopSectionFieldSpecs());
         store.setBottomSectionFieldSpecs(StandardFieldSpecs.getDefaultBottomSectionFieldSpecs());
 
 	    startOrStopTorAsRequested();

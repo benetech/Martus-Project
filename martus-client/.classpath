@@ -17,6 +17,6 @@
 	<classpathentry kind="lib" path="/martus-thirdparty/libext/BouncyCastle/bin/bcprov-jdk15on-148.jar"/>
 	<classpathentry kind="lib" path="/martus-thirdparty/libext/JUnit/bin/junit-4.11.jar"/>
 	<classpathentry kind="lib" path="/martus-thirdparty/common/JavaRosa/bin/kxml2-2.3.0.jar"/>
-	<classpathentry kind="lib" path="/martus-thirdparty/common/JavaRosa/bin/javarosa-libraries.jar" sourcepath="/martus-thirdparty/common/JavaRosa/source/src.zip"/>
+	<classpathentry kind="lib" path="/martus-thirdparty/common/JavaRosa/bin/javarosa-libraries-7-30-2015.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

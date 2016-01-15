@@ -1,0 +1,48 @@
+Instructions on using org.martus.martusjsxmlgenerator.ImportCSV
+Requires Martus Version 3.0 or greater
+
+These instructions are for converting a CSV file into an XML Martus Bulletin File which can
+then can be imported into Martus using a Martus Client Tool (org.martus.client.tools.ImportXmlBulletins)
+
+test.cvs is the flattened file extracted from a database or excel spreadsheet.
+test.js is what you need to write in order to customize what the bulletin will look like
+Put test.js and test.cvs in a directory (i.e. xmltest)
+
+test.js has a number of comments inside it which will help you and give you examples on how to create
+your own java script file.
+
+CD C:\xmltest
+
+C:\Martus\bin\java.exe -cp C:\Martus\martus.jar org.martus.martusjsxmlgenerator.ImportCSV test.js test.csv "\|"
+or
+C:\Martus\bin\java.exe -cp .\martus.jar org.martus.martusjsxmlgenerator.ImportCSV testWithAttachments.js testWithAttachments.csv "\|"
+
+the "\|" is the delimiter | in the csv file. if the delimiter is a , just put a comma (i.e. C:\Martus\bin\java.exe -cp C:\Martus\martus.jar org.martus.martusjsxmlgenerator.ImportCSV test.js test.csv ",")
+
+
+The output will be the csv file name with a .xml extension will be created ie. test.xml or testWithAttachments.xml
+ 
+
+This next step of converting the XML file into real Martus bulletins can now be done inside of Martus, using the new Import Bulletin feature, or you may use this stand alone tool (ImportXmlBulletins) to import them into Martus.
+If you want Martus to import them you would now Run Martus, click on File->Import and point to the xml file generated from the above.
+
+If you want to use the standalone tool, continue with the following steps...
+Now that file will go into the next step. Here you must use the current Martus client jar. (Martus Version 3.0 or later)
+
+C:\Martus\bin\java.exe -Xbootclasspath/p:C:\Martus\lib\ext\bc-jce.jar -cp C:\Martus\martus.jar org.martus.client.tools.ImportXmlBulletins --import-directory=C:\xmltest --account-directory=C:\Martus
+
+ 
+Note this will take all xml files in the import-directory and import them into Martus.
+
+Here is the output
+
+Martus Bulletin XML Importer
+Enter User Name:xx
+Enter Password:xxx
+Enter Martus folder name where you want these bulletins to be stored:imported bulletins
+
+Importing:Bulletin #1
+Importing:Bulletin #2
+
+Finished! 2 bulletins imported into Martus.
+

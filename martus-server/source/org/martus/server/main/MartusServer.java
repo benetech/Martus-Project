@@ -206,14 +206,19 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 
 	protected MartusServer(File dir, LoggerInterface loggerToUse) throws Exception
 	{
-		this(dir, loggerToUse, new MartusSecurity());
+		this(dir, loggerToUse, new ServerBulletinStore(), new MartusSecurity());
 	}
 
-	public MartusServer(File dir, LoggerInterface loggerToUse, MartusCrypto securityToUse) throws Exception
+	protected MartusServer(File dir, LoggerInterface loggerToUse, ServerMetaDatabase smdFactory) throws Exception
+	{
+		this(dir, loggerToUse, new ServerBulletinStore(smdFactory), new MartusSecurity());
+	}
+
+	public MartusServer(File dir, LoggerInterface loggerToUse, ServerBulletinStore storeToUse, MartusCrypto securityToUse) throws Exception
 	{
 		dataDirectory = dir;
 		setLogger(loggerToUse);
-		store = new ServerBulletinStore();
+		store = storeToUse;
 		store.setSignatureGenerator(securityToUse);
 		MartusSecureWebServer.security = getSecurity();
 		
@@ -236,6 +241,11 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 	{
 		Vector startupFilesWeExpect = getDeleteOnStartupFiles();
 		Vector startupFoldersWeExpect = getDeleteOnStartupFolders();
+		if(!getStartupConfigDirectory().exists())
+		{
+			logError(getStartupConfigDirectory().getAbsolutePath() +" missing");
+			return true;
+		}
 		File[] allFilesAndFoldersInStartupDirectory = getStartupConfigDirectory().listFiles();
 		for(int i = 0; i<allFilesAndFoldersInStartupDirectory.length; ++i)
 		{
@@ -335,7 +345,7 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 	
 	public boolean doesDraftExist(UniversalId uid)
 	{
-		DatabaseKey key = DatabaseKey.createDraftKey(uid);
+		DatabaseKey key = DatabaseKey.createMutableKey(uid);
 		return getDatabase().doesRecordExist(key);
 	}
 	
@@ -643,10 +653,11 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 		
 		String result = NetworkInterfaceConstants.INVALID_DATA;
 		double newFileLength = interimZipFile.length();
-		if(chunkSize != newFileLength - oldFileLength)
+		double actualChunkSize = newFileLength - oldFileLength;
+		if(chunkSize != actualChunkSize)
 		{
 			interimZipFile.delete();
-			logError("putBulletinChunk INVALID_DATA (chunkSize != actual dataSize)");
+			logError("putBulletinChunk INVALID_DATA (chunkSize != actualChunkSize), Expected="+chunkSize + ", Actual="+ (int)actualChunkSize);
 			return NetworkInterfaceConstants.INVALID_DATA;
 		}			
 		
@@ -1021,10 +1032,10 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 		ReadableDatabase db = getDatabase();
 		
 		UniversalId headerUid = UniversalId.createFromAccountAndLocalId(authorAccountId, bulletinLocalId);
-		DatabaseKey headerKey = DatabaseKey.createSealedKey(headerUid);
+		DatabaseKey headerKey = DatabaseKey.createImmutableKey(headerUid);
 		
 		if(!db.doesRecordExist(headerKey))
-			headerKey.setDraft();
+			headerKey.setMutable();
 		
 		if(!db.doesRecordExist(headerKey))
 		{
@@ -1033,10 +1044,10 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 		
 		UniversalId dataPacketUid = UniversalId.createFromAccountAndLocalId(authorAccountId, packetLocalId);
 		DatabaseKey dataPacketKey = null;
-		if(headerKey.isDraft())
-			dataPacketKey = DatabaseKey.createDraftKey(dataPacketUid);
+		if(headerKey.isMutable())
+			dataPacketKey = DatabaseKey.createMutableKey(dataPacketUid);
 		else
-			dataPacketKey = DatabaseKey.createSealedKey(dataPacketUid);
+			dataPacketKey = DatabaseKey.createImmutableKey(dataPacketUid);
 			
 		if(!db.doesRecordExist(dataPacketKey))
 		{
@@ -1172,6 +1183,11 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 		return file;
 	}
 	
+	public static File getPacketsDirectory(File serverDataDirectory)
+	{
+		return new File(serverDataDirectory, PACKETS_DIRECTORY_NAME);
+	}
+
 	public static String getKeypairFilename()
 	{
 		return KEYPAIRFILENAME;
@@ -1217,11 +1233,11 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 	public DatabaseKey findHeaderKeyInDatabase(String authorAccountId,String bulletinLocalId) 
 	{
 		UniversalId uid = UniversalId.createFromAccountAndLocalId(authorAccountId, bulletinLocalId);
-		DatabaseKey headerKey = DatabaseKey.createSealedKey(uid);
+		DatabaseKey headerKey = DatabaseKey.createImmutableKey(uid);
 		if(getDatabase().doesRecordExist(headerKey))
 			return headerKey;
 
-		headerKey.setDraft();
+		headerKey.setMutable();
 		if(getDatabase().doesRecordExist(headerKey))
 			return headerKey;
 
@@ -1907,7 +1923,7 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 
 	private void initalizeBulletinStore()
 	{
-		File packetsDirectory = new File(getDataDirectory(), "packets");
+		File packetsDirectory = getPacketsDirectory(getDataDirectory());
 		Database diskDatabase = new ServerFileDatabase(packetsDirectory, getSecurity());
 		initializeBulletinStore(diskDatabase);
 	}
@@ -1931,6 +1947,11 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 		catch(FileVerificationException e)
 		{
 			logError("Account Map did not verify against signature file", e);
+			System.exit(7);
+		}
+		catch(Exception e)
+		{
+			logError("Unknown exception", e);
 			System.exit(7);
 		}
 	}
@@ -1964,6 +1985,13 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 	{
 		return new File(getStartupConfigDirectory(), HIDDENPACKETSFILENAME);
 	}
+	
+	protected File getMetaDatabaseDirectory() 
+	{
+		return ServerBulletinStore.getMetaDatabaseDirectory(getDataDirectory());
+	}
+
+
 		
 	public File getDataDirectory()
 	{
@@ -2213,6 +2241,7 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 	public char[] insecurePassword;
 	public long amplifierDataSynchIntervalMillis;
 	
+	private static final String PACKETS_DIRECTORY_NAME = "packets";
 	private static final String KEYPAIRFILENAME = "keypair.dat";
 	public static final String HIDDENPACKETSFILENAME = "isHidden.txt";
 	private static final String COMPLIANCESTATEMENTFILENAME = "compliance.txt";

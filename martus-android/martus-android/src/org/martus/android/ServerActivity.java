@@ -15,9 +15,12 @@ import org.martus.common.DammCheckDigitAlgorithm;
 import org.martus.common.MartusUtilities;
 import org.martus.common.crypto.MartusCrypto;
 import org.martus.common.crypto.MartusSecurity;
+import org.martus.common.network.DefaultServerConnector;
 import org.martus.common.network.NetworkInterfaceConstants;
 import org.martus.common.network.NetworkResponse;
 import org.martus.common.network.NonSSLNetworkAPI;
+import org.martus.common.network.PublicKeyTask;
+import org.martus.common.network.UploadRightsTask;
 import org.martus.util.StreamableBase64;
 
 import android.app.Activity;
@@ -139,7 +142,7 @@ public class ServerActivity extends AbstractServerActivity implements TextView.O
         serverIP = textIp.getText().toString().trim();
 	    serverIP = serverIP.replace("*", ".");
         serverIP = serverIP.replace("#", ".");
-        if ((serverIP.length() < MIN_SERVER_IP) || (! validate(serverIP))) {
+        if ((serverIP.length() < DefaultServerConnector.MIN_SERVER_IP) || (! validate(serverIP))) {
             showErrorMessageWithRetry(getString(R.string.invalid_server_ip), getString(R.string.error_message));
 	        textIp.requestFocus();
             return;
@@ -166,12 +169,12 @@ public class ServerActivity extends AbstractServerActivity implements TextView.O
 	    }
 	    MartusSecurity martusCrypto = AppConfig.getInstance().getCrypto();
 
-        final AsyncTask <Object, Void, Vector> keyTask = new PublicKeyTask();
+        final AsyncTask <Object, Void, Vector> keyTask = new PublicKeyTask(this);
         keyTask.execute(server, martusCrypto);
     }
 
     @Override
-    protected void processResult(Vector serverInformation) {
+    public void processResult(Vector serverInformation) {
         dismissProgressDialog();
 	    if (! NetworkUtilities.isNetworkAvailable(this)) {
             showErrorMessageWithRetry(getString(R.string.no_network_connection), getString(R.string.error_message));
@@ -207,7 +210,7 @@ public class ServerActivity extends AbstractServerActivity implements TextView.O
 
 	            showProgressDialog(getString(R.string.progress_confirming_magic_word));
 	            String magicWord = textMagicWord.getText().toString().trim();
-                final AsyncTask<Object, Void, NetworkResponse> rightsTask = new UploadRightsTask();
+                final AsyncTask<Object, Void, NetworkResponse> rightsTask = new UploadRightsTask(this);
                 rightsTask.execute(getNetworkGateway(), martusCrypto, magicWord);
 
             } else {
@@ -280,13 +283,13 @@ public class ServerActivity extends AbstractServerActivity implements TextView.O
 	}
 
 	public static boolean validate(final String ip) {
-      Pattern pattern = Pattern.compile(IP_ADDRESS_PATTERN);
+      Pattern pattern = Pattern.compile(DefaultServerConnector.IP_ADDRESS_PATTERN);
       Matcher matcher = pattern.matcher(ip);
       return matcher.matches();
 	}
 
     @Override
-    protected void processMagicWordResponse(NetworkResponse response) {
+    public void processMagicWordResponse(NetworkResponse response) {
         dismissProgressDialog();
         try {
              if (!response.getResultCode().equals(NetworkInterfaceConstants.OK)) {

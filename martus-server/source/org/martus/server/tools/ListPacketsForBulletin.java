@@ -127,13 +127,15 @@ public class ListPacketsForBulletin
 			BufferedReader reader = new BufferedReader(new UnicodeReader(System.in));
 //			TODO security issue password is a string
 			String passphrase = reader.readLine();
+			reader.close();
+
 			security = (MartusSecurity) MartusServerUtilities.loadCurrentMartusSecurity(serverKeyPairFile, passphrase.toCharArray());			
 			
 			ServerFileDatabase db = new ServerFileDatabase(packetDir,security);
 			db.initialize();
 			
 			UniversalId uId = UniversalId.createFromAccountAndLocalId(accountPublicKey, bulletinLocalId);
-			DatabaseKey dbKey = DatabaseKey.createSealedKey(uId);
+			DatabaseKey dbKey = DatabaseKey.createImmutableKey(uId);
 			System.out.println("Assuming SEALED status");
 			
 			BulletinHeaderPacket bhp = new BulletinHeaderPacket(uId);

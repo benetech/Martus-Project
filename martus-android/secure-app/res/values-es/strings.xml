@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string name="survey_loading_reading_form_message">Leyendo definición de formulario...</string>
+    <string name="button_label_complete_new_form">Crear expediente</string>
+    <string name="title_existing_forms">Expedientes existentes</string>
+    <string name="label_enter_passphrase">Introduzca la contraseña</string>
+    <string name="label_confirm_passphrase">Confirme su contraseña</string>
+    <string name="label_create_account">Crear cuenta</string>
+    <string name="title_login">Iniciar sesión</string>
+    <string name="label_pass_phrases_do_not_match">¡Las contraseñas no coinciden!</string>
+    <string name="label_invalid_pass_phrase_length">Tamaño de contraseña no válido, ¡debe ser de al menos 8 caracteres!</string>
+    <string name="label_empty_pass_phrase">Por favor, introduzca una contraseña</string>
+    <string name="label_incorrect_pass_phrase">Contraseña incorrecta</string>
+    <string name="invalid_server_ip">Dirección IP no válida</string>
+    <string name="label_connecting_to_server">Conectando con el servidor</string>
+    <string name="error_message">Error</string>
+    <string name="error_connecting_to_server">Error al conectar al servidor</string>
+    <string name="no_upload_rights">Palabra mágica incorrecta</string>
+    <string name="label_server_connection_setup_successful">¡Ha configurado con éxito una conexión al servidor Martus!</string>
+    <string name="invalid_server_public_code">Código público de servidor no válido</string>
+    <string name="progress_confirming_upload_rights">Confirmando derechos de subida</string>
+    <string name="successful_server_choice">¡Ha conectado con éxito con el servidor!</string>
+    <string name="invalid_server_info">La información de servidor introducida no es válida</string>
+    <string name="error_establishing_upload_rights">Error al establecer derechos de subida</string>
+    <string name="no_network_connection">¡El dispositivo no tiene conectividad!</string>
+    <string name="progress_preparing_to_connect">Preparándose para conectar con el servidor</string>
+    <string name="error_create_account">Error al crear cuenta</string>
+    <string name="label_setup_secure_storage">Estableciendo el almacenamiento seguro</string>
+    <string name="no_forms">No hay expedientes</string>
+    <string name="my_forms">Expedientes existentes</string>
+    <string name="passphrase">Contraseña</string>
+    <string name="blank_label"></string>
+    <string name="send_bulletin">Enviar expediente</string>
+    <string name="invalid_password">La contraseña debe tener al menos 8 caracteres</string>
+    <string name="settings_pwd_equal">Las contraseñas coinciden</string>
+    <string name="settings_pwd_not_equal">¡Las contraseñas no coinciden!</string>
+    <string name="error_incorrect_passphrase">¡Contraseña incorrecta, por favor, inténtelo de nuevo!</string>
+    <string name="form_title_label">Título del formulario</string>
+    <string name="save">Guardar</string>
+    <string name="syncing_form">Sincronizando formulario</string>
+    <string name="keypair_creation_failed">No se pudo crear el par de claves de Martus</string>
+    <string name="error_message_unexpected_error">Error inesperado</string>
+    <string name="error_message_invalid_chars">Se usaron caracteres no válidos en la contraseña</string>
+    <string name="error_message_move_failed">Problema al mover expedientes fallidos</string>
+    <string name="label_no_attachments">No hay adjuntos</string>
+    <string name="label_no_images_in_gallery">No hay fotos</string>
+    <string name="form_author_field_hint">Autor del formulario</string>
+    <string name="form_organization_field_hint">Organización del formulario</string>
+    <string name="label_auto_generated_orphan_group_name">SIN NOMBRE</string>
+    <string name="preparing_record_for_upload">Preparando expediente para subida</string>
+    <string name="uploading_record">Subiendo expediente...</string>
+    <string name="could_not_delete_attachment">No se pudo borrar el adjunto: %1$s</string>
+    <string name="show_version">Mostrar versión</string>
+    <string name="version_name_label">Nombre de la versión: %1$s</string>
+    <string name="version_code_label">Código de la versión: %1$s</string>
+    <string name="send_failed_cant_reach_server">No se pudo alcanzar el servidor</string>
+    <string name="bulletin_sending_progress">Enviando...</string>
+    <string name="default_author">Autor desconocido</string>
+    <string name="error_cleaning_up_odk_folders">Error al limpiar carpetas</string>
+    <string name="failed_send_notification">El envío falló debido a: %1$s . Intente reenviarlo más tarde.</string>
+    <string name="failure_choosing_file">Fallo al escoger archivo</string>
+    <string name="failure_zipping_bulletin">Fallo al comprimir expediente</string>
+    <string name="starting_send_notification">Enviando...</string>
+    <string name="successful_send_notification">¡Expediente enviado!</string>
+    <string name="title_attachments">Adjuntos del formulario</string>
+    <string name="xforms_constraint_error">No se puede subir:\n Se encontró un problema de restricción en el formulario</string>
+    <string name="xforms_missing_required_field">No se puede subir:\n Falta campo requerido</string>
+    <string name="hint_password_field">Contraseña</string>
+    <string name="hint_confirm_password_field">Confirmar contraseña</string>
+    <string name="label_enter_your_password">Ingrese su contraseña para proceder</string>
+    <!--Override Cacheword-->
+    <string name="cacheword_notification_cached_title">Cuenta desbloqueada</string>
+    <string name="cacheword_notification_cached">El prototipo de secureApp está desbloqueado. Pulse para bloquear.</string>
+    <string name="cacheword_notification_cached_message">El prototipo de secureApp está desbloqueado. Pulse para bloquear.</string>
+    <!--End override Cacheword-->
+    <!--Override ODK-->
+    <string name="required_answer_error">Falta una respuesta requerida.</string>
+    <!--End override ODK-->
+</resources>

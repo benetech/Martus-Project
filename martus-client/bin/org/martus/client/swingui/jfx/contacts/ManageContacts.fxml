@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="contactsVbox" prefWidth="860.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+	<VBox styleClass="mainTextBox">
+    		<Label fx:id="fxAddManageContactLabel" styleClass="headingLevel1" text="%AddContacts" />
+    		<Label id="contactsOverviewLabel" prefWidth="840.0" styleClass="mainTextBoxText" text="%ManageContactsOverview1" wrapText="true" />
+    		<Label prefWidth="840.0" styleClass="mainTextBoxText" text="%ManageContactsOverview2" wrapText="true" />
+	</VBox>
+    <BorderPane>
+      <center>
+        <VBox BorderPane.alignment="CENTER">
+          <children>
+            <TableView id="contacts-table" fx:id="contactsTable" editable="true" prefHeight="212.0" prefWidth="840.0">
+              <columns>
+                <TableColumn id="" minWidth="10.0" prefWidth="106.0" sortable="true" styleClass="mainText" text="%Button.ContactName" fx:id="contactNameColumn" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="160.0" styleClass="tableRow" text="%Button.SendToByDefault" fx:id="sendToByDefaultColumn" />
+                <TableColumn editable="false" id="" minWidth="10.0" prefWidth="394.0" sortable="true" styleClass="tableRow" text="%Button.PublicCode" fx:id="publicCodeColumn" />
+                <TableColumn editable="false" minWidth="10.0" prefWidth="85.0" resizable="false" sortable="true" styleClass="tableRow" text="%Button.ContactVerified" fx:id="verificationStatusColumn" />
+                <TableColumn editable="false" id="" minWidth="10.0" prefWidth="62.0" resizable="false" sortable="false" styleClass="tableRow" text="%Button.ContactRemove" fx:id="removeContactColumn" />
+              </columns>
+            </TableView>
+          </children>
+        </VBox>
+      </center>
+      <top>
+        <HBox prefHeight="53.0">
+          <children>
+            <Label styleClass="headingLevel3" text="%AccessToken" />
+            <TextField id="" fx:id="accessTokenField" promptText="%AccessTokenInstructions" />
+            <Label prefWidth="38.0" visible="false" />
+            <Button id="" fx:id="addContactButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addContact" prefWidth="259.0" styleClass="button_guided_action" text="%Button.AddContact" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+  </children>
+  <padding>
+    <Insets left="20.0" />
+  </padding>
+</VBox>

@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.martus.android"
-          android:versionCode="22"
-          android:versionName="1.2.1">
-    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19" />
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.martus.androidwrapper"
+    android:versionCode="27"
+    android:versionName="1.2.4-beta">
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19"
+        tools:overrideLibrary="com.iangclifton.android.floatlabel, org.martus.android.library"
+        />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
-            android:icon="@drawable/ic_launcher"
-            android:label="@string/app_name"
-            android:theme="@style/MartusTheme"
-            android:supportsRtl="true"
-            android:name="org.martus.android.MyApplication" >
+        android:icon="@drawable/ic_launcher_martus_mobile"
+        android:label="@string/app_name"
+        android:theme="@style/MartusTheme"
+        android:supportsRtl="true"
+        android:name="org.martus.androidwrapper.MyApplication"
+        tools:replace="android:name,android:icon">
+
         <activity
             android:name="org.martus.android.MartusActivity"
             android:launchMode="singleTask"
@@ -65,7 +71,8 @@
             android:name="com.ipaulpro.afilechooser.FileChooserActivity"
             android:exported="false"
             android:icon="@drawable/ic_chooser"
-            android:label="@string/choose_file" >
+            android:label="@string/choose_file"
+            tools:replace="android:label">
                 <intent-filter>
                     <action android:name="android.intent.action.GET_CONTENT" />
 
@@ -75,18 +82,6 @@
                     <data android:mimeType="*/*" />
                 </intent-filter>
             </activity>
-
-        <activity
-            android:name="org.odk.collect.android.activities.FormEntryActivity"
-            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
-            android:label="@string/app_name"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
-
-        <activity
-            android:name="org.odk.collect.android.activities.FormHierarchyActivity"
-            android:label="@string/app_name" />
-
         <activity
             android:name="org.martus.android.ChooseConnectionActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
@@ -96,7 +91,7 @@
             android:name="org.martus.android.dialog.AddContactActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
             android:label="@string/add_contact_using_access_token"/>
-        
+
         <activity android:name="org.martus.android.ContactImportChoiceActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden|locale|layoutDirection"
             android:label="@string/import_contact_title"/>

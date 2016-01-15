@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string-array name="entries_language_preference">
+    <item>الإنجليزية</item>
+    <item>العربية</item>
+    <item>الأرمينية</item>
+    <item>الأذربيجانية</item>
+    <item>البلغارية</item>
+    <item>البنغالية، البنغلا</item>
+    <item>البورمية</item>
+    <item>الصينية</item>
+    <item>الهولندية</item>
+    <item> الإسبرانتو</item>
+    <item>الفارسية/الدارية</item>
+    <item>الفرنسية</item>
+    <item>الألمانية</item>
+    <item>الغوجاراتية</item>
+    <item>الهوسا</item>
+    <item>العبرية</item>
+    <item>الهندية</item>
+    <item>الهنغارية</item>
+    <item>الإيطالية</item>
+    <item>اليابانية</item>
+    <item>الجاوية</item>
+    <item>الكنادية</item>
+    <item>الكازاخية</item>
+    <item>الخميرية</item>
+    <item>القيرغيزية</item>
+    <item>الكورية</item>
+    <item>الكردية</item>
+    <item>الماليالامية</item>
+    <item>الماراثية</item>
+    <item>النيبالية</item>
+    <item>الأوريا</item>
+    <item>البنجابية</item>
+    <item>الباشتو، البوشتو</item>
+    <item>البولندية</item>
+    <item>البرتغالية</item>
+    <item>الرومانية</item>
+    <item>الروسية</item>
+    <item>الصربية</item>
+    <item>السندية</item>
+    <item>السنهالية</item>
+    <item>الإسبانية</item>
+    <item>التاميلية</item>
+    <item>الطاجيكية</item>
+    <item>التيلوجية</item>
+    <item>التايلاندية</item>
+    <item>التركية</item>
+    <item>التركمانية</item>
+    <item>الأوكرانية</item>
+    <item>الأوردو</item>
+    <item>الأوزبكية</item>
+    <item>الفيتنامية</item>
+  </string-array>
+    <string-array name="entries_timeout_preference">
+    <item>10 دقائق</item>
+    <item>7 دقائق</item>
+    <item>5 دقائق</item>
+    <item>3 دقائق</item>
+    <item>دقيقة</item>
+  </string-array>
+    <string-array name="font_size_entries">
+    <item>@string/font_size_extra_large</item>
+    <item>@string/font_size_large</item>
+    <item>@string/font_size_medium</item>
+    <item>@string/font_size_small</item>
+    <item>@string/font_size_extra_small</item>
+  </string-array>
+    <string-array name="navigation_entries">
+    <item>@string/swipe_navigation</item>
+    <item>@string/buttons_navigation</item>
+    <item>@string/swipe_buttons_navigation</item>
+  </string-array>
+    <string-array name="values_language_preference">
+    <item>en</item>
+    <item>ar</item>
+    <item>arm</item>
+    <item>az</item>
+    <item>bg</item>
+    <item>bn</item>
+    <item>bur</item>
+    <item>zh</item>
+    <item>nl</item>
+    <item>eo</item>
+    <item>fa</item>
+    <item>fr</item>
+    <item>de</item>
+    <item>gu</item>
+    <item>ha</item>
+    <item>he</item>
+    <item>hi</item>
+    <item>hu</item>
+    <item>it</item>
+    <item>ja</item>
+    <item>jv</item>
+    <item>kn</item>
+    <item>kk</item>
+    <item>km</item>
+    <item>ky</item>
+    <item>ko</item>
+    <item>ku</item>
+    <item>ml</item>
+    <item>mr</item>
+    <item>ne</item>
+    <item>or</item>
+    <item>pa</item>
+    <item>ps</item>
+    <item>pl</item>
+    <item>pt</item>
+    <item>ro</item>
+    <item>ru</item>
+    <item>sr</item>
+    <item>sd</item>
+    <item>si</item>
+    <item>es</item>
+    <item>ta</item>
+    <item>tg</item>
+    <item>te</item>
+    <item>th</item>
+    <item>tr</item>
+    <item>tk</item>
+    <item>uk</item>
+    <item>ur</item>
+    <item>uz</item>
+    <item>vi</item>
+  </string-array>
+    <string-array name="values_timeout_preference">
+    <item>10</item>
+    <item>7</item>
+    <item>5</item>
+    <item>3</item>
+    <item>1</item>
+  </string-array>
+    <plurals name="confirm_reset_install_extra">
+    <item quantity="zero">سوف تفقد %1$s غير مرسلة او التسجبلات التي يجري إرسالها حاليا</item>
+    <item quantity="one">سوف تفقد %1$s غير مرسل او التسجبل الذي يجري إرساله حاليا</item>
+    <item quantity="two">سوف تفقد %1$s غير مرسلَيْن او التسجبلَيْن اللذان يجري إرسالهما حاليا</item>
+    <item quantity="few">سوف تفقد %1$s غير مرسلة او التسجبلات التي يجري إرسالها حاليا</item>
+    <item quantity="many">سوف تفقد %1$s غير مرسلة او التسجبلات التي يجري إرسالها حاليا</item>
+    <item quantity="other">سوف تفقد %1$s غير مرسلة او التسجبلات التي يجري إرسالها حاليا</item>
+  </plurals>
+    <plurals name="show_unsent_count">
+    <item quantity="zero">لديك %1$s تسجيل غير مُرسَل. يمكنك الذهاب إلى قائمة الأدوات وإعادة إرساله.</item>
+    <item quantity="one">لديك %1$s تسجيل غير مُرسَل. يمكنك الذهاب إلى قائمة الأدوات وإعادة إرساله.</item>
+    <item quantity="two">لديك %1$s تسجيلات غير مُرسَلة. يمكنك الذهاب إلى قائمة الأدوات وإعادة إرسالها.</item>
+    <item quantity="few">لديك %1$s تسجيلات غير مُرسَلة. يمكنك الذهاب إلى قائمة الأدوات وإعادة إرسالها.</item>
+    <item quantity="many">لديك %1$s تسجيلا غير مُرسَل. يمكنك الذهاب إلى قائمة الأدوات وإعادة إرسالها.</item>
+    <item quantity="other">لديك %1$s تسجيلات غير مُرسَلة. يمكنك الذهاب إلى قائمة الأدوات وإعادة إرسالها.</item>
+  </plurals>
+    <string name="about_tor_label">التعرف على Tor</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="accept_location">سجل احداثيات الموقع </string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="access_token">شارة الوصول :</string>
+    <string name="account_access_token_label">شارة الوصول : %1$s</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="accuracy">الدقة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="activity_not_found">لم يعثر على نشاط لمعالجته : %s</string>
+    <string name="add_another">إضافة مجموعة</string>
+    <string name="add_another_repeat">هل تريد إضافة مجموعة \"%s\" أخرى ؟</string>
+    <string name="add_attachment">إضافة مرفق</string>
+    <string name="add_contact_from_file">استيراد جهة الاتصال من الملف</string>
+    <string name="add_contact_using_access_token">إضافة جهة الاتصال من الخادم</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="add_more">إضافة المزيد</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="add_repeat">هل تريد إضافة مجموعة \"%s\" جديدة ؟</string>
+    <string name="add_repeat_no">عدم الإضافة</string>
+    <string name="added_on_date_at_time">\'تمت الإضافة بتاريخ\' EEE, MMM dd, yyyy في HH:mm</string>
+    <string name="admin_access_settings">الْمس للوصول إلى الإعدادات الخاصة بالمسؤول</string>
+    <string name="admin_password_changed">غُيِّرت كلمة سر المسؤول بنجاح</string>
+    <string name="admin_password_disabled">كلمة سر المسؤول معطلة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_incorrect">عذرًا، كلمة المرور غير صحيحة!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="admin_password_mismatch">آسف، كلمتا السر غير متطابقتين !</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="admin_preferences">إعدادات المدير</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="advanced_server_options">إعدادات الخادم المتقدمة</string>
+    <string name="alert_dialog_confirm_password">تأكيد كلمة السر :</string>
+    <string name="alert_dialog_magic_word">الكلمة السحرية :</string>
+    <string name="alert_dialog_ok">موافق</string>
+    <string name="alert_dialog_password">كلمة السر :</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="altitude">ارتفاع</string>
+    <string name="app_url">http://opendatakit.org</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="attachment_no_longer_exists">تعذر الإرسال نظرا لحذف المرفق التالي %1$s من الجهاز</string>
+    <string name="attachments_add_label">المرفقات :</string>
+    <string name="attachments_added_label">المرفقات (ابقِ على الضغط للإزالة) :</string>
+    <string name="audio_file_error">لم يحدد أي ملف صوتي.</string>
+    <string name="audio_file_invalid">الملف : %s ليس ملفا صوتيا صالحا.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values-ar/strings.xml -->
+    <eat-comment/>
+    <string msgid="3983201110833868073" name="auth_client_needs_enabling_title">"يتطلب أحد التطبيقات تمكين خدمات Google Play."</string>
+    <string msgid="7999585836145154206" name="auth_client_needs_installation_title">"يتطلب أحد التطبيقات تثبيت خدمات Google Play."</string>
+    <string msgid="6488605506794595966" name="auth_client_needs_update_title">"يتطلب أحد التطبيقات تحديث خدمات Google Play."</string>
+    <string msgid="3635065018897986478" name="auth_client_play_services_err_notification_msg">"خطأ في خدمات Google Play"</string>
+    <string msgid="6304135633531965756" name="auth_client_requested_by_msg">"تم الطلب عن طريق <ns1:g id="APP_NAME">%1$s</ns1:g>"</string>
+    <string msgid="2534454398764507874" name="auth_client_using_bad_version_title">"يحاول أحد التطبيقات استخدام إصدار غير صالح من خدمات Google Play."</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="autosend">إرسال أوتوماتيكي</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="autosend_network">الإرسال تلقائيا عبر الشبكة</string>
+    <string name="autosend_wifi">الإرسال تلقائيا عبر Wi-Fi</string>
+    <string name="barcode_scanner_error">آسف، لم يتم تثبيت ماسح الرموز الشريطية !</string>
+    <string name="boolean_false">لا</string>
+    <string name="boolean_true">نعم</string>
+    <string name="bulletin_packaging_progress">تجري التعمية والضغط...</string>
+    <string name="bulletin_sending_progress">يجري الإرسال...</string>
+    <string name="buttons_instructions">أنت في مقدمة %s. اضغط على أزرار الأسهم أدناه للانتقال إلى الأمام وإلى الخلف.</string>
+    <string name="buttons_navigation">استخدام أزرار الأمام/الخلف</string>
+    <string name="cancel">إلغاء</string>
+    <string name="cancel_loading_form">إلغاء</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="cancel_location">إلغاء</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="cancel_saving_form">إلغاء</string>
+    <string name="cancel_server">إلغاء</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="cannot_edit_completed_form">يتعذر تحرير هذا النموذج مرة واحدة تم وضع علامة على أنها كاملة. قد تكون مشفرة.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="capture_audio">تسجيل الصوت</string>
+    <string name="capture_image">التقاط صورة</string>
+    <string name="capture_video">تسجيل الفيديو</string>
+    <string name="change_font_size">حجم خط النص</string>
+    <string name="change_language">تغيير اللغة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="change_password">ODK كلمة المرور</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="change_server">المنصة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="change_splash_path">تغيير الصورة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="change_url_default">URL</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="change_username">إسم المستخدم</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="change_username_default">اسم المستخدم</string>
+    <string name="choose_file">مستكشف ملفات Martus</string>
+    <string name="choose_image">اختيار الصورة</string>
+    <string name="choose_server_intro">التالي، هيِّء الاتصال بخوادم Martus التي تريد إرسال التسجيلات إليها.</string>
+    <string name="choose_server_title">حدِّد الخادم</string>
+    <string name="choose_sound">اختيار الصوت</string>
+    <string name="choose_video">اختيار الفيديو</string>
+    <string name="clear_answer">إزالة الإجابة</string>
+    <string name="clear_answer_ask">هل تريد إزالة هذه الإجابة ؟</string>
+    <string name="clear_answer_no">إلغاء</string>
+    <string name="clearanswer_confirm">هل تريد إزالة الإجابة لـ \"%s\"؟</string>
+    <string name="client">واجهة المستخدم</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.0.30/res/values-ar/strings.xml -->
+    <eat-comment/>
+    <string msgid="4181637455539816337" name="common_google_play_services_enable_button">"تمكين خدمات Google Play"</string>
+    <string msgid="7627896071867667758" name="common_google_play_services_enable_text">"لن يعمل هذا التطبيق ما لم يتم تمكين خدمات Google Play."</string>
+    <string msgid="529078775174559253" name="common_google_play_services_enable_title">"تمكين خدمات Google Play"</string>
+    <string msgid="8515591849428043265" name="common_google_play_services_install_button">"الحصول على خدمات Google Play"</string>
+    <string msgid="8685301130651051380" name="common_google_play_services_install_text_phone">"لن يتم تشغيل هذا التطبيق بدون خدمات Google Play، والتي لا تتوفر في هاتفك."</string>
+    <string msgid="1589957570365247855" name="common_google_play_services_install_text_tablet">"لن يتم تشغيل هذا التطبيق بدون خدمات Google Play، والتي لا تتوفر في جهازك اللوحي."</string>
+    <string msgid="26645092511305524" name="common_google_play_services_install_title">"الحصول على خدمات Google Play"</string>
+    <string msgid="4983316348021735578" name="common_google_play_services_invalid_account_text">"الحساب الذي تمّ تحديده غير موجود على الجهاز. يُرجى اختيار حساب آخر."</string>
+    <string msgid="1066672360770936753" name="common_google_play_services_invalid_account_title">"حساب غير صالح"</string>
+    <string msgid="9038847255613537209" name="common_google_play_services_network_error_text">"يتطلب الاتصال بخدمات Google Play وجود اتصال بيانات."</string>
+    <string msgid="3827284619958211114" name="common_google_play_services_network_error_title">"خطأ في الشبكة"</string>
+    <string msgid="4762332809710093730" name="common_google_play_services_unknown_issue">"حدثت مشكلة غير معروفة في خدمات Google Play."</string>
+    <string msgid="4725396522367789365" name="common_google_play_services_unsupported_date_text">"يبدو أن التاريخ على الجهاز غير صحيح. الرجاء التحقق من التاريخ على الجهاز."</string>
+    <string msgid="3542578567569488671" name="common_google_play_services_unsupported_text">"خدمات Google Play التي تستجيب لها بعض تطبيقاتك لا تعمل على جهازك. يُرجى الاتصال بجهة التصنيع للحصول على المساعدة."</string>
+    <string msgid="6334768798839376943" name="common_google_play_services_unsupported_title">"خدمات Google Play"</string>
+    <string msgid="8932944190611227642" name="common_google_play_services_update_button">"تحديث"</string>
+    <string msgid="448354684997260580" name="common_google_play_services_update_text">"لن يتم تشغيل هذا التطبيق ما لم تحدِّث خدمات Google Play."</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">"تحديث خدمات Google Play"</string>
+    <string msgid="9071884888741449141" name="common_signin_button_text">"تسجيل الدخول"</string>
+    <string msgid="2429381841831957106" name="common_signin_button_text_long">"تسجيل الدخول باستخدام Google"</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="completed_data">كاملة (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="confirm_cancel_bulletin">إلغاء هذا التسجيل ؟</string>
+    <string name="confirm_data_loss">إذا غادرت هذه الشاشة الآن، ستفقد كل البيانات التي أدخلتها. هل تريد المغادرة فعلا ؟</string>
+    <string name="confirm_default">هل أنت متأكد ؟</string>
+    <string name="confirm_go_to_device_home">هل تريد حقا مغادرة Martus ؟</string>
+    <string name="confirm_logout">هل تريد حقا الخروج ؟</string>
+    <string name="confirm_password_hint">تأكيد كلمة السر</string>
+    <string name="confirm_remove_attachment">إزالة %1$s ؟</string>
+    <string name="confirm_reset_install">هل تريد الحذف فعلا ؟</string>
+    <string name="confirm_reset_install_extra_no_pending"> </string>
+    <string name="confirm_tamper_reset_message">يوجد خطأ بملفات الإعداد. ولأسباب أمنية، يُرجى حذف الحساب. إذا ضغطت على الزر \"نعم\"، ستبدأ هذه العملية. لن يشتغل Martus بملف إعدادات تالف، لذلك اضغط على \"لا\" لمغادرة Martus.</string>
+    <string name="confirm_tamper_reset_title">خطأ في الإعداد</string>
+    <string name="constraint_behavior">سلوك المعالجة المقيد</string>
+    <string name="contact_access_token">شارة وصول جهة الاتصال</string>
+    <string formatted="false" name="contact_us_info">إن كان لديك أي سؤال أو ملاحظات حول Martus يُرجى مراسلتنا عبر martus@benetech.org</string>
+    <string name="contact_us_menu_item">اتصل بنا</string>
+    <string name="create_account_dialog_cancel">خروج</string>
+    <string name="create_account_dialog_title">إنشاء كلمة السر</string>
+    <string name="create_account_intro">مرحبا بك في Martus ! يجب عليك أولا أن تنشئ حساب Mobile Martus.</string>
+    <string name="create_password_hint">كلمة السر الجديدة</string>
+    <string name="create_sample_bulletin">إنشاء تسجيل</string>
+    <string name="custom_form_transition">هذه فرصتك لإضافة أي مرفق أو الضغط على \"الرجوع\" لتحرير إدخال النموذج.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="data">الاستمارات المحفوظة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="data_saved_error">آسف، فشل حفظ النموذج !</string>
+    <string name="data_saved_ok">نجح في حفظ النموذج !</string>
+    <string name="date_range_end"> (النهاية)</string>
+    <string name="date_range_start"> (البداية)</string>
+    <string name="date_validation_min">يجب أن يقع التاريخ في %1$s أو بعده.</string>
+    <string name="date_validation_min_max">يجب أن يقع التاريخ في %1$s أو بعده أو في %2$s أو قبله.</string>
+    <string name="default_author">مؤلف مجهول</string>
+    <string name="default_completed">التعيين افتراضيا كمُنتهٍ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="delete_confirm">حذف %s الاستمارة/ات؟</string>
+    <string name="delete_file">إحذف الخيارات</string>
+    <string name="delete_no">لا تحذف</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="delete_repeat">إزالة المجموعة</string>
+    <string name="delete_repeat_ask">هل تريد إزالة هذه المجموعة ؟</string>
+    <string name="delete_repeat_confirm">هل تريد إزالة المجموعة \"%s\" وكل مجموعاتها الفرعية ؟</string>
+    <string name="delete_repeat_no">إلغاء</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="delete_yes">حذف الاستمارات</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="desktop_public_code_hint">الرمز العمومي لحساب Desktop</string>
+    <string name="desktop_sync_choose_file">اختيار ملف حساب Martus Desktop ‏(.mpi)</string>
+    <string name="desktop_sync_public_code">بعد ذلك أدخل الرمز العمومي لحساب Martus Desktop :</string>
+    <string name="desktop_sync_title">معلومات حساب Martus Desktop</string>
+    <string name="dialog_title_timeout_preference">مدة المهلة</string>
+    <string name="discard_answer">إزالة الإجابة</string>
+    <string name="discard_group">إزالة المجموعة</string>
+    <string name="do_not_change">إلغاء</string>
+    <string name="do_not_exit">إلغاء</string>
+    <string name="do_not_save">محو النموذج</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="download">الحصول على الاستمارات المٌختارة</string>
+    <string name="download_forms_result">تحميل النتائج</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="draw_image">تخطيط صورة</string>
+    <string name="edit_prompt">تحرير الطلب</string>
+    <string name="end_form_button">إضافة المرفقات ثم الإرسال</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="enter_admin_password">أدخل كلمة مرور المدير</string>
+    <string name="enter_data">ملء استمارة فارغة</string>
+    <string name="enter_data_button">ملء استمارة فارغة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="enter_magic_word_hint">إدخال الكلمة السحرية</string>
+    <string name="enter_new_password">أدخل كلمة السر الجديدة</string>
+    <string name="enter_password_hint">إدخال كلمة السر</string>
+    <string name="entering_repeat">إضافة مجموعة</string>
+    <string name="entering_repeat_ask">إضافة مجموعة جديدة ؟</string>
+    <string name="error_computing_public_code">حدث خطأ أثناء حفظ تفضيلات الخادم</string>
+    <string name="error_create_account">حدث خطأ أثناء إنشاء الحساب</string>
+    <string name="error_getting_server_key">حدث خطأ أثناء الاتصال بالخادم</string>
+    <string name="error_message">خطأ</string>
+    <string name="error_occured">حدث خطأ</string>
+    <string name="error_retrieving_contact">حدث خطأ أثناء جلب جهة الاتصال</string>
+    <string name="export_public_account_id_dialog_error">تعذر تصدير مُعرِّف الحساب</string>
+    <string name="export_public_account_id_dialog_title">خطأ في تصدير مُعرِّف الحساب العمومي</string>
+    <string name="export_public_account_id_menu_item">تصدير مٌعرِّف الحساب العمومي</string>
+    <string name="exported_account_id_file_confirmation">تم التصدير إلى</string>
+    <string name="failed_send_notification">فشل الإرسال بسبب: %1$s. حاول إعادة الإرسال لاحقا.</string>
+    <string name="failure_choosing_file">فشل اختيار الملف</string>
+    <string name="failure_zipping_bulletin">فشِل ضغط التسجيل</string>
+    <string name="fetched_picasa_image">حصل على صورة Picasa</string>
+    <string name="fetching_picasa_image">يجري جلب صورة Picasa</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="file_deleted_ok">%s تم حذف الاستمارة (الاستمرات)!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="file_invalid">الملف : %s غير صالح.</string>
+    <string name="file_missing">الملف : %s غير موجود.</string>
+    <string name="finalized_on_date_at_time">\'تم الإنهاء بتاريخ\' EEE, MMM dd, yyyy \'في\' HH:mm</string>
+    <string name="finished_disk_scan">انتهى المسح، وتم تحميل جميع النماذج.</string>
+    <string name="font_size">حجم خط النص</string>
+    <string name="font_size_extra_large">كبير جدا</string>
+    <string name="font_size_extra_small">صغير جدا</string>
+    <string name="font_size_large">كبير</string>
+    <string name="font_size_medium">متوسط</string>
+    <string name="font_size_small">صغير</string>
+    <string name="form_backward">السابق</string>
+    <string name="form_forward">التالي</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="forms">استمارات فارغة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="found_at_end">إلغاء التحديد للإخفاء من نهاية إدخال النموذج</string>
+    <string name="found_in_main">إلغاء التحديد للإخفاء من القائمة الرئيسية</string>
+    <string name="found_in_menu">إلغاء التحديد للإخفاء من القائمة في إدخال النموذج</string>
+    <string name="found_in_settings">إلغاء التحديد للإخفاء من الإعدادات العامة</string>
+    <string name="general_preferences">الإعدادات</string>
+    <string name="get_barcode">الحصول على الرمز الشريطي</string>
+    <string name="get_forms">الحصول على نموذج فارغ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="get_location">تسجيل الموقع</string>
+    <string name="getting_location">تحميل الموقع</string>
+    <string name="go_to_location">الذهاب إلى الموقع</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="goto_server_setup_button">التالي</string>
+    <string name="help_menu">المساعدة</string>
+    <string name="import_contact_title">استيراد جهة الاتصال</string>
+    <string name="import_hq_intro">وأخيرا، تحتاج إلى إدخال المعلومات حول حساب Martus الذي سترسل من خلاله التسجيلات إلى Mobile Martus.\n\nتحتاج إلى ملف مُعرِّف حساب Martus العمومي (ينتهي بـ \".mpi\") والرمز العمومي انطلاقا من حسابك في Martus Desktop والذي يسمح لك بتلقي تسجيلات Mobile Martus لإكمال هذه المرحلة.</string>
+    <string name="incorrect_password">كلمة السر غير صحيحة</string>
+    <string name="install_explorer_text">إذا لم تتمكن من العثور على الملف الذي كنت تفكر فيه، حاول تثبيت مستكشف ملفات أكثر تقدما :</string>
+    <string name="install_file_explorer">حاول استخدام مستكشف آخر للملفات</string>
+    <string name="install_orbot_">تثبيت Orbot</string>
+    <string name="invalid_answer_error">آسف، هذه الإجابة غير صالحة !</string>
+    <string name="invalid_orbot_message">يُرجى إعادة تثبيت Orbot انطلاقا من Google Play Store</string>
+    <string name="invalid_orbot_title">تثبيت Orbot غير صالح</string>
+    <string name="invalid_password">يجب أن تحوي كلمة السر 8 أحرف على الأقل</string>
+    <string name="invalid_public_account_file">ملف الحساب الثابت غير صالح</string>
+    <string name="invalid_public_code">الرمز العمومي غير مطابق للملف</string>
+    <string name="invalid_server_code">الرمز العمومي للخادم غير صالح</string>
+    <string name="invalid_server_info">معلومات الخادم المدخلة غير صالحة</string>
+    <string name="invalid_server_ip">عنوان IP غير صالح</string>
+    <string name="jump_to_beginning">الانتقال إلى البداية</string>
+    <string name="jump_to_end">الانتقال إلى النهاية</string>
+    <string name="jump_to_previous">الانتقال نحو الأعلى</string>
+    <string name="keep_changes">حفظ التغييرات</string>
+    <string name="label_author">المؤلف</string>
+    <string name="label_entrydate">تاريخ الإدخال</string>
+    <string name="label_eventdate">تاريخ الحدث</string>
+    <string name="label_keywords">الكلمات المفتاحية</string>
+    <string name="label_location">الموقع</string>
+    <string name="label_organization">المنظمة</string>
+    <string name="label_privateinfo">المعلومات الخاصة</string>
+    <string name="label_publicinfo">المعلومات العامة</string>
+    <string name="label_summary">الملخص</string>
+    <string name="label_title">العنوان</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="latitude">خط العرض</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="launch_app">تشغيل</string>
+    <string name="launch_printer">بدء الطباعة</string>
+    <string name="leave_repeat_yes">عدم الإضافة</string>
+    <string name="leaving_repeat_ask">هل تريد إضافة مجموعة مرة أخرى ؟</string>
+    <string name="loading_form">تحميل النموذج</string>
+    <string name="logout_while_sending_message">يُرجى الانتظار ريثما ينهي التسجيل الإرسال.</string>
+    <string name="logout_while_sending_title">لا يمكن الخروج الآن</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="longitude">خط الطول</string>
+    <string name="main_menu">القائمة الأساسية</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="manage_bulletins_menu">إدارة التسجيلات</string>
+    <string name="manage_files">حذف النموذج المحفوظ</string>
+    <string name="manage_my_account_menu">إدارة حسابي</string>
+    <string name="mark_finished">وسْم النموذج كمُنتهٍ</string>
+    <string name="markup_image">تمييز الصورة</string>
+    <string name="must_login_first_message">يجب عليك أولا الولوج قبل إرسال هذا التسجيل</string>
+    <string name="must_login_first_title">تحذير !</string>
+    <string name="navigation">تصفح</string>
+    <string name="no">لا</string>
+    <string name="no_app">التطبيق المطلوب غير موجود، يُرجى إدخال القراءة يدويا.</string>
+    <string name="no_items_display">لاشيء متاح لعرضه.</string>
+    <string name="no_network_connection">الجهاز غير متصل !</string>
+    <string name="no_network_create_bulletin_warning">سيفشل كل تسجيل تحاول إرساله لانعدام الاتصال. (يمكنك التحقق من \"استخدام Wi-Fi فقط\" في الإعدادات.) \n\n لكن الضغط على \"إرسال\" سيُعمِّي ثم يحفظ التسجيل، وحالما يكون هناك اتصال، يمكنك إعادة إرساله من قائمة الأدوات.</string>
+    <string name="no_printer">لم يتم تثبيت الطابعة المطلوبة، لذا يُرجى تثبيتها.</string>
+    <string name="no_upload_rights">الكلمة السحرية غير صحيحة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="noselect_error">عذرًا، لم تختَر أيّ استمارة!</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="off_switch_label">إيقاف التشغيل</string>
+    <string name="ok">موافق</string>
+    <string name="on_switch_label">تشغيل</string>
+    <string name="orbot_doesn_t_appear_to_be_running_would_you_like_to_start_it_up_and_connect_to_tor_">Orbot غير مُشغَّل. هل تريد تشغيله ؟</string>
+    <string name="orbot_running_should_stop_message">Orbot مُشغَّل. هل تريد إيقافه ؟</string>
+    <string name="parse_error">آسف، تعذر تحليل النموذج.</string>
+    <string name="password">كلمة السر</string>
+    <string name="password_dialog_title">الولوج</string>
+    <string name="ping_result_down">الخادم غير مُشغَّل</string>
+    <string name="ping_result_ok">الخادم مُشغَّل</string>
+    <string name="ping_server_menu_item">التحقق من الخادم</string>
+    <string name="play_audio">تشغيل الصوت</string>
+    <string name="play_video">تشغيل الفيديو</string>
+    <string name="please_wait">يُرجى الانتظار قليلا.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="please_wait_long">الرجاء الانتظار. قد يتطلّب ذلك بضع دقائق.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="problem_adding_attachment">خطأ في إضافة المرفق إلى التسجيل</string>
+    <string name="problem_confirming_magic_word">حدث خطأ أثناء تأكيد الكلمة السحرية</string>
+    <string name="problem_creating_bulletin">تعذر إنشاء تسجيل جديد</string>
+    <string name="progress_confirming_magic_word">تأكيد الكلمة السحرية</string>
+    <string name="progress_connecting_to_server">يجري الاتصال بالخادم</string>
+    <string name="progress_creating_account">إنشاء الحساب</string>
+    <string name="public_code_validation_empty">لا يمكن أن يكون الرمز العمومي فارغا</string>
+    <string name="quit_application">مغادرة %s</string>
+    <string name="quit_entry">حفظ النموذج ثم المغادرة</string>
+    <string name="quit_menu_title">الخروج</string>
+    <string name="replace_barcode">استبدال الرمز الشريطي</string>
+    <string name="replace_contact_menu_item">تحديث جهة الاتصال</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="replace_location">استبدال الموقع</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="required_answer_error">آسف، هذه الإجابة مطلوبة !</string>
+    <string name="resend_menu_item">إعادة إرسال التسجيل غير المُرسَل</string>
+    <string name="resending">تجري إعادة الإرسال !</string>
+    <string name="resending_no_bulletins">ليس لديك أي تسجيل غير مُرسَل.</string>
+    <string name="resending_no_network">ليس لديك اتصال، أو أن \"استخدام Wi-Fi فقط\" مُشغَّل.</string>
+    <string name="reset_image">إعادة تعيين</string>
+    <string name="reset_to_install">حذف حسابي</string>
+    <string name="reset_while_sending_title">لا يمكن إعادة التعيين الآن</string>
+    <string name="retrieving_contact_information_label">جلب معلومات جهة الاتصال</string>
+    <string name="retry_server">إعادة الإدخال</string>
+    <string name="review_data">تحرير النموذج المحفوظ</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="review_data_button">تعديل الاستمارة المحفوظة (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="save_all_answers">حفظ النموذج</string>
+    <string name="save_and_close">حفظ وإغلاق</string>
+    <string name="save_enter_data_description">أنت في آخر النموذج.</string>
+    <string name="save_form_as">تسمية هذا النموذج</string>
+    <string name="save_mid">حفظ النموذج</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="saved_data">غير كاملة (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="saved_on_date_at_time">\'تم الحفظ\' بتاريخ EEE, MMM dd, yyyy في HH:mm</string>
+    <string name="savepoint_used">تمت استعادة التغييرات غير المحفوظة من نقطة الحفظ !</string>
+    <string name="saving_form">حفظ النموذج</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="select_another_image">حدد صورة أخرى</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="select_answer">تحديد الإجابة</string>
+    <string name="select_drawing_color">تحديد لون الرسم</string>
+    <string name="select_file_picker">حدد مستكشف الملفات</string>
+    <string name="select_one">حدِّد إجابة واحدة</string>
+    <string name="selected">محدد : </string>
+    <string name="selected_google_account_text">حساب Google</string>
+    <string name="send_bulletin">إرسال</string>
+    <string name="send_data">إرسال النموذج المنتهي</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="send_data_button">إرسال الاستمارة النهائية (%s)</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="send_email_title">إرسال رسالة إلكترونية...</string>
+    <string name="send_failed_cant_reach_server">لا يمكن الوصول إلى الخادم</string>
+    <string name="send_public_account_id_menu_item">إرسال مُعرِّف الحساب العمومي بالبريد الإلكتروني</string>
+    <string name="send_public_account_id_menu_item_via_bulletin">إرسال مُعرِِّف الحساب العمومي في تسجيل</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="send_selected_data">إرسال الاستمارات المُختارة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="sending_failed_on_date_at_time">\'فشل الإرسال بتاريخ\' EEE, MMM dd, yyyy \'في\' HH:mm</string>
+    <string name="sent_on_date_at_time">\'تم الإرسال بتاريخ\' EEE, MMM dd, yyyy \'في\' HH:mm</string>
+    <string name="server_ip_hint">أدخل عنوان IP</string>
+    <string name="server_ip_label">عنوان IP :</string>
+    <string name="server_menu_title">تحديد الخادم</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="server_platform_google_forms">استمارات غوغل</string>
+    <string name="server_preferences">إعدادات الخادم</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="server_public_code_hint">أدخل الرمز العمومي للخادم</string>
+    <string name="server_public_code_label">الرمز العمومي للخادم :</string>
+    <string name="set_color">تحديد اللون</string>
+    <string name="settings_pwd_equal">كلمتا السر متطابقتان !</string>
+    <string name="settings_pwd_not_equal">كلمتا السر غير متطابقتين !</string>
+    <string name="settings_title">الإعدادات</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="show_location">إظهار الموقع</string>
+    <string name="show_sent_and_unsent_forms">عرض أشكال المرسلة وغير المرسلة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="show_splash">إظهار شاشة البداية</string>
+    <string name="show_unsent_title">لديك تسجيلات غير مُرسَلة.</string>
+    <string name="show_version">إظهار الإصدار</string>
+    <string name="sign_button">جمع التوقيع</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="splash_path">اختيار صورة البداية</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="start_orbot_">بدء تشغيل Orbot</string>
+    <string name="starting_send_notification">يجري الإرسال...</string>
+    <string name="stop_orbot">إيقاف Orbot</string>
+    <string name="success_import_hq_key">لقد نجحت في تهيئة حساب Martus Desktop لتلقي تسجيلاتك في Mobile Martus. لقد اكتمل إعداد Mobile Martus !</string>
+    <string name="success_magic_word">لقد نجحت في إعداد الاتصال بخادم Martus !</string>
+    <string name="successful_send_notification">أُرسِل التسجيل !</string>
+    <string name="successful_server_choice">نجح الاتصال بالخادم !</string>
+    <string name="summary_language_preference">يُرجى تحديد اللغة إدخال بيانات التسجيل</string>
+    <string name="summary_optional_label">اختياري</string>
+    <string name="summary_timeout_preference">بالدقائق</string>
+    <string name="swipe_buttons_instructions">أنت في مقدمة %s. اسحب الشاشة على النحو الموضح أدناه أو اضغط على أزرار الأسهم للانتقال إلى الأمام وإلى الخلف.</string>
+    <string name="swipe_buttons_navigation">استخدام السحب والأزرار</string>
+    <string name="swipe_instructions">أنت في مقدمة %s. اسحب الشاشة على النحو الموضح أدناه للانتقال إلى الخلف وإلى الأمام.</string>
+    <string name="swipe_navigation">استخدام السحب الأفقي</string>
+    <string name="title_author_preference">المؤلف</string>
+    <string name="title_hint">العنوان</string>
+    <string name="title_language_preference">لغة التسجيل</string>
+    <string name="title_summary">الملخص</string>
+    <string name="title_timeout_preference">المهلة</string>
+    <string name="title_wifi_only_preference">استخدام Wi-Fi فقط</string>
+    <string name="tor_label">Tor</string>
+    <string name="tor_option_intro">بعد ذلك، يمكنك تشغيل Tor إن شئت</string>
+    <string name="trigger">حسنا، يُرجى الاستمرار.</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="uploading_data">يتمّ إرسال الاستمارة</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="use_default_server">استخدام الخادم الافتراضي</string>
+    <string formatted="false" name="use_tor"><b>استخدام Tor</b> (قد يساعدك في إخفاء اتصالك بخادم Martus، وكذا إمكانية مساعدتك في الوصول إلى خوادم Martus إن تم حظرها من الموقع الذي توجد فيه، لكن هذا الإجراء سيُبطِيء إرسال التسجيلات.)</string>
+    <string name="user_access_form_entry">يمكن للمستخدم الوصول إلى عناصر إدخال النموذج :</string>
+    <string name="user_access_main_menu">يمكن للمستخدم الوصول إلى عناصر القائمة الرئيسية :</string>
+    <string name="user_access_preferences">يمكن للمستخدم الوصول إلى عناصر تغيير الإعدادات :</string>
+    <string name="user_preferences">الإعدادات</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="username">إسم المستخدم</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="valid_public_account_file">ملف الحساب الثابت صالح</string>
+    <string name="verify_new_password">أعد إدخال كلمة السر الجديدة</string>
+    <string name="verify_public_code">تحقق من الرمز العمومي :\n %1$s</string>
+    <string name="version">الإصدار :</string>
+    <string name="version_code_label">التكوين %1$s</string>
+    <string name="version_name_label">اسم الإصدار %1$s</string>
+    <string name="view_access_token_menu_item">عرض شارة الوصول</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/opendatakit.collect/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="view_change_location">الاطلاع على الموقع أو تغيير الموقع</string>
+    <!-- From: file:/Users/charlesl/EclipseMartus/martus-android/martus-wrapper/build/intermediates/exploded-aar/martus-android/martus-android/unspecified/res/values-ar/values.xml -->
+    <eat-comment/>
+    <string name="view_docs_menu">الوصلة إلى وثائق المساعدة</string>
+    <string name="view_hierarchy">الانتقال إلى الطلب</string>
+    <string name="view_new_public_code_message">الرمز العمومي (الجديد) : \n%1$s</string>
+    <string name="view_old_public_code_message">الرمز العمومي (القديم) : \n%1$s</string>
+    <string name="view_public_code_dialog_error">تعذر إظهار الرمز العمومي</string>
+    <string name="view_public_code_dialog_title">الرمز العمومي</string>
+    <string name="view_public_code_menu_item">عرض الرمز العمومي</string>
+    <string name="wifi_only_preference_on">إرسال البيانات فقط عندما يكون Wi-Fi متاحا</string>
+    <string name="xform_parse_error">حدث خطأ في تحليل XForm، إذ ينقص %1$s العنصر %2$s</string>
+    <string name="yes">نعم</string>
+    <string name="you_must_have_orbot">يجب عليك تثبيت Orbot</string>
+</resources>
