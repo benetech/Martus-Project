@@ -40,54 +40,93 @@ cp -r ../martus-utils $DEST/martus-utils
 rm -rf $DEST/martus-amplifier/.hg
 rm -rf $DEST/martus-amplifier/.hg*
 rm -rf $DEST/martus-amplifier/.DS_Store
+rm -rf $DEST/martus-amplifier/classes
+rm -rf $DEST/martus-amplifier/bin
+
 rm -rf $DEST/martus-android/.hg
 rm -rf $DEST/martus-android/.hg*
 rm -rf $DEST/martus-android/.DS_Store
+rm -rf $DEST/martus-android/.gradle
+rm -rf $DEST/martus-android/.idea
+rm -rf $DEST/martus-android/build
+rm -rf $DEST/martus-android/bin
+
+
 rm -rf $DEST/martus-bc-jce/.hg
 rm -rf $DEST/martus-bc-jce/.hg*
 rm -rf $DEST/martus-bc-jce/.DS_Store
+rm -rf $DEST/martus-bc-jce/bin
+
 rm -rf $DEST/martus-build/.hg
 rm -rf $DEST/martus-build/.hg*
 rm -rf $DEST/martus-build/.DS_Store
+rm -rf $DEST/martus-build/bin
+
 rm -rf $DEST/martus-client/.hg
 rm -rf $DEST/martus-client/.hg*
 rm -rf $DEST/martus-client/.DS_Store
+rm -rf $DEST/martus-client/bin
+
 rm -rf $DEST/martus-clientside/.hg
 rm -rf $DEST/martus-clientside/.hg*
 rm -rf $DEST/martus-clientside/.DS_Store
+rm -rf $DEST/martus-clientside/bin
+
 rm -rf $DEST/martus-common/.hg
 rm -rf $DEST/martus-common/.hg*
 rm -rf $DEST/martus-common/.DS_Store
+rm -rf $DEST/martus-common/bin
+
 rm -rf $DEST/martus-hrdag/.hg
 rm -rf $DEST/martus-hrdag/.hg*
 rm -rf $DEST/martus-hrdag/.DS_Store
+rm -rf $DEST/martus-hrdag/bin
+
 rm -rf $DEST/martus-jar-verifier/.hg
 rm -rf $DEST/martus-jar-verifier/.hg*
 rm -rf $DEST/martus-jar-verifier/.DS_Store
+rm -rf $DEST/martus-jar-verifier/bin
+
 rm -rf $DEST/martus-js-xml-generator/.hg
 rm -rf $DEST/martus-js-xml-generator/.hg*
 rm -rf $DEST/martus-js-xml-generator/.DS_Store
+rm -rf $DEST/martus-js-xml-generator/bin
+
 rm -rf $DEST/martus-logi/.hg
 rm -rf $DEST/martus-logi/.hg*
 rm -rf $DEST/martus-logi/.DS_Store
+rm -rf $DEST/martus-logi/bin
+
 rm -rf $DEST/martus-meta/.hg
 rm -rf $DEST/martus-meta/.hg*
 rm -rf $DEST/martus-meta/.DS_Store
+rm -rf $DEST/martus-meta/bin
+
 rm -rf $DEST/martus-mspa/.hg
 rm -rf $DEST/martus-mspa/.hg*
 rm -rf $DEST/martus-mspa/.DS_Store
+rm -rf $DEST/martus-mspa/bin
+
 rm -rf $DEST/martus-server/.hg
 rm -rf $DEST/martus-server/.hg*
 rm -rf $DEST/martus-server/.DS_Store
+rm -rf $DEST/martus-server/bin
+
 rm -rf $DEST/martus-swing/.hg
 rm -rf $DEST/martus-swing/.hg*
 rm -rf $DEST/martus-swing/.DS_Store
+rm -rf $DEST/martus-swing/bin
+
 rm -rf $DEST/martus-thirdparty/.hg
 rm -rf $DEST/martus-thirdparty/.hg*
 rm -rf $DEST/martus-thirdparty/.DS_Store
+rm -rf $DEST/martus-thirdparty/bin
+
 rm -rf $DEST/martus-utils/.hg
 rm -rf $DEST/martus-utils/.hg*
 rm -rf $DEST/martus-utils/.DS_Store
+rm -rf $DEST/martus-utils/bin
+
 
 
 echo

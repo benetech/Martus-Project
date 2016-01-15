@@ -1,2 +1,0 @@
-Main-class: org.martus.mspa.server.MSPAServer
-Sealed: true
