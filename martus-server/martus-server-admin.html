@@ -1,0 +1,758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Martus Server Administration Documentation</title>
+	<meta name="author" content="Ryan Ramsey">
+
+</head>
+<body>
+
+<center><h1>Martus Server Administration Documentation</h1></center>
+
+
+Copyright 2002-2014 Beneficent Technology, Inc. (<a href="http://www.benetech.org">Benetech</a>). <br>
+
+<p>The &quot;Martus&quot; mark is a trademark of Beneficent Technology, Inc., Palo Alto, CA, as to which registration is pending in a number of countries. Use of the shorthand reference &quot;Martus&quot; on these web pages is for convenience only, and should not be taken as a generic or descriptive term. Please respect our trademarks. Trademarks of other companies may be used herein and we make no claim to ownership of them.
+</p>
+
+<h2>Contents</h2>
+<UL>
+<LI><a href="#hostadmin">Host operating system administration</a></LI>
+	<UL>
+	<LI><a href="#upgradingmartus">Upgrading the Martus Server software</a></LI>
+	<LI><a href="#dom0updates">Updating the dom0 operating system</a></LI>
+	<LI><a href="#xm">Managing Xen virtual machines</a></LI>
+	<LI><a href="#users">Managing system users</a></LI>
+	<LI><a href="#firewall">Managing the custom firewall</a></LI>
+	</UL>
+
+<LI><a href="#guestadmin">Guest operating system administration</a></LI>
+	<UL>
+	<LI><a href="#domUupdates">Updating the domU operating system</a></LI>
+	<LI><a href="#domUpassword">Changing a domU user password</a></LI>
+	</UL>
+
+<LI><a href="#guestfilesystems">Guest filesystems</a></LI>
+	<UL>
+	<LI><a href="#theory">Theory</a></LI>
+	<LI><a href="#practice">Practice</a></LI>
+	</UL>
+
+<LI><a href="#martusadmin">Martus server application administration</a></LI>
+	<UL>
+	<LI><a href="#martusfirsttime">Installing the Martus service for the first time</a>
+	<LI><a href="#mirroring">Setting up mirroring between two servers</a>
+	<LI><a href="#ongoingadmin">Ongoing Martus Server Administration</a>
+	</UL>
+
+<LI><a href="#logging">Martus server logging strategy</a></LI>
+	<UL>
+	<LI><a href="#klogd">Kernel logging with klogd</a></LI>
+	<LI><a href="#syslogng">System logging with syslog-ng</a></LI>
+	<LI><a href="#remotelog">Remote logging with syslog-ng</a></LI>
+		<UL>
+		<LI><a href="#logssh">Remote logging over SSH</a></LI>
+		<LI><a href="#logstunnel">Remote logging over stunnel</a></LI>
+		<LI><a href="#logcompliance">Log server compliance</a></LI>
+		</UL>
+	</UL>
+
+
+
+<LI><a href="#backup">Backing up and restoring your Martus Server</a></LI>
+	<UL>
+	<LI><a href="#mondo">Mondo Recovery DVD</a></LI>
+	<LI><a href="#rsync">Rsync over SSH</a></LI>
+
+	</UL>
+</UL>
+
+<hr>
+<h2><a name="hostadmin">Host operating system administration</a></h2>
+<p>This section discusses the administration of the host operating system, <b>dom0</b>.  This includes updating software, general systems administration tasks, as well as <b>Xen</b> virtual machine management. This only extends as far as starting and stopping virtual machines, and administering the operating system.
+</p>
+
+<h3><a name="upgradingmartus">Upgrading the Martus Server software</a></h3>
+<p>The Martus Server software is upgraded in a manner similar to the
+installation process: you copy files to <b>/var/tmp/martus-server</b> on the
+dom0/host of the Martus Server, then run special commands to install these
+files.
+</p>
+<p>To upgrade to a new Martus tarball, copy
+<b>martus-server-VERSION.tar.gz</b> and
+<b>martus-server-VERSION.tar.gz.sha1</b> to the server; to upgrade Sun java
+and/or its libraries, copy <b>jre-6u*-linux-x64.bin</b>, <b>jaf-1_*.zip</b>
+and <b>javamail-1_*.zip</b> to the server (see martus-server-install.html).
+You can copy these files to the server with scp or rsync, or transfer them
+with a USB flash drive.  To install the copied files, run
+<b>install-dom0</b> (<b>only</b> if you're installing a new tarball) then
+<b>install-martus</b> in <b>/var/tmp/martus-server</b>.  (If you installed a
+new tarball, be <b>sure</b> you can still use ssh to login to the dom0/host.)
+See <b>/usr/local/martus/doc/Readme.txt</b> for the full details about the
+upgrade process, including the specific files and their versions.
+</p>
+<p>This upgrade process will install all the files for the host OS and the
+guest OS.  Because the running Xen guest uses Logical Volume Management (LVM)
+snapshots for filesystems, it must be rebooted to take advantage of the
+changes.
+</p>
+
+<h3><a name="dom0updates">Updating the dom0 operating system</a></h3>
+<p>CentOS uses the <b>yum</b> package management system to download and
+install updates; yum was configured during the installation process.  For the
+martus-server-4.0 release, the <b>install-martus</b> command will upgrade the host
+and guest from CentOS-5.0 to CentOS-5.1, so you won't need to do the following
+step...
+</p>
+
+<pre>
+# check for updates
+yum check-update
+
+# if there are no updates, you're done; otherwise, apply the updates ...
+
+# if you're using tripwire, run:
+# mount-domU -r _shared
+# /bin/nice -3 /usr/sbin/tripwire --check -I
+
+# _if_ there's a new release of CentOS-5 (e.g. the previous command
+#    showed a lot of updates), you need to prepare for the full update
+yum -y clean all
+
+# install the updates
+# it's OK if you see: /sbin/restorecon reset ...
+yum -y update
+# if you get:
+#   Transaction Check Error:
+#     file /etc/logrotate.d/syslog from install of sysklogd-1.4.1-46.el5.x86_64#       conflicts with file from package syslog-ng-1.6.12-1.i386
+# you'll need to do:
+cd /var/cache/yum/base/packages
+rpm --replacefiles --upgrade --nodeps -v -h sysklogd-[1-9].*
+cd
+yum -y update
+
+# a package install could have removed some of our security hardening
+# errors that you can ignore:
+#  Shutting down Avahi daemon: Failed to kill daemon: No such file or directory
+#  Stopping iSCSI daemon: iscsiadm: can not connect to iSCSI daemon (111)!
+#  Stopping libvirtd daemon: [FAILED]
+#  Running guests on default URI: running on Xen hypervisor, use xendomains to handle its guests
+lockdown
+
+# make sure iptables calls firewall (if it doesn't, see iptables.rpmsave)
+tail -n 4 /etc/init.d/iptables
+
+#
+# if there's a new release of CentOS-5, it's safest to reboot now,
+#    then come back to this point; in particular, if you don't reboot now,
+#    the domU/guest update to CentOS-5.5 will yield hundreds of messages like:
+#      VG4fast-CR_shared.snapshot: event registration failed: 11869:5 libdevmapper-event-lvm2snapshot.so dlopen failed: /usr/lib64/liblvm2cmd.so.2.02: undefined symbol: dm_udev_set_sync_support
+#      VG4fast/snapshot117: snapshot segment monitoring function failed.
+#      VG4fast-test: event registration failed: 11869:9 libdevmapper-event-lvm2snapshot.so dlopen failed: /usr/lib64/liblvm2cmd.so.2.02: undefined symbol: dm_udev_set_sync_support
+#      VG4fast/snapshot121: snapshot segment monitoring function failed.
+#      Logical volume "test" created
+#
+
+#
+# if you need to update domU/guest, now's the time to do it (see later section)
+#
+
+# if you're using tripwire, update the database now, after running
+mount-domU -r _shared
+
+# if a new kernel was installed, you will need to reboot the system ...
+# ... BUT, first update the domU operating system, see below
+shutdown -r now
+# if you're using tripwire, do one more update _after_ you reboot
+#   the server then restart the Martus service on the Martus guest
+#     (note that the Device Number values can change in the guest files);
+#   and _after_ you create rpm's __db.* database, by running these 2 commands:
+yum check-update
+yum-domU check-update
+# and after mounting the guest OS files (because they're tripwired):
+mount-domU -r _shared
+</pre>
+
+After upgrading the dom0/host operating system, you'll want to
+<a href="#domUupdates">update the domU/guest operating system</a>.
+
+<h3><a name="xm">Managing Xen virtual machines</a></h3>
+<p>The standard tool for interacting with the Xen hypervisor is <b>xm</b>. This tool will allow you to do common virtual machine tasks like starting and stopping a guest operating system, or see what machines are running.
+</p>
+
+<pre>
+# check out xm usage
+xm
+
+Usage: xm &lt;subcommand&gt; [args]
+
+Control, list, and manipulate Xen guest instances.
+
+Common 'xm' commands:
+
+ console              Attach to &lt;Domain&gt;'s console.
+ create               Create a domain based on &lt;ConfigFile&gt;.
+ destroy              Terminate a domain immediately.
+ dump-core            Dump core for a specific domain.
+ help                 Display this message.
+ list                 List information about all/some domains.
+ mem-set              Set the current memory usage for a domain.
+ migrate              Migrate a domain to another machine.
+ pause                Pause execution of a domain.
+ reboot               Reboot a domain.
+ restore              Restore a domain from a saved state.
+ save                 Save a domain state to restore later.
+ shutdown             Shutdown a domain.
+ trigger              Send a trigger to a domain.
+ top                  Monitor a host and the domains in real time.
+ unpause              Unpause a paused domain.
+ uptime               Print uptime for a domain.
+ vcpu-set             Set the number of active VCPUs for allowed for
+                      the domain.
+
+&lt;Domain&gt; can either be the Domain Name or Id.
+For more help on 'xm' see the xm(1) man page.
+For more help on 'xm create' see the xmdomain.cfg(5)  man page.
+
+For a complete list of subcommands run 'xm help'.
+
+# show what virtual machines are running
+xm list
+Name                       ID Mem(MiB) VCPUs State   Time(s)
+Domain-0                    0     5563     4 r-----   1045.7
+martus                      1      511     1 -b----     43.5
+</pre>
+
+<p>It is important to note that you can refer to a running instance of a virtual machine by the the Dom ID. The dom0 will always have the Dom ID 0.  The Dom ID of a guest is incremented every time a guest is started. Because of this, you can only refer to the numeric Dom ID while the guest is running. You can always refer to the guest by its <b>&quot;name&quot;</b> value, which corresponds to the &quot;name&quot; field in Xen virtual machine configuration file <b>/etc/xen/guestname</b>. Using the above output of <b>&quot;xm list&quot;</b>, we can run a few commands.
+</p>
+
+<pre>
+# shutting down a running guest
+xm shutdown 16
+
+# starting up a guest
+xm create  martus
+xm console martus	# watch the boot, then type the martus passphrase
+
+# shutting down a guest by name
+xm shutdown martus
+</pre>
+
+<h3><a name="users">Managing system users</a></h3>
+
+<p>Martus Server administrators should <b>not</b> use the standard <b>useradd</b> command to add system users.
+
+</p>
+
+<h3><a name="firewall">Managing the custom firewall</a></h3>
+<p>The Martus Server 3.0 utilizes a custom stateful packet inspection (SPI) firewall, built on top of the Linux Kernel's iptables.  Modification of this firewall is in violation of the Martus Compliance Statement.  There are variables in this firewall that can be changed to allow sysadmin access to the server. Specifically, the <b>/etc/martus/firewall.sh</b> firewall configuration file has quite a few features that can be enabled:
+</p>
+
+<pre>
+cat /etc/martus/firewall.sh
+
+#
+# IP addresses used by /etc/init.d/firewall to manage non-Martus dynamic chains
+# After change this file, run 'service firewall start'
+#
+
+# IP addresses of sysadmins/poladmins who connect to port 922 with SSH protocol
+# instead of IP addresses, you can use host names from /etc/hosts
+# add 'benetech1' and 'benetech2' if you want Benetech to be able to login
+ssh_IPs="localhost domU dom0"		# recommended _minimum_ for domU/guest
+ssh_IPs="localhost"			# recommended _minimum_ for dom0/host
+
+# if the system administrators will login from another subnet, set
+# this to the interface on that subnet (e.g. 'eth1')
+management_interface=
+#
+# list the IP addresses of the workstations on the management subnet
+management_ssh_IPs=
+
+# servers that talk the TCP syslog-ng protocol, listening on the syslog port
+log_server_IPs=
+# MSPAServer (and maybe MartusServer) java processes can send alert emails
+SMTP_server_IPs=
+
+# can prepend a "closer" host that supports "time" protocol (RFC-868)
+# best ones in 2006 from: http://tf.nist.gov/service/time-servers.html
+rdate_IP="132.163.4.102 132.163.4.103 128.138.140.44 69.25.96.13"
+
+# source IP addresses (or CIDR blocks) to always block (i.e. not answer)
+remote_IPs_to_block=""
+
+# source IP addresses (or CIDR blocks) to not log, if for unknown service
+remote_IPs_to_not_log=""
+
+# IP packet types (TCP, UDP, ICMP) to not log, if for unknown service
+IP_packet_types_to_not_log=""
+
+# local ports to not log if for unknown service
+local_ports_to_not_log=""
+
+# destination IPs (e.g. broadcast addresses) to not log, if for unknown service
+local_IPs_to_not_log=""
+
+</pre>
+
+<hr>
+<h2><a name="guestadmin">Guest operating system administration</a></h2>
+
+<h3><a name="domUupdates">Updating the domU operating system</a></h3>
+<p>The Martus Server uses LVM to provide the guest operating system with a snapshot of the real filesystems. This allows the administrator to update the guest OS filesystems without affecting the actual operation of the guest. Once the updates have been applied, the guest can simply be rebooted, which generates new filesystem snapshots. <b>yum-domU</b> was written to help manage applying updates to guest operating system filesystems.
+</p>
+
+<pre>
+# check usage
+yum-domU
+
+Usage: yum-domU [-u] [-g guest]  [-d] [-t] yum-argument(s)
+   Run 'yum' chroot'ed inside mounted, shared filesystems (+ /var snapshot)
+   Here's the options:
+        -u: Unmount the guest filing systems after run 'yum'
+        -g guest: chroot into /guests/<guest> instead of /guests/_shared
+
+        -d: Debug shell script (don't run commands, just show them)
+        -t: Trace shell script (show commands as they execute)
+
+# check for updates
+yum-domU check-update
+
+# apply the updates, if any ...
+
+# _if_ there's a new release of CentOS-5 (e.g. the previous command
+#    showed a lot of updates), you need to prepare for the full update
+yum-domU -y clean all
+# BUT, if you see errors like:
+#    VG4fast-var.snapshot: event registration failed: 10379:3 libdevmapper-event-lvm2snapshot.so dlopen failed: /lib64/liblvm2cmd.so.2.02: symbol dm_zalloc_aux, version Base not defined in file libdevmapper.so.1.02 with link time reference
+#    VG4fast/snapshot0: snapshot segment monitoring function failed.
+# (e.g. after upgrading dom0), you must reboot dom0 before you can continue
+
+# you can ignore some error messages:
+#    error: failed to stat /var/lib/xenstored: No such file or directory
+#    restorecon set context /var/log/martus/MartusServer.log.100514->system_u:object_r:var_log_t:s0 failed:'Operation not permitted'
+#    /sbin/scsi_id: option requires an argument -- s
+# you can ignore SELinux context errors on dated backups of .log files, like:
+#    restorecon set context /var/log/martus/chattrvar.log.090605->system_u:object_r:var_log_t:s0 failed:'Operation not permitted'
+yum-domU -u -y update
+# if you get:
+#    Transaction Check Error:
+#      file /etc/logrotate.d/syslog from install of sysklogd-1.4.1-46.el5.x86_64#       conflicts with file from package syslog-ng-1.6.12-1.i386
+# you'll need to do:
+rpm-domU --replacefiles --upgrade --nodeps -v -h \
+	  /var/cache/yum/base/packages/sysklogd-[1-9].*
+yum-domU -u -y update
+
+# if a new kernel was downloaded, you'll need to install it
+install-domU-kernel martus
+
+# the files in the chroot jail may need to be updated ...
+install-martus -U
+# if a new java was installed, you can make sure you got the correct version
+for dir in /etc/martus/alternatives /chroot/jvm{,_mspa}/usr/local
+    do  chroot /guests/_shared $dir/jre/bin/java -version; done
+# you should run the unit tests (it may ask for the domU root password)
+chroot /guests/_shared test-martus
+
+# if a new jar was installed, you can do a basic test;
+#   NOTE: this command mail fail the first time, so it appears twice here:
+tools-martus martus-server-dom0 || tools-martus martus-server-dom0
+# which should end up with one of:
+#   Notice: Runner counts:   0  0  0  0
+#   Notice: Waiting for connection...
+
+# if you're using tripwire, update the database now, after running
+umount-domU martus
+ mount-domU _shared
+lockdown-domU
+
+# if you installed a new kernel, you'll want to restart the guest (soon)
+xm shutdown martus
+xm create   martus
+
+# if you see the following errors nead the end of the guest's boot sequence:
+#    caps: capset(1, 0x2BEC77FF) => EPERM: Operation not permitted
+#    fixtime: caps => 1
+# then you'll need to fix the guest's 'init'
+xm destroy martus
+mount-domU _shared
+cd /guests/_shared/sbin
+[[ -L init ]] && rm -f init || mv init init.orig
+ln -s init.setpcap init
+cd
+xm create martus
+
+</pre>
+
+<h3><a name="domUpassword">Changing a domU user password</a></h3>
+<p>The tool <b>passwd-domU</b> has been created to change the user password on a guest's filesystems.
+</p>
+
+<pre>
+# check usage
+passwd-domU
+
+Usage: passwd-domU [-g guest]  [-d] [-t] [passwd-options] user
+   Run 'passwd' command chrooted in mounted, shared filesystems
+   Here's the options:
+        -g guest: operate on /guests/<guest> instead of /guests/_shared
+
+        -d: Debug shell script (don't run commands, just show them)
+        -t: Trace shell script (show commands as they execute)
+
+# usual way to run passwd-domU
+passwd-domU -g guestname username
+</pre>
+
+<hr>
+<h2><a name="guestfilesystems">Guest filesystems</a></h2>
+
+<h3><a name="theory">Theory</a></h3>
+
+<h4><a name="filesystemtypes">Read-only and Read-write filesystems</a></h4>
+
+<p>When a Martus Xen guest (domU) is started, the Xen hypervisor gives it access to two sets of filesystems:
+</p>
+
+<pre>
+read-only : / /usr /chroot (filesystems that hold software and OS config)
+read-write: everything else (/var for linux; /home; /chroot/* for Martus)
+</pre>
+
+<p>[Passing some filesystems read-only makes it &quot;impossible&quot; for a successful compromise of the guest to &quot;allow&quot; the installation of an OS &quot;rootkit&quot;.]</p>
+<p>The following shows all of the read-only filesystems:</p>
+<pre>
+[root@martus-0 ~]# mount-domU -r _shared
+Filesystem                      1M-blocks     Used Available Use%  Mounted-on
+/dev/VG4norm/root_shared              485      191       270  42%  /guests/_shared
+/dev/VG4fast/chroot_shared            291       90       187  33%  /guests/_shared/chroot
+/dev/VG4norm/usr_shared              1182      555       567  50%  /guests/_shared/usr
+/dev/VG4fast/var.snapshot            2016       70      1844   4%  /guests/_shared/var
+</pre>
+<p>The following here shows all of the read-write filesystems:</p>
+<pre>
+[root@martus-0 ~]# mount-domU -r -g martus
+Filesystem                      1M-blocks     Used Available Use%  Mounted-on
+/dev/VG4norm/root_shared              485      191       270  42%  /guests/martus
+/dev/VG4fast/chroot_shared            291       90       187  33%  /guests/martus/chroot
+/dev/VG4slow/chroot.etc.b              97        5        88   5%  /guests/martus/chroot/etc
+/dev/VG4slow/chroot.jvm.var.b       10080      159      9409   2%  /guests/martus/chroot/jvm/var
+/dev/VG4fast/chroot.syslog.var.b     3024       69      2802   3%  /guests/martus/chroot/syslog/var
+/dev/VG4norm/home.b                   194       17       168   9%  /guests/martus/home
+/dev/VG4norm/usr_shared              1182      555       567  50%  /guests/martus/usr
+/dev/VG4fast/var.b                   2016       70      1844   4%  /guests/martus/var
+</pre>
+<p>The read-only filesystems can <b>only</b> be modified on the dom0/host. [You can use 'yum-domU' &amp; 'rpm-domU' to update software; else, just 'chroot'.] The guest will need to be rebooted before it will notice any changes.
+</p>
+<p>The read-write filesystems can <b>only</b> be mounted read-write on the dom0/host <b>if</b> the guest is not running (else filesystem corruption would result).
+</p>
+<p>Because of the above, we say that the dom0/host &quot;owns&quot; the read-only filesystems; and the dom0/guest &quot;owns&quot; the read-write filesystems.
+</p>
+
+<h4><a name="lvmsnapshots">Logical Volume Management snapshots</a></h4>
+
+<p>We make it possible for the dom0/host to manage/upgrade the guests's read-only filesystems <b>while</b> the guest is running, using LVM snapshots.
+</p>
+<p>The guest's / /usr /chroot are /dev/VG*/*_shared.snapshot
+</p>
+<p>At guest start-time, /dev/VG*/var.snapshot is created, so the host can run 'yum' and 'rpm'.
+</p>
+<p>NOTE: /var/lib/rpm/ and /var/cache/yum/ are stored in /var.RO/ rather then /var/, because their contents are static (and authoritative) <b>except</b> when software is being updated (which only happens on dom0).
+</p>
+
+<h3><a name="practice">Practice</a></h3>
+<p>To work with domU/guest filesystems from the dom0/host, the Martus Server includes a pair of scripts that mount all of a guest's filesystems &quot;as a single collection&quot;:</p>
+<pre>
+   mount-domU (alias is  'mdu'): the equivalent of Linux  'mount'
+  umount-domU (alias is 'umdu'): the equivalent of Linux 'umount'
+</pre>
+<p>where the aliases were appended to /etc/bashrc using /etc/bashrc.martus</p>
+
+<h4><a name="examples">Examples</a></h4>
+
+<p>NOTE: if you do first do <b>export TRACE_mount_guest_FSs=t</b> you can watch the function calls to libLVM.sh that &quot;do the actual work&quot;.</p>
+<p>Here's the basic operations:</p>
+<pre>
+   mount-domU martus	# mount the filesystems for guest 'martus' that dom0 &quot;owns&quot;
+   mount-domU    m	# ... you can specify the guest by its abbreviation
+  umount-domU    m	# unmount what you just mounted
+   mount-domU -g m	# *also* mount filesystems that guest m* owns (must stop guest)
+  umount-domU    m	# unmount what you just mounted
+   mount-domU _shared	# mount /guests/_shared mounts (OS-software+config mounts)
+   mount-domU _		# ... using its abbreviation
+  umount-domU _		# unmount what you just mounted
+</pre>
+<p>Similar to the 'mount' command, an 'mount-domU' with no guest-argument will show you all the guest filesystems that are currently mounted on dom0:</p>
+<pre>
+   # mount everything, for the following &quot;show&quot;
+   mount-domU -r _	# mount OS-software+config filesystems on /guests/_shared
+   mount-domU -r m	# also mount them on /guests/martus
+
+   mount-domU -0	# show /guests/_shared mounts   (OS-software+config mounts)
+   mount-domU -g	# show  guest-specific mounts   (/guests/* except _shared)
+   mount-domU -a	# show all guest-related mounts (all /guests/*)
+
+  umount-domU -a	# remove the mounts we were demonstrating
+
+NOTE: the most convenient debugging tool is 'mount-domU -a'.
+</pre>
+<p>You can mount the same guest (or _shared) filesystems as many times as you want, mount-domU is smart enough to notice they're already mounted.</p>
+<pre>
+   mount-domU    _	# mount OS-software+config filesystems (read-write by default)
+   touch /guests/_shared/usr/lost+found/deleteme # succeeds
+   fgrep /guests/_shared/usr /proc/mounts # ..because field 4 is rw,*
+   mount-domU -w _	# ... same as above, since -w is the default
+   touch /guests/_shared/usr/lost+found/deleteme # succeeds
+   mount-domU -r _	# (re-)mount OS-software+config filesystems read-only
+   touch /guests/_shared/lost+found/deleteme # fails
+   fgrep /guests/_shared/usr /proc/mounts # ..because field 4 is ro,*
+
+  umount-domU -a	# prepare for next example
+</pre>
+<p>You can mount multiple guest's filesystems at once:</p>
+<pre>
+   mount-domU    all	# (re-)mount all guests; errors if more then one, unless ...
+   mount-domU -r all	# this will always succeed
+   mount-domU -a	# show what you just mounted
+  umount-domU    all	# umount the ones you just mounted
+</pre>
+[Using 'all' for guest-name is convenient even if you've only built one guest, because you don't need to remember what the guest is named on this server.]
+<p>==&gt; Usage message for mount-domU and umount-domU as of 2007-08-18 &lt;==</p>
+<pre>
+Usage: mount-domU [-0|-g] [-a] [-u] [-r|-w] [-q]  [-d] [-t [-t]] guest
+   mount the guest filing systems.
+
+   The default is to _only_ mount the filesystems owned by dom0/host,
+     which include OS-software+config filesystems (/ /usr /chroot) and the
+     /var snapshot that's used to run 'yum' and 'rpm' from the dom0/host.
+   Use the -g option to also mount the filesystems owned by domU/guest,
+     such as /chroot/etc (to edit Martus service configuration files), and the
+     guest's working /var.  Since the guest owns these filesystems, you must
+     stop the guest before you mount (or filesystem corruption could occur).
+   There's some 'special features':
+     if specify -g | -s | -a, but no guest, just run 'df -m' on the filesystems
+     if guest is 'all', mount all known guests (need -r if multiple guests)
+
+   Here's the options:
+        -0: mount guest filesystems owned by dom0/host  (the default)
+        -g: mount guest filesystems owned by domU/guest (must stop guest)
+        -a: show all mounted guest filesystems
+
+        -u: umount instead of mount (it's best to use umount-domU instead)
+        -r: mount read-only
+        -w: mount read-write
+
+        -d: Debug shell script (don't run commands, just show them)
+        -t: Trace _calls_ to mount_guest_FSs; -t -t will trace the _function_
+</pre>
+
+<hr>
+<h2><a name="martusadmin">Martus Server application administration</a></h2>
+
+<h3><a name="martusfirsttime">Installing the Martus service for the first time</a></h3>
+
+<p>This documents the steps one has to do for setting up Martus for the first time after the guest is created (create-domU) and martus tarball is installed  (<b>install-martus</b>).
+</p>
+<pre>
+This documents the steps one has to do for setting up the Martus service for
+the first time after the guest is created (create-domU) and martus tarball is
+installed (<b>install-martus</b>).
+
+ a) log in as 'root' to the host domain (dom0)
+
+ b) check if the guest is running
+
+      xm list
+
+ c) If it is running, shut it down
+
+      xm shutdown martus -w
+
+ d) Mount the shared filesystems
+
+      mount-domU -g martus
+
+ e) Create a martus config file
+
+      cd /guests/martus/chroot/etc/MartusServer
+      cp martus.sh.sample martus.sh
+
+ f) Create the compliance document
+
+      cd /guests/martus/chroot/etc/MartusServer.MSPA
+      vi compliance.txt
+
+ g)  Umount the shared filesystems
+
+      cd /tmp
+      umount-domU -g martus
+
+ h) start the guest
+
+      xm create -c martus
+
+ i) Once the guest is running, from another terminal window log in as root
+    to the guest.
+
+ j) run the martus administration tool
+
+      admin-martus
+
+ k) create a keypair
+
+      type 'k' 'c'
+
+    when prompted, enter your passphrase. For more info see the MartusServer
+    Policy Guide.  Next time you restart the guest, as part of the boot process
+    you need to provide this passphrase when prompted.
+
+    quit out of the keypair tasks by hitting 'q'
+
+ l) create the magic word: it's best to use the MSPAClient GUI, otherwise
+    see the end of item M.5 in the FAQ.
+
+ m) restart the Martus server
+
+      's' 'r
+
+     when prompted, enter the passphrase.
+
+
+At this point you now have a running Martus Server with a keypair and magic
+word(s).
+</pre>
+
+<p>If you need to setup mirroring now, perform all the above steps on the other Martus Server.  Once both servers are up and running, follow the instructions below
+</p>
+
+<h3><a name="mirroring">Setting up mirroring between two servers</a></h3>
+
+<h4><a name="mirroringtheory">The admin-martus command</a></h4>
+
+<p>The admin-martus command sets up new mirroring arrangements, by storing remote-server's public keys in these two directories:</p>
+<pre>
+  /chroot/etc/MartusServer.MSPA/mirrorsWhoCallUs/
+  /chroot/etc/MartusServer.MSPA/mirrorsWhoWeCall/
+</pre>
+<p>The file names contain the IP addresses, and start-martus parses these IP addresses and uses them to load the mirrorsWhoCallUs and mirrorsWhoWeCall firewall chains, whenever you start the Martus service.
+</p>
+
+<h4><a name="mirroringsetup">Using the admin-martus command</a></h4>
+
+<p>1. Start the Martus service on both hosts (which we will refer to as HostA and HostB), and run 'admin-martus' on both hosts.</p>
+
+<p>2. The admin-martus main prompt will appear (MAIN: (k)eypair magic(w)ords (a)ccount (m)irror (s)erver (o)ther (v)erbose:) Type 'k' followed by 's'. This will list the public code of the host.  Keep the public code of the 2 hosts handy.  You will need this to setup the mirroring. Go back to the main prompt by hitting 'q'.</p>
+
+<p>3. From the main prompt on HostA, type 'm' followed by 'a'.  The subsequent dialog will ask for the public code and IP address of HostB.  Enter this information. You will be asked also for the passphrase used in creating the keypair for HostA.</p>
+
+<p>4. This will fail and is expected. You will receive the following error:
+<pre>
+	Asking HostA for its Public Key...failed
+
+      Bad public code, bad IP address, or mirror server is down
+</pre>
+<p>5. From the main prompt on HostB, type 'm' followed by 'a'.  The subsequent dialog will ask for the public code and IP address of HostA.  Enter this information, you will be asked also for the passphrase used in creating the keypair for HostB. This should succeed. Repeat Step 3 above to complete the mirroring between the 2 hosts.  The second attempt using step 3 should succeed.</p>
+
+<p>6. Mirroring between the 2 hosts has now been set up.  From the main prompt, you can do 'w' and 'l' to list the mirroring information of the server.</p>
+
+<p>7. At this time, you should restart both hosts.
+
+<h3><a name="ongoingadmin">Ongoing Martus Server Administration</a></h3>
+<p>Please see the Martus Server Policy Guide for an overview of the policy decisions involved in on-going Martus server policy administration and the tasks and features used to implement these decisions.</p>
+
+<hr>
+<h2><a name="logging">Martus server logging strategy</a></h2>
+<p>Martus Server 3.0 uses three different logging strategies.
+First, <b>kernel logs</b> are gathered by <b>klogd</b> (from the standard
+CentOS 5 syslogd rpm) and written to the
+named-pipe <b>/tmp/root/klogd2syslog.fifo</b> which is read
+by <b>syslog-ng</b>. Second, <b>syslog-ng</b> is used to write the all logs
+to <b>/chroot/syslog/var/log/</b>.  Thirdly, <b>syslog-ng</b> is optionally
+used to send all logs to a remote logging server.
+</p>
+<p>Two log daemons are used for security reasons.  Benetech's syslog-ng is configured to run in a chroot environment, with user privileges.  Each read from <b>/proc/kmsg</b> (with the 2.6 kernel) is checked for root permissions, so syslog-ng can't read it.  syslog-ng has the benefit of TCP based logging, instead of the UDP logging used by the standard syslogd; tunneling log traffic with tools like OpenSSH and Stunnel is not possible over UDP.
+</p>
+
+<h3><a name="klogd">Kernel logging with klogd</a></h3>
+<p>A custom init script is provided to start <b>klogd</b>. This init script reads configuration information from <b>/etc/sysconfig/klog</b>.  klogd must run with root privileges to read from /proc/kmsg.
+</p>
+
+<h3><a name="syslogng">System logging with syslog-ng</a></LI></h3>
+<p><b>Syslog-ng v1.6</b> is provided for local and remote logging of system messages.  Syslog-ng is run in a chroot, <b>/chroot/syslog</b>, and all logs are written to <b>/chroot/syslog/var/log/$YEAR/$MONTH/</b>.  Syslog-ng runs as user <b>syslogng</b>.
+
+<h3><a name="remotelog">Remote logging with syslog-ng</a></LI></h3>
+<p>Remote logging with syslog-ng is simple to enable, and highly recommended. It is important to read the <a href=#logcompliance>log server compliance</a> before enabling this feature.  Two methods of tunneling are supported, OpenSSH and stunnel, which is based on OpenSSL.  It is important to make sure that the IP address of the log server is added to <b>/etc/martus/firewall.sh</b>.  Turning on remote logging in syslog-ng is done by removing the comments in from of these two statements in <b>/etc/syslog-ng/syslog-ng.conf</b>:
+</p>
+
+<pre>
+#destination d_stunnel { tcp( "localhost"; port("syslog") ); };
+#log { source(inputs); destination(d_stunnel); };
+</pre>
+
+<p>This implies that your encrypted tunnel is listening on localhost, port <b>514</b> (the standard syslog port). <b>/etc/services</b> does not have <b>TCP</b> port <b>syslog</b> configured by default, but the Martus Server scripts append this port and the Martus ports.
+</p>
+
+<h4><a name="logssh">Remote logging over OpenSSH</a></h4>
+<p>The SSH tunnel should be started in /etc/inittab. The line to add should look like this:
+</p>
+<tt>
+EXAMPLE HERE
+</tt>
+
+<h4><a name="logstunnel">Remote logging over stunnel</a></h4>
+
+<p>Configuration of <b>stunnel</b> requires a few bits of configuration. First, a syslog-ng log server must be in place, this document assumes you have a compliant one. Second, client/server certificates must be generated, and distributed to the Martus server. Thirdly, the stunnel configuration file must be modified with the details specific to your environment.
+</p>
+<p>It is beyond the scope of this document to describe the key generation process, but a client certificate with public and private keys, and a server certificate, with a only the public key must be created.  These should be placed in <b>/etc/stunnel/</b>. Make sure they are correctly referenced in <b>/etc/stunnel/stunnel.conf</b>.  Set permissions on the keys:
+</p>
+<tt>
+chmod 400 /etc/stunnel/clientkey /etc/stunnel/serverkey
+</tt>
+
+<p>With keys in place, and log server information in hand, we can now configure <b>/etc/stunnel/stunnel.conf.  Note that we need to create a record for log-server in /etc/hosts</b>.
+</p>
+
+<pre>
+cat /etc/stunnel/stunnel.conf
+
+client=yes
+chroot=/chroot/stunnel
+pid=/var/stunnel.pid
+cert=/etc/stunnel/syslog-ng-client.pem
+CAfile=/etc/stunnel/syslog-ng-server-pub.pem
+verify=3
+debug=7
+setuid=stunnel
+output=/var/log/stunnel.log
+# the stunnel process will listen on the accept port
+# for connections, define log-server in /etc/hosts
+[514]
+ 	accept=localhost:514
+ 	connect=log-server:514
+</pre>
+
+<p>We need to enable the stunnel process to start up on boot:
+</p>
+
+<pre>
+# enable on dom0 boot
+/etc/init.d/stunnel start; chkconfig --add stunnel
+# restart syslog-ng
+/etc/init.d/syslog-ng restart
+
+# enable on domU
+mount-domU _shared
+cp -a /etc/stunnel/* /guests/_shared/etc/stunnel/
+# with the stunnel parts uncommented
+cp /etc/syslog-ng/syslog-ng.conf /guests/_shared/etc/syslog-ng/
+chroot /guests/_shared/ chkconfig --add stunnel
+xm reboot guestname
+</pre>
+
+<h4><a name="logcompliance">Log server compliance</a></h4>
+
+</body>
+</html>

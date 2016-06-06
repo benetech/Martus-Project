@@ -1,0 +1,577 @@
+<html>
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>Martus Server Policy Guide</title>
+
+<style>
+<!--
+                       
+ font-face
+	{font-family:Tahoma;}
+                        
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Arial;}
+h2
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:normal;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+span.MsoCommentReference
+	{font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{font-family:"Times New Roman";
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{font-family:"Times New Roman";
+	color:purple;
+	text-decoration:underline;}
+strong
+	{font-family:"Times New Roman";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+p.HTMLBody, li.HTMLBody, div.HTMLBody
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:Arial;}
+                       
+ 
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-left:.75in;'>© Copyright
+2002-2007, Beneficent Technology, Inc. (Benetech), Palo Alto, California.
+Nongovernmental organizations (NGO&#8217;s) may freely copy and distribute this manual,
+but may not sell or distribute it for commercial purposes.</p>
+
+<p class=MsoNormal align=center style='margin-left:.75in;text-align:center;
+'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.75in;'>The
+copyrighted Martus&#8482; software itself was developed with a major grant from the
+Information Program of the Open Society Institute, and other funding from
+individual donors, foundations, and The Benetech Initiative itself.  To obtain
+more information, visit the Martus Project website at <a
+href="http://www.martus.org/">http://www.martus.org/</a> .</p>
+
+<p class=MsoNormal style='margin-left:.75in;'><span
+style='color:blue'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;'>Martus is a
+trademark and service mark owned by Beneficent Technology, Inc., formal
+registration of which is pending in the United States and elsewhere. Please
+acknowledge this mark by use of the &#8482; symbol with it, when first referring to
+it in other documentation. For simplicity, we have not used the &#8482; symbol in
+this documentation and often refer only to &#8220;Martus&#8221; when referring to the
+software and the program, except on the introductory pages. Benetech claims
+world-wide ownership of the Martus mark for this particular set of uses and
+services. </p>
+
+<h1>Martus&#8482; Server Policy Guide </h1>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<h2>Introduction</h2>
+
+<p class=HTMLBody>Each Martus&#8482; Backup Server and/or Web-based Martus Search
+Engine must have a Policy Administrator, who sets and enforces the policies
+that determine how the server can be used. A Martus Server Policy Administrator
+(MSPA) does not need technical skills or knowledge. However, to make
+appropriate policy decisions, you need to understand the features of the Martus
+Server. This guide describes the general features and policy decisions that
+you, as the MSPA, control. In many cases, you will need to request that the
+technical System Administrator actually make the policy changes for you, and
+the System Administrator will report back to you.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>Also see the MartusServerCompliance document.</p>
+
+<h2>Identifying a Server: IP Address, Keypairs, Public Keys, Public Codes, and
+Passphrases</h2>
+
+<p class=HTMLBody>Each Martus Server is accessed through an IP address, such as
+10.121.205.11. The technical System Administrator will choose the IP address,
+and provide that information to the MSPA. Each server also has a unique
+&quot;Public Code,&quot; which is automatically created when the server is
+initially configured. A Public Code comprises twenty digits, written as five
+groups of four digits. For example, a Public Code might be
+1234.5678.2345.6783.4567. Martus clients use a combination of the server&#8217;s IP
+Address and Public Code to identify a specific server. If either of these
+values changes, all the existing clients will have to be notified.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>The server&#8217;s Public Code is actually a short version of the
+server&#8217;s Public Key. A Public Key is hundreds of characters long, so it is
+rarely shown to users. During initial configuration, the server creates both a
+Public Key and a Private Key. Together, the Public Key and Private Key are
+referred to as the Keypair. </p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>The server&#8217;s Keypair is stored on disk protected by a passphrase
+that you set during initial configuration, and can change at any time. A
+passphrase is like a password, but should be longer and more difficult to
+guess. Choose a passphrase that includes alphabetic, numeric, and punctuation
+characters, and does not contain names or dates (because those can be easy to
+guess). See the section below, titled &#8220;Choosing a Good Passphrase&#8221;. Change the
+passphrase periodically, so that it is even more difficult for an attacker to
+obtain the Keypair. Remember to create a new backup copy of the server Keypair
+file each time you change the passphrase.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>The Private Key is never displayed or shared with anyone. It
+is only used by the software to prove that this server is authentic. If the
+server&#8217;s Private Key is lost or stolen, you should create a new Keypair. <span
+style='color:black'>For details, see the section titled &#8220;Creating a New
+Keypair&#8221;.</span></p>
+
+<h2>Granting and Denying Upload Rights to Client Accounts </h2>
+
+<p class=HTMLBody>Martus Servers keep track of which Martus clients are allowed
+to upload bulletins. Once a particular client obtains upload rights, that
+client will have full use of the server indefinitely, unless you choose to
+&quot;block&quot; that client. As with servers, clients are associated with a
+long Public Key and a shorter Public Code. Normally, you&#8217;ll identify client
+accounts by their Public Codes.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>Rather than requiring you to grant upload rights individually
+for client accounts, Martus Servers rely on &quot;Magic Words,&quot; which are
+specific to a particular server. A Magic Word is a word or phrase that a new
+client enters once in order to request upload rights on a server. Typically,
+the organization that sets up a new Martus client provides the client with the
+information they&#8217;ll need to begin uploading bulletins to a Martus Server: the
+server&#8217;s IP address, Public Code, and a Magic Word. As you distribute Magic
+Words to users, inform them if you plan to deactivate the Magic Word at a
+certain date. </p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>Theoretically, a server could create a different Magic Word
+for each client. However, in practice, server operators tend to use a single
+Magic Word for each group of clients (for example, one Magic Word for each
+project, training session or Headquarters). You can add and remove Magic Words,
+and you can view a list of currently active Magic Words. </p>
+
+<h2>Managing Accounts and Bulletins</h2>
+
+<p class=HTMLBody>You can choose to block an account, perhaps because that
+account is using the server for illegitimate purposes.  All the bulletins of
+the blocked account will remain on the server, but they can&#8217;t be retrieved or
+augmented unless the account is unblocked. At any time, you can view a list of
+client accounts that have upload rights, or a list of accounts that have been
+blocked. You can view the upload history for any client account, or view any
+available contact information for a given account.  You can &#8220;delete&#8221; a
+bulletin, which will make it impossible to retrieve (except that you can
+undelete it, and the system administrator can access it); you should only do
+this in accordance with the Server Compliance Statement in effect on this server
+at the time.</p>
+
+<h2>Creating a New Keypair</h2>
+
+<p class=HTMLBody>When a Martus server is first configured, a Keypair is
+created. You shouldn&#8217;t need to create a new Keypair later unless the original
+Keypair is lost or damaged, or you believe someone has discovered the
+passphrase. Creating a replacement Keypair is a major disruption, because all
+the existing clients will have to re-configure their systems with the server&#8217;s
+new Public Code before they will be able to connect to the server. Remember
+that it is not safe to distribute Public Codes via email (because the email
+could be modified in transit).</p>
+
+<h2>Choosing a Good Passphrase</h2>
+
+<p class=HTMLBody>The simplest method to easily create a good password is to
+use one of the high-quality passwords that the Martus server software will
+create for you when you setup the keypair. </p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>Alternatively, you can create a passphrase that includes
+several digits and punctuation characters, and is at least twenty characters
+long. Passphrases should never contain names of family members, friends, pets,
+towns, cities, or countries. They should not contain made-up words from movies
+or books. Do not use the first letter of each word of a sentence, unless the
+sentence is unusual, and you thought up the sentence yourself, and you keep the
+sentence secret.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>A passphrase should not contain any dates, phone numbers, or
+street addresses. It should not contain any words that can be found in any
+dictionary of any language (unless you use the diceware method mentioned
+above). Do not use dictionary words with letters replaced by digits, like
+&#8220;p01nt&#8221;. </p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>MSPA&#8217;s might only use the passphrase on a weekly or monthly
+basis, so it will be difficult to remember it between uses. In an environment
+that is physically secure, and where you protect the written copy very
+carefully, it is safest to use a passphrase that is so complex that even you
+can&#8217;t remember it without referring to a written copy. Even if you choose a
+passphrase that you can remember, you should always keep a written copy safely
+locked away in a very secure location, in case you forget it. </p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>Except when you are using the passphrase, don&#8217;t keep a
+written copy of it on your person, anywhere near your desk, or near the server.
+This applies even if the written copy is a &#8220;coded&#8221; version of the real
+passphrase that reminds you of the real passphrase. Attackers can be
+surprisingly clever. Also, remember that anyone who wants to steal your
+passphrase has probably read this advice.</p>
+
+<h2>Policy Administrator Tasks</h2>
+
+<p class=HTMLBody>As a Martus Server Policy Administrator, you can perform
+several tasks related to server policies. </p>
+
+<p class=HTMLBody>These tasks are performed using the &#8216;martusadmin&#8217; command,
+which you can run by logging in to the server with your special policy
+administrator account. You&#8217;ll find the commands for these tasks in the Keypair,
+Magic Words, and Client Account, Mirroring, Server and Other menus of the
+&#8216;martusadmin&#8217; command. Each menu task is listed here, along with a brief
+description of the task.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>The menus contain words whose first letter is in parentheses,
+such as (a)ccount; to perform the action suggested by the word (or phrase), you
+hit the letter in parentheses (&#8216;a&#8217; in this example), without hitting ENTER. 
+You only need to hit ENTER when you&#8217;re prompted for information,</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>When you first login, you will see the &#8220;MAIN&#8221; menu. If you
+hit one of the action letters, you will enter a specialty task mode; to exit a
+task mode, keep hitting ENTER (or hit &#8216;q&#8217; for quit).</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>Note that all the policy administrative actions will be
+logged. The technical System Administrator will be able to find out what tasks
+were done, by who, and when. This is an important security feature, to help the
+system administrator detect whether an unauthorized person is modifying the
+server.</p>
+
+<h3>Server Keypair Tasks</h3>
+
+<p class=HTMLBody><b><span style='color:black'>Create New Keypair</span></b><span
+style='color:black'>: Create a new Keypair during the initial set-up or if you
+must replace the original Keypair because it has been compromised. (If you are
+replacing a Keypair, you must delete the original first.) A new Keypair
+requires a new passphrase, and a new Public Code is generated. Distribute the
+Public Code securely to all account users; it&#8217;s OK for anyone to know it, but
+you must make sure it&#8217;s not modified &#8220;in transit&#8221;.</span></p>
+
+<p class=HTMLBody><span style='color:black'>&nbsp;</span></p>
+
+<p class=HTMLBody><b><span style='color:black'>Delete Current Keypair</span></b><span
+style='color:black'>: Use this command only if the current Keypair has been
+compromised. Creating a new Keypair is very disruptive, as it requires all
+account users to re-configure their systems.  Because this operation is so
+dangerous, running this command will save a copy of the current Keypair but it
+will <b>not</b> delete the current Keypair; only the system administrator can
+delete the Keypair.</span></p>
+
+<p class=HTMLBody><span style='color:black'>&nbsp;</span></p>
+
+<p class=HTMLBody><b><span style='color:black'>Generate passphrases</span></b><span
+style='color:black'>: Use this command to generate very high-quality
+passphrases, suitable for the &#8216;root&#8217; password or other administrative
+passwords.</span></p>
+
+<p class=HTMLBody><span style='color:black'>&nbsp;</span></p>
+
+<p class=HTMLBody><b><span style='color:black'>Change Keypair Passphrase</span></b><span
+style='color:black'>: Change the Keypair passphrase periodically, to make it
+more difficult for an attacker to gain access to the Martus server. To change
+the passphrase, you&#8217;ll need to enter the current (old) passphrase and the new
+passphrase. Be sure to back up the Keypair file after you change the
+passphrase. </span></p>
+
+<p class=HTMLBody><span style='color:black'>&nbsp;</span></p>
+
+<p class=HTMLBody><b><span style='color:black'>Backup Keypair (and other
+configuration data)</span></b><span style='color:black'>: Back up the server
+configuration data after you create the original Keypair (or change its
+passphrase), add or delete Magic words, alter Server mirroring, etc. The files
+you back up are saved to a floppy disk; if you can&#8217;t insert a floppy disk
+because the server is remote, you will need to do an rsync backup (see </span>the
+MartusServerCompliance document).</p>
+
+<p class=HTMLBody><span style='color:blue'>&nbsp;</span></p>
+
+<p class=HTMLBody><b>Show IP Address and Public Code</b>: Use this command to
+display the server&#8217;s IP address and Public Code, which you&#8217;ll need to provide
+to account users (along with a Magic Word).</p>
+
+<h3>Magic Words T<span style=''>a</span>sks</h3>
+
+<p class=HTMLBody><b>List Existing Magic Words</b>: See a list of all the Magic
+Words currently in effect</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Add a New Magic Word</b>: Add a new Magic Word. </p>
+
+<p class=HTMLBody><b>&nbsp;</b></p>
+
+<p class=HTMLBody><b>Delete a Magic Word</b>: Remove a Magic Word. Existing
+clients who have already connected to the server using this Magic Word will not
+have to re-enter the new Magic Word unless they create a new account. </p>
+
+<h3>Client Account Tasks</h3>
+
+<p class=HTMLBody><b>List Folders</b>: Display the list of folders (i.e. directories)
+for all accounts on the server.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>List Public Codes</b>: Search for a specific account&#8217;s
+Public Code when you know a portion of the Public Code.  To see a list of
+Public Codes for all accounts on the server, just hit ENTER when asked to
+specify a search string.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Search Contact Information</b>: Find all the accounts
+whose public contact information contains a specific string; remember that this
+information is optional.  If no string is specified (i.e. you just hit ENTER),
+show the contact information for all accounts that have chosen to make their
+information public.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>List Blocked Accounts</b>: Display the list of accounts
+that have been blocked (or &#8220;banned&#8221;) from accessing the Martus server.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=HTMLBody><b><i>Note:</i></b> Before performing any of the following
+tasks, you must enter the Public Code (or Public Key) for the client account
+you want to work with. A client user can view their Public Code by choosing
+Help &gt; View My Account Details in the Martus Client. Many server logs of
+client activity also display the Public Code; but it's difficult to identify
+users based on server log activity, so it is not a reliable way to determine
+the Public Code for a user. It is also possible to locate an account by
+searching any available contact information that the clients have chosen to
+upload. We do not recommend using contact information to specify the account,
+because the contact information may be incorrect, or multiple accounts may have
+similar or even identical contact information.</p>
+
+<p class=HTMLBody><b>&nbsp;</b></p>
+
+<p class=HTMLBody><b>Show Contact Info</b>: Display the contact information for
+the account, if the account user has chosen to upload any.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Can Account Upload</b>: Determine whether an account has
+submitted a valid Magic Word and thus acquired the right to upload bulletins.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Show Upload History</b>: Display the history of uploaded
+bulletins from the client account.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Block/Unblock an Account</b>: Block (or &#8220;ban&#8221;) an account
+from accessing the Martus server, or remove the block (&#8220;unban&#8221;) from an account
+that was blocked earlier. A blocked account cannot upload or retrieve any
+bulletins. When an account is un-blocked, it reverts to the same permissions
+that it had before it was blocked.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Delete/Undelete Bulletins</b>: A bulletin can be &#8220;deleted&#8221;
+(or &#8220;hidden&#8221;), which makes it impossible to retrieve; you should only do this in
+accordance with the Server Compliance Statement in effect on this server at the
+time.  A deleted bulletin is not physically removed from the server; a system
+administrator can retrieve it, and you can undelete it.  You can also list all
+the bulletins that have been deleted for a specific account.</p>
+
+<h3>Server Mirroring T<span style=''>a</span>sks</h3>
+
+<p class=HTMLBody><b>List Existing Mirrored servers</b>: See a list of all the
+servers we will periodically call (at least once an hour).  For each remote
+server, we will make sure that we have a local copy of each of its bulletins
+(that have <b>not</b> been deleted), by &#8220;pulling&#8221; each bulletin that&#8217;s not
+stored locally.  [Note that the mirroring for a specific remote server will not
+be successful unless they add your server for mirroring.]</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Add a New Mirror server</b>: To enable mirroring to a
+server, you need to know the remote server&#8217;s Public Code and IP address (i.e.
+the MSPA on the remote server needs to run the <b>Show IP Address and Public
+Code</b> command described above).  You can optionally create a name for the
+remote server&#8217;s IP address; this name does not need to be a domain name, and
+only needs to be unique on your own server.  You will <b>not</b> be able to add
+a remote server for mirroring unless the Martus service on the remote server is
+running when you try to perform the &#8220;add&#8221;.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>Note: remember that the remote server will need to add your
+server before any mirroring happens.  Once each server has added the other for
+mirroring, each server will periodically call the other server (at least every
+hour) to make sure that that the local server has a copy of every bulletin on
+the remote server.</p>
+
+<p class=HTMLBody><b>&nbsp;</b></p>
+
+<p class=HTMLBody><b>Delete a Mirror server</b>: Stop calling the remote
+server, and remove the authorization for the remote server to call your own
+server.  Note that all bulletins that were mirrored before you delete a mirror
+server will remain intact.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>List Old/Deleted Mirror servers</b>: List all the remote
+servers that were once mirrored to this server (and thus represent bulletins
+that may exist on both servers).</p>
+
+<h3>Other Miscellaneous Tasks</h3>
+
+<p class=HTMLBody><b>Backup configuration data</b>: This is the same as the <b><span
+style='color:black'>Backup Keypair (and other configuration data)</span></b><span
+style='color:black'> action in the Keypair Task.  It was copied to the
+Miscellaneous menu because it&#8217;s used to backup data created in all the Tasks
+(and also backup data that can be altered by the system administrator).</span></p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Change MSPA Password</b>: this enables you to change the
+password of the account you use to login to the server.  You can only perform
+this task when the server is unlocked, so you will need the assistance of the
+system administrator.</p>
+
+<p class=HTMLBody><b>&nbsp;</b></p>
+
+<p class=HTMLBody><b>Bulletin Integrity Check</b>: This lets you check every
+bulletin on the system to make sure it has not been corrupted.  With a lot of
+accounts on the server, this can take many tens of minutes to run.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>If you find a corrupted bulletin, it&#8217;s best to delete it, and
+then have your system administrator remove it from
+/chroot/etc/MartusServer/isHidden.txt an then restart the Martus service.  If
+the bulletin was uploaded by one of your users, have the account holder move
+the bulletin into their outbox (so that it will be re-sent to the server).  If
+the bulletin was mirrored from another server, then the mirroring process will
+restore it (if you delete the bulletin from isHidden.txt and restart the Martus
+service).</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody><b>Software Release Information</b>: This lets you check the
+version of all the critical software on the Martus server.</p>
+
+<h3>Server Tasks</h3>
+
+<p class=HTMLBody>These tasks are used by the system administrator to start and
+stop the Martus service, called (b)egin and (e)nd, and lock/unlock the server
+or check the server status.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<h2>Possible Future Enhancements</h2>
+
+<p class=HTMLBody>In the future, MSPA's are likely to have additional
+responsibilities. Here are some of the features that may be added:</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>- Upload limits. MSPA's might be able to set limits on the
+number, size, or combined size of bulletins that each client can upload within
+a specific time period.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>- Martus Search Engine. The MSPA would decide whether to send
+(or &#8220;amplify&#8221;) public bulletins to any Martus Search Engines. Martus Search
+Engines will allow the public to use Web-based searching and browsing features
+to access public portions of bulletins.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>- Stricter control over client accounts. MSPA's may be able
+to create Magic Words that would be valid for only a single account. Or they
+might be able to manually grant upload rights to a specific client account
+instead of relying on Magic Words.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>   </p>
+
+</div>
+
+</body>
+
+</html>
