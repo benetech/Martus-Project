@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Martus Server Installation Documentation</title>
+	<meta name="author" content="Ryan Ramsey">
+
+</head>
+<body>
+
+<center><h1>Martus Server Installation Documentation</h1></center>
+
+
+Copyright 2002-2013 Beneficent Technology, Inc. (<a href="http://www.benetech.org">Benetech</a>). <br>
+
+<p>The &quot;Martus&quot; mark is a trademark of Beneficent Technology, Inc., Palo Alto, CA, as to which registration is pending in a number of countries. Use of the shorthand reference &quot;Martus&quot; on these web pages is for convenience only, and should not be taken as a generic or descriptive term. Please respect our trademarks. Trademarks of other companies may be used herein and we make no claim to ownership of them.
+</p>
+
+<h2>Contents</h2>
+
+<UL>
+<LI>Pre-Installation Discussion</LI>
+	<UL>
+	<LI><a href="#intro">Introduction</a></LI>
+	<LI><a href="#discussXen">Discussion of Xen virtualization</a></LI>
+	<LI><a href="#discusskickstart">Discussion of kickstart installation</a></LI>
+	<LI><a href="#discussdisk">Discussion of Martus Server disk partitioning</a></LI>
+	<LI><a href="#discussyum">Discussion of Martus guest installation methods</a></LI>
+		<UL>
+		<LI><a href="#yumnetwork">Using a yum online mirror</a></LI>
+		<LI><a href="#yumdvd">Using original installation media</a></LI>
+		</UL>
+	</UL>
+<LI>Installation Instructions</LI>
+	<UL>
+	<LI><a href="#phase1">Phase 1 - Install host operating system</a></LI>
+	<LI><a href="#phase2">Phase 2 - Install Martus files on Host</a></LI>
+	<LI><a href="#phase3">Phase 3 - Finalize host configuration</a></LI>
+	<LI><a href="#phase4">Phase 4 - Create Xen guest domain</a></LI>
+	<LI><a href="#phase5">Phase 5 - Install Martus Server application</a></LI>
+	</UL>
+<LI>Optional post-installation configuration</LI>
+		<UL>
+		<LI><a href="#discussnetwork">Dual ethernet interface configuration</a></LI>
+			<UL>
+			<LI><a href="#configdom0">Configure host OS</a></LI>
+			<LI><a href="#configxen">Configure Xen</a></LI>
+			<LI><a href="#configguest">Configure guest OS</a></LI>
+			</UL>
+		<LI><a href="#discusssyslogng">Configure remote logging</a></LI>
+			<UL>
+			<LI><a href="#discussstunnel">Enabling syslog-ng stunnel support</a></LI>
+			<LI><a href="#discussssh">Enabling syslog-ng ssh tunnel support</a></LI>
+			</UL>
+		<LI><a href="#discussupdates">Applying updates</a></LI>
+		</UL>
+</UL>
+
+<hr>
+
+<h2><a name="intro">Introduction</a></h2>
+
+<p>The new Martus Server is a major update from 2.x versions. Significant work has been done to increase security and ease administration.  Martus Server runs on <a href="http://www.centos.org">CentOS 5</a>, a freely redistributable OS that's built from the <a href="http://www.redhat.com">Red Hat</a> source code used to build <a href="http://www.redhat.com/docs/manuals/enterprise/RHEL-5-manual/index.html">Red Hat Enterprise Linux 5</a>; CentOS 5 aims to be binary-compatible with RHEL 5.  Martus Server does not currently support Red Hat Enterprise 5.  CentOS 5 supports the latest server hardware, and provides the high performance and stability needed to run Martus.  A Martus Server works best with a 64-bit CPU, using the x86_64 architecture.  The Martus Server now utilizes the Xen project's highly secure virtual machines (VMs), and will benefit from hardware virtualization in the CPU.  The new Martus Server is not backwards compatible with 2.x versions: upgrades from previous versions are not supported.
+</p>
+
+<hr>
+<h2><a name="discussXen">Discussion of Xen virtualization</a></h2>
+
+<p>Xen is an open-source para-virtualizing virtual machine monitor (VMM), or 'hypervisor', for the x86 processor architecture. Xen can securely execute multiple virtual machines on a single physical system.  It facilitates enterprise-grade functionality, including:
+</p>
+
+<UL>
+<LI>Virtual machines with performance close to native hardware.</LI>
+<LI>Live migration of running virtual machines between physical hosts.</LI>
+<LI>Up to 32 virtual CPUs per guest virtual machine, with VCPU hotplug.</LI>
+<LI>x86/32, x86/32 with PAE, and x86/64 platform support.</LI>
+<LI>Intel Virtualization Technology (VT-x) for unmodified guest operating systems (including Microsoft Windows).</LI>
+<LI>AMD Virtualization Technology (SVM aka Pacifica) on AM2 and F stepping Opterons (2006H2)</LI>
+<LI>Excellent hardware support (supports almost all Linux device drivers).</LI>
+</UL>
+
+
+<p>Para-virtualization permits very high performance virtualization, even on architectures like x86 that are traditionally very hard to virtualize.  This approach requires operating systems (OS) to be ported to run on Xen. Porting an OS to run on Xen is similar to supporting a new hardware platform, however the process is simplified because the para-virtual machine architecture is very similar to the underlying native hardware. Even though operating system kernels must explicitly support Xen, a key feature is that user space applications and libraries do not require modification.
+</p>
+
+<p>A Xen system has multiple layers, the lowest and most privileged of which is Xen itself.  Xen may host multiple guest operating systems, each of which is executed within a secure virtual machine: in Xen terminology, a domain.  Domains are scheduled by Xen to make effective use of the available physical CPUs. Each guest OS manages its own applications. This management includes the responsibility of scheduling each application within the time allotted to the VM by Xen.
+</p>
+<p>The first domain, <b>domain 0</b> or <b>dom0</b>, is created automatically when the system boots, and has special management privileges.  Domain 0 builds other domains and manages their virtual devices. It also performs administrative tasks such as suspending, resuming and migrating other virtual machines.  Other domains are unprivileged and are termed <b>domain U</b> or <b>domU</b>.  Within domain 0, a process called <b>xend</b> runs to manage the system. Xend is responsible for managing VMs and providing access to their consoles. Commands are issued to xend over an HTTP interface, via a command-line tool.
+</p>
+
+<b>Source:</b><a href=http://tx.downloads.xensource.com/downloads/docs/user/>http://tx.downloads.xensource.com/downloads/docs/user/</a>
+<hr>
+
+<h2><a name="discusskickstart">Discussion of kickstart installation</a></h2>
+<p>CentOS Linux utilizes a tool called <b>anaconda</b> to handle all details of operating system(OS) installation.  This installation process can be automated by specifying a <b>kickstart</b> file at the beginning of the install.  The Martus Server is distributed with a sample kickstart file that should be edited for your environment.  Specifically, the network variables and disk partitioning must be configured.
+</p>
+<h3>Sample kickstart file</h3>
+
+<pre>
+install
+cdrom
+lang en_US
+keyboard us
+
+# you'll need to change the N and M numbers
+network --device eth0 --bootproto static --ip N.N.N.N --netmask M.M.M.M --gateway N.N.N.1 --nameserver 127.0.0.1 --hostname martus.your.domain
+
+firewall --enabled
+authconfig --enableshadow --enablemd5
+selinux --enforcing
+# this doesn't work for some reason, so have to specify it in the GUI
+timezone --utc Etc/GMT
+
+#################################################################
+### put the output of the 'kspart' command after this comment ###
+#################################################################
+
+#####################################################################
+### end of disk partitioning statements from the 'kspart' command ###
+#####################################################################
+
+%packages --nobase
+@core
+# these are only installed on dom0
+at
+crontabs
+vixie-cron
+mailx
+yum-utils
+# these are duplicated in create-domU
+binutils
+bzip2
+curl
+dbus-python
+edac-utils
+emacs-nox
+groff
+kernel-xen
+logrotate
+lsof
+lynx
+man
+postfix
+rdate
+rng-utils
+rsync
+screen
+smartmontools
+stunnel
+telnet
+traceroute
+unzip
+usbutils
+wget
+xen
+
+%post
+</pre>
+
+<p>The disk partitioning portion of the kickstart file should be generated with the <b>kspart</b> command.  The kspart command requires you to specify at least three variables: disk type (sd or hd), disk size (in GB) and partition table size. The partition tables have been pre-determined and can be specified as either <b>tiny</b>, <b>small</b>, <b>regular</b> or <b>large</b>; the Perl script can be easily modified to create your own layout.  In addition to these variables, the <b>&quot;-m&quot;</b> flag should be included if you are using multiple disks in a raid configuration. The <b>&quot;-l&quot;</b> flag specifies the drive letter specification of the second disk (and <b>&quot;-t&quot;</b> for an optional third disk).  Here's the kspart output that specifies the kickstart partition commands for a pair of 120 GB SATA drives:
+</p>
+
+<pre>
+bootloader --location=mbr --driveorder=sda,sdb
+# so installer won't partition USB flash drive (holding kickstart file)
+ignoredisk --drives=sdc
+
+# ===========================================================================
+# if partitioning fails for any reason, diagnostic messages
+#   will appear on a virtual console (console 3 with RHL-7.3)
+# ===========================================================================
+# == NOTE: if doing *re*install, could probably comment out this whole section
+# ===========================================================================
+
+# this *destroys* all the current partitions on boot disk (and mirror pair)
+clearpart --drives sda,sdb --initlabel --all
+
+# these partitioning statements were generated by this 'kspart' command:
+# kspart -d sd -2 b -s 120 -m regular
+
+# minimum disk size is 75 GB (2007-08-19)
+
+# sets of partitions for mirroring
+part raid.01 --start     12 --end     35 --ondisk=sda
+part raid.21 --start     12 --end     35 --ondisk=sdb
+part raid.02 --start     36 --end    216 --ondisk=sda
+part raid.22 --start     36 --end    216 --ondisk=sdb
+part raid.03 --start    217 --end    577 --ondisk=sda
+part raid.23 --start    217 --end    577 --ondisk=sdb
+part raid.05 --start    578 --end    673 --ondisk=sda
+part raid.24 --start    578 --end    673 --ondisk=sdb
+part raid.06 --start    674 --end    865 --ondisk=sda
+part raid.25 --start    674 --end    865 --ondisk=sdb
+part raid.07 --start    866 --end   2672 --ondisk=sda
+part raid.26 --start    866 --end   2672 --ondisk=sdb
+part raid.08 --start   2673 --end   2762 --ondisk=sda
+part raid.27 --start   2673 --end   2762 --ondisk=sdb
+#
+part raid.09 --start   2763 --end   4685 --ondisk=sda
+part raid.28 --start   2763 --end   4685 --ondisk=sdb
+part raid.10 --start   4686 --end   6608 --ondisk=sda
+part raid.29 --start   4686 --end   6608 --ondisk=sdb
+part raid.11 --start   6609 --end   8531 --ondisk=sda
+part raid.30 --start   6609 --end   8531 --ondisk=sdb
+part raid.12 --start   8532 --end  10454 --ondisk=sda
+part raid.31 --start   8532 --end  10454 --ondisk=sdb
+part raid.13 --start  10455 --end  14451 --ondisk=sda
+part raid.32 --start  10455 --end  14451 --ondisk=sdb
+
+# RAID meta-devices, where md# is built with partitions sdL#
+# minimum disk size is 75 GB (2007-08-19)
+raid /boot      --device=md1  --fstype=ext4 --level=1 raid.01 raid.21
+raid /          --device=md2  --fstype=ext4 --level=1 raid.02 raid.22
+raid /usr       --device=md3  --fstype=ext4 --level=1 raid.03 raid.23
+raid /home      --device=md5  --fstype=ext4 --level=1 raid.05 raid.24
+raid /var       --device=md6  --fstype=ext4 --level=1 raid.06 raid.25
+raid /var/local --device=md7  --fstype=ext4 --level=1 raid.07 raid.26
+raid /chroot    --device=md8  --fstype=ext4 --level=1 raid.08 raid.27
+#
+raid pv.9       --device=md9  --fstype=ext4 --level=1 raid.09 raid.28
+raid pv.10      --device=md10 --fstype=ext4 --level=1 raid.10 raid.29
+raid pv.11      --device=md11 --fstype=ext4 --level=1 raid.11 raid.30
+raid pv.12      --device=md12 --fstype=ext4 --level=1 raid.12 raid.31
+raid pv.13      --device=md13 --fstype=ext4 --level=1 raid.13 raid.32
+</pre>
+
+<p>The lines created by kspart should now be added to the kickstart file.</p>
+
+
+<hr>
+<h2><a name="discussdisk">Discussion of Martus Server disk partitioning</a></h2>
+
+<p>Partitioning of a Martus Server is complex; this document assumes that the user has some familiarity with partitioning in Linux.  Martus Servers use <b>Software Raid</b> technology to mirror hard disk partitions in the event of a disk failure.  <b>Redundant Array of Independent Drives (RAID)</b> is an umbrella term for data storage schemes that divide and/or replicate data among multiple hard drives.  Martus Servers also use <b>Logical Volume Management (LVM)</b>, to provide a flexible framework for <b>Xen</b> guest filesystems. Logical Volume Management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users.  Storage volumes created under the control of the logical volume manager can be resized and moved around almost at will.
+</p>
+<p>The logical volume manager also allows management of storage volumes in user-defined groups, allowing the system administrator to deal with sensibly named volume groups such as &quot;mail&quot; and &quot;backups&quot; rather than physical disk names such as &quot;sda&quot; and &quot;sdb&quot;.
+The strategy for a Martus Server install is to break each disk into a number of equally sized parts. The number of partitions depends on if you are using two disks of four.  Breaking the disk down into sections like this allows the administrator to assign the fastest partitions (those closest to the outside of the disk) to the appropriate volume group - <b>fast</b>, <b>norm</b> or <b>slow</b>. Each section on disk 1 will be mirrored onto disk 2 using software raid.
+</p>
+<p>As previously mentioned, all paritioning of the Martus Server <b>dom0</b> will be done by the <b>anaconda kickstart file</b>. All partitioning of the guest operating system, <b>domU</b>, is done by <b>create-domU</b>. The create-domU sample configuration file, <b>/etc/martus/create-domU/martus.sh.sample</b> has variables for the size of each domU filesystem.
+</p>
+
+<hr>
+
+<h2><a name="discussyum">Discussion of Martus guest installation methods</a></h2>
+
+<p>This section discusses two possible methods for installing the packages on a <b>domU</b>, unprivileged guest using the <b>create-domU</b> script included with the Martus Server distribution. Installing the guest operating system is very unlike installing the host operating system. Instead of using the anaconda infrastructure, package installation is handled soley by <b>yum</b>. Yum, or the &quot;Yellow dog Updater, Modified&quot;, is a free-software/open-source command line package management utility for RPM-compatible GNU/Linux operating systems.
+</p>
+<p>The first method is a strictly network installation, using CentOS online package repositories. The second method is using the packages from an ISO image or DVD mounted locally.  The second method is a great deal faster, especially on slow internet connections.   More information on using yum can be found in the yum man page.
+</p>
+
+<h3><a name="yumnetwork">Using a yum mirror repository</a></h3>
+
+<p>The process for using a network repository is straight forward. Simply make sure the network connection is working correctly, and that the correct <b>install_mirrors</b> variable is set in the <b>create-domU</b> configuration file</a>.
+</p>
+
+<h3><a name="yumdvd">Using original installation media</a></h3>
+
+<p>You will first need to download a CentOS 5 iso image, or have a DVD burned and placed in the optical drive of the Martus Server.  The iso will need to be mounted in a specific place, <b>/mnt/iso</b>, for the create-domU script to find it.
+</p>
+
+<pre>
+# create a directory to mount the iso
+mkdir /mnt/iso
+
+# mount an iso image to /mnt/iso
+mount -t iso9660 -o ro,loop=/dev/loop7 path-to-CentOS-5-x86_64-bin-DVD.iso /mnt/iso
+
+# if you are using a DVD placed in the optical drive, you would use this instead
+mount -t iso9660 -o ro /dev/cdrom /mnt/iso
+</pre>
+
+<p>Now that the files are in place and available to the yum installer, the <b>install_mirrors</b> variable in <b>create-domU</b>'s configuration file needs to be set to <b>c5dvd,c5base,c5updates</b>.
+</p>
+
+<hr>
+<h2><a name="install">Martus Server installation instructions</a></h2>
+<h3>Phases of Martus Server Installation</h3>
+<UL>
+	<LI><a href="phase1"                           onClick="return (false);">Phase 1 - Install host operating system</a></LI>
+	<LI><a href="phase2"                           onClick="return (false);">Phase 2 - Install Martus files on host</a></LI>
+	<LI><a href="phase3"                           onClick="return (false);">Phase 3 - Finalize host configuration</a></LI>
+	<LI><a href="phase4"                           onClick="return (false);">Phase 4 - Create Xen guest domain</a></LI>
+	<LI><a href="phase5"                           onClick="return (false);">Phase 5 - Install Martus Server application</a></LI>
+</UL>
+
+<h3><a name="phase1">Phase 1 - Install host operating system</a></h3>
+
+<p>Installation of CentOS 5 is straightforward if you copy the CentOS 5 <b>ks.cfg.sample</b> configuration file to ks-martus-server.cfg, and edit the networking directive, and insert the output of the kspart command.  Before beginning the installation process, the network cable must be unplugged, the partitioning scheme must be decided on, the partitioning commands added to the sample kickstart file, and the USB flash drive populated with the files needed for installation.
+</p>
+<p>Start by placing the CentOS 5 DVD into the optical drive.  Now boot the
+system and navigate into the system BIOS. Set the system clock to GMT.  Make
+sure the optical drive is selected as the first device in the BIOS boot order.
+Save the BIOS settings and exit. Once you boot into the installer
+&quot;pre-boot&quot; command line prompt, insert the USB flash drive
+(containing the <b>ks-martus-server.cfg</b> kickstart file) into a free USB
+port, then type:
+</p>
+
+<tt>linux ks=hd:sd<b>N</b>1:/ks-martus-server.cfg</tt><br>
+
+<p>where <b>N</b> is the next letter after the last SATA or SCSI disk's letter
+(e.g. <b>c</b> if you have two SATA disks, <b>d</b> if you have three SATA
+disks), or <b>a</b> if your system uses PATA disks instead of SATA/SCSI.  You
+may encounter an error that the kickstart file cannot be found; wait 10
+seconds and hit &quot;enter&quot;.  The USB mass-storage driver was just
+loaded, and sometimes takes a little time to settle.
+</p>
+
+<p>The system will boot and all of the prompts should be skipped, because the
+kickstart file provides the configuration.  The two exceptions are 1) the
+prompt to ask for a root password, if your kickstart file didn't contain a
+rootpw directive; and 2) the installation may stop on the Timezone page, and
+you'll need to select Etc/GMT from the drop-down list then click the box that
+specifies that the BIOS time is in the GMT timezone.  When the installation
+has finished, you will need to acknowledge the prompt and let the server
+reboot.  If the installation program's kernel panics during a page fault, just
+retry the install; there are race conditions with the kernel used.
+</p>
+
+<p>After first boot, you will be presented with a login prompt. Log in using the user &quot;root&quot;, and the default password in the kickstart file.
+
+<pre>
+# Set the system time if it is significantly off.
+# The time zone is set to GMT (UTC) by the kickstart file.
+date XXXX
+</pre>
+
+
+<h3><a name="phase2">Phase 2 - Install Martus files on host</a></h3>
+
+<p>Place the Martus Server installer files onto a USB flash drive. The flash drive should contain <b>install-dom0</b>, <b>martus-server-VERSION.tar.gz</b> and <b>martus-server-VERSION.tar.gz.sha1</b>.  Insert the flash drive into a free USB  slot. You can make sure the device is recognized by checking the output of <b>dmesg</b>. Dmesg will show you which device name was assigned to the flash drive. You will need to mount the flash drive before having access to the files. You can mount the USB flash drive with something like this:
+ </p>
+
+<pre>
+mkdir /mnt/flash
+mount /dev/sdN1 /mnt/flash	# see above for choice of "N"
+
+# Now change directory to the new mount point
+cd /mnt/flash
+
+# now run the first-stage install script
+./install-dom0
+
+# Set up some config files for the first boot
+cd /etc/martus
+cp accounts.sh.sample accounts.sh
+cp firewall.sh.sample firewall.sh
+# now edit accounts.sh and firewall.sh to setup access to the system
+# run "lockdown" to create the accounts you configured, and setup the firewall
+source /etc/profile.d/martus.sh
+lockdown
+
+# generate a list of very-strong passwords
+admin-martus
+# choose the password you like, and change the root password
+passwd
+
+# Reboot the server
+shutdown -r now
+</pre>
+
+<h3><a name="phase3">Phase 3 - Finalize host configuration</a></h3>
+
+<p>You can now plug in the ethernet cable and update the system's software:
+</p>
+
+<pre>
+yum -y install centos-release-cr
+yum -y update
+yum-complete-transaction -y
+
+# reboot the system to use the new kernel
+shutdown -r now
+</pre>
+
+<h3><a name="phase4">Phase 4 - Create Xen guest domain</a></h3>
+
+<p>This phase of the installation uses the <b>create-domU</b> script to set up a fully functioning <b>Xen Virtual Machine</b> running the Martus Server under a CentOS 5 instance.  Before running create-domU, you need to decide on the <a href="#discussyum">installation method</a>.  If you are doing a DVD based install, mount the DVD or iso to <b>/mnt/iso</b> now.  The create-domU script has a configuration file that needs to be completed before run time.  The configuration scripts are kept in <b>/etc/martus/create-domU/</b>, and are of the form <b>.sh</b>.  You must first decide on a guest name; in this document, we will call the guest <b>martus</b>.  The sample config file <b>martus.sh.sample</b> should be copied, then edited with our values.  In the rest of this document, <b>martus</b> is used extensively, and refers to the name given to the virtual machine that runs the Martus Server software.
+</p>
+
+<pre>
+cd /etc/martus/create-domU
+cp martus.sh.sample martus.sh
+cat martus.sh
+
+#
+# Sample guest configuration: copy this file to martus.sh, then edit values.
+# For the (recommended) default values you can over-ride, see 'create-domU'.
+#
+
+# guestName will default to the basename of your config file (with .sh removed)
+  guestName=
+
+# filesystem sizes: units are MB (if append the letter 'G', units are GB)
+# there are _no_ defaults for these values, each one must be specified
+# NOTE: smaller is better, since these are all Logical Volumes that can grow
+size_root=1500				# holds /var.RO, with yum packages
+size_usr=1200
+size_swap=1G
+size_var=2G				# has very few logs
+size_home=200
+size_chroot=200				# only contains software, no data
+size_chroot_etc=100			# only contains configuration info
+size_chroot_jvm=300			# only contains jvm software, no data
+size_chroot_jvm_var=10G			# contains all the Martus bulletins
+size_chroot_jvm_mspa_var=50		# MSPAServer doesn't need much
+size_chroot_syslog_var=3G		# most of /var/log was moved to here
+
+# network configuration
+IP_address=				# required
+syslog_server_IP_address=		# optional
+# gateway_IP_address defaults to dom0 gateway address
+  gateway_IP_address=
+# dom0_IP_address defaults to address of interface eth0, else eth1, else eth2
+  dom0_IP_address=
+</pre>
+
+<p>Note that you don't need to make the filesystems very large, because you can grow them later using <b>lvextend</b>.
+<p>You are required to set a value for the guest <b>IP_address</b>. The <b>syslog_server_IP_address</b> is optional, but should be set if you have a logging server.  Once these values have been configured, save the file.
+</p>
+
+<pre>
+# look at create-domU's options
+create-domU
+
+Usage: create-domU [-n name] go
+   Create a CentOS-5 Xen domU/guest domain; configuration describing the
+     domain is found in file /etc/martus/create-domU/<name>.sh
+        -n name: guest name (defaults to 'martus')
+        -V: destroy existing VGs (for OS re-install with same partitioning)
+
+        -v: Verbose
+
+   Options that always work:
+        -d: Debug shell script (don't run commands, just show them)
+        -t: Trace shell script (show commands as they execute)
+</pre>
+
+<p>The option that is important is <b>name</b>. If you created a config file called <tt>/etc/martus/create-domU/martus.sh</tt>, then you will use &quot;martus&quot; as the &quot;name&quot; argument. The &quot;-v&quot; flag turns up the verbosity.  Don't forget to e.g. mount the DVD (see beginning of this section).
+</p>
+<tt>
+create-domU -n martus -v go
+</tt>
+<p>Towards the end of the script, you will be prompted to enter a root password for the guest operating system. Make sure to use a strong password (which can be obtained by running &quot;admin-martus do_generate_passphrases&quot;).
+</p>
+
+<! (to see the recent security fixes, click the relevant version on the <a href="https://www.oracle.com/technetwork/java/javase/overview/index.html">release notes page</a>, then scroll down to the bottom to the "Bug Fixes" section)>
+
+<h3><a name="phase5">Phase 5 - Install Martus Server application</a></h3>
+<p>Now that the guest operating system in installed, it is necessary to
+install the <b>Server Java Runtime Environment (JRE)</b> and Martus Sever
+jars.  This process has been automated, and is handled by
+the <b>install-martus</b> script.  This script requires some user
+interaction. The first step to complete this installation is to download a
+Server JRE tarball for Linux x64
+from <a href="https://www.oracle.com/technetwork/java/javase/downloads/">
+Oracle's download site</a>, which should be found on
+<a href="https://www.oracle.com/technetwork/java/javase/downloads/server-jre7-downloads-1931105.html">
+Oracle's Server JRE Downloads page</a>.  After you've downloaded the tarball,
+use <b>md5sum</b> to find its checksum, and search for it
+on <a href="https://www.oracle.com/technetwork/java/javase/downloads/">
+Oracle's checksum page</a>.  As of Martus Server 4.3.x, the following are
+required: <b>server-jre-7u45-linux-x64.tar.gz</b>, <b>jaf-1_1_1.zip</b>,
+<b>javamail-1_4_1.zip</b>.  Copy these files to a USB flash drive.  Now mount
+the flash drive on the Martus Server, and copy the files to the <b>/root/</b>
+directory.  You could optionally use <b>scp</b> to transfer the jre installer
+to the host operating system.  Proceed with installation.
+</p>
+
+<p>To create sysadmin and poladmin accounts on the guest:</p>
+<pre>
+umount-domU _shared
+ mount-domU martus
+cd /guests/martus/etc/martus
+# add your account to accounts.sh,
+cd pki/ssh
+cp ~user/.ssh/authorized_keys user
+cd
+</pre>
+<p>TECHNICAL NOTE: When the guest starts, start-domU-prep will call lockdown-domU which will run lockdown chrooted in the guest, and lockdown will create the account and copy the public key from /etc/martus/pki/ssh/user to ~user/.ssh/authorized_keys </p>
+
+<pre>
+mount /dev/sdN1 /mnt/flash	# see above for choice of "N"
+cp /mnt/flash/{jre*.bin,ja*.zip} /root/
+cd /root/
+install-martus
+
+# test java on dom0/host
+umount-domU martus
+ mount-domU _shared
+chroot /guests/_shared	/etc/martus/alternatives/java -version
+
+# test java on guest
+chroot /chroot/jvm	/etc/martus/alternatives/java -version
+chroot /chroot/jvm_mspa	/etc/martus/alternatives/java -version
+
+# create a config file for the martus init script
+umount-domU _shared
+ mount-domU martus
+chroot /guests/martus
+cp /chroot/etc/MartusServer/martus.sh.sample /chroot/etc/MartusServer/martus.sh
+
+# now open the file with an editor and change if needed
+vi /chroot/etc/MartusServer/martus.sh
+
+# set up the firewall
+cd /etc/martus
+cp firewall.sh.sample firewall.sh
+vi firewall.sh
+</pre>
+
+<p>A Martus Server compliance statement must be put into place. See Martus FAQ M.5 for more details</p>
+<tt>
+vi /chroot/etc/MartusServer.MSPA/compliance.txt
+</tt>
+<p>The contents of <b>compliance.txt</b> should look something like this:</p>
+
+<tt>
+This is a standard Martus(TM) service, using unmodified Martus Server
+software, v 4.0.3, and operated in accordance with Benetech's server
+compliance document v 1.4.
+</tt>
+
+<p>After the compliance doc is in place, we now need to create a server keypair using the <b>admin-martus</b> tool. This should be done by starting the guest, logging in, and running <b>admin-martus</b>:
+</p>
+
+<pre>
+# exit chroot
+exit
+
+# unmount filesystems
+mount-domU -u martus
+# start the guest
+xm create -c martus
+
+# after logging in, run admin-martus
+admin-martus
+</pre>
+
+<p>At the first prompt, type <b>k</b>, for keypair maintenance.
+Then <b>c</b>, to create a new keypair; while you're waiting for the "New
+Martus passphrase" prompt, login to the server from another window and type
+gibberish at the keyboard, to provide enough entropy for <b>admin-martus</b>
+to create the sample passphrases.  Now you will need to enter a passphase for
+the keypair.  This passphrase will need to be entered every time the Martus
+Server is started.  You can type <b>q</b> to exit out of the admin-martus
+script.  The Martus server should now have enough configuration to start, but
+it won't be useful without adding a <b>magic word</b>.  Unless you'll use the
+extra fields in the magicwords.txt file, you can use the admin-martus script
+to manage magic words (if you want the extra fields, you'll need to add them
+by hand using your favorite text editor).  See Martus Server FAQ M.5 for more
+information on the format of <b>magicwords.txt</b>.
+
+<pre>
+vi /chroot/etc/MartusServer.MSPA/magicwords.txt
+# shut down when done
+shutdown -h now
+</pre>
+
+<p>The installation of the Martus Server is now complete and you should start up the virtual machine and verify operation.  The xm arguement, <b>&quot;-c&quot;</b>, will connect you to the guest's system console.  From the console you can view boot output of the guest, and type the Martus passphrase to start the Martus service.  Unfortunately, you can't login to shell using the console; you'll need to use ssh access instead. To exit out of the guest console, you will type <b>&quot;ctrl+]&quot;</b>.
+</p>
+<tt>
+xm create -c martus<br>
+</tt>
+
+<hr>
+
+<h2><a name="discussnetwork">Martus Server network configuration</a></h2>
+
+<h3><a name="singlenic">Single network card configuration</a></h3>
+
+<p>Martus Server supports, by default, only one network interface, with a public or a private IP address. The host operating system IP address should be specified in the kickstart installation file.  This will configure <b>dom0</b> network interface.  The guest IP address should be configured in the <b>create-domU</b> configuration file, <b>/etc/martus/create-domU/martus.sh</b>, in <a href="#phase2">Phase 2</a> of the installation. No further configuration should be necessary.
+</p>
+
+<h3><a name="dualnic">Dual network card configuration</a></h3>
+
+<p>Benetech uses a configuration utilizing two network interfaces, one for public traffic(WAN), and one for private(LAN). This configuration is <b>not</b> supported in the kickstart files, install-dom0 or create-domU scripts. However, using two network interfaces is possible. All configuration should be done after the installation of Martus is finished, and with the guest operating system shut down.  First the dom0 must be configured with a second interface, then the xen configuration must be modified to bridge both interfaces, and finally the guest OS scripts must be configured.
+</p>
+
+<h4><a name="configdom0">Configure host OS</a></h4>
+
+CentOS 5 uses these files to configure the network interface:<br>
+
+<pre>
+/etc/sysconfig/network-scripts/ifcfg-eth*
+/etc/sysconfig/network
+/etc/hosts
+</pre>
+
+<h5>Steps to configure dom0 for a second nic</h5>
+
+<pre>
+# run ifconfig and make note of the network mac addresses
+ifconfig eth1
+
+# copy the eth0 config file
+cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/syconfig/network-scripts/ifcfg-eth1
+
+# edit the new network config and adjust the values for eth1
+vi /etc/sysconfig/network-scripts/ifcfg-eth1
+
+# Now is a good time to edit /etc/hosts and /etc/sysconfig/network
+vi /etc/hosts
+vi /etc/sysconfig/network
+</pre>
+
+<h4><a name="configxen">Configure Xen</a></h4>
+
+<p>Xen needs a few changes from the stock configuration to utilize two network interfaces.  Xen uses ethernet bridging to bind the physical interfaces to the virtual interfaces used by the guest domains.  If you want to use more than one interface, a second bridge device must be created.  Benetech creates a bash script that creates the network bridges with the &quot;network-bridge&quot; command. This script is placed in /etc/xen/scripts/; this script is called /etc/xen/scripts/network-bridge-martus (the name of the file is arbitrary, what is important is that the file is set to be executable).  The <b>xenbr0</b> will no longer be used, and instead two new bridges are created, <b>WAN</b> and <b>LAN</b>.  These bridge names are used in the Xen domU configuration files. Make note of the mac addresses in each of the interface definitions. These will be used in the CentOS network configuration scripts.  The syntax of the xen guest configuration file is out of the scope of this document, but an example configuration of a dual network configuration file looks like this:
+</p>
+
+<pre>
+# Define network interfaces.
+nics=2
+vif = [ 'mac=00:16:3e:47:9f:01, bridge=LAN',
+	'mac=00:16:3e:47:9f:00, bridge=WAN'  ]
+
+# create script to bring up network bridges
+vi /etc/xen/scripts/network-bridge-martus
+</pre>
+
+<p>Here's sample contents for the /etc/xen/scripts/network-bridge-martus script:</p>
+
+<pre>
+#!/bin/bash
+
+PATH=/etc/xen/scripts:$PATH
+
+# you might want to swap the netdev interfaces so that the
+#  dom0/host and domU/guest have the same suffix; check with: brctl show
+network-bridge "$@" bridge=LAN netdev=eth0 vifnum=0
+network-bridge "$@" bridge=WAN netdev=eth1 vifnum=1
+</pre>
+
+<p>Don't forget to set the file executable:</p>
+<tt>
+chmod +x /etc/xen/scripts/network-bridge-martus<br>
+</tt>
+
+<p>Now edit /etc/xen/xend-config.sxp and edit the command '(network-script network-bridge)' to instead look like: (network-script network-bridge-martus) .
+If you have bonded interfaces, you might need to add the argument 'netdev=bond0' to the end.</p>
+
+<p>If you reboot the server, Xen guests should now have two network interface bridges available to them; you can investigate this by running the command 'tools-martus bridge'.  The standard CentOS network configuration scripts on the guest will need to be configured to take advantage of the new bridged interfaces.
+</p>
+
+<h4><a name="configguest">Configure guest OS</a></h4>
+
+<p>The gateway address in /etc/sysconfig/network will need to be adjusted to the gateway of the public IP address.  The second IP address will need to be added to /etc/hosts.
+</p>
+
+<pre>
+# mount the guest filesystems
+mount-domU martus
+
+# chroot to the guest filing system
+chroot /guests/martus
+
+# copy eth0's network script to eth1
+cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
+
+# Update the values for the new interface.
+vi /etc/sysconfig/network-scripts/ifcfg-eth1
+
+# Now would be a good time to update /etc/hosts and ./etc/sysconfig/network.
+vi /etc/hosts
+vi /etc/sysconfig/network
+
+# exit chroot and unmount the filesystems
+exit
+mount-domU -u martus
+</pre>
+
+<hr>
+<h2><a name="discusssyslogng">Configure remote logging</a></h2>
+<p><b>Syslog-ng</b> is used on the Martus Server to provide secure, high quality, remote logging.  Syslog-ng version 1.6.x is installed with an rpm distributed with Martus Server.  It is standard practice to use utilize syslog-ng's remote tcp logging features over ssh or ssl tunnels.  The Martus Sever has the components in place to do logging over either type of tunnel. Some configuration is necessary.
+</p>
+
+<h3><a name="discussstunnel">Enabling syslog-ng stunnel support</a></h3>
+
+<p>Configuration of <b>stunnel</b> requires two things. First, the syslog-ng log server should already be in place and client/server keys should have been generated. Second, the stunnel configuration file should be modified with the details specific to your environment. It is beyond the scope of this document to describe the key generation process, but the end result should be a log server listening on an a known IP address and port. The logging server keys should have been generated, and the log server public key should be distributed to the Martus Server. In addition, a public/private key pair should have been generated and put in <b>/etc/stunnel/</b>. With keys in place, and log server information noted, we can now configure <b>/etc/stunnel/stunnel.conf</b>.
+</p>
+
+<pre>
+cat /etc/stunnel/stunnel.conf
+
+client=yes
+chroot=/chroot/stunnel
+pid=/stunnel.pid
+cert=/etc/stunnel/syslog-ng-client.pem
+CAfile=/etc/stunnel/syslog-ng-server-pub.pem
+verify=3
+setuid=stunnel
+debug=7
+output=/var/log/stunnel.log
+# the stunnel process will listen on 127.0.0.1, port 514
+[514]
+	accept=127.0.0.1:514
+	connect=1.2.3.4:514
+</pre>
+
+<p>We need to enable the stunnel process to start up on boot:
+</p>
+
+<pre>
+# enable on dom0
+/etc/init.d/stunnel start; chkconfig --add stunnel
+</pre>
+
+<p>Now that the stunnel daemon is running, we need to make sure syslog-ng is configured to utilize stunnel. Configuration of syslog-ng is beyond the scope of this document, but a remote destination must be added, and a log entry must be added to tie the source and destination together:</p>
+
+<pre>
+cat /etc/syslog-ng/syslog-ng.conf
+
+options {
+    sync(0);
+    time_reopen(10);
+    log_fifo_size(10000);
+    long_hostnames(off);
+    use_dns(no);
+    use_fqdn(no);
+    create_dirs(yes);
+    keep_hostname(yes);
+    check_hostname(yes);
+    chain_hostnames(no);
+
+    # Martus Server additions (besides modifications above)
+    time_reap(36000);
+    group(sysadmin);
+};
+
+# see http://www.campin.net/syslog-ng/faq.html#klogd
+source inputs {
+    file( "/proc/kmsg" log_prefix("kernel: ") );
+    unix-stream("/dev/log");
+    internal();
+};
+
+destination local {
+    file( "/var/log/archive/$HOST/$YEAR/$MONTH/$FACILITY"
+	  owner(root) group(sysadmin) perm(0600)
+	  create_dirs(yes) dir_perm(0700) );
+};
+
+destination stunnel { tcp( "127.0.0.1" port(514) ); };
+
+# log locally
+log { source(inputs); destination(local); };
+# also log remotely
+log { source(inputs); destination(stunnel); };
+</pre>
+
+<p>Now we want to duplicate the configuration on the virtual machine:</p>
+
+<pre>
+# enable on domU
+mount-domU martus &amp;&amp; chroot /guests/martus chkconfig --add stunnel
+cp /etc/stunnel/* /guests/martus/etc/stunnel/
+cp /etc/syslog-ng/syslog-ng.conf /guests/martus/etc/syslog-ng/
+# unmount the filesystems before testing
+mount-domU -u martus
+</pre>
+
+<p>Logging should now be enabled on the host and guest domains. Correct operation should now be verified on the log server.
+</p>
+
+<h3><a name="discussssh">Enabling syslog-ng ssh tunnel support</a></h3>
+<p>SSH tunneling is a very common method for securing syslog-ng traffic.</p>
+
+<hr>
+</body>
+</html>
