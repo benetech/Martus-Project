@@ -1,4 +1,4 @@
-﻿Martus(tm) Desktop Software Version 5.1.1 README.txt
+Martus(tm) Desktop Software Version 5.2.0 README.txt
 ----------------------------------------------------------------
 
 See https://www.martus.org for information about the Martus software.
@@ -56,6 +56,27 @@ Installing and Running Martus:
 
 
 Martus desktop release information by version and release date:
+
+
+Version 5.2.0 		2016-11
+
+This release is available in English and Spanish with partial translations in several 
+other languages. Other languages may be available in the future, as language-packs on https://www.martus.org 
+
+Changes in this release:  
+
+- Ability to import Xforms from benetech.github.io/forms for customizable data input 
+- Import multiple encrypted records at once
+- Export data as unencrypted files in two additional formats: *.csv or *.json
+
+Bug fixes and cleanup, including:
+- Fixed issue where search and reports did not include dropdown fields
+- Fixes for Java 8 updates  
+
+Known Issues:
+- Currently, Xform import only supports English and Spanish
+- Xform import may not work for certain special characters 
+
 
 Version 5.1.1 		2015-12
 

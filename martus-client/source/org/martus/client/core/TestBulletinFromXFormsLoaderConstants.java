@@ -27,6 +27,35 @@ package org.martus.client.core;
 public interface TestBulletinFromXFormsLoaderConstants
 {
 	
+	public static final String SECURE_APP_FORM_TITLE = "secureApp Prototype";
+	
+	public static final String XFORMS_WITH_TWO_GRIDS_WITH_SAME_LABELS = 
+			"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + 
+					"<h:html xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:orx=\"http://openrosa.org/jr/xforms\" xmlns=\"http://www.w3.org/2002/xforms\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:vellum=\"http://commcarehq.org/xforms/vellum\">" + 
+					"	<h:head>" + 
+					"		<h:title>Untitled Form</h:title>" + 
+					"		<model>" + 
+					"			<instance>" + 
+					"				<data xmlns:jrm=\"http://dev.commcarehq.org/jr/xforms\" xmlns=\"http://openrosa.org/formdesigner/B9013C36-0B4B-4932-ABB3-2C802ABE0D68\" uiVersion=\"1\" version=\"1\" name=\"Untitled Form\">" + 
+					"					<question1/>" + 
+					"					<question2 />" + 
+					"				</data>" + 
+					"			</instance>" + 
+					"			<bind nodeset=\"/data/question1\" />" + 
+					"			<bind nodeset=\"/data/question2\" />" + 
+					"		</model>" + 
+					"	</h:head>" + 
+					"	<h:body>" + 
+					"		<group ref=\"/data/question1\" appearance=\"field-list\">" + 
+					"			<label>Boom</label>" + 
+					"		</group>" + 
+					"		<group ref=\"/data/question2\" appearance=\"field-list\">" + 
+					"			<label>Boom</label>" + 
+					"		</group>" + 
+					"	</h:body>" + 
+					"</h:html>";
+			
+	
 	public static final  String XFORMS_MODEL_WITH_GROUP_WITHOUT_LABEL = 
 		"<h:html xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.w3.org/2002/xforms\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" >" +
 			    "<h:head>" +
@@ -58,7 +87,7 @@ public interface TestBulletinFromXFormsLoaderConstants
 	public static final String COMPLETE_XFORMS_MODEL = 
 															"<h:html xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.w3.org/2002/xforms\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" >" + 
 															"    <h:head>" + 
-															"        <h:title>secureApp Prototype</h:title>" + 
+															"        <h:title>" + SECURE_APP_FORM_TITLE + "</h:title>" + 
 															"        <model>" + 
 															"            <instance>" + 
 															"                <nm id=\"VitalVoices\" >" + 
@@ -268,12 +297,12 @@ public interface TestBulletinFromXFormsLoaderConstants
 			"</xforms_instance>";
 
 	public static final String MESSAGE_LABEL = "This should be a Message Field";
-
+	
 	public static final String XFORMS_MODEL_MESSAGE_FIELD =
 			"<xforms_model>" +
 				"<h:html xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.w3.org/2002/xforms\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" >" +
 					"<h:head>"+
-						"<h:title>secureApp Prototype</h:title>"+
+						"<h:title>" + SECURE_APP_FORM_TITLE + "</h:title>"+
 						"<model>"+
 							"<instance>"+
 								"<nm id=\"VitalVoices\" >"+

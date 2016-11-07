@@ -1,0 +1,10 @@
+Formual to calculate bits of security
+
+Log2(6) * 40 = 90
+
+- Instead of hashing the original value as intended, we convert it
+to base64, and hash that. If true (please double check source),  that would
+mean that every 8 bits only contain 6 bits of actual data, so 120 * 6 /
+8 = 90 bits.
+
+- 90 bits isn't terrible.

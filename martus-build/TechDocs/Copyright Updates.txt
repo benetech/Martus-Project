@@ -4,7 +4,7 @@ martus-client
 	org.martus.client.swingui.UIConstants.java
 
 martus-build
-	BuildFiles/License.txt
+	BuildFiles/License.txt (2016... don't see this file anymore)
 	BuildFiles/Windows/Win32_NSIS_Unicode/Common/NSIS_Martus_Installer_Details.nsi
 	
 Eclipse

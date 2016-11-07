@@ -65,7 +65,7 @@ public class FormTemplate
 	{
 		clearData();
 		if(!isvalidTemplateXml(topSection.toXml(), bottomSection.toXml()))
-			throw new CustomFieldsParseException();
+			throw new CustomFieldsParseException(getErrorsAsStringForConsoleOutput());
 		
 		this.title = title;
 		this.description = description;
@@ -334,6 +334,7 @@ public class FormTemplate
 			CustomFieldSpecValidator checker = new CustomFieldSpecValidator(newSpecsTopSection, newSpecsBottomSection);
 			if(checker.isValid())
 				return true;
+			
 			errors.addAll(checker.getAllErrors());
 		}
 		catch (InvalidIsoDateException e)
@@ -347,6 +348,18 @@ public class FormTemplate
 			errors.add(CustomFieldError.errorParseXml(e.getMessage()));
 		}
 		return false;
+	}
+	
+	public String getErrorsAsStringForConsoleOutput()
+	{
+		StringBuffer errorsAsString = new StringBuffer();
+		for (Object error: getErrors())
+		{
+			errorsAsString.append(error.toString());
+			errorsAsString.append("\n");
+		}
+		
+		return errorsAsString.toString();
 	}
 	
 	public Vector getErrors()

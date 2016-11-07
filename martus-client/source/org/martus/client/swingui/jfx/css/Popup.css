@@ -122,3 +122,8 @@
 .popupMargin {
   -fx-padding: 25 25 25 25;
 }
+
+.titelTextAlert {
+	-fx-font-size: 15px;
+	-fx-text-fill: #8b0000;
+}

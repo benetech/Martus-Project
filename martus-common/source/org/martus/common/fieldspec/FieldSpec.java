@@ -190,7 +190,7 @@ public class FieldSpec
 
 	public String convertStoredToSearchable(String storedData, PoolOfReusableChoicesLists reusableChoicesLists, MiniLocalization localization)
 	{
-		return getType().convertStoredToSearchable(storedData, localization);
+		return getType().convertStoredToSearchable(storedData, reusableChoicesLists, localization);
 	}
 	
 	public String convertStoredToHtml(MartusField field, MiniLocalization localization)

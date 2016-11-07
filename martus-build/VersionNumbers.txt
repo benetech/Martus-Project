@@ -14,10 +14,10 @@ Martus client version numbers are set in the following places:
    
 3. Build process (used to name the jars):
    Configure the MartusClient-Release-Mercurial project:
-    		http://mart-jenkins.benetech.org:8011/job/MartusClient-Release-Mercurial/configure
+    		(OLD) http://mart-jenkins.benetech.org:8011/job/MartusClient-Release-Mercurial/configure
    		In the Build/Execute Shell/Command field, there is a line like this:
    NOTE: This is now inside martus-build/BuildFiles/JenkinsBuildRelease.sh
-     export RELEASE_IDENTIFIER=pre-5.1.1
+     export RELEASE_IDENTIFIER=pre-5.3.0
     
 4. In the app (used in splash screen and Help/About):
    martus-client/source/org/martus/client/swingui/UiConstants.java

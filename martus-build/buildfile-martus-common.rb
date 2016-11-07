@@ -25,6 +25,7 @@ define name, :layout=>create_layout_with_source_as_source(name) do
 		ORCHID_SPEC,
 		JAVAROSA_SPEC,
 		KXML_SPEC,
+		JSON_SPEC,
 		project('martus-logi').package(:jar),
 		project('martus-utils').package(:jar),
 		project('martus-swing').package(:jar)

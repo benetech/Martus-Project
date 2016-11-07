@@ -1,10 +1,10 @@
-﻿# Martus Client Translation File
+# Martus Client Translation File
 # Language code:  es
 # Language name:  Spanish
 # Translated by:
-# Exported date:  Fri Apr 10 16:46:56 PDT 2015
-# Client version: pre-5.0.3
-# Client build:   2015-04-10.3524
+# Exported date:  Thu Oct 27 15:11:01 PDT 2016
+# Client version: 5.2.0
+# Client build:   2016-10-27.3580
 #
 # This file MUST be saved in UTF-8 format!
 # Lines beginning with # are comments and are ignored by Martus
@@ -190,6 +190,9 @@
 #_______________________________=Create New Tabular Report
 -34ee-button:CreateTabularReport=Crear nuevo informe tabulado
 
+#__________________________=CSV
+-3281-button:CsvRadioButton=CSV
+
 #_______________________=Download Custom Template
 -2e59-button:CustomForms=Bajar plantilla personalizada
 
@@ -300,6 +303,9 @@
 
 #______________________________=Insert Row
 -9f53-button:InsertEmptyGridRow=Insertar fila
+
+#___________________________=JSON
+-031a-button:JsonRadioButton=JSON
 
 #___________________________________________=Load all possible values for selected field
 -345d-button:LoadFieldValuesFromAllBulletins=Cargar todos los valores posibles para el campo seleccionado
@@ -465,6 +471,9 @@
 
 #__________________________________________=Switch to using on-screen keyboard
 -bca9-button:VirtualKeyboardSwitchToVirtual=Cambiar al teclado de pantalla
+
+#__________________________=XML
+-c0aa-button:XmlRadioButton=<XML>
 
 #_____________________________________=Yes, copy what you can over
 -3c2c-button:YesCopyWithUnknownContent=Sí, copie lo que pueda encima
@@ -678,6 +687,9 @@
 
 #_________________________________________=Name here if available otherwise blank
 -6338-field:AuthorNicknameFieldDescription=El nombre aquí si está disponible, en blanco de otro modo.
+
+#_________________________________=Author/Organization Tips:
+-a59d-field:AuthorOrganizationTips=Consejos para Autor/Organización
 
 #___________________________=Author Public Code 
 -36ce-field:AuthorPublicCode=Código público del autor
@@ -963,6 +975,9 @@
 
 #__________________________=Please wait. Your account's encryption key is being created.
 -cae1-field:CreatingAccount=Por favor espere. El par de claves de cifrado de su cuenta se está creando.
+
+#________________________=CSV Files (*.csv)
+-9250-field:CsvFileFilter=CSV Files (*.csv)
 
 #____________________________=Current Connection
 -0889-field:CurrentConnection=Conexión actual
@@ -1321,6 +1336,9 @@
 #___________________________________________=A template by that name already exists. Enter a new title for this template or leave the title the same to replace the old template with this new one.
 -ba64-field:ImportTemplateWhichAlreadyExists=Ya existe una plantilla por ese nombre. Introduzca un nuevo título para esta plantilla, o deje el título igual y reemplace la vieja plantilla con esta nueva.
 
+#___________________________=Importing records
+-3df9-field:ImportingRecords=Importando expedientes
+
 #_____________________________=#TotalBulletins# records were selected for printing.  #AllPrivateBulletins# of them are all private.\n What would you like to include when printing?
 -8d5d-field:IncludePrivateData=Se seleccionaron #TotalBulletins# expedientes para imprimir. #AllPrivateBulletins# de ellos son completamente privados.\n¿Qué desea que se incluya al imprimir?
 
@@ -1341,6 +1359,9 @@
 
 #_________________________=JPEG (*.jpeg, *.jpg)
 -b11a-field:JPEGFileFilter=JPEG (*.jpeg, *.jpg)
+
+#_________________________=JSON Files (*.json)
+-a081-field:JsonFileFilter=JSON Files (*.json)
 
 #____________________=Key Backup
 -f8a1-field:KeyBackup=Copia de seguridad de claves
@@ -1406,7 +1427,7 @@
 -27e7-field:NeverDeleteVersionOnServer=Nunca borrar del servidor
 
 #_____________________________=No Records.
--aea7-field:NoBulletinsInTable=No hay expeditentes
+-aea7-field:NoBulletinsInTable=No hay expedientes
 
 #____________________________=No Contacts.
 -91ef-field:NoContactsInTable=Sin contactos.
@@ -1861,6 +1882,9 @@
 #__________________=Note: Using Tor will make sending and receiving of records slower.
 -ecdc-field:TorTip2=Nota: Usar Tor hará que se ralentice el envío y recepción de expedientes.
 
+#__________________________=Unencrypted file:
+-66f6-field:UnencryptedFile=Archivo no cifrado:
+
 #__________________=(unknown)
 -d4bd-field:Unknown=(desconocido)
 
@@ -2011,11 +2035,11 @@
 #__________________________=Unknown
 -bc78-field:YearUnspecified=Desconocido
 
-#________________________________=
--da39-field:_SectionBottomSection= 
+#________________________________= 
+-b858-field:_SectionBottomSection=
 
-#_____________________________=
--da39-field:_SectionTopSection= 
+#_____________________________= 
+-b858-field:_SectionTopSection=
 
 #_________________________________________=Header
 -3134-field:_Section_BulletinSectionHeader=Encabezado
@@ -2536,8 +2560,8 @@
 #____________________________________________=An unexpected error occurred in generating the key backup files.
 -d237-field:notifyErrorBackingUpKeySharecause=Ocurrió un error inesperado al generar los archivos de copia de seguridad por partes de su par de claves.
 
-#______________________________________=Unable to verify the backup. Please try again, possibly to a different destination.
--e78e-field:notifyErrorBackingupKeyPair=No se pudo verificar la copia de seguridad. Por favor intente crearla de nuevo, a ser posible en un destino diferente.
+#___________________________________________=Unable to verify the backup. Please try again, possibly to a different destination.
+-e78e-field:notifyErrorBackingupKeyPaircause=No se pudo verificar la copia de seguridad. Por favor, intente crearla de nuevo, a ser posible en un destino diferente.
 
 #_______________________________________=This date occurs in the future:
 -438b-field:notifyErrorDateInFuturecause=La fecha indicada es del futuro:
@@ -2881,8 +2905,8 @@
 #_______________________________________=The Server has rejected your request. The magic word is probably not correct.
 -2baa-field:notifymagicwordrejectedcause=El servidor ha denegado el permiso para que usted suba expedientes. Probablemente escribió mal la 'palabra mágica'.
 
-#________________________________________=Warning: You must enter the same password you entered on the previous screen.
--2a81-field:notifypasswordsdontmatchcause=Advertencia: Tiene que introducir la misma contraseña que introdujo en la pantalla previa.
+#________________________________________=Warning: You must enter the same password you entered above.
+-00ce-field:notifypasswordsdontmatchcause=Advertencia: Tiene que introducir la misma contraseña que introdujo arriba.
 
 #______________________________________=The current server is not responding or may need to be configured from the server menu.
 -9b3c-field:notifyretrievenoservercause=El servidor actual no está respondiendo, o puede que tenga que ser configurado a través del menú de servidor.
@@ -2893,8 +2917,8 @@
 #____________________________________=The current Martus Server has refused to accept a record
 -ea98-field:notifyuploadrejectedcause=El servidor de Martus actual ha rechazado aceptar un expediente
 
-#_________________________________________=Warning: You must enter the same username you entered on the previous screen.
--5754-field:notifyusernamessdontmatchcause=Advertencia: Tiene que introducir el nombre de usuario que introdujo en la pantalla previa.
+#_________________________________________=Warning: You must enter the same username you entered above.
+-d679-field:notifyusernamessdontmatchcause=Advertencia: Tiene que introducir el mismo nombre de usuario que introdujo arriba.
 
 #_______________________=Organization
 -5192-field:organization=Organización
@@ -2932,9 +2956,6 @@
 #_______________________=Retrieve?
 -460d-field:retrieveflag=¿Descargar?
 
-#_______________________________=secureApp Section
--a282-field:secureAppDataSection=Sección secureApp
-
 #_______________________________________=For security reasons, we must validate your username and password.
 -0381-field:securityServerConfigValidate=Por razones de seguridad debemos validar su nombre de usuario y contraseña.
 
@@ -2962,8 +2983,8 @@
 #________________=Title
 -768e-field:title=Título
 
-#_____________________________=Spanish pre-5.0.3
-field:translationVersion=Español 5.1
+#_____________________________=Spanish 5.2.0
+field:translationVersion=Español 5.2.0
 
 #___________________=Username 
 -f964-field:username=Nombre de usuario
@@ -3161,7 +3182,7 @@ field:translationVersion=Español 5.1
 -6d55-language:si=Cingalés / Sinhala
 
 #________________=Albanian
--d71c-language:sq=<Albanian>
+-d71c-language:sq=Albanés
 
 #________________=Serbian
 -a75e-language:sr=Serbio
@@ -3586,6 +3607,15 @@ field:translationVersion=Español 5.1
 #________________________=Search
 -bce0-tooltip:QuickSearch=Buscar
 
+#______________________________________=Save the record as a local draft
+-667c-tooltip:ReadonlyDesktopFlavorSave=Guardar el expediente como un borrador local
+
+#_______________________________________=Send record to contact and remove locally
+-19df-tooltip:ReadonlyDesktopFlavorShare=Enviar expediente al contacto y eliminarlo localmente
+
+#_________________=Save Record
+-8994-tooltip:Save=Guardar Expediente
+
 #_______________________________=Server OFF: Click to turn Server on
 -4ca5-tooltip:ServerCurrentlyOff=Servidor DESACTIVADO: Pulse para activar el servidor
 
@@ -3594,6 +3624,9 @@ field:translationVersion=Español 5.1
 
 #_______________________=Sync Manager
 -9979-tooltip:ServerSync=Administrador de sincronización
+
+#__________________=Share Record
+-f5c4-tooltip:Share=Compartir Expediente
 
 #______________________=Trash
 -e3bf-tooltip:ShowTrash=Papelera

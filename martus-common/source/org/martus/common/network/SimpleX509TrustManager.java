@@ -26,13 +26,15 @@ Boston, MA 02111-1307, USA.
 
 package org.martus.common.network;
 
+import java.net.Socket;
 import java.security.Key;
 import java.security.PublicKey;
 import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
-import javax.net.ssl.X509TrustManager;
+import javax.net.ssl.SSLEngine;
+import javax.net.ssl.X509ExtendedTrustManager;
 
 import org.martus.common.MartusLogger;
 import org.martus.common.crypto.MartusCrypto;
@@ -40,7 +42,8 @@ import org.martus.common.crypto.MartusJceKeyPair;
 import org.martus.util.StreamableBase64;
 
 
-public class SimpleX509TrustManager implements X509TrustManager
+
+public class SimpleX509TrustManager extends X509ExtendedTrustManager
 {
 
 	public SimpleX509TrustManager()
@@ -169,5 +172,28 @@ public class SimpleX509TrustManager implements X509TrustManager
 	private PublicKey expectedPublicKey;
 	private String expectedPublicCode;
 	private boolean calledCheckServerTrusted;
+	
+	@Override
+	public void checkClientTrusted(X509Certificate[] chain, String authType, Socket arg2) throws CertificateException
+	{
+		checkServerTrusted(chain, authType);
+	}
 
+	@Override
+	public void checkServerTrusted(X509Certificate[] chain, String authType, Socket arg2) throws CertificateException
+	{
+		checkServerTrusted(chain, authType);
+	}
+	
+	@Override
+	public void checkClientTrusted(X509Certificate[] chain, String authType, SSLEngine arg2) throws CertificateException
+	{
+		checkServerTrusted(chain, authType);
+	}
+
+	@Override
+	public void checkServerTrusted(X509Certificate[] chain, String authType, SSLEngine arg2) throws CertificateException
+	{
+		checkServerTrusted(chain, authType);
+	}
 }

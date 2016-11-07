@@ -25,9 +25,13 @@ Boston, MA 02111-1307, USA.
 */
 package org.martus.client.reports;
 
+import java.util.ArrayList;
+
+import org.martus.common.FieldSpecCollection;
 import org.martus.common.MiniLocalization;
 import org.martus.common.bulletin.BulletinHtmlGenerator;
 import org.martus.common.fieldspec.MiniFieldSpec;
+import org.martus.common.fieldspec.StandardFieldSpecs;
 import org.martus.util.language.LanguageOptions;
 
 public class PageReportBuilder extends ReportBuilder
@@ -44,11 +48,13 @@ public class PageReportBuilder extends ReportBuilder
 		rf.setDocumentStartSection(createStartSection());
 		rf.setHeaderSection(createHeaderSection());
 		rf.setFakePageBreakSection("<hr></hr>\n");
-		rf.setDetailSection(createDetailSection());
+		MiniFieldSpec[] fieldSpecsInDetailsSection = getOnlyFielSpecsInDetailsSection(specs);
+		rf.setDetailSection(createDetailSection(fieldSpecsInDetailsSection));
 		rf.setFooterSection("</table>");
 		rf.setTotalSection(createTotalSection());
 		rf.setDocumentEndSection(createEndSection());
 		rf.setSpecsToInclude(specs);
+		
 		return rf;
 	}
 	
@@ -72,22 +78,102 @@ public class PageReportBuilder extends ReportBuilder
 		return result.toString();
 	}
 	
-	public String createDetailSection()
+	private String createDetailSection(MiniFieldSpec[] specs)
 	{
-		//TODO Missing unit tests, changes made didn't flag a failing unit test
-		StringBuffer result = new StringBuffer();
-		BulletinHtmlGenerator.appendTitleOfSection(result, "$localization.getStorableFieldLabel('privatesection')");
-		result.append("#foreach($field in $bulletin.getTopFields())\n");
-		result.append(getFieldRow());
-		result.append("#end\n");
-		result.append("#foreach($field in $bulletin.getBottomFields())\n");
-		result.append(getFieldRow());
-		result.append("#end\n");
+		StringBuffer detailBuffer = new StringBuffer();
+		BulletinHtmlGenerator.appendTitleOfSection(detailBuffer, "$localization.getStorableFieldLabel('privatesection')");
+		
+		addTopFields(detailBuffer);
+		addBottomFields(detailBuffer);
+		
+		int start = 0;
+		int end = specs.length;
+		int increment = 1;
+		if(LanguageOptions.isRightToLeftLanguage())
+		{
+			start = specs.length -1;
+			end = -1;
+			increment = -1;
+		}
+		
+		for(int index = start; index !=  end; index += increment)
+		{
+			MiniFieldSpec fieldSpec = specs[index];
+			detailBuffer.append("<tr>\n");
+			detailBuffer.append(getHtmlColumnStartTag());
+			detailBuffer.append(fieldSpec.getLabel());
+			detailBuffer.append(getHtmlColumnEndTag());
+			
+			if (fieldSpec.getType().isMessage())
+			{
+				detailBuffer.append(getHtmlColumnStartTag());
+				detailBuffer.append(getHtmlColumnEndTag());
+			}
+			else
+			{
+				detailBuffer.append(getHtmlColumnStartTag());
+				detailBuffer.append(getFieldCall(fieldSpec));
+				detailBuffer.append(".html($localization)");
+				detailBuffer.append(getHtmlColumnEndTag());
+			}
+			detailBuffer.append("</tr>\n");
+		}
+		
+		return detailBuffer.toString();
+	}
 
-		return result.toString();
+	private MiniFieldSpec[] getOnlyFielSpecsInDetailsSection(MiniFieldSpec[] specs)
+	{
+		FieldSpecCollection topDefaultFieldSpecs = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
+		ArrayList<MiniFieldSpec> fieldSpecsInDetailsSection = new ArrayList<>();
+		for (MiniFieldSpec miniFieldSpec : specs)
+		{
+			if (isDetailsSectionMiniFieldSpec(topDefaultFieldSpecs, miniFieldSpec))
+				fieldSpecsInDetailsSection.add(miniFieldSpec);
+		}
+		
+		return fieldSpecsInDetailsSection.toArray(new MiniFieldSpec[0]);
+	}
+
+	private boolean isDetailsSectionMiniFieldSpec(FieldSpecCollection topDefaultFieldSpecs,
+			MiniFieldSpec miniFieldSpec)
+	{
+		return topDefaultFieldSpecs.findBytag(miniFieldSpec.getTag()) == null;
+	}
+
+	private void addBottomFields(StringBuffer detailBuffer)
+	{
+		detailBuffer.append("<tr>\n");
+		detailBuffer.append("#foreach($field in $bulletin.getBottomFields())\n");
+		detailBuffer.append(getFieldRow());
+		detailBuffer.append("#end\n");
+		detailBuffer.append("</tr>\n");
+	}
+
+	private void addTopFields(StringBuffer detailBuffer)
+	{
+		detailBuffer.append("<tr>\n");
+		detailBuffer.append("#foreach($field in $bulletin.getTopFields())\n");
+		detailBuffer.append(getFieldRow());
+		detailBuffer.append("#end\n");
+		detailBuffer.append("</tr>\n");
+	}
+
+	private String getHtmlColumnEndTag()
+	{
+		return "</td>";
 	}
 	
-	public String getFieldRow()
+	private String getHtmlColumnStartTag()
+	{
+		String align = "left";
+		if(LanguageOptions.isRightToLeftLanguage())
+			align = "right";
+		
+		return "<td align='"+align+"'>";
+	}
+	
+	private String getFieldRow()
 	{
 		String leftData = "$field.getLocalizedLabelHtml($localization)\n";
 		String rightData = "$field.html($localization)\n";
@@ -103,7 +189,7 @@ public class PageReportBuilder extends ReportBuilder
 		return "#if($specsToInclude.contains($field.getMiniSpec()))\n" +
 				"<tr><td align='"+align+"' valign='top'>" +
 				leftData +
-				"</td>" +
+				getHtmlColumnEndTag() +
 				"<td valign='top'>" +
 				rightData +
 				"</td></tr>\n" +

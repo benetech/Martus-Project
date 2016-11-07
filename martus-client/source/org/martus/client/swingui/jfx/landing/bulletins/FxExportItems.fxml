@@ -9,8 +9,29 @@
       <VBox prefHeight="65.0" prefWidth="431.0" BorderPane.alignment="CENTER">
          <children>
             <TextArea fx:id="textMessageArea" editable="false" prefHeight="267.0" prefWidth="614.0" wrapText="true" />
-            <CheckBox fx:id="encryptExportFile" mnemonicParsing="false" text="%Button.Encrypted" />
-            <CheckBox fx:id="includeAttachments" mnemonicParsing="false" text="%Button.IncludeAttachments" />
+            
+            <HBox alignment="CENTER_LEFT" spacing="10">
+	            <VBox alignment="CENTER_LEFT" spacing="10">
+	            	<children>
+	            		<CheckBox fx:id="encryptExportFile" mnemonicParsing="false" text="%Button.Encrypted" />
+	            		<CheckBox fx:id="includeAttachments" mnemonicParsing="false" text="%Button.IncludeAttachments" />
+	            	</children>
+	            </VBox>
+	            
+	            <HBox alignment="CENTER_LEFT" fx:id="unencryptedExportFormatBox" spacing="15">
+	            	<children>
+	            		<Label text="%UnencryptedFile" styleClass="titelTextAlert" />
+	            		<RadioButton fx:id="xmlRadioButton" mnemonicParsing="false" text="%Button.XmlRadioButton">
+	            			<toggleGroup>
+	        					<ToggleGroup fx:id="exportFormatToggleGroup" onSelectedToggleChange="#handleExportFormatToggleChange"/>
+			        		</toggleGroup>
+	            		</RadioButton>
+	            		<RadioButton fx:id="csvRadioButton" mnemonicParsing="false" text="%Button.CsvRadioButton" toggleGroup="$exportFormatToggleGroup" />
+	            		<RadioButton fx:id="jsonRadioButton" mnemonicParsing="false" text="%Button.JsonRadioButton" toggleGroup="$exportFormatToggleGroup" />
+	            	</children>
+	            </HBox>
+	     	</HBox>
+            
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="%Location" />

@@ -37,6 +37,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.math.BigInteger;
 import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
@@ -173,9 +174,8 @@ public class MartusSecurity extends MartusCrypto
 
         // NOTE: This removes limits, but doesn't adjust Cipher.getMaxAllowedKeyLength 
         final Field isRestrictedField = jceSecurity.getDeclaredField("isRestricted");
-        isRestrictedField.setAccessible(true);
-        isRestrictedField.set(null, false);
-
+	    setFinalStaticViaReflection(isRestrictedField, true);
+	    
         // NOTE: Gain access to the policy
         final Field defaultPolicyField = jceSecurity.getDeclaredField("defaultPolicy");
         defaultPolicyField.setAccessible(true);
@@ -192,6 +192,18 @@ public class MartusSecurity extends MartusCrypto
         defaultPolicy.add((Permission) allowAllCrypto.get(null));
 
         MartusLogger.log("Successfully removed limitations and enabled strong cryptography");
+	}
+
+	//NOTE: In Java 1.8 build 102 the "isRestricted" variable was set to final.  
+	//This is to work around that change by removing the final modifier
+	private static void setFinalStaticViaReflection(Field field, Object newValue) throws Exception 
+	{
+		field.setAccessible(true);
+		Field modifiersField = Field.class.getDeclaredField("modifiers");
+		modifiersField.setAccessible(true);
+		modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+
+		field.set(null, newValue);
 	}
 
 	public static boolean isUnlimitedCryptoAvailable()

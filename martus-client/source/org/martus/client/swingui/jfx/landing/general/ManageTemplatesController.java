@@ -77,6 +77,7 @@ import org.martus.common.Exceptions.ServerNotCompatibleException;
 import org.martus.common.FieldCollection.CustomFieldsParseException;
 import org.martus.common.MartusLogger;
 import org.martus.common.XmlFormTemplateLoader;
+import org.martus.common.bulletin.FormTemplateFromXFormsLoader;
 import org.martus.common.crypto.MartusCrypto.AuthorizationFailedException;
 import org.martus.common.crypto.MartusCrypto.MartusSignatureException;
 import org.martus.common.fieldspec.CustomFieldError;
@@ -437,9 +438,17 @@ public class ManageTemplatesController extends FxController
 		try
 		{
 			String xmlAsString = importXmlAsString(templateFile);
-			XmlFormTemplateLoader loader = new XmlFormTemplateLoader();
-			SimpleXmlParser.parse(loader, xmlAsString);
-			FormTemplate importedTemplate = loader.getFormTemplate();
+			FormTemplate importedTemplate = null;
+			if (FormTemplateFromXFormsLoader.isXFormsXml(xmlAsString))
+			{
+				importedTemplate = FormTemplateFromXFormsLoader.createNewBulletinFromXFormsFormTemplate(xmlAsString);
+			}
+			else
+			{
+				XmlFormTemplateLoader loader = new XmlFormTemplateLoader();
+				SimpleXmlParser.parse(loader, xmlAsString);
+				importedTemplate = loader.getFormTemplate();
+			}
 
 			if (importedTemplate.isvalidTemplateXml())
 			{

@@ -37,8 +37,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 
 import org.martus.client.core.MartusApp;
@@ -46,6 +50,8 @@ import org.martus.client.core.TransferableBulletinList;
 import org.martus.client.swingui.MartusLocalization;
 import org.martus.client.swingui.UiMainWindow;
 import org.martus.client.swingui.filefilters.XmlFileFilter;
+import org.martus.client.swingui.filefilters.CsvFileFilter;
+import org.martus.client.swingui.filefilters.JsonFileFilter;
 import org.martus.client.swingui.filefilters.MartusBulletinArchiveFileFilter;
 import org.martus.client.swingui.jfx.generic.FxController;
 import org.martus.client.swingui.jfx.generic.FxModalDirectoryChooser;
@@ -58,6 +64,7 @@ public class ExportItemsController extends FxController
 	public ExportItemsController(UiMainWindow mainWindowToUse, String initialExportFilenameOnly, int numberOfItemsToExport)
 	{
 		super(mainWindowToUse);
+		
 		this.exportFilenameOnly = initialExportFilenameOnly;
 		this.exportFolder = getApp().getMartusDataRootDirectory();
 		this.multipleBulletinBeingExported = numberOfItemsToExport > 1;
@@ -72,9 +79,17 @@ public class ExportItemsController extends FxController
 		includeAttachments.disableProperty().bind(encryptingExport);
 		encryptExportFile.selectedProperty().addListener(new EncryptedStatusChanged());
 		encryptExportFile.setSelected(true);
+		exportFormatToggleGroup.selectToggle(xmlRadioButton);
+		
 		updateControls(shouldExportEncrypted());
 	}
-
+	
+	@FXML
+	public void handleExportFormatToggleChange(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue)
+	{
+		updateControls(shouldExportEncrypted());
+	}
+	
 	public boolean shouldExportEncrypted()
 	{
 		return encryptExportFile.isSelected();
@@ -97,8 +112,9 @@ public class ExportItemsController extends FxController
 		String hintMessage = "";
 		if(!exportEncrypted)
 			hintMessage = getLocalization().getFieldLabel("ExportBulletinDetails");
+		
+		unencryptedExportFormatBox.setDisable(exportEncrypted);
 		textMessageArea.setText(hintMessage);
-		includeAttachments.setSelected(exportEncrypted);
 		updateExportFilename();
 	}
 	
@@ -120,8 +136,20 @@ public class ExportItemsController extends FxController
 		if(shouldExportEncrypted())
 			fullNameWithCorrectFileExtension += TransferableBulletinList.BULLETIN_FILE_EXTENSION;			
 		else
-			fullNameWithCorrectFileExtension += MartusApp.XML_EXTENSION;
+			fullNameWithCorrectFileExtension += getExportFileExtension();
+		
 		return fullNameWithCorrectFileExtension;
+	}
+
+	private String getExportFileExtension()
+	{
+		if (isCsvRadioButtonSelected())
+			return MartusApp.CSV_EXTENSION;
+		
+		if (isJsonRadioButtonSelected())
+			return JsonFileFilter.JSON_EXTENSION;
+		
+		return MartusApp.XML_EXTENSION;
 	}
 	
 	@Override
@@ -207,7 +235,33 @@ public class ExportItemsController extends FxController
 		MartusLocalization localization = getLocalization();
 		if(shouldExportEncrypted())
 			return new MartusBulletinArchiveFileFilter(localization);
+		
+		if (isCsvRadioButtonSelected())
+			return new CsvFileFilter(localization);
+		
+		if (isJsonRadioButtonSelected())
+			return new JsonFileFilter(localization);
+		
 		return new XmlFileFilter(localization);
+	}
+
+	private boolean isCsvRadioButtonSelected()
+	{
+		return isRadioButtonSelected(csvRadioButton.getId());
+	}
+
+	private boolean isJsonRadioButtonSelected()
+	{
+		return isRadioButtonSelected(jsonRadioButton.getId());
+	}
+	
+	private boolean isRadioButtonSelected(String radioButtonId)
+	{
+		RadioButton selectedRadioButton = (RadioButton) exportFormatToggleGroup.getSelectedToggle();
+		String selectedRadioButtonId = selectedRadioButton.getId();
+		boolean isRadioButtonSelected = selectedRadioButtonId.equals(radioButtonId);
+		
+		return isRadioButtonSelected;
 	}
 	
 	private boolean showDirectoryOnly()
@@ -273,6 +327,21 @@ public class ExportItemsController extends FxController
 	
 	@FXML
 	private TextField fileLocation;
+	
+	@FXML
+	private HBox unencryptedExportFormatBox;
+	
+	@FXML
+	private ToggleGroup exportFormatToggleGroup;
+	
+	@FXML
+	private RadioButton csvRadioButton;
+	
+	@FXML
+	private RadioButton xmlRadioButton;
+
+	@FXML
+	private RadioButton jsonRadioButton;
 	
 	private String exportFilenameOnly;
 	private File exportFolder;

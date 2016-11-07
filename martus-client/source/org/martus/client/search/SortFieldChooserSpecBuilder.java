@@ -39,6 +39,7 @@ public class SortFieldChooserSpecBuilder extends FieldChooserSpecBuilder
 		super(localizationToUse);
 	}
 	
+	@Override
 	public void addSpecialFields(FieldChoicesByLabel fields)
 	{
 		fields.add(createNoFieldChoice());
@@ -50,9 +51,11 @@ public class SortFieldChooserSpecBuilder extends FieldChooserSpecBuilder
 		String label = getLocalization().getFieldLabel("NotSorted");
 		FieldType type = new FieldTypeAnyField();
 		FieldSpec spec = FieldSpec.createCustomField(tag, label, type);
+		
 		return new SearchableFieldChoiceItem("", spec);
 	}
 
+	@Override
 	public boolean shouldOmitType(FieldType type)
 	{
 		if(type.isMultiline())
@@ -66,6 +69,4 @@ public class SortFieldChooserSpecBuilder extends FieldChooserSpecBuilder
 		
 		return false;
 	}
-
-
 }

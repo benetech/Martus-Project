@@ -46,6 +46,11 @@ abstract public class AbstractAppTask extends Task<Void>
 	{
 		progress = interfaceToUse;
 	}
+	
+	protected ProgressMeterInterface getProgressMeter()
+	{
+		return progress;
+	}
 		
 	protected MartusApp app;
 	protected ProgressMeterInterface progress;

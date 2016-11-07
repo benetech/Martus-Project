@@ -29,6 +29,7 @@ package org.martus.client.search;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Vector;
@@ -102,7 +103,17 @@ public class FieldChoicesByLabel
 	
 	public FieldSpec[] asArray(MiniLocalization localizationToUse)
 	{
-		Collections.sort(allChoices, new ChoiceItemSorterByLabelTagType(localizationToUse));
+		return asArray(new ChoiceItemSorterByLabelTagType(localizationToUse));
+	}
+	
+	public FieldSpec[] asSortedByTagArray(MiniLocalization localizationToUse)
+	{
+		return asArray(new ChoiceItemSorterByTagLabelType(localizationToUse));
+	}
+
+	private FieldSpec[] asArray(Comparator sorter)
+	{
+		Collections.sort(allChoices, sorter);
 		mergeSimilarDropdowns();
 
 		FieldSpec[] specs = new FieldSpec[allChoices.size()]; 

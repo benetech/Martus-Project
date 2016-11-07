@@ -88,6 +88,10 @@ def build_kxml_spec(type)
 	return build_spec('kxml', 'kxml', type, '2.3')
 end
 
+def build_json_spec(type)
+	return build_spec('json', 'json', type, '2-12-2016')
+end
+
 def build_layouts_spec(type)
 	return build_spec('com.jhlabs', 'layouts', type, '2006-08-10')
 end
@@ -190,6 +194,10 @@ JAVAROSA_SPEC = build_javarosa_spec('jar')
 JAVAROSA_SOURCE_SPEC = build_javarosa_spec('sources')
 JAVAROSA_LICENSE_SPEC = build_javarosa_spec('license')
 KXML_SPEC = build_kxml_spec('jar')
+
+JSON_SPEC = build_json_spec('jar')
+JSON_SOURCE_SPEC = build_json_spec('sources')
+JSON_LICENSE_SPEC = build_json_spec('license')
 
 # Client, from public repository
 JORTHO_SPEC = build_jortho_spec('jar')
@@ -370,6 +378,7 @@ def third_party_client_jars
 	jars << artifact(ORCHID_SPEC)
 	jars << artifact(JAVAROSA_SPEC)
 	jars << artifact(KXML_SPEC)
+	jars << artifact(JSON_SPEC)
 	return jars
 end
 

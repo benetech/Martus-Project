@@ -106,7 +106,7 @@ public class TestBulletinHtmlGenerator extends TestCaseEnhanced
 		BulletinHtmlGenerator generator = new BulletinHtmlGenerator(loc);
 
 		store.saveBulletinForTesting(b);
-		String expectedHtml = "<html><table width='80'>\n<tr><td width='15%'></td><td width='85%'></td></tr>\n" +
+		String expectedHtml = "<html><table>\n<tr><td></td><td></td></tr>\n" +
 			"<tr><td align='right' valign='top'>Last Saved</td><td align='left' valign='top'>"+loc.formatDateTime(b.getLastSavedTime())+"</td></tr>\n"+
 			"<tr><td align='right' valign='top'>Version</td><td align='left' valign='top'>1</td></tr>\n"+
 			"<tr><td align='right' valign='top'>Bulletin Status:</td><td align='left' valign='top'>Sealed</td></tr>\n"+
@@ -150,7 +150,7 @@ public class TestBulletinHtmlGenerator extends TestCaseEnhanced
 		b.setMutable();
 		
 		BulletinHtmlGenerator generator = new BulletinHtmlGenerator(loc);
-		String expectedHtml = "<html><table width='80'>\n<tr><td width='15%'></td><td width='85%'></td></tr>\n" +
+		String expectedHtml = "<html><table>\n<tr><td></td><td></td></tr>\n" +
 			"<tr><td align='right' valign='top'>Last Saved</td><td align='left' valign='top'>"+loc.formatDateTime(b.getLastSavedTime())+"</td></tr>\n"+
 			"<tr><td align='right' valign='top'>Version</td><td align='left' valign='top'>1</td></tr>\n"+
 			"<tr><td align='right' valign='top'>Bulletin Status:</td><td align='left' valign='top'>Draft</td></tr>\n"+
@@ -261,7 +261,7 @@ public class TestBulletinHtmlGenerator extends TestCaseEnhanced
 		{
 			BulletinHtmlGenerator generator = new BulletinHtmlGenerator(loc);
 			String html = generator.getHtmlString(b, store.getDatabase(), true, true);
-			assertStartsWith("column widths not reversed?", "<html><table width='80'>\n<tr><td width='85%'></td><td width='15%'></td></tr>\n", html);
+			assertStartsWith("column widths not reversed?", "<html><table>\n<tr><td></td><td></td></tr>\n", html);
 			assertContains("column values not reversed?", "<tr><td align='right' valign='top'>Bradbury</td><td align='left' valign='top'>Author</td></tr>\n", html);
 			assertContains("heading not aligned right?", "<tr><td colspan='2' align='right'><u><b>Contacts</b></u></td></tr>\n", html);
 		}

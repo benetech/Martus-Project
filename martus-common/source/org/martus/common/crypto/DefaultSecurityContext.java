@@ -98,7 +98,7 @@ public class DefaultSecurityContext implements SecurityContext
 			certGen1.setNotAfter(new Date(System.currentTimeMillis() + 50000));
 			certGen1.setSubjectDN(new X509Principal(ord, values));
 			certGen1.setPublicKey( publicKey );
-			certGen1.setSignatureAlgorithm("MD5WithRSAEncryption");
+			certGen1.setSignatureAlgorithm("SHA256WithRSAEncryption");
 
 			// self-sign it
 			X509Certificate cert = certGen1.generate( privateKey );

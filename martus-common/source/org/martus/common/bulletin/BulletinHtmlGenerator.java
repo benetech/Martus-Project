@@ -149,16 +149,10 @@ public class BulletinHtmlGenerator
 
 	public static void appendTableStart(StringBuffer html, String widthString)
 	{
-		html.append("<table width='");
-		html.append(widthString);
-		html.append("'>\n");
-		int leftColumnWidthPercentage = LABEL_COLUMN_WIDTH_PERCENTAGE;
-		if(LanguageOptions.isRightToLeftLanguage())
-			leftColumnWidthPercentage = (100-leftColumnWidthPercentage);
-		int rightColumnWidthPercentage = (100-leftColumnWidthPercentage);
+		html.append("<table>\n");
 		html.append("<tr>");
-		html.append("<td width='" + leftColumnWidthPercentage + "%'></td>");
-		html.append("<td width='" + rightColumnWidthPercentage + "%'></td>");
+		html.append("<td></td>");
+		html.append("<td></td>");
 		html.append("</tr>\n");
 	}
 	
@@ -548,7 +542,6 @@ public class BulletinHtmlGenerator
 	int width;
 	MiniLocalization localization;
 
-	private static final int LABEL_COLUMN_WIDTH_PERCENTAGE = 15;
 	private static final String TABLE_HEADER = "th";
 	private static final String TABLE_DATA = "td";
 	

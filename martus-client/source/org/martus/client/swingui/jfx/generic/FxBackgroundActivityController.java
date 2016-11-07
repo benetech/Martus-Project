@@ -131,6 +131,7 @@ abstract public class FxBackgroundActivityController extends FxPopupController
 	}
 
 	abstract public boolean didUserCancel();
+	
 	@FXML
 	abstract public void cancelPressed();
 	

@@ -26,12 +26,12 @@ Boston, MA 02111-1307, USA.
 
 package org.martus.client.test;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
 import org.martus.client.bulletinstore.TestBulletinFolder;
 import org.martus.client.bulletinstore.TestClientBulletinStore;
 import org.martus.client.bulletinstore.TestKnownFieldSpecCache;
+import org.martus.client.bulletinstore.converters.TestBulletinAsXmlToJsonConverter;
+import org.martus.client.bulletinstore.converters.TestBulletinsAsXmlToCsvConverter;
+import org.martus.client.bulletinstore.converters.TestCsvEncoder;
 import org.martus.client.core.TestAttachmentProxyFile;
 import org.martus.client.core.TestBulletinFromXFormsLoader;
 import org.martus.client.core.TestConfigInfo;
@@ -42,6 +42,7 @@ import org.martus.client.core.TestFxBulletinGridField;
 import org.martus.client.core.TestPartialBulletin;
 import org.martus.client.core.TestSafeReadableBulletin;
 import org.martus.client.core.TestSortableBulletinList;
+import org.martus.client.core.TestXFormsToFormTemplateConverter;
 import org.martus.client.core.templates.TestFormTemplateManager;
 import org.martus.client.reports.TestPageReportBuilder;
 import org.martus.client.reports.TestReportAnswers;
@@ -63,6 +64,9 @@ import org.martus.client.swingui.grids.TestGridTableModel;
 import org.martus.client.swingui.jfx.landing.bulletins.TestBulletinTableData;
 import org.martus.client.swingui.jfx.setupwizard.TestContactTableData;
 import org.martus.common.utilities.TestMartusFlexidate;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 public class TestClient
 {
@@ -129,6 +133,10 @@ public class TestClient
 		suite.addTest(new TestSuite(TestRandomAccessFileOverwrite.class));
 		suite.addTest(new TestSuite(TestUiSession.class));
 		suite.addTest(new TestSuite(TestBulletinFromXFormsLoader.class));
+		suite.addTest(new TestSuite(TestCsvEncoder.class));
+		suite.addTest(new TestSuite(TestXFormsToFormTemplateConverter.class));
+		suite.addTest(new TestSuite(TestBulletinAsXmlToJsonConverter.class));
+		suite.addTest(new TestSuite(TestBulletinsAsXmlToCsvConverter.class));
 		
 	    return suite;
 	}

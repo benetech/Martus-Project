@@ -275,7 +275,7 @@ public class TestFieldChooserSpecBuilder extends TestCaseEnhanced
 		nestedDropDownSpec.addReusableChoicesCode("choicesA");
 		nestedDropDownSpec.addReusableChoicesCode("choicesB");
 		Set nestedChoices = searchBuilder.getChoiceItemsForThisField(nestedDropDownSpec, poolOfReusableChoiceLists);
-		assertEquals("Didn't omit master but create child choices?", 2, nestedChoices.size());
+		assertEquals("Didn't omit master but create child choices?", 3, nestedChoices.size());
 		Iterator iter = nestedChoices.iterator();
 		while(iter.hasNext())
 		{
@@ -290,17 +290,21 @@ public class TestFieldChooserSpecBuilder extends TestCaseEnhanced
 			}
 			else if(subSpec.getTag().indexOf(choicesA.getCode()) >= 0)
 			{
-				assertEquals("Wrong label?", nestedDropDownSpec.getLabel() + ": " + choicesA.getLabel(), subSpec.getLabel());
+				assertEquals("Wrong label?", choicesA.getLabel(), subSpec.getLabel());
 				assertTrue("Not a dropdown?", subSpec.getType().isDropdown());
 				CustomDropDownFieldSpec subDropdownSpec = (CustomDropDownFieldSpec)subSpec;
 				assertEquals(1, subDropdownSpec.getReusableChoicesCodes().length);
 			}
 			else if(subSpec.getTag().indexOf(choicesB.getCode()) >= 0)
 			{
-				assertEquals("Wrong label?", nestedDropDownSpec.getLabel() + ": " + choicesB.getLabel(), subSpec.getLabel());
+				assertEquals("Wrong label?", choicesB.getLabel(), subSpec.getLabel());
 				assertTrue("Not a dropdown?", subSpec.getType().isDropdown());
 				CustomDropDownFieldSpec subDropdownSpec = (CustomDropDownFieldSpec)subSpec;
 				assertEquals(2, subDropdownSpec.getReusableChoicesCodes().length);
+			}
+			else if (subSpec.getType().isMessage())
+			{
+				assertEquals("Wrong message for nested dropdown title?", "Nested Dropdown", subSpec.getLabel());
 			}
 			else
 			{
@@ -313,7 +317,8 @@ public class TestFieldChooserSpecBuilder extends TestCaseEnhanced
 	{
 		GridFieldSpec gridSpec = createSampleGridSpec();
 		Set gridTypeChoices = searchBuilder.getChoiceItemsForThisField(gridSpec, getStore().getAllReusableChoiceLists());
-		assertEquals("not one choice for each grid column?", gridSpec.getColumnCount(), gridTypeChoices.size());
+		final int GRID_PARENT_COUNT = 1;
+		assertEquals("not one choice for each grid column?", GRID_PARENT_COUNT + gridSpec.getColumnCount(), gridTypeChoices.size());
 		
 		Iterator iter = gridTypeChoices.iterator();
 		while(iter.hasNext())
@@ -328,6 +333,10 @@ public class TestFieldChooserSpecBuilder extends TestCaseEnhanced
 				assertEquals("column 1", gridChoiceNormalColumnSpec.getSubFieldTag());
 				assertEquals("column parent not the grid?", gridSpec.getTag(), gridChoiceNormalColumnSpec.getParent().getTag());
 				assertEquals("wrong column fulltag?", "gridtag.column 1", gridChoiceNormalColumnSpec.getTag());
+			}
+			else if (choice.getType().isMessage())
+			{
+				assertEquals("Incorrect label?", "Grid Label", choice.getLabel());
 			}
 			else
 			{

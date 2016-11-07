@@ -30,8 +30,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
-import javafx.beans.property.ReadOnlyObjectWrapper;
-
 import org.javarosa.core.model.Constants;
 import org.martus.client.swingui.jfx.generic.data.ObservableChoiceItemList;
 import org.martus.common.FieldSpecCollection;
@@ -60,6 +58,8 @@ import org.martus.common.fieldspec.StandardFieldSpecs;
 import org.martus.common.packet.UniversalId;
 import org.martus.common.test.MockBulletinStore;
 import org.martus.util.TestCaseEnhanced;
+
+import javafx.beans.property.ReadOnlyObjectWrapper;
 
 public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 {
@@ -95,6 +95,7 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
 			fail("Copying xForms Data should not have failed");
 		}
 	}
@@ -246,10 +247,10 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		FxBulletinField field = fxBulletin.getField(fieldSpec);
 		assertEquals("Incorrect field value?", "OptionALabel1", field.getValue());
 
-		TAG = "_data_RepeatIDTagGrid";
+		TAG = "data_RepeatIDTagGrid";
 		fieldSpec = fxBulletin.findFieldSpecByTag(TAG);
 		assertEquals("Incorrect field label?", "RepeatLabel", fieldSpec.getLabel());
-		assertEquals("Incorrect field tag?", "_data_RepeatIDTagGrid", fieldSpec.getTag());
+		assertEquals("Incorrect field tag?", "data_RepeatIDTagGrid", fieldSpec.getTag());
 		 field = fxBulletin.getField(fieldSpec);
 		 
 		 String expectedFieldValud = "<GridData columns='4'>\n<Row>\n<Column>Repeat 1</Column>\n<Column>555</Column>\n<Column>2015-12-01</Column>\n<Column>OptionALabel2</Column>\n</Row>\n<Row>\n<Column>Item 2</Column>\n<Column>2</Column>\n<Column>2015-11-30</Column>\n<Column>OptionBLabel2</Column>\n</Row>\n</GridData>\n";
@@ -531,7 +532,7 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		fxBulletin.copyDataFromBulletin(bulletin, store);
 		Vector<FieldSpec> fieldSpecs = fxBulletin.getFieldSpecs();
 		assertEquals("FxBulletin filled from bulletin with data should have grid field?", getExpectedFieldCountWithNoSections(1), fieldSpecs.size());
-		FieldSpec fieldSpec = fxBulletin.findFieldSpecByTag("_nm_victim_informationTagGrid");
+		FieldSpec fieldSpec = fxBulletin.findFieldSpecByTag("nm_victim_informationTagGrid");
 		verifyGridFieldSpec(fieldSpec);
 		verifyGridFieldData(fxBulletin, fieldSpec);
 	}
@@ -612,11 +613,11 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 		
 		String[] expectedFieldSpecSequence = new String[]{
 		"language","author","title","entrydate",   
-		"Section_1__Text_fields_TagSection","name",	"nationality","age",
-		"Section_2__Date_field_TagSection","date",
-		"Section_3__Drop_down_lists_TagSection", "sourceOfRecordInformation", "eventLocation",
-		"Section_4__Check_boxes_TagSection", "anonymous","additionalInfo","testify",
-		"_nm_victim_informationTagSection","_nm_victim_informationTagGrid"};
+		"nm_Section_1__Text_fields_TagSection","name",	"nationality","age",
+		"nm_Section_2__Date_field_TagSection","date",
+		"nm_Section_3__Drop_down_lists_TagSection", "sourceOfRecordInformation", "eventLocation",
+		"nm_Section_4__Check_boxes_TagSection", "anonymous","additionalInfo","testify",
+		"nm_victim_informationTagSection","nm_victim_informationTagGrid"};
 		
 		for (int index = 0; index < fieldSpecs.size(); ++index)
 		{
@@ -749,12 +750,17 @@ public class TestBulletinFromXFormsLoader extends TestCaseEnhanced
 			});
 	}
 	
-	private static String getEmptyXFormsModelXmlAsString()
+	public static String getFormTitle()
+	{
+		return "XForms Sample";
+	}
+	
+	public static String getEmptyXFormsModelXmlAsString()
 	{
 		return 	"		<xforms_model>" +
 				"			<h:html xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.w3.org/2002/xforms\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" >" +
 				"				<h:head>" +
-				"				<h:title>XForms Sample</h:title>" +
+				"				<h:title>" + getFormTitle() + "</h:title>" +
 				"					<model>" +
 				"					<instance>" +
 				"						<nm id=\"SampleForUnitTesting\" >" +

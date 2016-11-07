@@ -35,6 +35,7 @@ import org.martus.common.FieldSpecCollection;
 import org.martus.common.GridData;
 import org.martus.common.MiniLocalization;
 import org.martus.common.PoolOfReusableChoicesLists;
+import org.martus.common.ReusableChoices;
 import org.martus.common.bulletin.AttachmentProxy;
 import org.martus.common.bulletin.Bulletin;
 import org.martus.common.crypto.MartusCrypto;
@@ -42,6 +43,8 @@ import org.martus.common.crypto.MockMartusSecurity;
 import org.martus.common.field.MartusDateRangeField;
 import org.martus.common.field.MartusField;
 import org.martus.common.field.MartusSearchableGridColumnField;
+import org.martus.common.fieldspec.ChoiceItem;
+import org.martus.common.fieldspec.CustomDropDownFieldSpec;
 import org.martus.common.fieldspec.FieldSpec;
 import org.martus.common.fieldspec.FieldTypeBoolean;
 import org.martus.common.fieldspec.FieldTypeDate;
@@ -576,6 +579,107 @@ public class TestBulletinSearcher extends TestCaseEnhanced
 		
 		BulletinSearcher equals  = new BulletinSearcher(new SearchTreeNode(fieldToSearch, "=", languageCode));
 		assertTrue("not looking at searchable form?", equals.doesMatch(new SafeReadableBulletin(b, localization), localization));
+	}
+	
+	
+	public void testSearchMultiLevelDropdownsWithinGrid() throws Exception
+	{
+		GridFieldSpec gridSpec = new GridFieldSpec();
+		gridSpec.setTag("locationGrid");
+		gridSpec.setLabel("Locations");
+
+		CustomDropDownFieldSpec chooseLocationDropdownSpec = new CustomDropDownFieldSpec();
+		chooseLocationDropdownSpec .setTag("location");
+		chooseLocationDropdownSpec .addReusableChoicesCode("country");
+		chooseLocationDropdownSpec .addReusableChoicesCode("city");
+		gridSpec.addColumn(chooseLocationDropdownSpec);
+		
+		CustomDropDownFieldSpec countryDropdownFieldSpec = new CustomDropDownFieldSpec();
+		countryDropdownFieldSpec.setTag("country");
+		countryDropdownFieldSpec.addReusableChoicesCode("country");
+		
+		CustomDropDownFieldSpec cityDropdownFieldSpec = new CustomDropDownFieldSpec();
+		cityDropdownFieldSpec.setTag("city");
+		cityDropdownFieldSpec.addReusableChoicesCode("country");
+		cityDropdownFieldSpec.addReusableChoicesCode("city");
+		
+		FieldSpecCollection fieldSpecs = StandardFieldSpecs.getDefaultTopSectionFieldSpecs();
+		fieldSpecs.addAllReusableChoicesLists(createPoolOfResuableChoices());
+		fieldSpecs.add(gridSpec);
+		fieldSpecs.add(chooseLocationDropdownSpec);
+		fieldSpecs.add(countryDropdownFieldSpec);
+		fieldSpecs.add(cityDropdownFieldSpec);
+		fieldSpecs.add(chooseLocationDropdownSpec);
+		MartusCrypto security = MockMartusSecurity.createClient();
+		Bulletin bulletinToSearch = new Bulletin(security, fieldSpecs, StandardFieldSpecs.getDefaultBottomSectionFieldSpecs());
+		
+		GridData data = new GridData(gridSpec, createPoolOfResuableChoices());
+		data.addEmptyRow();
+		data.setValueAt("us.tp", 0, 0);
+		bulletinToSearch.set(gridSpec.getTag(), data.getXmlRepresentation());
+
+		verifyMatch(bulletinToSearch, true, "United States");
+		verifyMatch(bulletinToSearch, true, "united states");
+		verifyMatch(bulletinToSearch, false, "United States of America");
+		verifyMatch(bulletinToSearch, true, "United");
+		verifyMatch(bulletinToSearch, true, "Tampa");
+		verifyMatch(bulletinToSearch, true, "United States Tampa");
+		verifyMatch(bulletinToSearch, false, "Turkey");
+		verifyMatch(bulletinToSearch, false, "Mars");
+		
+		data = new GridData(gridSpec, createPoolOfResuableChoices());
+		data.addEmptyRow();
+		data.setValueAt("ca", 0, 0);
+		bulletinToSearch.set(gridSpec.getTag(), data.getXmlRepresentation());
+		
+		verifyMatch(bulletinToSearch, false, "United States");
+		verifyMatch(bulletinToSearch, true, "Canada");
+		verifyMatch(bulletinToSearch, false, "Ontario");
+	}
+
+	private void verifyMatch(Bulletin bulletinToSearch, boolean expectedToMatch, String valueToMatch) throws Exception
+	{
+		SafeReadableBulletin safeReadableBulletin = new SafeReadableBulletin(bulletinToSearch, localization);
+		BulletinSearcher searcher = new BulletinSearcher(new SearchTreeNode(valueToMatch), true);
+		boolean doesMatch = searcher.doesMatch(safeReadableBulletin, localization);
+		assertEquals("Should match?", expectedToMatch, doesMatch);
+	}
+	
+	private PoolOfReusableChoicesLists createPoolOfResuableChoices() 
+	{
+		PoolOfReusableChoicesLists reusableChoicesLists = new PoolOfReusableChoicesLists();
+		reusableChoicesLists.add(createReusableCountryChoices());
+		reusableChoicesLists.add(createReusableCityChoices());
+		
+		return reusableChoicesLists;
+	}
+
+	private ReusableChoices createReusableCityChoices()
+	{
+		ReusableChoices cityChoices = new ReusableChoices("city", "City");
+		cityChoices.add(new ChoiceItem("ca.on", "Ontario"));
+		cityChoices.add(new ChoiceItem("ca.ot", "Ottawa"));
+		cityChoices.add(new ChoiceItem("ca.qu", "Quebeq"));
+		
+		cityChoices.add(new ChoiceItem("us.tp", "Tampa"));
+		cityChoices.add(new ChoiceItem("us.pa", "Palo Alto"));
+		cityChoices.add(new ChoiceItem("us.ny", "New York"));
+		
+		cityChoices.add(new ChoiceItem("mx.ca", "Cancun"));
+		cityChoices.add(new ChoiceItem("mx.ap", "Acapulco"));
+		cityChoices.add(new ChoiceItem("mx.mc", "Mexico City"));
+		
+		return cityChoices;
+	}
+
+	private ReusableChoices createReusableCountryChoices()
+	{
+		ReusableChoices countryChoices = new ReusableChoices("country", "Country");
+		countryChoices.add(new ChoiceItem("us", "United States"));
+		countryChoices.add(new ChoiceItem("ca", "Canada"));
+		countryChoices.add(new ChoiceItem("mx", "Mexico"));
+		
+		return countryChoices;
 	}
 	
 	MiniLocalization localization;

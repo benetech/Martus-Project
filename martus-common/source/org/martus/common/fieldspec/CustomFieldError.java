@@ -211,7 +211,7 @@ public class CustomFieldError
 
 	public String toString() 
 	{
-		return "CustomFieldError: " + code + ", " + tag + ", " + label + ", " + type;
+		return "CustomFieldError: Error code: " + code + ", Field tag: " + tag + ", Field label: " + label + ", Field type: " + type;
 	}
 
 	static public final String CODE_REQUIRED_FIELD = "100";

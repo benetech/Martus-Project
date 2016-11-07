@@ -59,7 +59,7 @@ public class FieldTypeLanguage extends FieldType
 		return new String[] { getViewableData(storedData, localization) };
 	}
 
-	public String convertStoredToSearchable(String storedData, MiniLocalization localization)
+	public String convertStoredToSearchable(String storedData, PoolOfReusableChoicesLists reusableChoiceItems, MiniLocalization localization)
 	{
 		return getViewableData(storedData, localization);
 	}

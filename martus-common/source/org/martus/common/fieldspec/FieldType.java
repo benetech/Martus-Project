@@ -88,7 +88,7 @@ abstract public class FieldType
 		return new String[] { storedData };
 	}
 
-	public String convertStoredToSearchable(String storedData, MiniLocalization localization)
+	public String convertStoredToSearchable(String storedData, PoolOfReusableChoicesLists reusableChoicesLists, MiniLocalization localization)
 	{
 		return storedData;
 	}

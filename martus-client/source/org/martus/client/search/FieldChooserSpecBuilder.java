@@ -46,6 +46,7 @@ import org.martus.common.fieldspec.FieldType;
 import org.martus.common.fieldspec.FieldTypeDate;
 import org.martus.common.fieldspec.FieldTypeDateRange;
 import org.martus.common.fieldspec.FieldTypeDropdown;
+import org.martus.common.fieldspec.FieldTypeMessage;
 import org.martus.common.fieldspec.FieldTypeNormal;
 import org.martus.common.fieldspec.GridFieldSpec;
 import org.martus.common.fieldspec.MiniFieldSpec;
@@ -78,7 +79,7 @@ public class FieldChooserSpecBuilder
 		return fieldColumnSpec;
 	}
 
-	FieldChoicesByLabel buildFieldChoicesByLabel(ClientBulletinStore storeToUse, MiniFieldSpec[] specsToInclude)
+	private FieldChoicesByLabel buildFieldChoicesByLabel(ClientBulletinStore storeToUse, MiniFieldSpec[] specsToInclude)
 	{
 		FieldChoicesByLabel allAvailableFields = new FieldChoicesByLabel(localization);
 		if(shouldIncludeLastSaved())
@@ -100,7 +101,7 @@ public class FieldChooserSpecBuilder
 	public FieldSpec[] createFieldSpecArray(ClientBulletinStore storeToUse)
 	{
 		FieldChoicesByLabel allAvailableFields = buildFieldChoicesByLabel(storeToUse, null);
-		return allAvailableFields.asArray(getLocalization());
+		return allAvailableFields.asSortedByTagArray(getLocalization());
 	}
 	
 	public void addSpecialFields(FieldChoicesByLabel fields)
@@ -139,7 +140,7 @@ public class FieldChooserSpecBuilder
 		return getChoiceItemsForThisField(null, spec, spec.getTag(), "", reusableChoiceLists);
 	}
 	
-	public Set getChoiceItemsForThisField(FieldSpec parent, FieldSpec spec, String possiblySanitizedTag, String displayPrefix, PoolOfReusableChoicesLists reusableChoiceLists)
+	private Set getChoiceItemsForThisField(FieldSpec parent, FieldSpec spec, String possiblySanitizedTag, String displayPrefix, PoolOfReusableChoicesLists reusableChoiceLists)
 	{
 
 		Set choicesForThisField = new HashSet();
@@ -185,6 +186,11 @@ public class FieldChooserSpecBuilder
 		if(thisType.isGrid())
 		{
 			GridFieldSpec gridSpec = (GridFieldSpec)spec;
+			String sanitizedGridTag = MartusGridField.sanitizeLabel(gridSpec.getLabel());
+			FieldSpec thisGridSpec = FieldSpec.createSubField(parent, sanitizedGridTag, displayString, new FieldTypeMessage());
+			SearchableFieldChoiceItem choiceItem = new SearchableFieldChoiceItem(thisGridSpec);
+			choicesForThisField.add(choiceItem);
+			
 			for(int i=0; i < gridSpec.getColumnCount(); ++i)
 			{
 				final FieldSpec columnSpec = gridSpec.getFieldSpec(i);
@@ -192,6 +198,7 @@ public class FieldChooserSpecBuilder
 				String columnDisplayPrefix = displayString + ": ";
 				choicesForThisField.addAll(getChoiceItemsForThisField(gridSpec, columnSpec, sanitizedTag, columnDisplayPrefix, reusableChoiceLists));
 			}
+			
 			return choicesForThisField;
 		}
 
@@ -207,7 +214,7 @@ public class FieldChooserSpecBuilder
 		return choicesForThisField;
 	}
 
-	protected Set getChoicesForDropdownSpec(CustomDropDownFieldSpec specWithBetterLabel, PoolOfReusableChoicesLists reusableChoiceLists, String displayString)
+	private Set getChoicesForDropdownSpec(CustomDropDownFieldSpec specWithBetterLabel, PoolOfReusableChoicesLists reusableChoiceLists, String displayString)
 	{
 		Set choicesForDropdown = new HashSet();
 		SearchableFieldChoiceItem masterDropdownSpecChoice = new SearchableFieldChoiceItem(specWithBetterLabel);
@@ -222,16 +229,19 @@ public class FieldChooserSpecBuilder
 	private Vector createPerLevelChoicesForNestedDropdown(CustomDropDownFieldSpec spec, String displayPrefix, PoolOfReusableChoicesLists reusableChoicesPool)
 	{
 		Vector choices = new Vector();
-		
 		String[] reusableChoicesListsCodes = spec.getReusableChoicesCodes();
+		FieldSpec multiLevelDropDownMessageLabel = FieldSpec.createSubField(spec, "", displayPrefix, new FieldTypeMessage());
+		choices.add(new SearchableFieldChoiceItem(multiLevelDropDownMessageLabel));
+		
 		for(int level = 0; level < reusableChoicesListsCodes.length; ++level)
 		{
 			ReusableChoices reusableChoices = reusableChoicesPool.getChoices(reusableChoicesListsCodes[level]);
 			String levelTag = reusableChoices.getCode();
 			String levelLabel = reusableChoices.getLabel();
-			CustomDropDownFieldSpec subFieldSpec = (CustomDropDownFieldSpec) FieldSpec.createSubField(spec, levelTag, displayPrefix + ": " + levelLabel, new FieldTypeDropdown());
+			CustomDropDownFieldSpec subFieldSpec = (CustomDropDownFieldSpec) FieldSpec.createSubField(spec, levelTag, levelLabel, new FieldTypeDropdown());
 			for(int someLevels = 0; someLevels <= level; ++someLevels)
 				subFieldSpec.addReusableChoicesCode(reusableChoicesListsCodes[someLevels]);
+			
 			choices.add(new SearchableFieldChoiceItem(subFieldSpec));
 		}
 		return choices;

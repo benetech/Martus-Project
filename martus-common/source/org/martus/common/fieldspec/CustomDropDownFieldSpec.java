@@ -259,6 +259,24 @@ public class CustomDropDownFieldSpec extends DropDownFieldSpec
 		return values;
 	}
 	
+	public String convertStoredToSearchable(String storedData, PoolOfReusableChoicesLists reusableChoicesLists, MiniLocalization localization)
+	{
+		return getDisplayString(storedData, reusableChoicesLists, localization);
+	}
+
+	private String getDisplayString(String code, PoolOfReusableChoicesLists poolOfReusableChoicesLists, MiniLocalization localization)
+	{
+		String[] values = convertStoredToHumanReadable(code, poolOfReusableChoicesLists, localization);
+		StringBuffer valuesAsString = new StringBuffer();
+		for (int index = 0; index < values.length; ++index) {			
+			valuesAsString.append(values[index]);
+			if (index < values.length - 1)
+				valuesAsString.append(" ");
+		}
+		
+		return valuesAsString.toString();
+	}
+
 	static class DropDownSpecLoader extends SimpleXmlVectorLoader
 	{
 		public DropDownSpecLoader(CustomDropDownFieldSpec spec)

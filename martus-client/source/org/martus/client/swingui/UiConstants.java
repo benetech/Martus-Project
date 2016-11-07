@@ -1,7 +1,7 @@
 /*
 
 Martus(TM) is a trademark of Beneficent Technology, Inc. 
-This software is (c) Copyright 2001-2015, Beneficent Technology, Inc.
+This software is (c) Copyright 2001-2016, Beneficent Technology, Inc.
 
 Martus is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -31,11 +31,11 @@ public class UiConstants
 	// Also, you should search for "Martus" in EnglishStrings.txt and any .mtf files 
 	// and change other occurrences as required by the license.
 	public static final String programName = "Martus(TM)";
-	public static String versionLabel = "5.1.1";
+	public static String versionLabel = "5.2.0";
 	public static final String copyrightSymbol = "\u00A9 "; 
 	public static final String copyright = "Martus(TM) is a trademark of Beneficent Technology, Inc.\n"
 											+ "This software is "+ copyrightSymbol 
-											+ "Copyright 2002-2015, Beneficent Technology, Inc.";
+											+ "Copyright 2002-2016, Beneficent Technology, Inc.";
 	public static final String websiteURL = "https://www.benetech.org";
 	public static final String website = "(Benetech, at www.benetech.org)";
 	public static final String martusWebsiteURL = "https://martus.org";

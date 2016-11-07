@@ -28,19 +28,21 @@ package org.martus.client.swingui.jfx.generic;
 import java.io.File;
 import java.util.Vector;
 
-import javafx.application.Platform;
-
 import org.martus.client.bulletinstore.BulletinFolder;
 import org.martus.client.core.MartusApp;
 import org.martus.client.swingui.MartusLocalization;
 import org.martus.client.swingui.UiMainWindow;
 import org.martus.client.swingui.actions.ActionDoer;
-import org.martus.client.swingui.filefilters.XmlFileFilter;
 import org.martus.client.swingui.filefilters.MartusBulletinArchiveFileFilter;
+import org.martus.client.swingui.filefilters.XmlFileFilter;
+import org.martus.client.swingui.jfx.generic.FxController.UserCancelledException;
 import org.martus.client.swingui.jfx.landing.cases.FxCaseManagementController;
+import org.martus.client.swingui.jfx.setupwizard.tasks.AbstractAppTask;
 import org.martus.client.tools.ImporterOfXmlFilesOfBulletins;
 import org.martus.clientside.FormatFilter;
 import org.martus.common.MartusLogger;
+
+import javafx.application.Platform;
 
 public class ImportBulletinAction implements ActionDoer
 {
@@ -50,7 +52,6 @@ public class ImportBulletinAction implements ActionDoer
 		uiMainWindow = fxCaseManagementController.getMainWindow();
 	}
 
-	@Override
 	public void doAction()
 	{
 		String fileDialogCategory = "ImportBulletin";
@@ -62,19 +63,14 @@ public class ImportBulletinAction implements ActionDoer
 		filters.add(mbaFilter);
 		filters.add(xmlFilter);
 
-		File selectedFile = getMainWindow().showFileOpenDialog(fileDialogCategory, filters);
-		
-		if(selectedFile == null)
+		File[] selectedFiles = getMainWindow().showMultiFileOpenDialog(fileDialogCategory, filters);
+		if (selectedFiles.length == 0)
 			return;
 		
-		String lowerCaseFileName = selectedFile.getName().toLowerCase();
-		if(lowerCaseFileName.endsWith(mbaFilter.getExtension().toLowerCase()))
-			importBulletinFromMbaFile(selectedFile);
-		else
-			importBulletinFromXmlFile(selectedFile);        
+		Platform.runLater(new ImportRunner(selectedFiles));
 	}
-
-	private void importBulletinFromXmlFile(File fileToImport)
+	
+	protected void importBulletinFromXmlFile(File fileToImport)
 	{
 		try
 		{
@@ -89,7 +85,7 @@ public class ImportBulletinAction implements ActionDoer
 		}
 	}
 
-	private void importBulletinFromMbaFile(File fileToImport)
+	protected void importBulletinFromMbaFile(File fileToImport)
 	{
 		try
 		{
@@ -123,12 +119,12 @@ public class ImportBulletinAction implements ActionDoer
 		return uiMainWindow;
 	}
 	
-	private MartusApp getApp()
+	protected MartusApp getApp()
 	{
 		return getMainWindow().getApp();
 	}
 	
-	private MartusLocalization getLocalization()
+	protected MartusLocalization getLocalization()
 	{
 		return getMainWindow().getLocalization();
 	}
@@ -143,6 +139,68 @@ public class ImportBulletinAction implements ActionDoer
 		}
 	}
 	
+	public class ImportRunner implements Runnable
+	{
+		public ImportRunner(File[] selectedFilesToUse)
+		{
+			selectedFiles = selectedFilesToUse;
+		}
+
+		@Override
+		public void run()
+		{
+			ImportTask importTask =  new ImportTask(getApp(), selectedFiles);
+			try
+			{
+				String message = getLocalization().getFieldLabel("ImportingRecords");
+				getFxCaseManagementController().showProgressDialog(message, importTask);
+			}
+			catch (UserCancelledException e)
+			{	
+				MartusLogger.logVerbose("User canceled importer, by clicking cancel in progress dialog");
+			}
+			catch (Exception e)
+			{
+				MartusLogger.logException(e);
+			}
+		}
+		
+		private File[] selectedFiles;
+	}
+	
+	private class ImportTask extends AbstractAppTask 
+	{
+		public ImportTask(MartusApp appToUse, File[] selectedFilesToUse)
+		{
+			super(appToUse);
+			
+			selectedFiles = selectedFilesToUse;
+		}
+
+		@Override
+		protected Void call() throws Exception
+		{
+			MartusBulletinArchiveFileFilter mbaFilter = new MartusBulletinArchiveFileFilter(getLocalization());
+			for (int index = 0; index < selectedFiles.length; ++index)
+			{
+				if (getProgressMeter().shouldExit())
+					break;
+				
+				getProgressMeter().updateProgressMeter(index + 1, selectedFiles.length);
+				File selectedFile = selectedFiles[index];
+				String lowerCaseFileName = selectedFile.getName().toLowerCase();
+				if(lowerCaseFileName.endsWith(mbaFilter.getExtension().toLowerCase()))
+					importBulletinFromMbaFile(selectedFile);
+				else
+					importBulletinFromXmlFile(selectedFile);		
+			}
+			
+			return null;
+		}
+		
+		private File[] selectedFiles;
+	}
+		
 	private UiMainWindow uiMainWindow;
 	private FxCaseManagementController fxCaseManagementController;
 }

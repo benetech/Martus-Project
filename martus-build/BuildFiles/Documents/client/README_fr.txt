@@ -1,28 +1,28 @@
-Martus(tm) Version Logiciel 3.3 README_fr.txt
+Martus(tm) Version Logiciel 5.2.0 README_fr.txt
 ---------------------------------------------
 
-Table des Matières :
-A. Modifications de la version 3.2 à la version 3.3     (08-2008)
-B. Modifications de la version 3.1 à la version 3.2     (09-2007)
-C. Modifications de la version 3.0 à la version 3.1     (04-2007)
-D. Modifications de la version 2.9 à la version 3.0     (09-2006)
-E. Modifications de la version 2.8.1 à la version 2.9   (03-2006)
-F. Modifications de la version 2.8 à la version 2.8.1   (11-2005)
-G. Modifications de la version 2.7.2 à la version 2.8   (09-2005)
-H. Modifications de la version 2.7 à la version 2.7.2   (08-2005)
-I. Modifications de la version 2.6 à la version 2.7     (04-2005)
-J. Modifications de la version 2.5 à la version 2.6     (02-2005)
-K. Modifications de la version 2.0.1 à la version 2.5   (11-2004)
-L. Modifications de la version 2.0. à la version 2.0.1  (08-2004)
-M. Modifications de la version 1.5. à la version 2.0    (07-2004)
-N. Modifications de la version 1.2.1 à la version 1.5   (02-2004)
-O. Modifications de la version 1.2. à la version 1.2.1  (12-2003)
-P. Modifications de la version 1.0.3 à la version 1.2   (09-2003)
-Q. Modifications de la version 1.0.2 à la version 1.0.3 (05-2003)
-R. Modifications de la version 1.0.1 à la version 1.0.2 (02-2003)
-S. Modifications de la version 1.0. à la version 1.0.1  (01-2003)
-T. Instructions particulières de mise à jour de Winsock 
-   en cas de problème d'ouverture du logiciel Martus sous 
+Table des Matiï¿½res :
+A. Modifications de la version 3.2 ï¿½ la version 3.3     (08-2008)
+B. Modifications de la version 3.1 ï¿½ la version 3.2     (09-2007)
+C. Modifications de la version 3.0 ï¿½ la version 3.1     (04-2007)
+D. Modifications de la version 2.9 ï¿½ la version 3.0     (09-2006)
+E. Modifications de la version 2.8.1 ï¿½ la version 2.9   (03-2006)
+F. Modifications de la version 2.8 ï¿½ la version 2.8.1   (11-2005)
+G. Modifications de la version 2.7.2 ï¿½ la version 2.8   (09-2005)
+H. Modifications de la version 2.7 ï¿½ la version 2.7.2   (08-2005)
+I. Modifications de la version 2.6 ï¿½ la version 2.7     (04-2005)
+J. Modifications de la version 2.5 ï¿½ la version 2.6     (02-2005)
+K. Modifications de la version 2.0.1 ï¿½ la version 2.5   (11-2004)
+L. Modifications de la version 2.0. ï¿½ la version 2.0.1  (08-2004)
+M. Modifications de la version 1.5. ï¿½ la version 2.0    (07-2004)
+N. Modifications de la version 1.2.1 ï¿½ la version 1.5   (02-2004)
+O. Modifications de la version 1.2. ï¿½ la version 1.2.1  (12-2003)
+P. Modifications de la version 1.0.3 ï¿½ la version 1.2   (09-2003)
+Q. Modifications de la version 1.0.2 ï¿½ la version 1.0.3 (05-2003)
+R. Modifications de la version 1.0.1 ï¿½ la version 1.0.2 (02-2003)
+S. Modifications de la version 1.0. ï¿½ la version 1.0.1  (01-2003)
+T. Instructions particuliï¿½res de mise ï¿½ jour de Winsock 
+   en cas de problï¿½me d'ouverture du logiciel Martus sous 
    Windows 95 :
 
 Voir http://www.martus.org pour tous renseignements sur le 
@@ -31,720 +31,720 @@ logiciel Martus.
 Voir le Guide de l'Utilisateur Martus pour les instructions 
 d'installation du logiciel Martus. 
 
-Pour toute traduction mise à jour de la documentation de 
+Pour toute traduction mise ï¿½ jour de la documentation de 
 l'utilisateur, ainsi que la documentation des versions 
-précédentes en diverses langues, suivez le lien 
+prï¿½cï¿½dentes en diverses langues, suivez le lien 
 http://www.martus.org/downloads/.  
 
-A. Modifications de la version 3.2 à la version 3.3     
+A. Modifications de la version 3.2 ï¿½ la version 3.3     
 
 Cette publication est disponible en anglais mais aussi en 
-d'autres langues, comme indiqué à la page téléchargement du
+d'autres langues, comme indiquï¿½ ï¿½ la page tï¿½lï¿½chargement du
 logiciel sur le site http://www.martus.org .  
 Les autres langues seront disponibles par la suite, comme 
-packs de langues, à cette même page (http://www.martus.org/downloads).
+packs de langues, ï¿½ cette mï¿½me page (http://www.martus.org/downloads).
 
-- Ajout d’une fonction qui permet de verrouiller plusieurs 
-  Brouillons simultanément. Pour cela, allez dans Editer > 
-  Verrouiller le(s)communiqué(s).
-- Nouvelle fonction qui permet d’ajouter un Siège à un groupe 
-  De communiqués ou à un dossier de communiqués. Pour cela, allez 
-  dans Editer > Mettre à jour l’accès du Siège. Cette option sera 
-  grisée sauf si au moins un communiqué est sélectionné et un Siège 
-  est configuré. Martus affichera une barre de progression pendant
-  la mise à jour et vous permettra d’annuler l’opération si vous 
-  le souhaitez. Les brouillons de communiqués seront mis à jour 
-  pour correspondre aux nouvelles informations du Siège. Pour les 
-  communiqués verrouillés, Martus génèrera automatiquement une 
-  nouvelle version verrouillée de chaque communiqué.
-- Ajout d’une fonction qui permet d’afficher plusieurs types
-  d’images en pièce jointe dans Martus lors de la prévisualisation,
-  la création et l’édition de communiqués, ainsi que dans l’aperçu 
-  des détails de communiqué.
-- Plusieurs réparations mineures de bogues, clarifications et 
-  nettoyages Sur les écrans de l'utilisateur.
+- Ajout dï¿½une fonction qui permet de verrouiller plusieurs 
+  Brouillons simultanï¿½ment. Pour cela, allez dans Editer > 
+  Verrouiller le(s)communiquï¿½(s).
+- Nouvelle fonction qui permet dï¿½ajouter un Siï¿½ge ï¿½ un groupe 
+  De communiquï¿½s ou ï¿½ un dossier de communiquï¿½s. Pour cela, allez 
+  dans Editer > Mettre ï¿½ jour lï¿½accï¿½s du Siï¿½ge. Cette option sera 
+  grisï¿½e sauf si au moins un communiquï¿½ est sï¿½lectionnï¿½ et un Siï¿½ge 
+  est configurï¿½. Martus affichera une barre de progression pendant
+  la mise ï¿½ jour et vous permettra dï¿½annuler lï¿½opï¿½ration si vous 
+  le souhaitez. Les brouillons de communiquï¿½s seront mis ï¿½ jour 
+  pour correspondre aux nouvelles informations du Siï¿½ge. Pour les 
+  communiquï¿½s verrouillï¿½s, Martus gï¿½nï¿½rera automatiquement une 
+  nouvelle version verrouillï¿½e de chaque communiquï¿½.
+- Ajout dï¿½une fonction qui permet dï¿½afficher plusieurs types
+  dï¿½images en piï¿½ce jointe dans Martus lors de la prï¿½visualisation,
+  la crï¿½ation et lï¿½ï¿½dition de communiquï¿½s, ainsi que dans lï¿½aperï¿½u 
+  des dï¿½tails de communiquï¿½.
+- Plusieurs rï¿½parations mineures de bogues, clarifications et 
+  nettoyages Sur les ï¿½crans de l'utilisateur.
 
-REMARQUE (option disponible à partir de Martus 3.1, mais pas encore incluse dans le Guide de l’utilisateur) :  
-Il existe un mécanisme supplémentaire qui permet d’accélérer le chargement et la navigation dans Martus lorsqu'un compte possède un
-grand nombre de communiqués. Vous pouvez ajouter " --folders-unsorted"
-à la fin de la commande dans votre raccourci Martus se trouvant sur 
+REMARQUE (option disponible ï¿½ partir de Martus 3.1, mais pas encore incluse dans le Guide de lï¿½utilisateur) :  
+Il existe un mï¿½canisme supplï¿½mentaire qui permet dï¿½accï¿½lï¿½rer le chargement et la navigation dans Martus lorsqu'un compte possï¿½de un
+grand nombre de communiquï¿½s. Vous pouvez ajouter " --folders-unsorted"
+ï¿½ la fin de la commande dans votre raccourci Martus se trouvant sur 
 le bureau. Cette option permet de ne pas trier les dossiers lorsque 
-vous les chargez au départ dans Martus (car le tri peut prendre du 
-temps avec un grand nombre de communiqués). Vous pouvez toujours 
-cliquer sur un en-tête de colonne dans la liste de prévisualisation 
-des communiqués pour trier le dossier, si vous le souhaitez, mais 
+vous les chargez au dï¿½part dans Martus (car le tri peut prendre du 
+temps avec un grand nombre de communiquï¿½s). Vous pouvez toujours 
+cliquer sur un en-tï¿½te de colonne dans la liste de prï¿½visualisation 
+des communiquï¿½s pour trier le dossier, si vous le souhaitez, mais 
 l'ajout de cette option vous permettra de gagner du temps au 
-démarrage et lors de la saisie de nouveaux dossiers dans Martus.
+dï¿½marrage et lors de la saisie de nouveaux dossiers dans Martus.
 
 
-B. Modifications de la version 3.1 à la version 3.2     
+B. Modifications de la version 3.1 ï¿½ la version 3.2     
 
-- Nouvelle fonction d'affichage des communiqués qui vous permet de :
-  1) masquer/afficher des champs dans les communiqués (longs champs
-  qui prennent beaucoup de place), 2) créer des sections dans vos
-  communiqués que vous pouvez également masquer/afficher, 3) afficher
-  des grilles dans une vue "étendue" (et possibilité d'ajouter des
-  rangées à partir de cette vue), 4) insérer des champs les uns
-  à la suite des autres sur une rangée, 5) réduire la taille par 
-  défaut des grilles pour gagner de la place.
+- Nouvelle fonction d'affichage des communiquï¿½s qui vous permet de :
+  1) masquer/afficher des champs dans les communiquï¿½s (longs champs
+  qui prennent beaucoup de place), 2) crï¿½er des sections dans vos
+  communiquï¿½s que vous pouvez ï¿½galement masquer/afficher, 3) afficher
+  des grilles dans une vue "ï¿½tendue" (et possibilitï¿½ d'ajouter des
+  rangï¿½es ï¿½ partir de cette vue), 4) insï¿½rer des champs les uns
+  ï¿½ la suite des autres sur une rangï¿½e, 5) rï¿½duire la taille par 
+  dï¿½faut des grilles pour gagner de la place.
 - Ajout d'une fonction qui permet d'exiger que certains champs
-  soient renseignés avant l'enregistrement d'un communiqué. 
-- Ajout de la fonction de création de listes déroulantes guidées
-  par les données, où les valeurs d'un champ déroulant sont basées
-  sur des données qui ont été saisies ailleurs dans un champ de
-  grille du communiqué.
-- Ajout d'une boîte de dialogue indiquant l'état de progression de
-  la recherche et la possibilité d'annuler des recherches.
-- Amélioration des performances de recherche et des
-  autres opérations relatives aux communiqués, en particulier
-  pour les utilisateurs possédant un grand nombre de communiqués. 
-- Correction de plusieurs problèmes : 1) les paramètres de
-  configuration (p. ex des Sièges) n'étaient pas enregistrés pour
-  les utilisateurs dont les communiqués avaient subi un grand
-  nombre de personnalisations, 2) erreurs lors du glisser-déposer
-  de communiqués pour leur envoi/extraction à/à partir d'un serveur.
-- Amélioration des messages destinés aux utilisateurs (p. ex.
+  soient renseignï¿½s avant l'enregistrement d'un communiquï¿½. 
+- Ajout de la fonction de crï¿½ation de listes dï¿½roulantes guidï¿½es
+  par les donnï¿½es, oï¿½ les valeurs d'un champ dï¿½roulant sont basï¿½es
+  sur des donnï¿½es qui ont ï¿½tï¿½ saisies ailleurs dans un champ de
+  grille du communiquï¿½.
+- Ajout d'une boï¿½te de dialogue indiquant l'ï¿½tat de progression de
+  la recherche et la possibilitï¿½ d'annuler des recherches.
+- Amï¿½lioration des performances de recherche et des
+  autres opï¿½rations relatives aux communiquï¿½s, en particulier
+  pour les utilisateurs possï¿½dant un grand nombre de communiquï¿½s. 
+- Correction de plusieurs problï¿½mes : 1) les paramï¿½tres de
+  configuration (p. ex des Siï¿½ges) n'ï¿½taient pas enregistrï¿½s pour
+  les utilisateurs dont les communiquï¿½s avaient subi un grand
+  nombre de personnalisations, 2) erreurs lors du glisser-dï¿½poser
+  de communiquï¿½s pour leur envoi/extraction ï¿½/ï¿½ partir d'un serveur.
+- Amï¿½lioration des messages destinï¿½s aux utilisateurs (p. ex.
   des message d'erreur lors de la personnalisation).
-- Plusieurs réparations mineures de bogues, clarifications 
-  et nettoyages sur les écrans de l'utilisateur.
+- Plusieurs rï¿½parations mineures de bogues, clarifications 
+  et nettoyages sur les ï¿½crans de l'utilisateur.
 
 
-C. Modifications de la version 3.0 à la version 3.1
+C. Modifications de la version 3.0 ï¿½ la version 3.1
 
-- Nouvelle fonction qui notifie les Sièges si des
-  communiqués de terrain sont à extraire. Pour l'activer dans
-  votre compte Martus, allez dans Options > Préférences, puis
-  sélectionnez "Rechercher automatiquement les nouveaux communiqués
+- Nouvelle fonction qui notifie les Siï¿½ges si des
+  communiquï¿½s de terrain sont ï¿½ extraire. Pour l'activer dans
+  votre compte Martus, allez dans Options > Prï¿½fï¿½rences, puis
+  sï¿½lectionnez "Rechercher automatiquement les nouveaux communiquï¿½s
   de bureau de terrain". Environ une fois par heure, un message
-  apparaît dans la barre d'état (coin inférieur gauche de l'écran)
-  indiquant que Martus recherche les nouveaux communiqués de bureau
-  de terrain. Un autre message s'affiche dans la barre d'état si des
-  communiqués de bureau de terrain sont à extraire. A ce stade, vous
-  pouvez aller dans le menu Serveur pour charger l'écran Extraire.  
-- Ajout de la fonction de tri des communiqués dans l'écran Extraire
-  en cliquant sur les en-têtes de colonnes. La fonction de tri
+  apparaï¿½t dans la barre d'ï¿½tat (coin infï¿½rieur gauche de l'ï¿½cran)
+  indiquant que Martus recherche les nouveaux communiquï¿½s de bureau
+  de terrain. Un autre message s'affiche dans la barre d'ï¿½tat si des
+  communiquï¿½s de bureau de terrain sont ï¿½ extraire. A ce stade, vous
+  pouvez aller dans le menu Serveur pour charger l'ï¿½cran Extraire.  
+- Ajout de la fonction de tri des communiquï¿½s dans l'ï¿½cran Extraire
+  en cliquant sur les en-tï¿½tes de colonnes. La fonction de tri
   est uniquement croissante.
-- Amélioration des performances et correction des problèmes de mémoire
-  possibles lors de la connexion et la déconnexion d'utilisateurs
-  possédant un grand nombre de communiqués. 
-- Résolution des problèmes introduits dans la version 3.0, à savoir : 
+- Amï¿½lioration des performances et correction des problï¿½mes de mï¿½moire
+  possibles lors de la connexion et la dï¿½connexion d'utilisateurs
+  possï¿½dant un grand nombre de communiquï¿½s. 
+- Rï¿½solution des problï¿½mes introduits dans la version 3.0, ï¿½ savoir : 
   1) Les champs des fourchettes de dates qui n'apparaissent pas sur
   les rapports sous forme de page
-  2) La personnalisation de la partie privée qui est perdue lors de
+  2) La personnalisation de la partie privï¿½e qui est perdue lors de
   la fermeture de Martus
-  3) Les problèmes de sélection de fichiers sur un Mac (p.ex. lors de
-  la configuration de sièges, l'ajout de fichiers en pièce jointe
-  à des communiqués, la restauration d'une clé et l'importation d'un
-  modèle personnalisé)
-  4) L'affichage incohérent de la date en Arabe entre les détails de
-  communiqué et les décomptes sommaires 
-- Plusieurs réparations mineures de bogues, clarifications 
-  et nettoyages sur les écrans de l'utilisateur.
+  3) Les problï¿½mes de sï¿½lection de fichiers sur un Mac (p.ex. lors de
+  la configuration de siï¿½ges, l'ajout de fichiers en piï¿½ce jointe
+  ï¿½ des communiquï¿½s, la restauration d'une clï¿½ et l'importation d'un
+  modï¿½le personnalisï¿½)
+  4) L'affichage incohï¿½rent de la date en Arabe entre les dï¿½tails de
+  communiquï¿½ et les dï¿½comptes sommaires 
+- Plusieurs rï¿½parations mineures de bogues, clarifications 
+  et nettoyages sur les ï¿½crans de l'utilisateur.
 
 
-D. Modifications de la version 2.9 à la version 3.0     
+D. Modifications de la version 2.9 ï¿½ la version 3.0     
 
 - Ajout de la fonction de Rapport. Les rapports affichent les
-  résultats des communiqués qui correspondent à un certain
-  critère de recherche. Ils peuvent être imprimés ou enregistrés
+  rï¿½sultats des communiquï¿½s qui correspondent ï¿½ un certain
+  critï¿½re de recherche. Ils peuvent ï¿½tre imprimï¿½s ou enregistrï¿½s
   dans un fichier. Les rapports peuvent contenir des sous-ensembles
-  de champs de communiqué et être formattés sous forme de tableau, 
-  avec une rangée pour chaque communiqué.
-  Les rapports peuvent être groupés et triés selon plusieurs champs,
-  avec un décompte sommaire des communiqués pour chaque groupement.
+  de champs de communiquï¿½ et ï¿½tre formattï¿½s sous forme de tableau, 
+  avec une rangï¿½e pour chaque communiquï¿½.
+  Les rapports peuvent ï¿½tre groupï¿½s et triï¿½s selon plusieurs champs,
+  avec un dï¿½compte sommaire des communiquï¿½s pour chaque groupement.
 - Ajout de la fonction de personnalisation du format de la partie 
-  inférieure/privée des communiqués.
+  infï¿½rieure/privï¿½e des communiquï¿½s.
 - Nouvelle fonction d'Importation qui permet aux utilisateurs
-  d'importer des données électroniques dans le format de communiqué
-  Martus, comprenant à la fois le texte et les fichiers joints.
-  La fonction d'Exportation a été également mise à jour pour
-  correspondre à la structure d'Importation et permet désormais
-  d'exporter des pièces jointes.
-- Amélioration de la fonction de Recherche, comprenant la possibilité
-  de rechercher dans les colonnes particulières d'une grille
-  personnalisée, la fusion de champs similaires dans la liste de
-  sélection des champs, et des clarifications si plusieurs champs
-  possèdent les mêmes étiquettes.
-- Modification de l'affichage de l'année par défaut dans la date des
-  communiqués en "Inconnue", au lieu de l'année en cours.
-- Amélioration significative des performances pour les compteS
-  possédant un grand nombre de communiqués et spécifiquement lors du 
-  chargement de l'écran d'extraction.    
-  Messages d'état supplémentaires aux utilisateurs lors d'opérations
+  d'importer des donnï¿½es ï¿½lectroniques dans le format de communiquï¿½
+  Martus, comprenant ï¿½ la fois le texte et les fichiers joints.
+  La fonction d'Exportation a ï¿½tï¿½ ï¿½galement mise ï¿½ jour pour
+  correspondre ï¿½ la structure d'Importation et permet dï¿½sormais
+  d'exporter des piï¿½ces jointes.
+- Amï¿½lioration de la fonction de Recherche, comprenant la possibilitï¿½
+  de rechercher dans les colonnes particuliï¿½res d'une grille
+  personnalisï¿½e, la fusion de champs similaires dans la liste de
+  sï¿½lection des champs, et des clarifications si plusieurs champs
+  possï¿½dent les mï¿½mes ï¿½tiquettes.
+- Modification de l'affichage de l'annï¿½e par dï¿½faut dans la date des
+  communiquï¿½s en "Inconnue", au lieu de l'annï¿½e en cours.
+- Amï¿½lioration significative des performances pour les compteS
+  possï¿½dant un grand nombre de communiquï¿½s et spï¿½cifiquement lors du 
+  chargement de l'ï¿½cran d'extraction.    
+  Messages d'ï¿½tat supplï¿½mentaires aux utilisateurs lors d'opï¿½rations
   potentiellement longues.
-- Amélioration de la personnalisation, comprenant les messages
-  supplémentaires aux utilisateurs et l'affichage de longues
-  étiquettes de champs personnalisés sur plusieurs lignes.
+- Amï¿½lioration de la personnalisation, comprenant les messages
+  supplï¿½mentaires aux utilisateurs et l'affichage de longues
+  ï¿½tiquettes de champs personnalisï¿½s sur plusieurs lignes.
 
 
-E. Modifications de la version 2.8.1 à la version 2.9
+E. Modifications de la version 2.8.1 ï¿½ la version 2.9
 
-- A partir de la version 2.6 du Serveur (Mars 2006), accélération 
-  de plusieurs opérations majeures client/serveur. De façon précise, 
-  les opérations suivantes sont désormais plus rapides : 
-  téléchargement/envoi de communiqués, extraction de vos propres
-  communiqués ou communiqués de bureau, initialisation lors de la
+- A partir de la version 2.6 du Serveur (Mars 2006), accï¿½lï¿½ration 
+  de plusieurs opï¿½rations majeures client/serveur. De faï¿½on prï¿½cise, 
+  les opï¿½rations suivantes sont dï¿½sormais plus rapides : 
+  tï¿½lï¿½chargement/envoi de communiquï¿½s, extraction de vos propres
+  communiquï¿½s ou communiquï¿½s de bureau, initialisation lors de la
   connection au serveur avec votre compte.
-- Amélioration du fonctionnement des comptes comportant un grand
-  nombre de communiqués. Accélération des actions suivantes :  
-  affichage des dossiers/classement/déplacement des communiqués, etc.
-- Modification des opérations d'extraction qui apparaîtront désormais
-  en tâches de fond (de la même manière que l'envoi de communiqués
-  à un serveur), afin que vous puissiez continuer de travailler 
+- Amï¿½lioration du fonctionnement des comptes comportant un grand
+  nombre de communiquï¿½s. Accï¿½lï¿½ration des actions suivantes :  
+  affichage des dossiers/classement/dï¿½placement des communiquï¿½s, etc.
+- Modification des opï¿½rations d'extraction qui apparaï¿½tront dï¿½sormais
+  en tï¿½ches de fond (de la mï¿½me maniï¿½re que l'envoi de communiquï¿½s
+  ï¿½ un serveur), afin que vous puissiez continuer de travailler 
   dans Martus sans attendre la fin de l'extraction.  Lorsqu'elle
-  est terminée, les communiqués sont affichés dans le dossier
-  approprié "Extraits". Pour annuler une extraction, revenez à la
-  boîte de dialogue "Extraire".
-- Amélioration des messages transmis à l'utilisateur sur le statut
+  est terminï¿½e, les communiquï¿½s sont affichï¿½s dans le dossier
+  appropriï¿½ "Extraits". Pour annuler une extraction, revenez ï¿½ la
+  boï¿½te de dialogue "Extraire".
+- Amï¿½lioration des messages transmis ï¿½ l'utilisateur sur le statut
   des serveurs.
 - Ajout de la fonction de recherche dans les colonnes d'une grille
-  (au lieu de la totalité du texte de la grille) lors de la
-  spécification d'un champ dans une Recherche Avancée, et ajout
-  de l'option de recherche uniquement dans la dernière version
-  des communiqués.
-- Résolution de problèmes introduits dans les versions 2.8 et 2.8.1.
-  De façon précise, localisation des résultats de recherche
-  incorrects dans les champs déroulants comportant des espaces
+  (au lieu de la totalitï¿½ du texte de la grille) lors de la
+  spï¿½cification d'un champ dans une Recherche Avancï¿½e, et ajout
+  de l'option de recherche uniquement dans la derniï¿½re version
+  des communiquï¿½s.
+- Rï¿½solution de problï¿½mes introduits dans les versions 2.8 et 2.8.1.
+  De faï¿½on prï¿½cise, localisation des rï¿½sultats de recherche
+  incorrects dans les champs dï¿½roulants comportant des espaces
   dans les valeurs choisies, et incorporation de balises de  
-  personnalisation dans la liste des champs de recherche où
-  les étiquettes étaient laissées vides (p.ex. pour les en-têtes
+  personnalisation dans la liste des champs de recherche oï¿½
+  les ï¿½tiquettes ï¿½taient laissï¿½es vides (p.ex. pour les en-tï¿½tes
   de section) afin qu'il n'y ait aucune valeur vide dans la liste
   de champs. 
-- Ajout de la fonction d'insertion et de suppression de rangées
-  dans les grilles personnalisées et l'écran de recherche.
-- Utilisation de tout l'espace écran disponible lors de l'affichage
-  de données de communiqué et de la boîte de dialogue Info Contact.
-- Déplacement de l'option "Renvoyer Communiqués" sous le menu
-  du serveur (pour les Sièges qui sauvegardent les communiqués sur
-  les serveurs pour les bureaux qui n'ont pas accès à internet).
-- Suppression des messages trompeurs "Tous les communiqués n'ont
-  pas été extraits", qui apparaissaient lorsqu'un compte Siège
+- Ajout de la fonction d'insertion et de suppression de rangï¿½es
+  dans les grilles personnalisï¿½es et l'ï¿½cran de recherche.
+- Utilisation de tout l'espace ï¿½cran disponible lors de l'affichage
+  de donnï¿½es de communiquï¿½ et de la boï¿½te de dialogue Info Contact.
+- Dï¿½placement de l'option "Renvoyer Communiquï¿½s" sous le menu
+  du serveur (pour les Siï¿½ges qui sauvegardent les communiquï¿½s sur
+  les serveurs pour les bureaux qui n'ont pas accï¿½s ï¿½ internet).
+- Suppression des messages trompeurs "Tous les communiquï¿½s n'ont
+  pas ï¿½tï¿½ extraits", qui apparaissaient lorsqu'un compte Siï¿½ge
   n'avait pas la permission d'afficher les anciennes versions
-  de certains communiqués.
-- Plusieurs mises à jour concernant les préférences de date :  
+  de certains communiquï¿½s.
+- Plusieurs mises ï¿½ jour concernant les prï¿½fï¿½rences de date :  
   localisation des formats de date, choix de formats additionnels,
-  modifications effectuées pour afficher correctement les dates
-  thaï et perses (et convertir celles précédemment saisies).
-  Les dates perses utilisent un algorithme arithmétique bien connu
-  pour calculer les années bissextiles. Création également d'un
-  outil d'aide au diagnostique des paramètres de date.  
+  modifications effectuï¿½es pour afficher correctement les dates
+  thaï¿½ et perses (et convertir celles prï¿½cï¿½demment saisies).
+  Les dates perses utilisent un algorithme arithmï¿½tique bien connu
+  pour calculer les annï¿½es bissextiles. Crï¿½ation ï¿½galement d'un
+  outil d'aide au diagnostique des paramï¿½tres de date.  
 - Modification pour aider les programmes de traitement de textes
-  à afficher correctement les accents dans les fichiers rapport
+  ï¿½ afficher correctement les accents dans les fichiers rapport
   en html.
-- Ajout du kurde dans la liste déroulante des langues disponibles.
-  Si vous avez besoin d'aide pour l'affichage des caractères kurdes
+- Ajout du kurde dans la liste dï¿½roulante des langues disponibles.
+  Si vous avez besoin d'aide pour l'affichage des caractï¿½res kurdes
   dans Martus, veuillez contacter help@martus.org .
-- Implémentation initiale d'un outil d'importation de données
-  pour permettre la conversion de fichiers électroniques
-  (format .csv ou .xml) au format de communiqués Martus.
+- Implï¿½mentation initiale d'un outil d'importation de donnï¿½es
+  pour permettre la conversion de fichiers ï¿½lectroniques
+  (format .csv ou .xml) au format de communiquï¿½s Martus.
   Cette version initiale prend en charge l'importation de tous
-  les types de champs, exceptées les grilles personnalisées
-  et les pièces jointes. Su vous avez besoin d'aide/instructions
-  sur l'exécution de cet utilitaire, veuillez contacter  
+  les types de champs, exceptï¿½es les grilles personnalisï¿½es
+  et les piï¿½ces jointes. Su vous avez besoin d'aide/instructions
+  sur l'exï¿½cution de cet utilitaire, veuillez contacter  
   help@martus.org .
-- Plusieurs réparations mineures de bogues, clarifications 
-  et nettoyages sur les écrans de l'utilisateur.
+- Plusieurs rï¿½parations mineures de bogues, clarifications 
+  et nettoyages sur les ï¿½crans de l'utilisateur.
 
 
-F. Modifications de la version 2.8 à la version 2.8.1
+F. Modifications de la version 2.8 ï¿½ la version 2.8.1
 
-Nous avons noté l’apparition d’un problème dans la version 
+Nous avons notï¿½ lï¿½apparition dï¿½un problï¿½me dans la version 
 2.8.1 lorsque vous effectuez une recherche dans les champs 
-déroulants personnalisés qui contiennent des espaces dans 
-leurs choix déroulants. Actuellement, Martus retrouvera 
-correctement des communiqués si vous recherchez des valeurs 
-dans le menu déroulant en utilisant « Tous les Champs » et 
-« contient ». Le problème apparaîtra uniquement si vous 
-effectuez une recherche dans un champs déroulant spécifique. 
-Ce problème sera réglé dans la prochaine édition du logiciel, 
-mais en attendant, si vous personnalisez vos communiqués nous 
-vous conseillons de créer des choix déroulants qui ne 
+dï¿½roulants personnalisï¿½s qui contiennent des espaces dans 
+leurs choix dï¿½roulants. Actuellement, Martus retrouvera 
+correctement des communiquï¿½s si vous recherchez des valeurs 
+dans le menu dï¿½roulant en utilisant ï¿½ Tous les Champs ï¿½ et 
+ï¿½ contient ï¿½. Le problï¿½me apparaï¿½tra uniquement si vous 
+effectuez une recherche dans un champs dï¿½roulant spï¿½cifique. 
+Ce problï¿½me sera rï¿½glï¿½ dans la prochaine ï¿½dition du logiciel, 
+mais en attendant, si vous personnalisez vos communiquï¿½s nous 
+vous conseillons de crï¿½er des choix dï¿½roulants qui ne 
 contiennent pas d'espace entre les mots (par contre, si vous 
-le désirez, vous pouvez utiliser des tirets entre les mots.) 
+le dï¿½sirez, vous pouvez utiliser des tirets entre les mots.) 
 
-- Résolution d'un problème introduit dans la version 2.8 où
+- Rï¿½solution d'un problï¿½me introduit dans la version 2.8 oï¿½
   les dates et les fourchettes de dates ayant des valeurs 
-  antérieures au 1er janvier 1970 n'étaient pas correctement
-  affichées ni mémorisées.
-- Intégration des traductions en thaïlandais et en russe de 
+  antï¿½rieures au 1er janvier 1970 n'ï¿½taient pas correctement
+  affichï¿½es ni mï¿½morisï¿½es.
+- Intï¿½gration des traductions en thaï¿½landais et en russe de 
   l'interface utilisateur de la version 2.8 du logiciel
 
 
-G. Modifications de la version 2.7.2 à la version 2.8
+G. Modifications de la version 2.7.2 ï¿½ la version 2.8
 
 Cette publication est disponible en anglais mais aussi en 
-d'autres langues, comme indiqué à la page téléchargement du
+d'autres langues, comme indiquï¿½ ï¿½ la page tï¿½lï¿½chargement du
 logiciel sur le site http://www.martus.org .  
 Les autres langues seront disponibles par la suite, comme 
-packs de langues, à cette même page 
+packs de langues, ï¿½ cette mï¿½me page 
 (http://www.martus.org/downloads).
 
-- Ajout de la fonction création de colonnes de la grille de
-  types différents (listes déroulantes, cases à cocher, 
+- Ajout de la fonction crï¿½ation de colonnes de la grille de
+  types diffï¿½rents (listes dï¿½roulantes, cases ï¿½ cocher, 
   dates et fourchettes de dates)
-- La fonction de Recherche Avancée permet désormais à 
-  l'utilisateur de spécifier des champs particuliers pour 
-  la recherche (incluant les champs personnalisés), en plus
-  de la recherche dans la totalité des communiqués. La 
-  recherche peut combiner l'utilisation de différents champs 
+- La fonction de Recherche Avancï¿½e permet dï¿½sormais ï¿½ 
+  l'utilisateur de spï¿½cifier des champs particuliers pour 
+  la recherche (incluant les champs personnalisï¿½s), en plus
+  de la recherche dans la totalitï¿½ des communiquï¿½s. La 
+  recherche peut combiner l'utilisation de diffï¿½rents champs 
   et/ou options.
-- Amélioration des fonctionnalités d'impression afin de 
-  pouvoir imprimer à la fois plusieurs communiqués 
-  sélectionnés.
-- Ajout de la fonction sauvegarde du/des communiqué(s) dans 
+- Amï¿½lioration des fonctionnalitï¿½s d'impression afin de 
+  pouvoir imprimer ï¿½ la fois plusieurs communiquï¿½s 
+  sï¿½lectionnï¿½s.
+- Ajout de la fonction sauvegarde du/des communiquï¿½(s) dans 
   un fichier html, avec l'option d'inclure ou non les 
-  données privées
-- Création d'une nouvelle option "Organiser les dossiers" 
-  dans le menu pour permettre à l'utilisateur de mettre les 
+  donnï¿½es privï¿½es
+- Crï¿½ation d'une nouvelle option "Organiser les dossiers" 
+  dans le menu pour permettre ï¿½ l'utilisateur de mettre les 
   dossiers dans n'importe quel ordre.
-- Ajout de messages d'avertissement à l'encontre de 
+- Ajout de messages d'avertissement ï¿½ l'encontre de 
   l'utilisateur si la version de la traduction n'est pas la 
-  même que celle du logiciel, et affichage de la date de 
-  tout pack de langue existant dans la boîte de dialogue 
+  mï¿½me que celle du logiciel, et affichage de la date de 
+  tout pack de langue existant dans la boï¿½te de dialogue 
   A propos de
-- Affichage du logo Martus à l'exécution du programme afin 
-  que l'utilisateur sache qu'il est en train de démarrer
-- Mise à jour des bibliothèques de cryptage afin de pouvoir 
+- Affichage du logo Martus ï¿½ l'exï¿½cution du programme afin 
+  que l'utilisateur sache qu'il est en train de dï¿½marrer
+- Mise ï¿½ jour des bibliothï¿½ques de cryptage afin de pouvoir 
   utiliser Bouncy Castle Java Cryptography Extension
-- Améliorations supplémentaires dans l'affichage et 
-  l'impression des langues se lisant de droite à gauche
-- Intégration des polices système afin d'afficher à partir 
-  du menu certaines langues (comme le népalais)
-- Modification du comportement des communiqués afin que les 
+- Amï¿½liorations supplï¿½mentaires dans l'affichage et 
+  l'impression des langues se lisant de droite ï¿½ gauche
+- Intï¿½gration des polices systï¿½me afin d'afficher ï¿½ partir 
+  du menu certaines langues (comme le nï¿½palais)
+- Modification du comportement des communiquï¿½s afin que les 
   modifications des brouillons comprennent les nouveaux 
-  paramètres de personnalisation et de configuration Siège.
+  paramï¿½tres de personnalisation et de configuration Siï¿½ge.
 - A partir de la version 2.4 du Serveur Martus, ajout d'une 
-  fonction qui permet à l'utilisateur du Client Martus de 
+  fonction qui permet ï¿½ l'utilisateur du Client Martus de 
   recevoir des nouvelles du serveur de sauvegarde Martus 
-  lorsqu'il se connecte (à savoir des messages à propos des 
-  nouvelles versions disponibles en téléchargement, ou de la
-  durée d'indisponibilité lors de la maintenance du serveur)
-- Modification de la méthode de vérification des fichiers 
-  téléchargés de MD5 à SHA1
-- Mise à jour de la documentation utilisateur en anglais 
-  (Guide de Démarrage Rapide et Guide de l'Utilisateur)
-- Plusieurs réparations mineures de bogues, clarifications 
-  et nettoyages sur les écrans de l'utilisateur.
+  lorsqu'il se connecte (ï¿½ savoir des messages ï¿½ propos des 
+  nouvelles versions disponibles en tï¿½lï¿½chargement, ou de la
+  durï¿½e d'indisponibilitï¿½ lors de la maintenance du serveur)
+- Modification de la mï¿½thode de vï¿½rification des fichiers 
+  tï¿½lï¿½chargï¿½s de MD5 ï¿½ SHA1
+- Mise ï¿½ jour de la documentation utilisateur en anglais 
+  (Guide de Dï¿½marrage Rapide et Guide de l'Utilisateur)
+- Plusieurs rï¿½parations mineures de bogues, clarifications 
+  et nettoyages sur les ï¿½crans de l'utilisateur.
 
 
-H. Modifications de la version 2.7 à la version 2.7.2
+H. Modifications de la version 2.7 ï¿½ la version 2.7.2
 
-- Remplacement de la traduction incomplète/inexacte en 
-  népalais de la version 2.0.1 de l'interface utilisateur du 
-  logiciel Martus par la mise à jour d'un nouveau pack de 
-  langue népalaise à la page http://www.martus.org/downloads.   
-  Ce pack de langue inclut les traductions en népalais de 
+- Remplacement de la traduction incomplï¿½te/inexacte en 
+  nï¿½palais de la version 2.0.1 de l'interface utilisateur du 
+  logiciel Martus par la mise ï¿½ jour d'un nouveau pack de 
+  langue nï¿½palaise ï¿½ la page http://www.martus.org/downloads.   
+  Ce pack de langue inclut les traductions en nï¿½palais de 
   l'interface utilisateur du logiciel (utilisable pour les 
-  versions 2.5 et ultérieures, et comportant 90 % des chaînes 
-  traduites en népalais), de l'aide intégrée (version 2.0.1), 
-  du Guide de Démarrage Rapide (version 2.0.1), du Guide de 
+  versions 2.5 et ultï¿½rieures, et comportant 90 % des chaï¿½nes 
+  traduites en nï¿½palais), de l'aide intï¿½grï¿½e (version 2.0.1), 
+  du Guide de Dï¿½marrage Rapide (version 2.0.1), du Guide de 
   l'Utilisateur (version 2.0.1), et du fichier Lisez-moi
-  (partiellement traduit jusqu'à la version 2.6).
+  (partiellement traduit jusqu'ï¿½ la version 2.6).
 
-Sous Windows, pour exécuter le logiciel Martus en népalais 
-pour la version 2.7.2 et les versions précédentes, afin que 
+Sous Windows, pour exï¿½cuter le logiciel Martus en nï¿½palais 
+pour la version 2.7.2 et les versions prï¿½cï¿½dentes, afin que 
 les menus puissent s'afficher correctement, vous devez 
-effectuer une petite modification dans la commande utilisée 
-pour démarrer Martus (à partir de l'invite de commande et de 
-n'importe quel raccourci ou alias du bureau/Menu Démarrer 
-créé lors de l'installation).  
+effectuer une petite modification dans la commande utilisï¿½e 
+pour dï¿½marrer Martus (ï¿½ partir de l'invite de commande et de 
+n'importe quel raccourci ou alias du bureau/Menu Dï¿½marrer 
+crï¿½ï¿½ lors de l'installation).  
 
-Pour l'exécuter à partir de la ligne de commande, allez dans 
-le répertoire Martus et entrez : 
+Pour l'exï¿½cuter ï¿½ partir de la ligne de commande, allez dans 
+le rï¿½pertoire Martus et entrez : 
 C:\Martus\bin\javaw.exe -Dswing.useSystemFontSettings=false -jar C:\Martus\Martus.jar 
 
 Pour modifier vos raccourcis, faites un clic droit sur 
-l'icône, choisissez Propriétés, et changez la Cible vers :
+l'icï¿½ne, choisissez Propriï¿½tï¿½s, et changez la Cible vers :
 C:\Martus\bin\javaw.exe -Dswing.useSystemFontSettings=false -jar C:\Martus\Martus.jar 
 
 
-I. Modifications de la version 2.6 à la version 2.7
+I. Modifications de la version 2.6 ï¿½ la version 2.7
 
 Cette publication est disponible en anglais mais aussi en 
-d'autres langues, comme indiqué à la page téléchargement du
+d'autres langues, comme indiquï¿½ ï¿½ la page tï¿½lï¿½chargement du
 logiciel sur le site http://www.martus.org .  
 Les autres langues seront disponibles par la suite, comme 
-packs de langues, à cette même page 
+packs de langues, ï¿½ cette mï¿½me page 
 (http://www.martus.org/downloads).
 
-- Ajout de la fonction création de listes déroulantes 
-  dans les champs personnalisés uniques (hors grille) 
-- Ajout de la fonction création de messages personnalisés 
-  expliquant comment entrer des données, et de la création 
-  de commentaires/notes qui apparaîtront dans tous les 
-  communiqués (p.ex. aide écran)
-- Pour les comptes Siège, ajout de la fonction exportation 
-  de modèles personnalisés à transmettre aux utilisateurs de 
-  terrain, ou utilisateurs puissent exporter leurs propres modèles. 
-  Les utilisateurs pourront alors importer les paramètres de   
-  personnalisation à partir d'un choix de modèles.
-- Chaque siège configuré peut dorénavant être activé ou 
-  désactivé pour chaque communiqué créé ou modifié. L'Utilisateur 
-  peut également désigner certains comptes Siège à attribuer 
-  par défaut à tous les communiqués nouvellement créés.
-- Les recherches peuvent désormais scanner – outre la dernière 
-  version - les versions précédentes de chaque communiqué. 
-- Améliorations supplémentaires dans l'affichage des langues se 
-  lisant de droite à gauche
+- Ajout de la fonction crï¿½ation de listes dï¿½roulantes 
+  dans les champs personnalisï¿½s uniques (hors grille) 
+- Ajout de la fonction crï¿½ation de messages personnalisï¿½s 
+  expliquant comment entrer des donnï¿½es, et de la crï¿½ation 
+  de commentaires/notes qui apparaï¿½tront dans tous les 
+  communiquï¿½s (p.ex. aide ï¿½cran)
+- Pour les comptes Siï¿½ge, ajout de la fonction exportation 
+  de modï¿½les personnalisï¿½s ï¿½ transmettre aux utilisateurs de 
+  terrain, ou utilisateurs puissent exporter leurs propres modï¿½les. 
+  Les utilisateurs pourront alors importer les paramï¿½tres de   
+  personnalisation ï¿½ partir d'un choix de modï¿½les.
+- Chaque siï¿½ge configurï¿½ peut dorï¿½navant ï¿½tre activï¿½ ou 
+  dï¿½sactivï¿½ pour chaque communiquï¿½ crï¿½ï¿½ ou modifiï¿½. L'Utilisateur 
+  peut ï¿½galement dï¿½signer certains comptes Siï¿½ge ï¿½ attribuer 
+  par dï¿½faut ï¿½ tous les communiquï¿½s nouvellement crï¿½ï¿½s.
+- Les recherches peuvent dï¿½sormais scanner ï¿½ outre la derniï¿½re 
+  version - les versions prï¿½cï¿½dentes de chaque communiquï¿½. 
+- Amï¿½liorations supplï¿½mentaires dans l'affichage des langues se 
+  lisant de droite ï¿½ gauche
 - Inclut la traduction en perse de l'interface utilisateur
-- L'exportation vers XML inclut désormais le type champ personnalisé 
+- L'exportation vers XML inclut dï¿½sormais le type champ personnalisï¿½ 
 
 
-J. Modifications de la version 2.5 à la version 2.6
+J. Modifications de la version 2.5 ï¿½ la version 2.6
 
-- L'utilisateur peut dorénavant rechercher et afficher 
-  l'intégralité du contenu de toutes les versions des 
-  communiqués verrouillés présents dans son ordinateur, en 
-  cliquant sur le bouton Détails de Communiqué. 
-- Possibilité améliorée de choisir sur le serveur soit la 
-  récupération de toutes les versions d'un communiqué verrouillé, 
-  soit simplement la version la plus récente. L'utilisateur ne 
-  possédant qu'une petite unité de disque ou ayant une connexion 
-  Internet lente peut choisir de ne récupérer que la version la 
-  plus récente des communiqués volumineux.
-- Le nom de fichier des pièces jointes est dorénavant inclus 
+- L'utilisateur peut dorï¿½navant rechercher et afficher 
+  l'intï¿½gralitï¿½ du contenu de toutes les versions des 
+  communiquï¿½s verrouillï¿½s prï¿½sents dans son ordinateur, en 
+  cliquant sur le bouton Dï¿½tails de Communiquï¿½. 
+- Possibilitï¿½ amï¿½liorï¿½e de choisir sur le serveur soit la 
+  rï¿½cupï¿½ration de toutes les versions d'un communiquï¿½ verrouillï¿½, 
+  soit simplement la version la plus rï¿½cente. L'utilisateur ne 
+  possï¿½dant qu'une petite unitï¿½ de disque ou ayant une connexion 
+  Internet lente peut choisir de ne rï¿½cupï¿½rer que la version la 
+  plus rï¿½cente des communiquï¿½s volumineux.
+- Le nom de fichier des piï¿½ces jointes est dorï¿½navant inclus 
   dans les recherches.
-- Modification de la fonctionnalité d'exportation XML afin de 
-  mieux s'adapter aux champs personnalisés et aux différentes 
-  versions des communiqués verrouillés.
-- Amélioration de l'affichage des langues lues de droite à 
+- Modification de la fonctionnalitï¿½ d'exportation XML afin de 
+  mieux s'adapter aux champs personnalisï¿½s et aux diffï¿½rentes 
+  versions des communiquï¿½s verrouillï¿½s.
+- Amï¿½lioration de l'affichage des langues lues de droite ï¿½ 
   gauche (comme l'Arabe)
-- Inclusion du Guide de l'Utilisateur et du Guide de Démarrage 
+- Inclusion du Guide de l'Utilisateur et du Guide de Dï¿½marrage 
   Rapide en Arabe.
-- Plusieurs réparations mineures de bogues, clarifications et 
-  nettoyages sur les écrans de l'utilisateur.
+- Plusieurs rï¿½parations mineures de bogues, clarifications et 
+  nettoyages sur les ï¿½crans de l'utilisateur.
 - Lors de l'utilisation de Martus 2.6 en Arabe sous Mac OS, 
-  certains problèmes d'affichage d'écrans peuvent survenir en 
-  cours d'exécution.
+  certains problï¿½mes d'affichage d'ï¿½crans peuvent survenir en 
+  cours d'exï¿½cution.
 
 
 
-K. Modifications de la version 2.0.1 à la version 2.5.
+K. Modifications de la version 2.0.1 ï¿½ la version 2.5.
 
-- Possibilité supplémentaire de créer de nouvelles versions 
-  de communiqués verrouillés de manière à ce que les 
-  modifications ou ajouts puissent être effectués sur les 
-  communiqués précédemment verrouillés. Dans cette mise à 
+- Possibilitï¿½ supplï¿½mentaire de crï¿½er de nouvelles versions 
+  de communiquï¿½s verrouillï¿½s de maniï¿½re ï¿½ ce que les 
+  modifications ou ajouts puissent ï¿½tre effectuï¿½s sur les 
+  communiquï¿½s prï¿½cï¿½demment verrouillï¿½s. Dans cette mise ï¿½ 
   jour de Martus, vous ne pourrez rechercher et afficher 
-  que le contenu entier de la version la plus actualisée 
-  (vous pourrez afficher le titre/l'id du communiqué/la date 
-  de sauvegarde de toute version antérieure stockée dans votre 
-  ordinateur, en cliquant sur le bouton Détails de Communiqué).  
-- Fonctionnalité supplémentaire pour installer de nouvelles 
-  traductions mises à jour à tout moment, suite à une édition 
-  complète de Martus. Un "Pack Langues" pour chaque langue (y 
+  que le contenu entier de la version la plus actualisï¿½e 
+  (vous pourrez afficher le titre/l'id du communiquï¿½/la date 
+  de sauvegarde de toute version antï¿½rieure stockï¿½e dans votre 
+  ordinateur, en cliquant sur le bouton Dï¿½tails de Communiquï¿½).  
+- Fonctionnalitï¿½ supplï¿½mentaire pour installer de nouvelles 
+  traductions mises ï¿½ jour ï¿½ tout moment, suite ï¿½ une ï¿½dition 
+  complï¿½te de Martus. Un "Pack Langues" pour chaque langue (y 
   compris l'anglais) peut contenir la traduction de l'Interface 
   Utilisateur du Client Martus, le Guide de l'Utilisateur, le 
-  Guide de Démarrage Rapide, le fichier Lisez-moi et l'aide en 
-  ligne. Les packs de langues pourront être téléchargés sur le 
+  Guide de Dï¿½marrage Rapide, le fichier Lisez-moi et l'aide en 
+  ligne. Les packs de langues pourront ï¿½tre tï¿½lï¿½chargï¿½s sur le 
   site web de Martus.
-- Plusieurs modifications ont été effectuées pour accélérer le 
-  traitement des communiqués et des dossiers (par exemple tri ou 
-  déplacement des communiqués) 
-- Amélioration des fonctionnalités des champs personnalisés 
+- Plusieurs modifications ont ï¿½tï¿½ effectuï¿½es pour accï¿½lï¿½rer le 
+  traitement des communiquï¿½s et des dossiers (par exemple tri ou 
+  dï¿½placement des communiquï¿½s) 
+- Amï¿½lioration des fonctionnalitï¿½s des champs personnalisï¿½s 
   (par ex. taille des colonnes de la grille)
-- Nouvelle traduction en Thaï  
+- Nouvelle traduction en Thaï¿½  
 - Nouvelle traduction en Arabe 
-- Modifications effectuées pour afficher correctement les 
-  langues se lisant de Droite à Gauche (comme l'Arabe)
-- Plusieurs améliorations pour afficher l'Interface 
+- Modifications effectuï¿½es pour afficher correctement les 
+  langues se lisant de Droite ï¿½ Gauche (comme l'Arabe)
+- Plusieurs amï¿½liorations pour afficher l'Interface 
   Utilisateur du Client Martus sous Linux.
-- Le problème suivant a été résolu : la récupération ou 
-  l'importation de communiqués comprenant des pièces jointes 
-  très volumineuses risquait de provoquer la fermeture de 
-  Martus pour cause de "mémoire insuffisante". Les pièces 
-  jointes inférieures à 20 mégaoctets ne sont pas susceptibles 
+- Le problï¿½me suivant a ï¿½tï¿½ rï¿½solu : la rï¿½cupï¿½ration ou 
+  l'importation de communiquï¿½s comprenant des piï¿½ces jointes 
+  trï¿½s volumineuses risquait de provoquer la fermeture de 
+  Martus pour cause de "mï¿½moire insuffisante". Les piï¿½ces 
+  jointes infï¿½rieures ï¿½ 20 mï¿½gaoctets ne sont pas susceptibles 
   de provoquer cette erreur.
-- Plusieurs réparations mineures de bogues, clarifications et 
-  nettoyages sur les écrans de l'utilisateur.
-- Certains problèmes d'affichage d'écran peuvent apparaître 
-  dans le programme d'installation Martus 2.5 en Népalais et 
-  en Thaï. Du fait de la difficulté de tester toutes les 
+- Plusieurs rï¿½parations mineures de bogues, clarifications et 
+  nettoyages sur les ï¿½crans de l'utilisateur.
+- Certains problï¿½mes d'affichage d'ï¿½cran peuvent apparaï¿½tre 
+  dans le programme d'installation Martus 2.5 en Nï¿½palais et 
+  en Thaï¿½. Du fait de la difficultï¿½ de tester toutes les 
   versions de Windows dans ces langues, nous vous serions 
-  reconnaissants de nous signaler toute erreur d'affichage à 
+  reconnaissants de nous signaler toute erreur d'affichage ï¿½ 
   l'installation de Martus.
 
 
-L. Modifications de la version 2.0. à la version 2.0.1
+L. Modifications de la version 2.0. ï¿½ la version 2.0.1
 
-- Ajout d'une barre de défilement horizontale pour les 
-  grilles de champs personnalisés supérieurs à la largeur 
-  d'écran.
-- Nouvelle traduction en Français
-- Mise à jour de la documentation Utilisateur en Russe et en 
-  Espagnol avec la fonctionnalité 2.0
-- Plusieurs clarifications et nettoyages apportés à la 
+- Ajout d'une barre de dï¿½filement horizontale pour les 
+  grilles de champs personnalisï¿½s supï¿½rieurs ï¿½ la largeur 
+  d'ï¿½cran.
+- Nouvelle traduction en Franï¿½ais
+- Mise ï¿½ jour de la documentation Utilisateur en Russe et en 
+  Espagnol avec la fonctionnalitï¿½ 2.0
+- Plusieurs clarifications et nettoyages apportï¿½s ï¿½ la 
   documentation de l'utilisateur en Anglais
-- Modifications de l'utilitaire d'installation pour régler 
-  les problèmes de mise à niveau sous Windows 98 et ME en 
+- Modifications de l'utilitaire d'installation pour rï¿½gler 
+  les problï¿½mes de mise ï¿½ niveau sous Windows 98 et ME en 
   langues autres que l'Anglais
 - Ajout de l'option multi dossier (disquette) sur le site 
-  de téléchargement
+  de tï¿½lï¿½chargement
 
 
-M. Modifications de la version 1.5. à la version 2.0.
+M. Modifications de la version 1.5. ï¿½ la version 2.0.
 
-- Vous pouvez désormais posséder plusieurs comptes de siège, 
-  et les paramétrer à l'aide d'une interface améliorée. Cela 
-  s'avèrera très utile si vous souhaitez que plusieurs personnes 
-  au sein de votre organisme révisent vos communiqués. 
-- Les comptes de Siège peuvent désormais envoyer les communiqués 
-  à un serveur en lieu et place d'un bureau de terrain dépourvu 
-  d'accès Internet.
-- Les fonctionnalités Champs Personnalisés ont été étendues de 
-  manière à ce que vous puissiez désormais créer des champs 
-  personnalisés de types différents (comme date, grille, Oui/Non).  
+- Vous pouvez dï¿½sormais possï¿½der plusieurs comptes de siï¿½ge, 
+  et les paramï¿½trer ï¿½ l'aide d'une interface amï¿½liorï¿½e. Cela 
+  s'avï¿½rera trï¿½s utile si vous souhaitez que plusieurs personnes 
+  au sein de votre organisme rï¿½visent vos communiquï¿½s. 
+- Les comptes de Siï¿½ge peuvent dï¿½sormais envoyer les communiquï¿½s 
+  ï¿½ un serveur en lieu et place d'un bureau de terrain dï¿½pourvu 
+  d'accï¿½s Internet.
+- Les fonctionnalitï¿½s Champs Personnalisï¿½s ont ï¿½tï¿½ ï¿½tendues de 
+  maniï¿½re ï¿½ ce que vous puissiez dï¿½sormais crï¿½er des champs 
+  personnalisï¿½s de types diffï¿½rents (comme date, grille, Oui/Non).  
 - Nous utilisons un nouvel utilitaire d'installation Windows en 
-  code source libre (NSIS) qui peut être exécuté dans les 
+  code source libre (NSIS) qui peut ï¿½tre exï¿½cutï¿½ dans les 
   alphabets non latins.  
-- Un nouveau dossier "Communiqués Enregistrés" remplace les 
-  fichiers Boîte d'Envoi, Communiqués Envoyés et Brouillons 
-  de Communiqués
-- Désormais, chaque liste de Communiqués affiche une colonne 
-  montrant si oui ou non le communiqué a bien été envoyé au serveur
-- La date du dernier enregistrement d'un communiqué s'affiche 
-  désormais dans les listes de prévisualisation des communiqués 
-  ainsi que dans l'en-tête des communiqués
-- Lors de la création/modification d'un communiqué, le bouton 
-  "Envoyer" a été remplacé par "Enregistrer Verrouillé" 
-- La fonctionnalité d'effacement rapide de Martus 1.5 a été 
-  remplacée par deux menus :  "Supprimer Mes Données", qui 
-  supprime les communiqués et la clé de ce compte ; et 
-  "Supprimer Toutes Données et Désinstaller Martus" qui 
-  désinstalle Martus et supprime l'intégralité du répertoire 
-  Martus, y compris les données des autres comptes – à 
+- Un nouveau dossier "Communiquï¿½s Enregistrï¿½s" remplace les 
+  fichiers Boï¿½te d'Envoi, Communiquï¿½s Envoyï¿½s et Brouillons 
+  de Communiquï¿½s
+- Dï¿½sormais, chaque liste de Communiquï¿½s affiche une colonne 
+  montrant si oui ou non le communiquï¿½ a bien ï¿½tï¿½ envoyï¿½ au serveur
+- La date du dernier enregistrement d'un communiquï¿½ s'affiche 
+  dï¿½sormais dans les listes de prï¿½visualisation des communiquï¿½s 
+  ainsi que dans l'en-tï¿½te des communiquï¿½s
+- Lors de la crï¿½ation/modification d'un communiquï¿½, le bouton 
+  "Envoyer" a ï¿½tï¿½ remplacï¿½ par "Enregistrer Verrouillï¿½" 
+- La fonctionnalitï¿½ d'effacement rapide de Martus 1.5 a ï¿½tï¿½ 
+  remplacï¿½e par deux menus :  "Supprimer Mes Donnï¿½es", qui 
+  supprime les communiquï¿½s et la clï¿½ de ce compte ; et 
+  "Supprimer Toutes Donnï¿½es et Dï¿½sinstaller Martus" qui 
+  dï¿½sinstalle Martus et supprime l'intï¿½gralitï¿½ du rï¿½pertoire 
+  Martus, y compris les donnï¿½es des autres comptes ï¿½ ï¿½ 
   n'utiliser qu'en cas d'urgence
-- Amélioration des fonctionnalités de sauvegarde de clé – 
-  aucun besoin d'effectuer une sauvegarde avant la création 
-  des communiqués, mais il vous est rappelé de sauvegarder 
-  votre clé plus tard si vous ne l'avez encore fait.
-- Pour effectuer une recherché de communiqué, l'on peut 
+- Amï¿½lioration des fonctionnalitï¿½s de sauvegarde de clï¿½ ï¿½ 
+  aucun besoin d'effectuer une sauvegarde avant la crï¿½ation 
+  des communiquï¿½s, mais il vous est rappelï¿½ de sauvegarder 
+  votre clï¿½ plus tard si vous ne l'avez encore fait.
+- Pour effectuer une recherchï¿½ de communiquï¿½, l'on peut 
   utiliser soit l'anglais "and" et "or", soit la traduction 
-  de leurs équivalents. Cela permet aux utilisateurs n'ayant 
-  pas accès au clavier autochtone de pouvoir effectuer les 
+  de leurs ï¿½quivalents. Cela permet aux utilisateurs n'ayant 
+  pas accï¿½s au clavier autochtone de pouvoir effectuer les 
   recherches "et" et "ou".
-- Un nouveau bouton "Détails de Communiqué" affiche une 
-  identification unique de communiqué ainsi que les comptes 
-  de Siège pouvant afficher les données privées de ce communiqué
-- A l'impression, vous avez désormais l'option de masquer ou 
-  d'inclure les données privées 
-- Vous pouvez désormais accéder à l'aide en ligne 
-- Vous pouvez insérer un drapeau interdisant les communiqués 
-  publics pour raisons de sécurité
-- Amélioration de la fonctionnalité Renommer les Dossiers
-- Plusieurs réparations mineures de bogues, clarifications 
+- Un nouveau bouton "Dï¿½tails de Communiquï¿½" affiche une 
+  identification unique de communiquï¿½ ainsi que les comptes 
+  de Siï¿½ge pouvant afficher les donnï¿½es privï¿½es de ce communiquï¿½
+- A l'impression, vous avez dï¿½sormais l'option de masquer ou 
+  d'inclure les donnï¿½es privï¿½es 
+- Vous pouvez dï¿½sormais accï¿½der ï¿½ l'aide en ligne 
+- Vous pouvez insï¿½rer un drapeau interdisant les communiquï¿½s 
+  publics pour raisons de sï¿½curitï¿½
+- Amï¿½lioration de la fonctionnalitï¿½ Renommer les Dossiers
+- Plusieurs rï¿½parations mineures de bogues, clarifications 
   et nettoyages sur l'interface utilisateur.
 
-Nous vous recommandons d'exécuter le Logiciel Client Martus 2.0 
-avec le Logiciel Serveur Martus version 2.1 ou plus récent. A 
+Nous vous recommandons d'exï¿½cuter le Logiciel Client Martus 2.0 
+avec le Logiciel Serveur Martus version 2.1 ou plus rï¿½cent. A 
 compter de la date de Martus Client version 2.0, tous les 
-serveurs de production Martus exécutent la version 2.1, mais 
-si vous exécutez votre propre serveur de sauvegarde Martus, 
-vous devez procéder à une mise à jour (le logiciel Serveur 
-Martus est téléchargeable sur le site www.martus.org).  
+serveurs de production Martus exï¿½cutent la version 2.1, mais 
+si vous exï¿½cutez votre propre serveur de sauvegarde Martus, 
+vous devez procï¿½der ï¿½ une mise ï¿½ jour (le logiciel Serveur 
+Martus est tï¿½lï¿½chargeable sur le site www.martus.org).  
 
 
-N. Modifications de la version 1.2.1 à la version 1.5.
+N. Modifications de la version 1.2.1 ï¿½ la version 1.5.
 
-- Les comptes multiples peuvent désormais être paramétrés 
-  sur ordinateur. Cela modifie l'écran d'ouverture de session
-  de plusieurs manières : vous avez le choix entre ouvrir une 
-  session sur un compte déjà paramétré, créer un nouveau compte, 
-  ou restaurer à partir d'une sauvegarde de clé. Un 
-  sous-répertoire pour chaque compte apparaîtra dans le 
-  répertoire Martus.
-- L'option de sélection de la langue dans laquelle vous 
-  souhaitez exécuter Martus est désormais disponible sur 
-  l'écran d'ouverture de session.
-- Amélioration des fonctionnalités de sauvegarde de clé, 
+- Les comptes multiples peuvent dï¿½sormais ï¿½tre paramï¿½trï¿½s 
+  sur ordinateur. Cela modifie l'ï¿½cran d'ouverture de session
+  de plusieurs maniï¿½res : vous avez le choix entre ouvrir une 
+  session sur un compte dï¿½jï¿½ paramï¿½trï¿½, crï¿½er un nouveau compte, 
+  ou restaurer ï¿½ partir d'une sauvegarde de clï¿½. Un 
+  sous-rï¿½pertoire pour chaque compte apparaï¿½tra dans le 
+  rï¿½pertoire Martus.
+- L'option de sï¿½lection de la langue dans laquelle vous 
+  souhaitez exï¿½cuter Martus est dï¿½sormais disponible sur 
+  l'ï¿½cran d'ouverture de session.
+- Amï¿½lioration des fonctionnalitï¿½s de sauvegarde de clï¿½, 
   et option de sauvegarder dans plusieurs dossiers de "secret 
-  partagé" à distribuer aux amis.  
-- Fonctionnalités étendues d'Effacement Rapide pour permettre 
-  la suppression de la clé, le nettoyage des communiqués et des 
-  données de la clé avant suppression, ainsi que l'option 
+  partagï¿½" ï¿½ distribuer aux amis.  
+- Fonctionnalitï¿½s ï¿½tendues d'Effacement Rapide pour permettre 
+  la suppression de la clï¿½, le nettoyage des communiquï¿½s et des 
+  donnï¿½es de la clï¿½ avant suppression, ainsi que l'option 
   d'effectuer l'Effacement Rapide et de quitter Martus sans 
   invite ni interaction utilisateur.
-- Un nouveau Menu Outils (Effacement Rapide, clé et 
-  actions Siège)
-- Amélioration de la communication avec les serveurs de 
-  sauvegarde Martus, et simplification des messages transmis à 
+- Un nouveau Menu Outils (Effacement Rapide, clï¿½ et 
+  actions Siï¿½ge)
+- Amï¿½lioration de la communication avec les serveurs de 
+  sauvegarde Martus, et simplification des messages transmis ï¿½ 
   l'utilisateur sur le statut des serveurs
-- Options linguistiques supplémentaires ajoutées à la liste de 
-  sélection de communiqué
-- Réparation d'un bogue qui empêchait les versions précédentes 
-  du programme Martus de récupérer les communiqués à partir 
+- Options linguistiques supplï¿½mentaires ajoutï¿½es ï¿½ la liste de 
+  sï¿½lection de communiquï¿½
+- Rï¿½paration d'un bogue qui empï¿½chait les versions prï¿½cï¿½dentes 
+  du programme Martus de rï¿½cupï¿½rer les communiquï¿½s ï¿½ partir 
   d'un serveur de sauvegarde, si ces derniers contenaient des 
   informations publiques avec des lettres non anglaises. Ce 
-  bogue n'a pas affecté la sécurité de sauvegarde des 
-  communiqués sur un serveur Martus. Le problème 
-  n'apparaissait que si les communiqués étaient absents de 
-  votre ordinateur, et que vous tentiez de récupérer vos 
-  propres communiqués verrouillés, ou ceux de votre bureau 
-  de terrain, contenant des données publiques non anglaises 
-  (le message reçu dans ce cas était "Erreur pendant la 
-  récupération des résumés de communiqués. Certains communiqués 
-  du serveur ne s'afficheront pas.") Le bogue n'a affecté 
-  la récupération ni  des communiqués entièrement privés, ni 
-  des brouillons. Si vous souhaitez récupérer des communiqués 
-  contenant des données publiques en langue autre que l'anglais, 
-  il vous faut accéder à un serveur de  sauvegarde Martus de 
-  production, ou mettre à jour votre propre serveur pour 
-  exécuter le Logiciel Serveur Martus version 2.0 ou plus récente. 
-- Mise à jour de la version Java vers 1.4.2_03
-- Plusieurs réparations mineures de bogues, clarifications 
+  bogue n'a pas affectï¿½ la sï¿½curitï¿½ de sauvegarde des 
+  communiquï¿½s sur un serveur Martus. Le problï¿½me 
+  n'apparaissait que si les communiquï¿½s ï¿½taient absents de 
+  votre ordinateur, et que vous tentiez de rï¿½cupï¿½rer vos 
+  propres communiquï¿½s verrouillï¿½s, ou ceux de votre bureau 
+  de terrain, contenant des donnï¿½es publiques non anglaises 
+  (le message reï¿½u dans ce cas ï¿½tait "Erreur pendant la 
+  rï¿½cupï¿½ration des rï¿½sumï¿½s de communiquï¿½s. Certains communiquï¿½s 
+  du serveur ne s'afficheront pas.") Le bogue n'a affectï¿½ 
+  la rï¿½cupï¿½ration ni  des communiquï¿½s entiï¿½rement privï¿½s, ni 
+  des brouillons. Si vous souhaitez rï¿½cupï¿½rer des communiquï¿½s 
+  contenant des donnï¿½es publiques en langue autre que l'anglais, 
+  il vous faut accï¿½der ï¿½ un serveur de  sauvegarde Martus de 
+  production, ou mettre ï¿½ jour votre propre serveur pour 
+  exï¿½cuter le Logiciel Serveur Martus version 2.0 ou plus rï¿½cente. 
+- Mise ï¿½ jour de la version Java vers 1.4.2_03
+- Plusieurs rï¿½parations mineures de bogues, clarifications 
   et nettoyages sur l'interface utilisateur.
 
 
-O. Modifications de la version 1.2. à la version 1.2.1
+O. Modifications de la version 1.2. ï¿½ la version 1.2.1
 
 - Introduction de la version Russe, comprenant une version 
-  spéciale du programme d'installation en Russe.
-- Mise à jour des Guides Utilisateur en Anglais et en 
-  Espagnol avec la fonctionnalité 1.2
-- Création du script LinuxJavaInstall.txt pour simplifier 
+  spï¿½ciale du programme d'installation en Russe.
+- Mise ï¿½ jour des Guides Utilisateur en Anglais et en 
+  Espagnol avec la fonctionnalitï¿½ 1.2
+- Crï¿½ation du script LinuxJavaInstall.txt pour simplifier 
   l'installation Java sur les ordinateurs GNU/Linux.
 
 
-P. Modifications de la version 1.0.3 à la version 1.2.
+P. Modifications de la version 1.0.3 ï¿½ la version 1.2.
 
-- Vous pouvez désormais personnaliser les champs de tous les 
-  communiqués créés ultérieurement. Nous conseillons aux seuls 
-  utilisateurs "avancés" de personnaliser les champs. Lorsque 
-  vous choisissez cette option de menu, vous êtes avertis que 
-  si vous n'êtes pas chevronné, vous devez revenir en arrière 
-  ou risquer de dérégler votre système. Si vous continuez, 
+- Vous pouvez dï¿½sormais personnaliser les champs de tous les 
+  communiquï¿½s crï¿½ï¿½s ultï¿½rieurement. Nous conseillons aux seuls 
+  utilisateurs "avancï¿½s" de personnaliser les champs. Lorsque 
+  vous choisissez cette option de menu, vous ï¿½tes avertis que 
+  si vous n'ï¿½tes pas chevronnï¿½, vous devez revenir en arriï¿½re 
+  ou risquer de dï¿½rï¿½gler votre systï¿½me. Si vous continuez, 
   vous recevez une liste de balises de champs standards existants, 
-  séparées par des points-virgules. Vous pouvez supprimer ceux 
+  sï¿½parï¿½es par des points-virgules. Vous pouvez supprimer ceux 
   que vous souhaitez, sauf quatre champs "obligatoires" : 
-  entrydate (dateentrée), language (langue), author (auteur), 
-  et title (titre). Vous pouvez modifier la séquence. Vous 
-  pouvez également insérer vos propres champs personnalisés. 
-  Chaque champ personnalisé doit comporter une "balise", 
-  composée d'une chaîne de lettres minuscules ASCII suivies 
-  d'une virgule, suivies de l'invite écran pouvant contenir 
-  un mélange de caractères et d'espaces. Si vous tentez 
-  d'enregistrer une chaîne de définition de champ personnalisé 
-  qui viole une quelconque règle, vous serez informé qu'elle 
-  est invalide, sans pour autant savoir quelle règle vous 
-  aurez violée.
-- Vous avez désormais l'option de taper une fourchette de 
-  dates (période entre deux dates) pour la date d'évènement 
-  du communiqué.
+  entrydate (dateentrï¿½e), language (langue), author (auteur), 
+  et title (titre). Vous pouvez modifier la sï¿½quence. Vous 
+  pouvez ï¿½galement insï¿½rer vos propres champs personnalisï¿½s. 
+  Chaque champ personnalisï¿½ doit comporter une "balise", 
+  composï¿½e d'une chaï¿½ne de lettres minuscules ASCII suivies 
+  d'une virgule, suivies de l'invite ï¿½cran pouvant contenir 
+  un mï¿½lange de caractï¿½res et d'espaces. Si vous tentez 
+  d'enregistrer une chaï¿½ne de dï¿½finition de champ personnalisï¿½ 
+  qui viole une quelconque rï¿½gle, vous serez informï¿½ qu'elle 
+  est invalide, sans pour autant savoir quelle rï¿½gle vous 
+  aurez violï¿½e.
+- Vous avez dï¿½sormais l'option de taper une fourchette de 
+  dates (pï¿½riode entre deux dates) pour la date d'ï¿½vï¿½nement 
+  du communiquï¿½.
 - Ajout de l'Interface Utilisateur en Russe, avec traduction 
   de plus de 90% des messages.
-- Vous pouvez désormais spécifier un dossier entier à 
+- Vous pouvez dï¿½sormais spï¿½cifier un dossier entier ï¿½ 
   l'exportation.
-- Si les ports normaux de Martus sont dans l'incapacité de 
-  communiquer avec un serveur de sauvegarde à cause de problèmes 
+- Si les ports normaux de Martus sont dans l'incapacitï¿½ de 
+  communiquer avec un serveur de sauvegarde ï¿½ cause de problï¿½mes 
   tels qu'une configuration de pare-feu, le programme Martus 
-  réutilise les ports 80/443.
-- La convivialité du processus de sauvegarde de clé a été 
-  améliorée.
-- La nouvelle version de Java, v 1.4.1_03, est présente 
-  pour les téléchargements et les images CD. 
-- Plusieurs réparations mineures de bogues, clarifications et 
+  rï¿½utilise les ports 80/443.
+- La convivialitï¿½ du processus de sauvegarde de clï¿½ a ï¿½tï¿½ 
+  amï¿½liorï¿½e.
+- La nouvelle version de Java, v 1.4.1_03, est prï¿½sente 
+  pour les tï¿½lï¿½chargements et les images CD. 
+- Plusieurs rï¿½parations mineures de bogues, clarifications et 
   nettoyages sur l'interface utilisateur, notamment une aide 
   accrue pour une utilisation sans souris.
 
 
-Q. Modifications de la version 1.0.2 à la version 1.0.3
+Q. Modifications de la version 1.0.2 ï¿½ la version 1.0.3
 
 - Versions Martus compatibles Linux et Mac.
-- Si vous avez installé une ancienne version du logiciel Martus, 
-  vous pouvez en télécharger une version réduite sans avoir 
-  besoin de télécharger le fichier intégral contenant tout Java.
-- Les communiqués peuvent être exportés du programme en format 
+- Si vous avez installï¿½ une ancienne version du logiciel Martus, 
+  vous pouvez en tï¿½lï¿½charger une version rï¿½duite sans avoir 
+  besoin de tï¿½lï¿½charger le fichier intï¿½gral contenant tout Java.
+- Les communiquï¿½s peuvent ï¿½tre exportï¿½s du programme en format 
   texte XML.
-- Vérification de la version compatible Java pendant 
-  l'installation et le démarrage.
-- Manipulation plus rapide des communiqués avec pièces jointes.
-- Passage au curseur d'attente pendant les opérations de 
-  longue durée.
-- Sous Windows, vous pouvez désormais afficher les pièces 
+- Vï¿½rification de la version compatible Java pendant 
+  l'installation et le dï¿½marrage.
+- Manipulation plus rapide des communiquï¿½s avec piï¿½ces jointes.
+- Passage au curseur d'attente pendant les opï¿½rations de 
+  longue durï¿½e.
+- Sous Windows, vous pouvez dï¿½sormais afficher les piï¿½ces 
   jointes.
 - Modifications du contrat de licence compatible GNU GPL, 
-  simplifiant l'avertissement à l'utilisateur lors de l'emprunt 
-  d'un code pour une utilisation extérieure au logiciel Martus, 
-  et étendant la couverture aux applications du serveur Martus.
-- Vous pouvez désormais recevoir des messages du serveur Martus, 
-  y compris une déclaration de conformité au serveur.
-- Une nouvelle boîte de dialogue de Bienvenue s'affiche au 
-  démarrage du programme, indiquant s'il s'agit d'une version 
+  simplifiant l'avertissement ï¿½ l'utilisateur lors de l'emprunt 
+  d'un code pour une utilisation extï¿½rieure au logiciel Martus, 
+  et ï¿½tendant la couverture aux applications du serveur Martus.
+- Vous pouvez dï¿½sormais recevoir des messages du serveur Martus, 
+  y compris une dï¿½claration de conformitï¿½ au serveur.
+- Une nouvelle boï¿½te de dialogue de Bienvenue s'affiche au 
+  dï¿½marrage du programme, indiquant s'il s'agit d'une version 
   officielle de ce programme.
 - Simplification de l'installation du logiciel Martus pendant le 
-  téléchargement du programme d'installation. Le programme de 
-  vérification Jar est désormais disponible en téléchargement séparé.
-- Une nouvelle fonctionnalité d'Effacement Rapide supprimera toutes 
-  les copies locales des communiqués de votre disque dur.
-- Réparation d'un bogue susceptible de corrompre un communiqué en 
-  cas de récupération depuis un serveur, suivie de la modification 
-  d'une copie par ajout d'une nouvelle pièce jointe.
-- Mise à jour de quelques chaînes de traduction en Espagnol.
-- Résolution d'un problème de fenêtre nécessitant la zone de 
-  saisie courante en cas de dépassement de délai.
-- Placement de la fenêtre de dialogue de début de session 
-  au-dessus des autres, et ajout dans la barre des tâches.
-- Masquage de la fenêtre principale pendant l'édition.
-- Ajout d'une bibliothèque crypto à jour et d'une nouvelle version 
-  de Java, v 1.4.1_02, supportant la frappe de caractères étrangers 
-  à l'aide du clavier numérique et réparant une perte de mémoire 
-  qui vide lentement la mémoire disponible.
+  tï¿½lï¿½chargement du programme d'installation. Le programme de 
+  vï¿½rification Jar est dï¿½sormais disponible en tï¿½lï¿½chargement sï¿½parï¿½.
+- Une nouvelle fonctionnalitï¿½ d'Effacement Rapide supprimera toutes 
+  les copies locales des communiquï¿½s de votre disque dur.
+- Rï¿½paration d'un bogue susceptible de corrompre un communiquï¿½ en 
+  cas de rï¿½cupï¿½ration depuis un serveur, suivie de la modification 
+  d'une copie par ajout d'une nouvelle piï¿½ce jointe.
+- Mise ï¿½ jour de quelques chaï¿½nes de traduction en Espagnol.
+- Rï¿½solution d'un problï¿½me de fenï¿½tre nï¿½cessitant la zone de 
+  saisie courante en cas de dï¿½passement de dï¿½lai.
+- Placement de la fenï¿½tre de dialogue de dï¿½but de session 
+  au-dessus des autres, et ajout dans la barre des tï¿½ches.
+- Masquage de la fenï¿½tre principale pendant l'ï¿½dition.
+- Ajout d'une bibliothï¿½que crypto ï¿½ jour et d'une nouvelle version 
+  de Java, v 1.4.1_02, supportant la frappe de caractï¿½res ï¿½trangers 
+  ï¿½ l'aide du clavier numï¿½rique et rï¿½parant une perte de mï¿½moire 
+  qui vide lentement la mï¿½moire disponible.
 - Ajout des touches rapides Windows standard aux endroits cruciaux 
   comme Suppr et Control C, X, V et A.
 
 
-R. Modifications de la version 1.0.1 à la version 1.0.2
+R. Modifications de la version 1.0.1 ï¿½ la version 1.0.2
 
-- En choisissant de modifier un communiqué verrouillé une copie 
-  est effectuée, mais si l'original comportait des pièces jointes, 
-  le système pouvait devenir instable pour finir par endommager 
-  la copie et/ou l'original. Ce problème a été corrigé.
-- Permet la répartition CD du contenu par défaut pouvant précharger 
-  le champ Détails de chaque communiqué. Si DefaultDetails.txt est 
-  sur le CD, il sera copié dans le répertoire Martus à l'installation. 
-  Puis, si DefaultDetails.txt est trouvé dans le répertoire Martus 
-  à la création d'un nouveau compte, il donnera à l'utilisateur 
-  la possibilité de l'utiliser comme contenu de Détails par défaut 
-  pour tout communiqué créé.
-- Réorganisation du code et de la structure du programme interne 
+- En choisissant de modifier un communiquï¿½ verrouillï¿½ une copie 
+  est effectuï¿½e, mais si l'original comportait des piï¿½ces jointes, 
+  le systï¿½me pouvait devenir instable pour finir par endommager 
+  la copie et/ou l'original. Ce problï¿½me a ï¿½tï¿½ corrigï¿½.
+- Permet la rï¿½partition CD du contenu par dï¿½faut pouvant prï¿½charger 
+  le champ Dï¿½tails de chaque communiquï¿½. Si DefaultDetails.txt est 
+  sur le CD, il sera copiï¿½ dans le rï¿½pertoire Martus ï¿½ l'installation. 
+  Puis, si DefaultDetails.txt est trouvï¿½ dans le rï¿½pertoire Martus 
+  ï¿½ la crï¿½ation d'un nouveau compte, il donnera ï¿½ l'utilisateur 
+  la possibilitï¿½ de l'utiliser comme contenu de Dï¿½tails par dï¿½faut 
+  pour tout communiquï¿½ crï¿½ï¿½.
+- Rï¿½organisation du code et de la structure du programme interne 
   pour en faciliter l'entretien.
 
 
-S. Modifications de la version 1.0. à la version 1.0.1
+S. Modifications de la version 1.0. ï¿½ la version 1.0.1
 
 - Demande en cours de l'installation du programme si 
   l'utilisateur souhaite que les fichiers du programme Martus, 
-  de désinstallation Martus et de documentation soient ajoutés 
-  au menu démarrer de Windows.
-- Mise à jour de l'Environnement Runtime de Java version 1.4.1 
-  à la version 1.1.1_01, améliorant ainsi quelques éléments de 
-  sécurité de Java.
-- Vérification de la copie sur disque dur pendant l'installation, 
+  de dï¿½sinstallation Martus et de documentation soient ajoutï¿½s 
+  au menu dï¿½marrer de Windows.
+- Mise ï¿½ jour de l'Environnement Runtime de Java version 1.4.1 
+  ï¿½ la version 1.1.1_01, amï¿½liorant ainsi quelques ï¿½lï¿½ments de 
+  sï¿½curitï¿½ de Java.
+- Vï¿½rification de la copie sur disque dur pendant l'installation, 
   de l'ensemble des sources tierces indispensables, licences Runtime, 
   fichiers de documentation et programmes Winsock pour Windows 95.
-- Correction d'erreurs dans la Case Au Sujet De… et dans l'avis 
+- Correction d'erreurs dans la Case Au Sujet Deï¿½ et dans l'avis 
   de copyright de la documentation.
 
 
-T. Instructions particulières de mise à jour de Winsock en cas 
-   de problème d'exécution du logiciel Martus sous Windows 95 :
+T. Instructions particuliï¿½res de mise ï¿½ jour de Winsock en cas 
+   de problï¿½me d'exï¿½cution du logiciel Martus sous Windows 95 :
 
-Java nécessite la bibliothèque Microsoft Winsock 2.0. Votre 
-système est probablement déjà équipé de la version Winsock 2.0 
-ou plus récente. Il reste cependant possible que certains systèmes 
-Microsoft Windows 95 aient une version antérieure de Winsock.
+Java nï¿½cessite la bibliothï¿½que Microsoft Winsock 2.0. Votre 
+systï¿½me est probablement dï¿½jï¿½ ï¿½quipï¿½ de la version Winsock 2.0 
+ou plus rï¿½cente. Il reste cependant possible que certains systï¿½mes 
+Microsoft Windows 95 aient une version antï¿½rieure de Winsock.
 
-Pour vérifier votre version de Winsock, faites une recherche 
-"winsock.dll". Puis choisissez "Propriétés" dans le menu Fichier 
+Pour vï¿½rifier votre version de Winsock, faites une recherche 
+"winsock.dll". Puis choisissez "Propriï¿½tï¿½s" dans le menu Fichier 
 et cliquez sur l'onglet Version.
 
 Si votre ordinateur sous Microsoft Windows 95 n'a pas la version 
-Winsock 2.0 ou plus récente, vous pouvez exécuter le programme 
-d'installation Winsock 2.0 situé dans le répertoire Martus\Win95. 
+Winsock 2.0 ou plus rï¿½cente, vous pouvez exï¿½cuter le programme 
+d'installation Winsock 2.0 situï¿½ dans le rï¿½pertoire Martus\Win95. 
 
-Si vous êtes curieux, l'URL suivante contient les renseignements 
-contribuant à déterminer si les composants de Winsock 2.0 sont 
-installés sur une plateforme Microsoft Windows 95 :
+Si vous ï¿½tes curieux, l'URL suivante contient les renseignements 
+contribuant ï¿½ dï¿½terminer si les composants de Winsock 2.0 sont 
+installï¿½s sur une plateforme Microsoft Windows 95 :
 
 http://support.microsoft.com/support/kb/articles/Q177/7/19.asp
 

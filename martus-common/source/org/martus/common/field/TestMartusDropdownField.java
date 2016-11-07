@@ -103,7 +103,7 @@ public class TestMartusDropdownField extends TestCaseEnhanced
 		String htmlDataA = subA.getFieldSpec().convertStoredToHtml(subA, localization);
 		assertEquals("sub a html wrong?", choicesA.get(0).toString(), htmlDataA);
 		String searchableDataA = subA.getFieldSpec().convertStoredToSearchable(subA.getData(), reusableChoicesPool, localization);
-		assertEquals("sub a searchable wrong?", twoLevelField.getData(), searchableDataA);
+		assertEquals("sub a searchable wrong?", choicesA.get(0).getLabel(), searchableDataA);
 
 		MartusField subB = twoLevelField.getSubField(choicesB.getCode(), localization);
 		assertTrue("sub b isn't a dropdown?", subB.getType().isDropdown());
@@ -113,7 +113,7 @@ public class TestMartusDropdownField extends TestCaseEnhanced
 		String htmlDataB = subB.getFieldSpec().convertStoredToHtml(subB, localization);
 		assertEquals("sub b html wrong?", sampleChoice.toString(), htmlDataB);
 		String searchableDataB = subB.getFieldSpec().convertStoredToSearchable(subB.getData(), reusableChoicesPool, localization);
-		assertEquals("sub b searchable wrong?", twoLevelField.getData(), searchableDataB);
+		assertEquals("sub b searchable wrong?", choicesB.get(0).getLabel(), searchableDataB);
 	}
 	
 	public void testDoesMatchSingleLevel() throws Exception

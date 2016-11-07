@@ -62,6 +62,10 @@ define name, :layout=>create_layout_with_source_as_source(name) do
 	install artifact(JAVAROSA_SOURCE_SPEC).from(source_file(name, 'common/JavaRosa', "javarosa-7-30-1015-src.zip"))
 	install artifact(JAVAROSA_LICENSE_SPEC).from(license_file(name, 'common/JavaRosa', 'LICENSE'))
 	install artifact(KXML_SPEC).from(jar_file(name, 'common/JavaRosa', 'kxml2-2.3.0.jar'))
+	
+	install artifact(JSON_SPEC).from(jar_file(name, 'common/Json', "json-20160212.jar"))
+	install artifact(JSON_SOURCE_SPEC).from(source_file(name, 'common/Json', "json-20160212-sources.jar"))
+	install artifact(JSON_LICENSE_SPEC).from(license_file(name, 'common/Json', 'LICENSE'))
 
 	#client
 	install artifact(LAYOUTS_SPEC).from(jar_file(name, 'client/jhlabs', 'layouts.jar'))
@@ -132,5 +136,6 @@ define name, :layout=>create_layout_with_source_as_source(name) do
     p.include(artifact(ORCHID_SPEC), :path=>'ThirdParty')
     p.include(artifact(JAVAROSA_SPEC), :path=>'ThirdParty')
     p.include(artifact(KXML_SPEC), :path=>'ThirdParty')
+    p.include(artifact(JSON_SPEC), :path=>'ThirdParty')
   end
 end

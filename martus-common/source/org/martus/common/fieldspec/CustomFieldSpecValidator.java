@@ -94,14 +94,14 @@ public class CustomFieldSpecValidator
 			String listCode = (String)iter.next();
 			ReusableChoices choiceList = specsToCheck.getReusableChoices(listCode);
 			if(!isValidCode(listCode))
-				errors.add(CustomFieldError.errorIllegalReusableChoiceListCode(listCode, choiceList.getLabel()));
+				addError(CustomFieldError.errorIllegalReusableChoiceListCode(listCode, choiceList.getLabel()));
 			
 			for(int i = 0; i < choiceList.size(); ++ i)
 			{
 				ChoiceItem choice = choiceList.get(i);
 				String itemCode = choice.getCode();
 				if(!isValidCode(itemCode))
-					errors.add(CustomFieldError.errorIllegalReusableChoiceItemCode(listCode, itemCode, choice.getLabel()));
+					addError(CustomFieldError.errorIllegalReusableChoiceItemCode(listCode, itemCode, choice.getLabel()));
 			}
 				
 		}
@@ -132,7 +132,7 @@ public class CustomFieldSpecValidator
 			String label = choice.getLabel();
 
 			if(codes.contains(code))
-				errors.add(CustomFieldError.errorDuplicateDropDownEntryInReusableChoices(code, label));
+				addError(CustomFieldError.errorDuplicateDropDownEntryInReusableChoices(code, label));
 			codes.add(code);
 			
 			if(!labelToCodesMap.containsKey(label))
@@ -156,13 +156,13 @@ public class CustomFieldSpecValidator
 					int lastDotAt2 = code2.lastIndexOf('.');
 					if(lastDotAt1 < 0 || lastDotAt2 < 0)
 					{
-						errors.add(CustomFieldError.errorDuplicateDropDownEntryInReusableChoices(code2, label));
+						addError(CustomFieldError.errorDuplicateDropDownEntryInReusableChoices(code2, label));
 						continue;
 					}
 					String prefix1 = code1.substring(0, lastDotAt1);
 					String prefix2 = code2.substring(0, lastDotAt2);
 					if(prefix1.equals(prefix2))
-						errors.add(CustomFieldError.errorDuplicateDropDownEntryInReusableChoices(code2, label));
+						addError(CustomFieldError.errorDuplicateDropDownEntryInReusableChoices(code2, label));
 				}
 			}
 		}
@@ -209,10 +209,10 @@ public class CustomFieldSpecValidator
 			String thisLabel = choices.getLabel();
 
 			if(thisLabel.length() == 0)
-				errors.add(CustomFieldError.errorMissingLabel(choices.getCode(), CustomFieldError.TYPE_STRING_FOR_REUSABLE_LISTS));
+				addError(CustomFieldError.errorMissingLabel(choices.getCode(), CustomFieldError.TYPE_STRING_FOR_REUSABLE_LISTS));
 			
 			if(labels.contains(thisLabel))
-				errors.add(CustomFieldError.errorDuplicateReusableChoicesListLabel(thisLabel));
+				addError(CustomFieldError.errorDuplicateReusableChoicesListLabel(thisLabel));
 			labels.add(thisLabel);
 		}
 	}
@@ -228,7 +228,7 @@ public class CustomFieldSpecValidator
 			{
 				ChoiceItem choice = choices.get(i);
 				if(choice.getCode() == null || choice.toString() == null)
-					errors.add(CustomFieldError.errorInvalidReusableChoice(name, i));
+					addError(CustomFieldError.errorInvalidReusableChoice(name, i));
 			}
 		}
 	}
@@ -247,7 +247,7 @@ public class CustomFieldSpecValidator
 	
 	public void addMissingCustomSpecError(String tag)
 	{
-		errors.add(CustomFieldError.errorMissingCustomSpec(tag));
+		addError(CustomFieldError.errorMissingCustomSpec(tag));
 	}
 
 	private void checkForRequiredTopSectionFields(FieldSpec[] specsToCheck)
@@ -265,7 +265,7 @@ public class CustomFieldSpecValidator
 		}
 		
 		for (int j = 0; j < missingTags.size(); j++)
-			errors.add(CustomFieldError.errorRequiredField((String)missingTags.get(j)));
+			addError(CustomFieldError.errorRequiredField((String)missingTags.get(j)));
 	}
 	
 	private void checkForMartusFieldsBottomSectionFields(FieldSpec[] specsToCheck)
@@ -285,7 +285,7 @@ public class CustomFieldSpecValidator
 		{
 			String tag = specsToCheck[i].getTag();
 			if(topSectionOnlyTags.contains(tag))
-				errors.add(CustomFieldError.errorTopSectionFieldInBottomSection(tag));
+				addError(CustomFieldError.errorTopSectionFieldInBottomSection(tag));
 		}		
 	}
 	
@@ -299,7 +299,7 @@ public class CustomFieldSpecValidator
 		{
 			String tag = specsToCheck[i].getTag();
 			if(reservedTags.contains(tag))
-				errors.add(CustomFieldError.errorReservedTag(tag, specsToCheck[i].getLabel()));
+				addError(CustomFieldError.errorReservedTag(tag, specsToCheck[i].getLabel()));
 		}		
 	}
 	
@@ -310,7 +310,7 @@ public class CustomFieldSpecValidator
 			FieldSpec thisSpec = specsToCheck[i];
 			String tag = thisSpec.getTag();
 			if(tag.length() == 0)
-				errors.add(CustomFieldError.errorBlankTag(thisSpec.getLabel(), getType(thisSpec)));				
+				addError(CustomFieldError.errorBlankTag(thisSpec.getLabel(), getType(thisSpec)));				
 		}
 	}
 	
@@ -321,7 +321,7 @@ public class CustomFieldSpecValidator
 			FieldSpec thisSpec = specsToCheck[i];
 			String thisTag = thisSpec.getTag();
 			if(!isValidTagOrCode(thisTag))
-				errors.add(CustomFieldError.errorIllegalTag(thisTag, thisSpec.getLabel(), getType(thisSpec)));
+				addError(CustomFieldError.errorIllegalTag(thisTag, thisSpec.getLabel(), getType(thisSpec)));
 		}
 	}
 	
@@ -400,7 +400,7 @@ public class CustomFieldSpecValidator
 			if(tag.length() > 0)
 			{
 				if(foundTags.contains(tag))
-					errors.add(CustomFieldError.errorDuplicateFields(thisSpec.getTag(), thisSpec.getLabel(), getType(thisSpec)));				
+					addError(CustomFieldError.errorDuplicateFields(thisSpec.getTag(), thisSpec.getLabel(), getType(thisSpec)));				
 				foundTags.add(tag);
 			}
 		}
@@ -453,7 +453,7 @@ public class CustomFieldSpecValidator
 				ChoiceItem thisChoice = choicesAtTopLevel.get(choiceIndex);
 				String thisCode = thisChoice.getCode();
 				if(thisCode.indexOf('.') >= 0)
-					errors.add(CustomFieldError.errorImproperlyNestedDropdownCode(fieldTag, thisCode, fieldLabel, thisChoice.getLabel()));
+					addError(CustomFieldError.errorImproperlyNestedDropdownCode(fieldTag, thisCode, fieldLabel, thisChoice.getLabel()));
 			}
 		}
 		
@@ -470,7 +470,7 @@ public class CustomFieldSpecValidator
 				int lastDotAt = thisCode.lastIndexOf('.');
 				if(lastDotAt < 0)
 				{
-					errors.add(CustomFieldError.errorImproperlyNestedDropdownCode(fieldTag, thisCode, fieldLabel, thisChoice.getLabel()));
+					addError(CustomFieldError.errorImproperlyNestedDropdownCode(fieldTag, thisCode, fieldLabel, thisChoice.getLabel()));
 				}
 				else
 				{
@@ -481,7 +481,7 @@ public class CustomFieldSpecValidator
 					String parentPart = thisCode.substring(0, lastDotAt);
 					if(parentChoices.findByCode(parentPart) == null)
 					{
-						errors.add(CustomFieldError.errorImproperlyNestedDropdownCode(fieldTag, thisCode, fieldLabel, thisChoice.getLabel()));
+						addError(CustomFieldError.errorImproperlyNestedDropdownCode(fieldTag, thisCode, fieldLabel, thisChoice.getLabel()));
 					}
 				}
 			}
@@ -511,7 +511,7 @@ public class CustomFieldSpecValidator
 
 		if(dropdownSpec.hasDataSource())
 		{
-			errors.add(candidateError);
+			addError(candidateError);
 			return;
 		}
 		
@@ -519,14 +519,14 @@ public class CustomFieldSpecValidator
 		{
 			ChoiceItem match = reusableChoicesLists.findChoiceFromFullOrPartialCode(dropdownSpec.getReusableChoicesCodes(), defaultValue);
 			if(match == null)
-				errors.add(candidateError);
+				addError(candidateError);
 			return;
 		}
 		
 		if(dropdownSpec.findCode(defaultValue) >= 0)
 			return;
 		
-		errors.add(candidateError);
+		addError(candidateError);
 	}
 
 	private void checkForDropdownsWithDuplicatedOrZeroEntries(FieldSpecCollection specsToCheck)
@@ -568,7 +568,7 @@ public class CustomFieldSpecValidator
 		
 		DropDownFieldSpec columnDropdownSpec = (DropDownFieldSpec) rawColumnSpec;
 		if(columnDropdownSpec.getReusableChoicesCodes().length > 0)
-			errors.add(CustomFieldError.errorDataSourceReusableDropdown(dropdownSpec.getTag(), dropdownSpec.getLabel()));
+			addError(CustomFieldError.errorDataSourceReusableDropdown(dropdownSpec.getTag(), dropdownSpec.getLabel()));
 	}
 
 	private void checkForCommonErrorsInsideGrids(FieldSpecCollection specsToCheck, HashMap otherGrids)
@@ -609,7 +609,7 @@ public class CustomFieldSpecValidator
 		{
 			String choiceEntryLabel = dropdownSpec.getValue(choice);
 			if(labelEntries.containsKey(choiceEntryLabel))
-				errors.add(CustomFieldError.errorDuplicateDropDownEntry(tag, label));				
+				addError(CustomFieldError.errorDuplicateDropDownEntry(tag, label));				
 			labelEntries.put(choiceEntryLabel, choiceEntryLabel);
 		}
 	}
@@ -623,7 +623,7 @@ public class CustomFieldSpecValidator
 			return;
 		
 		if(dropdownSpec.getCount() == 0)
-			errors.add(CustomFieldError.noDropDownEntries(tag, label));				
+			addError(CustomFieldError.noDropDownEntries(tag, label));				
 	}
 	
 	private void checkForMissingReusableChoices(DropDownFieldSpec dropdownSpec, String tag, String label, Set reusableChoiceNames)
@@ -636,13 +636,13 @@ public class CustomFieldSpecValidator
 			if(reusableChoicesCode == null)
 			{
 				String typeName = dropdownSpec.getType().getTypeName();
-				errors.add(CustomFieldError.errorNullReusableChoices(tag, label, typeName));
+				addError(CustomFieldError.errorNullReusableChoices(tag, label, typeName));
 			}
 			else if(!reusableChoiceNames.contains(reusableChoicesCode))
 			{
 				String typeName = dropdownSpec.getType().getTypeName();
 				String fullTag = tag + "." + reusableChoicesCode;
-				errors.add(CustomFieldError.errorMissingReusableChoices(fullTag, label, typeName));
+				addError(CustomFieldError.errorMissingReusableChoices(fullTag, label, typeName));
 			}
 		}
 	}
@@ -661,7 +661,7 @@ public class CustomFieldSpecValidator
 		if(!allowSpaceOnlyCustomFieldLabels)
 			label = label.trim();
 		if(StandardFieldSpecs.isCustomFieldTag(tag) && label.equals(""))
-			errors.add(CustomFieldError.errorMissingLabel(tag, getType(thisSpec)));
+			addError(CustomFieldError.errorMissingLabel(tag, getType(thisSpec)));
 	}
 
 	private void checkForUnknownTypes(FieldSpec[] specsToCheck)
@@ -675,7 +675,7 @@ public class CustomFieldSpecValidator
 	private void checkForUnknownType(FieldSpec thisSpec, String tag)
 	{
 		if(thisSpec.getType().isUnknown())
-			errors.add(CustomFieldError.errorUnknownType(tag, thisSpec.getLabel()));
+			addError(CustomFieldError.errorUnknownType(tag, thisSpec.getLabel()));
 	}
 	
 	private void checkForLabelsOnStandardFields(FieldSpec[] specsToCheck)
@@ -685,7 +685,7 @@ public class CustomFieldSpecValidator
 			FieldSpec thisSpec = specsToCheck[i]; 
 			String tag = thisSpec.getTag();
 			if(!StandardFieldSpecs.isCustomFieldTag(tag) && !thisSpec.getLabel().equals(""))
-				errors.add(CustomFieldError.errorLabelOnStandardField(thisSpec.getTag(), thisSpec.getLabel(), getType(thisSpec)));				
+				addError(CustomFieldError.errorLabelOnStandardField(thisSpec.getTag(), thisSpec.getLabel(), getType(thisSpec)));
 		}
 	}
 	
@@ -712,7 +712,7 @@ public class CustomFieldSpecValidator
 		String label = specToCheck.getLabel();
 		String typeString = getType(specToCheck);
 		if(specToCheck.getCount() > 0)
-			errors.add(CustomFieldError.errorDropDownHasChoicesAndDataSource(tag, label, typeString));
+			addError(CustomFieldError.errorDropDownHasChoicesAndDataSource(tag, label, typeString));
 		
 		if(!availableGrids.containsKey(gridTag))
 		{
@@ -723,8 +723,7 @@ public class CustomFieldSpecValidator
 		String gridColumn = specToCheck.getDataSourceGridColumn();
 		GridFieldSpec grid = (GridFieldSpec)availableGrids.get(gridTag);
 		if(!grid.hasColumnLabel(gridColumn))
-			errors.add(CustomFieldError.errorDataSourceNoGridColumn(tag, label, typeString));				
-
+			addError(CustomFieldError.errorDataSourceNoGridColumn(tag, label, typeString));
 	}
 
 	private String getType(FieldSpec thisSpec)
@@ -740,8 +739,16 @@ public class CustomFieldSpecValidator
 		return result;
 	}
 
+	private void addError(CustomFieldError error)
+	{
+		errors.add(error);
+	}
 
-
+	private void addError(Object error)
+	{
+		errors.add(error);
+	}
+	
 	private boolean allowSpaceOnlyCustomFieldLabels;
 	private Vector errors;
 }

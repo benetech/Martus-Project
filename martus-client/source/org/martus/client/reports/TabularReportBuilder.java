@@ -25,7 +25,6 @@ Boston, MA 02111-1307, USA.
 */
 package org.martus.client.reports;
 
-import org.martus.client.core.SafeReadableBulletin;
 import org.martus.common.MiniLocalization;
 import org.martus.common.fieldspec.MiniFieldSpec;
 import org.martus.common.fieldspec.StandardFieldSpecs;
@@ -116,39 +115,24 @@ public class TabularReportBuilder extends ReportBuilder
 		}
 		for(int i = start; i !=  end; i += increment)
 		{
-			detailBuffer.append(getColumnStart());
-			detailBuffer.append(getFieldCall(specs[i]));
-			detailBuffer.append(".html($localization)");
-			detailBuffer.append("</td>");
+			MiniFieldSpec fieldSpec = specs[i];
+			if (fieldSpec.getType().isMessage())
+			{
+				detailBuffer.append(getColumnStart());
+				detailBuffer.append("</td>");
+			}
+			else
+			{
+				detailBuffer.append(getColumnStart());
+				detailBuffer.append(getFieldCall(fieldSpec));
+				detailBuffer.append(".html($localization)");
+				detailBuffer.append("</td>");
+			}
 		}
 		detailBuffer.append("</tr>\n");
 		return detailBuffer.toString();
 	}
 
-	public String getFieldCall(MiniFieldSpec spec)
-	{
-		String[] tags = SafeReadableBulletin.parseNestedTags(spec.getTag());
-		String topLevelTag = tags[0];
-		
-		StringBuilder result = new StringBuilder();
-		result.append("$bulletin.field(\"");
-		result.append(quotedEscape(topLevelTag));
-		result.append("\", \"");
-		result.append(quotedEscape(spec.getTopLevelLabel()));
-		result.append("\", \"");
-		result.append(quotedEscape(spec.getTopLevelType().getTypeName()));
-		result.append("\")");
-		
-		for(int i = 1; i < tags.length; ++i)
-		{
-			result.append(".getSubField(\"");
-			result.append(quotedEscape(tags[i]));
-			result.append("\", $localization)");
-		}
-			
-		return result.toString();
-	}
-	
 	private String createBreakSection(MiniFieldSpec[] specs)
 	{
 		int columnCount = specs.length;

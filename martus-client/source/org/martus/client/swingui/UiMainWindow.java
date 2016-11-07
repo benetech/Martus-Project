@@ -205,6 +205,7 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 		}
 		catch(MartusApp.MartusAppInitializationException e)
 		{
+			MartusLogger.logException(e);
 			initializationErrorExitMartusDlg(e.getMessage());
 		}
 		finally
@@ -774,7 +775,7 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 
 	private File getLockFile()
 	{
-		return new File(getApp().getMartusDataRootDirectory(), "lock");
+		return new File(getDataDirectoryToInitializeFileChooser(), "lock");
 	}
 	
 	public void unLock()
@@ -2535,20 +2536,53 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 
 	public File showFileOpenDialog(String fileDialogCategory, Vector<FormatFilter> filters)
 	{
+		JFileChooser fileChooser = createFileChooser(fileDialogCategory, filters);
+
+		File[] selectedFiles = getSelectedFilesFromUser(fileChooser);
+		if (selectedFiles.length != 1)
+			return null;
+		
+		return selectedFiles[0];
+	}
+	
+	public File[] showMultiFileOpenDialog(String fileDialogCategory, Vector<FormatFilter> filters)
+	{
+		JFileChooser fileChooser = createFileChooser(fileDialogCategory, filters);
+		fileChooser.setMultiSelectionEnabled(true);
+		
+		return getSelectedFilesFromUser(fileChooser);
+	}
+
+	private File[] getSelectedFilesFromUser(JFileChooser fileChooser)
+	{
+		int userResult = fileChooser.showOpenDialog(getCurrentActiveFrame().getSwingFrame());
+		setCurrentUserSelectedDirForNextTime(fileChooser.getCurrentDirectory());
+		File[] selectedFiles = fileChooser.getSelectedFiles();
+		if(userResult != JFileChooser.APPROVE_OPTION)
+			return new File[0];
+		
+		if (selectedFiles.length > 0)
+			return selectedFiles;
+		
+		//NOTE: getSelectedFiles() returns an empty list when file chooser is single selection and there is a selection 
+		File selectedFile = fileChooser.getSelectedFile();
+		if (selectedFile == null)
+			return new File[0];
+		
+		return new File[]{selectedFile,};
+	}
+
+	private JFileChooser createFileChooser(String fileDialogCategory, Vector<FormatFilter> filters)
+	{
 		// TODO: When we switch from Swing to JavaFX, combine this with the other file open dialog
-		JFileChooser fileChooser = new JFileChooser(getApp().getMartusDataRootDirectory());
+		JFileChooser fileChooser = new JFileChooser(getDataDirectoryToInitializeFileChooser());
 		fileChooser.setDialogTitle(getLocalization().getWindowTitle("FileDialog" + fileDialogCategory));
 		filters.forEach(filter -> fileChooser.addChoosableFileFilter(filter));
 		
 		// NOTE: Apparently the all file filter has a Mac bug, so this is a workaround
 		fileChooser.setAcceptAllFileFilterUsed(false);
 		fileChooser.addChoosableFileFilter(new AllFileFilter(getLocalization()));
-
-		int userResult = fileChooser.showOpenDialog(getCurrentActiveFrame().getSwingFrame());
-		File selectedFile = fileChooser.getSelectedFile();
-		if(userResult != JFileChooser.APPROVE_OPTION)
-			selectedFile = null;
-		return selectedFile;
+		return fileChooser;
 	}
 	
 	public File showFileOpenDialog(String fileDialogCategory, FileFilter filter)
@@ -2584,7 +2618,7 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 		// TODO: When we switch from Swing to JavaFX, combine this with the other file save dialog
 		while(true)
 		{
-			JFileChooser fileChooser = new JFileChooser(getApp().getMartusDataRootDirectory());
+			JFileChooser fileChooser = new JFileChooser(getDataDirectoryToInitializeFileChooser());
 			fileChooser.setDialogTitle(getLocalization().getWindowTitle("FileDialog" + fileDialogCategory));
 			filters.forEach(filter -> fileChooser.addChoosableFileFilter(filter));
 			
@@ -2592,10 +2626,12 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 			fileChooser.setAcceptAllFileFilterUsed(false);
 	
 			int userResult = fileChooser.showSaveDialog(getCurrentActiveFrame().getSwingFrame());
+			setCurrentUserSelectedDirForNextTime(fileChooser.getCurrentDirectory());
 			if(userResult != JFileChooser.APPROVE_OPTION)
 				break;
 			
 			File selectedFile = fileChooser.getSelectedFile();
+			setCurrentUserSelectedDirForNextTime(fileChooser.getCurrentDirectory());
 			FormatFilter selectedFilter = (FormatFilter) fileChooser.getFileFilter();
 			selectedFile = getFileWithExtension(selectedFile, selectedFilter);
 
@@ -2607,6 +2643,19 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 		}
 		
 		return null;
+	}
+	
+	private void setCurrentUserSelectedDirForNextTime(File currentUserChosenFileChooserDirToUse)
+	{
+		currentUserChosenFileChooserDir = currentUserChosenFileChooserDirToUse;
+	}
+
+	private File getDataDirectoryToInitializeFileChooser()
+	{
+		if (currentUserChosenFileChooserDir == null)
+			return getApp().getMartusDataRootDirectory();
+		
+		return currentUserChosenFileChooserDir;
 	}
 	
 	private static File getFileWithExtension(File file, FormatFilter filter)
@@ -2785,4 +2834,5 @@ public abstract class UiMainWindow implements ClipboardOwner, TopLevelWindowInte
 	private FileOutputStream lockStream;
 	private Stack<Object> cursorStack;
 	private StatusBar statusBar;
+	private File currentUserChosenFileChooserDir;
 }

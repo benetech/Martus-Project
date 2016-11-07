@@ -1,4 +1,4 @@
-﻿Martus(tm) Software Version 3.6.1 README.txt
+﻿Martus(tm) Software Version 5.2.0 README.txt
 ---------------------------------------------------------
 
 

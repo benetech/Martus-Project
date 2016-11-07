@@ -1,5 +1,5 @@
 ;The Martus(tm) free, social justice documentation and
-;monitoring software. Copyright (C) 2001-2015, Beneficent
+;monitoring software. Copyright (C) 2001-2016, Beneficent
 ;Technology, Inc. (Benetech).
 
 ;Martus is free software; you can redistribute it and/or
@@ -23,13 +23,13 @@ unicode "true"
 !define PRODUCT_NAME "Martus"
 
 ;NOTE: PRODUCT_VERSION and PRODUCT_EXTENDED_VERSION must be numbers only, no 'pre-' can be added.
-!define PRODUCT_VERSION "5.1.1"
-!define PRODUCT_EXTENDED_VERSION "5.1.1.0"
+!define PRODUCT_VERSION "5.2.0"
+!define PRODUCT_EXTENDED_VERSION "5.2.0.0"
 
 !define PRODUCT_OLDEST_UPGRADEABLE_EXTENDED_VERSION "4.0.0.0"
 !define PRODUCT_OLDEST_NSIS_UPGRADEABLE_EXTENDED_VERSION "4.3.0.0"
 !define PRODUCT_PUBLISHER "The Benetech Initiative"
-!define PRODUCT_COPYRIGHT_DATE "2002-2015"
+!define PRODUCT_COPYRIGHT_DATE "2002-2016"
 !define PRODUCT_WEB_SITE "http://www.martus.org"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"

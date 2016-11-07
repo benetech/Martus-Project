@@ -41,6 +41,7 @@ import org.martus.common.ProgressMeterInterface;
 import org.martus.common.ReusableChoices;
 import org.martus.common.bulletin.AttachmentProxy;
 import org.martus.common.bulletin.Bulletin;
+import org.martus.common.bulletin.BulletinConstants;
 import org.martus.common.bulletin.BulletinLoader;
 import org.martus.common.bulletin.BulletinXmlExportImportConstants;
 import org.martus.common.database.ReadableDatabase;
@@ -62,9 +63,13 @@ public class BulletinXmlExporter
 		failingAttachments = 0;
 		bulletinsExported = 0;
 	}
-	
-	public void exportBulletins(Writer dest, Vector bulletins, boolean includePrivateData, boolean includeAttachments, boolean includeAllVersions, File attachmentsDirectory)
-		throws Exception
+
+	public void exportBulletins(Writer dest, Vector bulletins, boolean includePrivateData, boolean includeAttachments, boolean includeAllVersions, File attachmentsDirectory) throws Exception
+	{
+		exportBulletins(dest, bulletins, includePrivateData, includeAttachments, includeAllVersions, attachmentsDirectory, false);
+	}
+
+	public void exportBulletins(Writer dest, Vector bulletins, boolean includePrivateData, boolean includeAttachments, boolean includeAllVersions, File attachmentsDirectory, boolean shouldGroupAttachments) throws Exception
 	{
 		dest.write(MartusXml.getTagStartWithNewline(BulletinXmlExportImportConstants.MARTUS_BULLETINS));
 		writeXMLVersion(dest);
@@ -86,7 +91,7 @@ public class BulletinXmlExporter
 			}
 			else
 			{
-				exportOneBulletin(dest, b, includePrivateData, includeAttachments, attachmentsDirectory);
+				exportOneBulletin(dest, b, includePrivateData, includeAttachments, attachmentsDirectory, shouldGroupAttachments);
 				if(includeAllVersions)
 					exportOlderVersionsOf(dest, b, includePrivateData, includeAttachments, attachmentsDirectory);
 				
@@ -109,7 +114,7 @@ public class BulletinXmlExporter
 				continue;
 			}
 			Bulletin older = app.getStore().getBulletinRevision(uid);
-			exportOneBulletin(dest, older, includePrivateData, includeAttachments, attachmentsDirectory);
+			exportOneBulletin(dest, older, includePrivateData, includeAttachments, attachmentsDirectory, false);
 		}
 	}
 
@@ -249,7 +254,7 @@ public class BulletinXmlExporter
 		dest.write(BulletinXmlExportImportConstants.NEW_LINE);
 	}
 
-	private void exportOneBulletin(Writer dest, Bulletin b, boolean includePrivateData, boolean includeAttachments, File attachmentsDirectory) throws Exception
+	private void exportOneBulletin(Writer dest, Bulletin b, boolean includePrivateData, boolean includeAttachments, File attachmentsDirectory, boolean shouldGroupAttachments) throws Exception
 	{
 		dest.write(MartusXml.getTagStartWithNewline(BulletinXmlExportImportConstants.BULLETIN));
 
@@ -257,6 +262,15 @@ public class BulletinXmlExporter
 		writeBulletinFieldSpecs(dest, b, includePrivateData);
 
 		dest.write(MartusXml.getTagStartWithNewline(BulletinXmlExportImportConstants.FIELD_VALUES));
+		
+		if (shouldGroupAttachments)
+		{
+			String bulletinTitle = getAttachmentSubDirName(b);
+			attachmentsDirectory = new File(attachmentsDirectory, bulletinTitle);
+			if (!attachmentsDirectory.exists())
+				attachmentsDirectory.mkdir();
+		}
+	
 		if(shouldIncludeTopSection(b, includePrivateData))
 		{
 			writeFields(dest, b, b.getTopSectionFieldSpecs().asArray());
@@ -274,6 +288,15 @@ public class BulletinXmlExporter
 
 		dest.write(MartusXml.getTagEnd(BulletinXmlExportImportConstants.BULLETIN));
 		dest.write(BulletinXmlExportImportConstants.NEW_LINE);
+	}
+
+	private String getAttachmentSubDirName(Bulletin bulletin)
+	{
+		MartusField titleField = bulletin.getField(BulletinConstants.TAGTITLE);
+		if (titleField == null || titleField.toString().isEmpty())
+			return "attachments-for-record-without-title";
+
+		return "attachments-" + titleField.toString();
 	}
 
 	private void writeAttachments(Writer dest, File attachmentsDirectory, AttachmentProxy[] attachments, String attachmentSectionTag)

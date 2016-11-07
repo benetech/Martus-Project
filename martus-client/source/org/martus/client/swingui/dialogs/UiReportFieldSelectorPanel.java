@@ -26,7 +26,12 @@ Boston, MA 02111-1307, USA.
 package org.martus.client.swingui.dialogs;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+
 import org.martus.client.reports.SpecTableModel;
 import org.martus.client.swingui.UiMainWindow;
 import org.martus.common.fieldspec.FieldSpec;
@@ -38,8 +43,10 @@ public class UiReportFieldSelectorPanel extends JPanel
 	public UiReportFieldSelectorPanel(UiMainWindow mainWindow, FieldSpec[] rawFieldSpecs)
 	{
 		super(new BorderLayout());
+		
 		model = new SpecTableModel(rawFieldSpecs, mainWindow.getLocalization());
 		table = new UiTable(model);
+		table.setDefaultRenderer(String.class, new RendererWithIndentation(model));
 		table.setMaxGridWidth(40);
 		table.useMaxWidth();
 		table.setFocusable(true);
@@ -104,6 +111,56 @@ public class UiReportFieldSelectorPanel extends JPanel
 		for(int i = 0; i < selectedRows.length; ++i)
 			selectedItems[i] = model.getSpec(selectedRows[i]);
 		return selectedItems;
+	}
+	
+	public class RendererWithIndentation extends DefaultTableCellRenderer
+	{
+		public RendererWithIndentation(SpecTableModel modelToUse) {
+			model = modelToUse;
+		}
+		
+		@Override
+		public Component getTableCellRendererComponent(JTable tableToUse, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		{
+			if (column == 0)
+			{
+				FieldSpec spec = model.getSpec(row);
+				int indentCount = getIndentCount(spec);
+				value = indentWithTabs(indentCount, spec.getLabel());
+			}
+			
+			return super.getTableCellRendererComponent(table, value, isSelected, hasFocus,row, column);
+		}
+		
+		private int getIndentCount(FieldSpec spec)
+		{
+			FieldSpec parent = spec.getParent();
+			int count = 0;
+			while (parent != null)
+			{
+				parent = parent.getParent();
+				if (parent != null && spec.getType().isDropdown())
+				{
+					count += 5;
+				}
+				
+				count += 5;
+			}
+			
+			return count;			
+		}
+
+		private String indentWithTabs(int tabCount, String displayPrefix)
+		{
+			final String SINGLE_TAB = "\t";
+			String indentPrefix = "";
+			for (int index = 0; index < tabCount; ++index)
+			{
+				indentPrefix += SINGLE_TAB;
+			}
+				
+			return indentPrefix + displayPrefix;
+		}
 	}
 	
 	SpecTableModel model;

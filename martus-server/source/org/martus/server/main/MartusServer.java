@@ -110,6 +110,9 @@ public class MartusServer implements NetworkInterfaceConstants, ServerCallbackIn
 		try
 		{
 			displayVersion();
+			System.out.println("Java version: " + System.getProperty("java.version"));
+			System.out.println("Java vendor : " + System.getProperty("java.vendor"));
+			System.out.println("Java runtime: " + System.getProperty("java.runtime.name"));
 			System.out.println("Initializing...this will take a few seconds...");
 			File directory = getDefaultDataDirectory();
 			final String DATA_DIRECTORY = "--data-directory=";

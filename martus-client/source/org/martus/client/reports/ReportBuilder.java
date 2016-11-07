@@ -25,8 +25,10 @@ Boston, MA 02111-1307, USA.
 */
 package org.martus.client.reports;
 
+import org.martus.client.core.SafeReadableBulletin;
 import org.martus.client.swingui.UiFontEncodingHelper;
 import org.martus.common.MiniLocalization;
+import org.martus.common.fieldspec.MiniFieldSpec;
 import org.martus.swing.FontHandler;
 import org.martus.util.language.LanguageOptions;
 
@@ -110,7 +112,31 @@ public class ReportBuilder
 		String item3 = sumaryId + count;
 		return item1+item2+item3;
 	}
-
+	
+	protected String getFieldCall(MiniFieldSpec spec)
+	{
+		String[] tags = SafeReadableBulletin.parseNestedTags(spec.getTag());
+		String topLevelTag = tags[0];
+		
+		StringBuilder result = new StringBuilder();
+		result.append("$bulletin.field(\"");
+		result.append(quotedEscape(topLevelTag));
+		result.append("\", \"");
+		result.append(quotedEscape(spec.getTopLevelLabel()));
+		result.append("\", \"");
+		result.append(quotedEscape(spec.getTopLevelType().getTypeName()));
+		result.append("\")");
+		
+		for(int i = 1; i < tags.length; ++i)
+		{
+			result.append(".getSubField(\"");
+			result.append(quotedEscape(tags[i]));
+			result.append("\", $localization)");
+		}
+			
+		return result.toString();
+	}
+	
 	protected static final String INDENT = "&nbsp;&nbsp;&nbsp;&nbsp;";
 
 	MiniLocalization localization;

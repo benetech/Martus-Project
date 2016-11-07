@@ -600,6 +600,8 @@ public class EnglishStrings
 "field:HelpExampleEtcDefaultDetails=etc...",
 "field:PublicInformationFiles=Public Information Files (*.mpi)",
 "field:XmlFileFilter=XML Files (*.xml)",
+"field:CsvFileFilter=CSV Files (*.csv)",
+"field:JsonFileFilter=JSON Files (*.json)",
 "field:NormalKeyboardMsg1=Remember: Entering your password using the regular keyboard may reduce security.",
 "field:NormalKeyboardMsg2=For maximum security switch to the on-screen keyboard.",
 "field:RetrieveSummariesMessage=All records retrieved will still remain on the server.\nYou can only retrieve records that are not currently on your computer.",
@@ -693,7 +695,11 @@ public class EnglishStrings
 "button:Upload=Upload",
 "button:Download=Download",
 "button:DeleteFromServer=Delete from Server",
+"button:CsvRadioButton=CSV",
+"button:XmlRadioButton=XML",
+"button:JsonRadioButton=JSON",
 
+"field:UnencryptedFile=Unencrypted file:",
 "field:Location=Location ",
 "field:OnServer=On Server",
 "field:Edit=Edit",
@@ -1888,6 +1894,7 @@ public class EnglishStrings
 "field:EnterAccessToken=Enter Access Token",
 "button:SeeForms=See Forms",
 "field:SuccessfullyImportedForm=Successfully imported the #templateName Form",
+"field:ImportingRecords=Importing records",
 
 "field:KeypairTooLarge=keypair file too large!",
 "field:BackupYourKey=Backup Your Key",

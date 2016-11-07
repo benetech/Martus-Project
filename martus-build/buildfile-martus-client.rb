@@ -58,7 +58,8 @@ define name, :layout=>create_layout_with_source_as_source(name) do
 		JCOMMON_SPEC,
 		ORCHID_SPEC,
 		JAVAROSA_SPEC,
-		KXML_SPEC
+		KXML_SPEC,
+		JSON_SPEC
 	)
 
 	build do
