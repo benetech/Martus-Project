@@ -9,3 +9,6 @@ the English mtf file, I run:
   
 Running mtf2po will generate a .pot file, and will also create a .po file 
 for each non-English .mtf file in the current directory. 
+
+NOTE: Once po files are provided by transfx,  they have to be converted back to MTF.  There is a java class that does this
+as batch: Po2MtfBatchConverter,  just need to to give it the path to the po files. The po files must be in this format Martus-xx.po
